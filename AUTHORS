@@ -1,0 +1,111 @@
+Autoconf Macro Archive Maintainer
+
+  Peter Simons <simons@cryp.to>
+
+
+Autoconf Macro Contributors
+
+  Francesco Salvestrini <salvestrini@users.sourceforge.net>
+  Boretti Mathieu <boretti@eig.unige.ch>
+  Luc Maisonobe <luc@spaceroots.org>
+  Guido U. Draheim <guidod@gmx.de>
+  Todd Veldhuizen
+  Tom Howard <tomhoward@users.sf.net>
+  Thomas Porschberg <thomas@randspringer.de>
+  Gleen Salmon <gleensalmon@yahoo.com>
+  Steven G. Johnson <stevenj@alum.mit.edu>
+  Bruce Korb <bkorb@gnu.org>
+  Stephane Bortzmeyer <bortzmeyer@pasteur.fr>
+  Michael Tindal <mtindal@paradoxpoint.com>
+  Loic Dachary <loic@senga.org>
+  Andrew Collier <colliera@ukzn.ac.za>
+  Alexandre Duret-Lutz <adl@gnu.org>
+  Warren Young <warren@etr-usa.com>
+  Sebastian Huber <sebastian-huber@web.de>
+  Rafael Laboissiere <rafael@laboissiere.net>
+  Ludovic Courtès <ludo@chbouib.org>
+  Alan W. Irwin <irwin@beluga.phys.uvic.ca>
+  Ville Laurikari <vl@iki.fi>
+  Scott Pakin <pakin@uiuc.edu>
+  Matteo Frigo
+  Alain BARBET <alian@cpan.org>
+  Mateusz Loskot <mateusz@loskot.net>
+  Dustin Mitchell <dustin@cs.uchicago.edu>
+  Caolan McNamara <caolan@skynet.ie>
+  Braden McDaniel <braden@endoframe.com>
+  Wes Hardaker <wjhardaker@ucdavis.edu>
+  Tim Toolan <toolan@ele.uri.edu>
+  Patrick Mauritz <oxygene@studentenbude.ath.cx>
+  Moritz Sinn <moritz@freesources.org>
+  Mark Elbrecht <snowball3@bigfoot.com>
+  Duncan Simpson <dps@simpson.demon.co.uk>
+  Devin Weaver <ktohg@tritarget.com>
+  Akos Maroy <darkeye@tyrell.hu>
+  YAMAMOTO Kengo <yamaken AT bp.iij4u.or.jp>
+  Uwe Mayer <merkosh@hadiko.de>
+  Steve M. Robbins <smr@debian.org>
+  Stepan Kasal <kasal@ucw.cz>
+  Rüdiger Kuhlmann <info@ruediger-kuhlmann.de>
+  Ruslan Shevchenko <Ruslan@Shevchenko.Kiev.UA>
+  Peter Simons <simons@cryp.to>
+  Paolo Bonzini <bonzini@gnu.org>
+  Oskar Liljeblad <oskar@osk.mine.nu>
+  Michael Paul Bailey <jinxidoru@byu.net>
+  Matthew Mueller <donut@azstarnet.com>
+  Matthew D. Langston <langston@SLAC.Stanford.EDU>
+  Julian C. Cummings <cummings@cacr.caltech.edu>
+  Jan Langer <jan@langernetz.de>
+  Egon Willighagen <e.willighagen@science.ru.nl>
+  Dean Povey <povey@wedgetail.com>
+  Daniel Richard G. <skunk@iskunk.org>
+  raf <raf@raf.org>
+  William Fulton <wsf@fultondesigns.co.uk>
+  Vaclav Slavik <vaclav.slavik@matfyz.cz>
+  Tal Shalif <tal@shalif.com>
+  Sven Verdoolaege <skimo*liacs.nl>
+  Steven Brown <swbrown@variadic.org>
+  Soren Andersen <somian *AT* pobox |DOT| com>
+  Scott Grosch <Scott.Grosch@intel.com>
+  Russ Allbery <rra@stanford.edu>
+  Ruben Fonseca <fonseka@gmail.com>
+  Ronald Landheer-Cieslak <blytkerchan@users.sourceforge.net>
+  Robert White <kranki@mac.com>
+  Perceval ANICHINI <perceval.anichini@epita.fr>
+  Paul Gilmartin <pg@sweng.stortek.com>
+  Oren Ben-Kiki <oren@ben-kiki.org>
+  Nick Markham <markhn@rpi.edu>
+  Nic Ferrier <nferrier@tapsellferrier.co.uk>
+  Neil Ferguson <nferguso@eso.org>
+  Matteo Settenvini <matteo@member.fsf.org>
+  Marten Svantesson <msv@kth.se>
+  Mark R.Bannister <markb@freedomware.co.uk>
+  Mark Pulford <mark@kyne.com.au>
+  Mark Ethan Trostler <trostler@juniper.net>
+  Marco Gomes <mpglesi@gmail.com>
+  Lars Brinkhoff <lars@nocrew.org>
+  Lapo Luchini <lapo@lapo.it>
+  Kevin L. Mitchell <klmitch@mit.edu>
+  Kaveh Ghazi <ghazi@caip.rutgers.edu>
+  Kaelin Colclasure <kaelin@acm.org>
+  John Darrington <j.darrington@elvis.murdoch.edu.au>
+  Ilguiz Latypov <ilatypov@superbt.com>
+  Horst Knorr <hk_classes@knoda.org>
+  Graeme S. Roy <graeme@epc.co.uk>
+  Gerald Point <Gerald.Point@labri.fr>
+  Don Anderson <dda@sleepycat.com>
+  David Cluytens
+  Dave Benson <daveb@ffem.org>
+  Daniel Amelang <dan@amelang.net>
+  Dale K. Hawkins <dhawkins@cdrgts.com>
+  Christopher Currie <christopher@currie.com>
+  Christian Toepp <c.toepp@gmail.com>
+  Christian Haggstrom <chm@c00.info>
+  Can Bican <bican@yahoo.com>
+  Bill Poser <billposer@alum.mit.edu>
+  Bernardo Innocenti
+  Ben Stanley <Ben.Stanley@exemail.com.au>
+  Ben Bergen <ben@cs.fau.de>
+  Bastiaan Veelo <Bastiaan@Veelo.net>
+  Angus Lees <gusl@cse.unsw.edu.au>
+  Andreas Schwab <schwab@suse.de>
+  Alexandre Oliva

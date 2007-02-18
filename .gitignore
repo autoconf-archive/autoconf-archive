@@ -1,0 +1,13 @@
+# ignore web site files
+
+*-xrefs.map
+*-xrefs.png
+*.html
+autoconf-archive-*.tar.bz2
+autoconf-archive.css
+
+# ignore obsolete macros
+
+normpath.m4
+relpaths.m4
+stdrelpaths.m4
