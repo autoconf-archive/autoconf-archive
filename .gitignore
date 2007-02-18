@@ -1,4 +1,4 @@
-# ignore web site files
+# ignore generated files
 
 *-xrefs.map
 *-xrefs.png
