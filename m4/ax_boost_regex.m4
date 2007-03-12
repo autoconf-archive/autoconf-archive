@@ -20,12 +20,12 @@
 #
 # LAST MODIFICATION
 #
-#   2006-12-28
+#   2007-03-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Thomas Porschberg <thomas@randspringer.de>
-#   Copyright (c) 2006 Michael Tindal <mtindal@paradoxpoint.com>
+#   Copyright (c) 2007 Thomas Porschberg <thomas@randspringer.de>
+#   Copyright (c) 2007 Michael Tindal <mtindal@paradoxpoint.com>
 #
 #   Copying and distribution of this file, with or without
 #   modification, are permitted in any medium without royalty provided
@@ -77,13 +77,13 @@ AC_DEFUN([AX_BOOST_REGEX],
 				for ax_lib in $BN $BN-$CC $BN-$CC-mt $BN-$CC-mt-s $BN-$CC-s \
                               lib$BN lib$BN-$CC lib$BN-$CC-mt lib$BN-$CC-mt-s lib$BN-$CC-s \
                               $BN-mgw $BN-mgw $BN-mgw-mt $BN-mgw-mt-s $BN-mgw-s ; do
-				    AC_CHECK_LIB($ax_lib, main, [BOOST_REGEX_LIB="-l$ax_lib" AC_SUBST(BOOST_REGEX_LIB) link_regex="yes" break],
+				    AC_CHECK_LIB($ax_lib, main, [BOOST_REGEX_LIB="-l$ax_lib"; AC_SUBST(BOOST_REGEX_LIB) link_regex="yes"; break],
                                  [link_regex="no"])
   				done
             else
                for ax_lib in $ax_boost_user_regex_lib $BN-$ax_boost_user_regex_lib; do
 				      AC_CHECK_LIB($ax_lib, main,
-                                   [BOOST_REGEX_LIB="-l$ax_lib" AC_SUBST(BOOST_REGEX_LIB) link_regex="yes" break],
+                                   [BOOST_REGEX_LIB="-l$ax_lib"; AC_SUBST(BOOST_REGEX_LIB) link_regex="yes"; break],
                                    [link_regex="no"])
                done
             fi

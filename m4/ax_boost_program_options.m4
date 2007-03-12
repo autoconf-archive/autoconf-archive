@@ -21,11 +21,11 @@
 #
 # LAST MODIFICATION
 #
-#   2006-12-28
+#   2007-03-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Thomas Porschberg <thomas@randspringer.de>
+#   Copyright (c) 2007 Thomas Porschberg <thomas@randspringer.de>
 #
 #   Copying and distribution of this file, with or without
 #   modification, are permitted in any medium without royalty provided
@@ -78,13 +78,13 @@ AC_DEFUN([AX_BOOST_PROGRAM_OPTIONS],
                                 lib$BN lib$BN-$CC lib$BN-$CC-mt lib$BN-$CC-mt-s lib$BN-$CC-s \
                                 $BN-mgw $BN-mgw $BN-mgw-mt $BN-mgw-mt-s $BN-mgw-s ; do
 				      AC_CHECK_LIB($ax_lib, main,
-                                   [BOOST_PROGRAM_OPTIONS_LIB="-l$ax_lib" AC_SUBST(BOOST_PROGRAM_OPTIONS_LIB) link_program_options="yes" break],
+                                   [BOOST_PROGRAM_OPTIONS_LIB="-l$ax_lib"; AC_SUBST(BOOST_PROGRAM_OPTIONS_LIB) link_program_options="yes"; break],
                                    [link_program_options="no"])
   				  done
                 else
                   for ax_lib in $ax_boost_user_program_options_lib $BN-$ax_boost_user_program_options_lib; do
 				      AC_CHECK_LIB($ax_lib, main,
-                                   [BOOST_PROGRAM_OPTIONS_LIB="-l$ax_lib" AC_SUBST(BOOST_PROGRAM_OPTIONS_LIB) link_program_options="yes" break],
+                                   [BOOST_PROGRAM_OPTIONS_LIB="-l$ax_lib"; AC_SUBST(BOOST_PROGRAM_OPTIONS_LIB) link_program_options="yes"; break],
                                    [link_program_options="no"])
                   done
                 fi
