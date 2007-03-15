@@ -42,7 +42,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-03-12
+#   2007-03-15
 #
 # COPYLEFT
 #
@@ -56,7 +56,7 @@ AC_DEFUN([AX_BOOST],
 [
     AC_ARG_WITH([boost],
                 AS_HELP_STRING([--with-boost=DIR],
-                [use boost (default is NO) specify the root directory for boost library (optional)]),
+                [use boost (default is yes) specify the root directory for boost library (optional)]),
                 [
                 if test "$withval" = "no"; then
 		            want_boost="no"
