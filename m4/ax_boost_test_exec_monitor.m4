@@ -13,11 +13,11 @@
 #
 #   This macro calls:
 #
-#     AC_SUBST(BOOST_THREAD_LIB)
+#     AC_SUBST(BOOST_TEST_EXEC_MONITOR_LIB)
 #
 #   And sets:
 #
-#     HAVE_BOOST_THREAD
+#     HAVE_BOOST_TEST_EXEC_MONITOR
 #
 # LAST MODIFICATION
 #
