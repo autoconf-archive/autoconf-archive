@@ -3,7 +3,7 @@ Autoconf Macro Archive
 
 ---------------------------------------------------------------------
 
-:Macro Index:    `By Category <macros-by-category.html>`_
+:Macro Index By: Category_ -- Author_
 :Latest Release: autoconf-archive-2007-05-09.tar.bz2_
 :GIT Repository: git_ clone \http://autoconf-archive.cryp.to/.git
 
@@ -75,6 +75,10 @@ Copyleft
 
 .. References used in the text above
 .. .................................
+
+.. _Category: macros-by-category.html
+
+.. _Author: macros-by-author.html
 
 .. _git: http://git.or.cz/
 
