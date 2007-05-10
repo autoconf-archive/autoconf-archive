@@ -3,9 +3,9 @@ Autoconf Macro Archive
 
 ---------------------------------------------------------------------
 
-:Macro Index By: Category_ -- Author_
-:Latest Release: autoconf-archive-2007-05-10.tar.bz2_
-:GIT Repository: git_ clone \http://autoconf-archive.cryp.to/.git
+:Macro Index By:  Category_ ; Author_
+:Latest Release:  autoconf-archive-2007-05-10.tar.bz2_ ; `RSS Feed`_
+:GIT Repository:  git_ clone \http://autoconf-archive.cryp.to/.git
 
 ---------------------------------------------------------------------
 
@@ -81,6 +81,8 @@ Copyleft
 .. _Author: macros-by-author.html
 
 .. _git: http://git.or.cz/
+
+.. _RSS Feed: http://git.cryp.to/?p=autoconf-archive;a=rss
 
 .. _Autoconf: http://www.gnu.org/software/autoconf/
 
