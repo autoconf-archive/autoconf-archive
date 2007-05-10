@@ -12,11 +12,11 @@
 #
 # LAST MODIFICATION
 #
-#   2005-06-17
+#   2007-05-10
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Luc Maisonobe <luc@spaceroots.org>
+#   Copyright (c) 2007 Luc Maisonobe <luc@spaceroots.org>
 #
 #   Copying and distribution of this file, with or without
 #   modification, are permitted in any medium without royalty provided
@@ -32,7 +32,9 @@ while test \( -f tmpdir_$i \) -o \( -d tmpdir_$i \) ; do
 done
 mkdir tmpdir_$i
 cd tmpdir_$i
-AC_COMPILE_IFELSE([module conftest_module
+AC_COMPILE_IFELSE([
+!234567
+   module conftest_module
    contains
    subroutine conftest_routine
    write(*,'(a)') 'gotcha!'
