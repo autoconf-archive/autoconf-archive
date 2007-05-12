@@ -14,12 +14,13 @@
 #
 # LAST MODIFICATION
 #
-#   2006-01-28
+#   2007-05-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Luc Maisonobe <luc@spaceroots.org>
-#   Copyright (c) 2006 Julian C. Cummings <cummings@cacr.caltech.edu>
+#   Copyright (c) 2007 Luc Maisonobe <luc@spaceroots.org>
+#   Copyright (c) 2007 Julian C. Cummings <cummings@cacr.caltech.edu>
+#   Copyright (c) 2007 Alexander Pletzer <pletzer@txcorp.com>
 #
 #   Copying and distribution of this file, with or without
 #   modification, are permitted in any medium without royalty provided
@@ -35,12 +36,14 @@ while test \( -f tmpdir_$i \) -o \( -d tmpdir_$i \) ; do
 done
 mkdir tmpdir_$i
 cd tmpdir_$i
-AC_COMPILE_IFELSE([module conftest_module
-   contains
-   subroutine conftest_routine
-   write(*,'(a)') 'gotcha!'
-   end subroutine conftest_routine
-   end module conftest_module
+AC_COMPILE_IFELSE([
+!234567
+      module conftest_module
+      contains
+      subroutine conftest_routine
+      write(*,'(a)') 'gotcha!'
+      end subroutine conftest_routine
+      end module conftest_module
   ],[],[])
 cd ..
 ax_f90_modflag="not found"
@@ -48,16 +51,18 @@ for ax_flag in "-I " "-M" "-p"; do
   if test "$ax_f90_modflag" = "not found" ; then
     ax_save_FCFLAGS="$FCFLAGS"
     FCFLAGS="$ax_save_FCFLAGS ${ax_flag}tmpdir_$i"
-    AC_COMPILE_IFELSE([program conftest_program
-       use conftest_module
-       call conftest_routine
-       end program conftest_program
+    AC_COMPILE_IFELSE([
+!234567
+      program conftest_program
+      use conftest_module
+      call conftest_routine
+      end program conftest_program
       ],[ax_f90_modflag="$ax_flag"],[])
     FCFLAGS="$ax_save_FCFLAGS"
   fi
 done
 rm -fr tmpdir_$i
-if test "$ax_flag" = "not found" ; then
+if test "$ax_f90_modflag" = "not found" ; then
   AC_MSG_ERROR([unable to find compiler flag for modules inclusion])
 fi
 AC_LANG_POP(Fortran)
