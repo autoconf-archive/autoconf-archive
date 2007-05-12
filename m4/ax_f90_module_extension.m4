@@ -12,11 +12,12 @@
 #
 # LAST MODIFICATION
 #
-#   2007-05-10
+#   2007-05-12
 #
 # COPYLEFT
 #
 #   Copyright (c) 2007 Luc Maisonobe <luc@spaceroots.org>
+#   Copyright (c) 2007 Alexander Pletzer <pletzer@txcorp.com>
 #
 #   Copying and distribution of this file, with or without
 #   modification, are permitted in any medium without royalty provided
@@ -34,23 +35,23 @@ mkdir tmpdir_$i
 cd tmpdir_$i
 AC_COMPILE_IFELSE([
 !234567
-   module conftest_module
-   contains
-   subroutine conftest_routine
-   write(*,'(a)') 'gotcha!'
-   end subroutine conftest_routine
-   end module conftest_module
+      module conftest_module
+      contains
+      subroutine conftest_routine
+      write(*,'(a)') 'gotcha!'
+      end subroutine conftest_routine
+      end module conftest_module
   ],
   [ax_f90_modext=`ls | sed -n 's,conftest_module\.,,p'`
    if test x$ax_f90_modext = x ; then
 dnl Some F90 compilers put module filename in uppercase letters
      ax_f90_modext=`ls | sed -n 's,CONFTEST_MODULE\.,,p'`
      if test x$ax_f90_modext = x ; then
-       ax_f90_modext=unknown
+       ax_f90_modext=""
      fi
    fi
   ],
-  [ax_f90_modext=unknown])
+  [ax_f90_modext=""])
 cd ..
 rm -fr tmpdir_$i
 AC_LANG_POP(Fortran)
