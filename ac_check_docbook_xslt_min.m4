@@ -19,11 +19,11 @@
 #
 # LAST MODIFICATION
 #
-#   2007-04-20
+#   2007-05-15
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Zmanda Inc. http://www.zmanda.com/
+#   Copyright (c) 2007 Zmanda Inc. <http://www.zmanda.com/>
 #   Copyright (c) 2007 Dustin J. Mitchell <dustin@zmanda.com>
 #
 #   This program is free software; you can redistribute it and/or
