@@ -6,10 +6,11 @@
 #
 # DESCRIPTION
 #
-#   Check whether program prog-to-check-for exists in path.  If it is found, set
-#   variable to the full path of prog-to-check-for, otherwise warn
-#   warning-if-not-found and set variable to the full path of the Automake
-#   missing script with prog-to-check-for as the command to run.
+#   Check whether program prog-to-check-for exists in path. If it is
+#   found, set variable to the full path of prog-to-check-for,
+#   otherwise warn warning-if-not-found and set variable to the full
+#   path of the Automake missing script with prog-to-check-for as the
+#   command to run.
 #
 # LAST MODIFICATION
 #
@@ -17,11 +18,11 @@
 #
 # COPYLEFT
 #
-#   Copyright (C) 2007 Noah Slater <nslater@bytesexual.org>
+#   Copyright (c) 2007 Noah Slater <nslater@bytesexual.org>
 #
-#   Copying and distribution of this file, with or without modification, are
-#   permitted in any medium without royalty provided the copyright notice and
-#   this notice are preserved.
+#   Copying and distribution of this file, with or without
+#   modification, are permitted in any medium without royalty provided
+#   the copyright notice and this notice are preserved.
 
 AC_DEFUN([AX_PATH_MISSING], [
     AC_PATH_PROG([$1], [$2], [$4])
