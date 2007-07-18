@@ -21,11 +21,11 @@
 #
 # LAST MODIFICATION
 #
-#   2005-05-20
+#   2007-07-18
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Michael Tindal <mtindal@paradoxpoint.com>
+#   Copyright (c) 2007 Michael Tindal
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as

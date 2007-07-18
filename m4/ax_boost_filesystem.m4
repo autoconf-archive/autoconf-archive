@@ -20,12 +20,12 @@
 #
 # LAST MODIFICATION
 #
-#   2007-03-12
+#   2007-07-18
 #
 # COPYLEFT
 #
 #   Copyright (c) 2007 Thomas Porschberg <thomas@randspringer.de>
-#   Copyright (c) 2007 Michael Tindal <mtindal@paradoxpoint.com>
+#   Copyright (c) 2007 Michael Tindal
 #
 #   Copying and distribution of this file, with or without
 #   modification, are permitted in any medium without royalty provided
