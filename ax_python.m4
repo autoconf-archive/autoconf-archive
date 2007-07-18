@@ -8,7 +8,7 @@
 #
 #   This macro does a complete Python development environment check.
 #
-#   It recurses through several python versions (from 2.1 to 2.4 in
+#   It recurses through several python versions (from 2.1 to 2.5 in
 #   this version), looking for an executable. When it finds an
 #   executable, it looks to find the header files and library.
 #
@@ -21,11 +21,11 @@
 #
 # LAST MODIFICATION
 #
-#   2004-09-20
+#   2007-07-18
 #
 # COPYLEFT
 #
-#   Copyright (c) 2004 Michael Tindal <mtindal@paradoxpoint.com>
+#   Copyright (c) 2007 Michael Tindal <mtindal@paradoxpoint.com>
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as
@@ -60,7 +60,7 @@
 AC_DEFUN([AX_PYTHON],
 [AC_MSG_CHECKING(for python build information)
 AC_MSG_RESULT([])
-for python in python2.4 python2.3 python2.2 python2.1 python; do
+for python in python2.5 python2.4 python2.3 python2.2 python2.1 python; do
 AC_CHECK_PROGS(PYTHON_BIN, [$python])
 ax_python_bin=$PYTHON_BIN
 if test x$ax_python_bin != x; then
