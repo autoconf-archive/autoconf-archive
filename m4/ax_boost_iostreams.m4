@@ -20,7 +20,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-03-12
+#   2007-07-24
 #
 # COPYLEFT
 #
@@ -81,12 +81,12 @@ AC_DEFUN([AX_BOOST_IOSTREAMS],
 				for ax_lib in $BN $BN-$CC $BN-$CC-mt $BN-$CC-mt-s $BN-$CC-s \
                               lib$BN lib$BN-$CC lib$BN-$CC-mt lib$BN-$CC-mt-s lib$BN-$CC-s \
                               $BN-mgw $BN-mgw $BN-mgw-mt $BN-mgw-mt-s $BN-mgw-s ; do
-				    AC_CHECK_LIB($ax_lib, main, [BOOST_IOSTREAMS_LIB="-l$ax_lib"; AC_SUBST(BOOST_IOSTREAMS_LIB) link_thread="yes"; break],
+				    AC_CHECK_LIB($ax_lib, exit, [BOOST_IOSTREAMS_LIB="-l$ax_lib"; AC_SUBST(BOOST_IOSTREAMS_LIB) link_thread="yes"; break],
                                  [link_thread="no"])
   				done
             else
                for ax_lib in $ax_boost_user_iostreams_lib $BN-$ax_boost_user_iostreams_lib; do
-				      AC_CHECK_LIB($ax_lib, main,
+				      AC_CHECK_LIB($ax_lib, exit,
                                    [BOOST_IOSTREAMS_LIB="-l$ax_lib"; AC_SUBST(BOOST_IOSTREAMS_LIB) link_iostreams="yes"; break],
                                    [link_iostreams="no"])
                   done
