@@ -20,7 +20,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-18
+#   2007-07-24
 #
 # COPYLEFT
 #
@@ -106,12 +106,12 @@ AC_DEFUN([AX_BOOST_THREAD],
 				for ax_lib in $BN $BN-mt $BN-$CC $BN-$CC-mt $BN-$CC-mt-s $BN-$CC-s \
                               lib$BN lib$BN-mt lib$BN-$CC lib$BN-$CC-mt lib$BN-$CC-mt-s lib$BN-$CC-s \
                               $BN-mgw $BN-mgw $BN-mgw-mt $BN-mgw-mt-s $BN-mgw-s ; do
-				    AC_CHECK_LIB($ax_lib, main, [BOOST_THREAD_LIB="-l$ax_lib"; AC_SUBST(BOOST_THREAD_LIB) link_thread="yes"; break],
+				    AC_CHECK_LIB($ax_lib, exit, [BOOST_THREAD_LIB="-l$ax_lib"; AC_SUBST(BOOST_THREAD_LIB) link_thread="yes"; break],
                                  [link_thread="no"])
   				done
             else
                for ax_lib in $ax_boost_user_thread_lib $BN-$ax_boost_user_thread_lib; do
-				      AC_CHECK_LIB($ax_lib, main,
+				      AC_CHECK_LIB($ax_lib, exit,
                                    [BOOST_THREAD_LIB="-l$ax_lib"; AC_SUBST(BOOST_THREAD_LIB) link_thread="yes"; break],
                                    [link_thread="no"])
                   done

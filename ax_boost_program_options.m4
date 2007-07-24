@@ -21,7 +21,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-03-12
+#   2007-07-24
 #
 # COPYLEFT
 #
@@ -77,13 +77,13 @@ AC_DEFUN([AX_BOOST_PROGRAM_OPTIONS],
 				  for ax_lib in $BN $BN-$CC $BN-$CC-mt $BN-$CC-mt-s $BN-$CC-s \
                                 lib$BN lib$BN-$CC lib$BN-$CC-mt lib$BN-$CC-mt-s lib$BN-$CC-s \
                                 $BN-mgw $BN-mgw $BN-mgw-mt $BN-mgw-mt-s $BN-mgw-s ; do
-				      AC_CHECK_LIB($ax_lib, main,
+				      AC_CHECK_LIB($ax_lib, exit,
                                    [BOOST_PROGRAM_OPTIONS_LIB="-l$ax_lib"; AC_SUBST(BOOST_PROGRAM_OPTIONS_LIB) link_program_options="yes"; break],
                                    [link_program_options="no"])
   				  done
                 else
                   for ax_lib in $ax_boost_user_program_options_lib $BN-$ax_boost_user_program_options_lib; do
-				      AC_CHECK_LIB($ax_lib, main,
+				      AC_CHECK_LIB($ax_lib, exit,
                                    [BOOST_PROGRAM_OPTIONS_LIB="-l$ax_lib"; AC_SUBST(BOOST_PROGRAM_OPTIONS_LIB) link_program_options="yes"; break],
                                    [link_program_options="no"])
                   done
