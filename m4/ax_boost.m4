@@ -1,5 +1,9 @@
 ##### http://autoconf-archive.cryp.to/ax_boost.html
 #
+# OBSOLETE MACRO
+#
+#   Use AX_BOOST_BASE in combination with library-specific macros.
+#
 # SYNOPSIS
 #
 #   AX_BOOST([MINIMUM-VERSION], [ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
@@ -42,7 +46,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-24
+#   2007-07-26
 #
 # COPYLEFT
 #
