@@ -20,7 +20,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-24
+#   2007-07-26
 #
 # COPYLEFT
 #
@@ -73,17 +73,17 @@ AC_DEFUN([AX_BOOST_FILESYSTEM],
 		])
 		if test "x$ax_cv_boost_filesystem" = "xyes"; then
 			AC_DEFINE(HAVE_BOOST_FILESYSTEM,,[define if the Boost::Filesystem library is available])
-			BN=boost_filesystem
+			BN_BOOSTFILESYSTEM_LIB=boost_filesystem
+            BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
             if test "x$ax_boost_user_filesystem_lib" = "x"; then
-    			for ax_lib in $BN $BN-$CC $BN-$CC-mt $BN-$CC-mt-s $BN-$CC-s \
-                              lib$BN lib$BN-$CC lib$BN-$CC-mt lib$BN-$CC-mt-s lib$BN-$CC-s \
-                              $BN-mgw $BN-mgw $BN-mgw-mt $BN-mgw-mt-s $BN-mgw-s ; do
+                for libextension in `ls $BOOSTLIBDIR/libboost_filesystem*.{so,a}* | sed 's,.*/,,' | sed -e 's;^libboost_filesystem\(.*\)\.so.*$;\1;' -e 's;^libboost_filesystem\(.*\)\.a*$;\1;'` ; do
+                     ax_lib=${BN_BOOSTFILESYSTEM_LIB}${libextension}
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_FILESYSTEM_LIB="-l$ax_lib"; AC_SUBST(BOOST_FILESYSTEM_LIB) link_filesystem="yes"; break],
                                  [link_filesystem="no"])
   				done
             else
-               for ax_lib in $ax_boost_user_filesystem_lib $BN-$ax_boost_user_filesystem_lib; do
+               for ax_lib in $ax_boost_user_filesystem_lib $BN_BOOSTFILESYSTEM_LIB-$ax_boost_user_filesystem_lib; do
 				      AC_CHECK_LIB($ax_lib, exit,
                                    [BOOST_FILESYSTEM_LIB="-l$ax_lib"; AC_SUBST(BOOST_FILESYSTEM_LIB) link_filesystem="yes"; break],
                                    [link_filesystem="no"])

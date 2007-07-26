@@ -21,7 +21,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-24
+#   2007-07-26
 #
 # COPYLEFT
 #
@@ -55,6 +55,7 @@ AC_DEFUN([AX_BOOST_SERIALIZATION],
         AC_REQUIRE([AC_PROG_CC])
 		CPPFLAGS_SAVED="$CPPFLAGS"
 		CPPFLAGS="$CPPFLAGS $BOOST_CPPFLAGS"
+	    AC_MSG_WARN(BOOST_CPPFLAGS $BOOST_CPPFLAGS)
 		export CPPFLAGS
 
 		LDFLAGS_SAVED="$LDFLAGS"
@@ -77,18 +78,19 @@ AC_DEFUN([AX_BOOST_SERIALIZATION],
 		])
 		if test "x$ax_cv_boost_serialization" = "xyes"; then
 			AC_DEFINE(HAVE_BOOST_SERIALIZATION,,[define if the Boost::Serialization library is available])
-			BN=boost_serialization
+			BN_BOOST_SERIALIZATION_LIB=boost_serialization
+            BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
             if test "x$ax_boost_user_serialization_lib" = "x"; then
-				for ax_lib in $BN $BN-$CC $BN-$CC-mt $BN-$CC-mt-s $BN-$CC-s \
-                              lib$BN lib$BN-$CC lib$BN-$CC-mt lib$BN-$CC-mt-s lib$BN-$CC-s \
-                              $BN-mgw $BN-mgw $BN-mgw-mt $BN-mgw-mt-s $BN-mgw-s ; do
+                for libextension in `ls $BOOSTLIBDIR/libboost_serialization*.{so,a}* | sed 's,.*/,,' | sed -e 's;^libboost_serialization\(.*\)\.so.*$;\1;' -e 's;^libboost_serialization\(.*\)\.a*$;\1;'` ; do
+                     ax_lib=${BN_BOOST_SERIALIZATION_LIB}${libextension}
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_SERIALIZATION_LIB="-l$ax_lib"; AC_SUBST(BOOST_SERIALIZATION_LIB) link_serialization="yes"; break],
                                  [link_serialization="no"])
   				done
+
             else
-               for ax_lib in $ax_boost_user_serialization_lib $BN-$ax_boost_user_serialization_lib; do
-				      AC_CHECK_LIB($ax_lib, exit,
+               for ax_lib in $ax_boost_user_serialization_lib $BN_BOOST_SERIALIZATION_LIB-$ax_boost_user_serialization_lib; do
+				      AC_CHECK_LIB($ax_lib, main,
                                    [BOOST_SERIALIZATION_LIB="-l$ax_lib"; AC_SUBST(BOOST_SERIALIZATION_LIB) link_serialization="yes"; break],
                                    [link_serialization="no"])
                   done

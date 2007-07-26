@@ -20,7 +20,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-24
+#   2007-07-26
 #
 # COPYLEFT
 #
@@ -72,17 +72,18 @@ AC_DEFUN([AX_BOOST_REGEX],
 		])
 		if test "x$ax_cv_boost_regex" = "xyes"; then
 			AC_DEFINE(HAVE_BOOST_REGEX,,[define if the Boost::Regex library is available])
-			BN=boost_regex
+			BN_BOOST_REGEX=boost_regex
+            BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
             if test "x$ax_boost_user_regex_lib" = "x"; then
-				for ax_lib in $BN $BN-$CC $BN-$CC-mt $BN-$CC-mt-s $BN-$CC-s \
-                              lib$BN lib$BN-$CC lib$BN-$CC-mt lib$BN-$CC-mt-s lib$BN-$CC-s \
-                              $BN-mgw $BN-mgw $BN-mgw-mt $BN-mgw-mt-s $BN-mgw-s ; do
-				    AC_CHECK_LIB($ax_lib, exit, [BOOST_REGEX_LIB="-l$ax_lib"; AC_SUBST(BOOST_REGEX_LIB) link_regex="yes"; break],
+                for libextension in `ls $BOOSTLIBDIR/libboost_regex*.{so,a}* | sed 's,.*/,,' | sed -e 's;^libboost_regex\(.*\)\.so.*$;\1;' -e 's;^libboost_regex\(.*\)\.a*$;\1;'` ; do
+                     ax_lib=${BN_BOOST_REGEX}${libextension}
+				    AC_CHECK_LIB($ax_lib, exit,
+                                 [BOOST_REGEX_LIB="-l$ax_lib"; AC_SUBST(BOOST_REGEX_LIB) link_regex="yes"; break],
                                  [link_regex="no"])
   				done
             else
-               for ax_lib in $ax_boost_user_regex_lib $BN-$ax_boost_user_regex_lib; do
-				      AC_CHECK_LIB($ax_lib, exit,
+               for ax_lib in $ax_boost_user_regex_lib $BN_BOOST_REGEX-$ax_boost_user_regex_lib; do
+				      AC_CHECK_LIB($ax_lib, main,
                                    [BOOST_REGEX_LIB="-l$ax_lib"; AC_SUBST(BOOST_REGEX_LIB) link_regex="yes"; break],
                                    [link_regex="no"])
                done

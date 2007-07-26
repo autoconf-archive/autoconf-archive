@@ -20,7 +20,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-24
+#   2007-07-26
 #
 # COPYLEFT
 #
@@ -76,17 +76,19 @@ AC_DEFUN([AX_BOOST_IOSTREAMS],
 		])
 		if test "x$ax_cv_boost_iostreams" = "xyes"; then
 			AC_DEFINE(HAVE_BOOST_IOSTREAMS,,[define if the Boost::IOStreams library is available])
-			BN=boost_iostreams
+    		BN_BOOST_IOSTREAMS_LIB=boost_iostreams
+            BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
             if test "x$ax_boost_user_iostreams_lib" = "x"; then
-				for ax_lib in $BN $BN-$CC $BN-$CC-mt $BN-$CC-mt-s $BN-$CC-s \
-                              lib$BN lib$BN-$CC lib$BN-$CC-mt lib$BN-$CC-mt-s lib$BN-$CC-s \
-                              $BN-mgw $BN-mgw $BN-mgw-mt $BN-mgw-mt-s $BN-mgw-s ; do
-				    AC_CHECK_LIB($ax_lib, exit, [BOOST_IOSTREAMS_LIB="-l$ax_lib"; AC_SUBST(BOOST_IOSTREAMS_LIB) link_thread="yes"; break],
-                                 [link_thread="no"])
+                for libextension in `ls $BOOSTLIBDIR/libboost_iostreams*.{so,a}* | sed 's,.*/,,' | sed -e 's;^libboost_iostreams\(.*\)\.so.*$;\1;' -e 's;^libboost_iostreams\(.*\)\.a*$;\1;'` ; do
+                     ax_lib=${BN_BOOST_IOSTREAMS_LIB}${libextension}
+				    AC_CHECK_LIB($ax_lib, exit,
+                                 [BOOST_IOSTREAMS_LIB="-l$ax_lib"; AC_SUBST(BOOST_IOSTREAMS_LIB) link_iostreams="yes"; break],
+                                 [link_iostreams="no"])
   				done
+
             else
-               for ax_lib in $ax_boost_user_iostreams_lib $BN-$ax_boost_user_iostreams_lib; do
-				      AC_CHECK_LIB($ax_lib, exit,
+               for ax_lib in $ax_boost_user_iostreams_lib $BN_BOOST_IOSTREAMS_LIB-$ax_boost_user_iostreams_lib; do
+				      AC_CHECK_LIB($ax_lib, main,
                                    [BOOST_IOSTREAMS_LIB="-l$ax_lib"; AC_SUBST(BOOST_IOSTREAMS_LIB) link_iostreams="yes"; break],
                                    [link_iostreams="no"])
                   done
