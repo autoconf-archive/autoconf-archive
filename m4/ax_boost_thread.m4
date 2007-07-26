@@ -20,7 +20,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-24
+#   2007-07-26
 #
 # COPYLEFT
 #
@@ -93,7 +93,8 @@ AC_DEFUN([AX_BOOST_THREAD],
 			AC_SUBST(BOOST_CPPFLAGS)
 
 			AC_DEFINE(HAVE_BOOST_THREAD,,[define if the Boost::Thread library is available])
-			BN=boost_thread
+			BN_BOOST_THREAD_LIB=boost_thread
+            BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
 
 			LDFLAGS_SAVE=$LDFLAGS
                         case "x$build_os" in
@@ -103,14 +104,14 @@ AC_DEFUN([AX_BOOST_THREAD],
                           ;;
                         esac
             if test "x$ax_boost_user_thread_lib" = "x"; then
-				for ax_lib in $BN $BN-mt $BN-$CC $BN-$CC-mt $BN-$CC-mt-s $BN-$CC-s \
-                              lib$BN lib$BN-mt lib$BN-$CC lib$BN-$CC-mt lib$BN-$CC-mt-s lib$BN-$CC-s \
-                              $BN-mgw $BN-mgw $BN-mgw-mt $BN-mgw-mt-s $BN-mgw-s ; do
-				    AC_CHECK_LIB($ax_lib, exit, [BOOST_THREAD_LIB="-l$ax_lib"; AC_SUBST(BOOST_THREAD_LIB) link_thread="yes"; break],
+                for libextension in `ls $BOOSTLIBDIR/libboost_thread*.{so,a}* | sed 's,.*/,,' | sed -e 's;^libboost_thread\(.*\)\.so.*$;\1;' -e 's;^libboost_thread\(.*\)\.a*$;\1;'` ; do
+                     ax_lib=${BN_BOOST_THREAD_LIB}${libextension}
+				    AC_CHECK_LIB($ax_lib, exit,
+                                 [BOOST_THREAD_LIB="-l$ax_lib"; AC_SUBST(BOOST_THREAD_LIB) link_thread="yes"; break],
                                  [link_thread="no"])
   				done
             else
-               for ax_lib in $ax_boost_user_thread_lib $BN-$ax_boost_user_thread_lib; do
+               for ax_lib in $ax_boost_user_thread_lib $BN_BOOST_THREAD_LIB-$ax_boost_user_thread_lib; do
 				      AC_CHECK_LIB($ax_lib, exit,
                                    [BOOST_THREAD_LIB="-l$ax_lib"; AC_SUBST(BOOST_THREAD_LIB) link_thread="yes"; break],
                                    [link_thread="no"])

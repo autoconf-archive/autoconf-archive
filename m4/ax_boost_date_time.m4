@@ -20,7 +20,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-24
+#   2007-07-26
 #
 # COPYLEFT
 #
@@ -73,17 +73,19 @@ AC_DEFUN([AX_BOOST_DATE_TIME],
 		])
 		if test "x$ax_cv_boost_date_time" = "xyes"; then
 			AC_DEFINE(HAVE_BOOST_DATE_TIME,,[define if the Boost::Date_Time library is available])
-			BN=boost_date_time
+			BN_BOOST_DATE_TIME_LIB=boost_date_time
+            BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
             if test "x$ax_boost_user_date_time_lib" = "x"; then
-			   for ax_lib in $BN $BN-$CC $BN-$CC-mt $BN-$CC-mt-s $BN-$CC-s \
-                               lib$BN lib$BN-$CC lib$BN-$CC-mt lib$BN-$CC-mt-s lib$BN-$CC-s \
-                               $BN-mgw $BN-mgw $BN-mgw-mt $BN-mgw-mt-s $BN-mgw-s ; do
-			      AC_CHECK_LIB($ax_lib, exit, [BOOST_DATE_TIME_LIB="-l$ax_lib"; AC_SUBST(BOOST_DATE_TIME_LIB) link_date_time="yes"; break],
-                               [link_date_time="no"])
-  			   done
+                for libextension in `ls $BOOSTLIBDIR/libboost_date_time*.{so,a}* | sed 's,.*/,,' | sed -e 's;^libboost_date_time\(.*\)\.so.*$;\1;' -e 's;^libboost_date_time\(.*\)\.a*$;\1;'` ; do
+                     ax_lib=${BN_BOOST_DATE_TIME_LIB}${libextension}
+				    AC_CHECK_LIB($ax_lib, exit,
+                                 [BOOST_DATE_TIME_LIB="-l$ax_lib"; AC_SUBST(BOOST_DATE_TIME_LIB) link_date_time="yes"; break],
+                                 [link_date_time="no"])
+  				done
+
             else
-               for ax_lib in $ax_boost_user_date_time_lib $BN-$ax_boost_user_date_time_lib; do
-				      AC_CHECK_LIB($ax_lib, exit,
+               for ax_lib in $ax_boost_user_date_time_lib $BN_BOOST_DATE_TIME_LIB-$ax_boost_user_date_time_lib; do
+				      AC_CHECK_LIB($ax_lib, main,
                                    [BOOST_DATE_TIME_LIB="-l$ax_lib"; AC_SUBST(BOOST_DATE_TIME_LIB) link_date_time="yes"; break],
                                    [link_date_time="no"])
                   done
