@@ -27,11 +27,11 @@
 #     - $3 action-if-found : add value to shellvariable
 #     - $4 action-if-not-found : nothing
 #
-#   note: in earlier versions, $1-$2 were swapped. We try to detect the
+#   Note: in earlier versions, $1-$2 were swapped. We try to detect the
 #   situation and accept a $2=~/-/ as being the old
 #   option-to-check-for.
 #
-#   also: there are other variants that emerged from the original macro
+#   There are other variants that emerged from the original macro
 #   variant which did just test an option to be possibly added.
 #   However, some compilers accept an option silently, or possibly for
 #   just another option that was not intended. Therefore, we have to do
@@ -40,18 +40,16 @@
 #   to be compatible with gcc even when not being made from gcc
 #   sources.
 #
-#   see also:
-#
-#         AX_CFLAGS_SUN_OPTION               AX_CFLAGS_HPUX_OPTION
-#         AX_CFLAGS_AIX_OPTION               AX_CFLAGS_IRIX_OPTION
+#   See also: AX_CFLAGS_SUN_OPTION, AX_CFLAGS_HPUX_OPTION,
+#   AX_CFLAGS_AIX_OPTION, and AX_CFLAGS_IRIX_OPTION.
 #
 # LAST MODIFICATION
 #
-#   2006-12-12
+#   2007-07-27
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Guido U. Draheim <guidod@gmx.de>
+#   Copyright (c) 2007 Guido U. Draheim <guidod@gmx.de>
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as
