@@ -7,17 +7,17 @@
 # DESCRIPTION
 #
 #   Provides a test for the compiler support of __attribute__
-#   extensions. defines HAVE___ATTRIBUTE__ if it is found.
-#
-#   Originating from the 'pork' package by Ryan McCabe <ryan@numb.org>
+#   extensions. Defines HAVE___ATTRIBUTE__ if it is found.
 #
 # LAST MODIFICATION
 #
-#   2005-01-21
+#   2007-07-26
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Christian Haggstrom <chm@c00.info>
+#   Copyright (c) 2007 Stepan Kasal <skasal@redhat.com>
+#   Copyright (c) 2007 Christian Haggstrom <chm@c00.info>
+#   Copyright (c) 2007 Ryan McCabe <ryan@numb.org>
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as
@@ -50,20 +50,21 @@
 #   modified version as well.
 
 AC_DEFUN([AX_C___ATTRIBUTE__], [
-  AC_MSG_CHECKING(for __attribute__)
-  AC_CACHE_VAL(ac_cv___attribute__, [
-    AC_TRY_COMPILE(
-      [#include <stdlib.h>],
-      [static void foo(void) __attribute__ ((unused));
-      static void
-      foo(void) {
-          exit(1);
-      }],
-      ac_cv___attribute__=yes,
-      ac_cv___attribute__=no
-    )])
-  if test "$ac_cv___attribute__" = "yes"; then
-    AC_DEFINE(HAVE___ATTRIBUTE__, 1, [define if your compiler has __attribute__])
+  AC_CACHE_CHECK([for __attribute__], [ax_cv___attribute__],
+    [AC_COMPILE_IFELSE(
+      [AC_LANG_PROGRAM(
+	[[#include <stdlib.h>
+	  static void foo(void) __attribute__ ((unused));
+	  static void
+	  foo(void) {
+	      exit(1);
+	  }
+        ]], [])],
+      [ax_cv___attribute__=yes],
+      [ax_cv___attribute__=no]
+    )
+  ])
+  if test "$ax_cv___attribute__" = "yes"; then
+    AC_DEFINE([HAVE___ATTRIBUTE__], 1, [define if your compiler has __attribute__])
   fi
-  AC_MSG_RESULT($ac_cv___attribute__)
 ])
