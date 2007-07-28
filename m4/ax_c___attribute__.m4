@@ -11,12 +11,12 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-26
+#   2007-07-28
 #
 # COPYLEFT
 #
 #   Copyright (c) 2007 Stepan Kasal <skasal@redhat.com>
-#   Copyright (c) 2007 Christian Haggstrom <chm@c00.info>
+#   Copyright (c) 2007 Christian Haggstrom
 #   Copyright (c) 2007 Ryan McCabe <ryan@numb.org>
 #
 #   This program is free software; you can redistribute it and/or
