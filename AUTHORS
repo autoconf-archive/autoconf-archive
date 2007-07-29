@@ -39,7 +39,7 @@ Autoconf Macro Contributors
   Tim Toolan <toolan@ele.uri.edu>
   Patrick Mauritz <oxygene@studentenbude.ath.cx>
   Moritz Sinn <moritz@freesources.org>
-  Mark Elbrecht <snowball3@bigfoot.com>
+  Mark Elbrecht
   Duncan Simpson <dps@simpson.demon.co.uk>
   Devin Weaver <ktohg@tritarget.com>
   Akos Maroy <darkeye@tyrell.hu>
@@ -54,7 +54,7 @@ Autoconf Macro Contributors
   Oskar Liljeblad <oskar@osk.mine.nu>
   Michael Paul Bailey <jinxidoru@byu.net>
   Matthew Mueller <donut@azstarnet.com>
-  Matthew D. Langston <langston@SLAC.Stanford.EDU>
+  Matthew D. Langston
   Julian C. Cummings <cummings@cacr.caltech.edu>
   Jan Langer <jan@langernetz.de>
   Egon Willighagen <e.willighagen@science.ru.nl>
@@ -85,7 +85,7 @@ Autoconf Macro Contributors
   Neil Ferguson <nferguso@eso.org>
   Matteo Settenvini <matteo@member.fsf.org>
   Marten Svantesson <msv@kth.se>
-  Mark R.Bannister <markb@freedomware.co.uk>
+  Mark R. Bannister
   Mark Pulford <mark@kyne.com.au>
   Mark Ethan Trostler <trostler@juniper.net>
   Marco Gomes <mpglesi@gmail.com>
@@ -95,7 +95,7 @@ Autoconf Macro Contributors
   Kaveh Ghazi <ghazi@caip.rutgers.edu>
   Kaelin Colclasure <kaelin@acm.org>
   John Darrington <j.darrington@elvis.murdoch.edu.au>
-  Ilguiz Latypov <ilatypov@superbt.com>
+  Ilguiz Latypov
   Horst Knorr <hk_classes@knoda.org>
   Graeme S. Roy <graeme@epc.co.uk>
   Gerald Point <Gerald.Point@labri.fr>
@@ -118,3 +118,4 @@ Autoconf Macro Contributors
   Andreas Schwab <schwab@suse.de>
   Alexandre Oliva
   Alan Woodland <ajw05@aber.ac.uk>
+  Ahmet Inan <auto@ainan.org>

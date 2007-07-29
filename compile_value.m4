@@ -43,11 +43,11 @@
 #
 # LAST MODIFICATION
 #
-#   2002-04-19
+#   2007-07-29
 #
 # COPYLEFT
 #
-#   Copyright (c) 2002 Ilguiz Latypov <ilatypov@superbt.com>
+#   Copyright (c) 2007 Ilguiz Latypov
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as

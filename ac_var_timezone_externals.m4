@@ -14,11 +14,11 @@
 #
 # LAST MODIFICATION
 #
-#   2002-01-04
+#   2007-07-29
 #
 # COPYLEFT
 #
-#   Copyright (c) 2002 Mark R.Bannister <markb@freedomware.co.uk>
+#   Copyright (c) 2007 Mark R. Bannister
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as

@@ -18,11 +18,11 @@
 #
 # LAST MODIFICATION
 #
-#   2000-07-19
+#   2007-07-29
 #
 # COPYLEFT
 #
-#   Copyright (c) 2000 Mark Elbrecht <snowball3@bigfoot.com>
+#   Copyright (c) 2007 Mark Elbrecht
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as
