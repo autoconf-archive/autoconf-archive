@@ -113,12 +113,12 @@
 #
 # LAST MODIFICATION
 #
-#   2005-01-14
+#   2007-07-29
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Robert White <kranki@mac.com>
-#   Copyright (c) 2005 Dustin Mitchell <dustin@cs.uchicago.edu>
+#   Copyright (c) 2007 Robert White <kranki@mac.com>
+#   Copyright (c) 2007 Dustin J. Mitchell <dustin@cs.uchicago.edu>
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as
