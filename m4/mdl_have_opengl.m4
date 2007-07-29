@@ -35,24 +35,14 @@
 #     have_GLX
 #     have_glut
 #
-#   A complete little toy "Automake `make distcheck'" package of how to
-#   use this macro is available at:
-#
-#     ftp://ftp.slac.stanford.edu/users/langston/autoconf/ac_opengl-0.01.tar.gz
-#
-#   Please note that as the ac_opengl macro and the toy example
-#   evolves, the version number increases, so you may have to adjust
-#   the above URL accordingly.
-#
-#   minor bugfix by ahmet inan <auto@ainan.org>
-#
 # LAST MODIFICATION
 #
-#   2002-09-25
+#   2007-07-29
 #
 # COPYLEFT
 #
-#   Copyright (c) 2002 Matthew D. Langston <langston@SLAC.Stanford.EDU>
+#   Copyright (c) 2007 Matthew D. Langston
+#   Copyright (c) 2007 Ahmet Inan <auto@ainan.org>
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as

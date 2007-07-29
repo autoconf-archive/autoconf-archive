@@ -18,11 +18,11 @@
 #
 # LAST MODIFICATION
 #
-#   2005-01-25
+#   2007-07-29
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Gaute Strokkenes <gs234@cam.ac.uk>
+#   Copyright (c) 2007 Gaute Strokkenes
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as

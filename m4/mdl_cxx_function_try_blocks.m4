@@ -11,11 +11,11 @@
 #
 # LAST MODIFICATION
 #
-#   2000-07-19
+#   2007-07-29
 #
 # COPYLEFT
 #
-#   Copyright (c) 2000 Matthew D. Langston <langston@SLAC.Stanford.EDU>
+#   Copyright (c) 2007 Matthew D. Langston
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as
