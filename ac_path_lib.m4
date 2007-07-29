@@ -86,17 +86,16 @@
 #     FOO_VERSION to `foo-config --version`
 #
 #   Based on `AM_PATH_GTK' (gtk.m4) by Owen Taylor, and
-#   `AC_PATH_GENERIC' (ac_path_generic.m4) by Angus Lees
-#   <gusl@cse.unsw.edu.au>. pkg-config support based on AM_PATH_GTK_2_0
-#   (gtk-2.0.m4) by Owen Taylor.
+#   `AC_PATH_GENERIC' (ac_path_generic.m4) by Angus Lees. pkg-config
+#   support based on AM_PATH_GTK_2_0 (gtk-2.0.m4) by Owen Taylor.
 #
 # LAST MODIFICATION
 #
-#   2005-01-23
+#   2007-07-29
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Roger Leigh <roger@whinlatter.uklinux.net>
+#   Copyright (c) 2007 Roger Leigh <roger@whinlatter.uklinux.net>
 #
 #   Copying and distribution of this file, with or without
 #   modification, are permitted in any medium without royalty provided

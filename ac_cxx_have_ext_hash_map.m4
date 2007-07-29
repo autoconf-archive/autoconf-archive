@@ -23,11 +23,11 @@
 #
 # LAST MODIFICATION
 #
-#   2002-09-25
+#   2007-07-29
 #
 # COPYLEFT
 #
-#   Copyright (c) 2002 Perceval ANICHINI <perceval.anichini@epita.fr>
+#   Copyright (c) 2007 Perceval ANICHINI
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as
