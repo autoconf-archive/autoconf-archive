@@ -22,15 +22,15 @@
 #
 # LAST MODIFICATION
 #
-#   2005-01-25
+#   2007-01-25
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Ville Laurikari <vl@iki.fi>
+#   Copyright (c) 2007 Ville Laurikari <vl@iki.fi>
 #
-#   This program is free software; you can redistribute it and/or
+#   This program is free software: you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation; either version 2 of the
+#   published by the Free Software Foundation, either version 3 of the
 #   License, or (at your option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
@@ -39,9 +39,8 @@
 #   General Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License
-#   along with this program; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-#   02111-1307, USA.
+#   along with this program. If not, see
+#   <http://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright
 #   owner gives unlimited permission to copy, distribute and modify the
