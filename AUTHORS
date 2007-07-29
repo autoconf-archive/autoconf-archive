@@ -5,117 +5,115 @@ Autoconf Macro Archive Maintainer
 
 Autoconf Macro Contributors
 
-  Francesco Salvestrini <salvestrini@users.sourceforge.net>
-  Boretti Mathieu <boretti@eig.unige.ch>
-  Luc Maisonobe <luc@spaceroots.org>
-  Guido U. Draheim <guidod@gmx.de>
+  Francesco Salvestrini
+  Boretti Mathieu
+  Luc Maisonobe
+  Guido U. Draheim
   Todd Veldhuizen
-  Tom Howard <tomhoward@users.sf.net>
-  Thomas Porschberg <thomas@randspringer.de>
-  Gleen Salmon <gleensalmon@yahoo.com>
-  Steven G. Johnson <stevenj@alum.mit.edu>
-  Bruce Korb <bkorb@gnu.org>
-  Stephane Bortzmeyer <bortzmeyer@pasteur.fr>
+  Tom Howard
+  Thomas Porschberg
+  Gleen Salmon
+  Steven G. Johnson
+  Bruce Korb
+  Stephane Bortzmeyer
+  Dustin J. Mitchell
   Michael Tindal
-  Loic Dachary <loic@senga.org>
-  Andrew Collier <colliera@ukzn.ac.za>
-  Alexandre Duret-Lutz <adl@gnu.org>
-  Warren Young <warren@etr-usa.com>
-  Sebastian Huber <sebastian-huber@web.de>
-  Rafael Laboissiere <rafael@laboissiere.net>
-  Ludovic Courtès <ludo@chbouib.org>
-  Alan W. Irwin <irwin@beluga.phys.uvic.ca>
-  Ville Laurikari <vl@iki.fi>
-  Scott Pakin <pakin@uiuc.edu>
+  Loic Dachary
+  Andrew Collier
+  Alexandre Duret-Lutz
+  Warren Young
+  Sebastian Huber
+  Rafael Laboissiere
+  Ludovic Courtès
+  Alan W. Irwin
+  Ville Laurikari
+  Scott Pakin
   Matteo Frigo
-  Alain BARBET <alian@cpan.org>
-  Zmanda Inc. <http://www.zmanda.com/>
-  Mateusz Loskot <mateusz@loskot.net>
-  Dustin J. Mitchell <dustin@zmanda.com>
-  Dustin J. Mitchell <dustin@cs.uchicago.edu>
-  Caolan McNamara <caolan@skynet.ie>
-  Braden McDaniel <braden@endoframe.com>
-  Wes Hardaker <wjhardaker@ucdavis.edu>
-  Tim Toolan <toolan@ele.uri.edu>
-  Patrick Mauritz <oxygene@studentenbude.ath.cx>
-  Moritz Sinn <moritz@freesources.org>
+  Alain BARBET
+  Zmanda Inc.
+  Mateusz Loskot
+  Caolan McNamara
+  Braden McDaniel
+  Wes Hardaker
+  Tim Toolan
+  Stepan Kasal
+  Patrick Mauritz
+  Moritz Sinn
   Mark Elbrecht
-  Duncan Simpson <dps@simpson.demon.co.uk>
-  Devin Weaver <ktohg@tritarget.com>
-  Akos Maroy <darkeye@tyrell.hu>
-  YAMAMOTO Kengo <yamaken AT bp.iij4u.or.jp>
-  Uwe Mayer <merkosh@hadiko.de>
-  Steve M. Robbins <smr@debian.org>
-  Stepan Kasal <kasal@ucw.cz>
-  Rüdiger Kuhlmann <info@ruediger-kuhlmann.de>
-  Ruslan Shevchenko <Ruslan@Shevchenko.Kiev.UA>
-  Peter Simons <simons@cryp.to>
-  Paolo Bonzini <bonzini@gnu.org>
-  Oskar Liljeblad <oskar@osk.mine.nu>
-  Michael Paul Bailey <jinxidoru@byu.net>
-  Matthew Mueller <donut@azstarnet.com>
+  Duncan Simpson
+  Devin Weaver
+  Akos Maroy
+  YAMAMOTO Kengo
+  Uwe Mayer
+  Steve M. Robbins
+  Rüdiger Kuhlmann
+  Ruslan Shevchenko
+  Peter Simons
+  Paolo Bonzini
+  Oskar Liljeblad
+  Michael Paul Bailey
+  Matthew Mueller
   Matthew D. Langston
-  Julian C. Cummings <cummings@cacr.caltech.edu>
-  Jan Langer <jan@langernetz.de>
-  Egon Willighagen <e.willighagen@science.ru.nl>
-  Dean Povey <povey@wedgetail.com>
-  Daniel Richard G. <skunk@iskunk.org>
-  Alexander Pletzer <pletzer@txcorp.com>
-  raf <raf@raf.org>
-  William Fulton <wsf@fultondesigns.co.uk>
-  Vaclav Slavik <vaclav.slavik@matfyz.cz>
-  Tal Shalif <tal@shalif.com>
-  Sven Verdoolaege <skimo*liacs.nl>
-  Steven Brown <swbrown@variadic.org>
-  Stepan Kasal <skasal@redhat.com>
-  Soren Andersen <somian *AT* pobox |DOT| com>
-  Scott Grosch <Scott.Grosch@intel.com>
-  Ryan McCabe <ryan@numb.org>
-  Russ Allbery <rra@stanford.edu>
-  Ruben Fonseca <fonseka@gmail.com>
-  Ronald Landheer-Cieslak <blytkerchan@users.sourceforge.net>
-  Robert White <kranki@mac.com>
-  Pete Greenwell <pete@mu.org>
+  Julian C. Cummings
+  Jan Langer
+  Egon Willighagen
+  Dean Povey
+  Daniel Richard G.
+  Alexander Pletzer
+  raf
+  William Fulton
+  Vaclav Slavik
+  Tal Shalif
+  Sven Verdoolaege
+  Steven Brown
+  Soren Andersen
+  Scott Grosch
+  Ryan McCabe
+  Russ Allbery
+  Ruben Fonseca
+  Ronald Landheer-Cieslak
+  Robert White
+  Pete Greenwell
   Perceval ANICHINI
-  Paul Gilmartin <pg@sweng.stortek.com>
-  Oren Ben-Kiki <oren@ben-kiki.org>
-  Noah Slater <nslater@bytesexual.org>
-  Nick Markham <markhn@rpi.edu>
-  Nic Ferrier <nferrier@tapsellferrier.co.uk>
-  Neil Ferguson <nferguso@eso.org>
-  Matteo Settenvini <matteo@member.fsf.org>
-  Marten Svantesson <msv@kth.se>
+  Paul Gilmartin
+  Oren Ben-Kiki
+  Noah Slater
+  Nick Markham
+  Nic Ferrier
+  Neil Ferguson
+  Matteo Settenvini
+  Marten Svantesson
   Mark R. Bannister
-  Mark Pulford <mark@kyne.com.au>
-  Mark Ethan Trostler <trostler@juniper.net>
-  Marco Gomes <mpglesi@gmail.com>
-  Lars Brinkhoff <lars@nocrew.org>
-  Lapo Luchini <lapo@lapo.it>
-  Kevin L. Mitchell <klmitch@mit.edu>
-  Kaveh Ghazi <ghazi@caip.rutgers.edu>
-  Kaelin Colclasure <kaelin@acm.org>
-  John Darrington <j.darrington@elvis.murdoch.edu.au>
+  Mark Pulford
+  Mark Ethan Trostler
+  Marco Gomes
+  Lars Brinkhoff
+  Lapo Luchini
+  Kevin L. Mitchell
+  Kaveh Ghazi
+  Kaelin Colclasure
+  John Darrington
   Ilguiz Latypov
-  Horst Knorr <hk_classes@knoda.org>
-  Graeme S. Roy <graeme@epc.co.uk>
-  Gerald Point <Gerald.Point@labri.fr>
-  Don Anderson <dda@sleepycat.com>
-  Dodji Seketeli <dodji@seketeli.org>
+  Horst Knorr
+  Graeme S. Roy
+  Gerald Point
+  Don Anderson
+  Dodji Seketeli
   David Cluytens
-  Dave Benson <daveb@ffem.org>
-  Daniel Amelang <dan@amelang.net>
-  Dale K. Hawkins <dhawkins@cdrgts.com>
-  Christopher Currie <christopher@currie.com>
-  Christian Toepp <c.toepp@gmail.com>
+  Dave Benson
+  Daniel Amelang
+  Dale K. Hawkins
+  Christopher Currie
+  Christian Toepp
   Christian Haggstrom
-  Can Bican <bican@yahoo.com>
-  Bill Poser <billposer@alum.mit.edu>
+  Can Bican
+  Bill Poser
   Bernardo Innocenti
-  Ben Stanley <Ben.Stanley@exemail.com.au>
-  Ben Bergen <ben@cs.fau.de>
-  Bastiaan Veelo <Bastiaan@Veelo.net>
+  Ben Stanley
+  Ben Bergen
+  Bastiaan Veelo
   Angus Lees
-  Andreas Schwab <schwab@suse.de>
+  Andreas Schwab
   Alexandre Oliva
-  Alan Woodland <ajw05@aber.ac.uk>
-  Ahmet Inan <auto@ainan.org>
+  Alan Woodland
+  Ahmet Inan
