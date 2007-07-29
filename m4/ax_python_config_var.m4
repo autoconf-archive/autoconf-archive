@@ -48,7 +48,7 @@
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Dustin Mitchell <dustin@cs.uchicago.edu>
+#   Copyright (c) 2007 Dustin J. Mitchell <dustin@cs.uchicago.edu>
 #
 #   Copying and distribution of this file, with or without
 #   modification, are permitted in any medium without royalty provided
