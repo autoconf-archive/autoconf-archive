@@ -33,11 +33,11 @@
 #
 # LAST MODIFICATION
 #
-#   2001-03-16
+#   2007-07-29
 #
 # COPYLEFT
 #
-#   Copyright (c) 2001 Angus Lees <gusl@cse.unsw.edu.au>
+#   Copyright (c) 2007 Angus Lees
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as
