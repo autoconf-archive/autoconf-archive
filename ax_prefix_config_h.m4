@@ -94,7 +94,7 @@
 # COPYLEFT
 #
 #   Copyright (c) 2007 Guido U. Draheim <guidod@gmx.de>
-#   Copyright (c) 2007 Marten Svantesson <msv@kth.se>
+#   Copyright (c) 2007 Marten Svantesson
 #   Copyright (c) 2007 Gerald Point <Gerald.Point@labri.fr>
 #
 #   This program is free software; you can redistribute it and/or
