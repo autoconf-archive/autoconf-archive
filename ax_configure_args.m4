@@ -6,7 +6,7 @@
 #
 # DESCRIPTION
 #
-#   Helper macro for AX_ENABLE_BUILDDIR and AX_ENABLE_BUILDDIR_UNAME
+#   Helper macro for AX_ENABLE_BUILDDIR.
 #
 #   The traditional way of starting a subdir-configure is running the
 #   script with ${1+"$@"} but since autoconf 2.60 this is broken.
@@ -27,7 +27,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-02-01
+#   2007-08-04
 #
 # COPYLEFT
 #
