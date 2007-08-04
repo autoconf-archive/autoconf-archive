@@ -1,5 +1,9 @@
 ##### http://autoconf-archive.cryp.to/ax_enable_builddir_uname.html
 #
+# OBSOLETE MACRO
+#
+#   Use AX_ENABLE_BUILDDIR in combination with AC_CANONICAL_HOST.
+#
 # SYNOPSIS
 #
 #   AX_ENABLE_BUILDDIR_UNAME [(dirstring-or-command [,Makefile.mk])]
@@ -45,7 +49,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-02-01
+#   2007-08-04
 #
 # COPYLEFT
 #
