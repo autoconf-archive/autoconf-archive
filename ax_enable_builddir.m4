@@ -13,7 +13,7 @@
 #
 #   Defaults:
 #
-#     $1 = $host (overridden with $HOST)
+#     $1 = $build (overridden with $BUILD)
 #     $2 = Makefile.mk
 #     $3 = -all
 #
@@ -21,15 +21,15 @@
 #   default toplevel srcdir Makefile from the information found in the
 #   created toplevel builddir Makefile. It just copies the variables
 #   and rule-targets, each extended with a default rule-execution that
-#   recurses into the build directory of the current "HOST". You can
+#   recurses into the build directory of the current "BUILD". You can
 #   override the auto-dection through `config.guess` and build-time of
 #   course, as in
 #
-#     make HOST=i386-mingw-cross
+#     make BUILD=i386-mingw-cross
 #
 #   which can of course set at configure time as well using
 #
-#     configure --host=i386-mingw-cross
+#     configure --build=i386-mingw-cross
 #
 #   After the default has been created, additional rules can be
 #   appended that will not just recurse into the subdirectories and
@@ -37,10 +37,10 @@
 #   read from the $2 = Makefile.mk file
 #
 #   The automatic rules are usually scanning the toplevel Makefile for
-#   lines like '#### $host |$builddir' to recognize the place where to
+#   lines like '#### $build |$builddir' to recognize the place where to
 #   recurse into. Usually, the last one is the only one used. However,
 #   almost all targets have an additional "*-all" rule which makes the
-#   script to recurse into _all_ variants of the current HOST (!!)
+#   script to recurse into _all_ variants of the current BUILD (!!)
 #   setting. The "-all" suffix can be overriden for the macro as well.
 #
 #   a special rule is only given for things like "dist" that will copy
@@ -49,11 +49,12 @@
 #
 # LAST MODIFICATION
 #
-#   2007-02-01
+#   2007-08-04
 #
 # COPYLEFT
 #
 #   Copyright (c) 2007 Guido U. Draheim <guidod@gmx.de>
+#   Copyright (c) 2007 Julian C. Cummings <cummings@cacr.caltech.edu>
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as
@@ -86,7 +87,7 @@
 #   modified version as well.
 
 AC_DEFUN([AX_ENABLE_BUILDDIR],[
-AC_REQUIRE([AC_CANONICAL_HOST])[]dnl
+AC_REQUIRE([AC_CANONICAL_BUILD])[]dnl
 AC_REQUIRE([AX_CONFIGURE_ARGS])[]dnl
 AC_BEFORE([$0],[AM_INIT_AUTOMAKE])dnl
 AS_VAR_PUSHDEF([SUB],[ax_enable_builddir])dnl
@@ -200,11 +201,11 @@ all-configured : all[]_ALL
 dnl dist-all exists... and would make for dist-all-all
 /[]_ALL[]_ALL/d
 /^.*[[=]]/!a\\
-	@ HOST="\$(HOST)\" \\\\\\
-	; test ".\$\$HOST" = "." && HOST=$x sh $AUX/config.guess $x \\\\\\
-	; BUILD=$x grep "^#### \$\$HOST " Makefile | sed -e 's/.*|//' $x \\\\\\
+	@ BUILD="\$(BUILD)\" \\\\\\
+	; test ".\$\$BUILD" = "." && BUILD=$x sh $AUX/config.guess $x \\\\\\
+	; BUILD=$x grep "^#### \$\$BUILD " Makefile | sed -e 's/.*|//' $x \\\\\\
 	; use=$x basename "\$\@" _ALL $x; n=$x echo \$\$BUILD | wc -w $x \\\\\\
-	; echo "MAKE \$\$HOST : \$\$n * \$\@"; if test "\$\$n" = "0" ; then : \\\\\\
+	; echo "MAKE \$\$BUILD : \$\$n * \$\@"; if test "\$\$n" = "0" ; then : \\\\\\
 	; BUILD=$x grep "^####.*|" Makefile |tail -1| sed -e 's/.*|//' $x ; fi \\\\\\
 	; test ".\$\$BUILD" = "." && BUILD="." \\\\\\
 	; test "\$\$use" = "\$\@" && BUILD=$x echo "\$\$BUILD" | tail -1 $x \\\\\\
@@ -212,11 +213,11 @@ dnl dist-all exists... and would make for dist-all-all
 	; (cd "\$\$i" && test ! -f configure && \$(MAKE) \$\$use) || exit; done
 dnl special rule add-on: "dist" copies the tarball to $(PUB). (source tree)
 /dist[]_ALL *:/a\\
-	@ HOST="\$(HOST)\" \\\\\\
-	; test ".\$\$HOST" = "." && HOST=$x sh $AUX/config.guess $x \\\\\\
-	; BUILD=$x grep "^#### \$\$HOST " Makefile | sed -e 's/.*|//' $x \\\\\\
+	@ BUILD="\$(BUILD)\" \\\\\\
+	; test ".\$\$BUILD" = "." && BUILD=$x sh $AUX/config.guess $x \\\\\\
+	; BUILD=$x grep "^#### \$\$BUILD " Makefile | sed -e 's/.*|//' $x \\\\\\
 	; found=$x echo \$\$BUILD | wc -w $x \\\\\\
-	; echo "MAKE \$\$HOST : \$\$found \$(PACKAGE)-\$(VERSION).tar.*" \\\\\\
+	; echo "MAKE \$\$BUILD : \$\$found \$(PACKAGE)-\$(VERSION).tar.*" \\\\\\
 	; if test "\$\$found" = "0" ; then : \\\\\\
 	; BUILD=$x grep "^#### .*|" Makefile |tail -1| sed -e 's/.*|//' $x \\\\\\
 	; fi ; for i in \$\$BUILD ; do test ".\$\$i" = "." && continue \\\\\\
@@ -224,11 +225,11 @@ dnl special rule add-on: "dist" copies the tarball to $(PUB). (source tree)
 	; do test -f "\$\$f" && mv "\$\$f" \$(PUB). ; done ; break ; done
 dnl special rule add-on: "distclean" removes all local builddirs completely
 /distclean[]_ALL *:/a\\
-	@ HOST="\$(HOST)\" \\\\\\
-	; test ".\$\$HOST" = "." && HOST=$x sh $AUX/config.guess $x \\\\\\
+	@ BUILD="\$(BUILD)\" \\\\\\
+	; test ".\$\$BUILD" = "." && BUILD=$x sh $AUX/config.guess $x \\\\\\
 	; BUILD=$x grep "^#### .*| *\\./" Makefile | sed -e 's/.*|//' $x \\\\\\
 	; use=$x basename "\$\@" _ALL $x; n=$x echo \$\$BUILD | wc -w $x \\\\\\
-	; echo "MAKE \$\$HOST : \$\$n * \$\@ (all local builds)" \\\\\\
+	; echo "MAKE \$\$BUILD : \$\$n * \$\@ (all local builds)" \\\\\\
 	; test ".\$\$BUILD" = "." && BUILD="." \\\\\\
 	; for i in \$\$BUILD ; do test ".\$\$i" = "." && continue \\\\\\
 	; echo "# rm -r \$\$i"; done ; echo "# (sleep 3)" ; sleep 3 \\\\\\
@@ -245,13 +246,13 @@ _EOF
       # sanity check
       if grep '^; echo "MAKE ' $SRC/Makefile >/dev/null ; then
         AC_MSG_NOTICE([buggy sed found - it deletes tab in "a" text parts])
-        $SED -e '/^@ HOST=/s/^/	/' -e '/^; /s/^/	/' $SRC/Makefile \
+        $SED -e '/^@ BUILD=/s/^/	/' -e '/^; /s/^/	/' $SRC/Makefile \
           >$SRC/Makefile~
         (test -s $SRC/Makefile~ && mv $SRC/Makefile~ $SRC/Makefile) 2>/dev/null
       fi
     else
       xxxx="\\#\\#\\#\\#"
-      # echo "/^$xxxx *$ax_enable_builddir_host /d" >$tmp/conftemp.sed
+      # echo "/^$xxxx *$ax_enable_builddir_build /d" >$tmp/conftemp.sed
       echo "s!^$xxxx [[^|]]* | *$SUB *\$!$xxxx ...... $SUB!" >$tmp/conftemp.sed
       $SED -f "$tmp/conftemp.sed" "$SRC/Makefile" >$tmp/mkfile.tmp
         cp "$tmp/conftemp.sed" "$SRC/makefiles.sed~"         ## DEBUGGING
@@ -264,9 +265,9 @@ _EOF
         mv "$tmp/mkfile.tmp" "$SRC/Makefile"
       fi
     fi
-    AC_MSG_NOTICE([build in $SUB (HOST=$ax_enable_builddir_host)])
+    AC_MSG_NOTICE([build in $SUB (BUILD=$ax_enable_builddir_build)])
     xxxx="####"
-    echo "$xxxx" "$ax_enable_builddir_host" "|$SUB" >>$SRC/Makefile
+    echo "$xxxx" "$ax_enable_builddir_build" "|$SUB" >>$SRC/Makefile
   fi
 popdef([END])dnl
 AS_VAR_POPDEF([SED])dnl
@@ -276,7 +277,7 @@ AS_VAR_POPDEF([TOP])dnl
 AS_VAR_POPDEF([SUB])dnl
 ],[dnl
 ax_enable_builddir_srcdir="$srcdir"                    # $srcdir
-ax_enable_builddir_host="$HOST"                        # $HOST / $host
+ax_enable_builddir_build="$BUILD"                      # $BUILD / $build
 ax_enable_builddir_version="$VERSION"                  # $VERSION
 ax_enable_builddir_package="$PACKAGE"                  # $PACKAGE
 ax_enable_builddir_auxdir="$ax_enable_builddir_auxdir" # $AUX
