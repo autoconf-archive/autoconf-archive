@@ -1,0 +1,18 @@
+2007-02-18  Peter Simons  <simons@cryp.to>
+
+	This file is no longer used because the change history is
+	available on-line directly from the GIT repository that contains
+	the master versions of these files. To see the change log, direct
+	your favorite web browser to the following location:
+
+	  http://git.cryp.to/?p=autoconf-archive;a=shortlog
+
+	For every release tarball, there is an appropriate tag of the same
+	name to identify the GIT version that particular release was built
+	from.
+
+	The same information is also available in other representations
+	suitable for subscription:
+
+	  ATOM Log:  http://git.cryp.to/?p=autoconf-archive;a=atom
+	  RSS Feed:  http://git.cryp.to/?p=autoconf-archive;a=rss
