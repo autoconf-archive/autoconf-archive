@@ -1,0 +1,84 @@
+                     History of the Autoconf Macro Archive
+                     =====================================
+
+2007-07-29:
+
+        This release is the first one to be distributed under the terms of the
+        updated General Public License, version 3.
+
+2007-02-18:
+
+        The Autoconf Macro Archive provides a public GIT repository that can be
+        cloned as follows:
+
+          git clone http://autoconf-archive.cryp.to/.git
+
+        A web front-end is also available:
+
+          http://git.cryp.to/?p=autoconf-archive
+
+        Having this web front-end is nice because it allows every macro to link
+        directly into the repository for its own history.
+
+2006-10-23:
+
+        The Autoconf Macro Archive switched to new distribution format. Unlike
+        the previous one, the new format has no visible markup and looks pretty
+        much like formatted text. The m4 files now link to their home page.
+        Also new is that the copyright licenses are spelled out.
+
+2005-02-14:
+
+        The Autoconf Macro Archive repository has moved from gnu.org to
+        <http://autoconf-archive.cryp.to/>, mostly because running on my own
+        infrastructure is far more convenient than depending on Savannah.
+
+        This release is the first one to have an out-of-the-box installation
+        procedure using Autoconf/Automake.
+
+        To travel back in time, go to:
+
+          http://web.archive.org/web/20050215104509/http://autoconf-archive.cryp.to/
+
+2005-01-28:
+
+        The Free Software Foundation recommends the all-permissive license for
+        Autoconf Macros. In an heroic effort, Tom Howard has contacted each and
+        every macro author in an attempt to get their permission to re-license
+        their work under the less restrictive license. More than 50 positive
+        responses are received.
+
+2005-01-21:
+
+        Moved all macros into a flat hierarchy. Previous releases determined a
+        macro's category by the name of the directory it was in. This
+        convention no longer necessary. Having the files in a flat hierarchy
+        works vastly better with the aclocal(1) utility than the previous
+        layout.
+
+        This release also marks the departure from free-style version numbers.
+        All version information is expressed as an ISO 8601 date. A macro's
+        version is the date of its last modification in the Archive.
+
+2001-07-14:
+
+        The Autoconf Macro Archive repository has moved from cryp.to to
+        <http://www.gnu.org/software/ac-archive/>. This change brings mostly
+        public access to the CVS repository at Savannah. The move also allows
+        the project to dub itself the "GNU Autoconf Macro Archive".
+
+        To travel back in time, go to:
+
+          http://web.archive.org/web/20010715000147/www.gnu.org/software/ac-archive/
+
+2001-05-19:
+
+        Moved from research.cys.de to <http://cryp.to/autoconf-archive/>.
+
+        To travel back in time, go to:
+
+          http://web.archive.org/web/20010119114000/http://research.cys.de/
+
+2000-06-15:
+
+        First version on-line at <http://research.cys.de/autoconf-archive/>.
