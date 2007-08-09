@@ -9,22 +9,12 @@
 #   Find Fortran 90 modules inclusion flag. The module inclusion flag
 #   is stored in the cached variable ax_f90_modflag. An error is
 #   triggered if the flag cannot be found. Supported are the -I GNU
-#   compilers flag, the -M SUN compilers flag, the -p flag for Absoft
-#   Pro Fortran compilers, and the -module flag for the PGI Fortran
-#   compiler.
-#
-#   Note that on the PGI compiler the first directory specified with
-#   -module is also the directory where any module files that are
-#   produced will be written out. So if this flag is used and the first
-#   directory specified does not have write permissions, an error will
-#   occur. The most sensible thing to do is is to place
-#   "$(ax_f90_modflag)." on the compile line first to put the current
-#   directory at the front of the list before any other module file
-#   directories.
+#   compilers flag, the -M SUN compilers flag, and the -p Absoft Pro
+#   Fortran compiler flag.
 #
 # LAST MODIFICATION
 #
-#   2007-08-04
+#   2007-08-09
 #
 # COPYLEFT
 #
@@ -57,7 +47,7 @@ AC_COMPILE_IFELSE([
   ],[],[])
 cd ..
 ax_f90_modflag="not found"
-for ax_flag in "-module " "-I " "-M" "-p"; do
+for ax_flag in "-I " "-M" "-p"; do
   if test "$ax_f90_modflag" = "not found" ; then
     ax_save_FCFLAGS="$FCFLAGS"
     FCFLAGS="$ax_save_FCFLAGS ${ax_flag}tmpdir_$i"
