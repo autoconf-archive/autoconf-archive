@@ -1,6 +1,11 @@
                      History of the Autoconf Macro Archive
                      =====================================
 
+2007-08-22:
+
+        The macro documentation shipped in the release tarball now features
+        cross-references.
+
 2007-07-29:
 
         This release is the first one to be distributed under the terms of the
@@ -22,10 +27,10 @@
 
 2006-10-23:
 
-        The Autoconf Macro Archive switched to new distribution format. Unlike
-        the previous one, the new format has no visible markup and looks pretty
-        much like formatted text. The m4 files now link to their home page.
-        Also new is that the copyright licenses are spelled out.
+        The Autoconf Macro Archive switched to a new distribution format.
+        Unlike the previous one, the new format has no visible markup and looks
+        pretty much like formatted text. The m4 files now link to their home
+        page. Also new is that the copyright licenses are spelled out.
 
 2005-02-14:
 
