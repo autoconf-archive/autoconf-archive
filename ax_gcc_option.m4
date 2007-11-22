@@ -13,11 +13,12 @@
 #
 # LAST MODIFICATION
 #
-#   2005-01-22
+#   2007-11-22
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Francesco Salvestrini <salvestrini@users.sourceforge.net>
+#   Copyright (c) 2007 Francesco Salvestrini <salvestrini@users.sourceforge.net>
+#   Copyright (c) 2007 Bogdan Drozdowski <bogdandr@op.pl>
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as
@@ -52,8 +53,9 @@
 AC_DEFUN([AX_GCC_OPTION], [
 AC_REQUIRE([AC_PROG_CC])
 if test "x$GCC" = "xyes"; then
+	echo "int main() { return 0; }" > conftest.c
 	AC_MSG_CHECKING([if gcc accepts $2 option])
-   	if AC_TRY_COMMAND($CC $2) >/dev/null 2>&1; then
+   	if AC_TRY_COMMAND($CC $2 conftest.c) >/dev/null 2>&1; then
    		$1=$3
    	        AC_MSG_RESULT([yes])
    	else
