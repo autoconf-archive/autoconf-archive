@@ -20,7 +20,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-26
+#   2007-11-22
 #
 # COPYLEFT
 #
@@ -74,24 +74,32 @@ AC_DEFUN([AX_BOOST_SIGNALS],
 		])
 		if test "x$ax_cv_boost_signals" = "xyes"; then
 			AC_DEFINE(HAVE_BOOST_SIGNALS,,[define if the Boost::Signals library is available])
-			BN_BOOST_SIGNALS_LIB=boost_signals
             BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
             if test "x$ax_boost_user_signals_lib" = "x"; then
-                for libextension in `ls $BOOSTLIBDIR/libboost_signals*.{so,a}* | sed 's,.*/,,' | sed -e 's;^libboost_signals\(.*\)\.so.*$;\1;' -e 's;^libboost_signals\(.*\)\.a*$;\1;'` ; do
-                     ax_lib=${BN_BOOST_SIGNALS_LIB}${libextension}
+                for libextension in `ls $BOOSTLIBDIR/libboost_signals*.{so,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^lib\(boost_signals.*\)\.so.*$;\1;' -e 's;^lib\(boost_signals.*\)\.a*$;\1;'` ; do
+                     ax_lib=${libextension}
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_SIGNALS_LIB="-l$ax_lib"; AC_SUBST(BOOST_SIGNALS_LIB) link_signals="yes"; break],
                                  [link_signals="no"])
   				done
+                if test "x$link_signals" != "xyes"; then
+                for libextension in `ls $BOOSTLIBDIR/boost_signals*.{dll,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^\(boost_signals.*\)\.dll.*$;\1;' -e 's;^\(boost_signals.*\)\.a*$;\1;'` ; do
+                     ax_lib=${libextension}
+				    AC_CHECK_LIB($ax_lib, exit,
+                                 [BOOST_SIGNALS_LIB="-l$ax_lib"; AC_SUBST(BOOST_SIGNALS_LIB) link_signals="yes"; break],
+                                 [link_signals="no"])
+  				done
+                fi
+
             else
-               for ax_lib in $ax_boost_user_signals_lib $BN_BOOST_SIGNALS_LIB-$ax_boost_user_signals_lib; do
+               for ax_lib in $ax_boost_user_signals_lib boost_signals-$ax_boost_user_signals_lib; do
 				      AC_CHECK_LIB($ax_lib, main,
                                    [BOOST_SIGNALS_LIB="-l$ax_lib"; AC_SUBST(BOOST_SIGNALS_LIB) link_signals="yes"; break],
                                    [link_signals="no"])
                   done
 
             fi
-			if test "x$link_signals" = "xno"; then
+			if test "x$link_signals" != "xyes"; then
 				AC_MSG_ERROR(Could not link against $ax_lib !)
 			fi
 		fi

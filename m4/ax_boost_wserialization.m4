@@ -21,7 +21,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-26
+#   2007-11-22
 #
 # COPYLEFT
 #
@@ -77,24 +77,32 @@ AC_DEFUN([AX_BOOST_WSERIALIZATION],
 		])
 		if test "x$ax_cv_boost_wserialization" = "xyes"; then
 			AC_DEFINE(HAVE_BOOST_WSERIALIZATION,,[define if the Boost::WSerialization library is available])
-            BN_BOOST_WSERIALIZATION_LIB=boost_wserialization
             BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
             if test "x$ax_boost_user_wserialization_lib" = "x"; then
-                for libextension in `ls $BOOSTLIBDIR/libboost_wserialization*.{so,a}* | sed 's,.*/,,' | sed -e 's;^libboost_wserialization\(.*\)\.so.*$;\1;' -e 's;^libboost_wserialization\(.*\)\.a*$;\1;'` ; do
-                     ax_lib=${BN_BOOST_WSERIALIZATION_LIB}${libextension}
+                for libextension in `ls $BOOSTLIBDIR/libboost_wserialization*.{so,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^lib\(boost_wserialization.*\)\.so.*$;\1;' -e 's;^lib\(boost_wserialization.*\)\.a*$;\1;'` ; do
+                     ax_lib=${libextension}
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_WSERIALIZATION_LIB="-l$ax_lib"; AC_SUBST(BOOST_WSERIALIZATION_LIB) link_wserialization="yes"; break],
                                  [link_wserialization="no"])
   				done
+                if test "x$link_wserialization" != "xyes"; then
+                for libextension in `ls $BOOSTLIBDIR/boost_wserialization*.{dll,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^\(boost_wserialization.*\)\.dll.*$;\1;' -e 's;^\(boost_wserialization.*\)\.a*$;\1;'` ; do
+                     ax_lib=${libextension}
+				    AC_CHECK_LIB($ax_lib, exit,
+                                 [BOOST_WSERIALIZATION_LIB="-l$ax_lib"; AC_SUBST(BOOST_WSERIALIZATION_LIB) link_wserialization="yes"; break],
+                                 [link_wserialization="no"])
+  				done
+                fi
+
             else
-               for ax_lib in $ax_boost_user_wserialization_lib $BN_BOOST_WSERIALIZATION_LIB-$ax_boost_user_wserialization_lib; do
+               for ax_lib in $ax_boost_user_wserialization_lib boost_wserialization-$ax_boost_user_wserialization_lib; do
 				      AC_CHECK_LIB($ax_lib, main,
                                    [BOOST_WSERIALIZATION_LIB="-l$ax_lib"; AC_SUBST(BOOST_WSERIALIZATION_LIB) link_wserialization="yes"; break],
                                    [link_wserialization="no"])
                   done
 
             fi
-			if test "x$link_wserialization" = "xno"; then
+			if test "x$link_wserialization" != "xyes"; then
 				AC_MSG_ERROR(Could not link against $ax_lib !)
 			fi
 		fi
