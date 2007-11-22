@@ -38,6 +38,8 @@
 #     QT_LIBS
 #     QT_MOC
 #     QT_UIC
+#     QT_LRELEASE
+#     QT_LUPDATE
 #     QT_DIR
 #
 #   which respectively contain an "-I" flag pointing to the Qt include
@@ -81,17 +83,17 @@
 #
 # LAST MODIFICATION
 #
-#   2006-03-12
+#   2007-11-13
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Bastiaan Veelo <Bastiaan@Veelo.net>
+#   Copyright (c) 2007 Bastiaan Veelo <Bastiaan@Veelo.net>
 #
 #   Copying and distribution of this file, with or without
 #   modification, are permitted in any medium without royalty provided
 #   the copyright notice and this notice are preserved.
 
-dnl Copyright (C) 2001, 2002, 2003, 2005, 2006 Bastiaan Veelo
+dnl Copyright (C) 2001, 2002, 2003, 2005, 2006, 2007 Bastiaan Veelo
 
 dnl THANKS! This code includes bug fixes and contributions made by:
 dnl Tim McClarren,
@@ -101,8 +103,10 @@ dnl Brian Mingus,
 dnl Jens Hannemann,
 dnl Pavel Roskin,
 dnl Scott J. Bertin.
+dnl Pierre Hebert
 
 dnl ChangeLog
+dnl 2007-11-13  * Add QT_LRELEASE and QT_LUPDATE (due to Pierre Hebert)
 dnl 2006-03-12  * Hide output of ls and fix an m4 quoting problem (due to Scott J. Bertin).
 dnl 2006-02-13  * Check compiler return value instead of parsing the error stream,
 dnl               which detected warnings as false negatives (due to Jens Hannemann).
@@ -231,6 +235,8 @@ AC_DEFUN([BNV_HAVE_QT],
           QT_UIC=
         fi
       QT_MOC="$bnv_qt_dir/bin/moc"
+      QT_LRELEASE="$bnv_qt_dir/bin/lrelease"
+      QT_LUPDATE="$bnv_qt_dir/bin/lupdate"
     else
       # Or maybe we are told where to look for the utilities
       if test x"$bnv_qt_bin_dir" != x; then
@@ -241,10 +247,14 @@ AC_DEFUN([BNV_HAVE_QT],
           QT_UIC=
         fi
         QT_MOC="$bnv_qt_bin_dir/moc"
+        QT_LRELEASE="$bnv_qt_bin_dir/lrelease"
+        QT_LUPDATE="$bnv_qt_bin_dir/lupdate"
       else
       # Last possibility is that they are in $PATH
         QT_UIC="`which uic`"
         QT_MOC="`which moc`"
+        QT_LRELEASE="`which lrelease`"
+        QT_LUPDATE="`which lupdate`"
       fi
     fi
     # All variables are defined, report the result
@@ -253,7 +263,9 @@ AC_DEFUN([BNV_HAVE_QT],
     QT_DIR=$QT_DIR
     QT_LIBS=$QT_LIBS
     QT_UIC=$QT_UIC
-    QT_MOC=$QT_MOC])
+    QT_MOC=$QT_MOC
+    QT_LRELEASE=$QT_LRELEASE
+    QT_LUPDATE=$QT_LUPDATE])
   else
     # Qt was not found
     QT_CXXFLAGS=
@@ -261,6 +273,8 @@ AC_DEFUN([BNV_HAVE_QT],
     QT_LIBS=
     QT_UIC=
     QT_MOC=
+    QT_LRELEASE=
+    QT_LUPDATE=
     AC_MSG_RESULT($have_qt)
   fi
   AC_SUBST(QT_CXXFLAGS)
@@ -268,6 +282,8 @@ AC_DEFUN([BNV_HAVE_QT],
   AC_SUBST(QT_LIBS)
   AC_SUBST(QT_UIC)
   AC_SUBST(QT_MOC)
+  AC_SUBST(QT_LRELEASE)
+  AC_SUBST(QT_LUPDATE)
 
   #### Being paranoid:
   if test x"$have_qt" = xyes; then
