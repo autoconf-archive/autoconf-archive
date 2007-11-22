@@ -20,7 +20,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-26
+#   2007-11-22
 #
 # COPYLEFT
 #
@@ -73,25 +73,32 @@ AC_DEFUN([AX_BOOST_DATE_TIME],
 		])
 		if test "x$ax_cv_boost_date_time" = "xyes"; then
 			AC_DEFINE(HAVE_BOOST_DATE_TIME,,[define if the Boost::Date_Time library is available])
-			BN_BOOST_DATE_TIME_LIB=boost_date_time
             BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
             if test "x$ax_boost_user_date_time_lib" = "x"; then
-                for libextension in `ls $BOOSTLIBDIR/libboost_date_time*.{so,a}* | sed 's,.*/,,' | sed -e 's;^libboost_date_time\(.*\)\.so.*$;\1;' -e 's;^libboost_date_time\(.*\)\.a*$;\1;'` ; do
-                     ax_lib=${BN_BOOST_DATE_TIME_LIB}${libextension}
+                for libextension in `ls $BOOSTLIBDIR/libboost_date_time*.{so,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^lib\(boost_date_time.*\)\.so.*$;\1;' -e 's;^lib\(boost_date_time.*\)\.a*$;\1;'` ; do
+                     ax_lib=${libextension}
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_DATE_TIME_LIB="-l$ax_lib"; AC_SUBST(BOOST_DATE_TIME_LIB) link_date_time="yes"; break],
                                  [link_date_time="no"])
   				done
+                if test "x$link_date_time" != "xyes"; then
+                for libextension in `ls $BOOSTLIBDIR/boost_date_time*.{dll,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^\(boost_date_time.*\)\.dll.*$;\1;' -e 's;^\(boost_date_time.*\)\.a*$;\1;'` ; do
+                     ax_lib=${libextension}
+				    AC_CHECK_LIB($ax_lib, exit,
+                                 [BOOST_DATE_TIME_LIB="-l$ax_lib"; AC_SUBST(BOOST_DATE_TIME_LIB) link_date_time="yes"; break],
+                                 [link_date_time="no"])
+  				done
+                fi
 
             else
-               for ax_lib in $ax_boost_user_date_time_lib $BN_BOOST_DATE_TIME_LIB-$ax_boost_user_date_time_lib; do
+               for ax_lib in $ax_boost_user_date_time_lib boost_date_time-$ax_boost_user_date_time_lib; do
 				      AC_CHECK_LIB($ax_lib, main,
                                    [BOOST_DATE_TIME_LIB="-l$ax_lib"; AC_SUBST(BOOST_DATE_TIME_LIB) link_date_time="yes"; break],
                                    [link_date_time="no"])
                   done
 
             fi
-			if test "x$link_date_time" = "xno"; then
+			if test "x$link_date_time" != "xyes"; then
 				AC_MSG_ERROR(Could not link against $ax_lib !)
 			fi
 		fi

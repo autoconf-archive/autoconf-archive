@@ -21,7 +21,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-26
+#   2007-11-22
 #
 # COPYLEFT
 #
@@ -72,7 +72,6 @@ AC_DEFUN([AX_BOOST_TEST_EXEC_MONITOR],
 		])
 		if test "x$ax_cv_boost_test_exec_monitor" = "xyes"; then
 			AC_DEFINE(HAVE_BOOST_TEST_EXEC_MONITOR,,[define if the Boost::Test_Exec_Monitor library is available])
-			BN_BOOST_TEST_EXEC_MONITOR_LIB=boost_test_exec_monitor
             BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
 
             if test "x$ax_boost_user_test_exec_monitor_lib" = "x"; then
@@ -80,8 +79,8 @@ AC_DEFUN([AX_BOOST_TEST_EXEC_MONITOR],
 
                 for monitor_library in `ls $BOOSTLIBDIR/libboost_test_exec_monitor*.{so,a}* 2>/dev/null` ; do
                     if test -r $monitor_library ; then
-                       libextension=`echo $monitor_library | sed 's,.*/,,' | sed -e 's;^libboost_test_exec_monitor\(.*\)\.so.*$;\1;' -e 's;^libboost_test_exec_monitor\(.*\)\.a*$;\1;'`
-                       ax_lib=${BN_BOOST_TEST_EXEC_MONITOR_LIB}${libextension}
+                       libextension=`echo $monitor_library | sed 's,.*/,,' | sed -e 's;^lib\(boost_test_exec_monitor.*\)\.so.*$;\1;' -e 's;^lib\(boost_test_exec_monitor.*\)\.a*$;\1;'`
+                       ax_lib=${libextension}
                        link_test_exec_monitor="yes"
                     else
                        link_test_exec_monitor="no"
@@ -93,17 +92,26 @@ AC_DEFUN([AX_BOOST_TEST_EXEC_MONITOR],
 					  break
 				  fi
                 done
+                if test "x$link_test_exec_monitor" != "xyes"; then
+                for libextension in `ls $BOOSTLIBDIR/boost_test_exec_monitor*.{dll,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^\(boost_test_exec_monitor.*\)\.dll.*$;\1;' -e 's;^\(boost_test_exec_monitor.*\)\.a*$;\1;'` ; do
+                     ax_lib=${libextension}
+				    AC_CHECK_LIB($ax_lib, exit,
+                                 [BOOST_TEST_EXEC_MONITOR_LIB="-l$ax_lib"; AC_SUBST(BOOST_TEST_EXEC_MONITOR_LIB) link_test_exec_monitor="yes"; break],
+                                 [link_test_exec_monitor="no"])
+  				done
+                fi
+
             else
                 link_test_exec_monitor="no"
          		saved_ldflags="${LDFLAGS}"
-                for ax_lib in $BN_BOOST_TEST_EXEC_MONITOR_LIB-$ax_boost_user_test_exec_monitor_lib $ax_boost_user_test_exec_monitor_lib ; do
+                for ax_lib in boost_test_exec_monitor-$ax_boost_user_test_exec_monitor_lib $ax_boost_user_test_exec_monitor_lib ; do
                    if test "x$link_test_exec_monitor" = "xyes"; then
                       break;
                    fi
                    for monitor_library in `ls $BOOSTLIBDIR/lib${ax_lib}.{so,a}* 2>/dev/null` ; do
                    if test -r $monitor_library ; then
-                       libextension=`echo $monitor_library | sed 's,.*/,,' | sed -e 's;^libboost_test_exec_monitor\(.*\)\.so.*$;\1;' -e 's;^libboost_test_exec_monitor\(.*\)\.a*$;\1;'`
-                       ax_lib=${BN_BOOST_TEST_EXEC_MONITOR_LIB}${libextension}
+                       libextension=`echo $monitor_library | sed 's,.*/,,' | sed -e 's;^lib\(boost_test_exec_monitor.*\)\.so.*$;\1;' -e 's;^lib\(boost_test_exec_monitor.*\)\.a*$;\1;'`
+                       ax_lib=${libextension}
                        link_test_exec_monitor="yes"
                     else
                        link_test_exec_monitor="no"
@@ -117,7 +125,7 @@ AC_DEFUN([AX_BOOST_TEST_EXEC_MONITOR],
                   done
                done
             fi
-			if test "x$link_test_exec_monitor" = "xno"; then
+			if test "x$link_test_exec_monitor" != "xyes"; then
 				AC_MSG_ERROR(Could not link against $ax_lib !)
 			fi
 		fi

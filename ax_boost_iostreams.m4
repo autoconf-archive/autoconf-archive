@@ -20,7 +20,7 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-26
+#   2007-11-22
 #
 # COPYLEFT
 #
@@ -76,25 +76,32 @@ AC_DEFUN([AX_BOOST_IOSTREAMS],
 		])
 		if test "x$ax_cv_boost_iostreams" = "xyes"; then
 			AC_DEFINE(HAVE_BOOST_IOSTREAMS,,[define if the Boost::IOStreams library is available])
-    		BN_BOOST_IOSTREAMS_LIB=boost_iostreams
             BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
             if test "x$ax_boost_user_iostreams_lib" = "x"; then
-                for libextension in `ls $BOOSTLIBDIR/libboost_iostreams*.{so,a}* | sed 's,.*/,,' | sed -e 's;^libboost_iostreams\(.*\)\.so.*$;\1;' -e 's;^libboost_iostreams\(.*\)\.a*$;\1;'` ; do
-                     ax_lib=${BN_BOOST_IOSTREAMS_LIB}${libextension}
+                for libextension in `ls $BOOSTLIBDIR/libboost_iostreams*.{so,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^lib\(boost_iostreams.*\)\.so.*$;\1;' -e 's;^lib\(boost_iostreams.*\)\.a*$;\1;'` ; do
+                     ax_lib=${libextension}
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_IOSTREAMS_LIB="-l$ax_lib"; AC_SUBST(BOOST_IOSTREAMS_LIB) link_iostreams="yes"; break],
                                  [link_iostreams="no"])
   				done
+                if test "x$link_iostreams" != "xyes"; then
+                for libextension in `ls $BOOSTLIBDIR/boost_iostreams*.{dll,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^\(boost_iostreams.*\)\.dll.*$;\1;' -e 's;^\(boost_iostreams.*\)\.a*$;\1;'` ; do
+                     ax_lib=${libextension}
+				    AC_CHECK_LIB($ax_lib, exit,
+                                 [BOOST_IOSTREAMS_LIB="-l$ax_lib"; AC_SUBST(BOOST_IOSTREAMS_LIB) link_iostreams="yes"; break],
+                                 [link_iostreams="no"])
+  				done
+                fi
 
             else
-               for ax_lib in $ax_boost_user_iostreams_lib $BN_BOOST_IOSTREAMS_LIB-$ax_boost_user_iostreams_lib; do
+               for ax_lib in $ax_boost_user_iostreams_lib boost_iostreams-$ax_boost_user_iostreams_lib; do
 				      AC_CHECK_LIB($ax_lib, main,
                                    [BOOST_IOSTREAMS_LIB="-l$ax_lib"; AC_SUBST(BOOST_IOSTREAMS_LIB) link_iostreams="yes"; break],
                                    [link_iostreams="no"])
                   done
 
             fi
-			if test "x$link_iostreams" = "xno"; then
+			if test "x$link_iostreams" != "xyes"; then
 				AC_MSG_ERROR(Could not link against $ax_lib !)
 			fi
 		fi
