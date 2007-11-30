@@ -2,18 +2,66 @@
 #
 # SYNOPSIS
 #
-#   AX_GCC_OPTION(VARIABLE, OPTION, VALUE-IF-SUCCESSFUL, VALUE-IF-NOT-SUCCESFUL)
+#   AX_GCC_OPTION(OPTION,EXTRA-OPTIONS,TEST-PROGRAM,ACTION-IF-SUCCESSFUL,ACTION-IF-NOT-SUCCESFUL)
 #
 # DESCRIPTION
 #
 #   AX_GCC_OPTION checks wheter gcc accepts the passed OPTION. If it
-#   accepts the OPTION then then macro sets VARIABLE to
-#   VALUE-IF-SUCCESSFUL, otherwise it sets VARIABLE to
-#   VALUE-IF-UNSUCCESSFUL.
+#   accepts the OPTION then ACTION-IF-SUCCESSFUL will be executed,
+#   otherwise ACTION-IF-UNSUCCESSFUL.
+#
+#   NOTE: This macro will be obsoleted by AX_C_CHECK_FLAG
+#   AX_CXX_CHECK_FLAG, AX_CPP_CHECK_FLAG, AX_CXXCPP_CHECK_FLAG and
+#   AX_LD_CHECK_FLAG.
+#
+#   A typical usage should be the following one:
+#
+#     AX_GCC_OPTION([-fomit-frame-pointer],[],[],[
+#       AC_MSG_NOTICE([The option is supported])],[
+#       AC_MSG_NOTICE([No luck this time])
+#     ])
+#
+#   The macro doesn't discriminate between languages so, if you are
+#   testing for an option that works for C++ but not for C you should
+#   use '-x c++' as EXTRA-OPTIONS:
+#
+#     AX_GCC_OPTION([-fno-rtti],[-x c++],[],[ ... ],[ ... ])
+#
+#   OPTION is tested against the following code:
+#
+#     int main()
+#     {
+#             return 0;
+#     }
+#
+#   The optional TEST-PROGRAM comes handy when the default main() is
+#   not suited for the option being checked
+#
+#   So, if you need to test for -fstrict-prototypes option you should
+#   probably use the macro as follows:
+#
+#     AX_GCC_OPTION([-fstrict-prototypes],[-x c++],[
+#       int main(int argc, char ** argv)
+#       {
+#       	(void) argc;
+#       	(void) argv;
+#
+#       	return 0;
+#       }
+#     ],[ ... ],[ ... ])
+#
+#   Note that the macro compiles but doesn't link the test program so
+#   it is not suited for checking options that are passed to the
+#   linker, like:
+#
+#     -Wl,-L<a-library-path>
+#
+#   In order to avoid such kind of problems you should think about
+#   usinguse the AX_*_CHECK_FLAG family macros
 #
 # LAST MODIFICATION
 #
-#   2007-11-22
+#   2007-11-26
 #
 # COPYLEFT
 #
@@ -51,19 +99,36 @@
 #   modified version as well.
 
 AC_DEFUN([AX_GCC_OPTION], [
-AC_REQUIRE([AC_PROG_CC])
-if test "x$GCC" = "xyes"; then
-	echo "int main() { return 0; }" > conftest.c
-	AC_MSG_CHECKING([if gcc accepts $2 option])
-   	if AC_TRY_COMMAND($CC $2 conftest.c) >/dev/null 2>&1; then
-   		$1=$3
+  AC_REQUIRE([AC_PROG_CC])
+
+  AC_MSG_CHECKING([if gcc accepts $1 option])
+
+  AS_IF([ test "x$GCC" = "xyes" ],[
+    AS_IF([ test -z "$3" ],[
+      ax_gcc_option_test="int main()
+{
+	return 0;
+}"
+    ],[
+      ax_gcc_option_test="$3"
+    ])
+
+    # Dump the test program to file
+    cat <<EOF > conftest.c
+$ax_gcc_option_test
+EOF
+
+    # Dump back the file to the log, useful for debugging purposes
+    AC_TRY_COMMAND(cat conftest.c 1>&AS_MESSAGE_LOG_FD)
+
+    AS_IF([ AC_TRY_COMMAND($CC $2 $1 -c conftest.c 1>&AS_MESSAGE_LOG_FD) ],[
    	        AC_MSG_RESULT([yes])
-   	else
-   		$1=$4
+    	$4
+    ],[
    		AC_MSG_RESULT([no])
-   	fi
-else
-	unset $1
-        AC_MSG_RESULT([sorry, no gcc available])
-fi
+    	$5
+    ])
+  ],[
+    AC_MSG_RESULT([no gcc available])
+  ])
 ])
