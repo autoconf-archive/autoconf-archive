@@ -12,13 +12,22 @@
 #   path of the Automake missing script with prog-to-check-for as the
 #   command to run.
 #
+#   A typical use is the following:
+#
+#     AX_PATH_MISSING([AUTOGEN],[autogen],[autogen seems missing ...])
+#
+#   This macro is the combination of AC_PATH_PROG and AX_MISSING_PROG.
+#   If you do not want to run AC_PATH_PROG, simply use AX_MISSING_PROG
+#   or AM_MISSING.
+#
 # LAST MODIFICATION
 #
-#   2007-06-01
+#   2007-11-28
 #
 # COPYLEFT
 #
 #   Copyright (c) 2007 Noah Slater <nslater@bytesexual.org>
+#   Copyright (c) 2007 Francesco Salvestrini <salvestrini@sourceforge.net>
 #
 #   Copying and distribution of this file, with or without
 #   modification, are permitted in any medium without royalty provided
@@ -26,8 +35,7 @@
 
 AC_DEFUN([AX_PATH_MISSING], [
     AC_PATH_PROG([$1], [$2], [$4])
-    if test x${$1} = x; then
-        AC_MSG_WARN([$3])
-        AC_SUBST([$1], [${am_missing_run}[$2]])
-    fi
+    AS_IF([ test -z "$1" ],[
+        AX_MISSING_PROG([$1],[$2],[$3])
+    ])
 ])
