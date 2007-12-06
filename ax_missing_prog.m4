@@ -6,19 +6,21 @@
 #
 # DESCRIPTION
 #
-#   Simple wrapper to the AM_MISSING_PROG which displays a MESSAGE
-#   whenever provided. A typical use is the following:
+#   Simple wrapper for the AM_MISSING_PROG which displays a warning
+#   MESSAGE if provided. A typical use is the following:
 #
 #     AC_PROG_AWK
 #     AS_IF([test -z "$AWK"],[
-#       AX_MISSING_PROG(AWK,[awk],[grep seems missing ...])
+#       AX_MISSING_PROG(AWK,[awk],[awk seems missing ...])
 #     ])
 #
-#   If you need to use AC_PATH_PROG, use AX_PATH_MISSING instead.
+#   Programs wrapped with AX_MISSING_PROG should be used only in the
+#   package building phase (because they will be wrapped with the
+#   automake 'missing' script, which will not be installed).
 #
 # LAST MODIFICATION
 #
-#   2007-11-28
+#   2007-12-05
 #
 # COPYLEFT
 #
