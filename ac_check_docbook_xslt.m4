@@ -18,7 +18,7 @@
 #
 #   $HAVE_DOCBOOK_XSLT_VERS will be set to 'yes' or 'no' depending on
 #   the results of the test, where VERS is $1, with '_' substituted for
-#   '.' $HAVE_DOCBOOK_XSLT will also be set to the same value.
+#   '.'. $HAVE_DOCBOOK_XSLT will also be set to the same value.
 #
 #   Example:
 #
@@ -28,12 +28,12 @@
 #
 # LAST MODIFICATION
 #
-#   2007-05-15
+#   2008-01-10
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Zmanda Inc. <http://www.zmanda.com/>
-#   Copyright (c) 2007 Dustin J. Mitchell <dustin@zmanda.com>
+#   Copyright (c) 2008 Zmanda Inc. <http://www.zmanda.com/>
+#   Copyright (c) 2008 Dustin J. Mitchell <dustin@zmanda.com>
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as
@@ -73,6 +73,9 @@ AC_DEFUN([AC_CHECK_DOCBOOK_XSLT],
     dnl used with multiple versions
     define([_VERS], $1)
     ifelse(_VERS, [], [define([_VERS], [current])])
+
+    dnl define variable names ending in _VERS which will actually have the
+    dnl version number as a suffix
     define([ac_cv_docbook_xslt_VERS], patsubst([ac_cv_docbook_xslt_]_VERS, [\.], [_]))
     define([HAVE_DOCBOOK_XSLT_VERS], patsubst([HAVE_DOCBOOK_XSLT_]_VERS, [\.], [_]))
 
@@ -81,7 +84,7 @@ AC_DEFUN([AC_CHECK_DOCBOOK_XSLT],
 	ac_cv_docbook_xslt_VERS=no
 	if test -n "$XSLTPROC"; then
 	    echo "Trying '$XSLTPROC $XSLTPROC_FLAGS http://docbook.sourceforge.net/release/xsl/_VERS/xhtml/docbook.xsl'" >&AS_MESSAGE_LOG_FD
-	    $XSLTPROC $XSLTPROC_FLAGS http://docbook.sourceforge.net/release/xsl/_VERS/xhtml/docbook.xsl >&AS_MESSAGE_LOG_FD 2>&1
+	    $XSLTPROC $XSLTPROC_FLAGS http://docbook.sourceforge.net/release/xsl/_VERS/xhtml/docbook.xsl >&AS_MESSAGE_LOG_FD 2>&AS_MESSAGE_LOG_FD
 
 	    if test "$?" = 0; then
 		ac_cv_docbook_xslt_VERS=yes
@@ -90,6 +93,10 @@ AC_DEFUN([AC_CHECK_DOCBOOK_XSLT],
     ])
 
     HAVE_DOCBOOK_XSLT_VERS="$ac_cv_docbook_xslt_VERS"
-    HAVE_DOCBOOK_XSLT=HAVE_DOCBOOK_XSLT_VERS
+    HAVE_DOCBOOK_XSLT="$HAVE_DOCBOOK_XSLT_VERS"
+
+    dnl clean up m4 namespace
     undefine([_VERS])
+    undefine([ac_cv_docbook_xslt_VERS])
+    undefine([HAVE_DOCBOOK_XSLT_VERS])
 ])
