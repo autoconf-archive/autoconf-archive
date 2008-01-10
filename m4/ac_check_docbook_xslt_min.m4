@@ -15,16 +15,16 @@
 #
 #    AC_CHECK_DOCBOOK_XSLT_MIN(1.72.0)
 #    if test "x$DOCBOOK_XSLT_CURRENT_VERSION" = "xno"; then
-#      ..
+#    ...
 #
 # LAST MODIFICATION
 #
-#   2007-05-15
+#   2008-01-10
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Zmanda Inc. <http://www.zmanda.com/>
-#   Copyright (c) 2007 Dustin J. Mitchell <dustin@zmanda.com>
+#   Copyright (c) 2008 Zmanda Inc. <http://www.zmanda.com/>
+#   Copyright (c) 2008 Dustin J. Mitchell <dustin@zmanda.com>
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as
@@ -99,45 +99,15 @@ EOF
     if test x"$DOCBOOK_XSLT_CURRENT_VERSION" = x"no"; then
 	AC_MSG_RESULT([no])
     else
-	# compare versions (current on left, minimum on right)
-
-	# for each pattern, get the component number, or default to zero if not found
-	changequote(,)
-	MAJPAT='/^[0-9]*\./{               s/^\([0-9]*\)\..*/\1/;q};                 s/.*/0/; q'
-	MINPAT='/^[0-9]*\.[0-9]*\./{       s/^[0-9]*\.\([0-9]*\)\..*/\1/;q};         s/.*/0/; q'
-	REVPAT='/^[0-9]*\.[0-9]*\.[0-9]*/{ s/^[0-9]*\.[0-9]*\.\([0-9]*\).*/\1/;q};   s/.*/0/; q'
-	changequote([,])
-
-	# major version
-	left=`echo "$DOCBOOK_XSLT_CURRENT_VERSION"|sed "$MAJPAT"`
-	right=`echo "$1"|sed "$MAJPAT"`
-	if test $left -lt $right; then
+	AX_COMPARE_VERSION([$DOCBOOK_XSLT_CURRENT_VERSION], [lt], [$1], [
+	    # version is less than required, so mark it as "no"
 	    DOCBOOK_XSLT_CURRENT_VERSION=no
-	else
-	    # minor version
-	    left=`echo "$DOCBOOK_XSLT_CURRENT_VERSION"|sed "$MINPAT"`
-	    right=`echo "$1"|sed "$MINPAT"`
-	    if test $left -lt $right; then
-		DOCBOOK_XSLT_CURRENT_VERSION=no
-	    else
-		# revision
-		left=`echo "$DOCBOOK_XSLT_CURRENT_VERSION"|sed "$REVPAT"`
-		right=`echo "$1"|sed "$REVPAT"`
-		if test $left -lt $right; then
-		    DOCBOOK_XSLT_CURRENT_VERSION=no
-		fi
-	    fi
-	fi
-	MAJPAT=''
-	MINPAT=''
-	REVPAT=''
-	left=''
-	right=''
+	])
 
 	if test x"$DOCBOOK_XSLT_CURRENT_VERSION" = x"no"; then
 	    AC_MSG_RESULT([no])
 	else
-	    AC_MSG_RESULT([yes])
+	    AC_MSG_RESULT([yes ($DOCBOOK_XSLT_CURRENT_VERSION)])
 	fi
     fi
 ])
