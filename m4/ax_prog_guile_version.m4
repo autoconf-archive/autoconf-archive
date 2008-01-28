@@ -1,17 +1,28 @@
-##### http://autoconf-archive.cryp.to/ax_with_python.html
+##### http://autoconf-archive.cryp.to/ax_prog_guile_version.html
 #
 # SYNOPSIS
 #
-#   AX_WITH_PYTHON([VALUE-IF-NOT-FOUND],[PATH])
+#   AX_PROG_GUILE_VERSION([VERSION],[ACTION-IF-TRUE],[ACTION-IF-FALSE])
 #
 # DESCRIPTION
 #
-#   Locates an installed Python binary, placing the result in the
-#   precious variable $PYTHON. Accepts a present $PYTHON, then
-#   --with-python, and failing that searches for python in the given
-#   path (which defaults to the system path). If python is found,
-#   $PYTHON is set to the full path of the binary; if it is not found,
-#   $PYTHON is set to VALUE-IF-NOT-FOUND, which defaults to 'python'.
+#   Makes sure that guile supports the version indicated. If true the
+#   shell commands in ACTION-IF-TRUE are executed. If not the shell
+#   commands in ACTION-IF-FALSE are run. Note if $GUILE is not set (for
+#   example by running AC_CHECK_PROG or AC_PATH_PROG),
+#
+#   Example:
+#
+#     AC_PATH_PROG([GUILE],[guile])
+#     AC_PROG_GUILE_VERSION([1.6.0],[ ... ],[ ... ])
+#
+#   This will check to make sure that the guile you have supports at
+#   least version 1.6.0.
+#
+#   NOTE: This macro uses the $GUILE variable to perform the check.
+#   AX_WITH_GUILE can be used to set that variable prior to running
+#   this macro. The $GUILE_VERSION variable will be valorized with the
+#   detected version.
 #
 # LAST MODIFICATION
 #
@@ -51,6 +62,29 @@
 #   may extend this special exception to the GPL to apply to your
 #   modified version as well.
 
-AC_DEFUN([AX_WITH_PYTHON],[
-    AX_WITH_PROG(PYTHON,python)
+AC_DEFUN([AX_PROG_GUILE_VERSION],[
+    AC_REQUIRE([AC_PROG_SED])
+
+    AS_IF([test -n "$GUILE"],[
+        ax_guile_version="$1"
+
+        AC_MSG_CHECKING([for guile version])
+        changequote(<<,>>)
+        guile_version=`$GUILE -q --version 2>&1 | head -n 1 | $SED -e 's/.* \([0-9]*\.[0-9]*\.[0-9]*\)/\1/'`
+        changequote([,])
+        AC_MSG_RESULT($guile_version)
+
+	AC_SUBST([GUILE_VERSION],[$guile_version])
+
+        AX_COMPARE_VERSION([$ax_guile_version],[le],[$guile_version],[
+	    :
+            $2
+        ],[
+	    :
+            $3
+        ])
+    ],[
+        AC_MSG_WARN([could not find the guile interpreter])
+        $3
+    ])
 ])

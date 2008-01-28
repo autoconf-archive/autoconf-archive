@@ -1,17 +1,17 @@
-##### http://autoconf-archive.cryp.to/ax_with_python.html
+##### http://autoconf-archive.cryp.to/ax_with_guile.html
 #
 # SYNOPSIS
 #
-#   AX_WITH_PYTHON([VALUE-IF-NOT-FOUND],[PATH])
+#   AX_WITH_GUILE([VALUE-IF-NOT-FOUND],[PATH])
 #
 # DESCRIPTION
 #
-#   Locates an installed Python binary, placing the result in the
-#   precious variable $PYTHON. Accepts a present $PYTHON, then
-#   --with-python, and failing that searches for python in the given
-#   path (which defaults to the system path). If python is found,
-#   $PYTHON is set to the full path of the binary; if it is not found,
-#   $PYTHON is set to VALUE-IF-NOT-FOUND, which defaults to 'python'.
+#   Locates an installed Guile binary, placing the result in the
+#   precious variable $GUILE. Accepts a present $GUILE, then
+#   --with-guile, and failing that searches for guile in the given path
+#   (which defaults to the system path). If guile is found, $GUILE is
+#   set to the full path of the binary; if it is not found, $GUILE is
+#   set to VALUE-IF-NOT-FOUND, which defaults to 'guile'.
 #
 # LAST MODIFICATION
 #
@@ -51,6 +51,6 @@
 #   may extend this special exception to the GPL to apply to your
 #   modified version as well.
 
-AC_DEFUN([AX_WITH_PYTHON],[
-    AX_WITH_PROG(PYTHON,python)
+AC_DEFUN([AX_WITH_GUILE],[
+    AX_WITH_PROG(GUILE,guile)
 ])

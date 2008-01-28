@@ -1,17 +1,28 @@
-##### http://autoconf-archive.cryp.to/ax_with_python.html
+##### http://autoconf-archive.cryp.to/ax_prog_python_version.html
 #
 # SYNOPSIS
 #
-#   AX_WITH_PYTHON([VALUE-IF-NOT-FOUND],[PATH])
+#   AX_PROG_PYTHON_VERSION([VERSION],[ACTION-IF-TRUE],[ACTION-IF-FALSE])
 #
 # DESCRIPTION
 #
-#   Locates an installed Python binary, placing the result in the
-#   precious variable $PYTHON. Accepts a present $PYTHON, then
-#   --with-python, and failing that searches for python in the given
-#   path (which defaults to the system path). If python is found,
-#   $PYTHON is set to the full path of the binary; if it is not found,
-#   $PYTHON is set to VALUE-IF-NOT-FOUND, which defaults to 'python'.
+#   Makes sure that python supports the version indicated. If true the
+#   shell commands in ACTION-IF-TRUE are executed. If not the shell
+#   commands in ACTION-IF-FALSE are run. Note if $PYTHON is not set
+#   (for example by running AC_CHECK_PROG or AC_PATH_PROG),
+#
+#   Example:
+#
+#     AC_PATH_PROG([PYTHON],[python])
+#     AC_PROG_PYTHON_VERSION([2.4.4],[ ... ],[ ... ])
+#
+#   This will check to make sure that the python you have supports at
+#   least version 2.4.4.
+#
+#   NOTE: This macro uses the $PYTHON variable to perform the check.
+#   AX_WITH_PYTHON can be used to set that variable prior to running
+#   this macro. The $PYTHON_VERSION variable will be valorized with the
+#   detected version.
 #
 # LAST MODIFICATION
 #
@@ -51,6 +62,30 @@
 #   may extend this special exception to the GPL to apply to your
 #   modified version as well.
 
-AC_DEFUN([AX_WITH_PYTHON],[
-    AX_WITH_PROG(PYTHON,python)
+AC_DEFUN([AX_PROG_PYTHON_VERSION],[
+    AC_REQUIRE([AC_PROG_SED])
+    AC_REQUIRE([AC_PROG_GREP])
+
+    AS_IF([test -n "$PYTHON"],[
+        ax_python_version="$1"
+
+        AC_MSG_CHECKING([for python version])
+        changequote(<<,>>)
+        python_version=`$PYTHON -V 2>&1 | $GREP "^Python " | $SED -e 's/^.* \([0-9]*\.[0-9]*\.[0-9]*\)/\1/'`
+        changequote([,])
+        AC_MSG_RESULT($python_version)
+
+	AC_SUBST([PYTHON_VERSION],[$python_version])
+
+        AX_COMPARE_VERSION([$ax_python_version],[le],[$python_version],[
+	    :
+            $2
+        ],[
+	    :
+            $3
+        ])
+    ],[
+        AC_MSG_WARN([could not find the python interpreter])
+        $3
+    ])
 ])

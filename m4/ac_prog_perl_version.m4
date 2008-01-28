@@ -1,5 +1,9 @@
 ##### http://autoconf-archive.cryp.to/ac_prog_perl_version.html
 #
+# OBSOLETE MACRO
+#
+#   Replaced by AX_PROG_PERL_VERSION.
+#
 # SYNOPSIS
 #
 #   AC_PROG_PERL_VERSION(VERSION, [ACTION-IF-TRUE], [ACTION-IF-FALSE])
@@ -21,11 +25,11 @@
 #
 # LAST MODIFICATION
 #
-#   2002-09-25
+#   2008-01-28
 #
 # COPYLEFT
 #
-#   Copyright (c) 2002 Dean Povey <povey@wedgetail.com>
+#   Copyright (c) 2008 Dean Povey <povey@wedgetail.com>
 #
 #   Copying and distribution of this file, with or without
 #   modification, are permitted in any medium without royalty provided

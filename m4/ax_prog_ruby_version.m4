@@ -1,17 +1,28 @@
-##### http://autoconf-archive.cryp.to/ax_with_python.html
+##### http://autoconf-archive.cryp.to/ax_prog_ruby_version.html
 #
 # SYNOPSIS
 #
-#   AX_WITH_PYTHON([VALUE-IF-NOT-FOUND],[PATH])
+#   AX_PROG_RUBY_VERSION([VERSION],[ACTION-IF-TRUE],[ACTION-IF-FALSE])
 #
 # DESCRIPTION
 #
-#   Locates an installed Python binary, placing the result in the
-#   precious variable $PYTHON. Accepts a present $PYTHON, then
-#   --with-python, and failing that searches for python in the given
-#   path (which defaults to the system path). If python is found,
-#   $PYTHON is set to the full path of the binary; if it is not found,
-#   $PYTHON is set to VALUE-IF-NOT-FOUND, which defaults to 'python'.
+#   Makes sure that ruby supports the version indicated. If true the
+#   shell commands in ACTION-IF-TRUE are executed. If not the shell
+#   commands in ACTION-IF-FALSE are run. Note if $RUBY is not set (for
+#   example by running AC_CHECK_PROG or AC_PATH_PROG),
+#
+#   Example:
+#
+#     AC_PATH_PROG([RUBY],[ruby])
+#     AC_PROG_RUBY_VERSION([1.8.0],[ ... ],[ ... ])
+#
+#   This will check to make sure that the ruby you have supports at
+#   least version 1.6.0.
+#
+#   NOTE: This macro uses the $RUBY variable to perform the check.
+#   AX_WITH_RUBY can be used to set that variable prior to running this
+#   macro. The $RUBY_VERSION variable will be valorized with the
+#   detected version.
 #
 # LAST MODIFICATION
 #
@@ -51,6 +62,30 @@
 #   may extend this special exception to the GPL to apply to your
 #   modified version as well.
 
-AC_DEFUN([AX_WITH_PYTHON],[
-    AX_WITH_PROG(PYTHON,python)
+AC_DEFUN([AX_PROG_RUBY_VERSION],[
+    AC_REQUIRE([AC_PROG_SED])
+    AC_REQUIRE([AC_PROG_GREP])
+
+    AS_IF([test -n "$RUBY"],[
+        ax_ruby_version="$1"
+
+        AC_MSG_CHECKING([for ruby version])
+        changequote(<<,>>)
+        ruby_version=`$RUBY --version 2>&1 | $GREP "^ruby " | $SED -e 's/^.* \([0-9]*\.[0-9]*\.[0-9]*\) .*/\1/'`
+        changequote([,])
+        AC_MSG_RESULT($ruby_version)
+
+	AC_SUBST([RUBY_VERSION],[$ruby_version])
+
+        AX_COMPARE_VERSION([$ax_ruby_version],[le],[$ruby_version],[
+	    :
+            $2
+        ],[
+	    :
+            $3
+        ])
+    ],[
+        AC_MSG_WARN([could not find the ruby interpreter])
+        $3
+    ])
 ])
