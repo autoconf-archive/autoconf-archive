@@ -28,12 +28,12 @@
 #
 # LAST MODIFICATION
 #
-#   2006-10-13
+#   2008-01-28
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Sven Verdoolaege <skimo*liacs.nl>
-#   Copyright (c) 2006 Guido U. Draheim <guidod@gmx.de>
+#   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
+#   Copyright (c) 2008 Sven Verdoolaege <skimo@kotnet.org>
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as
