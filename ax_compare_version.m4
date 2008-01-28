@@ -6,8 +6,7 @@
 #
 # DESCRIPTION
 #
-#   This macro compares two version strings. It is used heavily in the
-#   macro _AX_PATH_BDB for library checking. Due to the various number
+#   This macro compares two version strings. Due to the various number
 #   of minor-version numbers that can exist, and the fact that string
 #   comparisons are not compatible with numeric comparisons, this is
 #   not necessarily trivial to do in a autoconf script. This macro
