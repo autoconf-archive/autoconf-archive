@@ -35,11 +35,11 @@
 #
 # LAST MODIFICATION
 #
-#   2006-07-16
+#   2008-01-29
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Mateusz Loskot <mateusz@loskot.net>
+#   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
 #
 #   Copying and distribution of this file, with or without
 #   modification, are permitted in any medium without royalty provided
@@ -66,7 +66,7 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
 
     POSTGRESQL_CFLAGS=""
     POSTGRESQL_LDFLAGS=""
-    POSTGRESQL_POSTGRESQL=""
+    POSTGRESQL_VERSION=""
 
     dnl
     dnl Check PostgreSQL libraries (libpq)
@@ -75,7 +75,13 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
     if test "$want_postgresql" = "yes"; then
 
         if test -z "$PG_CONFIG" -o test; then
-            AC_PATH_PROG([PG_CONFIG], [pg_config], [no])
+            AC_PATH_PROG([PG_CONFIG], [pg_config], [])
+        fi
+
+        if test ! -x "$PG_CONFIG"; then
+            AC_MSG_ERROR([$PG_CONFIG does not exist or it is not an exectuable file])
+            PG_CONFIG="no"
+            found_postgresql="no"
         fi
 
         if test "$PG_CONFIG" != "no"; then
