@@ -35,7 +35,7 @@
 
 AC_DEFUN([AX_PATH_MISSING], [
     AC_PATH_PROG([$1], [$2], [$4])
-    AS_IF([ test -z "$1" ],[
+    AS_IF([ test -z "${$1}" ],[
         AX_MISSING_PROG([$1],[$2],[$3])
     ])
 ])
