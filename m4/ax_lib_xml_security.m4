@@ -7,9 +7,9 @@
 # DESCRIPTION
 #
 #   This macro provides tests of availability of Apache Xml-Security
-#   C++ library of particular version or newer. This macros checks for
-#   Apache Xml-Security C++ headers and libraries and defines
-#   compilation flags
+#   C++ library <http://santuario.apache.org/index.html> of particular
+#   version or newer. This macros checks for Apache Xml-Security C++
+#   headers and libraries and defines compilation flags
 #
 #   Macro supports following options and their values:
 #
