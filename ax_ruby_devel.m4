@@ -14,15 +14,13 @@
 #   You can search for some particular version of Ruby by passing a
 #   parameter to this macro, for example "1.8.6".
 #
-#   The code is based on the original macro AC_PYTHON_DEVEL.
-#
 # LAST MODIFICATION
 #
-#   2008-02-12
+#   2008-02-20
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Rafa Rzepecki <divided.mind@gmail.com>
+#   Copyright (c) 2008 Rafal Rzepecki <divided.mind@gmail.com>
 #   Copyright (c) 2008 Sebastian Huber <sebastian-huber@web.de>
 #   Copyright (c) 2008 Alan W. Irwin <irwin@beluga.phys.uvic.ca>
 #   Copyright (c) 2008 Rafael Laboissiere <rafael@laboissiere.net>
