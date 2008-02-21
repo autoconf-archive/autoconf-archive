@@ -10,24 +10,25 @@ Autoconf Macro Contributors
   Luc Maisonobe
   Guido U. Draheim
   Todd Veldhuizen
-  Tom Howard
   Thomas Porschberg
+  Tom Howard
   Bogdan Drozdowski
   Gleen Salmon
   Steven G. Johnson
   Bruce Korb
   Stephane Bortzmeyer
-  Dustin J. Mitchell
   Michael Tindal
   Mateusz Loskot
-  Loic Dachary
+  Dustin J. Mitchell
   Andrew Collier
-  Alexandre Duret-Lutz
-  Warren Young
   Sebastian Huber
   Rafael Laboissiere
-  Ludovic Courtès
+  Loic Dachary
+  Duncan Simpson
+  Alexandre Duret-Lutz
   Alan W. Irwin
+  Warren Young
+  Ludovic Courtès
   Ville Laurikari
   Scott Pakin
   Matteo Frigo
@@ -42,7 +43,6 @@ Autoconf Macro Contributors
   Patrick Mauritz
   Moritz Sinn
   Mark Elbrecht
-  Duncan Simpson
   Devin Weaver
   Akos Maroy
   YAMAMOTO Kengo
@@ -56,10 +56,11 @@ Autoconf Macro Contributors
   Michael Paul Bailey
   Matthew Mueller
   Matthew D. Langston
+  Matteo Settenvini
   Julian C. Cummings
   Jan Langer
+  Horst Knorr
   Egon Willighagen
-  Dean Povey
   Daniel Richard G.
   Alexander Pletzer
   raf
@@ -75,6 +76,7 @@ Autoconf Macro Contributors
   Ruben Fonseca
   Ronald Landheer-Cieslak
   Robert White
+  Rafal Rzepecki
   Pete Greenwell
   Perceval ANICHINI
   Paul Gilmartin
@@ -83,7 +85,6 @@ Autoconf Macro Contributors
   Nick Markham
   Nic Ferrier
   Neil Ferguson
-  Matteo Settenvini
   Marten Svantesson
   Mark R. Bannister
   Mark Pulford
@@ -96,13 +97,14 @@ Autoconf Macro Contributors
   Kaelin Colclasure
   John Darrington
   Ilguiz Latypov
-  Horst Knorr
   Graeme S. Roy
   Gerald Point
   Don Anderson
   Dodji Seketeli
+  Dean Povey
   David Cluytens
   Dave Benson
+  Daniel Casimiro
   Daniel Amelang
   Dale K. Hawkins
   Christopher Currie
@@ -115,7 +117,9 @@ Autoconf Macro Contributors
   Ben Bergen
   Bastiaan Veelo
   Angus Lees
+  Andy Kitchen
   Andreas Schwab
   Alexandre Oliva
+  Alexander Petry
   Alan Woodland
   Ahmet Inan
