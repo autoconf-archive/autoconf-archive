@@ -27,11 +27,11 @@
 #
 # LAST MODIFICATION
 #
-#   2006-07-15
+#   2008-03-17
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Mateusz Loskot <mateusz@loskot.net>
+#   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
 #
 #   Copying and distribution of this file, with or without
 #   modification, are permitted in any medium without royalty provided
@@ -89,8 +89,8 @@ AC_DEFUN([AX_LIB_SQLITE3],
                 if test -f "$ac_sqlite3_path_tmp/include/$ac_sqlite3_header" \
                     && test -r "$ac_sqlite3_path_tmp/include/$ac_sqlite3_header"; then
                     ac_sqlite3_path=$ac_sqlite3_path_tmp
-                    ac_sqlite3_ldflags="-I$ac_sqlite3_path_tmp/include"
-                    ac_sqlite3_cppflags="-L$ac_sqlite3_path_tmp/lib"
+                    ac_sqlite3_cppflags="-I$ac_sqlite3_path_tmp/include"
+                    ac_sqlite3_ldflags="-L$ac_sqlite3_path_tmp/lib"
                     break;
                 fi
             done
@@ -149,7 +149,7 @@ AC_DEFUN([AX_LIB_SQLITE3],
             AC_SUBST(SQLITE3_CFLAGS)
             AC_SUBST(SQLITE3_LDFLAGS)
             AC_SUBST(SQLITE3_VERSION)
-            AC_DEFINE(HAVE_SQLITE3)
+            AC_DEFINE([HAVE_SQLITE3], [], [Have the SQLITE3 library])
         fi
     fi
 ])
