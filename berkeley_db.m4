@@ -21,11 +21,11 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-29
+#   2008-03-30
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Vaclav Slavik <vaclav.slavik@matfyz.cz>
+#   Copyright (c) 2008 Vaclav Slavik <vaclav.slavik@matfyz.cz>
 #
 #   Copying and distribution of this file, with or without
 #   modification, are permitted in any medium without royalty provided
@@ -103,7 +103,7 @@ AC_DEFUN([AX_BERKELEY_DB],
     AC_MSG_RESULT([not found])
     ifelse([$3], , :, [$3])
   else
-    AC_DEFINE_UNQUOTED(DB_HEADER, ["$DB_HEADER"])
+    AC_DEFINE_UNQUOTED(DB_HEADER, ["$DB_HEADER"], ["Berkeley DB Header File"])
     AC_SUBST(DB_LIBS)
     ifelse([$2], , :, [$2])
   fi
