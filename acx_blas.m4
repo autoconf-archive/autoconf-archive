@@ -37,11 +37,11 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-29
+#   2008-03-31
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Steven G. Johnson <stevenj@alum.mit.edu>
+#   Copyright (c) 2008 Steven G. Johnson <stevenj@alum.mit.edu>
 #
 #   This program is free software: you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as
@@ -130,6 +130,18 @@ if test $acx_blas_ok = no; then
 			[acx_blas_ok=yes; BLAS_LIBS="-lsgemm -ldgemm -lblas"],
 			[], [-lblas])],
 			[], [-lblas])])
+fi
+
+# BLAS in Intel MKL library?
+if test $acx_blas_ok = no; then
+	AC_CHECK_LIB(mkl, $sgemm, [acx_blas_ok=yes;BLAS_LIBS="-lmkl"])
+fi
+
+# BLAS in Apple vecLib library?
+if test $acx_blas_ok = no; then
+	save_LIBS="$LIBS"; LIBS="-framework vecLib $LIBS"
+	AC_CHECK_FUNC($sgemm, [acx_blas_ok=yes;BLAS_LIBS="-framework vecLib"])
+	LIBS="$save_LIBS"
 fi
 
 # BLAS in Alpha CXML library?
