@@ -23,11 +23,11 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-28
+#   2008-03-24
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Thomas Porschberg <thomas@randspringer.de>
+#   Copyright (c) 2008 Thomas Porschberg <thomas@randspringer.de>
 #
 #   Copying and distribution of this file, with or without
 #   modification, are permitted in any medium without royalty provided
@@ -49,6 +49,21 @@ AC_ARG_WITH([boost],
 	fi
     ],
     [want_boost="yes"])
+
+
+AC_ARG_WITH([boost-libdir],
+        AS_HELP_STRING([--with-boost-libdir=LIB_DIR],
+        [Force given directory for boost libraries. Note that this will overwrite library path detection, so use this parameter only if default library detection fails and you know exactly where your boost libraries are located.]),
+        [
+        if test -d $withval
+        then
+                ac_boost_lib_path="$withval"
+        else
+                AC_MSG_ERROR(--with-boost-libdir expected directory name)
+        fi
+        ],
+        [ac_boost_lib_path=""]
+)
 
 if test "x$want_boost" = "xyes"; then
 	boost_lib_version_req=ifelse([$1], ,1.20.0,$1)
@@ -78,6 +93,12 @@ if test "x$want_boost" = "xyes"; then
 			fi
 		done
 	fi
+
+    dnl overwrite ld flags if we have required special directory with
+    dnl --with-boost-libdir parameter
+    if test "$ac_boost_lib_path" != ""; then
+       BOOST_LDFLAGS="-L$ac_boost_lib_path"
+    fi
 
 	CPPFLAGS_SAVED="$CPPFLAGS"
 	CPPFLAGS="$CPPFLAGS $BOOST_CPPFLAGS"
@@ -111,7 +132,6 @@ if test "x$want_boost" = "xyes"; then
 	if test "x$succeeded" != "xyes"; then
 		_version=0
 		if test "$ac_boost_path" != ""; then
-               		BOOST_LDFLAGS="-L$ac_boost_path/lib"
 			if test -d "$ac_boost_path" && test -r "$ac_boost_path"; then
 				for i in `ls -d $ac_boost_path/include/boost-* 2>/dev/null`; do
 					_version_tmp=`echo $i | sed "s#$ac_boost_path##" | sed 's/\/include\/boost-//' | sed 's/_/./'`
@@ -139,7 +159,10 @@ if test "x$want_boost" = "xyes"; then
 
 			VERSION_UNDERSCORE=`echo $_version | sed 's/\./_/'`
 			BOOST_CPPFLAGS="-I$best_path/include/boost-$VERSION_UNDERSCORE"
-			BOOST_LDFLAGS="-L$best_path/lib"
+            if test "$ac_boost_lib_path" = ""
+            then
+               BOOST_LDFLAGS="-L$best_path/lib"
+            fi
 
 	    		if test "x$BOOST_ROOT" != "x"; then
 				if test -d "$BOOST_ROOT" && test -r "$BOOST_ROOT" && test -d "$BOOST_ROOT/stage/lib" && test -r "$BOOST_ROOT/stage/lib"; then
@@ -147,7 +170,7 @@ if test "x$want_boost" = "xyes"; then
 					stage_version=`echo $version_dir | sed 's/boost_//' | sed 's/_/./g'`
 			        	stage_version_shorten=`expr $stage_version : '\([[0-9]]*\.[[0-9]]*\)'`
 					V_CHECK=`expr $stage_version_shorten \>\= $_version`
-				        if test "$V_CHECK" = "1" ; then
+                    if test "$V_CHECK" = "1" -a "$ac_boost_lib_path" = "" ; then
 						AC_MSG_NOTICE(We will use a staged boost library from $BOOST_ROOT)
 						BOOST_CPPFLAGS="-I$BOOST_ROOT"
 						BOOST_LDFLAGS="-L$BOOST_ROOT/stage/lib"
