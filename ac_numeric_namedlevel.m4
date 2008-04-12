@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_numeric_namedlevel.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/ac_numeric_namedlevel.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,22 +8,22 @@
 #
 # DESCRIPTION
 #
-#   The levelstring FROMVAR is expanded and checked for verbal names
-#   that will map on to eight different levels - the VARNAME will
-#   receive this numeric level where "all" maps to 7 (lower three bits
-#   set) higher levels for 8 and 9 exist too. This macro is a nice
-#   helper to convert user input of a --with-opt=level into a numeric
-#   form that can be simply pushed as a #define like with AC_DEFINE:
+#   The levelstring FROMVAR is expanded and checked for verbal names that
+#   will map on to eight different levels - the VARNAME will receive this
+#   numeric level where "all" maps to 7 (lower three bits set) higher levels
+#   for 8 and 9 exist too. This macro is a nice helper to convert user input
+#   of a --with-opt=level into a numeric form that can be simply pushed as a
+#   #define like with AC_DEFINE:
 #
 #    default YESLEVEL = 2 /* including unknown levelspec */
 #    default DEFAULT  = 0 /* when named level is empty */
 #    default FROMVAR  = VARNAME
 #
-#   The DEFAULT value is used if the NAMED levelstring has become empty
-#   and it is copied without further conversion - a default of "0" is
-#   used if absent - identical to "no". A "yes" will be set to the
-#   YESLEVEL - and note that "yes" has "2" as its default value not
-#   "1". (which comes from its original use to set a "gcc -O2").
+#   The DEFAULT value is used if the NAMED levelstring has become empty and
+#   it is copied without further conversion - a default of "0" is used if
+#   absent - identical to "no". A "yes" will be set to the YESLEVEL - and
+#   note that "yes" has "2" as its default value not "1". (which comes from
+#   its original use to set a "gcc -O2").
 #
 #   the mnemonic names are:
 #
@@ -35,9 +37,9 @@
 #      2| many   |many|much|(yes)
 #      1| some   |some|plus
 #
-#   note that a level can be construcct of (some|plus) = bit-0,
-#   (many|much) = bit-1, (more) = bit-2, (ultra|experimental) = bit-3
-#   atleast in a left-to-right order, ie. plusmanymore=7
+#   note that a level can be construcct of (some|plus) = bit-0, (many|much)
+#   = bit-1, (more) = bit-2, (ultra|experimental) = bit-3 atleast in a
+#   left-to-right order, ie. plusmanymore=7
 #
 #   Example usage:
 #
@@ -47,41 +49,37 @@
 #
 # LAST MODIFICATION
 #
-#   2006-10-13
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Guido U. Draheim <guidod@gmx.de>
+#   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
 #
-#   This program is free software; you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation; either version 2 of the
-#   License, or (at your option) any later version.
+#   This program is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation; either version 2 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-#   02111-1307, USA.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AC_NUMERIC_NAMEDLEVEL],
 [dnl the names to be defined...

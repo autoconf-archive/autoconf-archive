@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_prog_javah.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/ac_prog_javah.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,21 +8,21 @@
 #
 # DESCRIPTION
 #
-#   AC_PROG_JAVAH tests the availability of the javah header generator
-#   and looks for the jni.h header file. If available, JAVAH is set to
-#   the full path of javah and CPPFLAGS is updated accordingly.
+#   AC_PROG_JAVAH tests the availability of the javah header generator and
+#   looks for the jni.h header file. If available, JAVAH is set to the full
+#   path of javah and CPPFLAGS is updated accordingly.
 #
 # LAST MODIFICATION
 #
-#   2002-03-25
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2002 Luc Maisonobe <luc@spaceroots.org>
+#   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_PROG_JAVAH],[
 AC_REQUIRE([AC_CANONICAL_SYSTEM])dnl

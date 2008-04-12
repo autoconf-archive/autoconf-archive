@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_am_jobserver.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ax_am_jobserver.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,19 +8,17 @@
 #
 # DESCRIPTION
 #
-#   Enables the use of make's jobserver for the purpose of parallel
-#   building by passing the -j option to make.
+#   Enables the use of make's jobserver for the purpose of parallel building
+#   by passing the -j option to make.
 #
-#   The option --enable-jobserver is added to configure which can
-#   accept a yes, no, or an integer. The integer is the number of
-#   separate jobs to allow. If 'yes' is given, then the is assumed to
-#   be one more than the number of CPUs (determined through
-#   AX_COUNT_CPUS). If the value of no is given, then the jobserver is
-#   disabled. The default value is given by the first argument of the
-#   macro, or 'yes' if the argument is omitted.
+#   The option --enable-jobserver is added to configure which can accept a
+#   yes, no, or an integer. The integer is the number of separate jobs to
+#   allow. If 'yes' is given, then the is assumed to be one more than the
+#   number of CPUs (determined through AX_COUNT_CPUS). If the value of no is
+#   given, then the jobserver is disabled. The default value is given by the
+#   first argument of the macro, or 'yes' if the argument is omitted.
 #
-#   This macro makes use of AX_AM_MACROS, so you must add the following
-#   line
+#   This macro makes use of AX_AM_MACROS, so you must add the following line
 #
 #     @INC_AMINCLUDE@
 #
@@ -26,15 +26,15 @@
 #
 # LAST MODIFICATION
 #
-#   2006-10-13
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Michael Paul Bailey <jinxidoru@byu.net>
+#   Copyright (c) 2008 Michael Paul Bailey <jinxidoru@byu.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_AM_JOBSERVER], [
     AC_REQUIRE([AX_COUNT_CPUS])

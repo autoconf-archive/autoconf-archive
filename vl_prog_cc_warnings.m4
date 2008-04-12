@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/vl_prog_cc_warnings.html
+# ===========================================================================
+#          http://autoconf-archive.cryp.to/vl_prog_cc_warnings.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,27 +8,26 @@
 #
 # DESCRIPTION
 #
-#   Enables a reasonable set of warnings for the C compiler.
-#   Optionally, if the first argument is nonempty, turns on flags which
-#   enforce and/or enable proper ANSI C if such are known with the
-#   compiler used.
+#   Enables a reasonable set of warnings for the C compiler. Optionally, if
+#   the first argument is nonempty, turns on flags which enforce and/or
+#   enable proper ANSI C if such are known with the compiler used.
 #
-#   Currently this macro knows about GCC, Solaris C compiler, Digital
-#   Unix C compiler, C for AIX Compiler, HP-UX C compiler, IRIX C
-#   compiler, NEC SX-5 (Super-UX 10) C compiler, and Cray J90 (Unicos
-#   10.0.0.8) C compiler.
+#   Currently this macro knows about GCC, Solaris C compiler, Digital Unix C
+#   compiler, C for AIX Compiler, HP-UX C compiler, IRIX C compiler, NEC
+#   SX-5 (Super-UX 10) C compiler, and Cray J90 (Unicos 10.0.0.8) C
+#   compiler.
 #
 # LAST MODIFICATION
 #
-#   2002-04-04
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2002 Ville Laurikari <vl@iki.fi>
+#   Copyright (c) 2008 Ville Laurikari <vl@iki.fi>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([VL_PROG_CC_WARNINGS], [
   ansi=$1

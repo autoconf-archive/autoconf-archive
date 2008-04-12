@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_c_referenceable_passed_va_list.html
+# ===========================================================================
+#   http://autoconf-archive.cryp.to/ax_c_referenceable_passed_va_list.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -8,28 +10,26 @@
 #
 #   Checks whether f(va_list va){ &va; } works as expected.
 #
-#   This macro uses compile-time detection and so is cross-compile
-#   ready.
+#   This macro uses compile-time detection and so is cross-compile ready.
 #
-#   C99 mentioned passing a pointer to va_list to other functions
-#   (footnote 212 of "7.15 Variable arguments <stdarg.h>"). However,
-#   f(va_list va) { &va; } produces broken pointer on some environments
-#   such as gcc on x86_64, although { va_list va; &va; } works as
-#   expected. See the detection code of this file and any of pages
+#   C99 mentioned passing a pointer to va_list to other functions (footnote
+#   212 of "7.15 Variable arguments <stdarg.h>"). However, f(va_list va) {
+#   &va; } produces broken pointer on some environments such as gcc on
+#   x86_64, although { va_list va; &va; } works as expected. See the
+#   detection code of this file and any of pages
 #   http://www.gnu.org/software/autoconf/manual/html_node/Function-Portability.html,
 #   http://gcc.gnu.org/bugzilla/show_bug.cgi?id=14557, and
 #   http://gcc.gnu.org/bugzilla/show_bug.cgi?id=20951 for further
 #   information.
 #
-#   Although C99 does not define the operations f(va_list va) { &va; }
-#   and &va itself as standard (footnotes are declared as "normative
-#   part, information only"), certain situations need it. This macro
-#   provides a type detection about va_list implementation to deal with
-#   the operation.
+#   Although C99 does not define the operations f(va_list va) { &va; } and
+#   &va itself as standard (footnotes are declared as "normative part,
+#   information only"), certain situations need it. This macro provides a
+#   type detection about va_list implementation to deal with the operation.
 #
-#   Following workaround will probably work on such environments
-#   although it does not ensure to be safe and portable. At least it is
-#   working on x86_64-unknown-linux-gnu:
+#   Following workaround will probably work on such environments although it
+#   does not ensure to be safe and portable. At least it is working on
+#   x86_64-unknown-linux-gnu:
 #
 #    f(va_list va)
 #    {
@@ -44,15 +44,15 @@
 #
 # LAST MODIFICATION
 #
-#   2006-12-12
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 YAMAMOTO Kengo <yamaken AT bp.iij4u.or.jp>
+#   Copyright (c) 2008 YAMAMOTO Kengo <yamaken AT bp.iij4u.or.jp>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_C_REFERENCEABLE_PASSED_VA_LIST], [
   AC_CACHE_CHECK([whether f(va_list va){ &va; } works as expected],

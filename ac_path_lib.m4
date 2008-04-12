@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_path_lib.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/ac_path_lib.html
+# ===========================================================================
 #
 # OBSOLETE MACRO
 #
@@ -11,8 +13,8 @@
 # DESCRIPTION
 #
 #   Runs a LIBRARY-config script and defines LIBRARY_CFLAGS and
-#   LIBRARY_LIBS, saving you from writing your own macro specific to
-#   your library.
+#   LIBRARY_LIBS, saving you from writing your own macro specific to your
+#   library.
 #
 #   The options:
 #
@@ -30,8 +32,8 @@
 #    $6 = ACTION-IF-NOT-FOUND Shell script to run if library is not found
 #
 #   pkg-config will be used to obtain cflags, libs and version data by
-#   default. You must have a library.pc file installed. Two macros
-#   enable and disable pkgconfig support:
+#   default. You must have a library.pc file installed. Two macros enable
+#   and disable pkgconfig support:
 #
 #     AC_PATH_LIB_PKGCONFIG   Enable pkg-config support
 #     AC_PATH_LIB_LIBCONFIG   Disable pkg-config support
@@ -39,9 +41,9 @@
 #   When pkg-config is enabled, CONFIG_SCRIPT will be ignored.
 #
 #   LIBRARY-config must support `--cflags' and `--libs' args. If
-#   MINIMUM-VERSION is specified, LIBRARY-config should also support
-#   the `--version' arg, and have version information embedded in its
-#   header as detailed below:
+#   MINIMUM-VERSION is specified, LIBRARY-config should also support the
+#   `--version' arg, and have version information embedded in its header as
+#   detailed below:
 #
 #   Macros:
 #
@@ -60,15 +62,15 @@
 #
 #     AC_PATH_LIB_REGISTER([_AC_PATH_LIB_VERSION_PREFIX], [mylib])
 #
-#   If the header to include is not called LIBRARY/LIBRARY.h, an
-#   alternate header may be specified with AC_PATH_LIB_REGISTER. All
-#   changes are reset to the defaults when the macro completes.
+#   If the header to include is not called LIBRARY/LIBRARY.h, an alternate
+#   header may be specified with AC_PATH_LIB_REGISTER. All changes are reset
+#   to the defaults when the macro completes.
 #
 #   If the above are not defined, then use ' -nocheck'.
 #
 #   If the `--with-library-[exec-]prefix' arguments to ./configure are
-#   given, it must also support `--prefix' and `--exec-prefix'. (In
-#   other words, it must be like gtk-config.)
+#   given, it must also support `--prefix' and `--exec-prefix'. (In other
+#   words, it must be like gtk-config.)
 #
 #   If modules are to be used, LIBRARY-config must support modules.
 #
@@ -76,8 +78,7 @@
 #
 #    AC_PATH_LIB(foo, 1.0.0)
 #
-#   would run `foo-config --version' and check that it is at least
-#   1.0.0
+#   would run `foo-config --version' and check that it is at least 1.0.0
 #
 #   If so, the following would then be defined:
 #
@@ -85,21 +86,21 @@
 #     FOO_LIBS    to `foo-config --libs`
 #     FOO_VERSION to `foo-config --version`
 #
-#   Based on `AM_PATH_GTK' (gtk.m4) by Owen Taylor, and
-#   `AC_PATH_GENERIC' (ac_path_generic.m4) by Angus Lees. pkg-config
-#   support based on AM_PATH_GTK_2_0 (gtk-2.0.m4) by Owen Taylor.
+#   Based on `AM_PATH_GTK' (gtk.m4) by Owen Taylor, and `AC_PATH_GENERIC'
+#   (ac_path_generic.m4) by Angus Lees. pkg-config support based on
+#   AM_PATH_GTK_2_0 (gtk-2.0.m4) by Owen Taylor.
 #
 # LAST MODIFICATION
 #
-#   2007-07-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Roger Leigh <roger@whinlatter.uklinux.net>
+#   Copyright (c) 2008 Roger Leigh <roger@whinlatter.uklinux.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 ## Table of Contents:
 ## 1. The main macro

@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_func_memmove.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ac_func_memmove.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,21 +8,20 @@
 #
 # DESCRIPTION
 #
-#   Checks for a memmove that can handle overlaps correctly. If no
-#   working memmove is found, request a replacement and warn the user
-#   about it.
+#   Checks for a memmove that can handle overlaps correctly. If no working
+#   memmove is found, request a replacement and warn the user about it.
 #
 # LAST MODIFICATION
 #
-#   2002-09-26
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2002 Rüdiger Kuhlmann <info@ruediger-kuhlmann.de>
+#   Copyright (c) 2008 Rüdiger Kuhlmann <info@ruediger-kuhlmann.de>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_FUNC_MEMMOVE],
 [AC_CHECK_FUNCS(memmove)

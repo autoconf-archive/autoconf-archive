@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/etr_struct_semun.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/etr_struct_semun.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,26 +8,26 @@
 #
 # DESCRIPTION
 #
-#   This macro checks to see if sys/sem.h defines struct semun. Some
-#   systems do, some systems don't. Your code must be able to deal with
-#   this possibility; if HAVE_STRUCT_SEMUM isn't defined for a given
-#   system, you have to define this structure before you can call
-#   functions like semctl().
+#   This macro checks to see if sys/sem.h defines struct semun. Some systems
+#   do, some systems don't. Your code must be able to deal with this
+#   possibility; if HAVE_STRUCT_SEMUM isn't defined for a given system, you
+#   have to define this structure before you can call functions like
+#   semctl().
 #
-#   You should call ETR_SYSV_IPC before this macro, to separate the
-#   check for System V IPC headers from the check for struct semun.
+#   You should call ETR_SYSV_IPC before this macro, to separate the check
+#   for System V IPC headers from the check for struct semun.
 #
 # LAST MODIFICATION
 #
-#   2001-05-28
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2001 Warren Young <warren@etr-usa.com>
+#   Copyright (c) 2008 Warren Young <warren@etr-usa.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([ETR_STRUCT_SEMUN],
 [

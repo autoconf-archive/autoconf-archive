@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_path_milter.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/ax_path_milter.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,12 +8,12 @@
 #
 # DESCRIPTION
 #
-#   This macro tries to automatically find the library libmilter.a and
-#   the header file "libmilter/mfapi.h", which are required when
-#   compiling a milter for Sendmail. When successful, it sets the
-#   output variable MILTER_LIBS to "-lmilter", MILTER_LDFLAGS to
-#   contain an -Lpathtolib option, and MILTER_CPPFLAGS to contain an
-#   -Ipathtoinclude option, if they are necessary.
+#   This macro tries to automatically find the library libmilter.a and the
+#   header file "libmilter/mfapi.h", which are required when compiling a
+#   milter for Sendmail. When successful, it sets the output variable
+#   MILTER_LIBS to "-lmilter", MILTER_LDFLAGS to contain an -Lpathtolib
+#   option, and MILTER_CPPFLAGS to contain an -Ipathtoinclude option, if
+#   they are necessary.
 #
 #   The easiest way to use this macro is something like:
 #
@@ -24,13 +26,13 @@
 #     ])
 #
 #   If the macro is successful, it just adds any flags to the necessary
-#   environment. If it is not successful, it would likely be a fatal
-#   error, because if an application is linking with libmilter.a, it is
-#   probably because it is a milter.
+#   environment. If it is not successful, it would likely be a fatal error,
+#   because if an application is linking with libmilter.a, it is probably
+#   because it is a milter.
 #
-#   There are two optional "--with" options for configure which are
-#   added. If they are specified, they override any searching that is
-#   done. They are:
+#   There are two optional "--with" options for configure which are added.
+#   If they are specified, they override any searching that is done. They
+#   are:
 #
 #     --with-sendmail-base=<DIR>  This option is used to explicitly
 #            specify the base of the sendmail distribution.
@@ -39,48 +41,47 @@
 #            the "obj.*" subdirectory in the sendmail distribution
 #            that should be used.
 #
-#   When sendmail-base is not specified, the current environment is
-#   first tested to see if the header and library are available, and if
-#   so MILTER_LDFLAGS and MILTER_CPPFLAGS are left empty.
+#   When sendmail-base is not specified, the current environment is first
+#   tested to see if the header and library are available, and if so
+#   MILTER_LDFLAGS and MILTER_CPPFLAGS are left empty.
 #
-#   There are two places that are searched for the sendmail base
-#   directory. The first location is one directory down from the
-#   current directory. It checks if there is a directory of the form
-#   sendmail-8.1*, limited to version 8.12.x or higher, then chooses
-#   the directory with the highest version number. If that method does
-#   not succeed, it then looks in the file /etc/mail/sendmail.cf for
-#   the directory it was built from, and uses the base of that
-#   distribution. If neither of these methods work, then it fails.
+#   There are two places that are searched for the sendmail base directory.
+#   The first location is one directory down from the current directory. It
+#   checks if there is a directory of the form sendmail-8.1*, limited to
+#   version 8.12.x or higher, then chooses the directory with the highest
+#   version number. If that method does not succeed, it then looks in the
+#   file /etc/mail/sendmail.cf for the directory it was built from, and uses
+#   the base of that distribution. If neither of these methods work, then it
+#   fails.
 #
-#   There are two methods for finding the "obj.*" directory when it is
-#   not specified. The first is to try to run sendmail's Build program
-#   with the -M option which will print out the name of the obj.
-#   directory for the tool in the directory where it is run from. If
-#   this does not work, is looks for the newest directory of the form
-#   "obj.*" in the sendmail base directory.
+#   There are two methods for finding the "obj.*" directory when it is not
+#   specified. The first is to try to run sendmail's Build program with the
+#   -M option which will print out the name of the obj. directory for the
+#   tool in the directory where it is run from. If this does not work, is
+#   looks for the newest directory of the form "obj.*" in the sendmail base
+#   directory.
 #
-#   Two addition output variables that are defined, whether or not the
-#   files are found are SENDMAIL_BASE_DIR and SENDMAIL_OBJ_DIR, which
-#   are the suspected location of the sendmail base directory and obj.*
+#   Two addition output variables that are defined, whether or not the files
+#   are found are SENDMAIL_BASE_DIR and SENDMAIL_OBJ_DIR, which are the
+#   suspected location of the sendmail base directory and obj.*
 #   subdirectory.
 #
-#   NOTE: POSIX threads MUST be configured BEFORE this function is
-#   called or it will not find libmilter.a even if it exists. The
-#   easiest way is to use the ACX_PTHREAD macro by Steven G. Johnson
-#   and Alejandro Forero Cuervo which is available from the Autoconf
-#   Macro Archive.
+#   NOTE: POSIX threads MUST be configured BEFORE this function is called or
+#   it will not find libmilter.a even if it exists. The easiest way is to
+#   use the ACX_PTHREAD macro by Steven G. Johnson and Alejandro Forero
+#   Cuervo which is available from the Autoconf Macro Archive.
 #
 # LAST MODIFICATION
 #
-#   2007-07-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Tim Toolan <toolan@ele.uri.edu>
+#   Copyright (c) 2008 Tim Toolan <toolan@ele.uri.edu>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 ###############################################################################
 AC_DEFUN([AX_PATH_MILTER], [

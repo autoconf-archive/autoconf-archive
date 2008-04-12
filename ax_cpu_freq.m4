@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_cpu_freq.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/ax_cpu_freq.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -10,15 +12,15 @@
 #
 # LAST MODIFICATION
 #
-#   2007-11-28
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Christophe Tournayre <turn3r@users.sourceforge.net>
+#   Copyright (c) 2008 Christophe Tournayre <turn3r@users.sourceforge.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_CPU_FREQ],
 [AC_REQUIRE([AC_PROG_CC])

@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_cxx_template_qualified_base_class.html
+# ===========================================================================
+#  http://autoconf-archive.cryp.to/ac_cxx_template_qualified_base_class.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -11,16 +13,16 @@
 #
 # LAST MODIFICATION
 #
-#   2005-06-17
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Todd Veldhuizen
-#   Copyright (c) 2005 Luc Maisonobe <luc@spaceroots.org>
+#   Copyright (c) 2008 Todd Veldhuizen
+#   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CXX_TEMPLATE_QUALIFIED_BASE_CLASS],
 [AC_CACHE_CHECK(whether the compiler supports template-qualified base class specifiers,

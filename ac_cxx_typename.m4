@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_cxx_typename.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ac_cxx_typename.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,21 +8,20 @@
 #
 # DESCRIPTION
 #
-#   If the compiler recognizes the typename keyword, define
-#   HAVE_TYPENAME.
+#   If the compiler recognizes the typename keyword, define HAVE_TYPENAME.
 #
 # LAST MODIFICATION
 #
-#   2004-02-04
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2004 Todd Veldhuizen
-#   Copyright (c) 2004 Luc Maisonobe <luc@spaceroots.org>
+#   Copyright (c) 2008 Todd Veldhuizen
+#   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CXX_TYPENAME],
 [AC_CACHE_CHECK(whether the compiler recognizes typename,

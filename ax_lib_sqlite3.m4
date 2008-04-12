@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_lib_sqlite3.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/ax_lib_sqlite3.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -8,12 +10,12 @@
 #
 #   Test for the SQLite 3 library of a particular version (or newer)
 #
-#   This macro takes only one optional argument, required version of
-#   SQLite 3 library. If required version is not passed, 3.0.0 is used
-#   in the test of existance of SQLite 3.
+#   This macro takes only one optional argument, required version of SQLite
+#   3 library. If required version is not passed, 3.0.0 is used in the test
+#   of existance of SQLite 3.
 #
-#   If no intallation prefix to the installed SQLite library is given
-#   the macro searches under /usr, /usr/local, and /opt.
+#   If no intallation prefix to the installed SQLite library is given the
+#   macro searches under /usr, /usr/local, and /opt.
 #
 #   This macro calls:
 #
@@ -27,15 +29,15 @@
 #
 # LAST MODIFICATION
 #
-#   2008-03-17
+#   2008-04-12
 #
 # COPYLEFT
 #
 #   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_LIB_SQLITE3],
 [

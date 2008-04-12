@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_lib_xml_security.html
+# ===========================================================================
+#          http://autoconf-archive.cryp.to/ax_lib_xml_security.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,10 +8,10 @@
 #
 # DESCRIPTION
 #
-#   This macro provides tests of availability of Apache Xml-Security
-#   C++ library <http://santuario.apache.org/index.html> of particular
-#   version or newer. This macros checks for Apache Xml-Security C++
-#   headers and libraries and defines compilation flags
+#   This macro provides tests of availability of Apache Xml-Security C++
+#   library <http://santuario.apache.org/index.html> of particular version
+#   or newer. This macros checks for Apache Xml-Security C++ headers and
+#   libraries and defines compilation flags
 #
 #   Macro supports following options and their values:
 #
@@ -35,16 +37,16 @@
 #
 # LAST MODIFICATION
 #
-#   2008-02-13
+#   2008-04-12
 #
 # COPYLEFT
 #
 #   Copyright (c) 2008 Alexander Petry <petry@itwm.fhg.de>
 #   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_LIB_XML_SECURITY],
 [

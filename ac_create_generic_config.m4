@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_create_generic_config.html
+# ===========================================================================
+#        http://autoconf-archive.cryp.to/ac_create_generic_config.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,20 +8,20 @@
 #
 # DESCRIPTION
 #
-#   Creates a generic PACKAGE-config file that has all the things that
-#   you want, hmm, well, atleast it has --cflags, --version, --libs.
-#   Ahhm, did you see ac_path_generic in the autoconf-archive? ;-)
+#   Creates a generic PACKAGE-config file that has all the things that you
+#   want, hmm, well, atleast it has --cflags, --version, --libs. Ahhm, did
+#   you see ac_path_generic in the autoconf-archive? ;-)
 #
-#   this macros saves you all the typing for a pkg-config.in script,
-#   you don't even need to distribute one along. Place this macro in
-#   your configure.ac, et voila, you got one that you want to install.
+#   this macros saves you all the typing for a pkg-config.in script, you
+#   don't even need to distribute one along. Place this macro in your
+#   configure.ac, et voila, you got one that you want to install.
 #
-#   oh, btw, if the first arg looks like "mylib -lwhat' then it will go
-#   to be added to the --libs, and mylib is extracted.
+#   oh, btw, if the first arg looks like "mylib -lwhat' then it will go to
+#   be added to the --libs, and mylib is extracted.
 #
 #   the defaults: $1 = $PACKAGE $LIBS $2 = $VERSION there is also an
-#   AC_SUBST(GENERIC_CONFIG) that will be set to the name of the file
-#   that we did output in this macro. Use as:
+#   AC_SUBST(GENERIC_CONFIG) that will be set to the name of the file that
+#   we did output in this macro. Use as:
 #
 #    install-exec-local:    install-generic-config
 #
@@ -29,41 +31,37 @@
 #
 # LAST MODIFICATION
 #
-#   2006-10-13
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Guido U. Draheim <guidod@gmx.de>
+#   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
 #
-#   This program is free software; you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation; either version 2 of the
-#   License, or (at your option) any later version.
+#   This program is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation; either version 2 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-#   02111-1307, USA.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AC_CREATE_GENERIC_CONFIG],[# create a generic PACKAGE-config file
 L=`echo ifelse($1, , $PACKAGE $LIBS, $1)`

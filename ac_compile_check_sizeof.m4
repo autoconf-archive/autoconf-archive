@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_compile_check_sizeof.html
+# ===========================================================================
+#        http://autoconf-archive.cryp.to/ac_compile_check_sizeof.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,15 +8,15 @@
 #
 # DESCRIPTION
 #
-#   This macro checks for the size of TYPE using compile checks, not
-#   run checks. You can supply extra HEADERS to look into. the check
-#   will cycle through 1 2 4 8 16 and any EXTRA_SIZES the user
-#   supplies. If a match is found, it will #define SIZEOF_`TYPE' to
-#   that value. Otherwise it will emit a configure time error
-#   indicating the size of the type could not be determined.
+#   This macro checks for the size of TYPE using compile checks, not run
+#   checks. You can supply extra HEADERS to look into. the check will cycle
+#   through 1 2 4 8 16 and any EXTRA_SIZES the user supplies. If a match is
+#   found, it will #define SIZEOF_`TYPE' to that value. Otherwise it will
+#   emit a configure time error indicating the size of the type could not be
+#   determined.
 #
-#   The trick is that C will not allow duplicate case labels. While
-#   this is valid C code:
+#   The trick is that C will not allow duplicate case labels. While this is
+#   valid C code:
 #
 #        switch (0) case 0: case 1:;
 #
@@ -22,8 +24,8 @@
 #
 #        switch (0) case 0: case 0:;
 #
-#   Thus, the AC_TRY_COMPILE will fail if the currently tried size does
-#   not match.
+#   Thus, the AC_TRY_COMPILE will fail if the currently tried size does not
+#   match.
 #
 #   Here is an example skeleton configure.in script, demonstrating the
 #   macro's usage:
@@ -54,40 +56,37 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-31
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Kaveh Ghazi <ghazi@caip.rutgers.edu>
+#   Copyright (c) 2008 Kaveh Ghazi <ghazi@caip.rutgers.edu>
 #
-#   This program is free software: you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation, either version 3 of the
-#   License, or (at your option) any later version.
+#   This program is free software: you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation, either version 3 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program. If not, see
-#   <http://www.gnu.org/licenses/>.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AC_COMPILE_CHECK_SIZEOF],
 [changequote(<<, >>)dnl

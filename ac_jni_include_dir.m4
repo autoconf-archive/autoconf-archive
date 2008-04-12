@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_jni_include_dir.html
+# ===========================================================================
+#           http://autoconf-archive.cryp.to/ac_jni_include_dir.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -9,9 +11,9 @@
 #   AC_JNI_INCLUDE_DIR finds include directories needed for compiling
 #   programs using the JNI interface.
 #
-#   JNI include directories are usually in the java distribution This
-#   is deduced from the value of JAVAC. When this macro completes, a
-#   list of directories is left in the variable JNI_INCLUDE_DIRS.
+#   JNI include directories are usually in the java distribution This is
+#   deduced from the value of JAVAC. When this macro completes, a list of
+#   directories is left in the variable JNI_INCLUDE_DIRS.
 #
 #   Example usage follows:
 #
@@ -29,21 +31,20 @@
 #
 #   - at the configure level, setenv JAVAC
 #
-#   Note: This macro can work with the autoconf M4 macros for Java
-#   programs. This particular macro is not part of the original set of
-#   macros.
+#   Note: This macro can work with the autoconf M4 macros for Java programs.
+#   This particular macro is not part of the original set of macros.
 #
 # LAST MODIFICATION
 #
-#   2006-05-27
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Don Anderson <dda@sleepycat.com>
+#   Copyright (c) 2008 Don Anderson <dda@sleepycat.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_JNI_INCLUDE_DIR],[
 

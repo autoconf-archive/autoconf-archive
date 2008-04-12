@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_path_missing.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ax_path_missing.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,32 +8,31 @@
 #
 # DESCRIPTION
 #
-#   Check whether program PROG-TO-CHECK-FOR exists in path. If it is
-#   found, set VARIABLE to the full path of PROG-TO-CHECK-FOR,
-#   otherwise warn using the string WARNING-IF-NOT-FOUND and set
-#   VARIABLE to the full path of the Automake missing script with
-#   PROG-TO-CHECK-FOR as the command to run.
+#   Check whether program PROG-TO-CHECK-FOR exists in path. If it is found,
+#   set VARIABLE to the full path of PROG-TO-CHECK-FOR, otherwise warn using
+#   the string WARNING-IF-NOT-FOUND and set VARIABLE to the full path of the
+#   Automake missing script with PROG-TO-CHECK-FOR as the command to run.
 #
 #   A typical use is the following:
 #
 #     AX_PATH_MISSING([AUTOGEN],[autogen],[autogen seems missing ...])
 #
-#   This macro is the combination of AC_PATH_PROG and AX_MISSING_PROG.
-#   If you do not want to run AC_PATH_PROG, simply use AX_MISSING_PROG
-#   or AM_MISSING.
+#   This macro is the combination of AC_PATH_PROG and AX_MISSING_PROG. If
+#   you do not want to run AC_PATH_PROG, simply use AX_MISSING_PROG or
+#   AM_MISSING.
 #
 # LAST MODIFICATION
 #
-#   2008-02-21
+#   2008-04-12
 #
 # COPYLEFT
 #
 #   Copyright (c) 2008 Noah Slater <nslater@bytesexual.org>
 #   Copyright (c) 2008 Francesco Salvestrini <salvestrini@sourceforge.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_PATH_MISSING], [
     AC_PATH_PROG([$1],[$2],[$4])

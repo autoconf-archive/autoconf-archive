@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_lib_readline.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ac_lib_readline.html
+# ===========================================================================
 #
 # OBSOLETE MACRO
 #
@@ -11,21 +13,19 @@
 # DESCRIPTION
 #
 #   Searches for a readline compatible library. If found, defines
-#   `HAVE_LIBREADLINE'. If the found library has the `add_history'
-#   function, sets also `HAVE_READLINE_HISTORY'. Also checks for the
-#   locations of the necessary include files and sets `HAVE_READLINE_H'
-#   or `HAVE_READLINE_READLINE_H' and `HAVE_READLINE_HISTORY_H' or
+#   `HAVE_LIBREADLINE'. If the found library has the `add_history' function,
+#   sets also `HAVE_READLINE_HISTORY'. Also checks for the locations of the
+#   necessary include files and sets `HAVE_READLINE_H' or
+#   `HAVE_READLINE_READLINE_H' and `HAVE_READLINE_HISTORY_H' or
 #   'HAVE_HISTORY_H' if the corresponding include files exists.
 #
 #   The libraries that may be readline compatible are `libedit',
-#   `libeditline' and `libreadline'. Sometimes we need to link a
-#   termcap library for readline to work, this macro tests these cases
-#   too by trying to link with `libtermcap', `libcurses' or
-#   `libncurses' before giving up.
+#   `libeditline' and `libreadline'. Sometimes we need to link a termcap
+#   library for readline to work, this macro tests these cases too by trying
+#   to link with `libtermcap', `libcurses' or `libncurses' before giving up.
 #
-#   Here is an example of how to use the information provided by this
-#   macro to perform the necessary includes or declarations in a C
-#   file:
+#   Here is an example of how to use the information provided by this macro
+#   to perform the necessary includes or declarations in a C file:
 #
 #     #include <config.h>
 #
@@ -57,40 +57,37 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Ville Laurikari <vl@iki.fi>
+#   Copyright (c) 2008 Ville Laurikari <vl@iki.fi>
 #
-#   This program is free software: you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation, either version 3 of the
-#   License, or (at your option) any later version.
+#   This program is free software: you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation, either version 3 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program. If not, see
-#   <http://www.gnu.org/licenses/>.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AC_LIB_READLINE], [
   AC_CACHE_CHECK([for a readline compatible library],

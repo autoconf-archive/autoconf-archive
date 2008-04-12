@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_cxx_have_ieee_math.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/ac_cxx_have_ieee_math.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,23 +8,23 @@
 #
 # DESCRIPTION
 #
-#   If the compiler has the double math functions acosh, asinh, atanh,
-#   cbrt, expm1, erf, erfc, isnan, j0, j1, jn, gamma, lgamma, ilogb,
-#   logb, log1p, rint, y0, y1, yn, hypot, nextafter, remainder and
-#   scalb, define HAVE_IEEE_MATH.
+#   If the compiler has the double math functions acosh, asinh, atanh, cbrt,
+#   expm1, erf, erfc, isnan, j0, j1, jn, gamma, lgamma, ilogb, logb, log1p,
+#   rint, y0, y1, yn, hypot, nextafter, remainder and scalb, define
+#   HAVE_IEEE_MATH.
 #
 # LAST MODIFICATION
 #
-#   2004-09-27
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2004 Todd Veldhuizen
-#   Copyright (c) 2004 Luc Maisonobe <luc@spaceroots.org>
+#   Copyright (c) 2008 Todd Veldhuizen
+#   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CXX_HAVE_IEEE_MATH],
 [AC_CACHE_CHECK(whether the compiler supports IEEE math library,

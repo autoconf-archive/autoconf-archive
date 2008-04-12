@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_c_printf_thsep.html
+# ===========================================================================
+#           http://autoconf-archive.cryp.to/ac_c_printf_thsep.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,22 +8,22 @@
 #
 # DESCRIPTION
 #
-#   This macro checks whether the compiler supports the ' flag in
-#   printf, which causes the non-fractional digits to be separated
-#   using a separator and grouping determined by the locale. If true,
-#   HAVE_PRINTF_THSEP is defined in config.h
+#   This macro checks whether the compiler supports the ' flag in printf,
+#   which causes the non-fractional digits to be separated using a separator
+#   and grouping determined by the locale. If true, HAVE_PRINTF_THSEP is
+#   defined in config.h
 #
 # LAST MODIFICATION
 #
-#   2006-04-26
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Bill Poser <billposer@alum.mit.edu>
+#   Copyright (c) 2008 Bill Poser <billposer@alum.mit.edu>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_C_PRINTF_THSEP],
 [AC_TRY_COMPILE(,[printf("%'2d",101);],ac_cv_c_printf_thsep=yes,ac_cv_c_printf_thsep=no)

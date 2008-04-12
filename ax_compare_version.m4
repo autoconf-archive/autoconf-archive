@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_compare_version.html
+# ===========================================================================
+#           http://autoconf-archive.cryp.to/ax_compare_version.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,17 +8,17 @@
 #
 # DESCRIPTION
 #
-#   This macro compares two version strings. Due to the various number
-#   of minor-version numbers that can exist, and the fact that string
-#   comparisons are not compatible with numeric comparisons, this is
-#   not necessarily trivial to do in a autoconf script. This macro
-#   makes doing these comparisons easy.
+#   This macro compares two version strings. Due to the various number of
+#   minor-version numbers that can exist, and the fact that string
+#   comparisons are not compatible with numeric comparisons, this is not
+#   necessarily trivial to do in a autoconf script. This macro makes doing
+#   these comparisons easy.
 #
-#   The six basic comparisons are available, as well as checking
-#   equality limited to a certain number of minor-version levels.
+#   The six basic comparisons are available, as well as checking equality
+#   limited to a certain number of minor-version levels.
 #
-#   The operator OP determines what type of comparison to do, and can
-#   be one of:
+#   The operator OP determines what type of comparison to do, and can be one
+#   of:
 #
 #    eq  - equal (test A == B)
 #    ne  - not equal (test A != B)
@@ -25,8 +27,8 @@
 #    lt  - less than (test A < B)
 #    gt  - greater than (test A > B)
 #
-#   Additionally, the eq and ne operator can have a number after it to
-#   limit the test to that number of minor versions.
+#   Additionally, the eq and ne operator can have a number after it to limit
+#   the test to that number of minor versions.
 #
 #    eq0 - equal up to the length of the shorter version
 #    ne0 - not equal up to the length of the shorter version
@@ -35,8 +37,8 @@
 #
 #   When the condition is true, shell commands ACTION-IF-TRUE are run,
 #   otherwise shell commands ACTION-IF-FALSE are run. The environment
-#   variable 'ax_compare_version' is always set to either 'true' or
-#   'false' as well.
+#   variable 'ax_compare_version' is always set to either 'true' or 'false'
+#   as well.
 #
 #   Examples:
 #
@@ -56,29 +58,29 @@
 #
 #     AX_COMPARE_VERSION([3.15.7],[eq0],[3.15])
 #
-#   would be true because it is only comparing the lesser number of
-#   minor versions of the two values.
+#   would be true because it is only comparing the lesser number of minor
+#   versions of the two values.
 #
-#   Note: The characters that separate the version numbers do not
-#   matter. An empty string is the same as version 0. OP is evaluated
-#   by autoconf, not configure, so must be a string, not a variable.
+#   Note: The characters that separate the version numbers do not matter. An
+#   empty string is the same as version 0. OP is evaluated by autoconf, not
+#   configure, so must be a string, not a variable.
 #
-#   The author would like to acknowledge Guido Draheim whose advice
-#   about the m4_case and m4_ifvaln functions make this macro only
-#   include the portions necessary to perform the specific comparison
-#   specified by the OP argument in the final configure script.
+#   The author would like to acknowledge Guido Draheim whose advice about
+#   the m4_case and m4_ifvaln functions make this macro only include the
+#   portions necessary to perform the specific comparison specified by the
+#   OP argument in the final configure script.
 #
 # LAST MODIFICATION
 #
-#   2008-01-25
+#   2008-04-12
 #
 # COPYLEFT
 #
 #   Copyright (c) 2008 Tim Toolan <toolan@ele.uri.edu>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 dnl #########################################################################
 AC_DEFUN([AX_COMPARE_VERSION], [

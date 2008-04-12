@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ct_check_postgres_db.html
+# ===========================================================================
+#          http://autoconf-archive.cryp.to/ct_check_postgres_db.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,24 +8,24 @@
 #
 # DESCRIPTION
 #
-#   This macro tries to find the headers and librarys for the
-#   PostgreSQL database to build client applications.
+#   This macro tries to find the headers and librarys for the PostgreSQL
+#   database to build client applications.
 #
-#   If includes are found, the variable PQINCPATH will be set. If
-#   librarys are found, the variable PQLIBPATH will be set. if no check
-#   was successful, the script exits with a error message.
+#   If includes are found, the variable PQINCPATH will be set. If librarys
+#   are found, the variable PQLIBPATH will be set. if no check was
+#   successful, the script exits with a error message.
 #
 # LAST MODIFICATION
 #
-#   2005-12-30
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Christian Toepp <c.toepp@gmail.com>
+#   Copyright (c) 2008 Christian Toepp <c.toepp@gmail.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([CT_CHECK_POSTGRES_DB], [
 

@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_lib_oracle_oci.html
+# ===========================================================================
+#           http://autoconf-archive.cryp.to/ax_lib_oracle_oci.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -7,8 +9,8 @@
 # DESCRIPTION
 #
 #   This macro provides tests of availability of Oracle OCI API of
-#   particular version or newer. This macros checks for Oracle OCI
-#   headers and libraries and defines compilation flags.
+#   particular version or newer. This macros checks for Oracle OCI headers
+#   and libraries and defines compilation flags.
 #
 #   Macro supports following options and their values:
 #
@@ -21,10 +23,10 @@
 #       --with-oci-include -- path to directory with OCI headers
 #       --with-oci-lib     -- path to directory with OCI libraries
 #
-#   NOTE: These options described above do not take yes|no values. If
-#   'yes' value is passed, then WARNING message will be displayed, 'no'
-#   value, as well as the --without-oci-* variations will cause the
-#   macro to not check enything.
+#   NOTE: These options described above do not take yes|no values. If 'yes'
+#   value is passed, then WARNING message will be displayed, 'no' value, as
+#   well as the --without-oci-* variations will cause the macro to not check
+#   enything.
 #
 #   This macro calls:
 #
@@ -38,15 +40,15 @@
 #
 # LAST MODIFICATION
 #
-#   2007-11-30
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Mateusz Loskot <mateusz@loskot.net>
+#   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_LIB_ORACLE_OCI],
 [

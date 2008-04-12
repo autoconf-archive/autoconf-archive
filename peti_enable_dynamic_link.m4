@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/peti_enable_dynamic_link.html
+# ===========================================================================
+#        http://autoconf-archive.cryp.to/peti_enable_dynamic_link.html
+# ===========================================================================
 #
 # OBSOLETE MACRO
 #
@@ -13,20 +15,20 @@
 #   Add a command-line flag to enable/disable dynamic linking.
 #
 #   Calling this macro adds the flag "--enable-dynamic-link" to
-#   command-line. When disabled, the compiler/linker flag "-static" is
-#   added to "$LDFLAGS". The default is dynamic linkage.
+#   command-line. When disabled, the compiler/linker flag "-static" is added
+#   to "$LDFLAGS". The default is dynamic linkage.
 #
 # LAST MODIFICATION
 #
-#   2006-06-04
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Peter Simons <simons@cryp.to>
+#   Copyright (c) 2008 Peter Simons <simons@cryp.to>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([PETI_ENABLE_DYNAMIC_LINK], [
 AC_MSG_CHECKING(what kind of binaries we shall create)

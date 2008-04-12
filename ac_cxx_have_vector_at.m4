@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_cxx_have_vector_at.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/ac_cxx_have_vector_at.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -11,15 +13,15 @@
 #
 # LAST MODIFICATION
 #
-#   2001-06-07
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2001 Jan Langer <jan@langernetz.de>
+#   Copyright (c) 2008 Jan Langer <jan@langernetz.de>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CXX_HAVE_VECTOR_AT],
 [AC_CACHE_CHECK(whether the compiler has std::vector::at (std::size_t),

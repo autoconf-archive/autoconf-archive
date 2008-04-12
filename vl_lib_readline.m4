@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/vl_lib_readline.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/vl_lib_readline.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -7,21 +9,19 @@
 # DESCRIPTION
 #
 #   Searches for a readline compatible library. If found, defines
-#   `HAVE_LIBREADLINE'. If the found library has the `add_history'
-#   function, sets also `HAVE_READLINE_HISTORY'. Also checks for the
-#   locations of the necessary include files and sets `HAVE_READLINE_H'
-#   or `HAVE_READLINE_READLINE_H' and `HAVE_READLINE_HISTORY_H' or
+#   `HAVE_LIBREADLINE'. If the found library has the `add_history' function,
+#   sets also `HAVE_READLINE_HISTORY'. Also checks for the locations of the
+#   necessary include files and sets `HAVE_READLINE_H' or
+#   `HAVE_READLINE_READLINE_H' and `HAVE_READLINE_HISTORY_H' or
 #   'HAVE_HISTORY_H' if the corresponding include files exists.
 #
 #   The libraries that may be readline compatible are `libedit',
-#   `libeditline' and `libreadline'. Sometimes we need to link a
-#   termcap library for readline to work, this macro tests these cases
-#   too by trying to link with `libtermcap', `libcurses' or
-#   `libncurses' before giving up.
+#   `libeditline' and `libreadline'. Sometimes we need to link a termcap
+#   library for readline to work, this macro tests these cases too by trying
+#   to link with `libtermcap', `libcurses' or `libncurses' before giving up.
 #
-#   Here is an example of how to use the information provided by this
-#   macro to perform the necessary includes or declarations in a C
-#   file:
+#   Here is an example of how to use the information provided by this macro
+#   to perform the necessary includes or declarations in a C file:
 #
 #     #ifdef HAVE_LIBREADLINE
 #     #  if defined(HAVE_READLINE_READLINE_H)
@@ -51,15 +51,15 @@
 #
 # LAST MODIFICATION
 #
-#   2002-04-04
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2002 Ville Laurikari <vl@iki.fi>
+#   Copyright (c) 2008 Ville Laurikari <vl@iki.fi>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([VL_LIB_READLINE], [
   AC_CACHE_CHECK([for a readline compatible library],

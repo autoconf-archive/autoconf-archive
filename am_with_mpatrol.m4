@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/am_with_mpatrol.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/am_with_mpatrol.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,28 +8,28 @@
 #
 # DESCRIPTION
 #
-#   Integrates the mpatrol malloc debugging library into a new or
-#   existing project and also attempts to determine the support
-#   libraries that need to be linked in when libmpatrol is used.
+#   Integrates the mpatrol malloc debugging library into a new or existing
+#   project and also attempts to determine the support libraries that need
+#   to be linked in when libmpatrol is used.
 #
-#   It takes one optional parameter specifying whether mpatrol should
-#   be included in the project (`yes') or not (`no'). This can also be
-#   specified as `threads' if you wish to use the threadsafe version of
-#   the mpatrol library. You can override the value of the optional
-#   parameter with the `--with-mpatrol' option to the resulting
-#   `configure' shell script.
+#   It takes one optional parameter specifying whether mpatrol should be
+#   included in the project (`yes') or not (`no'). This can also be
+#   specified as `threads' if you wish to use the threadsafe version of the
+#   mpatrol library. You can override the value of the optional parameter
+#   with the `--with-mpatrol' option to the resulting `configure' shell
+#   script.
 #
 # LAST MODIFICATION
 #
-#   2003-10-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2003 Graeme S. Roy <graeme@epc.co.uk>
+#   Copyright (c) 2008 Graeme S. Roy <graeme@epc.co.uk>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AM_WITH_MPATROL], [
   # Firstly, determine if the mpatrol library should be used.

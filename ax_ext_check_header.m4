@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_ext_check_header.html
+# ===========================================================================
+#          http://autoconf-archive.cryp.to/ax_ext_check_header.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,14 +8,13 @@
 #
 # DESCRIPTION
 #
-#   Check for <header> with -I<path> for each path in <paths> if need
-#   be. The first sucecssful path is chosen (eg if you say
-#   AX_EXT_CHECK_HEADER(foo.h, bar baz qux) and -Ibaz works then -Iqux
-#   will not be tested.
+#   Check for <header> with -I<path> for each path in <paths> if need be.
+#   The first sucecssful path is chosen (eg if you say
+#   AX_EXT_CHECK_HEADER(foo.h, bar baz qux) and -Ibaz works then -Iqux will
+#   not be tested.
 #
-#   Any -I flags that locate a header are added to CFLAGS and CPPFLAGS.
-#   AS with AC_CHECK_HEADERS it causes HAVE_<header>_H to be defined as
-#   1.
+#   Any -I flags that locate a header are added to CFLAGS and CPPFLAGS. AS
+#   with AC_CHECK_HEADERS it causes HAVE_<header>_H to be defined as 1.
 #
 #   Example:
 #
@@ -21,15 +22,15 @@
 #
 # LAST MODIFICATION
 #
-#   2005-01-21
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Duncan Simpson <dps@simpson.demon.co.uk>
+#   Copyright (c) 2008 Duncan Simpson <dps@simpson.demon.co.uk>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_EXT_HAVE_HEADER],
 [AC_LANG_PUSH(C)

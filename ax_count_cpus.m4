@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_count_cpus.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/ax_count_cpus.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,23 +8,23 @@
 #
 # DESCRIPTION
 #
-#   Attempt to count the number of processors present on the machine.
-#   If the detection fails, then a value of 1 is assumed.
+#   Attempt to count the number of processors present on the machine. If the
+#   detection fails, then a value of 1 is assumed.
 #
 #   The value is placed in the CPU_COUNT variable.
 #
 # LAST MODIFICATION
 #
-#   2007-11-30
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Michael Paul Bailey <jinxidoru@byu.net>
-#   Copyright (c) 2007 Christophe Tournayre <turn3r@users.sourceforge.net>
+#   Copyright (c) 2008 Michael Paul Bailey <jinxidoru@byu.net>
+#   Copyright (c) 2008 Christophe Tournayre <turn3r@users.sourceforge.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_COUNT_CPUS], [
     AC_REQUIRE([AC_PROG_EGREP])

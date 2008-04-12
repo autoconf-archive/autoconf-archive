@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_prog_python_version.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/ax_prog_python_version.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,35 +8,35 @@
 #
 # DESCRIPTION
 #
-#   Makes sure that python supports the version indicated. If true the
-#   shell commands in ACTION-IF-TRUE are executed. If not the shell
-#   commands in ACTION-IF-FALSE are run. Note if $PYTHON is not set
-#   (for example by running AC_CHECK_PROG or AC_PATH_PROG),
+#   Makes sure that python supports the version indicated. If true the shell
+#   commands in ACTION-IF-TRUE are executed. If not the shell commands in
+#   ACTION-IF-FALSE are run. Note if $PYTHON is not set (for example by
+#   running AC_CHECK_PROG or AC_PATH_PROG),
 #
 #   Example:
 #
 #     AC_PATH_PROG([PYTHON],[python])
 #     AC_PROG_PYTHON_VERSION([2.4.4],[ ... ],[ ... ])
 #
-#   This will check to make sure that the python you have supports at
-#   least version 2.4.4.
+#   This will check to make sure that the python you have supports at least
+#   version 2.4.4.
 #
 #   NOTE: This macro uses the $PYTHON variable to perform the check.
-#   AX_WITH_PYTHON can be used to set that variable prior to running
-#   this macro. The $PYTHON_VERSION variable will be valorized with the
-#   detected version.
+#   AX_WITH_PYTHON can be used to set that variable prior to running this
+#   macro. The $PYTHON_VERSION variable will be valorized with the detected
+#   version.
 #
 # LAST MODIFICATION
 #
-#   2008-01-29
+#   2008-04-12
 #
 # COPYLEFT
 #
 #   Copyright (c) 2008 Francesco Salvestrini <salvestrini@users.sourceforge.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_PROG_PYTHON_VERSION],[
     AC_REQUIRE([AC_PROG_SED])

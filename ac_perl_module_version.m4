@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_perl_module_version.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/ac_perl_module_version.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -7,9 +9,9 @@
 # DESCRIPTION
 #
 #   Checks to see if the list of 'Module Version' are avaiable in the
-#   system. If all the modules in the list are avaiable ACTION-IF-TRUE
-#   is executed. Case one module is not avaiable ACTION-IF-FALSE is
-#   executed and the macro execution is aborted. NOTE: Perl is needed.
+#   system. If all the modules in the list are avaiable ACTION-IF-TRUE is
+#   executed. Case one module is not avaiable ACTION-IF-FALSE is executed
+#   and the macro execution is aborted. NOTE: Perl is needed.
 #
 #   Example:
 #
@@ -18,16 +20,16 @@
 #
 # LAST MODIFICATION
 #
-#   2006-05-12
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Marco Gomes <mpglesi@gmail.com>
-#   Copyright (c) 2006 Ruben Fonseca <fonseka@gmail.com>
+#   Copyright (c) 2008 Marco Gomes <mpglesi@gmail.com>
+#   Copyright (c) 2008 Ruben Fonseca <fonseka@gmail.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_PERL_MODULE_VERSION],[dnl
 ac_perl_list_modules="$1"

@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_check_page_aligned_malloc.html
+# ===========================================================================
+#      http://autoconf-archive.cryp.to/ax_check_page_aligned_malloc.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -7,36 +9,35 @@
 # DESCRIPTION
 #
 #   Some operating systems (generally, BSD Unix variants) lack a
-#   posix_memalign function, a memalign function, and a working
-#   (meaning, the memory can be freed) valloc function. To make up for
-#   it, the malloc function promises to return page-aligned addresses
-#   if more than one page's worth of memory is allocated.
-#   AX_CHECK_PAGE_ALIGNED_MALLOC checks for this condition and defines
-#   HAVE_PAGE_ALIGNED_MALLOC if the condition holds.
+#   posix_memalign function, a memalign function, and a working (meaning,
+#   the memory can be freed) valloc function. To make up for it, the malloc
+#   function promises to return page-aligned addresses if more than one
+#   page's worth of memory is allocated. AX_CHECK_PAGE_ALIGNED_MALLOC checks
+#   for this condition and defines HAVE_PAGE_ALIGNED_MALLOC if the condition
+#   holds.
 #
-#   As an aside, note that valloc'd memory cannot safely be freed on
-#   all operating systems. (Again, some flavors of BSD are the
-#   troublemakers.) It's best to avoid using valloc in favor of
-#   posix_memalign, memalign, or an aligned malloc as detected by
-#   AX_CHECK_PAGE_ALIGNED_MALLOC.
+#   As an aside, note that valloc'd memory cannot safely be freed on all
+#   operating systems. (Again, some flavors of BSD are the troublemakers.)
+#   It's best to avoid using valloc in favor of posix_memalign, memalign, or
+#   an aligned malloc as detected by AX_CHECK_PAGE_ALIGNED_MALLOC.
 #
-#   Caveat: AX_CHECK_PAGE_ALIGNED_MALLOC takes a probabalistic
-#   approach. If 100 calls to malloc all return page-aligned addresses,
-#   it assumes that all calls will behave likewise. It is therefore
-#   possible -- albeit extremely unlikely -- that
-#   AX_CHECK_PAGE_ALIGNED_MALLOC can return a false positive.
+#   Caveat: AX_CHECK_PAGE_ALIGNED_MALLOC takes a probabalistic approach. If
+#   100 calls to malloc all return page-aligned addresses, it assumes that
+#   all calls will behave likewise. It is therefore possible -- albeit
+#   extremely unlikely -- that AX_CHECK_PAGE_ALIGNED_MALLOC can return a
+#   false positive.
 #
 # LAST MODIFICATION
 #
-#   2005-01-22
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Scott Pakin <pakin@uiuc.edu>
+#   Copyright (c) 2008 Scott Pakin <pakin@uiuc.edu>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_CHECK_PAGE_ALIGNED_MALLOC],
 [AC_CACHE_CHECK([if large mallocs guarantee page-alignment],

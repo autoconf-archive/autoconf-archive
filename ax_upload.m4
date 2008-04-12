@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_upload.html
+# ===========================================================================
+#               http://autoconf-archive.cryp.to/ax_upload.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -12,10 +14,9 @@
 #      AX_UPLOAD([ncftpput -v upload.sourceforge.net /incoming %%s])
 #
 #   To add upload support for other custom dists add upload-<TYPE> to
-#   UPLOAD_BIN or UPLOAD_SRC, where <TYPE> is the type of dist that is
-#   being uploaded and add a mapping from <TYPE> to the dist file name
-#   in the format '{<TYPE>=><FILENAME>}' to UPLOAD_TARGETS. For
-#   example:
+#   UPLOAD_BIN or UPLOAD_SRC, where <TYPE> is the type of dist that is being
+#   uploaded and add a mapping from <TYPE> to the dist file name in the
+#   format '{<TYPE>=><FILENAME>}' to UPLOAD_TARGETS. For example:
 #
 #      UPLOAD_BIN += upload-foobar
 #      UPLOAD_TARGETS += {foobar=>@PACKAGE@-@VERSION@.fb}
@@ -34,15 +35,15 @@
 #
 # LAST MODIFICATION
 #
-#   2005-01-14
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Tom Howard <tomhoward@users.sf.net>
+#   Copyright (c) 2008 Tom Howard <tomhoward@users.sf.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_UPLOAD],
 [

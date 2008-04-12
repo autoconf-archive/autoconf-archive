@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_prog_cc_warnings.html
+# ===========================================================================
+#          http://autoconf-archive.cryp.to/ac_prog_cc_warnings.html
+# ===========================================================================
 #
 # OBSOLETE MACRO
 #
@@ -10,52 +12,48 @@
 #
 # DESCRIPTION
 #
-#   Enables a reasonable set of warnings for the C compiler.
-#   Optionally, if the first argument is nonempty, turns on flags which
-#   enforce and/or enable proper ANSI C if such are known with the
-#   compiler used.
+#   Enables a reasonable set of warnings for the C compiler. Optionally, if
+#   the first argument is nonempty, turns on flags which enforce and/or
+#   enable proper ANSI C if such are known with the compiler used.
 #
-#   Currently this macro knows about GCC, Solaris C compiler, Digital
-#   Unix C compiler, C for AIX Compiler, HP-UX C compiler, IRIX C
-#   compiler, NEC SX-5 (Super-UX 10) C compiler, and Cray J90 (Unicos
-#   10.0.0.8) C compiler.
+#   Currently this macro knows about GCC, Solaris C compiler, Digital Unix C
+#   compiler, C for AIX Compiler, HP-UX C compiler, IRIX C compiler, NEC
+#   SX-5 (Super-UX 10) C compiler, and Cray J90 (Unicos 10.0.0.8) C
+#   compiler.
 #
 # LAST MODIFICATION
 #
-#   2007-01-25
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Ville Laurikari <vl@iki.fi>
+#   Copyright (c) 2008 Ville Laurikari <vl@iki.fi>
 #
-#   This program is free software: you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation, either version 3 of the
-#   License, or (at your option) any later version.
+#   This program is free software: you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation, either version 3 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program. If not, see
-#   <http://www.gnu.org/licenses/>.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AC_PROG_CC_WARNINGS], [
   ansi=$1

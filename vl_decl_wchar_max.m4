@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/vl_decl_wchar_max.html
+# ===========================================================================
+#           http://autoconf-archive.cryp.to/vl_decl_wchar_max.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -7,21 +9,21 @@
 # DESCRIPTION
 #
 #   Checks whether the system headers define WCHAR_MAX or not. If it is
-#   already defined, does nothing. Otherwise checks the size and
-#   signedness of `wchar_t', and defines WCHAR_MAX to the maximum value
-#   that can be stored in a variable of type `wchar_t'.
+#   already defined, does nothing. Otherwise checks the size and signedness
+#   of `wchar_t', and defines WCHAR_MAX to the maximum value that can be
+#   stored in a variable of type `wchar_t'.
 #
 # LAST MODIFICATION
 #
-#   2002-04-04
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2002 Ville Laurikari <vl@iki.fi>
+#   Copyright (c) 2008 Ville Laurikari <vl@iki.fi>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([VL_DECL_WCHAR_MAX], [
   AC_CACHE_CHECK([whether WCHAR_MAX is defined], vl_cv_decl_wchar_max, [

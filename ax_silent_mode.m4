@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_silent_mode.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/ax_silent_mode.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,8 +8,8 @@
 #
 # DESCRIPTION
 #
-#   Temporarily disable console output when running Autoconf macros.
-#   For example:
+#   Temporarily disable console output when running Autoconf macros. For
+#   example:
 #
 #     AX_SILENT_MODE(on)    dnl disable console output
 #     AC_PROG_CXX
@@ -16,16 +18,16 @@
 #
 # LAST MODIFICATION
 #
-#   2006-10-22
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Peter Simons <simons@cryp.to>
-#   Copyright (c) 2006 Paolo Bonzini <bonzini@gnu.org>
+#   Copyright (c) 2008 Peter Simons <simons@cryp.to>
+#   Copyright (c) 2008 Paolo Bonzini <bonzini@gnu.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_SILENT_MODE],
   [

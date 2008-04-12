@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_cxx_old_for_scoping.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/ac_cxx_old_for_scoping.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -7,23 +9,23 @@
 # DESCRIPTION
 #
 #   If the compiler accepts the old for scoping rules (the scope of a
-#   variable declared inside the parentheses extends outside the
-#   for-body), define HAVE_OLD_FOR_SCOPING. Note that some compilers
-#   (notably g++ and egcs) support both new and old rules since they
-#   accept the old rules and only generate a warning.
+#   variable declared inside the parentheses extends outside the for-body),
+#   define HAVE_OLD_FOR_SCOPING. Note that some compilers (notably g++ and
+#   egcs) support both new and old rules since they accept the old rules and
+#   only generate a warning.
 #
 # LAST MODIFICATION
 #
-#   2004-02-04
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2004 Todd Veldhuizen
-#   Copyright (c) 2004 Luc Maisonobe <luc@spaceroots.org>
+#   Copyright (c) 2008 Todd Veldhuizen
+#   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CXX_OLD_FOR_SCOPING],
 [AC_CACHE_CHECK(whether the compiler accepts the old for scoping rules,

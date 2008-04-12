@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_sys_dev_poll.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ac_sys_dev_poll.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -7,25 +9,24 @@
 # DESCRIPTION
 #
 #   This macro tests for the presence of /dev/poll support in the build
-#   environment. It checks that the needed structure (dvpoll) is
-#   available, with the standard fields. /dev/poll is most often seen
-#   under Solaris.
+#   environment. It checks that the needed structure (dvpoll) is available,
+#   with the standard fields. /dev/poll is most often seen under Solaris.
 #
-#   Note that it does not attempt to actually open /dev/poll -- you
-#   should test for errors when you open it and then fall back to
-#   poll() if it is unavailable.
+#   Note that it does not attempt to actually open /dev/poll -- you should
+#   test for errors when you open it and then fall back to poll() if it is
+#   unavailable.
 #
 # LAST MODIFICATION
 #
-#   2003-10-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2003 Dave Benson <daveb@ffem.org>
+#   Copyright (c) 2008 Dave Benson <daveb@ffem.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_SYS_DEV_POLL], [AC_CACHE_CHECK(for /dev/poll support, ac_cv_dev_poll,
     AC_TRY_COMPILE([#include <sys/ioctl.h>

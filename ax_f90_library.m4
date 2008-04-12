@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_f90_library.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/ax_f90_library.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,34 +8,32 @@
 #
 # DESCRIPTION
 #
-#   Set up the compiler flags to link a given fortran 90 library
-#   LIBRARY is the name of the library. LIB-REGEXP is a regular
-#   expression (used by find) matched by the filename of the library,
-#   this is useful either if the library filename does not follow the
-#   traditional libxxx.a or libxxx.so pattern, or if some specific
-#   information is embedded into the name, like compiler used,
-#   debugging status ...). FUNCTION-BODY is the body of a function
-#   (including the 'use' statements and the call to a function defined
-#   by the library) SEARCH-PATH is a colon-separated list of
-#   directories that will be used as the base directoris for 'find' to
-#   look for the library file. If empty, the search path will be
-#   composed of $prefix/lib, $ac_default_prefix/lib, and
-#   $LD_LIBRARY_PATH. Two output variables named F90_LDFLAGS_xxx and
-#   F90_LIBS_xxx will be set up with the proper flag for substitution
-#   in Makefiles (xxx is built from the first argument, with autoconf
-#   traditional escapes).
+#   Set up the compiler flags to link a given fortran 90 library LIBRARY is
+#   the name of the library. LIB-REGEXP is a regular expression (used by
+#   find) matched by the filename of the library, this is useful either if
+#   the library filename does not follow the traditional libxxx.a or
+#   libxxx.so pattern, or if some specific information is embedded into the
+#   name, like compiler used, debugging status ...). FUNCTION-BODY is the
+#   body of a function (including the 'use' statements and the call to a
+#   function defined by the library) SEARCH-PATH is a colon-separated list
+#   of directories that will be used as the base directoris for 'find' to
+#   look for the library file. If empty, the search path will be composed of
+#   $prefix/lib, $ac_default_prefix/lib, and $LD_LIBRARY_PATH. Two output
+#   variables named F90_LDFLAGS_xxx and F90_LIBS_xxx will be set up with the
+#   proper flag for substitution in Makefiles (xxx is built from the first
+#   argument, with autoconf traditional escapes).
 #
 # LAST MODIFICATION
 #
-#   2005-01-14
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Luc Maisonobe <luc@spaceroots.org>
+#   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_F90_LIBRARY],[
 AS_VAR_PUSHDEF([ax_ldflags],[ax_f90_ldflags_$1])

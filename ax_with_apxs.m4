@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_with_apxs.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/ax_with_apxs.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,12 +8,11 @@
 #
 # DESCRIPTION
 #
-#   Locates an installed apxs binary, placing the result in the
-#   precious variable $APXS. Accepts a preset $APXS, then --with-apxs,
-#   and failing that searches for apxs in the given path (which
-#   defaults to the system path). If apxs is found, $APXS is set to the
-#   full path of the binary; otherwise it is set to VALUE-IF-NOT-FOUND,
-#   which defaults to apxs.
+#   Locates an installed apxs binary, placing the result in the precious
+#   variable $APXS. Accepts a preset $APXS, then --with-apxs, and failing
+#   that searches for apxs in the given path (which defaults to the system
+#   path). If apxs is found, $APXS is set to the full path of the binary;
+#   otherwise it is set to VALUE-IF-NOT-FOUND, which defaults to apxs.
 #
 #   Example:
 #
@@ -19,15 +20,15 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Dustin J. Mitchell <dustin@cs.uchicago.edu>
+#   Copyright (c) 2008 Dustin J. Mitchell <dustin@cs.uchicago.edu>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_WITH_APXS],
 [

@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/etr_string_strcasecmp.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/etr_string_strcasecmp.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -16,21 +18,21 @@
 #           ETR_STRINGS_STRCASECMP
 #       fi
 #
-#   This will cause either HAVE_STRING_STRCASECMP or
-#   HAVE_STRINGS_STRCASECMP to be defined in config.h, which will tell
-#   your code what header to include to get strcasecmp()'s prototype.
+#   This will cause either HAVE_STRING_STRCASECMP or HAVE_STRINGS_STRCASECMP
+#   to be defined in config.h, which will tell your code what header to
+#   include to get strcasecmp()'s prototype.
 #
 # LAST MODIFICATION
 #
-#   2001-05-25
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2001 Warren Young <warren@etr-usa.com>
+#   Copyright (c) 2008 Warren Young <warren@etr-usa.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([ETR_STRING_STRCASECMP],
 [

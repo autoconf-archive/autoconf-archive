@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_arg_with_path_style.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/ac_arg_with_path_style.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,9 +8,9 @@
 #
 # DESCRIPTION
 #
-#   _AC_DEFINE(PATH_STYLE) describing the filesys interface. The value
-#   is numeric, where the basetype is encoded as 16 = dos/win, 32 =
-#   unix, 64 = url/www, 0 = other
+#   _AC_DEFINE(PATH_STYLE) describing the filesys interface. The value is
+#   numeric, where the basetype is encoded as 16 = dos/win, 32 = unix, 64 =
+#   url/www, 0 = other
 #
 #   some extra semantics are described in other bits of the value,
 #   especially
@@ -17,15 +19,15 @@
 #    2048  accepts ";" as a path separator
 #    4096  accepts "," as a path separator
 #
-#   the macro provides a configure' --with-path-style option that can
-#   be used with descriptive arg names. If not explicitly given, the
-#   $target_os will be checked to provide a sane default. Additional
-#   (lower) bits can be used by the user for some additional magic,
-#   higher bits are reserved for this macro.
+#   the macro provides a configure' --with-path-style option that can be
+#   used with descriptive arg names. If not explicitly given, the $target_os
+#   will be checked to provide a sane default. Additional (lower) bits can
+#   be used by the user for some additional magic, higher bits are reserved
+#   for this macro.
 #
 #   the mnemonic "strict" or "also" is used to instruct the code that
-#   additional seperators shall be accepted but converted to the
-#   seperator of the underlying pathstyle system. (or-512)
+#   additional seperators shall be accepted but converted to the seperator
+#   of the underlying pathstyle system. (or-512)
 #
 #    example: --with-path-style=win,slash
 #             to make it accept ";" as pathsep, and
@@ -33,41 +35,37 @@
 #
 # LAST MODIFICATION
 #
-#   2006-10-13
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Guido U. Draheim <guidod@gmx.de>
+#   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
 #
-#   This program is free software; you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation; either version 2 of the
-#   License, or (at your option) any later version.
+#   This program is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation; either version 2 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-#   02111-1307, USA.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AC_ARG_WITH_PATH_STYLE],
 [

@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/az_python.html
+# ===========================================================================
+#               http://autoconf-archive.cryp.to/az_python.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -12,37 +14,35 @@
 #
 # DESCRIPTION
 #
-#   This file provides autoconf support for those applications that
-#   want to embed python. It supports all pythons >= 2.2 which is the
-#   first official release containing distutils. Version 2.2 of python
-#   was released December 21, 2001. Since it actually executes the
-#   python, cross platform configuration will probably not work. Also,
-#   most of the platforms supported are consistent until you look into
-#   MacOSX. The python included with it is installed as a framework
-#   which is a very different environment to set up the normal tools
-#   such as gcc and libtool to deal with. Therefore, once we establish
-#   which python that we are going to use, we use its distutils to
-#   actually compile and link our modules or applications.
+#   This file provides autoconf support for those applications that want to
+#   embed python. It supports all pythons >= 2.2 which is the first official
+#   release containing distutils. Version 2.2 of python was released
+#   December 21, 2001. Since it actually executes the python, cross platform
+#   configuration will probably not work. Also, most of the platforms
+#   supported are consistent until you look into MacOSX. The python included
+#   with it is installed as a framework which is a very different
+#   environment to set up the normal tools such as gcc and libtool to deal
+#   with. Therefore, once we establish which python that we are going to
+#   use, we use its distutils to actually compile and link our modules or
+#   applications.
 #
-#   At this time, it does NOT support linking with Python statically.
-#   It does support dynamic linking.
+#   At this time, it does NOT support linking with Python statically. It
+#   does support dynamic linking.
 #
-#   This set of macros help define $PYTHON, $PYTHON_USE, $PYTHON_CSPEC
-#   and $PYTHON_LSPEC. $PYTHON defines the full executable path for the
-#   Python being linked to and is used within these macros to determine
-#   if that has been specified or found. These macros do execute this
-#   python version so it must be present on the system at configure
-#   time.
+#   This set of macros help define $PYTHON, $PYTHON_USE, $PYTHON_CSPEC and
+#   $PYTHON_LSPEC. $PYTHON defines the full executable path for the Python
+#   being linked to and is used within these macros to determine if that has
+#   been specified or found. These macros do execute this python version so
+#   it must be present on the system at configure time.
 #
-#   $PYTHON_USE is an automake variable that defines whether Python
-#   support should be included or not in your application.
-#   $PYTHON_CSPEC is a variable that supplies additional CFLAGS for the
-#   compilation of the application/shared library. $PYTHON_LSPEC is a
-#   variable that supplies additional LDFLAGS for linking the
-#   application/shared library.
+#   $PYTHON_USE is an automake variable that defines whether Python support
+#   should be included or not in your application. $PYTHON_CSPEC is a
+#   variable that supplies additional CFLAGS for the compilation of the
+#   application/shared library. $PYTHON_LSPEC is a variable that supplies
+#   additional LDFLAGS for linking the application/shared library.
 #
-#   The following is an example of how to set up for python usage
-#   within your application in your configure.in:
+#   The following is an example of how to set up for python usage within
+#   your application in your configure.in:
 #
 #     AZ_PYTHON_DEFAULT( )
 #     AZ_PYTHON_ENABLE( )             # Optional
@@ -53,8 +53,8 @@
 #     AZ_PYTHON_CSPEC
 #     AZ_PYTHON_LSPEC
 #
-#   The AZ_PYTHON_DEFAULT sets the $PYTHON_USE to false. Thereby,
-#   excluding it if it was optional.
+#   The AZ_PYTHON_DEFAULT sets the $PYTHON_USE to false. Thereby, excluding
+#   it if it was optional.
 #
 #   The AZ_PYTHON_ENABLE looks for the optional configure parameters of
 #   --enable-python/--disable-python and establishes the $PYTHON and
@@ -65,18 +65,17 @@
 #   $PYTHON_USE variables accordingly.
 #
 #   The AZ_PYTHON_PATH looks for python assuming that none has been
-#   previously found or defined and issues an error if it does not find
-#   it. If it does find it, it establishes the $PYTHON and $PYTHON_USE
-#   variables accordingly. AZ_PYTHON_INSIST could be used here instead
-#   if you want to insist that Python support be included using the
-#   --enable-python or --with-python checks previously done.
+#   previously found or defined and issues an error if it does not find it.
+#   If it does find it, it establishes the $PYTHON and $PYTHON_USE variables
+#   accordingly. AZ_PYTHON_INSIST could be used here instead if you want to
+#   insist that Python support be included using the --enable-python or
+#   --with-python checks previously done.
 #
-#   The AZ_PYTHON_VERSION_ENSURE issues an error if the Python
-#   previously found is not of version 2.2 or greater.
+#   The AZ_PYTHON_VERSION_ENSURE issues an error if the Python previously
+#   found is not of version 2.2 or greater.
 #
-#   Once that these macros have be run, we can use PYTHON_USE within
-#   the makefile.am file to conditionally add the Python support such
-#   as:
+#   Once that these macros have be run, we can use PYTHON_USE within the
+#   makefile.am file to conditionally add the Python support such as:
 #
 #   Makefile.am example showing optional inclusion of directories:
 #
@@ -108,21 +107,21 @@
 #    runFunc_LDFLAGS = @PYTHON_LSPEC@
 #    endif
 #
-#   The above compiles the modules only if PYTHON_USE was specified as
-#   true. Also, the else portion of the if was optional.
+#   The above compiles the modules only if PYTHON_USE was specified as true.
+#   Also, the else portion of the if was optional.
 #
 # LAST MODIFICATION
 #
-#   2007-08-04
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Robert White <kranki@mac.com>
-#   Copyright (c) 2007 Dustin J. Mitchell <dustin@cs.uchicago.edu>
+#   Copyright (c) 2008 Robert White <kranki@mac.com>
+#   Copyright (c) 2008 Dustin J. Mitchell <dustin@cs.uchicago.edu>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 # AZ_PYTHON_DEFAULT( )
 # -----------------

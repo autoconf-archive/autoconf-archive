@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_c_long_long_.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ac_c_long_long_.html
+# ===========================================================================
 #
 # OBSOLETE MACRO
 #
@@ -10,22 +12,22 @@
 #
 # DESCRIPTION
 #
-#   Provides a test for the existance of the long long int type and
-#   defines HAVE_LONG_LONG if it is found.
+#   Provides a test for the existance of the long long int type and defines
+#   HAVE_LONG_LONG if it is found.
 #
 #   change: add a comment for the ac_define <guidod>
 #
 # LAST MODIFICATION
 #
-#   2001-05-03
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2001 Caolan McNamara <caolan@skynet.ie>
+#   Copyright (c) 2008 Caolan McNamara <caolan@skynet.ie>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_C_LONG_LONG_],
 [AC_CACHE_CHECK(for long long int, ac_cv_c_long_long,

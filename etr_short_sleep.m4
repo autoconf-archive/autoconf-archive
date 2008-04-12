@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/etr_short_sleep.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/etr_short_sleep.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,23 +8,23 @@
 #
 # DESCRIPTION
 #
-#   This macro searches for a "sleep" function that has 1/1000 of a
-#   second accuracy. On some systems, this is known as nap() and on
-#   others usleep() / 1000. There are probably other functions like
-#   this defined in other system libraries, but we don't know how to
-#   search for them yet. Contributions joyously accepted. :)
+#   This macro searches for a "sleep" function that has 1/1000 of a second
+#   accuracy. On some systems, this is known as nap() and on others usleep()
+#   / 1000. There are probably other functions like this defined in other
+#   system libraries, but we don't know how to search for them yet.
+#   Contributions joyously accepted. :)
 #
 # LAST MODIFICATION
 #
-#   2001-06-07
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2001 Warren Young <warren@etr-usa.com>
+#   Copyright (c) 2008 Warren Young <warren@etr-usa.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([ETR_SHORT_SLEEP],
 [

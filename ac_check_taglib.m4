@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_check_taglib.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ac_check_taglib.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,20 +8,20 @@
 #
 # DESCRIPTION
 #
-#   Defines and exports TAGLIB_LIBS, TAGLIB_CFLAGS. See taglib-config
-#   man page.
+#   Defines and exports TAGLIB_LIBS, TAGLIB_CFLAGS. See taglib-config man
+#   page.
 #
 # LAST MODIFICATION
 #
-#   2005-09-20
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Akos Maroy <darkeye@tyrell.hu>
+#   Copyright (c) 2008 Akos Maroy <darkeye@tyrell.hu>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CHECK_TAGLIB], [
   succeeded=no

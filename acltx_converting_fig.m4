@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/acltx_converting_fig.html
+# ===========================================================================
+#          http://autoconf-archive.cryp.to/acltx_converting_fig.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,31 +8,29 @@
 #
 # DESCRIPTION
 #
-#   this macro find a way to convert .fig file to file that can be
-#   included by latex and set convert_fig
+#   this macro find a way to convert .fig file to file that can be included
+#   by latex and set convert_fig
 #
 # LAST MODIFICATION
 #
-#   2006-07-16
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Boretti Mathieu <boretti@eig.unige.ch>
+#   Copyright (c) 2008 Boretti Mathieu <boretti@eig.unige.ch>
 #
-#   This library is free software; you can redistribute it and/or
-#   modify it under the terms of the GNU Lesser General Public License
-#   as published by the Free Software Foundation; either version 2.1 of
-#   the License, or (at your option) any later version.
+#   This library is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU Lesser General Public License as published by
+#   the Free Software Foundation; either version 2.1 of the License, or (at
+#   your option) any later version.
 #
 #   This library is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   Lesser General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser
+#   General Public License for more details.
 #
-#   You should have received a copy of the GNU Lesser General Public
-#   License along with this library; if not, write to the Free Software
-#   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
-#   02110-1301 USA
+#   You should have received a copy of the GNU Lesser General Public License
+#   along with this library. If not, see <http://www.gnu.org/licenses/>.
 
 AC_DEFUN([_ACLTX_FIG2DEV_FCT],[
 AC_MSG_CHECKING([for $fig2dev -L $1 $2])

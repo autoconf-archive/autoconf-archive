@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_ext_have_lib.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ax_ext_have_lib.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,39 +8,38 @@
 #
 # DESCRIPTION
 #
-#   AX_EXT_HAVE_LIB is identical to AC_SEARCH_LIBS with the exception
-#   that will add -L<directory> when looking, and use a different
-#   variable for each directory.
+#   AX_EXT_HAVE_LIB is identical to AC_SEARCH_LIBS with the exception that
+#   will add -L<directory> when looking, and use a different variable for
+#   each directory.
 #
 #   Any required -L<directory> flags are added to LDFLAGS and located
 #   libraies are added to LIBS
 #
-#   Some libraries are unlinkable without other extra libraries, which
-#   can be specified in the 4th argument. The mysql client library
-#   needs -lz, for example.
+#   Some libraries are unlinkable without other extra libraries, which can
+#   be specified in the 4th argument. The mysql client library needs -lz,
+#   for example.
 #
 #   Example:
 #
 #    AX_EXT_HAVE_LIB(/lib /usr/lib /usr/local/lib /usr/lib/mysql /usr/local/mysql/lib, mysqlclient, mysql_init, [-lz])
 #
-#   which finds the mysql client library if succeds system when it
-#   tries with -L/usr/lib/mysql then it adds -lmysqlclient to LIBS and
+#   which finds the mysql client library if succeds system when it tries
+#   with -L/usr/lib/mysql then it adds -lmysqlclient to LIBS and
 #   -L/usr/lib/mysql to LDFLAGS.
 #
-#   The test itself is based on the autoconf 2.53 version of
-#   AC_SEARCH_LIBS.
+#   The test itself is based on the autoconf 2.53 version of AC_SEARCH_LIBS.
 #
 # LAST MODIFICATION
 #
-#   2004-07-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2004 Duncan Simpson <dps@simpson.demon.co.uk>
+#   Copyright (c) 2008 Duncan Simpson <dps@simpson.demon.co.uk>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_EXT_HAVE_LIB],
 [

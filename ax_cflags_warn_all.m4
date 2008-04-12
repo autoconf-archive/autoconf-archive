@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_cflags_warn_all.html
+# ===========================================================================
+#           http://autoconf-archive.cryp.to/ax_cflags_warn_all.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,18 +8,17 @@
 #
 # DESCRIPTION
 #
-#   Try to find a compiler option that enables most reasonable
-#   warnings. This macro is directly derived from VL_PROG_CC_WARNINGS
-#   which is split up into two AX_CFLAGS_WARN_ALL and
-#   AX_CFLAGS_WARN_ALL_ANSI
+#   Try to find a compiler option that enables most reasonable warnings.
+#   This macro is directly derived from VL_PROG_CC_WARNINGS which is split
+#   up into two AX_CFLAGS_WARN_ALL and AX_CFLAGS_WARN_ALL_ANSI
 #
 #   For the GNU CC compiler it will be -Wall (and -ansi -pedantic) The
 #   result is added to the shellvar being CFLAGS by default.
 #
-#   Currently this macro knows about GCC, Solaris C compiler, Digital
-#   Unix C compiler, C for AIX Compiler, HP-UX C compiler, IRIX C
-#   compiler, NEC SX-5 (Super-UX 10) C compiler, and Cray J90 (Unicos
-#   10.0.0.8) C compiler.
+#   Currently this macro knows about GCC, Solaris C compiler, Digital Unix C
+#   compiler, C for AIX Compiler, HP-UX C compiler, IRIX C compiler, NEC
+#   SX-5 (Super-UX 10) C compiler, and Cray J90 (Unicos 10.0.0.8) C
+#   compiler.
 #
 #    - $1 shell-variable-to-add-to : CFLAGS
 #    - $2 add-value-if-not-found : nothing
@@ -26,41 +27,37 @@
 #
 # LAST MODIFICATION
 #
-#   2006-12-12
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Guido U. Draheim <guidod@gmx.de>
+#   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
 #
-#   This program is free software; you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation; either version 2 of the
-#   License, or (at your option) any later version.
+#   This program is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation; either version 2 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-#   02111-1307, USA.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_CFLAGS_WARN_ALL],[dnl
 AS_VAR_PUSHDEF([FLAGS],[CFLAGS])dnl

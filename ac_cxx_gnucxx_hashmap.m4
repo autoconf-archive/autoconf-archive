@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_cxx_gnucxx_hashmap.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/ac_cxx_gnucxx_hashmap.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -10,15 +12,15 @@
 #
 # LAST MODIFICATION
 #
-#   2005-07-18
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Patrick Mauritz <oxygene@studentenbude.ath.cx>
+#   Copyright (c) 2008 Patrick Mauritz <oxygene@studentenbude.ath.cx>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CXX_GNUCXX_HASHMAP],[
 AC_CACHE_CHECK(whether the compiler supports __gnu_cxx::hash_map,

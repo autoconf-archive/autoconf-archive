@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_add_recursive_am_macro.html
+# ===========================================================================
+#       http://autoconf-archive.cryp.to/ax_add_recursive_am_macro.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,21 +8,21 @@
 #
 # DESCRIPTION
 #
-#   Adds the specified rule to $AMINCLUDE along with a TARGET-recursive
-#   rule that will call TARGET for the current directory and TARGET-am
+#   Adds the specified rule to $AMINCLUDE along with a TARGET-recursive rule
+#   that will call TARGET for the current directory and TARGET-am
 #   recursively for each subdirectory
 #
 # LAST MODIFICATION
 #
-#   2005-01-14
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Tom Howard <tomhoward@users.sf.net>
+#   Copyright (c) 2008 Tom Howard <tomhoward@users.sf.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_ADD_RECURSIVE_AM_MACRO],[
   AX_ADD_AM_MACRO([

@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_pkg_mico.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/ac_pkg_mico.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,35 +8,32 @@
 #
 # DESCRIPTION
 #
-#   This macro searches for a MICO installation on your system. MICO
-#   (Mico Is COrba) installs the file 'mico-setup.sh' under
-#   MICO_INSTALL_BASE/lib, where MICO_INSTALL_BASE is probably
-#   /usr/local or /usr. If nothing was specified when calling configure
-#   or just --with-mico, it searches in
+#   This macro searches for a MICO installation on your system. MICO (Mico
+#   Is COrba) installs the file 'mico-setup.sh' under MICO_INSTALL_BASE/lib,
+#   where MICO_INSTALL_BASE is probably /usr/local or /usr. If nothing was
+#   specified when calling configure or just --with-mico, it searches in
 #   $prefix/lib:/usr/local/lib:/usr/lib The argument of s--with-mico
 #   specifies the full pathname of the mico-setup.sh file. For instance
 #   --with-mico=/usr/local/mico-2.2.6/lib/mico-setup.sh.
 #
-#   If the version argument is given (e.g. 2.2.6), AC_PKG_MICO checks
-#   that the mico package is this version number or higher.
+#   If the version argument is given (e.g. 2.2.6), AC_PKG_MICO checks that
+#   the mico package is this version number or higher.
 #
 #   The other optional argument to AC_PKG_MICO are 'optional' and
-#   'required'. by default, placing AC_PKG_MICO in your configure.in
-#   does not enforce using mico, if it is not found on the system. If
-#   MICO existence is critical for the building of your package, then
-#   you probably want to specify something like "AC_PKG_MICO(2.2.6
-#   required)". Then, even if the --with-mico was not spcefied on the
-#   command line of the configure script, an error will be raised if
-#   mico was not found.
+#   'required'. by default, placing AC_PKG_MICO in your configure.in does
+#   not enforce using mico, if it is not found on the system. If MICO
+#   existence is critical for the building of your package, then you
+#   probably want to specify something like "AC_PKG_MICO(2.2.6 required)".
+#   Then, even if the --with-mico was not spcefied on the command line of
+#   the configure script, an error will be raised if mico was not found.
 #
 #   If the mico package is not found, abort configuration with error
 #   message.
 #
 #   It defines the symbol MICOSETUP, MICOVERSION, MICOSHAREDDIR
-#   MICO_INCLUDE, MICO_LIB and MICO_CXX if mico is found. In addition,
-#   the mico script mico-c++ (set in (MICO_CXX) is scaned for a string
-#   match "-I.*ministl" and if foundMICO_USE_MINISTL is set to 1,
-#   otherwise to 0.
+#   MICO_INCLUDE, MICO_LIB and MICO_CXX if mico is found. In addition, the
+#   mico script mico-c++ (set in (MICO_CXX) is scaned for a string match
+#   "-I.*ministl" and if foundMICO_USE_MINISTL is set to 1, otherwise to 0.
 #
 #   Example of use of these variables in your Makefile.in:
 #
@@ -43,15 +42,15 @@
 #
 # LAST MODIFICATION
 #
-#   2007-08-04
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Tal Shalif <tal@shalif.com>
+#   Copyright (c) 2008 Tal Shalif <tal@shalif.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_PKG_MICO],
 [

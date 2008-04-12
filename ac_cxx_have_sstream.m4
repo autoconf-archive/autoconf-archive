@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_cxx_have_sstream.html
+# ===========================================================================
+#          http://autoconf-archive.cryp.to/ac_cxx_have_sstream.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -10,15 +12,15 @@
 #
 # LAST MODIFICATION
 #
-#   2001-03-16
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2001 Ben Stanley <Ben.Stanley@exemail.com.au>
+#   Copyright (c) 2008 Ben Stanley <Ben.Stanley@exemail.com.au>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CXX_HAVE_SSTREAM],
 [AC_CACHE_CHECK(whether the compiler has stringstream,

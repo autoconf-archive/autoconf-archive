@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_cxx_gcc_abi_demangle.html
+# ===========================================================================
+#        http://autoconf-archive.cryp.to/ax_cxx_gcc_abi_demangle.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -14,15 +16,15 @@
 #
 # LAST MODIFICATION
 #
-#   2004-02-18
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2004 Neil Ferguson <nferguso@eso.org>
+#   Copyright (c) 2008 Neil Ferguson <nferguso@eso.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_CXX_GCC_ABI_DEMANGLE],
 [AC_CACHE_CHECK(whether the compiler supports GCC C++ ABI name demangling,

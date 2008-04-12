@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_cxx_template_keyword_qualifier.html
+# ===========================================================================
+#   http://autoconf-archive.cryp.to/ac_cxx_template_keyword_qualifier.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,22 +8,22 @@
 #
 # DESCRIPTION
 #
-#   If the compiler supports use of the template keyword as a
-#   qualifier, define HAVE_TEMPLATE_KEYWORD_QUALIFIER.
+#   If the compiler supports use of the template keyword as a qualifier,
+#   define HAVE_TEMPLATE_KEYWORD_QUALIFIER.
 #
 # LAST MODIFICATION
 #
-#   2004-02-06
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2004 Todd Veldhuizen
-#   Copyright (c) 2004 Bernardo Innocenti
-#   Copyright (c) 2004 Luc Maisonobe <luc@spaceroots.org>
+#   Copyright (c) 2008 Todd Veldhuizen
+#   Copyright (c) 2008 Bernardo Innocenti
+#   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CXX_TEMPLATE_KEYWORD_QUALIFIER],
 [AC_CACHE_CHECK(whether the compiler supports use of the template keyword as a qualifier,

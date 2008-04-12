@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_define_integer_bits.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/ac_define_integer_bits.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,15 +8,14 @@
 #
 # DESCRIPTION
 #
-#   Given a TYPE of the form "int##_t" or "uint##_t", see if the
-#   datatype TYPE is predefined. If not, then define TYPE -- both with
-#   AC_DEFINE and as a shell variable -- to the first datatype of
-#   exactly ## bits in a list of CANDIDATE-TYPEs. If none of the
-#   CANDIDATE-TYPEs contains exactly ## bits, then set the TYPE shell
-#   variable to "no".
+#   Given a TYPE of the form "int##_t" or "uint##_t", see if the datatype
+#   TYPE is predefined. If not, then define TYPE -- both with AC_DEFINE and
+#   as a shell variable -- to the first datatype of exactly ## bits in a
+#   list of CANDIDATE-TYPEs. If none of the CANDIDATE-TYPEs contains exactly
+#   ## bits, then set the TYPE shell variable to "no".
 #
-#   For example, the following ensures that uint64_t is defined as a
-#   64-bit datatype:
+#   For example, the following ensures that uint64_t is defined as a 64-bit
+#   datatype:
 #
 #       AC_DEFINE_INTEGER_BITS(uint64_t, unsigned long long, unsigned __int64, long)
 #       if test "$uint64_t" = no; then
@@ -22,8 +23,7 @@
 #       fi
 #
 #   You should then put the following in your C code to ensure that all
-#   datatypes defined by AC_DEFINE_INTEGER_BITS are visible to your
-#   program:
+#   datatypes defined by AC_DEFINE_INTEGER_BITS are visible to your program:
 #
 #       #include "config.h"
 #
@@ -37,15 +37,15 @@
 #
 # LAST MODIFICATION
 #
-#   2002-01-31
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2002 Scott Pakin <pakin@uiuc.edu>
+#   Copyright (c) 2008 Scott Pakin <pakin@uiuc.edu>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_DEFINE_INTEGER_BITS],
 [m4_define([ac_datatype_bits], [m4_translit($1, [a-zA-Z_])])

@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_llvm.html
+# ===========================================================================
+#                http://autoconf-archive.cryp.to/ax_llvm.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,8 +8,8 @@
 #
 # DESCRIPTION
 #
-#   Test for the existance of llvm, and make sure that it can be linked
-#   with the llvm-libs argument that is passed on to llvm-config i.e.:
+#   Test for the existance of llvm, and make sure that it can be linked with
+#   the llvm-libs argument that is passed on to llvm-config i.e.:
 #
 #      llvm --libs <llvm-libs>
 #
@@ -15,15 +17,15 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-28
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Andy Kitchen <agimbleinthewabe@gmail.com>
+#   Copyright (c) 2008 Andy Kitchen <agimbleinthewabe@gmail.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_LLVM],
 [

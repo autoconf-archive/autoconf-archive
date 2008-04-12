@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_cache_size.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/ax_cache_size.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,24 +8,24 @@
 #
 # DESCRIPTION
 #
-#   Find L1 and L2 caches size by reading the corresponding file on
-#   UNIX or by requesting cpuid. The results are available in the
-#   defines CPU_L1_CACHE and CPU_L2_CACHE.
+#   Find L1 and L2 caches size by reading the corresponding file on UNIX or
+#   by requesting cpuid. The results are available in the defines
+#   CPU_L1_CACHE and CPU_L2_CACHE.
 #
-#   This macro depends on AX_GCC_X86_CPUID, AC_PROG_SED, AX_COUNT_CPUS,
-#   and AX_CPU_VENDOR.
+#   This macro depends on AX_GCC_X86_CPUID, AC_PROG_SED, AX_COUNT_CPUS, and
+#   AX_CPU_VENDOR.
 #
 # LAST MODIFICATION
 #
-#   2007-11-28
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Christophe Tournayre <turn3r@users.sourceforge.net>
+#   Copyright (c) 2008 Christophe Tournayre <turn3r@users.sourceforge.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_CACHE_SIZE],
 [
