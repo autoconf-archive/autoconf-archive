@@ -1,6 +1,14 @@
                      History of the Autoconf Macro Archive
                      =====================================
 
+2008-04-12:
+
+        The markup format distributed by the Autoconf Macro Archive has changed
+        to accomodate the aclocal utility distributed with Automake. Further
+        details are available in the GIT repository:
+
+          http://git.cryp.to/?p=autoconf-archive;a=commit;h=76c7d0ad8925ab22e3bb50c8b27b333f31303c74
+
 2007-08-22:
 
         The macro documentation shipped in the release tarball now features
