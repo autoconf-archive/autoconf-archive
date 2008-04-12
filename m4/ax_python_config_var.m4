@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_python_config_var.html
+# ===========================================================================
+#          http://autoconf-archive.cryp.to/ax_python_config_var.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -11,15 +13,15 @@
 #   AX_PYTHON_CONFIG_VAR:
 #
 #   Using the Python module distutils.sysconfig[1], return a Python
-#   configuration variable. PYTHON_VARIABLE is the name of the variable
-#   to request from Python, and SHELL_VARIABLE is the name of the shell
-#   variable into which the results should be deposited. If
-#   SHELL_VARIABLE is not specified, the macro wil prefix PY_ to the
-#   PYTHON_VARIABLE, e.g., LIBS -> PY_LIBS.
+#   configuration variable. PYTHON_VARIABLE is the name of the variable to
+#   request from Python, and SHELL_VARIABLE is the name of the shell
+#   variable into which the results should be deposited. If SHELL_VARIABLE
+#   is not specified, the macro wil prefix PY_ to the PYTHON_VARIABLE, e.g.,
+#   LIBS -> PY_LIBS.
 #
-#   SHELL_VARIABLE is AC_SUBST'd. No action is taken if an error
-#   occurs. Note if $PYTHON is not set, AC_CHECK_PROG(PYTHON, python,
-#   python) will be run.
+#   SHELL_VARIABLE is AC_SUBST'd. No action is taken if an error occurs.
+#   Note if $PYTHON is not set, AC_CHECK_PROG(PYTHON, python, python) will
+#   be run.
 #
 #   Example:
 #
@@ -27,32 +29,32 @@
 #
 #   AX_PYTHON_CONFIG_H:
 #
-#   Using the Python module distutils.sysconfig[1], put the full
-#   pathname of the config.h file used to compile Python into the shell
-#   variable PY_CONFIG_H. PY_CONFIG_H is AC_SUBST'd. Note if $PYTHON is
-#   not set, AC_CHECK_PROG(PYTHON, python, python) will be run.
+#   Using the Python module distutils.sysconfig[1], put the full pathname of
+#   the config.h file used to compile Python into the shell variable
+#   PY_CONFIG_H. PY_CONFIG_H is AC_SUBST'd. Note if $PYTHON is not set,
+#   AC_CHECK_PROG(PYTHON, python, python) will be run.
 #
 #   AX_PYTHON_MAKEFILE:
 #
-#   Using the Python module distutils.sysconfig[1], put the full
-#   pathname of the Makefile file used to compile Python into the shell
-#   variable PY_MAKEFILE. PY_MAKEFILE is AC_SUBST'd. Note if $PYTHON is
-#   not set, AC_CHECK_PROG(PYTHON, python, python) will be run.
+#   Using the Python module distutils.sysconfig[1], put the full pathname of
+#   the Makefile file used to compile Python into the shell variable
+#   PY_MAKEFILE. PY_MAKEFILE is AC_SUBST'd. Note if $PYTHON is not set,
+#   AC_CHECK_PROG(PYTHON, python, python) will be run.
 #
 #   [1]
 #   http://www.python.org/doc/current/dist/module-distutils.sysconfig.html
 #
 # LAST MODIFICATION
 #
-#   2007-07-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Dustin J. Mitchell <dustin@cs.uchicago.edu>
+#   Copyright (c) 2008 Dustin J. Mitchell <dustin@cs.uchicago.edu>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_PYTHON_CONFIG_VAR],
 [

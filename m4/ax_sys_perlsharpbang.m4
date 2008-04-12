@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_sys_perlsharpbang.html
+# ===========================================================================
+#          http://autoconf-archive.cryp.to/ax_sys_perlsharpbang.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,22 +8,22 @@
 #
 # DESCRIPTION
 #
-#   Determine how the perl interpreter is located by the OS kernel and
-#   make substitution variable PERL_SHEBANG available. Does
-#   AC_PATH_PROG to find the path to perl. As a side-effect, that sets
-#   PERLINTERP and makes it available as a substitution variable.
+#   Determine how the perl interpreter is located by the OS kernel and make
+#   substitution variable PERL_SHEBANG available. Does AC_PATH_PROG to find
+#   the path to perl. As a side-effect, that sets PERLINTERP and makes it
+#   available as a substitution variable.
 #
-#   Note: The macro allows for the possibility (expected to be seldom
-#   used) of an explicit user override (the "user" being the operator
-#   executing the final 'configure' script, in this context) by making
-#   the option argument like:
+#   Note: The macro allows for the possibility (expected to be seldom used)
+#   of an explicit user override (the "user" being the operator executing
+#   the final 'configure' script, in this context) by making the option
+#   argument like:
 #
 #      --with-perl-shebang='#! /my/funky/perlpath' # OR
 #      --with-perl-shebang='/my/funky/perlpath'  # we just throw away the #! anyway
 #                                                # bec it must be absent in Makefile
 #
-#   Rationale: The are various ways of starting an interpreter on
-#   different *nix-like systems. Many use the simple
+#   Rationale: The are various ways of starting an interpreter on different
+#   *nix-like systems. Many use the simple
 #
 #     #!/usr/bin/perl
 #
@@ -34,30 +36,30 @@
 #     #!/usr/bin/env perl
 #
 #   to find whichever perl comes first in the current $PATH. This is
-#   preferred by some of us because we run multiple perl installations
-#   on the same box. Adjusting our $PATH then allows us to set
-#   precedence over other perls, even whatever the "house" version is.
+#   preferred by some of us because we run multiple perl installations on
+#   the same box. Adjusting our $PATH then allows us to set precedence over
+#   other perls, even whatever the "house" version is.
 #
-#   Users on very non-unix systems like MS Windows do not have a kernel
-#   that does this kind of thing from the first line of script files,
-#   but instead the perl on their machine is started and merely notices
-#   whatever comes after the interpreter path on this first line of the
-#   script (options like "-w").
+#   Users on very non-unix systems like MS Windows do not have a kernel that
+#   does this kind of thing from the first line of script files, but instead
+#   the perl on their machine is started and merely notices whatever comes
+#   after the interpreter path on this first line of the script (options
+#   like "-w").
 #
 #   Acknowledgement: this macro was in part inspired by Dean Povey's
 #   AC_PROG_PERL_VERSION.
 #
 # LAST MODIFICATION
 #
-#   2006-10-22
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Soren Andersen <somian *AT* pobox |DOT| com>
+#   Copyright (c) 2008 Soren Andersen <somian *AT* pobox |DOT| com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_SYS_PERLSHARPBANG],[dnl
 

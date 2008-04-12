@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_try_awk_expout.html
+# ===========================================================================
+#           http://autoconf-archive.cryp.to/ax_try_awk_expout.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,28 +8,28 @@
 #
 # DESCRIPTION
 #
-#   Run a test using the awk program found on AWK variable. The test
-#   being run has TEST-BODY as body and is feeded with TEST-INPUT.
-#   Check if the test gives the expected output. If successful execute
-#   ACTION-IF-SUCCESS otherwise ACTION-IF-FAILURE.
+#   Run a test using the awk program found on AWK variable. The test being
+#   run has TEST-BODY as body and is feeded with TEST-INPUT. Check if the
+#   test gives the expected output. If successful execute ACTION-IF-SUCCESS
+#   otherwise ACTION-IF-FAILURE.
 #
-#   This work is heavily based upon testawk.sh script by Heiner Steven.
-#   You should find his script (and related works) at
+#   This work is heavily based upon testawk.sh script by Heiner Steven. You
+#   should find his script (and related works) at
 #   <http://www.shelldorado.com/articles/awkcompat.html>. Thanks to
-#   Alessandro Massignan for his suggestions and extensive nawk tests
-#   on FreeBSD.
+#   Alessandro Massignan for his suggestions and extensive nawk tests on
+#   FreeBSD.
 #
 # LAST MODIFICATION
 #
-#   2007-02-13
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Francesco Salvestrini <salvestrini@users.sourceforge.net>
+#   Copyright (c) 2008 Francesco Salvestrini <salvestrini@users.sourceforge.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_TRY_AWK_EXPOUT], [
   AC_REQUIRE([AX_NEED_AWK])

@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_dist_rpm.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/ax_dist_rpm.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -8,11 +10,10 @@
 #
 #   Adds support for a rpm dist target.
 #
-#   You will need to create a spec template with everything except the
-#   files and the Changlog. @NAME@ will be replaced with the value of
-#   @PACKAGE@ and @VER@ will be replaced with the value of @VERSION@.
-#   The files and ChangeLog will be filled in automatically. For
-#   instance:
+#   You will need to create a spec template with everything except the files
+#   and the Changlog. @NAME@ will be replaced with the value of @PACKAGE@
+#   and @VER@ will be replaced with the value of @VERSION@. The files and
+#   ChangeLog will be filled in automatically. For instance:
 #
 #       Summary: Foobar
 #       Name: @NAME@
@@ -48,20 +49,20 @@
 #
 #       %changelog
 #
-#   Make sure ax_upload.am is added to aminclude.am and you have
-#   'include aminclude.am' in your toplevel Makefile.am
+#   Make sure ax_upload.am is added to aminclude.am and you have 'include
+#   aminclude.am' in your toplevel Makefile.am
 #
 # LAST MODIFICATION
 #
-#   2005-01-14
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Tom Howard <tomhoward@users.sf.net>
+#   Copyright (c) 2008 Tom Howard <tomhoward@users.sf.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_DIST_RPM],
 [

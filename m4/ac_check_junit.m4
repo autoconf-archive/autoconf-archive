@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_check_junit.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/ac_check_junit.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,14 +8,13 @@
 #
 # DESCRIPTION
 #
-#   AC_CHECK_JUNIT tests the availability of the Junit testing
-#   framework, and set some variables for conditional compilation of
-#   the test suite by automake.
+#   AC_CHECK_JUNIT tests the availability of the Junit testing framework,
+#   and set some variables for conditional compilation of the test suite by
+#   automake.
 #
-#   If available, JUNIT is set to a command launching the text based
-#   user interface of Junit, @JAVA_JUNIT@ is set to $JAVA_JUNIT and
-#   @TESTS_JUNIT@ is set to $TESTS_JUNIT, otherwise they are set to
-#   empty values.
+#   If available, JUNIT is set to a command launching the text based user
+#   interface of Junit, @JAVA_JUNIT@ is set to $JAVA_JUNIT and @TESTS_JUNIT@
+#   is set to $TESTS_JUNIT, otherwise they are set to empty values.
 #
 #   You can use these variables in your Makefile.am file like this :
 #
@@ -37,15 +38,15 @@
 #
 # LAST MODIFICATION
 #
-#   2001-03-02
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2001 Luc Maisonobe <luc@spaceroots.org>
+#   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CHECK_JUNIT],[
 AC_CACHE_VAL(ac_cv_prog_JUNIT,[

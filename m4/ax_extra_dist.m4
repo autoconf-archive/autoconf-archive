@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_extra_dist.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/ax_extra_dist.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -8,9 +10,9 @@
 #
 #   Allow support for custom dist targets.
 #
-#   To add custom dist targets, you must create a dist-<TYPE> target
-#   within your Makefile.am, where <TYPE> is the name of the dist and
-#   then add <TYPE> to EXTRA_SRC_DISTS or EXTRA_BIN_DISTS. For example:
+#   To add custom dist targets, you must create a dist-<TYPE> target within
+#   your Makefile.am, where <TYPE> is the name of the dist and then add
+#   <TYPE> to EXTRA_SRC_DISTS or EXTRA_BIN_DISTS. For example:
 #
 #      dist-foobar:
 #      	<rules for making the foobar dist>
@@ -31,15 +33,15 @@
 #
 # LAST MODIFICATION
 #
-#   2005-01-14
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Tom Howard <tomhoward@users.sf.net>
+#   Copyright (c) 2008 Tom Howard <tomhoward@users.sf.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_EXTRA_DIST],
 [

@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_boost_system.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ax_boost_system.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,9 +8,9 @@
 #
 # DESCRIPTION
 #
-#   Test for System library from the Boost C++ libraries. The macro
-#   requires a preceding call to AX_BOOST_BASE. Further documentation
-#   is available at <http://randspringer.de/boost/index.html>.
+#   Test for System library from the Boost C++ libraries. The macro requires
+#   a preceding call to AX_BOOST_BASE. Further documentation is available at
+#   <http://randspringer.de/boost/index.html>.
 #
 #   This macro calls:
 #
@@ -20,7 +22,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-02-20
+#   2008-04-12
 #
 # COPYLEFT
 #
@@ -28,9 +30,9 @@
 #   Copyright (c) 2008 Michael Tindal
 #   Copyright (c) 2008 Daniel Casimiro <dan.casimiro@gmail.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_BOOST_SYSTEM],
 [

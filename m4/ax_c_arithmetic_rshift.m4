@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_c_arithmetic_rshift.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/ax_c_arithmetic_rshift.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -8,20 +10,19 @@
 #
 #   Checks if the right shift operation is arithmetic.
 #
-#   This macro uses compile-time detection and so is cross-compile
-#   ready.
+#   This macro uses compile-time detection and so is cross-compile ready.
 #
 # LAST MODIFICATION
 #
-#   2006-12-12
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 YAMAMOTO Kengo <yamaken AT bp.iij4u.or.jp>
+#   Copyright (c) 2008 YAMAMOTO Kengo <yamaken AT bp.iij4u.or.jp>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_C_ARITHMETIC_RSHIFT], [
   AC_CACHE_CHECK([whether right shift operation is arithmetic],

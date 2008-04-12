@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/compile_value.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/compile_value.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -7,77 +9,72 @@
 # DESCRIPTION
 #
 #   The AC_C_COMPILE_VALUE macro determines a compile time value by
-#   generating the object code and reading the value from the code.
-#   Static data initializers like sizeof(int) are unavailable to
-#   preprocessor. The macro calculates the values known to compiler's
-#   static initializer.
+#   generating the object code and reading the value from the code. Static
+#   data initializers like sizeof(int) are unavailable to preprocessor. The
+#   macro calculates the values known to compiler's static initializer.
 #
 #   Assumptions: The sought value should not exceed 65535. The shell
-#   interpreter and the sed utility are expected to exist and work
-#   similarly across possible build platforms.
+#   interpreter and the sed utility are expected to exist and work similarly
+#   across possible build platforms.
 #
-#   Result: The resulting configure script will generate the
-#   preprocessor symbol definition:
+#   Result: The resulting configure script will generate the preprocessor
+#   symbol definition:
 #
 #     #define COMPILE_VALUE_<ALIAS> <NUMBER>
 #
-#   It was important that the value was embedded into the object file
-#   in a predefined byte order during the test. This ensured that the
-#   result was independent from the target platform's byte order.
+#   It was important that the value was embedded into the object file in a
+#   predefined byte order during the test. This ensured that the result was
+#   independent from the target platform's byte order.
 #
-#   The existing AC_CHECK_SIZEOF macro also computes the size of the
-#   given type without running the test program. However, the existing
-#   macro will produce a piece of configure script that will take the
-#   time proportional to the logarithm of the sought value.
+#   The existing AC_CHECK_SIZEOF macro also computes the size of the given
+#   type without running the test program. However, the existing macro will
+#   produce a piece of configure script that will take the time proportional
+#   to the logarithm of the sought value.
 #
 #   Example of use in configure.in:
 #
 #     AC_C_COMPILE_VALUE(sizeof(int), sizeof_int)
 #     AC_C_COMPILE_VALUE([sizeof(int[[543]])], sizeof_int543)
 #
-#   As a result of runnfing the generated configure script, the
-#   following definition will appear in config.h:
+#   As a result of runnfing the generated configure script, the following
+#   definition will appear in config.h:
 #
 #     #define COMPILE_VALUE_SIZEOF_INT 4
 #     #define COMPILE_VALUE_SIZEOF_INT543 2172
 #
 # LAST MODIFICATION
 #
-#   2007-07-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Ilguiz Latypov
+#   Copyright (c) 2008 Ilguiz Latypov
 #
-#   This program is free software; you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation; either version 2 of the
-#   License, or (at your option) any later version.
+#   This program is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation; either version 2 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-#   02111-1307, USA.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 ## Portability defines that help interoperate with classic and modern autoconfs
 ifdef([AC_TR_SH],[

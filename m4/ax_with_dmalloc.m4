@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_with_dmalloc.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ax_with_dmalloc.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,16 +8,16 @@
 #
 # DESCRIPTION
 #
-#   Let the user enable/disable support for the dmalloc library
-#   available from <http://www.dmalloc.org/>.
+#   Let the user enable/disable support for the dmalloc library available
+#   from <http://www.dmalloc.org/>.
 #
 #   The macro adds the command-line flag "--with-dmalloc". Furthermore,
 #   "-IPREFIX/include" will be added to "$CPPFLAGS", "-LPREFIX/lib" to
 #   "$LDFLAGS", and "-DDEBUG_DMALLOC" and "-DDMALLOC_FUNC_CHECK" to
 #   "$CPPFLAGS".
 #
-#   To enable dmalloc support in your code, add the following snippet
-#   to your header files:
+#   To enable dmalloc support in your code, add the following snippet to
+#   your header files:
 #
 #     #ifdef DEBUG_DMALLOC
 #     #  include <dmalloc.h>
@@ -23,15 +25,15 @@
 #
 # LAST MODIFICATION
 #
-#   2006-01-15
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Peter Simons <simons@cryp.to>
+#   Copyright (c) 2008 Peter Simons <simons@cryp.to>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_WITH_DMALLOC], [
 AC_MSG_CHECKING(whether to use the dmalloc library)

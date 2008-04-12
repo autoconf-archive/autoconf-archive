@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_warning_default_aclocaldir.html
+# ===========================================================================
+#     http://autoconf-archive.cryp.to/ax_warning_default_aclocaldir.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -7,68 +9,63 @@
 #
 # DESCRIPTION
 #
-#   print a warning message if the $(datadir)/aclocal directory is not
-#   in the dirlist searched by the aclocal tool. This macro is useful
-#   if some `make install` would target $(datadir)/aclocal to install
-#   an autoconf m4 file of your project to be picked up by other
-#   projects.
+#   print a warning message if the $(datadir)/aclocal directory is not in
+#   the dirlist searched by the aclocal tool. This macro is useful if some
+#   `make install` would target $(datadir)/aclocal to install an autoconf m4
+#   file of your project to be picked up by other projects.
 #
 #    default $1 dirvariable = aclocaldir
 #    default $2 defsetting  = ${datadir}/aclocal
 #    default $3 action = nothing to do
 #    default $4 action = warn the user about mismatch
 #
-#   In the _WARNING_ variant, the defsetting is not placed in
-#   dirvariable nor is it ac_subst'ed in any way. The default
-#   fail-action $4 is to send a warning message to the user, and the
-#   default accept-action $3 is nothing. It is expected that a Makefile
-#   is generated with aclocaldir=${datadir}/aclocal
+#   In the _WARNING_ variant, the defsetting is not placed in dirvariable
+#   nor is it ac_subst'ed in any way. The default fail-action $4 is to send
+#   a warning message to the user, and the default accept-action $3 is
+#   nothing. It is expected that a Makefile is generated with
+#   aclocaldir=${datadir}/aclocal
 #
-#   The _ENABLE_ variant however will set not only the $aclocaldir
-#   shell var of the script, but it is also AC-SUBST'ed on default -
-#   and furthermore a configure option "--enable-default-aclocaldir" is
-#   provided. Only if that option is set then $2 default is not set to
-#   the canonic default in the a $prefix subpath but instead $2 default
-#   is set to the primary path where `aclocal` looks for macros. The
-#   user may also override the default on the command line.
+#   The _ENABLE_ variant however will set not only the $aclocaldir shell var
+#   of the script, but it is also AC-SUBST'ed on default - and furthermore a
+#   configure option "--enable-default-aclocaldir" is provided. Only if that
+#   option is set then $2 default is not set to the canonic default in the a
+#   $prefix subpath but instead $2 default is set to the primary path where
+#   `aclocal` looks for macros. The user may also override the default on
+#   the command line.
 #
 # LAST MODIFICATION
 #
-#   2006-10-13
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Guido U. Draheim <guidod@gmx.de>
+#   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
 #
-#   This program is free software; you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation; either version 2 of the
-#   License, or (at your option) any later version.
+#   This program is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation; either version 2 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-#   02111-1307, USA.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_WARNING_DEFAULT_ACLOCALDIR],[dnl
 AC_REQUIRE([AX_EXPAND_PREFIX])dnl

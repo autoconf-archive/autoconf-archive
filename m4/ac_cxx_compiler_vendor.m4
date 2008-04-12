@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_cxx_compiler_vendor.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/ac_cxx_compiler_vendor.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -7,22 +9,22 @@
 # DESCRIPTION
 #
 #   Set VENDOR-NAME to the lower-case name of the compiler vendor or
-#   `unknown' if the compiler's vendor is unknown. `compaq' means the
-#   CXX compiler as available on Tru64/OSF1/Digital Unix on Alpha
-#   machines. If NICKNAME is provided, set it to the compiler's usual
-#   name (eg. `g++', `cxx', `aCC', etc.).
+#   `unknown' if the compiler's vendor is unknown. `compaq' means the CXX
+#   compiler as available on Tru64/OSF1/Digital Unix on Alpha machines. If
+#   NICKNAME is provided, set it to the compiler's usual name (eg. `g++',
+#   `cxx', `aCC', etc.).
 #
 # LAST MODIFICATION
 #
-#   2004-09-07
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2004 Ludovic Courtès <ludo@chbouib.org>
+#   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CXX_COMPILER_VENDOR],
   [AC_REQUIRE([AC_PROG_CXX])

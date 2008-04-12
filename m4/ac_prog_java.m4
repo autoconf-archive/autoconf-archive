@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_prog_java.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/ac_prog_java.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -12,8 +14,7 @@
 #
 #   AC_PROG_JAVA: finds a Java virtual machine.
 #
-#   AC_CHECK_CLASS: finds if we have the given class (beware of
-#   CLASSPATH!).
+#   AC_CHECK_CLASS: finds if we have the given class (beware of CLASSPATH!).
 #
 #   AC_CHECK_RQRD_CLASS: finds if we have the given class and stops
 #   otherwise.
@@ -25,14 +26,13 @@
 #   AC_JAVA_OPTIONS: adds Java configure options.
 #
 #   AC_PROG_JAVA tests an existing Java virtual machine. It uses the
-#   environment variable JAVA then tests in sequence various common
-#   Java virtual machines. For political reasons, it starts with the
-#   free ones. You *must* call [AC_PROG_JAVAC] before.
+#   environment variable JAVA then tests in sequence various common Java
+#   virtual machines. For political reasons, it starts with the free ones.
+#   You *must* call [AC_PROG_JAVAC] before.
 #
 #   If you want to force a specific VM:
 #
-#   - at the configure.in level, set JAVA=yourvm before calling
-#   AC_PROG_JAVA
+#   - at the configure.in level, set JAVA=yourvm before calling AC_PROG_JAVA
 #
 #     (but after AC_INIT)
 #
@@ -40,23 +40,22 @@
 #
 #   You can use the JAVA variable in your Makefile.in, with @JAVA@.
 #
-#   *Warning*: its success or failure can depend on a proper setting of
-#   the CLASSPATH env. variable.
+#   *Warning*: its success or failure can depend on a proper setting of the
+#   CLASSPATH env. variable.
 #
-#   TODO: allow to exclude virtual machines (rationale: most Java
-#   programs cannot run with some VM like kaffe).
+#   TODO: allow to exclude virtual machines (rationale: most Java programs
+#   cannot run with some VM like kaffe).
 #
-#   Note: This is part of the set of autoconf M4 macros for Java
-#   programs. It is VERY IMPORTANT that you download the whole set,
-#   some macros depend on other. Unfortunately, the autoconf archive
-#   does not support the concept of set of macros, so I had to break it
-#   for submission.
+#   Note: This is part of the set of autoconf M4 macros for Java programs.
+#   It is VERY IMPORTANT that you download the whole set, some macros depend
+#   on other. Unfortunately, the autoconf archive does not support the
+#   concept of set of macros, so I had to break it for submission.
 #
 #   A Web page, with a link to the latest CVS snapshot is at
 #   <http://www.internatif.org/bortzmeyer/autoconf-Java/>.
 #
-#   This is a sample configure.in Process this file with autoconf to
-#   produce a configure script.
+#   This is a sample configure.in Process this file with autoconf to produce
+#   a configure script.
 #
 #      AC_INIT(UnTag.java)
 #
@@ -73,41 +72,37 @@
 #
 # LAST MODIFICATION
 #
-#   2000-07-19
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2000 Stephane Bortzmeyer <bortzmeyer@pasteur.fr>
+#   Copyright (c) 2008 Stephane Bortzmeyer <bortzmeyer@pasteur.fr>
 #
-#   This program is free software; you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation; either version 2 of the
-#   License, or (at your option) any later version.
+#   This program is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation; either version 2 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-#   02111-1307, USA.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AC_PROG_JAVA],[
 AC_REQUIRE([AC_EXEEXT])dnl

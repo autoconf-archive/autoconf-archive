@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_cxx_mutable.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/ac_cxx_mutable.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,22 +8,22 @@
 #
 # DESCRIPTION
 #
-#   If the compiler allows modifying class data members flagged with
-#   the mutable keyword even in const objects (for example in the body
-#   of a const member function), define HAVE_MUTABLE.
+#   If the compiler allows modifying class data members flagged with the
+#   mutable keyword even in const objects (for example in the body of a
+#   const member function), define HAVE_MUTABLE.
 #
 # LAST MODIFICATION
 #
-#   2004-02-04
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2004 Todd Veldhuizen
-#   Copyright (c) 2004 Luc Maisonobe <luc@spaceroots.org>
+#   Copyright (c) 2008 Todd Veldhuizen
+#   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CXX_MUTABLE],
 [AC_CACHE_CHECK(whether the compiler supports the mutable keyword,

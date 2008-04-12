@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_prog_perl_modules.html
+# ===========================================================================
+#          http://autoconf-archive.cryp.to/ac_prog_perl_modules.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,11 +8,11 @@
 #
 # DESCRIPTION
 #
-#   Checks to see if the given perl modules are available. If true the
-#   shell commands in ACTION-IF-TRUE are executed. If not the shell
-#   commands in ACTION-IF-FALSE are run. Note if $PERL is not set (for
-#   example by calling AC_CHECK_PROG, or AC_PATH_PROG),
-#   AC_CHECK_PROG(PERL, perl, perl) will be run.
+#   Checks to see if the given perl modules are available. If true the shell
+#   commands in ACTION-IF-TRUE are executed. If not the shell commands in
+#   ACTION-IF-FALSE are run. Note if $PERL is not set (for example by
+#   calling AC_CHECK_PROG, or AC_PATH_PROG), AC_CHECK_PROG(PERL, perl, perl)
+#   will be run.
 #
 #   Example:
 #
@@ -19,15 +21,15 @@
 #
 # LAST MODIFICATION
 #
-#   2002-09-25
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2002 Dean Povey <povey@wedgetail.com>
+#   Copyright (c) 2008 Dean Povey <povey@wedgetail.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_PROG_PERL_MODULES],[dnl
 ac_perl_modules="$1"

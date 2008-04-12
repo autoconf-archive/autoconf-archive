@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/vl_prog_fig2dev.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/vl_prog_fig2dev.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,23 +8,23 @@
 #
 # DESCRIPTION
 #
-#   If `fig2dev' is found, sets the output variable `FIG2DEV' to
-#   `fig2dev', and `FIG2DEV_ESPLANG' to the graphics language which can
-#   be used to produce Encapsulated PostScript. Older versions of
-#   `fig2dev' produce EPS with `-Lps' and new versions with `-Leps',
-#   this macro finds out the correct language option automatically.
+#   If `fig2dev' is found, sets the output variable `FIG2DEV' to `fig2dev',
+#   and `FIG2DEV_ESPLANG' to the graphics language which can be used to
+#   produce Encapsulated PostScript. Older versions of `fig2dev' produce EPS
+#   with `-Lps' and new versions with `-Leps', this macro finds out the
+#   correct language option automatically.
 #
 # LAST MODIFICATION
 #
-#   2002-04-04
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2002 Ville Laurikari <vl@iki.fi>
+#   Copyright (c) 2008 Ville Laurikari <vl@iki.fi>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([VL_PROG_FIG2DEV], [
   AC_CHECK_PROG(FIG2DEV, fig2dev, fig2dev)

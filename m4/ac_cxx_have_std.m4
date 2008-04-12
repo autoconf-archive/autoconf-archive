@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_cxx_have_std.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ac_cxx_have_std.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,22 +8,21 @@
 #
 # DESCRIPTION
 #
-#   If the compiler supports ISO C++ standard library (i.e., can
-#   include the files iostream, map, iomanip and cmath}), define
-#   HAVE_STD.
+#   If the compiler supports ISO C++ standard library (i.e., can include the
+#   files iostream, map, iomanip and cmath}), define HAVE_STD.
 #
 # LAST MODIFICATION
 #
-#   2004-02-04
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2004 Todd Veldhuizen
-#   Copyright (c) 2004 Luc Maisonobe <luc@spaceroots.org>
+#   Copyright (c) 2008 Todd Veldhuizen
+#   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CXX_HAVE_STD],
 [AC_CACHE_CHECK(whether the compiler supports ISO C++ standard library,

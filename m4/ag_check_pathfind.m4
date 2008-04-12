@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ag_check_pathfind.html
+# ===========================================================================
+#           http://autoconf-archive.cryp.to/ag_check_pathfind.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,21 +8,21 @@
 #
 # DESCRIPTION
 #
-#   Not all systems have pathfind(3). See if we need to substitute. To
-#   make this work, you have to do horrible things. See the doc for
+#   Not all systems have pathfind(3). See if we need to substitute. To make
+#   this work, you have to do horrible things. See the doc for
 #   AG_CHECK_STRCSPN.
 #
 # LAST MODIFICATION
 #
-#   2007-07-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Bruce Korb <bkorb@gnu.org>
+#   Copyright (c) 2008 Bruce Korb <bkorb@gnu.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AG_CHECK_PATHFIND],[
   AC_MSG_CHECKING([whether pathfind(3) works])

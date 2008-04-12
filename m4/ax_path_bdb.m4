@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_path_bdb.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/ax_path_bdb.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,20 +8,20 @@
 #
 # DESCRIPTION
 #
-#   This macro finds the latest version of Berkeley DB on the system,
-#   and ensures that the header file and library versions match. If
-#   MINIMUM-VERSION is specified, it will ensure that the library found
-#   is at least that version.
+#   This macro finds the latest version of Berkeley DB on the system, and
+#   ensures that the header file and library versions match. If
+#   MINIMUM-VERSION is specified, it will ensure that the library found is
+#   at least that version.
 #
-#   It determines the name of the library as well as the path to the
-#   header file and library. It will check both the default environment
-#   as well as the default Berkeley DB install location. When found, it
-#   sets BDB_LIBS, BDB_CPPFLAGS, and BDB_LDFLAGS to the necessary
-#   values to add to LIBS, CPPFLAGS, and LDFLAGS, as well as setting
-#   BDB_VERSION to the version found. HAVE_DB_H is defined also.
+#   It determines the name of the library as well as the path to the header
+#   file and library. It will check both the default environment as well as
+#   the default Berkeley DB install location. When found, it sets BDB_LIBS,
+#   BDB_CPPFLAGS, and BDB_LDFLAGS to the necessary values to add to LIBS,
+#   CPPFLAGS, and LDFLAGS, as well as setting BDB_VERSION to the version
+#   found. HAVE_DB_H is defined also.
 #
-#   The option --with-bdb-dir=DIR can be used to specify a specific
-#   Berkeley DB installation to use.
+#   The option --with-bdb-dir=DIR can be used to specify a specific Berkeley
+#   DB installation to use.
 #
 #   An example of it's use is:
 #
@@ -29,35 +31,33 @@
 #        CPPFLAGS="$CPPFLAGS $BDB_CPPFLAGS"
 #      ])
 #
-#   which will locate the latest version of Berkeley DB on the system,
-#   and ensure that it is version 3.0 or higher.
+#   which will locate the latest version of Berkeley DB on the system, and
+#   ensure that it is version 3.0 or higher.
 #
-#   Details: This macro does not use either AC_CHECK_HEADERS or
-#   AC_CHECK_LIB because, first, the functions inside the library are
-#   sometimes renamed to contain a version code that is only available
-#   from the db.h on the system, and second, because it is common to
-#   have multiple db.h and libdb files on a system it is important to
-#   make sure the ones being used correspond to the same version.
-#   Additionally, there are many different possible names for libdb
-#   when installed by an OS distribution, and these need to be checked
-#   if db.h does not correspond to libdb.
+#   Details: This macro does not use either AC_CHECK_HEADERS or AC_CHECK_LIB
+#   because, first, the functions inside the library are sometimes renamed
+#   to contain a version code that is only available from the db.h on the
+#   system, and second, because it is common to have multiple db.h and libdb
+#   files on a system it is important to make sure the ones being used
+#   correspond to the same version. Additionally, there are many different
+#   possible names for libdb when installed by an OS distribution, and these
+#   need to be checked if db.h does not correspond to libdb.
 #
-#   When cross compiling, only header versions are verified since it
-#   would be difficult to check the library version. Additionally the
-#   default Berkeley DB installation locations /usr/local/BerkeleyDB*
-#   are not searched for higher versions of the library.
+#   When cross compiling, only header versions are verified since it would
+#   be difficult to check the library version. Additionally the default
+#   Berkeley DB installation locations /usr/local/BerkeleyDB* are not
+#   searched for higher versions of the library.
 #
-#   The format for the list of library names to search came from the
-#   Cyrus IMAP distribution, although they are generated dynamically
-#   here, and only for the version found in db.h.
+#   The format for the list of library names to search came from the Cyrus
+#   IMAP distribution, although they are generated dynamically here, and
+#   only for the version found in db.h.
 #
-#   The macro AX_COMPARE_VERSION is required to use this macro, and
-#   should be available from the Autoconf Macro Archive.
+#   The macro AX_COMPARE_VERSION is required to use this macro, and should
+#   be available from the Autoconf Macro Archive.
 #
-#   The author would like to acknowledge the generous and valuable
-#   feedback from Guido Draheim, without which this macro would be far
-#   less robust, and have poor and inconsistent cross compilation
-#   support.
+#   The author would like to acknowledge the generous and valuable feedback
+#   from Guido Draheim, without which this macro would be far less robust,
+#   and have poor and inconsistent cross compilation support.
 #
 #   Changes:
 #
@@ -66,15 +66,15 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Tim Toolan <toolan@ele.uri.edu>
+#   Copyright (c) 2008 Tim Toolan <toolan@ele.uri.edu>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 dnl #########################################################################
 AC_DEFUN([AX_PATH_BDB], [

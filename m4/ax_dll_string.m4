@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_dll_string.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/ax_dll_string.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,23 +8,23 @@
 #
 # DESCRIPTION
 #
-#   Tests for a bug currently in g++ 3.4.4 on Cygwin (maybe other
-#   targets with statically linked libstdc++?) where passing an empty
-#   std::string to a dll will cause a crash on destruction due to
-#   incorrect memory handling. See bug 24196 in gcc's bugzilla for more
-#   details: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=24196
+#   Tests for a bug currently in g++ 3.4.4 on Cygwin (maybe other targets
+#   with statically linked libstdc++?) where passing an empty std::string to
+#   a dll will cause a crash on destruction due to incorrect memory
+#   handling. See bug 24196 in gcc's bugzilla for more details:
+#   http://gcc.gnu.org/bugzilla/show_bug.cgi?id=24196
 #
 # LAST MODIFICATION
 #
-#   2006-04-08
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Steven Brown <swbrown@variadic.org>
+#   Copyright (c) 2008 Steven Brown <swbrown@variadic.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 dnl Plan: compile conftest-dll.cc, conftest-exe.cc.  It has a 'crash' param
 dnl that can be passed.  Verify the compile worked and we can run it normally

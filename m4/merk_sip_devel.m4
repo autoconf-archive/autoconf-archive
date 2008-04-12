@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/merk_sip_devel.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/merk_sip_devel.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -7,12 +9,12 @@
 # DESCRIPTION
 #
 #   Searches for the sip executable and the sip include path. The sip
-#   include path consists of two components, one which contains the
-#   file qt/qtmod.sip and the other one the path to sip.h, which should
-#   be found in the include/pythonX.Y directory.
+#   include path consists of two components, one which contains the file
+#   qt/qtmod.sip and the other one the path to sip.h, which should be found
+#   in the include/pythonX.Y directory.
 #
-#   The macro bails out if the executable or the file cannot be
-#   located. Otherwise it defines:
+#   The macro bails out if the executable or the file cannot be located.
+#   Otherwise it defines:
 #
 #     SIP           the path to the sip executable
 #     SIP_CPPFLAGS  include path: -I<path-to-qt/qtmod.sip> -I<path-to-sip.h-dir>
@@ -26,15 +28,15 @@
 #
 # LAST MODIFICATION
 #
-#   2005-06-03
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Uwe Mayer <merkosh@hadiko.de>
+#   Copyright (c) 2008 Uwe Mayer <merkosh@hadiko.de>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([MERK_SIP_DEVEL],[
 #-- provice --with-sip=PATH command line argument
@@ -85,7 +87,7 @@ fi
 
 # check for sip.h
 dnl this part of the code to detect python version and include path
-dnl  was taken from ac_python_devel macro, (rev. 2005-06-03)
+dnl  was taken from ac_python_devel macro, (rev. 2008-04-12)
 python_path=`echo $PYTHON | sed "s,/bin.*$,,"`
 for i in "$python_path/include/python$PYTHON_VERSION/" "$python_path/include/python/" "$python_path/" ; do
 	python_path=`find $i -type f -name Python.h -print | sed "1q"`

@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/cf_ebcdic.html
+# ===========================================================================
+#               http://autoconf-archive.cryp.to/cf_ebcdic.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,48 +8,45 @@
 #
 # DESCRIPTION
 #
-#   If the target character set is EBCDIC, defines variables
-#   cf_cv_ebcdic, EBCDIC, and NOT_ASCII.
+#   If the target character set is EBCDIC, defines variables cf_cv_ebcdic,
+#   EBCDIC, and NOT_ASCII.
 #
 #   I originally wrote this and submitted it to the Lynx distribution.
 #   Editorial revisions by Tom Dickey, et. al.
 #
 # LAST MODIFICATION
 #
-#   2007-07-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Paul Gilmartin <pg@sweng.stortek.com>
+#   Copyright (c) 2008 Paul Gilmartin <pg@sweng.stortek.com>
 #
-#   This program is free software: you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation, either version 3 of the
-#   License, or (at your option) any later version.
+#   This program is free software: you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation, either version 3 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program. If not, see
-#   <http://www.gnu.org/licenses/>.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 dnl Check whether character set is EBCDIC.
 AC_DEFUN([CF_EBCDIC],[

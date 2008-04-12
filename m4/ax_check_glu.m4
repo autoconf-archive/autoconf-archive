@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_check_glu.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/ax_check_glu.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,26 +8,25 @@
 #
 # DESCRIPTION
 #
-#   Check for GLU. If GLU is found, the required preprocessor and
-#   linker flags are included in the output variables "GLU_CFLAGS" and
-#   "GLU_LIBS", respectively. This macro adds the configure option
-#   "--with-apple-opengl-framework", which users can use to indicate
-#   that Apple's OpenGL framework should be used on Mac OS X. If
-#   Apple's OpenGL framework is used, the symbol
-#   "HAVE_APPLE_OPENGL_FRAMEWORK" is defined. If no GLU implementation
-#   is found, "no_glu" is set to "yes".
+#   Check for GLU. If GLU is found, the required preprocessor and linker
+#   flags are included in the output variables "GLU_CFLAGS" and "GLU_LIBS",
+#   respectively. This macro adds the configure option
+#   "--with-apple-opengl-framework", which users can use to indicate that
+#   Apple's OpenGL framework should be used on Mac OS X. If Apple's OpenGL
+#   framework is used, the symbol "HAVE_APPLE_OPENGL_FRAMEWORK" is defined.
+#   If no GLU implementation is found, "no_glu" is set to "yes".
 #
 # LAST MODIFICATION
 #
-#   2004-11-15
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2004 Braden McDaniel <braden@endoframe.com>
+#   Copyright (c) 2008 Braden McDaniel <braden@endoframe.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_CHECK_GLU],
 [AC_REQUIRE([AX_CHECK_GL])dnl

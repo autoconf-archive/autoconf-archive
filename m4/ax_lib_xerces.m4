@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_lib_xerces.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/ax_lib_xerces.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,10 +8,9 @@
 #
 # DESCRIPTION
 #
-#   This macro provides tests of availability of Apache Xerces C++
-#   Parser of particular version or newer. This macros checks for
-#   Apache Xerces C++ Parser headers and libraries and defines
-#   compilation flags
+#   This macro provides tests of availability of Apache Xerces C++ Parser of
+#   particular version or newer. This macros checks for Apache Xerces C++
+#   Parser headers and libraries and defines compilation flags
 #
 #   Macro supports following options and their values:
 #
@@ -35,15 +36,15 @@
 #
 # LAST MODIFICATION
 #
-#   2008-03-01
+#   2008-04-12
 #
 # COPYLEFT
 #
 #   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_LIB_XERCES],
 [

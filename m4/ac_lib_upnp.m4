@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_lib_upnp.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/ac_lib_upnp.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -7,10 +9,9 @@
 # DESCRIPTION
 #
 #   This macro will check for the existence of libupnp
-#   (http://upnp.sourceforge.net/). It does this by checking for the
-#   header file upnp.h and the upnp library object file. A
-#   --with-libupnp option is supported as well. The following output
-#   variables are set with AC_SUBST:
+#   (http://upnp.sourceforge.net/). It does this by checking for the header
+#   file upnp.h and the upnp library object file. A --with-libupnp option is
+#   supported as well. The following output variables are set with AC_SUBST:
 #
 #     UPNP_CPPFLAGS
 #     UPNP_LDFLAGS
@@ -22,30 +23,29 @@
 #     AM_LDFLAGS = $(UPNP_LDFLAGS)
 #     program_LDADD = $(UPNP_LIBS)
 #
-#   Additionally, the C preprocessor symbol HAVE_LIBUPNP will be
-#   defined with AC_DEFINE if libupnp is available.
+#   Additionally, the C preprocessor symbol HAVE_LIBUPNP will be defined
+#   with AC_DEFINE if libupnp is available.
 #
 # LAST MODIFICATION
 #
-#   2007-07-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Oskar Liljeblad <oskar@osk.mine.nu>
+#   Copyright (c) 2008 Oskar Liljeblad <oskar@osk.mine.nu>
 #
-#   This program is free software: you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation, either version 3 of the
-#   License, or (at your option) any later version.
+#   This program is free software: you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation, either version 3 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program. If not, see
-#   <http://www.gnu.org/licenses/>.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 
 AC_DEFUN([AC_LIB_UPNP], [
   AH_TEMPLATE([HAVE_LIBUPNP], [Define if libupnp is available])

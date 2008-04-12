@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_ruby_devel.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/ax_ruby_devel.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -7,16 +9,16 @@
 # DESCRIPTION
 #
 #   This macro checks for Ruby and tries to get the include path to
-#   'ruby.h'. It provides the $(RUBY_CPPFLAGS) and $(RUBY_LDFLAGS)
-#   output variables. It also exports $(RUBY_EXTRA_LIBS) for embedding
-#   Ruby in your code.
+#   'ruby.h'. It provides the $(RUBY_CPPFLAGS) and $(RUBY_LDFLAGS) output
+#   variables. It also exports $(RUBY_EXTRA_LIBS) for embedding Ruby in your
+#   code.
 #
 #   You can search for some particular version of Ruby by passing a
 #   parameter to this macro, for example "1.8.6".
 #
 # LAST MODIFICATION
 #
-#   2008-02-20
+#   2008-04-12
 #
 # COPYLEFT
 #
@@ -28,34 +30,31 @@
 #   Copyright (c) 2008 Matteo Settenvini <matteo@member.fsf.org>
 #   Copyright (c) 2008 Horst Knorr <hk_classes@knoda.org>
 #
-#   This program is free software: you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation, either version 3 of the
-#   License, or (at your option) any later version.
+#   This program is free software: you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation, either version 3 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program. If not, see
-#   <http://www.gnu.org/licenses/>.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_RUBY_DEVEL],[
     AC_REQUIRE([AX_WITH_RUBY])

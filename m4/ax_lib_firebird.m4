@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_lib_firebird.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ax_lib_firebird.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,17 +8,16 @@
 #
 # DESCRIPTION
 #
-#   Test for the Firebird client library of a particular version (or
-#   newer). This macro takes only one optional argument, the required
-#   version of Firebird library. If required version is not passed,
-#   then 1.5.0 is used in test of existance of Firebird client library.
+#   Test for the Firebird client library of a particular version (or newer).
+#   This macro takes only one optional argument, the required version of
+#   Firebird library. If required version is not passed, then 1.5.0 is used
+#   in test of existance of Firebird client library.
 #
-#   For more information about Firebird API versioning check: API
-#   Identifies Client Version
-#   http://www.firebirdsql.org/rlsnotes20/rnfbtwo-apiods.html
+#   For more information about Firebird API versioning check: API Identifies
+#   Client Version http://www.firebirdsql.org/rlsnotes20/rnfbtwo-apiods.html
 #
-#   If no intallation prefix to the installed Firebird library is given
-#   the macro searches under /usr, /usr/local, and /opt.
+#   If no intallation prefix to the installed Firebird library is given the
+#   macro searches under /usr, /usr/local, and /opt.
 #
 #   This macro calls:
 #
@@ -30,15 +31,15 @@
 #
 # LAST MODIFICATION
 #
-#   2007-11-30
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Mateusz Loskot <mateusz@loskot.net>
+#   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_LIB_FIREBIRD],
 [

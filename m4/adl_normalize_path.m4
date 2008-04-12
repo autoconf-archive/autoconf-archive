@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/adl_normalize_path.html
+# ===========================================================================
+#           http://autoconf-archive.cryp.to/adl_normalize_path.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,8 +8,7 @@
 #
 # DESCRIPTION
 #
-#   Perform some cleanups on the value of $VARNAME (interpreted as a
-#   path):
+#   Perform some cleanups on the value of $VARNAME (interpreted as a path):
 #
 #     - empty paths are changed to '.'
 #     - trailing slashes are removed
@@ -15,13 +16,12 @@
 #       (which might indicate a networked disk on some OS).
 #
 #   REFERENCE_STRING is used to turn '/' into '\' and vice-versa: if
-#   REFERENCE_STRING contains some backslashes, all slashes and
-#   backslashes are turned into backslashes, otherwise they are all
-#   turned into slashes.
+#   REFERENCE_STRING contains some backslashes, all slashes and backslashes
+#   are turned into backslashes, otherwise they are all turned into slashes.
 #
-#   This makes processing of DOS filenames quite easier, because you
-#   can turn a filename to the Unix notation, make your processing, and
-#   turn it back to original notation.
+#   This makes processing of DOS filenames quite easier, because you can
+#   turn a filename to the Unix notation, make your processing, and turn it
+#   back to original notation.
 #
 #     filename='A:\FOO\\BAR\'
 #     old_filename="$filename"
@@ -35,9 +35,8 @@
 #     adl_NORMALIZE_PATH([filename], ["$old_filename"])
 #     # now $filename equals to 'A:\FOO\BAR\subpath'
 #
-#   One good reason to make all path processing with the unix
-#   convention is that backslashes have a special meaning in many
-#   cases. For instance
+#   One good reason to make all path processing with the unix convention is
+#   that backslashes have a special meaning in many cases. For instance
 #
 #     expr 'A:\FOO' : 'A:\Foo'
 #
@@ -47,14 +46,14 @@
 #
 #     expr 'A:\Foo' : 'A:\\Foo'
 #
-#   Such behavior makes DOS filenames extremely unpleasant to work
-#   with. So temporary turn your paths to the Unix notation, and revert
-#   them to the original notation after the processing. See the macro
+#   Such behavior makes DOS filenames extremely unpleasant to work with. So
+#   temporary turn your paths to the Unix notation, and revert them to the
+#   original notation after the processing. See the macro
 #   adl_COMPUTE_RELATIVE_PATHS for a concrete example of this.
 #
-#   REFERENCE_STRING defaults to $VARIABLE, this means that slashes
-#   will be converted to backslashes if $VARIABLE already contains some
-#   backslashes (see $thirddir below).
+#   REFERENCE_STRING defaults to $VARIABLE, this means that slashes will be
+#   converted to backslashes if $VARIABLE already contains some backslashes
+#   (see $thirddir below).
 #
 #     firstdir='/usr/local//share'
 #     seconddir='C:\Program Files\\'
@@ -68,41 +67,37 @@
 #
 # LAST MODIFICATION
 #
-#   2006-10-22
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Alexandre Duret-Lutz <adl@gnu.org>
+#   Copyright (c) 2008 Alexandre Duret-Lutz <adl@gnu.org>
 #
-#   This program is free software; you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation; either version 2 of the
-#   License, or (at your option) any later version.
+#   This program is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation; either version 2 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-#   02111-1307, USA.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([adl_NORMALIZE_PATH],
 [case ":[$]$1:" in

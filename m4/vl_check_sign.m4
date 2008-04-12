@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/vl_check_sign.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/vl_check_sign.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,14 +8,13 @@
 #
 # DESCRIPTION
 #
-#   Checks whether TYPE is signed or not. If no INCLUDES are specified,
-#   the default includes are used. If ACTION-IF-SIGNED is given, it is
+#   Checks whether TYPE is signed or not. If no INCLUDES are specified, the
+#   default includes are used. If ACTION-IF-SIGNED is given, it is
 #   additional shell code to execute when the type is signed. If
-#   ACTION-IF-UNSIGNED is given, it is executed when the type is
-#   unsigned.
+#   ACTION-IF-UNSIGNED is given, it is executed when the type is unsigned.
 #
-#   This macro assumes that the type exists. Therefore the existence of
-#   the type should be checked before calling this macro. For example:
+#   This macro assumes that the type exists. Therefore the existence of the
+#   type should be checked before calling this macro. For example:
 #
 #     AC_CHECK_HEADERS([wchar.h])
 #     AC_CHECK_TYPE([wchar_t],,[ AC_MSG_ERROR([Type wchar_t not found.]) ])
@@ -27,15 +28,15 @@
 #
 # LAST MODIFICATION
 #
-#   2002-04-04
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2002 Ville Laurikari <vl@iki.fi>
+#   Copyright (c) 2008 Ville Laurikari <vl@iki.fi>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([VL_CHECK_SIGN], [
  typename=`echo $1 | sed "s/@<:@^a-zA-Z0-9_@:>@/_/g"`

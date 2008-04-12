@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_ext.html
+# ===========================================================================
+#                 http://autoconf-archive.cryp.to/ax_ext.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -7,9 +9,9 @@
 # DESCRIPTION
 #
 #   Find supported SIMD extensions by requesting cpuid. When an SIMD
-#   extension is found, the -m"simdextensionname" is added to
-#   SIMD_FLAGS (only if compilator support it) (ie : if "sse2" is
-#   available "-msse2" is added to SIMD_FLAGS)
+#   extension is found, the -m"simdextensionname" is added to SIMD_FLAGS
+#   (only if compilator support it) (ie : if "sse2" is available "-msse2" is
+#   added to SIMD_FLAGS)
 #
 #   This macro calls:
 #
@@ -21,15 +23,15 @@
 #
 # LAST MODIFICATION
 #
-#   2007-11-28
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Christophe Tournayre <turn3r@users.sourceforge.net>
+#   Copyright (c) 2008 Christophe Tournayre <turn3r@users.sourceforge.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_EXT],
 [

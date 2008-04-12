@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/check_ssl.html
+# ===========================================================================
+#               http://autoconf-archive.cryp.to/check_ssl.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,15 +8,15 @@
 #
 # DESCRIPTION
 #
-#   This macro will check various standard spots for OpenSSL including
-#   a user-supplied directory. The user uses '--with-ssl' or
+#   This macro will check various standard spots for OpenSSL including a
+#   user-supplied directory. The user uses '--with-ssl' or
 #   '--with-ssl=/path/to/ssl' as arguments to configure.
 #
 #   If OpenSSL is found the include directory gets added to CFLAGS and
 #   CXXFLAGS as well as '-DHAVE_SSL', '-lssl' & '-lcrypto' get added to
 #   LIBS, and the libraries location gets added to LDFLAGS. Finally
-#   'HAVE_SSL' gets set to 'yes' for use in your Makefile.in I use it
-#   like so (valid for gmake):
+#   'HAVE_SSL' gets set to 'yes' for use in your Makefile.in I use it like
+#   so (valid for gmake):
 #
 #       HAVE_SSL = @HAVE_SSL@
 #       ifeq ($(HAVE_SSL),yes)
@@ -29,15 +31,15 @@
 #
 # LAST MODIFICATION
 #
-#   2003-01-28
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2003 Mark Ethan Trostler <trostler@juniper.net>
+#   Copyright (c) 2008 Mark Ethan Trostler <trostler@juniper.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([CHECK_SSL],
 [AC_MSG_CHECKING(if ssl is wanted)

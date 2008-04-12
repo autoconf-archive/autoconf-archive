@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/rssh_check_off64_t.html
+# ===========================================================================
+#           http://autoconf-archive.cryp.to/rssh_check_off64_t.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,31 +8,30 @@
 #
 # DESCRIPTION
 #
-#   Check if off64_t is defined. On true define HAVE_OFF64_T, also
-#   define __LARGEFILE64_SOURCE where one is needed. (Note that an
-#   appropriative entry must be in config.h.in.)
+#   Check if off64_t is defined. On true define HAVE_OFF64_T, also define
+#   __LARGEFILE64_SOURCE where one is needed. (Note that an appropriative
+#   entry must be in config.h.in.)
 #
 # LAST MODIFICATION
 #
-#   2007-07-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Ruslan Shevchenko <Ruslan@Shevchenko.Kiev.UA>
+#   Copyright (c) 2008 Ruslan Shevchenko <Ruslan@Shevchenko.Kiev.UA>
 #
-#   This program is free software: you can redistribute it and/or
-#   modify it under the terms of the GNU Lesser General Public License
-#   as published by the Free Software Foundation, either version 3 of
-#   the License, or (at your option) any later version.
+#   This program is free software: you can redistribute it and/or modify it
+#   under the terms of the GNU Lesser General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or (at
+#   your option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   Lesser General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser
+#   General Public License for more details.
 #
-#   You should have received a copy of the GNU Lesser General Public
-#   License along with this program. If not, see
-#   <http://www.gnu.org/licenses/>.
+#   You should have received a copy of the GNU Lesser General Public License
+#   along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 AC_DEFUN([RSSH_CHECK_OFF64_T], [
 AC_REQUIRE([AC_SYS_LARGEFILE])dnl

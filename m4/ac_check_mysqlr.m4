@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_check_mysqlr.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ac_check_mysqlr.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,10 +8,10 @@
 #
 # DESCRIPTION
 #
-#   First check if mysqlconfig exists. It fails if mysqlconfig is not
-#   in path. Then it checks for the libraries and replaces
-#   -lmysqlclient statement with -lmysqlclient_r statement, to enable
-#   threaded client library.
+#   First check if mysqlconfig exists. It fails if mysqlconfig is not in
+#   path. Then it checks for the libraries and replaces -lmysqlclient
+#   statement with -lmysqlclient_r statement, to enable threaded client
+#   library.
 #
 #   The following are exported environment variables:
 #
@@ -18,15 +20,15 @@
 #
 # LAST MODIFICATION
 #
-#   2003-05-21
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2003 Can Bican <bican@yahoo.com>
+#   Copyright (c) 2008 Can Bican <bican@yahoo.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CHECK_MYSQLR],[
 AC_PATH_PROG(mysqlconfig,mysql_config)

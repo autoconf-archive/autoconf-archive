@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/berkeley_db.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/berkeley_db.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -10,8 +12,8 @@
 #   given.
 #
 #   If libdb is found, DB_HEADER and DB_LIBS variables are set and
-#   ACTION-IF-FOUND shell code is executed if specified. DB_HEADER is
-#   set to location of db.h header in quotes (e.g. "db3/db.h") and
+#   ACTION-IF-FOUND shell code is executed if specified. DB_HEADER is set to
+#   location of db.h header in quotes (e.g. "db3/db.h") and
 #   AC_DEFINE_UNQUOTED is called on it, so that you can type
 #
 #        #include DB_HEADER
@@ -21,15 +23,15 @@
 #
 # LAST MODIFICATION
 #
-#   2008-03-30
+#   2008-04-12
 #
 # COPYLEFT
 #
 #   Copyright (c) 2008 Vaclav Slavik <vaclav.slavik@matfyz.cz>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_BERKELEY_DB],
 [

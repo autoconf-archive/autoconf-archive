@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_cpu_vendor.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/ax_cpu_vendor.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,21 +8,20 @@
 #
 # DESCRIPTION
 #
-#   Find your CPU's vendor by requesting cpuid and define
-#   "ax_cpu_vendor" accordingly. This macro depends on
-#   AX_GCC_X86_CPUID.
+#   Find your CPU's vendor by requesting cpuid and define "ax_cpu_vendor"
+#   accordingly. This macro depends on AX_GCC_X86_CPUID.
 #
 # LAST MODIFICATION
 #
-#   2007-11-28
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Christophe Tournayre <turn3r@users.sourceforge.net>
+#   Copyright (c) 2008 Christophe Tournayre <turn3r@users.sourceforge.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_CPU_VENDOR],
 [

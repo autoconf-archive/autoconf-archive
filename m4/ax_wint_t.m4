@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_wint_t.html
+# ===========================================================================
+#               http://autoconf-archive.cryp.to/ax_wint_t.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,25 +8,25 @@
 #
 # DESCRIPTION
 #
-#   It turns out that MacOS X doesn't guarantee to provide the "wint_t"
-#   type unless you include the strange header <runetype.h> in addition
-#   to <wchar.h>. Consequently, the "do I have a system wint_t?" probe
-#   fails and an alternate gets used. Unfortunately, by the time the
-#   program gets built, one way or another that funny header winds up
-#   getting included and the "#define wint_t unsigned int"
-#   patch-up-hack mutilates the typedef. This macro will get it right.
+#   It turns out that MacOS X doesn't guarantee to provide the "wint_t" type
+#   unless you include the strange header <runetype.h> in addition to
+#   <wchar.h>. Consequently, the "do I have a system wint_t?" probe fails
+#   and an alternate gets used. Unfortunately, by the time the program gets
+#   built, one way or another that funny header winds up getting included
+#   and the "#define wint_t unsigned int" patch-up-hack mutilates the
+#   typedef. This macro will get it right.
 #
 # LAST MODIFICATION
 #
-#   2006-12-13
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Bruce Korb <bkorb@gnu.org>
+#   Copyright (c) 2008 Bruce Korb <bkorb@gnu.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_WINT_T],[
  AC_CHECK_HEADERS([runetype.h wchar.h])

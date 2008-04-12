@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_spec_package_version.html
+# ===========================================================================
+#        http://autoconf-archive.cryp.to/ax_spec_package_version.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -16,79 +18,73 @@
 #   set PACKAGE from the given specfile - default to basename of the
 #   rpmspecfile if no "name:" could be found in the spec file.
 #
-#   set VERSION from the given specfile - default to a date-derived
-#   value if no "version:" could be found in the spec file.
+#   set VERSION from the given specfile - default to a date-derived value if
+#   no "version:" could be found in the spec file.
 #
 #   this macro builds on top of AX_SPEC_FILE / AX_SPEC_EXTRACT
 #
 #   more specific: if not "name:" or "%define name" was found in the
 #   myproject.spec file then the PACKAGE var is set to the basename
-#   "myproject". When no spec file was present then it will usually
-#   default to "TODO".
+#   "myproject". When no spec file was present then it will usually default
+#   to "TODO".
 #
-#   The version spec looks for "version:" or "%define version" in the
-#   spec file. When no such value was seen or no spec file had been
-#   present then the value is set to `date +0.%y.%W%w`.
+#   The version spec looks for "version:" or "%define version" in the spec
+#   file. When no such value was seen or no spec file had been present then
+#   the value is set to `date +0.%y.%W%w`.
 #
-#   the version value itself is sanitized somewhat with making it to
-#   always carry atleast three digits (1.2.3) and clensing superflous
-#   "0" chars around from generating numbers elsewhere.
+#   the version value itself is sanitized somewhat with making it to always
+#   carry atleast three digits (1.2.3) and clensing superflous "0" chars
+#   around from generating numbers elsewhere.
 #
-#   additional macros are provided that extract a specific value from
-#   the spec file, among these:
+#   additional macros are provided that extract a specific value from the
+#   spec file, among these:
 #
-#   set PACKAGE_SUMMARY from the given specfile - default to package
-#   and try to detect a type suffix if "summary:" was not in the spec
-#   file
+#   set PACKAGE_SUMMARY from the given specfile - default to package and try
+#   to detect a type suffix if "summary:" was not in the spec file
 #
-#   set PACKAGE_LICENSE from the given specfile - if no "license:" tag
-#   was given in the spec file then various COPYING files are grepped
-#   to have a guess and the final fallback will be GNU GPL (or GNU
-#   LGPL).
+#   set PACKAGE_LICENSE from the given specfile - if no "license:" tag was
+#   given in the spec file then various COPYING files are grepped to have a
+#   guess and the final fallback will be GNU GPL (or GNU LGPL).
 #
-#   set PACKAGE_ICON from the given specfile - if no "icon:" tag was
-#   given in the spec file then we default to $PACKAGE-icon.png
+#   set PACKAGE_ICON from the given specfile - if no "icon:" tag was given
+#   in the spec file then we default to $PACKAGE-icon.png
 #
-#   the final AX_SPEC_INIT(specfile) will initialize all variables to
-#   its defaults according to the spec file given.
+#   the final AX_SPEC_INIT(specfile) will initialize all variables to its
+#   defaults according to the spec file given.
 #
 # LAST MODIFICATION
 #
-#   2006-10-13
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Guido U. Draheim <guidod@gmx.de>
+#   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
 #
-#   This program is free software; you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation; either version 2 of the
-#   License, or (at your option) any later version.
+#   This program is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation; either version 2 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-#   02111-1307, USA.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_SPEC_PACKAGE_LICENSE],[AC_REQUIRE([AX_SPEC_FILE])dnl
   AS_VAR_PUSHDEF([VAR],[PACKAGE_LICENSE])dnl

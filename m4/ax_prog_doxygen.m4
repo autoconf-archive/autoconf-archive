@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_prog_doxygen.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ax_prog_doxygen.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -18,41 +20,39 @@
 #
 #   The DX_*_FEATURE macros control the default setting for the given
 #   Doxygen feature. Supported features are 'DOXYGEN' itself, 'DOT' for
-#   generating graphics, 'HTML' for plain HTML, 'CHM' for compressed
-#   HTML help (for MS users), 'CHI' for generating a seperate .chi file
-#   by the .chm file, and 'MAN', 'RTF', 'XML', 'PDF' and 'PS' for the
-#   appropriate output formats. The environment variable
-#   DOXYGEN_PAPER_SIZE may be specified to override the default
-#   'a4wide' paper size.
+#   generating graphics, 'HTML' for plain HTML, 'CHM' for compressed HTML
+#   help (for MS users), 'CHI' for generating a seperate .chi file by the
+#   .chm file, and 'MAN', 'RTF', 'XML', 'PDF' and 'PS' for the appropriate
+#   output formats. The environment variable DOXYGEN_PAPER_SIZE may be
+#   specified to override the default 'a4wide' paper size.
 #
-#   By default, HTML, PDF and PS documentation is generated as this
-#   seems to be the most popular and portable combination. MAN pages
-#   created by Doxygen are usually problematic, though by picking an
-#   appropriate subset and doing some massaging they might be better
-#   than nothing. CHM and RTF are specific for MS (note that you can't
-#   generate both HTML and CHM at the same time). The XML is rather
-#   useless unless you apply specialized post-processing to it.
+#   By default, HTML, PDF and PS documentation is generated as this seems to
+#   be the most popular and portable combination. MAN pages created by
+#   Doxygen are usually problematic, though by picking an appropriate subset
+#   and doing some massaging they might be better than nothing. CHM and RTF
+#   are specific for MS (note that you can't generate both HTML and CHM at
+#   the same time). The XML is rather useless unless you apply specialized
+#   post-processing to it.
 #
-#   The macros mainly control the default state of the feature. The use
-#   can override the default by specifying --enable or --disable. The
-#   macros ensure that contradictory flags are not given (e.g.,
+#   The macros mainly control the default state of the feature. The use can
+#   override the default by specifying --enable or --disable. The macros
+#   ensure that contradictory flags are not given (e.g.,
 #   --enable-doxygen-html and --enable-doxygen-chm,
-#   --enable-doxygen-anything with --disable-doxygen, etc.) Finally,
-#   each feature will be automatically disabled (with a warning) if the
-#   required programs are missing.
+#   --enable-doxygen-anything with --disable-doxygen, etc.) Finally, each
+#   feature will be automatically disabled (with a warning) if the required
+#   programs are missing.
 #
-#   Once all the feature defaults have been specified, call
-#   DX_INIT_DOXYGEN with the following parameters: a one-word name for
-#   the project for use as a filename base etc., an optional
-#   configuration file name (the default is 'Doxyfile', the same as
-#   Doxygen's default), and an optional output directory name (the
-#   default is 'doxygen-doc').
+#   Once all the feature defaults have been specified, call DX_INIT_DOXYGEN
+#   with the following parameters: a one-word name for the project for use
+#   as a filename base etc., an optional configuration file name (the
+#   default is 'Doxyfile', the same as Doxygen's default), and an optional
+#   output directory name (the default is 'doxygen-doc').
 #
 #   Automake Support
 #
-#   The following is a template aminclude.am file for use with
-#   Automake. Make targets and variables values are controlled by the
-#   various DX_COND_* conditionals set by autoconf.
+#   The following is a template aminclude.am file for use with Automake.
+#   Make targets and variables values are controlled by the various
+#   DX_COND_* conditionals set by autoconf.
 #
 #   The provided targets are:
 #
@@ -69,15 +69,14 @@
 #
 #     doxygen-pdf: Generate doxygen PDF documentation.
 #
-#   Note that by default these are not integrated into the automake
-#   targets. If doxygen is used to generate man pages, you can achieve
-#   this integration by setting man3_MANS to the list of man pages
-#   generated and then adding the dependency:
+#   Note that by default these are not integrated into the automake targets.
+#   If doxygen is used to generate man pages, you can achieve this
+#   integration by setting man3_MANS to the list of man pages generated and
+#   then adding the dependency:
 #
 #     $(man3_MANS): doxygen-doc
 #
-#   This will cause make to run doxygen and generate all the
-#   documentation.
+#   This will cause make to run doxygen and generate all the documentation.
 #
 #   The following variable is intended for use in Makefile.am:
 #
@@ -248,15 +247,15 @@
 #
 # LAST MODIFICATION
 #
-#   2007-08-04
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Oren Ben-Kiki <oren@ben-kiki.org>
+#   Copyright (c) 2008 Oren Ben-Kiki <oren@ben-kiki.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 ## ----------##
 ## Defaults. ##

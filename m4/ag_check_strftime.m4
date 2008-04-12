@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ag_check_strftime.html
+# ===========================================================================
+#           http://autoconf-archive.cryp.to/ag_check_strftime.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -10,15 +12,15 @@
 #
 # LAST MODIFICATION
 #
-#   2007-07-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Bruce Korb <bkorb@gnu.org>
+#   Copyright (c) 2008 Bruce Korb <bkorb@gnu.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AG_CHECK_STRFTIME],[
   AC_MSG_CHECKING([whether strftime() works])

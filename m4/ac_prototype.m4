@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_prototype.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/ac_prototype.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,21 +8,21 @@
 #
 # DESCRIPTION
 #
-#   Try all the combinations of <TAG1>, <TAG2>... to successfully
-#   compile <code>. <TAG1>, <TAG2>, ... are substituted in <code> and
-#   <include> with values found in <values1>, <values2>, ...
-#   respectively. <values1>, <values2>, ... contain a list of possible
-#   values for each corresponding tag and all combinations are tested.
-#   When AC_TRY_COMPILE(include, code) is successfull for a given
-#   substitution, the macro stops and defines the following macros:
-#   FUNCTION_TAG1, FUNCTION_TAG2, ... using AC_DEFINE() with values set
-#   to the current values of <TAG1>, <TAG2>, ... If no combination is
-#   successfull the configure script is aborted with a message.
+#   Try all the combinations of <TAG1>, <TAG2>... to successfully compile
+#   <code>. <TAG1>, <TAG2>, ... are substituted in <code> and <include> with
+#   values found in <values1>, <values2>, ... respectively. <values1>,
+#   <values2>, ... contain a list of possible values for each corresponding
+#   tag and all combinations are tested. When AC_TRY_COMPILE(include, code)
+#   is successfull for a given substitution, the macro stops and defines the
+#   following macros: FUNCTION_TAG1, FUNCTION_TAG2, ... using AC_DEFINE()
+#   with values set to the current values of <TAG1>, <TAG2>, ... If no
+#   combination is successfull the configure script is aborted with a
+#   message.
 #
 #   Intended purpose is to find which combination of argument types is
-#   acceptable for a given function <function>. It is recommended to
-#   list the most specific types first. For instance ARG1, [size_t,
-#   int] instead of ARG1, [int, size_t].
+#   acceptable for a given function <function>. It is recommended to list
+#   the most specific types first. For instance ARG1, [size_t, int] instead
+#   of ARG1, [int, size_t].
 #
 #   Generic usage pattern:
 #
@@ -78,47 +80,43 @@
 #        ...
 #
 #   Implementation notes: generating all possible permutations of the
-#   arguments is not easily done with the usual mixture of shell and
-#   m4, that is why this macro is almost 100% m4 code. It generates
-#   long but simple to read code.
+#   arguments is not easily done with the usual mixture of shell and m4,
+#   that is why this macro is almost 100% m4 code. It generates long but
+#   simple to read code.
 #
 # LAST MODIFICATION
 #
-#   2000-08-11
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2000 Loic Dachary <loic@senga.org>
+#   Copyright (c) 2008 Loic Dachary <loic@senga.org>
 #
-#   This program is free software; you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation; either version 2 of the
-#   License, or (at your option) any later version.
+#   This program is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation; either version 2 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-#   02111-1307, USA.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AC_PROTOTYPE],[
 dnl

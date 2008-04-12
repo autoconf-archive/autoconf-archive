@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_config_libconfig_in.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/ac_config_libconfig_in.html
+# ===========================================================================
 #
 # OBSOLETE MACRO
 #
@@ -10,17 +12,16 @@
 #
 # DESCRIPTION
 #
-#   Creates a custom LIBRARY-config script. The script supports
-#   --cflags, --libs and --version options, as well as all of the
-#   standard configure variables e.g. --libdir and --sysconfdir.
-#   --prefix and --exec-prefix may be specified to override the
-#   defaults. --help gives a complete list of available options.
-#   Modules allow multiple sets of --libs, --cflags and --version
-#   options to be used, and combined together.
+#   Creates a custom LIBRARY-config script. The script supports --cflags,
+#   --libs and --version options, as well as all of the standard configure
+#   variables e.g. --libdir and --sysconfdir. --prefix and --exec-prefix may
+#   be specified to override the defaults. --help gives a complete list of
+#   available options. Modules allow multiple sets of --libs, --cflags and
+#   --version options to be used, and combined together.
 #
-#   This macro saves you all the typing for a library-config.in script;
-#   you don't even need to distribute one along. Place this macro in
-#   your configure.ac, et voila, you got one that you want to install.
+#   This macro saves you all the typing for a library-config.in script; you
+#   don't even need to distribute one along. Place this macro in your
+#   configure.ac, et voila, you got one that you want to install.
 #
 #   The options:
 #
@@ -29,15 +30,14 @@
 #    $3 = MODULES       Additional library modules, not including the
 #                       default ($1).
 #
-#   It is suggested that the following CFLAGS and LIBS variables are
-#   used in your configure.in. library_libs is *essential*.
-#   library_cflags is important, but not always needed. If they do not
-#   exist, defaults will be taken from LIBRARY_CFLAGS, LIBRARY_LIBS
-#   (should be -llibrary *only*) and LIBRARY_LIBDEPS (-l options for
-#   libraries your library depends upon. LIBLIBRARY_LIBS is simply
-#   $LIBRARY_LIBS $LIBRARY_LIBDEPS. NB. LIBRARY and library are the
-#   name of your library, in upper and lower case repectively e.g. GTK,
-#   gtk.
+#   It is suggested that the following CFLAGS and LIBS variables are used in
+#   your configure.in. library_libs is *essential*. library_cflags is
+#   important, but not always needed. If they do not exist, defaults will be
+#   taken from LIBRARY_CFLAGS, LIBRARY_LIBS (should be -llibrary *only*) and
+#   LIBRARY_LIBDEPS (-l options for libraries your library depends upon.
+#   LIBLIBRARY_LIBS is simply $LIBRARY_LIBS $LIBRARY_LIBDEPS. NB. LIBRARY
+#   and library are the name of your library, in upper and lower case
+#   repectively e.g. GTK, gtk.
 #
 #    LIBRARY_CFLAGS:    cflags for compiling libraries and example progs
 #    LIBRARY_LIBS:      libraries for linking programs
@@ -50,19 +50,18 @@
 #      *=required if you want sensible output, otherwise they will be
 #        *guessed* (DWIM)
 #
-#   Support for pkg-config is available by default. libs, cflags and
-#   version information will be obtained from the pkg-config metadata
-#   file library.pc if it exists in the pkgconfig data directory. The
-#   above information still needs to be specified, as it will still be
-#   used if pkg-config is not found on the host system at configure
-#   time.
+#   Support for pkg-config is available by default. libs, cflags and version
+#   information will be obtained from the pkg-config metadata file
+#   library.pc if it exists in the pkgconfig data directory. The above
+#   information still needs to be specified, as it will still be used if
+#   pkg-config is not found on the host system at configure time.
 #
-#   -I and -L flags will be obtained from *both* pkgconfig and the
-#   script. AC_CONFIG_LIBCONFIG_IN_PKGCONFIG enables pkg-config support
-#   (default) AC_CONFIG_LIBCONFIG_IN_STATIC disables pkg-config support
+#   -I and -L flags will be obtained from *both* pkgconfig and the script.
+#   AC_CONFIG_LIBCONFIG_IN_PKGCONFIG enables pkg-config support (default)
+#   AC_CONFIG_LIBCONFIG_IN_STATIC disables pkg-config support
 #
-#   There is also an AC_SUBST(LIBRARY_CONFIG) that will be set to the
-#   name of the file that we output in this macro. Use as:
+#   There is also an AC_SUBST(LIBRARY_CONFIG) that will be set to the name
+#   of the file that we output in this macro. Use as:
 #
 #    install-exec-local: install-config
 #    install-config:
@@ -73,20 +72,20 @@
 #
 #    bin_SCRIPTS = @LIBRARY_CONFIG@
 #
-#   Based upon AC_CREATE_GENERIC_CONFIG by Guido Draheim
-#   <guidod@gmx.de> and gtk-config by Owen Taylor.
+#   Based upon AC_CREATE_GENERIC_CONFIG by Guido Draheim <guidod@gmx.de> and
+#   gtk-config by Owen Taylor.
 #
 # LAST MODIFICATION
 #
-#   2005-01-23
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Roger Leigh <roger@whinlatter.uklinux.net>
+#   Copyright (c) 2008 Roger Leigh <roger@whinlatter.uklinux.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 # AC_CONFIG_LIBCONFIG_IN(LIBRARY, DESTINATION, MODULES)
 # -----------------------------------------------------

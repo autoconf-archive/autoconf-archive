@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_check_gd.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/ax_check_gd.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -8,32 +10,31 @@
 #
 #   Check for the gd library. (See http://www.boutell.com/gd/) If gd is
 #   found, the output variables GD_CFLAGS, GD_LDFLAGS and GD_LIBS will
-#   contain the compiler flags, linker flags and libraries necessary to
-#   use gd; otherwise, those variables will be empty. In addition, the
-#   symbol HAVE_GD is defined if the library is found, and the symbols
-#   HAVE_GD_GIF, HAVE_GD_JPEG and HAVE_GD_PNG are defined if the
-#   lirbary supports creating images in gif, jpeg and png formats,
-#   respectively.
+#   contain the compiler flags, linker flags and libraries necessary to use
+#   gd; otherwise, those variables will be empty. In addition, the symbol
+#   HAVE_GD is defined if the library is found, and the symbols HAVE_GD_GIF,
+#   HAVE_GD_JPEG and HAVE_GD_PNG are defined if the lirbary supports
+#   creating images in gif, jpeg and png formats, respectively.
 #
-#   The user may use --with-gd=no or --without-gd to skip checking for
-#   the library. (The default is --with-gd=yes.) If the library is
-#   installed in an unusual location, --with-gd=DIR will cause the
-#   macro to look for gdlib-config in DIR/bin or, failing that, for the
-#   headers and libraries in DIR/include and DIR/lib.
+#   The user may use --with-gd=no or --without-gd to skip checking for the
+#   library. (The default is --with-gd=yes.) If the library is installed in
+#   an unusual location, --with-gd=DIR will cause the macro to look for
+#   gdlib-config in DIR/bin or, failing that, for the headers and libraries
+#   in DIR/include and DIR/lib.
 #
 #   Feedback welcome!
 #
 # LAST MODIFICATION
 #
-#   2005-09-22
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Nick Markham <markhn@rpi.edu>
+#   Copyright (c) 2008 Nick Markham <markhn@rpi.edu>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_CHECK_GD], [
 	AC_ARG_WITH(gd,

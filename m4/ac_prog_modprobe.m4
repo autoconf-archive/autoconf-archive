@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_prog_modprobe.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ac_prog_modprobe.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -10,20 +12,20 @@
 #   Linux systems with loadable kernel module support. PATH is checked
 #   first, then the default location(s).
 #
-#   This is one of several autoconf macros intended to assist in
-#   configuring and installing loadable kernel modules.
+#   This is one of several autoconf macros intended to assist in configuring
+#   and installing loadable kernel modules.
 #
 # LAST MODIFICATION
 #
-#   2000-12-31
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2000 Kaelin Colclasure <kaelin@acm.org>
+#   Copyright (c) 2008 Kaelin Colclasure <kaelin@acm.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_PROG_MODPROBE],[
 AC_PATH_PROG(MODPROBE, modprobe, , $PATH:/sbin)

@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/sg_afs.html
+# ===========================================================================
+#                 http://autoconf-archive.cryp.to/sg_afs.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,39 +8,34 @@
 #
 # DESCRIPTION
 #
-#   This sets up the proper includes and libs needed for building
-#   programs that link with AFS. It adds a --with-afsdir option that
-#   lets you specify where the AFS includes and libs are (defaulting to
-#   /usr/afsws).
+#   This sets up the proper includes and libs needed for building programs
+#   that link with AFS. It adds a --with-afsdir option that lets you specify
+#   where the AFS includes and libs are (defaulting to /usr/afsws).
 #
 #   It also adds the -I and -L options to CPPFLAGS and LDFLAGS
 #
-#   It creates an AC_SUBST(AFSWS) that contains the directory being
-#   used.
+#   It creates an AC_SUBST(AFSWS) that contains the directory being used.
 #
-#   It checks for -lBSD, -lsocket and -lnsl since AFS needs those if
-#   they exist. It also adds -R/usr/ucblib -L/usr/ucblib -lucb if on
-#   Solaris.
+#   It checks for -lBSD, -lsocket and -lnsl since AFS needs those if they
+#   exist. It also adds -R/usr/ucblib -L/usr/ucblib -lucb if on Solaris.
 #
-#   It sets VICE_ETC_PATH to be the directory where /usr/vice/etc
-#   lives, since AFS 3.4 uses a different define than AFS 3.5 does for
-#   that path.
+#   It sets VICE_ETC_PATH to be the directory where /usr/vice/etc lives,
+#   since AFS 3.4 uses a different define than AFS 3.5 does for that path.
 #
 #   Finally, it defines AFS_int32 to be the in32 type needed. In older
-#   versions of afs it was 'int32', and in newer versions it's
-#   'afs_int32'.
+#   versions of afs it was 'int32', and in newer versions it's 'afs_int32'.
 #
 # LAST MODIFICATION
 #
-#   2003-10-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2003 Scott Grosch <Scott.Grosch@intel.com>
+#   Copyright (c) 2008 Scott Grosch <Scott.Grosch@intel.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([SG_AFS],
 [AC_ARG_WITH(afsdir, AC_HELP_STRING([--with-afsdir=DIR],

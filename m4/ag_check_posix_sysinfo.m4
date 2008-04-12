@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ag_check_posix_sysinfo.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/ag_check_posix_sysinfo.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,20 +8,20 @@
 #
 # DESCRIPTION
 #
-#   Check that the POSIX compliant sysinfo(2) call works properly.
-#   Linux has its own weirdo alternative.
+#   Check that the POSIX compliant sysinfo(2) call works properly. Linux has
+#   its own weirdo alternative.
 #
 # LAST MODIFICATION
 #
-#   2007-07-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Bruce Korb <bkorb@gnu.org>
+#   Copyright (c) 2008 Bruce Korb <bkorb@gnu.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AG_CHECK_POSIX_SYSINFO],[
   AC_MSG_CHECKING([whether sysinfo(2) is POSIX])

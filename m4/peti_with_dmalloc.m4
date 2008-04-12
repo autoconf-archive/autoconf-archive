@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/peti_with_dmalloc.html
+# ===========================================================================
+#           http://autoconf-archive.cryp.to/peti_with_dmalloc.html
+# ===========================================================================
 #
 # OBSOLETE MACRO
 #
@@ -13,10 +15,10 @@
 #   Let the user enable/disable dmalloc library support. See
 #   <http://www.dmalloc.org/> for further details.
 #
-#   Calling this macro defines a user command-line flag
-#   "--with-dmalloc". Furthermore, "-IPREFIX/include" will be added to
-#   "$CPPFLAGS", "-LPREFIX/lib" to "$LDFLAGS", and "-DDEBUG_DMALLOC"
-#   and "-DDMALLOC_FUNC_CHECK" to "$CPPFLAGS".
+#   Calling this macro defines a user command-line flag "--with-dmalloc".
+#   Furthermore, "-IPREFIX/include" will be added to "$CPPFLAGS",
+#   "-LPREFIX/lib" to "$LDFLAGS", and "-DDEBUG_DMALLOC" and
+#   "-DDMALLOC_FUNC_CHECK" to "$CPPFLAGS".
 #
 #   To enable dmalloc support in your code, add this snippet to tho
 #   appropriate header files:
@@ -27,15 +29,15 @@
 #
 # LAST MODIFICATION
 #
-#   2006-06-04
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Peter Simons <simons@cryp.to>
+#   Copyright (c) 2008 Peter Simons <simons@cryp.to>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([PETI_WITH_DMALLOC], [
 AC_MSG_CHECKING(whether to use the dmalloc library)

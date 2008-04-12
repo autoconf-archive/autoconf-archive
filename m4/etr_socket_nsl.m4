@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/etr_socket_nsl.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/etr_socket_nsl.html
+# ===========================================================================
 #
 # OBSOLETE MACRO
 #
@@ -10,21 +12,21 @@
 #
 # DESCRIPTION
 #
-#   This macro figures out what libraries are required on this platform
-#   to link sockets programs. It's usually -lsocket and/or -lnsl or
-#   neither. We test for all three combinations.
+#   This macro figures out what libraries are required on this platform to
+#   link sockets programs. It's usually -lsocket and/or -lnsl or neither. We
+#   test for all three combinations.
 #
 # LAST MODIFICATION
 #
-#   2005-09-02
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Warren Young <warren@etr-usa.com>
+#   Copyright (c) 2008 Warren Young <warren@etr-usa.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([ETR_SOCKET_NSL],
 [

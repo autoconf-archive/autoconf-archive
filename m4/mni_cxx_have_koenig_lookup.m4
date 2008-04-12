@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/mni_cxx_have_koenig_lookup.html
+# ===========================================================================
+#       http://autoconf-archive.cryp.to/mni_cxx_have_koenig_lookup.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,20 +8,20 @@
 #
 # DESCRIPTION
 #
-#   Define CXX_HAVE_KOENIG_LOOKUP if the C++ compiler has
-#   argument-dependent name lookup (a.k.a. Koenig lookup).
+#   Define CXX_HAVE_KOENIG_LOOKUP if the C++ compiler has argument-dependent
+#   name lookup (a.k.a. Koenig lookup).
 #
 # LAST MODIFICATION
 #
-#   2001-09-20
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2001 Steve M. Robbins <smr@debian.org>
+#   Copyright (c) 2008 Steve M. Robbins <smr@debian.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([mni_CXX_HAVE_KOENIG_LOOKUP],
     [AC_CACHE_CHECK(whether the compiler implements Koenig lookup,

@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_prog_cc_for_build.html
+# ===========================================================================
+#          http://autoconf-archive.cryp.to/ac_prog_cc_for_build.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,33 +8,32 @@
 #
 # DESCRIPTION
 #
-#   This macro searches for a C compiler that generates native
-#   executables, that is a C compiler that surely is not a
-#   cross-compiler. This can be useful if you have to generate source
-#   code at compile-time like for example GCC does.
+#   This macro searches for a C compiler that generates native executables,
+#   that is a C compiler that surely is not a cross-compiler. This can be
+#   useful if you have to generate source code at compile-time like for
+#   example GCC does.
 #
-#   The macro sets the CC_FOR_BUILD and CPP_FOR_BUILD macros to
-#   anything needed to compile or link (CC_FOR_BUILD) and preprocess
-#   (CPP_FOR_BUILD). The value of these variables can be overridden by
-#   the user by specifying a compiler with an environment variable
-#   (like you do for standard CC).
+#   The macro sets the CC_FOR_BUILD and CPP_FOR_BUILD macros to anything
+#   needed to compile or link (CC_FOR_BUILD) and preprocess (CPP_FOR_BUILD).
+#   The value of these variables can be overridden by the user by specifying
+#   a compiler with an environment variable (like you do for standard CC).
 #
-#   It also sets BUILD_EXEEXT and BUILD_OBJEXT to the executable and
-#   object file extensions for the build platform, and GCC_FOR_BUILD to
-#   `yes' if the compiler we found is GCC. All these variables but
-#   GCC_FOR_BUILD are substituted in the Makefile.
+#   It also sets BUILD_EXEEXT and BUILD_OBJEXT to the executable and object
+#   file extensions for the build platform, and GCC_FOR_BUILD to `yes' if
+#   the compiler we found is GCC. All these variables but GCC_FOR_BUILD are
+#   substituted in the Makefile.
 #
 # LAST MODIFICATION
 #
-#   2000-09-09
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2000 Paolo Bonzini <bonzini@gnu.org>
+#   Copyright (c) 2008 Paolo Bonzini <bonzini@gnu.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_PROG_CC_FOR_BUILD], [dnl
 AC_REQUIRE([AC_PROG_CC])dnl

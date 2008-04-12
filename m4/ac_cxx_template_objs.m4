@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_cxx_template_objs.html
+# ===========================================================================
+#          http://autoconf-archive.cryp.to/ac_cxx_template_objs.html
+# ===========================================================================
 #
 # OBSOLETE MACRO
 #
@@ -10,27 +12,25 @@
 #
 # DESCRIPTION
 #
-#   NOTE: AC_CXX_TEMPLATE_OBJS macro is not needed anymore, recent
-#   versions of libtool handle correctly these extra object files by
-#   recognizing the SUN compiler "CC" and using it with the "-xar"
-#   switch to pack libraries instead of using the more classical "ar"
-#   command. Using recent libtool with the SUN compiler AND this macro
-#   does not work at all.
+#   NOTE: AC_CXX_TEMPLATE_OBJS macro is not needed anymore, recent versions
+#   of libtool handle correctly these extra object files by recognizing the
+#   SUN compiler "CC" and using it with the "-xar" switch to pack libraries
+#   instead of using the more classical "ar" command. Using recent libtool
+#   with the SUN compiler AND this macro does not work at all.
 #
-#   This macro tries to find the place where the objects files
-#   resulting from templates instantiations are stored and the
-#   associated compiler flags. This is particularly useful to include
-#   these files in libraries. Currently only g++/egcs and SUN CC are
-#   supported (there is nothing to be done for the formers while the
-#   latter uses directory ./Templates.DB if you use the -ptr. flag).
-#   This macro sets the CXXFLAGS if needed, it also sets the output
-#   variable TEMPLATES_OBJ. Note that if you use libtool, this macro
-#   does work correctly with the SUN compilers ONLY while building
-#   static libraries. Since there are sometimes problems with exception
-#   handling with multiple levels of shared libraries even with g++ on
-#   this platform, you may wish to enforce the usage of static
-#   libraires there. You can do this by putting the following
-#   statements in your configure.in file:
+#   This macro tries to find the place where the objects files resulting
+#   from templates instantiations are stored and the associated compiler
+#   flags. This is particularly useful to include these files in libraries.
+#   Currently only g++/egcs and SUN CC are supported (there is nothing to be
+#   done for the formers while the latter uses directory ./Templates.DB if
+#   you use the -ptr. flag). This macro sets the CXXFLAGS if needed, it also
+#   sets the output variable TEMPLATES_OBJ. Note that if you use libtool,
+#   this macro does work correctly with the SUN compilers ONLY while
+#   building static libraries. Since there are sometimes problems with
+#   exception handling with multiple levels of shared libraries even with
+#   g++ on this platform, you may wish to enforce the usage of static
+#   libraires there. You can do this by putting the following statements in
+#   your configure.in file:
 #
 #      AC_CANONICAL_HOST
 #      case x$host_os in
@@ -40,15 +40,15 @@
 #
 # LAST MODIFICATION
 #
-#   2005-01-25
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Luc Maisonobe <luc@spaceroots.org>
+#   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CXX_TEMPLATE_OBJS],
 dnl

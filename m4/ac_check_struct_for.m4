@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_check_struct_for.html
+# ===========================================================================
+#          http://autoconf-archive.cryp.to/ac_check_struct_for.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -10,15 +12,15 @@
 #
 # LAST MODIFICATION
 #
-#   2000-09-19
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2000 Wes Hardaker <wjhardaker@ucdavis.edu>
+#   Copyright (c) 2008 Wes Hardaker <wjhardaker@ucdavis.edu>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CHECK_STRUCT_FOR],[
 ac_safe_struct=`echo "$2" | sed 'y%./+-%__p_%'`

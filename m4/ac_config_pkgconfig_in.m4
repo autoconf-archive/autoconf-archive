@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_config_pkgconfig_in.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/ac_config_pkgconfig_in.html
+# ===========================================================================
 #
 # OBSOLETE MACRO
 #
@@ -10,14 +12,13 @@
 #
 # DESCRIPTION
 #
-#   Creates a pkg-config meta-data file for a library with the
-#   following fields: Name, Description, Requires, Conflicts, Version,
-#   Libs, and Cflags.
+#   Creates a pkg-config meta-data file for a library with the following
+#   fields: Name, Description, Requires, Conflicts, Version, Libs, and
+#   Cflags.
 #
 #   This macro automates the construction of a pkg-config .pc meta-data
-#   file; you don't even need to distribute one along. Place this macro
-#   in your configure.ac, et voila, you got one that you want to
-#   install.
+#   file; you don't even need to distribute one along. Place this macro in
+#   your configure.ac, et voila, you got one that you want to install.
 #
 #   The options:
 #
@@ -25,15 +26,14 @@
 #    $2 = DESCRIPTION   one line description of library
 #    $3 = DESTINATION   directory path
 #
-#   It is suggested that the following CFLAGS and LIBS variables are
-#   used in your configure.ac. library_libs is *essential*.
-#   library_cflags is important, but not always needed. If they do not
-#   exist, defaults will be taken from LIBRARY_CFLAGS, LIBRARY_LIBS
-#   (should be -llibrary *only*) and LIBRARY_LIBDEPS (-l options for
-#   libraries your library depends upon. LIBLIBRARY_LIBS is simply
-#   $LIBRARY_LIBS $LIBRARY_LIBDEPS. NB. LIBRARY and library are the
-#   name of your library, in upper and lower case repectively e.g. GTK,
-#   gtk.
+#   It is suggested that the following CFLAGS and LIBS variables are used in
+#   your configure.ac. library_libs is *essential*. library_cflags is
+#   important, but not always needed. If they do not exist, defaults will be
+#   taken from LIBRARY_CFLAGS, LIBRARY_LIBS (should be -llibrary *only*) and
+#   LIBRARY_LIBDEPS (-l options for libraries your library depends upon.
+#   LIBLIBRARY_LIBS is simply $LIBRARY_LIBS $LIBRARY_LIBDEPS. NB. LIBRARY
+#   and library are the name of your library, in upper and lower case
+#   repectively e.g. GTK, gtk.
 #
 #    LIBRARY_CFLAGS:    cflags for compiling libraries and example progs
 #    LIBRARY_LIBS:      libraries for linking programs
@@ -48,8 +48,8 @@
 #      *=required if you want sensible output, otherwise they will be
 #        *guessed* (DWIM, but usually correct)
 #
-#   There is also an AC_SUBST(LIBRARY_PKGCONFIG) that will be set to
-#   the name of the meta-data file. Use as:
+#   There is also an AC_SUBST(LIBRARY_PKGCONFIG) that will be set to the
+#   name of the meta-data file. Use as:
 #
 #    install-data-local: install-pkgconfig
 #    install-pkgconfig:
@@ -80,16 +80,16 @@
 #
 # LAST MODIFICATION
 #
-#   2006-05-27
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Roger Leigh <roger@whinlatter.uklinux.net>
-#   Copyright (c) 2006 Diab Jerius <djerius@cfa.harvard.edu>
+#   Copyright (c) 2008 Roger Leigh <roger@whinlatter.uklinux.net>
+#   Copyright (c) 2008 Diab Jerius <djerius@cfa.harvard.edu>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 ## AC_CONFIG_PKGCONFIG_IN(LIBRARY, DESCRIPTION, DESTINATION)
 ## ---------------------------------------------------------

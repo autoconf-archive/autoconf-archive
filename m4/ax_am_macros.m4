@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_am_macros.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/ax_am_macros.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,8 +8,8 @@
 #
 # DESCRIPTION
 #
-#   Adds support for macros that create automake rules. You must
-#   manually add the following line
+#   Adds support for macros that create automake rules. You must manually
+#   add the following line
 #
 #     @INC_AMINCLUDE@
 #
@@ -15,15 +17,15 @@
 #
 # LAST MODIFICATION
 #
-#   2005-01-14
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Tom Howard <tomhoward@users.sf.net>
+#   Copyright (c) 2008 Tom Howard <tomhoward@users.sf.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_AM_MACROS],
 [

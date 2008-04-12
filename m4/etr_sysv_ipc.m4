@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/etr_sysv_ipc.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/etr_sysv_ipc.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,21 +8,21 @@
 #
 # DESCRIPTION
 #
-#   This macro checks for the SysV IPC header files. It only checks
-#   that you can compile a program with them, not whether the system
-#   actually implements working SysV IPC.
+#   This macro checks for the SysV IPC header files. It only checks that you
+#   can compile a program with them, not whether the system actually
+#   implements working SysV IPC.
 #
 # LAST MODIFICATION
 #
-#   2001-05-25
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2001 Warren Young <warren@etr-usa.com>
+#   Copyright (c) 2008 Warren Young <warren@etr-usa.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([ETR_SYSV_IPC],
 [

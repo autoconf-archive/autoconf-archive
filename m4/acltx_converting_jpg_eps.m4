@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/acltx_converting_jpg_eps.html
+# ===========================================================================
+#        http://autoconf-archive.cryp.to/acltx_converting_jpg_eps.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,31 +8,29 @@
 #
 # DESCRIPTION
 #
-#   This macro find a way to convert jpg to eps file. If the way is
-#   found, set jpg_to_eps to this way else set jpg_to_eps to no.
+#   This macro find a way to convert jpg to eps file. If the way is found,
+#   set jpg_to_eps to this way else set jpg_to_eps to no.
 #
 # LAST MODIFICATION
 #
-#   2006-07-16
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Boretti Mathieu <boretti@eig.unige.ch>
+#   Copyright (c) 2008 Boretti Mathieu <boretti@eig.unige.ch>
 #
-#   This library is free software; you can redistribute it and/or
-#   modify it under the terms of the GNU Lesser General Public License
-#   as published by the Free Software Foundation; either version 2.1 of
-#   the License, or (at your option) any later version.
+#   This library is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU Lesser General Public License as published by
+#   the Free Software Foundation; either version 2.1 of the License, or (at
+#   your option) any later version.
 #
 #   This library is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   Lesser General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser
+#   General Public License for more details.
 #
-#   You should have received a copy of the GNU Lesser General Public
-#   License along with this library; if not, write to the Free Software
-#   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
-#   02110-1301 USA
+#   You should have received a copy of the GNU Lesser General Public License
+#   along with this library. If not, see <http://www.gnu.org/licenses/>.
 
 AC_DEFUN([ACLTX_CONVERTING_JPG_EPS],[
 ACLTX_PROG_JPEGTOPNM([AC_MSG_WARN([Unable to locate a jpegtopnm application to convert jpg file])])

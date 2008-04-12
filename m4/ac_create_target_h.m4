@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_create_target_h.html
+# ===========================================================================
+#           http://autoconf-archive.cryp.to/ac_create_target_h.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -7,11 +9,10 @@
 # DESCRIPTION
 #
 #   Create the header-file and let it contain '#defines' for the target
-#   platform. This macro is used for libraries that have
-#   platform-specific quirks. Instead of inventing a target-specific
-#   target.h.in files, just let it create a header file from the
-#   definitions of AC_CANONICAL_SYSTEM and put only ifdef's in the
-#   installed header-files.
+#   platform. This macro is used for libraries that have platform-specific
+#   quirks. Instead of inventing a target-specific target.h.in files, just
+#   let it create a header file from the definitions of AC_CANONICAL_SYSTEM
+#   and put only ifdef's in the installed header-files.
 #
 #    if the HEADER-FILE is absent, [target.h] is used.
 #    if the PREFIX is absent, [TARGET] is used.
@@ -31,12 +32,12 @@
 #    #define TARGET_OS_TYPE "linux-gnu"
 #    #endif
 #
-#   Detail: in the case of hppa1.1, the three idents "hppa1_1" "hppa1"
-#   and "hppa" are derived, for an m68k it just two, "m68k" and "m".
+#   Detail: in the case of hppa1.1, the three idents "hppa1_1" "hppa1" and
+#   "hppa" are derived, for an m68k it just two, "m68k" and "m".
 #
 #   The CREATE_TARGET_H__ variant is almost the same function, but
-#   everything is lowercased instead of uppercased, and there is a "__"
-#   in front of each prefix, so it looks like...
+#   everything is lowercased instead of uppercased, and there is a "__" in
+#   front of each prefix, so it looks like...
 #
 #    #ifndef __target_os_linux
 #    #define __target_os_linux "linux-gnulibc2"
@@ -58,63 +59,58 @@
 #    #define __target_arch__ "i386"
 #    #endif
 #
-#   Other differences: the default string-define is "__" instead of
-#   "_TYPE".
+#   Other differences: the default string-define is "__" instead of "_TYPE".
 #
-#   Personally, I prefer the second variant (which had been the first
-#   in the devprocess of this file but I assume people will often
-#   fallback to the primary variant presented herein).
+#   Personally, I prefer the second variant (which had been the first in the
+#   devprocess of this file but I assume people will often fallback to the
+#   primary variant presented herein).
 #
-#   NOTE: CREATE_TARGET_H does also fill HOST_OS-defines Functionality
-#   has been split over functions called CREATE_TARGET_H_UPPER,
+#   NOTE: CREATE_TARGET_H does also fill HOST_OS-defines Functionality has
+#   been split over functions called CREATE_TARGET_H_UPPER,
 #   CREATE_TARGET_H_LOWER, CREATE_TARGET_HOST_UPPER, and
 #   CREATE_TARGET_HOST_LOWER.
 #
 #    CREATE_TARGET_H  uses CREATE_TARGET_H_UPPER CREATE_TARGET_HOST_UPPER
 #    CREATE_TARGET_H_ uses CREATE_TARGET_H_LOWER CREATE_TARGET_HOST_LOWER
 #
-#   There is now a CREATE_PREFIX_TARGET_H in this file as a shorthand
-#   for PREFIX_CONFIG_H from a target.h file, however w/o the target.h
-#   ever created (the prefix is a bit different, since we add an extra
-#   -target- and -host-).
+#   There is now a CREATE_PREFIX_TARGET_H in this file as a shorthand for
+#   PREFIX_CONFIG_H from a target.h file, however w/o the target.h ever
+#   created (the prefix is a bit different, since we add an extra -target-
+#   and -host-).
 #
 # LAST MODIFICATION
 #
-#   2006-10-13
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Guido U. Draheim <guidod@gmx.de>
+#   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
 #
-#   This program is free software; you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation; either version 2 of the
-#   License, or (at your option) any later version.
+#   This program is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation; either version 2 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-#   02111-1307, USA.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AC_CREATE_TARGET_H],
 [AC_REQUIRE([AC_CANONICAL_CPU_ARCH])

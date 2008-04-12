@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/am_rpm_init.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/am_rpm_init.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,14 +8,14 @@
 #
 # DESCRIPTION
 #
-#   Setup variables for creation of rpms. It will define several
-#   variables useful for creating rpms on a system where rpms are
-#   supported. Currently, I requires changes to Makefile.am to function
-#   properly (see the example below).
+#   Setup variables for creation of rpms. It will define several variables
+#   useful for creating rpms on a system where rpms are supported.
+#   Currently, I requires changes to Makefile.am to function properly (see
+#   the example below).
 #
-#   Also note that I do not use any non-UNIX OSs (and for the most
-#   part, I only use RedHat), so this is probably generally not useful
-#   for other systems.
+#   Also note that I do not use any non-UNIX OSs (and for the most part, I
+#   only use RedHat), so this is probably generally not useful for other
+#   systems.
 #
 #   Required setup:
 #
@@ -27,16 +29,15 @@
 #     dnl Enable or disable the rpm making rules in Makefile.am
 #     AM_CONDITIONAL(MAKE_RPMS, test x$make_rpms = xtrue)
 #
-#   Furthermore, the %GNUconfigure rpm macro has a problem in that it
-#   does not define CXXFLAGS for the target system correctly, so for
-#   compiling C++ code, add the following line _before_ calling
-#   AC_PROG_CXX:
+#   Furthermore, the %GNUconfigure rpm macro has a problem in that it does
+#   not define CXXFLAGS for the target system correctly, so for compiling
+#   C++ code, add the following line _before_ calling AC_PROG_CXX:
 #
 #     dnl This is a little hack to make this work with rpm better (see mysql++.spec.in)
 #     test -z "$CXXFLAGS" && CXXFLAGS="${CFLAGS}"
 #
-#   Changes to Makefile.am (I am trying to get rid of this step;
-#   suggestions invited):
+#   Changes to Makefile.am (I am trying to get rid of this step; suggestions
+#   invited):
 #
 #     if MAKE_RPMS
 #     rpm: @RPM_TARGET@
@@ -52,9 +53,9 @@
 #     else
 #     endif
 #
-#   Also, it works best with a XXXX.spec.in file like the following
-#   (this is way down on the wishlist, but a program to generate the
-#   skeleton spec.in much like autoscan would just kick butt!):
+#   Also, it works best with a XXXX.spec.in file like the following (this is
+#   way down on the wishlist, but a program to generate the skeleton spec.in
+#   much like autoscan would just kick butt!):
 #
 #     ---------- 8< ----------
 #     # -*- Mode:rpm-spec -*-
@@ -167,15 +168,15 @@
 #
 # LAST MODIFICATION
 #
-#   2000-07-19
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2000 Dale K. Hawkins <dhawkins@cdrgts.com>
+#   Copyright (c) 2008 Dale K. Hawkins <dhawkins@cdrgts.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 dnl AM_RPM_INIT
 dnl Figure out how to create rpms for this system and setup for an

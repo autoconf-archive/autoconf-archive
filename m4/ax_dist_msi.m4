@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_dist_msi.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/ax_dist_msi.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -8,22 +10,22 @@
 #
 #   Adds support for a msi (Microsoft Installer) dist target.
 #
-#   You must manually build the msi file yourself (probably from
-#   another computer). But it will be added to the list of extra bin
-#   dists and flagged for uploading (see ax_extra_dist.m4 and
-#   ax_upload.m4 for details).
+#   You must manually build the msi file yourself (probably from another
+#   computer). But it will be added to the list of extra bin dists and
+#   flagged for uploading (see ax_extra_dist.m4 and ax_upload.m4 for
+#   details).
 #
 # LAST MODIFICATION
 #
-#   2005-01-14
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Tom Howard <tomhoward@users.sf.net>
+#   Copyright (c) 2008 Tom Howard <tomhoward@users.sf.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_DIST_MSI],
 [

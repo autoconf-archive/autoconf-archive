@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_prog_guile_version.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/ax_prog_guile_version.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,35 +8,35 @@
 #
 # DESCRIPTION
 #
-#   Makes sure that guile supports the version indicated. If true the
-#   shell commands in ACTION-IF-TRUE are executed. If not the shell
-#   commands in ACTION-IF-FALSE are run. Note if $GUILE is not set (for
-#   example by running AC_CHECK_PROG or AC_PATH_PROG),
+#   Makes sure that guile supports the version indicated. If true the shell
+#   commands in ACTION-IF-TRUE are executed. If not the shell commands in
+#   ACTION-IF-FALSE are run. Note if $GUILE is not set (for example by
+#   running AC_CHECK_PROG or AC_PATH_PROG),
 #
 #   Example:
 #
 #     AC_PATH_PROG([GUILE],[guile])
 #     AC_PROG_GUILE_VERSION([1.6.0],[ ... ],[ ... ])
 #
-#   This will check to make sure that the guile you have supports at
-#   least version 1.6.0.
+#   This will check to make sure that the guile you have supports at least
+#   version 1.6.0.
 #
 #   NOTE: This macro uses the $GUILE variable to perform the check.
-#   AX_WITH_GUILE can be used to set that variable prior to running
-#   this macro. The $GUILE_VERSION variable will be valorized with the
-#   detected version.
+#   AX_WITH_GUILE can be used to set that variable prior to running this
+#   macro. The $GUILE_VERSION variable will be valorized with the detected
+#   version.
 #
 # LAST MODIFICATION
 #
-#   2008-01-29
+#   2008-04-12
 #
 # COPYLEFT
 #
 #   Copyright (c) 2008 Francesco Salvestrini <salvestrini@users.sourceforge.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_PROG_GUILE_VERSION],[
     AC_REQUIRE([AC_PROG_SED])

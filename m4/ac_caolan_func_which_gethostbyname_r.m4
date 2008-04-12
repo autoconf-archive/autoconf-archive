@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_caolan_func_which_gethostbyname_r.html
+# ===========================================================================
+#  http://autoconf-archive.cryp.to/ac_caolan_func_which_gethostbyname_r.html
+# ===========================================================================
 #
 # OBSOLETE MACRO
 #
@@ -10,31 +12,29 @@
 #
 # DESCRIPTION
 #
-#   Provides a test to determine the correct way to call
-#   gethostbyname_r:
+#   Provides a test to determine the correct way to call gethostbyname_r:
 #
 #    - defines HAVE_FUNC_GETHOSTBYNAME_R_6 if it needs 6 arguments (e.g linux)
 #    - defines HAVE_FUNC_GETHOSTBYNAME_R_5 if it needs 5 arguments (e.g. solaris)
 #    - defines HAVE_FUNC_GETHOSTBYNAME_R_3 if it needs 3 arguments (e.g. osf/1)
 #
-#   If used in conjunction in gethostname.c the api demonstrated in
-#   test.c can be used regardless of which gethostbyname_r exists.
-#   These example files found at
-#   <http://www.csn.ul.ie/~caolan/publink/gethostbyname_r>.
+#   If used in conjunction in gethostname.c the api demonstrated in test.c
+#   can be used regardless of which gethostbyname_r exists. These example
+#   files found at <http://www.csn.ul.ie/~caolan/publink/gethostbyname_r>.
 #
 #   Based on David Arnold's autoconf suggestion in the threads faq.
 #
 # LAST MODIFICATION
 #
-#   2003-10-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2003 Caolan McNamara <caolan@skynet.ie>
+#   Copyright (c) 2008 Caolan McNamara <caolan@skynet.ie>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_caolan_FUNC_WHICH_GETHOSTBYNAME_R],
 [AC_CACHE_CHECK(for which type of gethostbyname_r, ac_cv_func_which_gethostname_r, [

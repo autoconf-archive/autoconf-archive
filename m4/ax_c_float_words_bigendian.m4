@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_c_float_words_bigendian.html
+# ===========================================================================
+#       http://autoconf-archive.cryp.to/ax_c_float_words_bigendian.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,37 +8,36 @@
 #
 # DESCRIPTION
 #
-#   Checks the ordering of words within a multi-word float. This check
-#   is necessary because on some systems (e.g. certain ARM systems),
-#   the float word ordering can be different from the byte ordering. In
-#   a multi-word float context, "big-endian" implies that the word
-#   containing the sign bit is found in the memory location with the
-#   lowest address. This implemenation was inspired by the
-#   AC_C_BIGENDIAN macro in autoconf.
+#   Checks the ordering of words within a multi-word float. This check is
+#   necessary because on some systems (e.g. certain ARM systems), the float
+#   word ordering can be different from the byte ordering. In a multi-word
+#   float context, "big-endian" implies that the word containing the sign
+#   bit is found in the memory location with the lowest address. This
+#   implemenation was inspired by the AC_C_BIGENDIAN macro in autoconf.
 #
 #   The endianess is detected by first compiling C code that contains a
-#   special double float value, then grepping the resulting object file
-#   for certain strings of ASCII values. The double is specially
-#   crafted to have a binary representation that corresponds with a
-#   simple string. In this implementation, the string "noonsees" was
-#   selected because the individual word values ("noon" and "sees") are
-#   palindromes, thus making this test byte-order agnostic. If grep
-#   finds the string "noonsees" in the object file, the target platform
-#   stores float words in big-endian order. If grep finds "seesnoon",
-#   float words are in little-endian order. If neither value is found,
-#   the user is instructed to specify the ordering.
+#   special double float value, then grepping the resulting object file for
+#   certain strings of ASCII values. The double is specially crafted to have
+#   a binary representation that corresponds with a simple string. In this
+#   implementation, the string "noonsees" was selected because the
+#   individual word values ("noon" and "sees") are palindromes, thus making
+#   this test byte-order agnostic. If grep finds the string "noonsees" in
+#   the object file, the target platform stores float words in big-endian
+#   order. If grep finds "seesnoon", float words are in little-endian order.
+#   If neither value is found, the user is instructed to specify the
+#   ordering.
 #
 # LAST MODIFICATION
 #
-#   2006-11-02
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Daniel Amelang <dan@amelang.net>
+#   Copyright (c) 2008 Daniel Amelang <dan@amelang.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_C_FLOAT_WORDS_BIGENDIAN],
   [AC_CACHE_CHECK(whether float word ordering is bigendian,

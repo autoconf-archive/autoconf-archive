@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_lib_expat.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/ax_lib_expat.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -35,15 +37,15 @@
 #
 # LAST MODIFICATION
 #
-#   2007-12-05
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Mateusz Loskot <mateusz@loskot.net>
+#   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_LIB_EXPAT],
 [

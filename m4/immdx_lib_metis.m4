@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/immdx_lib_metis.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/immdx_lib_metis.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -9,29 +11,29 @@
 #   This macro searches for the METIS library in the user specified
 #   location. The user may specify the location either by defining the
 #   environment variable METIS or by using the --with-metis option to
-#   configure. If the environment variable is defined it has precedent
-#   over everything else. If no location was specified then it searches
-#   in /usr/lib and /usr/local/lib for the library and in /usr/include
-#   and /usr/local/include for the header files. Upon sucessful
-#   completion the variables METIS_LIB and METIS_INCLUDE are set.
+#   configure. If the environment variable is defined it has precedent over
+#   everything else. If no location was specified then it searches in
+#   /usr/lib and /usr/local/lib for the library and in /usr/include and
+#   /usr/local/include for the header files. Upon sucessful completion the
+#   variables METIS_LIB and METIS_INCLUDE are set.
 #
-#   ACTION-IF-FOUND is a list of shell commands to run if a METIS
-#   library is found, and ACTION-IF-NOT-FOUND is a list of commands to
-#   run it if it is not found. If ACTION-IF-FOUND is not specified, the
-#   default action will define HAVE_METIS. If ACTION-IF-NOT-FOUND is
-#   not specified then an error will be generated halting configure.
+#   ACTION-IF-FOUND is a list of shell commands to run if a METIS library is
+#   found, and ACTION-IF-NOT-FOUND is a list of commands to run it if it is
+#   not found. If ACTION-IF-FOUND is not specified, the default action will
+#   define HAVE_METIS. If ACTION-IF-NOT-FOUND is not specified then an error
+#   will be generated halting configure.
 #
 # LAST MODIFICATION
 #
-#   2003-01-19
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2003 Ben Bergen <ben@cs.fau.de>
+#   Copyright (c) 2008 Ben Bergen <ben@cs.fau.de>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([IMMDX_LIB_METIS], [
 	AC_MSG_CHECKING(for METIS library)

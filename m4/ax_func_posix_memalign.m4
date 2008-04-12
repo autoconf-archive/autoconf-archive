@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_func_posix_memalign.html
+# ===========================================================================
+#         http://autoconf-archive.cryp.to/ax_func_posix_memalign.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,23 +8,22 @@
 #
 # DESCRIPTION
 #
-#   Some versions of posix_memalign (notably glibc 2.2.5) incorrectly
-#   apply their power-of-two check to the size argument, not the
-#   alignment argument. AX_FUNC_POSIX_MEMALIGN defines
-#   HAVE_POSIX_MEMALIGN if the power-of-two check is correctly applied
-#   to the alignment argument.
+#   Some versions of posix_memalign (notably glibc 2.2.5) incorrectly apply
+#   their power-of-two check to the size argument, not the alignment
+#   argument. AX_FUNC_POSIX_MEMALIGN defines HAVE_POSIX_MEMALIGN if the
+#   power-of-two check is correctly applied to the alignment argument.
 #
 # LAST MODIFICATION
 #
-#   2005-01-22
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Scott Pakin <pakin@uiuc.edu>
+#   Copyright (c) 2008 Scott Pakin <pakin@uiuc.edu>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_FUNC_POSIX_MEMALIGN],
 [AC_CACHE_CHECK([for working posix_memalign],

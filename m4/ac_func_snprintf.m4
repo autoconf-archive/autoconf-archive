@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_func_snprintf.html
+# ===========================================================================
+#            http://autoconf-archive.cryp.to/ac_func_snprintf.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,24 +8,24 @@
 #
 # DESCRIPTION
 #
-#   Checks for a fully C99 compliant snprintf, in particular checks
-#   whether it does bounds checking and returns the correct string
-#   length; does the same check for vsnprintf. If no working snprintf
-#   or vsnprintf is found, request a replacement and warn the user
-#   about it. Note: the mentioned replacement is freely available and
-#   may be used in any project regardless of it's license.
+#   Checks for a fully C99 compliant snprintf, in particular checks whether
+#   it does bounds checking and returns the correct string length; does the
+#   same check for vsnprintf. If no working snprintf or vsnprintf is found,
+#   request a replacement and warn the user about it. Note: the mentioned
+#   replacement is freely available and may be used in any project
+#   regardless of it's license.
 #
 # LAST MODIFICATION
 #
-#   2006-10-18
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2006 Rüdiger Kuhlmann <info@ruediger-kuhlmann.de>
+#   Copyright (c) 2008 Rüdiger Kuhlmann <info@ruediger-kuhlmann.de>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_FUNC_SNPRINTF],
 [AC_CHECK_FUNCS(snprintf vsnprintf)

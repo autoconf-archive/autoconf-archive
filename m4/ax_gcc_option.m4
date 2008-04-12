@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_gcc_option.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/ax_gcc_option.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,13 +8,12 @@
 #
 # DESCRIPTION
 #
-#   AX_GCC_OPTION checks wheter gcc accepts the passed OPTION. If it
-#   accepts the OPTION then ACTION-IF-SUCCESSFUL will be executed,
-#   otherwise ACTION-IF-UNSUCCESSFUL.
+#   AX_GCC_OPTION checks wheter gcc accepts the passed OPTION. If it accepts
+#   the OPTION then ACTION-IF-SUCCESSFUL will be executed, otherwise
+#   ACTION-IF-UNSUCCESSFUL.
 #
-#   NOTE: This macro will be obsoleted by AX_C_CHECK_FLAG
-#   AX_CXX_CHECK_FLAG, AX_CPP_CHECK_FLAG, AX_CXXCPP_CHECK_FLAG and
-#   AX_LD_CHECK_FLAG.
+#   NOTE: This macro will be obsoleted by AX_C_CHECK_FLAG AX_CXX_CHECK_FLAG,
+#   AX_CPP_CHECK_FLAG, AX_CXXCPP_CHECK_FLAG and AX_LD_CHECK_FLAG.
 #
 #   A typical usage should be the following one:
 #
@@ -21,9 +22,9 @@
 #       AC_MSG_NOTICE([No luck this time])
 #     ])
 #
-#   The macro doesn't discriminate between languages so, if you are
-#   testing for an option that works for C++ but not for C you should
-#   use '-x c++' as EXTRA-OPTIONS:
+#   The macro doesn't discriminate between languages so, if you are testing
+#   for an option that works for C++ but not for C you should use '-x c++'
+#   as EXTRA-OPTIONS:
 #
 #     AX_GCC_OPTION([-fno-rtti],[-x c++],[],[ ... ],[ ... ])
 #
@@ -34,8 +35,8 @@
 #             return 0;
 #     }
 #
-#   The optional TEST-PROGRAM comes handy when the default main() is
-#   not suited for the option being checked
+#   The optional TEST-PROGRAM comes handy when the default main() is not
+#   suited for the option being checked
 #
 #   So, if you need to test for -fstrict-prototypes option you should
 #   probably use the macro as follows:
@@ -50,53 +51,48 @@
 #       }
 #     ],[ ... ],[ ... ])
 #
-#   Note that the macro compiles but doesn't link the test program so
-#   it is not suited for checking options that are passed to the
-#   linker, like:
+#   Note that the macro compiles but doesn't link the test program so it is
+#   not suited for checking options that are passed to the linker, like:
 #
 #     -Wl,-L<a-library-path>
 #
-#   In order to avoid such kind of problems you should think about
-#   usinguse the AX_*_CHECK_FLAG family macros
+#   In order to avoid such kind of problems you should think about usinguse
+#   the AX_*_CHECK_FLAG family macros
 #
 # LAST MODIFICATION
 #
-#   2007-11-26
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Francesco Salvestrini <salvestrini@users.sourceforge.net>
-#   Copyright (c) 2007 Bogdan Drozdowski <bogdandr@op.pl>
+#   Copyright (c) 2008 Francesco Salvestrini <salvestrini@users.sourceforge.net>
+#   Copyright (c) 2008 Bogdan Drozdowski <bogdandr@op.pl>
 #
-#   This program is free software; you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation; either version 2 of the
-#   License, or (at your option) any later version.
+#   This program is free software; you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation; either version 2 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-#   02111-1307, USA.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_GCC_OPTION], [
   AC_REQUIRE([AC_PROG_CC])

@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/klm_sys_weak_alias.html
+# ===========================================================================
+#           http://autoconf-archive.cryp.to/klm_sys_weak_alias.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,32 +8,30 @@
 #
 # DESCRIPTION
 #
-#   Determines whether weak aliases are supported on the system, and if
-#   so, what scheme is used to declare them. Also checks to see if
-#   aliases can cross object file boundaries, as some systems don't
-#   permit them to.
+#   Determines whether weak aliases are supported on the system, and if so,
+#   what scheme is used to declare them. Also checks to see if aliases can
+#   cross object file boundaries, as some systems don't permit them to.
 #
-#   Most systems permit something called a "weak alias" or "weak
-#   symbol." These aliases permit a library to provide a stub form of a
-#   routine defined in another library, thus allowing the first library
-#   to operate even if the other library is not linked. This macro will
-#   check for support of weak aliases, figure out what schemes are
-#   available, and determine some characteristics of the weak alias
-#   support -- primarily, whether a weak alias declared in one object
-#   file may be referenced from another object file.
+#   Most systems permit something called a "weak alias" or "weak symbol."
+#   These aliases permit a library to provide a stub form of a routine
+#   defined in another library, thus allowing the first library to operate
+#   even if the other library is not linked. This macro will check for
+#   support of weak aliases, figure out what schemes are available, and
+#   determine some characteristics of the weak alias support -- primarily,
+#   whether a weak alias declared in one object file may be referenced from
+#   another object file.
 #
-#   There are four known schemes of declaring weak symbols; each scheme
-#   is checked in turn, and the first one found is prefered. Note that
-#   only one of the mentioned preprocessor macros will be defined!
+#   There are four known schemes of declaring weak symbols; each scheme is
+#   checked in turn, and the first one found is prefered. Note that only one
+#   of the mentioned preprocessor macros will be defined!
 #
 #   1. Function attributes
 #
-#   This scheme was first introduced by the GNU C compiler, and
-#   attaches attributes to particular functions. It is among the
-#   easiest to use, and so is the first one checked. If this scheme is
-#   detected, the preprocessor macro HAVE_SYS_WEAK_ALIAS_ATTRIBUTE will
-#   be defined to 1. This scheme is used as in the following code
-#   fragment:
+#   This scheme was first introduced by the GNU C compiler, and attaches
+#   attributes to particular functions. It is among the easiest to use, and
+#   so is the first one checked. If this scheme is detected, the
+#   preprocessor macro HAVE_SYS_WEAK_ALIAS_ATTRIBUTE will be defined to 1.
+#   This scheme is used as in the following code fragment:
 #
 #     void __weakf(int c)
 #     {
@@ -42,12 +42,11 @@
 #
 #   2. #pragma weak
 #
-#   This scheme is in use by many compilers other than the GNU C
-#   compiler. It is also particularly easy to use, and fairly portable
-#   -- well, as portable as these things get. If this scheme is
-#   detected first, the preprocessor macro HAVE_SYS_WEAK_ALIAS_PRAGMA
-#   will be defined to 1. This scheme is used as in the following code
-#   fragment:
+#   This scheme is in use by many compilers other than the GNU C compiler.
+#   It is also particularly easy to use, and fairly portable -- well, as
+#   portable as these things get. If this scheme is detected first, the
+#   preprocessor macro HAVE_SYS_WEAK_ALIAS_PRAGMA will be defined to 1. This
+#   scheme is used as in the following code fragment:
 #
 #     extern void weakf(int c);
 #     #pragma weak weakf = __weakf
@@ -58,11 +57,11 @@
 #
 #   3. #pragma _HP_SECONDARY_DEF
 #
-#   This scheme appears to be in use by the HP compiler. As it is
-#   rather specialized, this is one of the last schemes checked. If it
-#   is the first one detected, the preprocessor macro
-#   HAVE_SYS_WEAK_ALIAS_HPSECONDARY will be defined to 1. This scheme
-#   is used as in the following code fragment:
+#   This scheme appears to be in use by the HP compiler. As it is rather
+#   specialized, this is one of the last schemes checked. If it is the first
+#   one detected, the preprocessor macro HAVE_SYS_WEAK_ALIAS_HPSECONDARY
+#   will be defined to 1. This scheme is used as in the following code
+#   fragment:
 #
 #     extern void weakf(int c);
 #     #pragma _HP_SECONDARY_DEF __weakf weakf
@@ -73,11 +72,11 @@
 #
 #   4. #pragma _CRI duplicate
 #
-#   This scheme appears to be in use by the Cray compiler. As it is
-#   rather specialized, it too is one of the last schemes checked. If
-#   it is the first one detected, the preprocessor macro
-#   HAVE_SYS_WEAK_ALIAS_CRIDUPLICATE will be defined to 1. This scheme
-#   is used as in the following code fragment:
+#   This scheme appears to be in use by the Cray compiler. As it is rather
+#   specialized, it too is one of the last schemes checked. If it is the
+#   first one detected, the preprocessor macro
+#   HAVE_SYS_WEAK_ALIAS_CRIDUPLICATE will be defined to 1. This scheme is
+#   used as in the following code fragment:
 #
 #     extern void weakf(int c);
 #     #pragma _CRI duplicate weakf as __weakf
@@ -86,33 +85,33 @@
 #       /* Function definition... */
 #     }
 #
-#   In addition to the preprocessor macros listed above, if any scheme
-#   is found, the preprocessor macro HAVE_SYS_WEAK_ALIAS will also be
-#   defined to 1.
+#   In addition to the preprocessor macros listed above, if any scheme is
+#   found, the preprocessor macro HAVE_SYS_WEAK_ALIAS will also be defined
+#   to 1.
 #
-#   Once a weak aliasing scheme has been found, a check will be
-#   performed to see if weak aliases are honored across object file
-#   boundaries. If they are, the HAVE_SYS_WEAK_ALIAS_CROSSFILE
-#   preprocessor macro is defined to 1.
+#   Once a weak aliasing scheme has been found, a check will be performed to
+#   see if weak aliases are honored across object file boundaries. If they
+#   are, the HAVE_SYS_WEAK_ALIAS_CROSSFILE preprocessor macro is defined to
+#   1.
 #
-#   This Autoconf macro also makes two substitutions. The first,
-#   WEAK_ALIAS, contains the name of the scheme found (one of
-#   "attribute", "pragma", "hpsecondary", or "criduplicate"), or "no"
-#   if no weak aliasing scheme was found. The second,
-#   WEAK_ALIAS_CROSSFILE, is set to "yes" or "no" depending on whether
-#   or not weak aliases may cross object file boundaries.
+#   This Autoconf macro also makes two substitutions. The first, WEAK_ALIAS,
+#   contains the name of the scheme found (one of "attribute", "pragma",
+#   "hpsecondary", or "criduplicate"), or "no" if no weak aliasing scheme
+#   was found. The second, WEAK_ALIAS_CROSSFILE, is set to "yes" or "no"
+#   depending on whether or not weak aliases may cross object file
+#   boundaries.
 #
 # LAST MODIFICATION
 #
-#   2005-05-02
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Kevin L. Mitchell <klmitch@mit.edu>
+#   Copyright (c) 2008 Kevin L. Mitchell <klmitch@mit.edu>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([KLM_SYS_WEAK_ALIAS], [
   # starting point: no aliasing scheme yet...

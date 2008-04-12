@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/rssh_check_sunpro_c.html
+# ===========================================================================
+#          http://autoconf-archive.cryp.to/rssh_check_sunpro_c.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,21 +8,21 @@
 #
 # DESCRIPTION
 #
-#   Check whether we are using SUN workshop C compiler. The
-#   corresponding cache values is rssh_cv_check_sunpro_c, which is set
-#   to "yes" or "no" respectively.
+#   Check whether we are using SUN workshop C compiler. The corresponding
+#   cache values is rssh_cv_check_sunpro_c, which is set to "yes" or "no"
+#   respectively.
 #
 # LAST MODIFICATION
 #
-#   2000-07-19
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2000 Ruslan Shevchenko <Ruslan@Shevchenko.Kiev.UA>
+#   Copyright (c) 2008 Ruslan Shevchenko <Ruslan@Shevchenko.Kiev.UA>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([RSSH_CHECK_SUNPRO_C],
 [AC_CACHE_CHECK([whether using Sun Worckshop C compiler],

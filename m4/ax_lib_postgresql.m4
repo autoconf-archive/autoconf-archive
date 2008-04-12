@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_lib_postgresql.html
+# ===========================================================================
+#           http://autoconf-archive.cryp.to/ax_lib_postgresql.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,22 +8,22 @@
 #
 # DESCRIPTION
 #
-#   This macro provides tests of availability of PostgreSQL 'libpq'
-#   library of particular version or newer.
+#   This macro provides tests of availability of PostgreSQL 'libpq' library
+#   of particular version or newer.
 #
-#   AX_LIB_POSTGRESQL macro takes only one argument which is optional.
-#   If there is no required version passed, then macro does not run
-#   version test.
+#   AX_LIB_POSTGRESQL macro takes only one argument which is optional. If
+#   there is no required version passed, then macro does not run version
+#   test.
 #
 #   The --with-postgresql option takes one of three possible values:
 #
 #   no - do not check for PostgreSQL client library
 #
-#   yes - do check for PostgreSQL library in standard locations
-#   (pg_config should be in the PATH)
+#   yes - do check for PostgreSQL library in standard locations (pg_config
+#   should be in the PATH)
 #
-#   path - complete path to pg_config utility, use this option if
-#   pg_config can't be found in the PATH
+#   path - complete path to pg_config utility, use this option if pg_config
+#   can't be found in the PATH
 #
 #   This macro calls:
 #
@@ -35,15 +37,15 @@
 #
 # LAST MODIFICATION
 #
-#   2008-01-29
+#   2008-04-12
 #
 # COPYLEFT
 #
 #   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_LIB_POSTGRESQL],
 [

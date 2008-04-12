@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/qef_c_noreturn.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/qef_c_noreturn.html
+# ===========================================================================
 #
 # OBSOLETE MACRO
 #
@@ -11,15 +13,15 @@
 # DESCRIPTION
 #
 #   Check if we can use GCC's __noreturn__ attribute in prototypes to
-#   indicate that functions never return. This can be used by the
-#   compiler to do some extra optimizations.
+#   indicate that functions never return. This can be used by the compiler
+#   to do some extra optimizations.
 #
 #   FUNCATTR_NORETURN is defined as what we should put at the end of
-#   function prototypes to achieve this. If the compiler doesn't
-#   support it then it is defined as empty.
+#   function prototypes to achieve this. If the compiler doesn't support it
+#   then it is defined as empty.
 #
-#   An example of a a function's prototype and implementation using
-#   this macro:
+#   An example of a a function's prototype and implementation using this
+#   macro:
 #
 #     void this_function_never_returns (void) FUNCATTR_NORETURN;
 #
@@ -29,15 +31,15 @@
 #
 # LAST MODIFICATION
 #
-#   2005-01-23
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Geoff Richards <ctzgpr@scs.leeds.ac.uk>
+#   Copyright (c) 2008 Geoff Richards <ctzgpr@scs.leeds.ac.uk>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([QEF_C_NORETURN],
 [AC_REQUIRE([AC_PROG_CC])

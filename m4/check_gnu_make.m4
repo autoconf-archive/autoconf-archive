@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/check_gnu_make.html
+# ===========================================================================
+#             http://autoconf-archive.cryp.to/check_gnu_make.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,12 +8,12 @@
 #
 # DESCRIPTION
 #
-#   This macro searches for a GNU version of make. If a match is found,
-#   the makefile variable `ifGNUmake' is set to the empty string,
-#   otherwise it is set to "#". This is useful for including a special
-#   features in a Makefile, which cannot be handled by other versions
-#   of make. The variable _cv_gnu_make_command is set to the command to
-#   invoke GNU make if it exists, the empty string otherwise.
+#   This macro searches for a GNU version of make. If a match is found, the
+#   makefile variable `ifGNUmake' is set to the empty string, otherwise it
+#   is set to "#". This is useful for including a special features in a
+#   Makefile, which cannot be handled by other versions of make. The
+#   variable _cv_gnu_make_command is set to the command to invoke GNU make
+#   if it exists, the empty string otherwise.
 #
 #   Here is an example of its use:
 #
@@ -30,9 +32,9 @@
 #       CHECK_GNU_MAKE()
 #       AC_OUTPUT(Makefile)
 #
-#   Then perhaps to cause gnu make to override any other make, we could
-#   do something like this (note that GNU make always looks for
-#   GNUmakefile first):
+#   Then perhaps to cause gnu make to override any other make, we could do
+#   something like this (note that GNU make always looks for GNUmakefile
+#   first):
 #
 #       if  ! test x$_cv_gnu_make_command = x ; then
 #               mv Makefile GNUmakefile
@@ -40,20 +42,20 @@
 #               echo \  $_cv_gnu_make_command \$@ >> Makefile;
 #       fi
 #
-#   Then, if any (well almost any) other make is called, and GNU make
-#   also exists, then the other make wraps the GNU make.
+#   Then, if any (well almost any) other make is called, and GNU make also
+#   exists, then the other make wraps the GNU make.
 #
 # LAST MODIFICATION
 #
-#   2002-01-04
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2002 John Darrington <j.darrington@elvis.murdoch.edu.au>
+#   Copyright (c) 2008 John Darrington <j.darrington@elvis.murdoch.edu.au>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN(
         [CHECK_GNU_MAKE], [ AC_CACHE_CHECK( for GNU make,_cv_gnu_make_command,

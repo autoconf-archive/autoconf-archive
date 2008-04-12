@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ax_f90_module_extension.html
+# ===========================================================================
+#        http://autoconf-archive.cryp.to/ax_f90_module_extension.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,22 +8,22 @@
 #
 # DESCRIPTION
 #
-#   Find Fortran 90 modules file extension. The module extension is
-#   stored in the cached variable ax_f90_modext, or "unknown" if the
-#   extension cannot be found.
+#   Find Fortran 90 modules file extension. The module extension is stored
+#   in the cached variable ax_f90_modext, or "unknown" if the extension
+#   cannot be found.
 #
 # LAST MODIFICATION
 #
-#   2007-05-12
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Luc Maisonobe <luc@spaceroots.org>
-#   Copyright (c) 2007 Alexander Pletzer <pletzer@txcorp.com>
+#   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
+#   Copyright (c) 2008 Alexander Pletzer <pletzer@txcorp.com>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AX_F90_MODULE_EXTENSION],[
 AC_CACHE_CHECK([fortran 90 modules extension],

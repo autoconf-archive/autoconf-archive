@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_cxx_verbose_terminate_handler.html
+# ===========================================================================
+#    http://autoconf-archive.cryp.to/ac_cxx_verbose_terminate_handler.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -11,15 +13,15 @@
 #
 # LAST MODIFICATION
 #
-#   2003-01-20
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2003 Lapo Luchini <lapo@lapo.it>
+#   Copyright (c) 2008 Lapo Luchini <lapo@lapo.it>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_CXX_VERBOSE_TERMINATE_HANDLER],
 [AC_CACHE_CHECK(whether the compiler has __gnu_cxx::__verbose_terminate_handler,

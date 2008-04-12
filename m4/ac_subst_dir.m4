@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/ac_subst_dir.html
+# ===========================================================================
+#              http://autoconf-archive.cryp.to/ac_subst_dir.html
+# ===========================================================================
 #
 # OBSOLETE MACRO
 #
@@ -10,9 +12,9 @@
 #
 # DESCRIPTION
 #
-#   This macro substitutes (with AC_SUBST) VARNAME with the expansion
-#   of itself or the DIR variable if specified, taking care of fixing
-#   up ${prefix} and such.
+#   This macro substitutes (with AC_SUBST) VARNAME with the expansion of
+#   itself or the DIR variable if specified, taking care of fixing up
+#   ${prefix} and such.
 #
 #   Side effect: VARNAME is replaced with the expansion.
 #
@@ -24,16 +26,16 @@
 #
 # LAST MODIFICATION
 #
-#   2005-07-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2005 Stepan Kasal <kasal@ucw.cz>
-#   Copyright (c) 2005 Mathias Hasselmann <mathias.hasselmann@gmx.de>
+#   Copyright (c) 2008 Stepan Kasal <kasal@ucw.cz>
+#   Copyright (c) 2008 Mathias Hasselmann <mathias.hasselmann@gmx.de>
 #
-#   Copying and distribution of this file, with or without
-#   modification, are permitted in any medium without royalty provided
-#   the copyright notice and this notice are preserved.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
 
 AC_DEFUN([AC_SUBST_DIR], [
         ifelse($2,,,$1="[$]$2")

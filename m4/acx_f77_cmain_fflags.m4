@@ -1,4 +1,6 @@
-##### http://autoconf-archive.cryp.to/acx_f77_cmain_fflags.html
+# ===========================================================================
+#          http://autoconf-archive.cryp.to/acx_f77_cmain_fflags.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -6,58 +8,54 @@
 #
 # DESCRIPTION
 #
-#   This macro figures out if extra Fortran compiler flags are required
-#   in order to use the Fortran linker to link programs where the
-#   main() function is defined via C (or other language). On some
-#   systems, notably the Alpha with Compaq compilers, the Fortran
-#   libraries have their own main() function which must be disabled.
+#   This macro figures out if extra Fortran compiler flags are required in
+#   order to use the Fortran linker to link programs where the main()
+#   function is defined via C (or other language). On some systems, notably
+#   the Alpha with Compaq compilers, the Fortran libraries have their own
+#   main() function which must be disabled.
 #
-#   Runs ACTION-IF-SUCCEED if successful, and ACTION-IF-FAIL if not.
-#   Defines the output variable F77_CMAIN_FFLAGS to any discovered
-#   flags. (If ACTION-IF-FAIL is not specified, defaults to halting
-#   with an error.)
+#   Runs ACTION-IF-SUCCEED if successful, and ACTION-IF-FAIL if not. Defines
+#   the output variable F77_CMAIN_FFLAGS to any discovered flags. (If
+#   ACTION-IF-FAIL is not specified, defaults to halting with an error.)
 #
-#   This macro is especially useful in conjunction with automake, since
-#   by default automake uses $F77 to link programs mixing C and
-#   Fortran, leading to a link error on some systems. In this case, you
-#   should set the FFLAGS for that program to include F77_CMAIN_FFLAGS.
+#   This macro is especially useful in conjunction with automake, since by
+#   default automake uses $F77 to link programs mixing C and Fortran,
+#   leading to a link error on some systems. In this case, you should set
+#   the FFLAGS for that program to include F77_CMAIN_FFLAGS.
 #
 # LAST MODIFICATION
 #
-#   2007-07-29
+#   2008-04-12
 #
 # COPYLEFT
 #
-#   Copyright (c) 2007 Steven G. Johnson <stevenj@alum.mit.edu>
+#   Copyright (c) 2008 Steven G. Johnson <stevenj@alum.mit.edu>
 #
-#   This program is free software: you can redistribute it and/or
-#   modify it under the terms of the GNU General Public License as
-#   published by the Free Software Foundation, either version 3 of the
-#   License, or (at your option) any later version.
+#   This program is free software: you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License as published by the
+#   Free Software Foundation, either version 3 of the License, or (at your
+#   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
 #   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#   General Public License for more details.
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#   Public License for more details.
 #
-#   You should have received a copy of the GNU General Public License
-#   along with this program. If not, see
-#   <http://www.gnu.org/licenses/>.
+#   You should have received a copy of the GNU General Public License along
+#   with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-#   As a special exception, the respective Autoconf Macro's copyright
-#   owner gives unlimited permission to copy, distribute and modify the
-#   configure scripts that are the output of Autoconf when processing
-#   the Macro. You need not follow the terms of the GNU General Public
-#   License when using or distributing such scripts, even though
-#   portions of the text of the Macro appear in them. The GNU General
-#   Public License (GPL) does govern all other use of the material that
-#   constitutes the Autoconf Macro.
+#   As a special exception, the respective Autoconf Macro's copyright owner
+#   gives unlimited permission to copy, distribute and modify the configure
+#   scripts that are the output of Autoconf when processing the Macro. You
+#   need not follow the terms of the GNU General Public License when using
+#   or distributing such scripts, even though portions of the text of the
+#   Macro appear in them. The GNU General Public License (GPL) does govern
+#   all other use of the material that constitutes the Autoconf Macro.
 #
-#   This special exception to the GPL applies to versions of the
-#   Autoconf Macro released by the Autoconf Macro Archive. When you
-#   make and distribute a modified version of the Autoconf Macro, you
-#   may extend this special exception to the GPL to apply to your
-#   modified version as well.
+#   This special exception to the GPL applies to versions of the Autoconf
+#   Macro released by the Autoconf Macro Archive. When you make and
+#   distribute a modified version of the Autoconf Macro, you may extend this
+#   special exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([ACX_F77_CMAIN_FFLAGS],
 [AC_CACHE_CHECK([for f77 flags to use C main function], acx_cv_f77_cmain_fflags,
