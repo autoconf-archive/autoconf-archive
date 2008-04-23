@@ -4,17 +4,17 @@
 #
 # SYNOPSIS
 #
-#   AX_GCC_INSTALL_DIR (VARIABLE)
+#   AX_GCC_INSTALL_DIR(VARIABLE)
 #
 # DESCRIPTION
 #
-#   AX_GCC_INSTALL_DIR (VARIABLE) defines VARIABLE as the gcc install
+#   AX_GCC_INSTALL_DIR(VARIABLE) defines VARIABLE as the gcc install
 #   directory. The install directory will be obtained using the gcc
 #   -print-search-dirs option. This macro requires AX_GCC_OPTION macro.
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2008-04-23
 #
 # COPYLEFT
 #
@@ -49,17 +49,16 @@
 AC_DEFUN([AX_GCC_INSTALL_DIR], [
 AC_REQUIRE([AC_PROG_CC])
 if test "x$GCC" = "xyes"; then
-	AX_GCC_OPTION(GCC_ALL_DIRECTORIES,[-print-search-dirs],[yes],[no])
-	if test x"$GCC_ALL_DIRECTORIES" = x"yes"; then
+	AX_GCC_OPTION([-print-search-dirs],[],[],[
 		AC_MSG_CHECKING([gcc install directory])
 		ax_gcc_install_dir=`$CC -print-search-dirs | grep install | sed -e "s/^install://" | sed -e "s/\/$//"`
 		AC_MSG_RESULT([$ax_gcc_install_dir])
 		$1=$ax_gcc_install_dir
-	else
+	],[
 		unset $1
-	fi
+	])
 else
-        AC_MSG_RESULT([sorry, no gcc available])
+	AC_MSG_RESULT([sorry, no gcc available])
 	unset $1
 fi
 ])
