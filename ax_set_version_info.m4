@@ -2,6 +2,11 @@
 #          http://autoconf-archive.cryp.to/ax_set_version_info.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro is broken. Libtool's -version-info is actually not a version
+#   number.
+#
 # SYNOPSIS
 #
 #   AX_SET_VERSION_INFO [(VERSION [,PREFIX])]
@@ -65,7 +70,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2008-04-28
 #
 # COPYLEFT
 #
