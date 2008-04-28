@@ -2,6 +2,10 @@
 #          http://autoconf-archive.cryp.to/ac_set_versionlevel.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro is broken: it fails with an m4 error message.
+#
 # SYNOPSIS
 #
 #   AC_SET_VERSIONLEVEL(VARNAME [,VERSION])
@@ -42,7 +46,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2008-04-28
 #
 # COPYLEFT
 #
