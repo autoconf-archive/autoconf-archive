@@ -15,6 +15,10 @@
 #   the binary; if it is not found, $PYTHON is set to VALUE-IF-NOT-FOUND,
 #   which defaults to 'python'.
 #
+#   A typical use could be the following one:
+#
+#         AX_WITH_PYTHON
+#
 # LAST MODIFICATION
 #
 #   2008-04-12
@@ -28,5 +32,5 @@
 #   and this notice are preserved.
 
 AC_DEFUN([AX_WITH_PYTHON],[
-    AX_WITH_PROG(PYTHON,python)
+    AX_WITH_PROG(PYTHON,python,$1,$2)
 ])

@@ -4,7 +4,7 @@
 #
 # SYNOPSIS
 #
-#   AX_PROG_WITH([VARIABLE],[program],[PATH],[VALUE-IF-NOT-FOUND])
+#   AX_WITH_PROG([VARIABLE],[program],[VALUE-IF-NOT-FOUND],[PATH])
 #
 # DESCRIPTION
 #
@@ -40,8 +40,8 @@ AC_DEFUN([AX_WITH_PROG],[
 
     pushdef([VARIABLE],$1)
     pushdef([EXECUTABLE],$2)
-    pushdef([PATH_PROG],$3)
-    pushdef([VALUE_IF_NOT_FOUND],$4)
+    pushdef([VALUE_IF_NOT_FOUND],$3)
+    pushdef([PATH_PROG],$4)
 
     AC_ARG_VAR(VARIABLE,Absolute path to EXECUTABLE executable)
 
@@ -64,8 +64,8 @@ AC_DEFUN([AX_WITH_PROG],[
         ])
     ])
 
-    popdef([VALUE_IF_NOT_FOUND])
     popdef([PATH_PROG])
+    popdef([VALUE_IF_NOT_FOUND])
     popdef([EXECUTABLE])
     popdef([VARIABLE])
 ])

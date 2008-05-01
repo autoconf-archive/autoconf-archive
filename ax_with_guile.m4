@@ -15,6 +15,10 @@
 #   binary; if it is not found, $GUILE is set to VALUE-IF-NOT-FOUND, which
 #   defaults to 'guile'.
 #
+#   A typical use could be the following one:
+#
+#         AX_WITH_GUILE
+#
 # LAST MODIFICATION
 #
 #   2008-04-12
@@ -28,5 +32,5 @@
 #   and this notice are preserved.
 
 AC_DEFUN([AX_WITH_GUILE],[
-    AX_WITH_PROG(GUILE,guile)
+    AX_WITH_PROG(GUILE,guile,$1,$2)
 ])

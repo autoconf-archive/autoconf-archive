@@ -15,6 +15,10 @@
 #   it is not found, $PERL is set to VALUE-IF-NOT-FOUND, which defaults to
 #   'perl'.
 #
+#   A typical use could be the following one:
+#
+#         AX_WITH_PERL
+#
 # LAST MODIFICATION
 #
 #   2008-04-12
@@ -28,5 +32,5 @@
 #   and this notice are preserved.
 
 AC_DEFUN([AX_WITH_PERL],[
-    AX_WITH_PROG(PERL,perl)
+    AX_WITH_PROG(PERL,perl,$1,$2)
 ])
