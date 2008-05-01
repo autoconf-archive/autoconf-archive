@@ -15,6 +15,10 @@
 #   it is not found, $RUBY is set to VALUE-IF-NOT-FOUND, which defaults to
 #   'ruby'.
 #
+#   A typical use could be the following one:
+#
+#         AX_WITH_RUBY
+#
 # LAST MODIFICATION
 #
 #   2008-04-12
@@ -28,5 +32,5 @@
 #   and this notice are preserved.
 
 AC_DEFUN([AX_WITH_RUBY],[
-    AX_WITH_PROG(RUBY,ruby)
+    AX_WITH_PROG(RUBY,ruby,$1,$2)
 ])
