@@ -35,7 +35,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-05-02
+#   2008-05-03
 #
 # COPYLEFT
 #
@@ -76,8 +76,7 @@ $2])
 AC_DEFUN([AX_HAVE_EPOLL_PWAIT], [dnl
   ax_have_epoll_cppflags="${CPPFLAGS}"
   AC_CHECK_HEADER([linux/version.h],
-    [CPPFLAGS="${CPPFLAGS} -DHAVE_LINUX_VERSION_H"],
-    [AC_MSG_WARN([epoll test may be inaccurate because of unknown kernel version])])
+    [CPPFLAGS="${CPPFLAGS} -DHAVE_LINUX_VERSION_H"])
   AC_MSG_CHECKING([for Linux epoll(7) interface with signals extension])
   AC_CACHE_VAL([ax_cv_have_epoll_pwait], [dnl
     AC_LINK_IFELSE([dnl
