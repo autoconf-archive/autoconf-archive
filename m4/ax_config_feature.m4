@@ -60,7 +60,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2008-05-03
 #
 # COPYLEFT
 #
@@ -154,5 +154,5 @@ AC_DEFUN([AX_CONFIG_FEATURE_ENABLE],[ dnl
 
 dnl Feature specific
 AC_DEFUN([AX_CONFIG_FEATURE_DISABLE],[ dnl
-  ax_config_feature_[]patsubst([$1], -, _)[]=yes
+  ax_config_feature_[]patsubst([$1], -, _)[]=no
 ])
