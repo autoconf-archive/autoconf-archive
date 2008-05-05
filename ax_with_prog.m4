@@ -12,8 +12,8 @@
 #   variable VARIABLE. Accepts a present VARIABLE, then --with-program, and
 #   failing that searches for program in the given path (which defaults to
 #   the system path). If program is found, VARIABLE is set to the full path
-#   of the binary; if it is not found, VARIABLE is set to
-#   VALUE-IF-NOT-FOUND, which defaults to 'program'.
+#   of the binary; if it is not found VARIABLE is set to VALUE-IF-NOT-FOUND
+#   if provided, unchanged otherwise.
 #
 #   A typical example could be the following one:
 #
@@ -24,7 +24,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2008-05-05
 #
 # COPYLEFT
 #
