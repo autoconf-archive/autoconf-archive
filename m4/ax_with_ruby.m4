@@ -12,8 +12,8 @@
 #   variable $RUBY. Accepts a present $RUBY, then --with-ruby, and failing
 #   that searches for ruby in the given path (which defaults to the system
 #   path). If ruby is found, $RUBY is set to the full path of the binary; if
-#   it is not found, $RUBY is set to VALUE-IF-NOT-FOUND, which defaults to
-#   'ruby'.
+#   it is not found $RUBY is set to VALUE-IF-NOT-FOUND if provided,
+#   unchanged otherwise.
 #
 #   A typical use could be the following one:
 #
@@ -21,7 +21,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2008-05-05
 #
 # COPYLEFT
 #

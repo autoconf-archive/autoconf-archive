@@ -12,8 +12,8 @@
 #   variable $PERL. Accepts a present $PERL, then --with-perl, and failing
 #   that searches for perl in the given path (which defaults to the system
 #   path). If perl is found, $PERL is set to the full path of the binary; if
-#   it is not found, $PERL is set to VALUE-IF-NOT-FOUND, which defaults to
-#   'perl'.
+#   it is not found $PERL is set to VALUE-IF-NOT-FOUND if provided,
+#   unchanged otherwise.
 #
 #   A typical use could be the following one:
 #
@@ -21,7 +21,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2008-05-05
 #
 # COPYLEFT
 #
