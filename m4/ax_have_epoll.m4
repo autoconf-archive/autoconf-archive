@@ -35,7 +35,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-05-03
+#   2008-05-07
 #
 # COPYLEFT
 #
@@ -84,7 +84,7 @@ AC_DEFUN([AX_HAVE_EPOLL_PWAIT], [dnl
 #ifdef HAVE_LINUX_VERSION_H
 #  include <linux/version.h>
 #  if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,19)
-#    error linux kernel version is too old to have epoll
+#    error linux kernel version is too old to have epoll_pwait
 #  endif
 #endif
 #include <sys/epoll.h>
