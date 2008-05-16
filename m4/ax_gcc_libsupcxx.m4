@@ -1,20 +1,19 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ax_gcc_install_dir.html
+#            http://autoconf-archive.cryp.to/ax_gcc_libsupcxx.html
 # ===========================================================================
 #
 # SYNOPSIS
 #
-#   AX_GCC_INSTALL_DIR(VARIABLE)
+#   AX_GCC_LIBSUPCXX(VARIABLE)
 #
 # DESCRIPTION
 #
-#   AX_GCC_INSTALL_DIR(VARIABLE) defines VARIABLE as the gcc install
-#   directory. The install directory will be obtained using the gcc
-#   -print-search-dirs option. This macro requires AX_GCC_OPTION macro.
+#   AX_GCC_LIBSUPCXX defines VARIABLE as the absolute path to libsupc++.a if
+#   it is available on the system, empty otherwise
 #
 # LAST MODIFICATION
 #
-#   2008-05-16
+#   2008-04-23
 #
 # COPYLEFT
 #
@@ -46,20 +45,11 @@
 #   distribute a modified version of the Autoconf Macro, you may extend this
 #   special exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([AX_GCC_INSTALL_DIR], [
-	AC_REQUIRE([AC_PROG_CC])
-
-	AS_IF([test "x$GCC" = "xyes"],[
-		AX_GCC_OPTION([-print-search-dirs],[],[],[
-			AC_MSG_CHECKING([gcc install directory])
-			ax_gcc_install_dir=`$CC -print-search-dirs | grep install | sed -e "s,^install:,," -e "s,^\s*,," -e "s,\/$,," `
-			AC_MSG_RESULT([$ax_gcc_install_dir])
-			$1=$ax_gcc_install_dir
-		],[
-			unset $1
-		])
+AC_DEFUN([AX_GCC_LIBSUPCXX], [
+	AX_GCC_LIB([libsupc++.a],[
+		AX_GCC_INSTALL_DIR([GCC_INSTALL_DIR])
+		$1="$GCC_INSTALL_DIR/libsupc++.a"
 	],[
-		AC_MSG_RESULT([sorry, no gcc available])
-		unset $1
+		$1=""
 	])
 ])
