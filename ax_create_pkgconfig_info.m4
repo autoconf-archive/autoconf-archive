@@ -29,7 +29,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2008-06-02
 #
 # COPYLEFT
 #
@@ -182,7 +182,7 @@ PKGCONFIG_src_headers=`pwd`
 v="$ac_top_srcdir" ;
 test ".$v" != "." || v="$ax_spec_dir"
 test ".$v" != "." || v="$srcdir"
-case "$v" in /*) PKG_CONFIG_src_headers="" ;; esac
+case "$v" in /*) PKGCONFIG_src_headers="" ;; esac
 PKGCONFIG_src_headers=`AS_DIRNAME("$PKGCONFIG_src_headers/$v/x")`
 test ! -d $PKGCONFIG_src_headers/incl[]ude || \
 PKGCONFIG_src_headers="$PKGCONFIG_src_headers/incl[]ude"
