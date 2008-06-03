@@ -7,7 +7,7 @@
         to accomodate the aclocal utility distributed with Automake. Further
         details are available in the GIT repository:
 
-          http://git.cryp.to/?p=autoconf-archive;a=commit;h=76c7d0ad8925ab22e3bb50c8b27b333f31303c74
+          http://git.cryp.to/autoconf-archive?a=commit;h=76c7d0ad8925ab22e3bb50c8b27b333f31303c74
 
 2007-08-22:
 
@@ -24,13 +24,11 @@
         The Autoconf Macro Archive provides a public GIT repository that can be
         cloned as follows:
 
-          git clone http://autoconf-archive.cryp.to/.git
+          git clone http://git.cryp.to/autoconf-archive
 
-        A web front-end is also available:
+        A web front-end is available under the same URL.
 
-          http://git.cryp.to/?p=autoconf-archive
-
-        Having this web front-end is nice because it allows every macro to link
+        As a new feature, the web front-end allows every macro to link
         directly into the repository for its own history.
 
 2006-10-23:
