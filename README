@@ -4,9 +4,9 @@ Autoconf Macro Archive
 -------------------------------------------------------------------------------
 
 :Macro Index By:  Category_ ; Author_
-:Latest Release:  autoconf-archive-2008-05-16.tar.bz2_
+:Latest Release:  autoconf-archive-2008-06-03.tar.bz2_
 :Change History:  `ATOM Log`_ ; `RSS Feed`_
-:GIT Repository:  git_ clone \http://autoconf-archive.cryp.to/.git
+:GIT Repository:  git_ clone http://git.cryp.to/autoconf-archive
 
 -------------------------------------------------------------------------------
 
@@ -85,15 +85,15 @@ Copyleft
 
 .. _git: http://git.or.cz/
 
-.. _RSS Feed: http://git.cryp.to/?p=autoconf-archive;a=rss
+.. _RSS Feed: http://git.cryp.to/autoconf-archive?a=rss
 
-.. _ATOM Log: http://git.cryp.to/?p=autoconf-archive;a=atom
+.. _ATOM Log: http://git.cryp.to/autoconf-archive?a=atom
 
 .. _Autoconf: http://www.gnu.org/software/autoconf/
 
 .. _Automake: http://sources.redhat.com/automake/
 
-.. _autoconf-archive-2008-05-16.tar.bz2: http://autoconf-archive.cryp.to/autoconf-archive-2008-05-16.tar.bz2
+.. _autoconf-archive-2008-06-03.tar.bz2: http://autoconf-archive.cryp.to/autoconf-archive-2008-06-03.tar.bz2
 
 .. _OSI: http://www.opensource.org/
 

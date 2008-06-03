@@ -5,7 +5,7 @@
 	the master versions of these files. To see the change log, direct
 	your favorite web browser to the following location:
 
-	  http://git.cryp.to/?p=autoconf-archive;a=shortlog
+	  http://git.cryp.to/autoconf-archive?a=shortlog
 
 	For every release tarball, there is an appropriate tag of the same
 	name to identify the GIT version that particular release was built
@@ -14,5 +14,5 @@
 	The same information is also available in other representations
 	suitable for subscription:
 
-	  ATOM Log:  http://git.cryp.to/?p=autoconf-archive;a=atom
-	  RSS Feed:  http://git.cryp.to/?p=autoconf-archive;a=rss
+	  ATOM Log:  http://git.cryp.to/autoconf-archive?a=atom
+	  RSS Feed:  http://git.cryp.to/autoconf-archive?a=rss
