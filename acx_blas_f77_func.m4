@@ -10,9 +10,9 @@
 # DESCRIPTION
 #
 #   These macros are intended as a supplement to the ACX_BLAS macro, to
-#   verify that BLAS functions with non-REAL or INTEGER are properly
-#   callable from Fortran. This is necessary, for example, if you want to
-#   build the LAPACK library on top of the BLAS.
+#   verify that BLAS functions are properly callable from Fortran. This is
+#   necessary, for example, if you want to build the LAPACK library on top
+#   of the BLAS.
 #
 #   ACX_BLAS_F77_FUNC uses the defined BLAS_LIBS and Fortran environment to
 #   check for compatibility, and takes a specific action in case of success,
@@ -24,7 +24,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2008-06-18
 #
 # COPYLEFT
 #
@@ -81,13 +81,38 @@ elif test x"$acx_blas_ok" = xyes; then
       ]]),[acx_blas_lsame_fcall_ok=yes],
 	[acx_blas_lsame_fcall_ok=no])
 	AC_MSG_RESULT([$acx_blas_lsame_fcall_ok])
+# ISAMAX check (INTEGER return values)
+	AC_MSG_CHECKING([whether ISAMAX is called correctly from Fortran])
+	AC_RUN_IFELSE(AC_LANG_PROGRAM(,[[
+      integer isamax,i
+      external isamax
+      real a(2)
+      a(1) = 1e0
+      a(2) = -2e0
+      i = isamax(2,a,1)
+      if (i.ne.2) stop 1
+      ]]),[acx_blas_isamax_fcall_ok=yes],
+	[acx_blas_isamax_fcall_ok=no])
+	AC_MSG_RESULT([$acx_blas_isamax_fcall_ok])
+# SDOT check (REAL return values)
+	AC_MSG_CHECKING([whether DDOT is called correctly from Fortran])
+	AC_RUN_IFELSE(AC_LANG_PROGRAM(,[[
+      real sdot,a(1),b(1),w
+      external sdot
+      a(1) = 1e0
+      b(1) = 2e0
+      w = sdot(1,a,1,b,1)
+      if (w .ne. a(1)*b(1)) stop 1
+      ]]),[acx_blas_sdot_fcall_ok=yes],
+	[acx_blas_sdot_fcall_ok=no])
+	AC_MSG_RESULT([$acx_blas_sdot_fcall_ok])
 # DDOT check (DOUBLE return values)
 	AC_MSG_CHECKING([whether DDOT is called correctly from Fortran])
 	AC_RUN_IFELSE(AC_LANG_PROGRAM(,[[
       double precision ddot,a(1),b(1),w
       external ddot
-      a(1) = 1e0
-      b(1) = 2e0
+      a(1) = 1d0
+      b(1) = 2d0
       w = ddot(1,a,1,b,1)
       if (w .ne. a(1)*b(1)) stop 1
       ]]),[acx_blas_ddot_fcall_ok=yes],
@@ -122,6 +147,7 @@ elif test x"$acx_blas_ok" = xyes; then
 
 # if any of the tests failed, reject the BLAS library
 	if test $acx_blas_lsame_fcall_ok = yes \
+		-a $acx_blas_sdot_fcall_ok = yes \
 		-a $acx_blas_ddot_fcall_ok = yes \
 		-a $acx_blas_cdotu_fcall_ok = yes \
 		-a $acx_blas_zdotu_fcall_ok = yes ; then
