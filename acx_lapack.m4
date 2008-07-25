@@ -36,7 +36,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2008-06-29
 #
 # COPYLEFT
 #
@@ -87,6 +87,7 @@ AC_F77_FUNC(cheev)
 # We cannot use LAPACK if BLAS is not found
 if test "x$acx_blas_ok" != xyes; then
         acx_lapack_ok=noblas
+        LAPACK_LIBS=""
 fi
 
 # First, check LAPACK_LIBS environment variable
@@ -96,7 +97,7 @@ if test "x$LAPACK_LIBS" != x; then
         AC_TRY_LINK_FUNC($cheev, [acx_lapack_ok=yes], [LAPACK_LIBS=""])
         AC_MSG_RESULT($acx_lapack_ok)
         LIBS="$save_LIBS"
-        if test acx_lapack_ok = no; then
+        if test $acx_lapack_ok = no; then
                 LAPACK_LIBS=""
         fi
 fi
