@@ -1,10 +1,10 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ac_lib_crypto.html
+#             http://autoconf-archive.cryp.to/ax_lib_crypto.html
 # ===========================================================================
 #
 # SYNOPSIS
 #
-#   AC_LIB_CRYPTO([yes|no|auto])
+#   AX_LIB_CRYPTO([yes|no|auto])
 #
 # DESCRIPTION
 #
@@ -12,16 +12,18 @@
 #
 #   If found, define HAVE_CRYPTO and macro CRYPTO_LIBS. Also defines
 #   CRYPTO_WITH_<algo> for the algorithms found available. Possible
-#   algorithms: AES BF CAST DES IDEA RC2 RC5 MD2 MD4 MD5 SHA RIPEMD RSA DSA
-#   DH
+#   algorithms: AES BF CAMELLIA CAST DES IDEA RC2 RC5 MD2 MD4 MD5 SHA RIPEMD
+#   RSA DSA DH
 #
 #   The argument is used if no --with...-crypto option is set. Value "yes"
 #   requires the configuration by default. Value "no" does not require it by
 #   default. Value "auto" configures the library only if available.
 #
+#   See also AX_LIB_BEECRYPT and AX_LIB_GCRYPT.
+#
 # LAST MODIFICATION
 #
-#   2008-08-06
+#   2008-08-07
 #
 # COPYLEFT
 #
@@ -31,15 +33,15 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-# AC_CHECK_CRYPTO_LIB([algo-name],[function])
-AC_DEFUN([AC_CHECK_CRYPTO_LIB],[
+# AX_CHECK_CRYPTO_LIB([algo-name],[function])
+AC_DEFUN([AX_CHECK_CRYPTO_LIB],[
   AC_CHECK_LIB([crypto], $2, [
     AC_DEFINE([CRYPTO_WITH_$1],[1],[Algorithm $1 in openssl crypto library])
   ])
 ])
 
-# AC_LIB_CRYPTO([yes|no|auto])
-AC_DEFUN([AC_LIB_CRYPTO],[
+# AX_LIB_CRYPTO([yes|no|auto])
+AC_DEFUN([AX_LIB_CRYPTO],[
   AC_MSG_CHECKING([whether openssl crypto is enabled])
   AC_ARG_WITH([crypto],[  --with-crypto           requite crypto library
   --without-crypto        disable crypto library],[
@@ -56,23 +58,24 @@ AC_DEFUN([AC_LIB_CRYPTO],[
 	HAVE_CRYPTO=1
 	AC_SUBST([CRYPTO_LIBS],[-lcrypto])
 	# ciphers
-        AC_CHECK_CRYPTO_LIB([AES],[AES_ecb_encrypt])
-        AC_CHECK_CRYPTO_LIB([BF],[BF_ecb_encrypt])
-        AC_CHECK_CRYPTO_LIB([CAST],[CAST_ecb_encrypt])
-        AC_CHECK_CRYPTO_LIB([DES],[DES_ecb_encrypt])
-        AC_CHECK_CRYPTO_LIB([IDEA],[IDEA_ecb_encrypt])
-        AC_CHECK_CRYPTO_LIB([RC2],[RC2_ecb_encrypt])
-        AC_CHECK_CRYPTO_LIB([RC5],[RC5_32_ecb_encrypt])
+        AX_CHECK_CRYPTO_LIB([AES],[AES_ecb_encrypt])
+        AX_CHECK_CRYPTO_LIB([BF],[BF_ecb_encrypt])
+        AX_CHECK_CRYPTO_LIB([CAST],[CAST_ecb_encrypt])
+        AX_CHECK_CRYPTO_LIB([CAMELLIA],[Camellia_ecb_encrypt])
+        AX_CHECK_CRYPTO_LIB([DES],[DES_ecb_encrypt])
+        AX_CHECK_CRYPTO_LIB([IDEA],[idea_ecb_encrypt])
+        AX_CHECK_CRYPTO_LIB([RC2],[RC2_ecb_encrypt])
+        AX_CHECK_CRYPTO_LIB([RC5],[RC5_32_ecb_encrypt])
 	# digests
-        AC_CHECK_CRYPTO_LIB([MD2],[MD2])
-        AC_CHECK_CRYPTO_LIB([MD4],[MD4])
-        AC_CHECK_CRYPTO_LIB([MD5],[MD5])
-        AC_CHECK_CRYPTO_LIB([RIPEMD],[RIPEMD160])
-        AC_CHECK_CRYPTO_LIB([SHA],[SHA1])
+        AX_CHECK_CRYPTO_LIB([MD2],[MD2])
+        AX_CHECK_CRYPTO_LIB([MD4],[MD4])
+        AX_CHECK_CRYPTO_LIB([MD5],[MD5])
+        AX_CHECK_CRYPTO_LIB([RIPEMD],[RIPEMD160])
+        AX_CHECK_CRYPTO_LIB([SHA],[SHA1])
 	# others
-	AC_CHECK_CRYPTO_LIB([RSA],[RSA_set_method])
-	AC_CHECK_CRYPTO_LIB([DSA],[DSA_set_method])
-	AC_CHECK_CRYPTO_LIB([DH],[DH_set_method])
+	AX_CHECK_CRYPTO_LIB([RSA],[RSA_set_method])
+	AX_CHECK_CRYPTO_LIB([DSA],[DSA_set_method])
+	AX_CHECK_CRYPTO_LIB([DH],[DH_set_method])
       ])
     ])
     # complain only if crypto as *explicitely* required

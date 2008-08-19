@@ -1,10 +1,10 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ac_lib_beecrypt.html
+#            http://autoconf-archive.cryp.to/ax_lib_beecrypt.html
 # ===========================================================================
 #
 # SYNOPSIS
 #
-#   AC_LIB_BEECRYPT([yes|no|auto])
+#   AX_LIB_BEECRYPT([yes|no|auto])
 #
 # DESCRIPTION
 #
@@ -18,9 +18,11 @@
 #   requires the configuration by default. Value "no" does not require it by
 #   default. Value "auto" configures the library only if available.
 #
+#   See also AX_LIB_CRYPTO and AX_LIB_GCRYPT.
+#
 # LAST MODIFICATION
 #
-#   2008-08-06
+#   2008-08-07
 #
 # COPYLEFT
 #
@@ -30,14 +32,14 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-# AC_CHECK_BEECRYPT_ALGO([name],[function])
-AC_DEFUN([AC_CHECK_BEECRYPT_ALGO],[
+# AX_CHECK_BEECRYPT_ALGO([name],[function])
+AC_DEFUN([AX_CHECK_BEECRYPT_ALGO],[
   AC_CHECK_LIB([beecrypt], [$2],
     AC_DEFINE([BEECRYPT_WITH_$1],[1],[Algorithm $1 in beecrypt library]))
 ])
 
-# AC_LIB_BEECRYPT([yes|no|auto])
-AC_DEFUN([AC_LIB_BEECRYPT],[
+# AX_LIB_BEECRYPT([yes|no|auto])
+AC_DEFUN([AX_LIB_BEECRYPT],[
   AC_MSG_CHECKING([whether beecrypt is enabled])
   AC_ARG_WITH([beecrypt],[  --with-beecrypt         require beecrypt library
   --without-beecrypt      disable beecrypt library],[
@@ -54,16 +56,16 @@ AC_DEFUN([AC_LIB_BEECRYPT],[
 	HAVE_BEECRYPT=1
         AC_SUBST([BEECRYPT_LIBS],[-lbeecrypt])
 	# encoding
-	AC_CHECK_BEECRYPT_ALGO([BASE64],[b64encode])
+	AX_CHECK_BEECRYPT_ALGO([BASE64],[b64encode])
 	# ciphers
-        AC_CHECK_BEECRYPT_ALGO([AES],[aesSetup])
-        AC_CHECK_BEECRYPT_ALGO([BF],[blowfishSetup])
+        AX_CHECK_BEECRYPT_ALGO([AES],[aesSetup])
+        AX_CHECK_BEECRYPT_ALGO([BF],[blowfishSetup])
 	# digests
-        AC_CHECK_BEECRYPT_ALGO([MD5],[md5Digest])
-        AC_CHECK_BEECRYPT_ALGO([SHA1],[sha1Digest])
-        AC_CHECK_BEECRYPT_ALGO([SHA256],[sha256Digest])
-        AC_CHECK_BEECRYPT_ALGO([SHA384],[sha384Digest])
-        AC_CHECK_BEECRYPT_ALGO([SHA512],[sha512Digest])
+        AX_CHECK_BEECRYPT_ALGO([MD5],[md5Digest])
+        AX_CHECK_BEECRYPT_ALGO([SHA1],[sha1Digest])
+        AX_CHECK_BEECRYPT_ALGO([SHA256],[sha256Digest])
+        AX_CHECK_BEECRYPT_ALGO([SHA384],[sha384Digest])
+        AX_CHECK_BEECRYPT_ALGO([SHA512],[sha512Digest])
       ])
     ])
     # complain only if explicitely required
