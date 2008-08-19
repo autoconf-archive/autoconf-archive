@@ -1,10 +1,10 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ac_lib_gcrypt.html
+#             http://autoconf-archive.cryp.to/ax_lib_gcrypt.html
 # ===========================================================================
 #
 # SYNOPSIS
 #
-#   AC_LIB_GCRYPT([yes|no|auto])
+#   AX_LIB_GCRYPT([yes|no|auto])
 #
 # DESCRIPTION
 #
@@ -20,9 +20,11 @@
 #   requires the configuration by default. Value "no" does not require it by
 #   default. Value "auto" configures the library only if available.
 #
+#   See also AX_LIB_BEECRYPT and AX_LIB_CRYPTO.
+#
 # LAST MODIFICATION
 #
-#   2008-08-06
+#   2008-08-07
 #
 # COPYLEFT
 #
@@ -32,9 +34,9 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-# AC_CHECK_GCRYPT_ALGO([algo])
+# AX_CHECK_GCRYPT_ALGO([algo])
 # generate convenient defines for each algorithm
-AC_DEFUN([AC_CHECK_GCRYPT_ALGO],[
+AC_DEFUN([AX_CHECK_GCRYPT_ALGO],[
   AC_REQUIRE([AC_PROG_EGREP])
   AC_MSG_CHECKING([for $1 in gcrypt])
   if echo $gcrypt_algos | $EGREP -i ":.*( $1 | $1$)" > /dev/null ; then
@@ -45,7 +47,8 @@ AC_DEFUN([AC_CHECK_GCRYPT_ALGO],[
   fi
 ])
 
-AC_DEFUN([AC_LIB_GCRYPT],[
+# AX_LIB_GCRYPT([yes|no|auto])
+AC_DEFUN([AX_LIB_GCRYPT],[
   AC_MSG_CHECKING([whether gcrypt is enabled])
   AC_ARG_WITH([gcrypt],[  --with-gcrypt           require gcrypt library
   --without-gcrypt        disable gcrypt library],[
@@ -63,34 +66,34 @@ AC_DEFUN([AC_LIB_GCRYPT],[
       gcrypt_algos=`$LIBGCRYPT_CONFIG --algorithms`
       # ciphers
       # this does not work with a "for" loop: nothing generated in config.h:-(
-      AC_CHECK_GCRYPT_ALGO([AES])
-      AC_CHECK_GCRYPT_ALGO([ARCFOUR])
-      AC_CHECK_GCRYPT_ALGO([BLOWFISH])
-      AC_CHECK_GCRYPT_ALGO([CAST5])
-      AC_CHECK_GCRYPT_ALGO([DES])
-      AC_CHECK_GCRYPT_ALGO([IDEA])
-      AC_CHECK_GCRYPT_ALGO([RFC2268])
-      AC_CHECK_GCRYPT_ALGO([SERPENT])
-      AC_CHECK_GCRYPT_ALGO([TWOFISH])
+      AX_CHECK_GCRYPT_ALGO([AES])
+      AX_CHECK_GCRYPT_ALGO([ARCFOUR])
+      AX_CHECK_GCRYPT_ALGO([BLOWFISH])
+      AX_CHECK_GCRYPT_ALGO([CAST5])
+      AX_CHECK_GCRYPT_ALGO([DES])
+      AX_CHECK_GCRYPT_ALGO([IDEA])
+      AX_CHECK_GCRYPT_ALGO([RFC2268])
+      AX_CHECK_GCRYPT_ALGO([SERPENT])
+      AX_CHECK_GCRYPT_ALGO([TWOFISH])
       # digests
-      AC_CHECK_GCRYPT_ALGO([CRC])
-      AC_CHECK_GCRYPT_ALGO([HAVAL])
-      AC_CHECK_GCRYPT_ALGO([MD2])
-      AC_CHECK_GCRYPT_ALGO([MD4])
-      AC_CHECK_GCRYPT_ALGO([MD5])
-      AC_CHECK_GCRYPT_ALGO([RMD160])
-      AC_CHECK_GCRYPT_ALGO([SHA0])
-      AC_CHECK_GCRYPT_ALGO([SHA1])
-      AC_CHECK_GCRYPT_ALGO([SHA224])
-      AC_CHECK_GCRYPT_ALGO([SHA256])
-      AC_CHECK_GCRYPT_ALGO([SHA384])
-      AC_CHECK_GCRYPT_ALGO([SHA512])
-      AC_CHECK_GCRYPT_ALGO([TIGER])
-      AC_CHECK_GCRYPT_ALGO([WHIRLPOOL])
+      AX_CHECK_GCRYPT_ALGO([CRC])
+      AX_CHECK_GCRYPT_ALGO([HAVAL])
+      AX_CHECK_GCRYPT_ALGO([MD2])
+      AX_CHECK_GCRYPT_ALGO([MD4])
+      AX_CHECK_GCRYPT_ALGO([MD5])
+      AX_CHECK_GCRYPT_ALGO([RMD160])
+      AX_CHECK_GCRYPT_ALGO([SHA0])
+      AX_CHECK_GCRYPT_ALGO([SHA1])
+      AX_CHECK_GCRYPT_ALGO([SHA224])
+      AX_CHECK_GCRYPT_ALGO([SHA256])
+      AX_CHECK_GCRYPT_ALGO([SHA384])
+      AX_CHECK_GCRYPT_ALGO([SHA512])
+      AX_CHECK_GCRYPT_ALGO([TIGER])
+      AX_CHECK_GCRYPT_ALGO([WHIRLPOOL])
       # others
-      AC_CHECK_GCRYPT_ALGO([DSA])
-      AC_CHECK_GCRYPT_ALGO([ELGAMAL])
-      AC_CHECK_GCRYPT_ALGO([RSA])
+      AX_CHECK_GCRYPT_ALGO([DSA])
+      AX_CHECK_GCRYPT_ALGO([ELGAMAL])
+      AX_CHECK_GCRYPT_ALGO([RSA])
       # conclusion
       GCRYPT_CFLAGS=`$LIBGCRYPT_CONFIG --cflags`
       GCRYPT_LIBS=`$LIBGCRYPT_CONFIG --libs`
