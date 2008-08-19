@@ -22,28 +22,30 @@ Autoconf Macro Contributors
   Mateusz Loskot
   Dustin J. Mitchell
   Andrew Collier
+  Alexandre Duret-Lutz
   Sebastian Huber
   Rafael Laboissiere
   Loic Dachary
   Duncan Simpson
-  Alexandre Duret-Lutz
   Alan W. Irwin
   Warren Young
   Peter Simons
   Ludovic Courtès
   Ville Laurikari
   Scott Pakin
+  Rhys Ulerich
   Matteo Frigo
   Christophe Tournayre
+  Caolan McNamara
   Alain BARBET
   Zmanda Inc.
-  Caolan McNamara
   Braden McDaniel
   Wes Hardaker
   Tim Toolan
   Stepan Kasal
   Patrick Mauritz
   Moritz Sinn
+  Matthew Mueller
   Mark Elbrecht
   Fabien Coelho
   Devin Weaver
@@ -56,7 +58,6 @@ Autoconf Macro Contributors
   Paolo Bonzini
   Oskar Liljeblad
   Michael Paul Bailey
-  Matthew Mueller
   Matthew D. Langston
   Matteo Settenvini
   Julian C. Cummings
@@ -78,7 +79,6 @@ Autoconf Macro Contributors
   Ruben Fonseca
   Ronald Landheer-Cieslak
   Robert White
-  Rhys Ulerich
   Rafal Rzepecki
   Pete Greenwell
   Perceval ANICHINI
