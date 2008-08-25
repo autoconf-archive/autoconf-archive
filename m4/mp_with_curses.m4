@@ -20,7 +20,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2008-08-25
 #
 # COPYLEFT
 #
@@ -66,7 +66,7 @@ AC_DEFUN([MP_WITH_CURSES],
           mp_cv_curses=yes, mp_cv_curses=no)])
      if test "$mp_cv_curses" = yes
      then
-       AC_DEFINE([HAVE_CURSES_H],[],[Define if you have curses.h])
+       AC_DEFINE([HAVE_CURSES_H],[1],[Define if you have curses.h])
        CURSES_LIB="-lcurses"
      fi
    fi
@@ -80,7 +80,7 @@ AC_DEFUN([MP_WITH_CURSES],
           mp_cv_ncurses=yes, mp_cv_ncurses=no)])
      if test "$mp_cv_ncurses" = yes
      then
-       AC_DEFINE([HAVE_NCURSES_H],[],[Define if you have ncurses.h])
+       AC_DEFINE([HAVE_NCURSES_H],[1],[Define if you have ncurses.h])
        CURSES_LIB="-lncurses"
      fi
    fi
