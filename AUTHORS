@@ -11,6 +11,7 @@ Autoconf Macro Contributors
   Guido U. Draheim
   Todd Veldhuizen
   Thomas Porschberg
+  Rhys Ulerich
   Tom Howard
   Bogdan Drozdowski
   Gleen Salmon
@@ -33,7 +34,6 @@ Autoconf Macro Contributors
   Ludovic Courtès
   Ville Laurikari
   Scott Pakin
-  Rhys Ulerich
   Matteo Frigo
   Christophe Tournayre
   Caolan McNamara
@@ -105,6 +105,7 @@ Autoconf Macro Contributors
   Gerald Point
   Don Anderson
   Dodji Seketeli
+  Derek Price
   Dean Povey
   David Cluytens
   Dave Benson
