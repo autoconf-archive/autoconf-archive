@@ -13,7 +13,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2008-11-07
 #
 # COPYLEFT
 #
@@ -32,7 +32,7 @@ ac_cv_cxx_have_vector_at,
  AC_TRY_COMPILE([#include <vector>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif],[vector v (1); message.at (0); return 0;],
+#endif],[vector<int> v (1); v.at (0); return 0;],
  ac_cv_cxx_have_vector_at=yes, ac_cv_cxx_have_vector_at=no)
  AC_LANG_RESTORE
 ])
