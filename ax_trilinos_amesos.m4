@@ -8,13 +8,15 @@
 #
 # DESCRIPTION
 #
-#   Test for the Trilinos Amesos
-#   (http://trilinos.sandia.gov/packages/amesos) library. On success,
-#   defines HAVE_LIBAMESOS due to AC_CHECK_LIB invocation.
+#   On success, adds "include Makefile.export.amesos" statements to every
+#   Automake file containing @INC_AMINCLUDE@. Requires that Trilinos was
+#   configured with the --enable-export-makefiles option. When
+#   ACTION-IF-NOT-FOUND is not specified, the default behavior is for
+#   configure to fail.
 #
 # LAST MODIFICATION
 #
-#   2008-08-06
+#   2008-11-02
 #
 # COPYLEFT
 #
@@ -27,15 +29,16 @@
 AC_DEFUN([AX_TRILINOS_AMESOS],[
     AC_REQUIRE([AX_TRILINOS_BASE])
     ax_trilinos_amesos=yes
-    AC_CHECK_HEADER([Amesos.h],,[ax_trilinos_amesos=no])
-    AC_CHECK_LIB([amesos],[main],,[ax_trilinos_amesos=no])
+    AC_HAVE_LIBRARY([amesos],[:],[ax_trilinos_amesos=no])
+    AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([amesos.macros],[ax_trilinos_amesos=no])
+    AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([amesos],[ax_trilinos_amesos=no])
     if test "$ax_trilinos_amesos" = yes; then
-        dnl NOP required
-        :
-		ifelse([$1], , , [$1])
+        : # NOP
+		ifelse([$1],,,
+            [$1])
     else
-        dnl NOP required
-        :
-		ifelse([$2], , , [$2])
+        : # NOP
+		ifelse([$2],,AC_MSG_ERROR([Trilinos Amesos not found.]),
+            [$2])
     fi
 ])

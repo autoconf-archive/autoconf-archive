@@ -21,12 +21,14 @@
 #   --with-trilinos-libdir to override default locations underneath either
 #   --with-trilinos or $TRILINOS_HOME.
 #
-#   On success, adds -Ipath to CFLAGS and CPPFLAGS, -Lpath to LDFLAGS, and
-#   defines HAVE_TRILINOS.
+#   On success, adds -Ipath to CPPFLAGS, -Lpath to LDFLAGS, sets the
+#   variable TRILINOS_INCLUDE based on the discovered location of
+#   Trilinos_version.h, and #defines HAVE_TRILINOS. When ACTION-IF-NOT-FOUND
+#   is not specified, the default behavior is for configure to fail.
 #
 # LAST MODIFICATION
 #
-#   2008-08-06
+#   2008-11-02
 #
 # COPYLEFT
 #
@@ -42,27 +44,27 @@
 
 AC_DEFUN([AX_TRILINOS_BASE],
 [
-AC_REQUIRE([AC_LANG_CPLUSPLUS])
-AC_ARG_VAR(TRILINOS_HOME,[Location of Trilinos installation])
+AC_REQUIRE([gl_TRILINOS_ABSOLUTE_HEADER])
+AC_ARG_VAR(TRILINOS_HOME,[root directory of Trilinos installation])
 
 AC_ARG_WITH(trilinos, [AS_HELP_STRING([--with-trilinos[=DIR]],[root directory of Trilinos installation])],[
 with_trilinos=$withval
 if test "${with_trilinos}" != yes; then
     TRILINOS_HOME=$withval
-	trilinos_include="$withval/include"
-	trilinos_libdir="$withval/lib"
+    trilinos_include="$withval/include"
+    trilinos_libdir="$withval/lib"
 fi
 ],[
 with_trilinos=$withval
 if test "x${TRILINOS_HOME}" != "x"; then
-	trilinos_include="${TRILINOS_HOME}/include"
-	trilinos_libdir="${TRILINOS_HOME}/lib"
+    trilinos_include="${TRILINOS_HOME}/include"
+    trilinos_libdir="${TRILINOS_HOME}/lib"
 fi
 ])
 
 AC_ARG_WITH(trilinos-include,
 [AS_HELP_STRING([--with-trilinos-include=DIR],[specify exact directory for Trilinos headers])],[
-if test -d $withval; then
+if test -d "$withval"; then
     trilinos_include="$withval"
 else
     AC_MSG_ERROR([--with-trilinos-include expected directory name])
@@ -70,7 +72,7 @@ fi
 ])
 
 AC_ARG_WITH(trilinos-libdir, [AS_HELP_STRING([--with-trilinos-libdir=DIR],[specify exact directory for Trilinos libraries])],[
-if test -d $withval; then
+if test -d "$withval"; then
     trilinos_libdir="$withval"
 else
     AC_MSG_ERROR([--with-trilinos-libdir expected directory name])
@@ -78,22 +80,21 @@ fi
 ])
 
 if test "${with_trilinos}" != no ; then
-	OLD_LIBS=$LIBS
-	OLD_LDFLAGS=$LDFLAGS
-	OLD_CFLAGS=$CFLAGS
-	OLD_CPPFLAGS=$CPPFLAGS
 
-	if test "${trilinos_libdir}" ; then
-		LDFLAGS="$LDFLAGS -L${trilinos_libdir}"
-	fi
-	if test "${trilinos_include}" ; then
-		CPPFLAGS="$CPPFLAGS -I${trilinos_include}"
-		CFLAGS="$CFLAGS -I${trilinos_include}"
-	fi
+    OLD_LIBS=$LIBS
+    OLD_LDFLAGS=$LDFLAGS
+    OLD_CPPFLAGS=$CPPFLAGS
+
+    if test -d "${trilinos_libdir}" ; then
+        LDFLAGS="-L${trilinos_libdir} $LDFLAGS"
+    fi
+    if test -d "${trilinos_include}" ; then
+        CPPFLAGS="-I${trilinos_include} $CPPFLAGS"
+    fi
 
     succeeded=no
-	AC_CHECK_HEADER([Trilinos_version.h],found_header=yes,found_header=no)
-	if test "$found_header" = yes; then
+    AC_CHECK_HEADER([Trilinos_version.h],[found_header=yes],[found_header=no])
+    if test "$found_header" = yes; then
         dnl Patterned after AX_BOOST_BASE
         trilinos_lib_version_req=ifelse([$1],,8.0.0,$1)
         trilinos_lib_version_req_shorten=`expr $trilinos_lib_version_req : '\([[0-9]]*\.[[0-9]]*\)'`
@@ -101,41 +102,47 @@ if test "${with_trilinos}" != no ; then
         trilinos_lib_version_req_minor=`expr $trilinos_lib_version_req : '[[0-9]]*\.\([[0-9]]*\)'`
         trilinos_lib_version_req_sub_minor=`expr $trilinos_lib_version_req : '[[0-9]]*\.[[0-9]]*\.\([[0-9]]*\)'`
         if test "x$trilinos_lib_version_req_sub_minor" = "x" ; then
-        	trilinos_lib_version_req_sub_minor="0"
+            trilinos_lib_version_req_sub_minor="0"
         fi
         WANT_TRILINOS_VERSION=`expr $trilinos_lib_version_req_major \* 10000 \+  $trilinos_lib_version_req_minor \* 100 \+ $trilinos_lib_version_req_sub_minor`
+        AC_LANG_PUSH([C++])
         AC_MSG_CHECKING(for Trilinos release >= $trilinos_lib_version_req)
-        AC_LANG_PUSH(C++)
         AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
-@%:@include <Trilinos_version.h>
-]], [[
-#if (TRILINOS_MAJOR_VERSION == 0)
-/* Development branch has zero major version. Everything is okay. */
-#elif (TRILINOS_MAJOR_MINOR_VERSION >= $WANT_TRILINOS_VERSION)
-/* Stable release of appropriate version. Everything is okay. */
-#else
-#  error Trilinos version is too old
-#endif
+            @%:@include <Trilinos_version.h>
+            ]], [[
+            #if (TRILINOS_MAJOR_VERSION == 0)
+            /* Development branch has zero major version.  A-OK. */
+            #elif (TRILINOS_MAJOR_MINOR_VERSION >= $WANT_TRILINOS_VERSION)
+            /* Stable release of appropriate version.  A-OK. */
+            #else
+            #  error Trilinos version is too old
+            #endif
         ]])],[
             AC_MSG_RESULT(yes)
             succeeded=yes
-            ],[
+        ],[
             AC_MSG_RESULT(no)
-            ])
+        ])
         AC_LANG_POP([C++])
     fi
 
     if test "$succeeded" = no; then
-		LIBS=$OLD_LIBS
-		LDFLAGS=$OLD_LDFLAGS
-		CPPFLAGS=$OLD_CPPFLAGS
-		CFLAGS=$OLD_CFLAGS
+        LIBS=$OLD_LIBS
+        LDFLAGS=$OLD_LDFLAGS
+        CPPFLAGS=$OLD_CPPFLAGS
 
-		ifelse([$3], , , [$3])
-	else
-		AC_DEFINE(HAVE_TRILINOS,1,[Define if Trilinos is available])
-		ifelse([$2], , , [$2])
-	fi
+        ifelse([$3],,AC_MSG_ERROR([Trilinos not found.  Try either --with-trilinos or setting TRILINOS_HOME.]),
+            [$3])
+    else
+        dnl Find the absolute path to Trilinos_version.h
+        dnl We need it to back out the discovered TRILINOS_INCLUDE directory.
+        gl_TRILINOS_ABSOLUTE_HEADER([Trilinos_version.h])
+        TRILINOS_INCLUDE=`AS_DIRNAME([$gl_cv_absolute_Trilinos_version_h])`
+
+        AC_DEFINE(HAVE_TRILINOS,1,[Define if Trilinos is available])
+        AC_SUBST(TRILINOS_INCLUDE)
+        ifelse([$2],,,[$2])
+    fi
 
 fi
 

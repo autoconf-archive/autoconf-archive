@@ -8,13 +8,16 @@
 #
 # DESCRIPTION
 #
-#   Test for the Trilinos Teuchos
-#   (http://trilinos.sandia.gov/packages/teuchos) library. On success,
-#   defines HAVE_LIBTEUCHOS due to AC_CHECK_LIB invocation.
+#   On success, adds "include Makefile.export.teuchos" statements to every
+#   Automake file containing @INC_AMINCLUDE@. Requires that Trilinos was
+#   configured with the --enable-export-makefiles option.
+#
+#   When ACTION-IF-NOT-FOUND is not specified, the default behavior is for
+#   configure to fail.
 #
 # LAST MODIFICATION
 #
-#   2008-08-06
+#   2008-11-02
 #
 # COPYLEFT
 #
@@ -27,15 +30,16 @@
 AC_DEFUN([AX_TRILINOS_TEUCHOS],[
     AC_REQUIRE([AX_TRILINOS_BASE])
     ax_trilinos_teuchos=yes
-    AC_CHECK_HEADER([Teuchos_Version.hpp],,[ax_trilinos_teuchos=no])
-    AC_CHECK_LIB(   [teuchos],[main],     ,[ax_trilinos_teuchos=no])
+    AC_HAVE_LIBRARY([teuchos],[:],[ax_trilinos_teuchos=no])
+    AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([teuchos.macros],[ax_trilinos_teuchos=no])
+    AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([teuchos],[ax_trilinos_teuchos=no])
     if test "$ax_trilinos_teuchos" = yes; then
-        dnl NOP required
-        :
-        ifelse([$1], , , [$1])
+        : # NOP
+        ifelse([$1],,,
+            [$1])
     else
-        dnl NOP required
-        :
-        ifelse([$2], , , [$2])
+        : # NOP
+        ifelse([$2],,AC_MSG_ERROR([Trilinos Teuchos not usable]),
+            [$2])
     fi
 ])
