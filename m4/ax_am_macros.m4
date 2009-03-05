@@ -8,16 +8,16 @@
 #
 # DESCRIPTION
 #
-#   Adds support for macros that create automake rules. You must manually
+#   Adds support for macros that create Make rules. You must manually
 #   add the following line
 #
 #     @INC_AMINCLUDE@
 #
-#   to your Makefile.am files.
+#   to your Makefile.in (or Makefile.am if you use Automake) files.
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2009-02-09
 #
 # COPYLEFT
 #
