@@ -47,7 +47,7 @@ AC_DEFUN([AX_EXTRA_DIST],
 [
 AC_MSG_NOTICE([adding custom dist support])
 AM_CONDITIONAL(USING_AX_EXTRA_DIST, [true])
-AX_ADD_AM_MACRO([[
+AX_ADD_AM_MACRO_STATIC([
 EXTRA_SRC_DISTS =
 EXTRA_BIN_DISTS =
 dist-src-extra:
@@ -72,5 +72,5 @@ dist-bin:
 all-dist dist2 dist-all2: dist-src dist-bin
 
 all-dist-check dist2-check dist-all-check: dist-check dist-src-extra dist-bin
-]])
+])
 ])# AX_EXTRA_DIST
