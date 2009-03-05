@@ -1,32 +1,32 @@
 # ===========================================================================
-#       http://autoconf-archive.cryp.to/ax_add_recursive_am_macro.html
+#       http://autoconf-archive.cryp.to/ax_add_recursive_am_macro_static.html
 # ===========================================================================
 #
 # SYNOPSIS
 #
-#   AX_ADD_RECURSIVE_AM_MACRO([TARGET],[RULE])
+#   AX_ADD_RECURSIVE_AM_MACRO_STATIC([TARGET],[RULE])
 #
 # DESCRIPTION
 #
-#   Adds the specified rule to $AMINCLUDE along with a TARGET-recursive rule
-#   that will call TARGET for the current directory and TARGET-am
-#   recursively for each subdirectory.  See also
-#   AX_ADD_RECURSIVE_AM_MACRO_STATIC.
+#   Adds the specified rule to AMINCLUDE_STATIC along with a
+#   TARGET-recursive rule that will call TARGET for the current
+#   directory and TARGET-am recursively for each subdirectory.
 #
 # LAST MODIFICATION
 #
-#   2009-02-09
+#   2009-02-08
 #
 # COPYLEFT
 #
 #   Copyright (c) 2008 Tom Howard <tomhoward@users.sf.net>
+#   Copyright (c) 2009 Allan Caffee <allan.caffee@gmail.com>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([AX_ADD_RECURSIVE_AM_MACRO],[
-  AX_ADD_AM_MACRO([
+AC_DEFUN([AX_ADD_RECURSIVE_AM_MACRO_STATIC],[
+  AX_ADD_AM_MACRO_STATIC([
 $1-recursive:
 	@set fnord ${AX_DOLLAR}${AX_DOLLAR}MAKEFLAGS; amf=${AX_DOLLAR}${AX_DOLLAR}2; \\
 	dot_seen=no; \\
