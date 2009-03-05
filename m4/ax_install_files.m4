@@ -13,7 +13,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2009-02-03
 #
 # COPYLEFT
 #
@@ -30,12 +30,22 @@ AC_ARG_VAR(GAWK, [gawk executable to use])
 if test "x$GAWK" = "x"; then
    AC_CHECK_PROGS(GAWK,[gawk])
 fi
+AC_SUBST(GAWK)
 
 if test "x$GAWK" != "x"; then
    AC_MSG_NOTICE([install_files support enabled])
    AX_HAVE_INSTALL_FILES=true
-   AX_ADD_AM_MACRO([[
-CLEANFILES += \\
+else
+    AX_HAVE_INSTALL_FILES=false;
+    AC_MSG_WARN([install_files support disable... gawk not found])
+fi
+AM_CONDITIONAL([ax_install_files_enabled],
+               [test "x$AX_HAVE_INSTALL_FILES" = "xtrue"])
+
+AX_ADD_AM_MACRO_STATIC([
+
+if ax_install_files_enabled
+AX_INSTALL_FILES_CLEANFILES = \\
 \$(top_builddir)/install_files
 
 \$(top_builddir)/install_files: do-mfstamp-recursive
@@ -43,7 +53,7 @@ CLEANFILES += \\
 	cd \$(top_builddir) && STAGING=\"\$(PWD)/staging\"; \\
 	\$(MAKE) \$(AM_MAKEFLAGS) DESTDIR=\"\$\$STAGING\" install; \\
 	cd \"\$\$STAGING\" && find "." ! -type d -print | \\
-	$GAWK \' \\
+	\$(GAWK) ' \\
 	    /^\\.\\/usr\\/local\\/lib/ { \\
 	        sub( /\\.\\/usr\\/local\\/lib/, \"%%{_libdir}\" ); } \\
 	    /^\\.\\/usr\\/local\\/bin/ { \\
@@ -55,23 +65,26 @@ CLEANFILES += \\
 	    /^\\.\\/usr\\/local/ { \\
 		sub( /\\.\\/usr\\/local/, \"%%{_prefix}\" ); } \\
 	    /^\\./ { sub( /\\./, \"\" ); } \\
-	    /./ { print; }\' > ../install_files; \\
+	    /./ { print; }' > ../install_files; \\
 	rm -rf \"\$\$STAGING\"; \\
 	else \\
 	    echo \"\\\`\$(top_builddir)/install_files\' is up to date.\"; \\
 	fi
 
-]])
-    AX_ADD_RECURSIVE_AM_MACRO([do-mfstamp],[[
+])
+AX_ADD_RECURSIVE_AM_MACRO_STATIC([do-mfstamp],[
 \$(top_builddir)/mfstamp:  do-mfstamp-recursive
 
 do-mfstamp-am do-mfstamp: Makefile.in
 	@echo \"timestamp for all Makefile.in files\" > \$(top_builddir)/mfstamp
 	@touch ${AX_DOLLAR}@
 
-]])
-else
-    AX_HAVE_INSTALL_FILES=false;
-    AC_MSG_WARN([install_files support disable... gawk not found])
-fi
+])
+AX_ADD_AM_MACRO_STATIC([
+endif # ax_install_files_enabled
+
+clean-local: clean-ax-install-files
+clean-ax-install-files:
+	-test -z "\$(AX_INSTALL_FILES)" || rm -f \$(AX_INSTALL_FILES)
+])
 ])# AX_INSTALL_FILES

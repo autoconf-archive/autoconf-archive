@@ -35,7 +35,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2009-02-10
 #
 # COPYLEFT
 #
@@ -50,7 +50,7 @@ AC_DEFUN([AX_UPLOAD],
 AC_MSG_NOTICE([adding upload support])
 AM_CONDITIONAL(USING_AX_UPLOAD, [true])
 AC_MSG_NOTICE([setting upload command... \`$1\`])
-AX_ADD_AM_MACRO([[
+AX_ADD_AM_MACRO_STATIC([
 UPLOAD_BIN =
 UPLOAD_SRC = upload-gzip upload-bzip2 upload-zip
 UPLOAD_TARGETS = \\
@@ -79,5 +79,5 @@ upload-src: \$(UPLOAD_SRC)
 upload-bin: \$(UPLOAD_BIN)
 
 upload upload-all all-upload: upload-src upload-bin
-]])
+])
 ])
