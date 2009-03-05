@@ -75,7 +75,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2009-02-11
 #
 # COPYLEFT
 #
@@ -119,6 +119,7 @@ if test "x$AX_USING_CVS" != "xno"; then
 	    AC_MSG_ERROR([CVS support cannot be enabled: cvs executable not found])
 	fi
     fi
+    AC_SUBST([CVS])
 fi
 
 if test "x$AX_USING_CVS" != "xno"; then
@@ -133,6 +134,7 @@ if test "x$AX_USING_CVS" != "xno"; then
 	    AC_MSG_ERROR([CVS support cannot be enabled: gawk could not be found])
 	fi
     fi
+    AC_SUBST([GAWK])
 fi
 
 if test "x$AX_USING_CVS" != "xno"; then
@@ -151,6 +153,7 @@ if test "x$AX_USING_CVS" != "xno"; then
 	    AC_MSG_ERROR([CVS support cannot be enabled: CVSEDITOR not set and editor not found])
 	fi
     fi
+    AC_SUBST([CVSEDITOR])
 fi
 
 if test "x$AX_USING_CVS" != "xno"; then
@@ -167,6 +170,7 @@ if test "x$AX_USING_CVS" != "xno"; then
 	    AC_MSG_ERROR([CVS support cannot be enabled: CVSROOT not found.  Did you check out from CVS?])
 	fi
     fi
+    AC_SUBST([CVSROOT])
 fi
 
 if test "x$AX_USING_CVS" != "xno"; then
@@ -181,6 +185,7 @@ if test "x$AX_USING_CVS" != "xno"; then
             AC_MSG_ERROR([CVS support cannot be enabled: USERNAME enviorment variable not set])
 	fi
     fi
+    AC_SUBST([USERNAME])
 fi
 
 if test "x$AX_USING_CVS" != "xno"; then
@@ -195,6 +200,7 @@ if test "x$AX_USING_CVS" != "xno"; then
             AC_MSG_ERROR([CVS support cannot be enabled: USEREMAIL enviorment variable not set])
 	fi
     fi
+    AC_SUBST([USEREMAIL])
 fi
 
 
@@ -254,16 +260,18 @@ BEGIN {
 { print ${AX_DOLLAR}0; }
 
 ]])
-    AX_ADD_AM_MACRO([[
-
+fi
+AM_CONDITIONAL([ax_cvs_enabled],[test "x$AX_USING_CVS" != "xno"])
+AX_ADD_AM_MACRO_STATIC([
+if ax_cvs_enabled
 update:
-	@cd \"${AX_DOLLAR}(srcdir)\" && $CVS -z9 update
+	@cd \"${AX_DOLLAR}(srcdir)\" && \$(CVS) -z9 update
 
 cvsalways:
 
 ${AX_DOLLAR}(top_builddir)/commitlog: cvsalways
-	@(CURR=\`pwd\`; cd \"${AX_DOLLAR}(top_srcdir)\"; $CVS -z9 diff -u --brief 2>&1 | \\
-	$GAWK \\
+	@(CURR=\`pwd\`; cd \"${AX_DOLLAR}(top_srcdir)\"; \$(CVS) -z9 diff -u --brief 2>&1 | \\
+	\$(GAWK) \\
 	\'/^Index/ { print \"\\\\t* ./\" ${AX_DOLLAR}${AX_DOLLAR}2; } \\
 	/^cvs diff: .* was removed/ { print \"\\\\t* ./\" ${AX_DOLLAR}${AX_DOLLAR}3 \" (removed)\"; } \\
 	/^cvs diff: .* is a new entry/ { print \"\\\\t* ./\" ${AX_DOLLAR}${AX_DOLLAR}3 \" (added)\"; }\' \\
@@ -279,8 +287,8 @@ ${AX_DOLLAR}(top_builddir)/commitlog: cvsalways
 		echo \"\" >> ${AX_DOLLAR}(top_builddir)/commitlog; \\
 		cat commitlog.tmp  >> ${AX_DOLLAR}(top_builddir)/commitlog; \\
 		rm -f commitlog.tmp; \\
-		$CVSEDITOR ${AX_DOLLAR}(top_builddir)/commitlog; \\
-		$GAWK \'BEGIN { blank=0; } \\
+		\$(CVSEDITOR) ${AX_DOLLAR}(top_builddir)/commitlog; \\
+		\$(GAWK) \'BEGIN { blank=0; } \\
 		/\\\\/\\\\* -\\\\*-change-log-\\\\*- \\\\*\\\\// { getline; } \\
 		/^[[:blank:]]*\$\$/ { if( !blank ) { blank = 1; print; } } \\
 		/[[:alnum:]]/ { print; blank = 0; } \\
@@ -296,7 +304,7 @@ commit: update ${AX_DOLLAR}(top_builddir)/commitlog
 	    cat ${AX_DOLLAR}(top_builddir)/commitlog \"\$(top_srcdir)/ChangeLog\" > ChangeLog.tmp; \\
 	    mv ChangeLog.tmp \"\$(top_srcdir)/ChangeLog\"; \\
 	    CURR=\`(cd \"${AX_DOLLAR}(top_builddir)\"; pwd )\`; \\
-	    (cd \"\$(top_srcdir)\"; $CVS -z9 commit -F \"${AX_DOLLAR}${AX_DOLLAR}CURR/commitlog\" ); \\
+	    (cd \"\$(top_srcdir)\"; \$(CVS) -z9 commit -F \"${AX_DOLLAR}${AX_DOLLAR}CURR/commitlog\" ); \\
 	    rm -f ${AX_DOLLAR}(top_builddir)/commitlog; \\
 	fi
 
@@ -310,13 +318,13 @@ cvs-rm:
 	        fi; \\
 	        if test ! -e \"${AX_DOLLAR}${AX_DOLLAR}FILE\"; then \\
 	            if test \"\$(srcdir)\" != \".\"; then \\
-	                FILE=\`echo \"${AX_DOLLAR}${AX_DOLLAR}FILE\" | $SED -e \'s|^\$(srcdir)|.|\'\`; \\
+	                FILE=\`echo \"${AX_DOLLAR}${AX_DOLLAR}FILE\" | \$(SED) -e \'s|^\$(srcdir)|.|\'\`; \\
 	            fi; \\
 	            NEWFILES=\"${AX_DOLLAR}${AX_DOLLAR}NEWFILES ${AX_DOLLAR}${AX_DOLLAR}FILE\"; \\
 	        fi; \\
 	    done; \\
 	    if test \"x${AX_DOLLAR}${AX_DOLLAR}NEWFILES\" != \"x\"; then \\
-	        (cd \"\$(srddir)\"; $CVS remove ${AX_DOLLAR}${AX_DOLLAR}NEWFILES; ); \\
+	        (cd \"\$(srddir)\"; \$(CVS) remove ${AX_DOLLAR}${AX_DOLLAR}NEWFILES; ); \\
 	    fi; \\
 	else \\
 	    echo \"You must specify the file(s) you want to remove from cvs by using\"; \\
@@ -339,7 +347,7 @@ cvs-add:
 	        NEWFILES=\"${AX_DOLLAR}${AX_DOLLAR}NEWFILES ${AX_DOLLAR}${AX_DOLLAR}FILE\"; \\
 	    done; \\
 	    if test \"x${AX_DOLLAR}${AX_DOLLAR}NEWFILES\" != \"x\"; then \\
-	        cd \"${AX_DOLLAR}(srcdir)\"; $CVS add ${AX_DOLLAR}${AX_DOLLAR}NEWFILES; \\
+	        cd \"${AX_DOLLAR}(srcdir)\"; \$(CVS) add ${AX_DOLLAR}${AX_DOLLAR}NEWFILES; \\
 	    fi; \\
 	else \\
 	    echo \"You must specify the file(s) you want to add to cvs by using\"; \\
@@ -350,20 +358,20 @@ cvs-add:
 	fi
 
 branch-major:
-	@tag=\"$PACKAGE-${AX_MAJOR_VERSION}\"; \\
+	@tag=\"\$(PACKAGE)-${AX_MAJOR_VERSION}\"; \\
 	echo \"\"; \\
 	echo \"Creating major brach: ${AX_DOLLAR}${AX_DOLLAR}tag\"; \\
-	(cd \"${AX_DOLLAR}(top_srcdir)\"; $CVS tag -b \"${AX_DOLLAR}${AX_DOLLAR}tag\"; ); \\
-	$GAWK -f ax_cvs_rel.awk -v change=1 \"${AX_DOLLAR}(top_srcdir)/configure.ac\" > configure.tmp; \\
+	(cd \"${AX_DOLLAR}(top_srcdir)\"; \$(CVS) tag -b \"${AX_DOLLAR}${AX_DOLLAR}tag\"; ); \\
+	\$(GAWK) -f ax_cvs_rel.awk -v change=1 \"${AX_DOLLAR}(top_srcdir)/configure.ac\" > configure.tmp; \\
 	touch ${AX_DOLLAR}(top_builddir)/commitlog; \\
 	DATE=\`date +\"%%Y-%%m-%%d\"\`; \\
-	echo \"${AX_DOLLAR}${AX_DOLLAR}DATE	$USERNAME	<$USEREMAIL>\" > commitlog.tmp ; \\
+	echo \"${AX_DOLLAR}${AX_DOLLAR}DATE	\$(USERNAME)	<\$(USEREMAIL)>\" > commitlog.tmp ; \\
 	echo \"\" >> commitlog.tmp; \\
 	echo \"	* ./configure.ac\" >> commitlog.tmp; \\
 	echo \"	Created major branch: ${AX_DOLLAR}${AX_DOLLAR}tag\" >> commitlog.tmp; \\
 	echo \"	Use:\" >> commitlog.tmp; \\
-	echo \"	\\\\\`cvs -d$ANON_CVSROOT login\\\\\`\" >> commitlog.tmp; \\
-	echo \"	\\\\\`cvs -d$ANON_CVSROOT co -r ${AX_DOLLAR}${AX_DOLLAR}tag $PACKAGE\\\\\`\" >> commitlog.tmp; \\
+	echo \"	\\\\\`cvs -d\$(ANON_CVSROOT) login\\\\\`\" >> commitlog.tmp; \\
+	echo \"	\\\\\`cvs -d\$(ANON_CVSROOT) co -r ${AX_DOLLAR}${AX_DOLLAR}tag \$(PACKAGE)\\\\\`\" >> commitlog.tmp; \\
 	echo \"	to access the branch\" >> commitlog.tmp; \\
 	echo \"\" >> commitlog.tmp; \\
 	cat ${AX_DOLLAR}(top_builddir)/commitlog >> commitlog.tmp; \\
@@ -372,28 +380,28 @@ branch-major:
 	mv ChangeLog.tmp \"${AX_DOLLAR}(top_srcdir)/ChangeLog\"; \\
 	mv configure.tmp \"${AX_DOLLAR}(top_srcdir)/configure.ac\"; \\
 	CURR=\`(cd \"${AX_DOLLAR}(top_builddir)\"; pwd )\`; \\
-	(cd \"${AX_DOLLAR}(top_srcdir)\"; $CVS -z9 commit -F \"${AX_DOLLAR}${AX_DOLLAR}CURR/commitlog\"; ); \\
+	(cd \"${AX_DOLLAR}(top_srcdir)\"; \$(CVS) -z9 commit -F \"${AX_DOLLAR}${AX_DOLLAR}CURR/commitlog\"; ); \\
 	rm -f ${AX_DOLLAR}(top_builddir)/commitlog; \\
-	$CVS -z9 -d${AX_DOLLAR}(CVSROOT) co -r ${AX_DOLLAR}${AX_DOLLAR}tag -d ${AX_DOLLAR}${AX_DOLLAR}tag $PACKAGE; \\
+	\$(CVS) -z9 -d${AX_DOLLAR}(CVSROOT) co -r ${AX_DOLLAR}${AX_DOLLAR}tag -d ${AX_DOLLAR}${AX_DOLLAR}tag \$(PACKAGE); \\
 	echo \"The branch is now available in the ${AX_DOLLAR}${AX_DOLLAR}tag directory\"; \\
 	echo \"\"
 
 
 branch-minor:
-	@tag=\"$PACKAGE-${AX_MAJOR_VERSION}_${AX_MINOR_VERSION}\"; \\
+	@tag=\"\$(PACKAGE)-${AX_MAJOR_VERSION}_${AX_MINOR_VERSION}\"; \\
 	echo \"\"; \\
 	echo \"Creating minor brach: ${AX_DOLLAR}${AX_DOLLAR}tag\"; \\
-	(cd \"${AX_DOLLAR}(top_srcdir)\"; $CVS tag -b \"${AX_DOLLAR}${AX_DOLLAR}tag\"; ); \\
-	$GAWK -f ax_cvs_rel.awk -v change=1 \"${AX_DOLLAR}(top_srcdir)/configure.ac\" > configure.tmp; \\
+	(cd \"${AX_DOLLAR}(top_srcdir)\"; \$(CVS) tag -b \"${AX_DOLLAR}${AX_DOLLAR}tag\"; ); \\
+	\$(GAWK) -f ax_cvs_rel.awk -v change=1 \"${AX_DOLLAR}(top_srcdir)/configure.ac\" > configure.tmp; \\
 	touch ${AX_DOLLAR}(top_builddir)/commitlog; \\
 	DATE=\`date +\"%%Y-%%m-%%d\"\`; \\
-	echo \"${AX_DOLLAR}${AX_DOLLAR}DATE	$USERNAME	<$USEREMAIL>\" > commitlog.tmp ; \\
+	echo \"${AX_DOLLAR}${AX_DOLLAR}DATE	\$(USERNAME)	<\$(USEREMAIL)>\" > commitlog.tmp ; \\
 	echo \"\" >> commitlog.tmp; \\
 	echo \"	* ./configure.ac\" >> commitlog.tmp; \\
 	echo \"	Created minor branch: ${AX_DOLLAR}${AX_DOLLAR}tag\" >> commitlog.tmp; \\
 	echo \"	Use:\" >> commitlog.tmp; \\
-	echo \"	\\\\\`cvs -d$ANON_CVSROOT login\\\\\`\" >> commitlog.tmp; \\
-	echo \"	\\\\\`cvs -d$ANON_CVSROOT co -r ${AX_DOLLAR}${AX_DOLLAR}tag $PACKAGE\\\\\`\" >> commitlog.tmp; \\
+	echo \"	\\\\\`cvs -d\$(ANON_CVSROOT) login\\\\\`\" >> commitlog.tmp; \\
+	echo \"	\\\\\`cvs -d\$(ANON_CVSROOT) co -r ${AX_DOLLAR}${AX_DOLLAR}tag \$(PACKAGE)\\\\\`\" >> commitlog.tmp; \\
 	echo \"	to access the branch\" >> commitlog.tmp; \\
 	echo \"\" >> commitlog.tmp; \\
 	cat ${AX_DOLLAR}(top_builddir)/commitlog >> commitlog.tmp; \\
@@ -402,47 +410,47 @@ branch-minor:
 	mv ChangeLog.tmp \"${AX_DOLLAR}(top_srcdir)/ChangeLog\"; \\
 	mv configure.tmp \"${AX_DOLLAR}(top_srcdir)/configure.ac\"; \\
 	CURR=\`(cd \"${AX_DOLLAR}(top_builddir)\"; pwd )\`; \\
-	(cd \"${AX_DOLLAR}(top_srcdir)\"; $CVS -z9 commit -F \"${AX_DOLLAR}${AX_DOLLAR}CURR/commitlog\"; ); \\
+	(cd \"${AX_DOLLAR}(top_srcdir)\"; \$(CVS) -z9 commit -F \"${AX_DOLLAR}${AX_DOLLAR}CURR/commitlog\"; ); \\
 	rm -f ${AX_DOLLAR}(top_builddir)/commitlog; \\
-	$CVS -z9 -d${AX_DOLLAR}(CVSROOT) co -r ${AX_DOLLAR}${AX_DOLLAR}tag -d ${AX_DOLLAR}${AX_DOLLAR}tag $PACKAGE; \\
+	\$(CVS) -z9 -d${AX_DOLLAR}(CVSROOT) co -r ${AX_DOLLAR}${AX_DOLLAR}tag -d ${AX_DOLLAR}${AX_DOLLAR}tag \$(PACKAGE); \\
 	echo \"The branch is now available in the ${AX_DOLLAR}${AX_DOLLAR}tag directory\"; \\
 	echo \"\"
 
 add_rel:
 	@touch \"${AX_DOLLAR}(top_builddir)/commitlog\"
 	@DATE=\`date +\"%%Y-%%m-%%d\"\`; \\
-	echo \"${AX_DOLLAR}${AX_DOLLAR}DATE	$USERNAME	<$USEREMAIL>\" > commitlog.tmp
+	echo \"${AX_DOLLAR}${AX_DOLLAR}DATE	\$(USERNAME)	<\$(USEREMAIL)>\" > commitlog.tmp
 	@echo \"\" >> commitlog.tmp
 	@echo \"	* ./configure.ac\" >> commitlog.tmp
-	@echo \"	Released $PACKAGE-$VERSION\" >> commitlog.tmp
+	@echo \"	Released \$(PACKAGE)-\$(VERSION)\" >> commitlog.tmp
 	@echo \"	You can access this release by running:\" >> commitlog.tmp
-	@echo \"	    \\\\\`cvs -d$ANON_CVSROOT login\\\\\`\" >> commitlog.tmp
-	@tag=\"$PACKAGE-${AX_MAJOR_VERSION}_${AX_MINOR_VERSION}_${AX_POINT_VERSION}\"; \\
-	echo \"	    \\\\\`cvs -d$ANON_CVSROOT co -r ${AX_DOLLAR}${AX_DOLLAR}tag -d $PACKAGE-$VERSION $PACKAGE\\\\\`\" >> commitlog.tmp
-	@echo \"	The release will then be available in the $PACKAGE-$VERSION directory\" >> commitlog.tmp
+	@echo \"	    \\\\\`cvs -d\$(ANON_CVSROOT) login\\\\\`\" >> commitlog.tmp
+	@tag=\"\$(PACKAGE)-${AX_MAJOR_VERSION}_${AX_MINOR_VERSION}_${AX_POINT_VERSION}\"; \\
+	echo \"	    \\\\\`cvs -d\$(ANON_CVSROOT) co -r ${AX_DOLLAR}${AX_DOLLAR}tag -d \$(PACKAGE)-\$(VERSION) \$(PACKAGE)\\\\\`\" >> commitlog.tmp
+	@echo \"	The release will then be available in the \$(PACKAGE)-\$(VERSION) directory\" >> commitlog.tmp
 	@echo \"\" >> commitlog.tmp
 	@cat \"${AX_DOLLAR}(top_builddir)/commitlog\" >> commitlog.tmp
 	@mv commitlog.tmp \"${AX_DOLLAR}(top_builddir)/commitlog\"
 	@cat \"${AX_DOLLAR}(top_builddir)/commitlog\" \"\$(top_srcdir)/ChangeLog\" > ChangeLog.tmp
 	@mv ChangeLog.tmp \"\$(top_srcdir)/ChangeLog\"
 	@CURR=\`(cd \"${AX_DOLLAR}(top_builddir)\"; pwd )\`; \\
-	(cd \"\$(top_srcdir)\"; $CVS -z9 commit -F \"${AX_DOLLAR}${AX_DOLLAR}CURR/commitlog\"; )
+	(cd \"\$(top_srcdir)\"; \$(CVS) -z9 commit -F \"${AX_DOLLAR}${AX_DOLLAR}CURR/commitlog\"; )
 	@rm -f ${AX_DOLLAR}(top_builddir)/commitlog
 
 do_tag:
-	@tag=\"$PACKAGE-${AX_MAJOR_VERSION}_${AX_MINOR_VERSION}_${AX_POINT_VERSION}\"; \\
+	@tag=\"\$(PACKAGE)-${AX_MAJOR_VERSION}_${AX_MINOR_VERSION}_${AX_POINT_VERSION}\"; \\
 	echo \"tagging release with ${AX_DOLLAR}${AX_DOLLAR}tag\"; \\
-	(cd \"\$(top_srcdir)\"; $CVS tag -b \"${AX_DOLLAR}${AX_DOLLAR}tag\"; ); \\
-	$CVS -z9 -d$CVSROOT co -r ${AX_DOLLAR}${AX_DOLLAR}tag -d ${AX_DOLLAR}${AX_DOLLAR}tag $PACKAGE; \\
+	(cd \"\$(top_srcdir)\"; \$(CVS) tag -b \"${AX_DOLLAR}${AX_DOLLAR}tag\"; ); \\
+	\$(CVS) -z9 -d\$(CVSROOT) co -r ${AX_DOLLAR}${AX_DOLLAR}tag -d ${AX_DOLLAR}${AX_DOLLAR}tag \$(PACKAGE); \\
 	echo \"The release is now available in the ${AX_DOLLAR}${AX_DOLLAR}tag directory\"; \\
 	echo \"\"
 
 inc_rel:
-	@$GAWK -f ax_cvs_rel.awk -v change=3 \"\$(top_srcdir)/configure.ac\" > configure.tmp;
+	@\$(GAWK) -f ax_cvs_rel.awk -v change=3 \"\$(top_srcdir)/configure.ac\" > configure.tmp;
 	@mv configure.tmp \"\$(top_srcdir)/configure.ac\"
 	@touch \"\$(top_builddir)/commitlog\"
 	@DATE=\`date +\"%%Y-%%m-%%d\"\`; \\
-	echo \"${AX_DOLLAR}${AX_DOLLAR}DATE	$USERNAME	<$USEREMAIL>\" > commitlog.tmp ; \\
+	echo \"${AX_DOLLAR}${AX_DOLLAR}DATE	\$(USERNAME)	<\$(USEREMAIL)>\" > commitlog.tmp ; \\
 	echo \"\" >> commitlog.tmp; \\
 	echo \"	* ./configure.ac\" >> commitlog.tmp; \\
 	echo \"	Update version number\" >> commitlog.tmp; \\
@@ -452,7 +460,7 @@ inc_rel:
 	cat ${AX_DOLLAR}(top_builddir)/commitlog \"${AX_DOLLAR}(top_srcdir)/ChangeLog\" > ChangeLog.tmp; \\
 	mv ChangeLog.tmp \"${AX_DOLLAR}(top_srcdir)/ChangeLog\"; \\
 	CURR=\`(cd \"${AX_DOLLAR}(top_builddir)\"; pwd )\`; \\
-	(cd \"${AX_DOLLAR}(top_srcdir)\"; $CVS -z9 commit -F \"${AX_DOLLAR}${AX_DOLLAR}CURR/commitlog\"; ); \\
+	(cd \"${AX_DOLLAR}(top_srcdir)\"; \$(CVS) -z9 commit -F \"${AX_DOLLAR}${AX_DOLLAR}CURR/commitlog\"; ); \\
 	rm -f ${AX_DOLLAR}(top_builddir)/commitlog;
 
 tag: do_tag inc_rel
@@ -464,8 +472,7 @@ release: update distcheck add_rel tag
 # same as release, but distcheck is not performed before releasing
 quick-release:	update add_rel tag
 
-]])
-
-fi
+endif # ax_cvs_enabled
+])
 
 ])
