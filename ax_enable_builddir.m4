@@ -191,12 +191,13 @@ dnl Now handle rules (i.e. lines containing /:/ but not /:=/).
 /:/!b
 s/:.*/:/
 s/ /  /g
-s/ \\([[a-z]][[a-z-]]*[[a-z]]\\) / \\1 \\1[]_ALL /g
+s/ \\([[a-z]][[a-z-]]*[[a-z]]\\)\\([[ :]]\\)/ \\1 \\1[]_ALL\\2/g
 s/^\\([[a-z]][[a-z-]]*[[a-z]]\\)\\([[ :]]\\)/\\1 \\1[]_ALL\\2/
 s/  / /g
 /^all all[]_ALL[[ :]]/i\\
 all-configured : all[]_ALL
 dnl dist-all exists... and would make for dist-all-all
+s/ [[a-z-]]*[]_ALL [[a-z-]]*[]_ALL[]_ALL//g
 /[]_ALL[]_ALL/d
 a\\
 	@ HOST="\$(HOST)\" \\\\\\
