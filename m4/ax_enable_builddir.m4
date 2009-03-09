@@ -191,13 +191,13 @@ dnl Now handle rules (i.e. lines containing /:/ but not /:=/).
 /:/!b
 s/:.*/:/
 s/ /  /g
-s/ \\([[a-z]][[a-z-]]*[[a-z]]\\)\\([[ :]]\\)/ \\1 \\1[]_ALL\\2/g
-s/^\\([[a-z]][[a-z-]]*[[a-z]]\\)\\([[ :]]\\)/\\1 \\1[]_ALL\\2/
+s/ \\([[a-z]][[a-z-]]*[[a-zA-Z0-9]]\\)\\([[ :]]\\)/ \\1 \\1[]_ALL\\2/g
+s/^\\([[a-z]][[a-z-]]*[[a-zA-Z0-9]]\\)\\([[ :]]\\)/\\1 \\1[]_ALL\\2/
 s/  / /g
 /^all all[]_ALL[[ :]]/i\\
 all-configured : all[]_ALL
 dnl dist-all exists... and would make for dist-all-all
-s/ [[a-z-]]*[]_ALL [[a-z-]]*[]_ALL[]_ALL//g
+s/ [[a-zA-Z0-9-]]*[]_ALL [[a-zA-Z0-9-]]*[]_ALL[]_ALL//g
 /[]_ALL[]_ALL/d
 a\\
 	@ HOST="\$(HOST)\" \\\\\\
@@ -221,6 +221,18 @@ dnl special rule add-on: "dist" copies the tarball to $(PUB). (source tree)
 	; BUILD=$x grep "^#### .*|" Makefile |tail -1| sed -e 's/.*|//' $x \\\\\\
 	; fi ; for i in \$\$BUILD ; do test ".\$\$i" = "." && continue \\\\\\
 	; for f in \$\$i/\$(PACKAGE)-\$(VERSION).tar.* \\\\\\
+	; do test -f "\$\$f" && mv "\$\$f" \$(PUB). ; done ; break ; done
+dnl special rule add-on: "dist-foo" copies all the archives to $(PUB). (source tree)
+/dist-[[a-zA-Z0-9]]*[]_ALL *:/a\\
+	@ HOST="\$(HOST)\" \\\\\\
+	; test ".\$\$HOST" = "." && HOST=$x sh ./config.guess $x \\\\\\
+	; BUILD=$x grep "^#### \$\$HOST " Makefile | sed -e 's/.*|//' $x \\\\\\
+	; found=$x echo \$\$BUILD | wc -w $x \\\\\\
+	; echo "MAKE \$\$HOST : \$\$found \$(PACKAGE)-\$(VERSION).*" \\\\\\
+	; if test "\$\$found" = "0" ; then : \\\\\\
+	; BUILD=$x grep "^#### .*|" Makefile |tail -1| sed -e 's/.*|//' $x \\\\\\
+	; fi ; for i in \$\$BUILD ; do test ".\$\$i" = "." && continue \\\\\\
+	; for f in \$\$i/\$(PACKAGE)-\$(VERSION).* \\\\\\
 	; do test -f "\$\$f" && mv "\$\$f" \$(PUB). ; done ; break ; done
 dnl special rule add-on: "distclean" removes all local builddirs completely
 /distclean[]_ALL *:/a\\
