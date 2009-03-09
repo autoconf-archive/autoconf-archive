@@ -50,7 +50,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2009-03-09
 #
 # COPYLEFT
 #
@@ -85,6 +85,7 @@
 AC_DEFUN([AX_ENABLE_BUILDDIR],[
 AC_REQUIRE([AC_CANONICAL_HOST])[]dnl
 AC_REQUIRE([AX_CONFIGURE_ARGS])[]dnl
+AC_REQUIRE([AM_AUX_DIR_EXPAND])[]dnl
 AC_BEFORE([$0],[AM_INIT_AUTOMAKE])dnl
 AS_VAR_PUSHDEF([SUB],[ax_enable_builddir])dnl
 AS_VAR_PUSHDEF([AUX],[ax_enable_builddir_auxdir])dnl
@@ -129,10 +130,7 @@ if test ".$srcdir" = ".." ; then
 fi fi
 dnl ac_path_prog uses "set dummy" to override $@ which would defeat the "exec"
 AC_PATH_PROG(SED,gsed sed, sed)
-AUX="$ac_aux_dir"
-AUX=`echo "$AUX" | $SED -e "s|$ac_top_srcdir|.|"`
-test ".$AUX" = "." && AUX="$ac_aux_dir"
-test ".$AUX" = "." && AUX="."
+AUX="$am_aux_dir"
 AS_VAR_POPDEF([SED])dnl
 AS_VAR_POPDEF([AUX])dnl
 AS_VAR_POPDEF([SUB])dnl
