@@ -93,7 +93,7 @@ AS_VAR_PUSHDEF([SED],[ax_enable_builddir_sed])dnl
 SUB="."
 AC_ARG_ENABLE([builddir], AC_HELP_STRING(
   [--disable-builddir],[disable automatic build in subdir of sources])
-  ,[SUB="$enableval"], [SUB="yes"])
+  ,[SUB="$enableval"], [SUB="auto"])
 if test ".$ac_srcdir_defaulted" != ".no" ; then
 if test ".$srcdir" = ".." ; then
   if test -f config.status ; then
@@ -102,7 +102,7 @@ if test ".$srcdir" = ".." ; then
     test ".$SUB" = "."  && SUB="."
     test ".$SUB" = ".no"  && SUB="."
     test ".$TARGET" = "." && TARGET="$target"
-    test ".$SUB" = ".yes" && SUB="m4_ifval([$1], [$1],[$TARGET])"
+    test ".$SUB" = ".auto" && SUB="m4_ifval([$1], [$1],[$TARGET])"
     if test ".$SUB" != ".." ; then    # we know where to go and
       AS_MKDIR_P([$SUB])
       echo __.$SUB.__ > $SUB/conftest.tmp
@@ -128,6 +128,7 @@ if test ".$srcdir" = ".." ; then
     fi
   fi
 fi fi
+test ".$SUB" = ".auto" && SUB="."
 dnl ac_path_prog uses "set dummy" to override $@ which would defeat the "exec"
 AC_PATH_PROG(SED,gsed sed, sed)
 AUX="$am_aux_dir"
@@ -143,7 +144,7 @@ AS_VAR_PUSHDEF([SED],[ax_enable_builddir_sed])dnl
 pushdef([END],[Makefile.mk])dnl
 pushdef([_ALL],[ifelse([$3],,[-all],[$3])])dnl
   SRC="$ax_enable_builddir_srcdir"
-  if test ".$SUB" = "." ; then
+  if test ".$SUB" = ".." ; then
     if test -f "$TOP/Makefile" ; then
       AC_MSG_NOTICE([skipping TOP/Makefile - left untouched])
     else
