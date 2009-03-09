@@ -226,13 +226,15 @@ dnl special rule add-on: "distclean" removes all local builddirs completely
 /distclean[]_ALL *:/a\\
 	@ HOST="\$(HOST)\" \\\\\\
 	; test ".\$\$HOST" = "." && HOST=$x sh $AUX/config.guess $x \\\\\\
-	; BUILD=$x grep "^#### .*| *\\./" Makefile | sed -e 's/.*|//' $x \\\\\\
+	; BUILD=$x grep "^#### .*|" Makefile | sed -e 's/.*|//' $x \\\\\\
 	; use=$x basename "\$\@" _ALL $x; n=$x echo \$\$BUILD | wc -w $x \\\\\\
 	; echo "MAKE \$\$HOST : \$\$n * \$\@ (all local builds)" \\\\\\
 	; test ".\$\$BUILD" = "." && BUILD="." \\\\\\
 	; for i in \$\$BUILD ; do test ".\$\$i" = "." && continue \\\\\\
 	; echo "# rm -r \$\$i"; done ; echo "# (sleep 3)" ; sleep 3 \\\\\\
 	; for i in \$\$BUILD ; do test ".\$\$i" = "." && continue \\\\\\
+	; echo "\$\$i" | grep "^/" > /dev/null && continue \\\\\\
+	; echo "\$\$i" | grep "^../" > /dev/null && continue \\\\\\
 	; echo "rm -r \$\$i"; (rm -r "\$\$i") ; done ; rm Makefile
 _EOF
       cp "$tmp/conftemp.sed" "$SRC/makefile.sed~"            ## DEBUGGING
