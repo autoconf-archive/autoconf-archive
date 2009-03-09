@@ -186,16 +186,19 @@ s/^srcdir *=.*/srcdir = ./
 s/^top_srcdir *=.*/top_srcdir = ./
 /[[:=]]/!d
 /^\\./d
+dnl Now handle rules (i.e. lines containing /:/ but not /:=/).
+/:=/b
+/:/!b
 s/:.*/:/
-/:\$/s/ /  /g
-/:\$/s/ \\([[a-z]][[a-z-]]*[[a-z]]\\) / \\1 \\1[]_ALL /g
-/:\$/s/^\\([[a-z]][[a-z-]]*[[a-z]]\\)\\([[ :]]\\)/\\1 \\1[]_ALL\\2/
-/:\$/s/  / /g
+s/ /  /g
+s/ \\([[a-z]][[a-z-]]*[[a-z]]\\) / \\1 \\1[]_ALL /g
+s/^\\([[a-z]][[a-z-]]*[[a-z]]\\)\\([[ :]]\\)/\\1 \\1[]_ALL\\2/
+s/  / /g
 /^all all[]_ALL[[ :]]/i\\
 all-configured : all[]_ALL
 dnl dist-all exists... and would make for dist-all-all
 /[]_ALL[]_ALL/d
-/^.*[[=]]/!a\\
+a\\
 	@ HOST="\$(HOST)\" \\\\\\
 	; test ".\$\$HOST" = "." && HOST=$x sh $AUX/config.guess $x \\\\\\
 	; BUILD=$x grep "^#### \$\$HOST " Makefile | sed -e 's/.*|//' $x \\\\\\
