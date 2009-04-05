@@ -16,10 +16,10 @@
 #   Example:
 #
 #     AC_PATH_PROG([PERL],[perl])
-#     AC_PROG_PERL_VERSION([5.8.0],[ ... ],[ ... ])
+#     AX_PROG_PERL_VERSION([5.8.0],[ ... ],[ ... ])
 #
 #   This will check to make sure that the perl you have supports at least
-#   version 1.6.0.
+#   version 5.8.0.
 #
 #   NOTE: This macro uses the $PERL variable to perform the check.
 #   AX_WITH_PERL can be used to set that variable prior to running this
@@ -28,7 +28,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2008-12-25
 #
 # COPYLEFT
 #
