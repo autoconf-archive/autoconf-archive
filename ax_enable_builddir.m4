@@ -54,7 +54,8 @@
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
+#   Copyright (c) 2009 Guido U. Draheim <guidod@gmx.de>
+#   Copyright (c) 2009 Alan Jenkins <alan-jenkins@tuffmail.co.uk>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
