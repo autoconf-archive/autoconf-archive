@@ -13,11 +13,11 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2009-02-23
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Francesco Salvestrini <salvestrini@users.sourceforge.net>
+#   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -47,8 +47,10 @@
 
 AC_DEFUN([AX_PROG_BISON], [
   AC_REQUIRE([AC_PROG_YACC])
+  AC_REQUIRE([AC_PROG_SED])
+
   AC_CACHE_CHECK([if bison is the parser generator],[ax_cv_prog_bison],[
-    AS_IF([test -n "`echo $YACC | sed 's/^.*\(bison\).*/\1/'`"],[
+    AS_IF([test "`echo \"$YACC\" | $SED 's,^.*\(bison\).*$,\1,'`" = "bison" ],[
       ax_cv_prog_bison=yes
     ],[
       ax_cv_prog_bison=no
