@@ -34,10 +34,10 @@
 #   transmute_into_gold, you can use the following in you configure.ac:
 #
 #     AX_F90_MODULE_EXTENSION
-#     if test x$ax_f90_modext = xunknown ; then
+#     if test x$ax_cv_f90_modext = xunknown ; then
 #       AC_MSG_ERROR([unable to find f90 modules extension])
 #     fi
-#     AX_F90_LIBRARY_SETUP(alchemy,[],alchemy.$ax_f90_modext,libalchemy*,[
+#     AX_F90_LIBRARY_SETUP(alchemy,[],alchemy.$ax_cv_f90_modext,libalchemy*,[
 #        use alchemy
 #        call transmute_into_gold('lead')
 #       ])
@@ -48,7 +48,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2009-01-08
 #
 # COPYLEFT
 #
