@@ -42,7 +42,7 @@ How To Contribute
  choice typically is the all-permissive license recommended_ for
  Autoconf macros by the Free Software Foundation. Other popular
  licenses used on this site are BSD, GPL, GPL with Autoconf
- exception, and LPGL.
+ exception, and LGPL.
 
  Formatting the macro submission in the Archive's markup is
  unnecessary, but it makes my life a little easier of you go
