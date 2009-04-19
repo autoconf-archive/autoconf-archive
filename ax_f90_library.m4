@@ -25,7 +25,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2009-01-08
 #
 # COPYLEFT
 #
@@ -36,8 +36,8 @@
 #   and this notice are preserved.
 
 AC_DEFUN([AX_F90_LIBRARY],[
-AS_VAR_PUSHDEF([ax_ldflags],[ax_f90_ldflags_$1])
-AS_VAR_PUSHDEF([ax_libs],[ax_f90_libs_$1])
+AS_VAR_PUSHDEF([ax_ldflags],[ax_cv_f90_ldflags_$1])
+AS_VAR_PUSHDEF([ax_libs],[ax_cv_f90_libs_$1])
 AC_MSG_CHECKING([$1 fortran 90 library])
 AC_LANG_PUSH(Fortran)
 AS_VAR_SET([ax_ldflags],"")

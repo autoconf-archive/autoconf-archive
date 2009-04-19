@@ -25,7 +25,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2009-01-08
 #
 # COPYLEFT
 #
@@ -37,6 +37,6 @@
 
 AC_DEFUN([AX_F90_MODULE],[
  AC_REQUIRE([AX_F90_MODULE_FLAG])
- AX_F90_INTERNAL_HEADMOD([$1 fortran 90 module],[$2],"$ax_f90_modflag",
+ AX_F90_INTERNAL_HEADMOD([$1 fortran 90 module],[$2],"$ax_cv_f90_modflag",
                          [$3],AS_TR_SH(F90_MODULE_$1),[$4],[$5],[$6])
 ])

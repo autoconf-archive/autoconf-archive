@@ -12,7 +12,7 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2009-01-08
 #
 # COPYLEFT
 #
@@ -23,7 +23,7 @@
 #   and this notice are preserved.
 
 AC_DEFUN([AX_F90_INTERNAL_HEADMOD],[
-AS_VAR_PUSHDEF([ax_include],[ax_f90_headmod_$2])
+AS_VAR_PUSHDEF([ax_include],[ax_cv_f90_headmod_$2])
 AC_MSG_CHECKING([$1])
 AC_LANG_PUSH(Fortran)
 AS_VAR_SET(ax_include,"not found")
