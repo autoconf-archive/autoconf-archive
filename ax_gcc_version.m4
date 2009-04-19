@@ -13,11 +13,11 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2009-04-19
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Francesco Salvestrini <salvestrini@users.sourceforge.net>
+#   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -53,7 +53,7 @@ AC_DEFUN([AX_GCC_VERSION], [
     ax_gcc_version_option=no
   ])
   AS_IF([test "x$GCC" = "xyes"],[
-    AS_IF([test "x$ax_gcc_version_option" != "no"],[
+    AS_IF([test "x$ax_gcc_version_option" != "xno"],[
       AC_CACHE_CHECK([gcc version],[ax_cv_gcc_version],[
         ax_cv_gcc_version="`$CC -dumpversion`"
         AS_IF([test "x$ax_cv_gcc_version" = "x"],[
