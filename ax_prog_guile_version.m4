@@ -11,7 +11,7 @@
 #   Makes sure that guile supports the version indicated. If true the shell
 #   commands in ACTION-IF-TRUE are executed. If not the shell commands in
 #   ACTION-IF-FALSE are run. Note if $GUILE is not set (for example by
-#   running AC_CHECK_PROG or AC_PATH_PROG),
+#   running AC_CHECK_PROG or AC_PATH_PROG) the macro will fail.
 #
 #   Example:
 #
