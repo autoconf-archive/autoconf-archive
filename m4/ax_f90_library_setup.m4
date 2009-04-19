@@ -48,11 +48,11 @@
 #
 # LAST MODIFICATION
 #
-#   2009-01-08
+#   2009-04-19
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
+#   Copyright (c) 2009 Luc Maisonobe <luc@spaceroots.org>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
