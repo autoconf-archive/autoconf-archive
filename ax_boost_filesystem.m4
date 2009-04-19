@@ -22,12 +22,13 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2009-04-19
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Thomas Porschberg <thomas@randspringer.de>
-#   Copyright (c) 2008 Michael Tindal
+#   Copyright (c) 2009 Thomas Porschberg <thomas@randspringer.de>
+#   Copyright (c) 2009 Michael Tindal
+#   Copyright (c) 2009 Roman Rybalko <libtorrent@romanr.info>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
@@ -63,6 +64,10 @@ AC_DEFUN([AX_BOOST_FILESYSTEM],
 		LDFLAGS="$LDFLAGS $BOOST_LDFLAGS"
 		export LDFLAGS
 
+		LIBS_SAVED=$LIBS
+		LIBS="$LIBS $BOOST_SYSTEM_LIB"
+		export LIBS
+
         AC_CACHE_CHECK(whether the Boost::Filesystem library is available,
 					   ax_cv_boost_filesystem,
         [AC_LANG_PUSH([C++])
@@ -77,7 +82,7 @@ AC_DEFUN([AX_BOOST_FILESYSTEM],
 			AC_DEFINE(HAVE_BOOST_FILESYSTEM,,[define if the Boost::Filesystem library is available])
             BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
             if test "x$ax_boost_user_filesystem_lib" = "x"; then
-                for libextension in `ls $BOOSTLIBDIR/libboost_filesystem*.{so,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^lib\(boost_filesystem.*\)\.so.*$;\1;' -e 's;^lib\(boost_filesystem.*\)\.a*$;\1;'` ; do
+                for libextension in `ls $BOOSTLIBDIR/libboost_filesystem*.{so,dylib,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^lib\(boost_filesystem.*\)\.so.*$;\1;' -e 's;^lib\(boost_filesystem.*\)\.a*$;\1;' -e 's;^lib\(boost_filesystem.*\)\.dylib$;\1;'` ; do
                      ax_lib=${libextension}
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_FILESYSTEM_LIB="-l$ax_lib"; AC_SUBST(BOOST_FILESYSTEM_LIB) link_filesystem="yes"; break],
@@ -105,6 +110,7 @@ AC_DEFUN([AX_BOOST_FILESYSTEM],
 		fi
 
 		CPPFLAGS="$CPPFLAGS_SAVED"
-    	LDFLAGS="$LDFLAGS_SAVED"
+    		LDFLAGS="$LDFLAGS_SAVED"
+		LIBS="$LIBS_SAVED"
 	fi
 ])
