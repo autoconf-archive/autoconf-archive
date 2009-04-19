@@ -86,11 +86,11 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2009-02-14
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Loic Dachary <loic@senga.org>
+#   Copyright (c) 2009 Loic Dachary <loic@senga.org>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -168,7 +168,10 @@ dnl Generate a AC_DEFINE(function_tag, tag_VAL) for each tag in <tags> list
 dnl Assumes that function is a macro containing the name of the function in upper case
 dnl and that tag_VAL is a macro containing the value associated to tag.
 dnl
-AC_DEFUN([AC_PROTOTYPE_DEFINES],[ifelse($1,,[],[AC_DEFINE(function[]_$1, $1_VAL) AC_PROTOTYPE_DEFINES(builtin([shift],$@))])])
+AC_DEFUN([AC_PROTOTYPE_DEFINES],[ifelse($1,,[],
+	[AC_DEFINE(function[]_$1, $1_VAL)
+	AC_SUBST(function[]_$1, "$1_VAL")
+	AC_PROTOTYPE_DEFINES(builtin([shift],$@))])])
 
 dnl
 dnl AC_PROTOTYPE_STATUS(tags)
