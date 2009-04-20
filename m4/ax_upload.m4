@@ -35,11 +35,11 @@
 #
 # LAST MODIFICATION
 #
-#   2009-02-10
+#   2009-04-20
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Tom Howard <tomhoward@users.sf.net>
+#   Copyright (c) 2009 Tom Howard <tomhoward@users.sf.net>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice

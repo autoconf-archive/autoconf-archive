@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ax_ac_append_to_file.html
+#          http://autoconf-archive.cryp.to/ax_ac_append_to_file.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   Appends the specified data to the specified Autoconf is run.  If you want
+#   Appends the specified data to the specified Autoconf is run. If you want
 #   to append to a file when configure is run use AX_APPEND_TO_FILE instead.
 #
 # LAST MODIFICATION

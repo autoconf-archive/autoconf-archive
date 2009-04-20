@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ax_ac_print_to_file.html
+#          http://autoconf-archive.cryp.to/ax_ac_print_to_file.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -9,12 +9,12 @@
 # DESCRIPTION
 #
 #   Writes the specified data to the specified file when Autoconf is is run.
-#   If you want to print to a file when configure is run use AX_PRINT_TO_FILE
-#   instead.
+#   If you want to print to a file when configure is run use
+#   AX_PRINT_TO_FILE instead.
 #
 # LAST MODIFICATION
 #
-#   2009-02-06
+#   2009-04-20
 #
 # COPYLEFT
 #
