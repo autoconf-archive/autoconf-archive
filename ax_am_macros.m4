@@ -8,8 +8,8 @@
 #
 # DESCRIPTION
 #
-#   Adds support for macros that create Make rules. You must manually
-#   add the following line
+#   Adds support for macros that create Make rules. You must manually add
+#   the following line
 #
 #     @INC_AMINCLUDE@
 #
@@ -17,11 +17,11 @@
 #
 # LAST MODIFICATION
 #
-#   2009-02-09
+#   2009-04-20
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Tom Howard <tomhoward@users.sf.net>
+#   Copyright (c) 2009 Tom Howard <tomhoward@users.sf.net>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice

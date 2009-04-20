@@ -8,17 +8,17 @@
 #
 # DESCRIPTION
 #
-#   Adds the specified rule to $AMINCLUDE.  This macro will only work properly
-#   with implementations of Make which allow include statements.  See also
-#   AX_ADD_AM_MACRO_STATIC.
+#   Adds the specified rule to $AMINCLUDE. This macro will only work
+#   properly with implementations of Make which allow include statements.
+#   See also AX_ADD_AM_MACRO_STATIC.
 #
 # LAST MODIFICATION
 #
-#   2009-02-09
+#   2009-04-20
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Tom Howard <tomhoward@users.sf.net>
+#   Copyright (c) 2009 Tom Howard <tomhoward@users.sf.net>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice

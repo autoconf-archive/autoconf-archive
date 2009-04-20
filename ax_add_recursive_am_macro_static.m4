@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://autoconf-archive.cryp.to/ax_add_recursive_am_macro_static.html
+#    http://autoconf-archive.cryp.to/ax_add_recursive_am_macro_static.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -9,16 +9,16 @@
 # DESCRIPTION
 #
 #   Adds the specified rule to AMINCLUDE_STATIC along with a
-#   TARGET-recursive rule that will call TARGET for the current
-#   directory and TARGET-am recursively for each subdirectory.
+#   TARGET-recursive rule that will call TARGET for the current directory
+#   and TARGET-am recursively for each subdirectory.
 #
 # LAST MODIFICATION
 #
-#   2009-02-08
+#   2009-04-20
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Tom Howard <tomhoward@users.sf.net>
+#   Copyright (c) 2009 Tom Howard <tomhoward@users.sf.net>
 #   Copyright (c) 2009 Allan Caffee <allan.caffee@gmail.com>
 #
 #   Copying and distribution of this file, with or without modification, are
