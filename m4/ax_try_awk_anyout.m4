@@ -20,11 +20,11 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2009-04-20
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Francesco Salvestrini <salvestrini@users.sourceforge.net>
+#   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice

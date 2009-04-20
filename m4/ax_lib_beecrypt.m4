@@ -22,11 +22,11 @@
 #
 # LAST MODIFICATION
 #
-#   2008-08-07
+#   2009-04-20
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Fabien Coelho <autoconf.archive@coelho.net>
+#   Copyright (c) 2009 Fabien Coelho <autoconf.archive@coelho.net>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice

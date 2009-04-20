@@ -25,13 +25,13 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2009-04-20
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Caolan McNamara <caolan@skynet.ie>
-#   Copyright (c) 2008 Alexandre Duret-Lutz <adl@gnu.org>
-#   Copyright (c) 2008 Matthew Mueller <donut@azstarnet.com>
+#   Copyright (c) 2009 Caolan McNamara <caolan@skynet.ie>
+#   Copyright (c) 2009 Alexandre Duret-Lutz <adl@gnu.org>
+#   Copyright (c) 2009 Matthew Mueller <donut@azstarnet.com>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
