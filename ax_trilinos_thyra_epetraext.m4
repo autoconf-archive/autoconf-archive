@@ -14,11 +14,11 @@
 #
 # LAST MODIFICATION
 #
-#   2008-11-02
+#   2009-04-20
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Rhys Ulerich <rhys.ulerich@gmail.com>
+#   Copyright (c) 2009 Rhys Ulerich <rhys.ulerich@gmail.com>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice

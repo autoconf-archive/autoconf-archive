@@ -18,11 +18,11 @@
 #
 # LAST MODIFICATION
 #
-#   2008-10-07
+#   2009-04-20
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Braden McDaniel <braden@endoframe.com>
+#   Copyright (c) 2009 Braden McDaniel <braden@endoframe.com>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
