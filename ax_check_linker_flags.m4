@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/ax_check_linker_flags.html
+#         http://autoconf-archive.cryp.to/ax_check_linker_flags.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -18,13 +18,13 @@
 #
 # LAST MODIFICATION
 #
-#   2009-02-01
+#   2009-04-23
 #
 # COPYLEFT
 #
-#   Copyfight (c) 2009 Mike Frysinger <vapier@gentoo.org>
-#   Copyright (c) 2008 Steven G. Johnson <stevenj@alum.mit.edu>
-#   Copyright (c) 2008 Matteo Frigo
+#   Copyright (c) 2009 Mike Frysinger <vapier@gentoo.org>
+#   Copyright (c) 2009 Steven G. Johnson <stevenj@alum.mit.edu>
+#   Copyright (c) 2009 Matteo Frigo
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
