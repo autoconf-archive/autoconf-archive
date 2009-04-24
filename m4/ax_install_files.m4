@@ -85,6 +85,6 @@ endif # ax_install_files_enabled
 
 clean-local: clean-ax-install-files
 clean-ax-install-files:
-	-test -z "\$(AX_INSTALL_FILES)" || rm -f \$(AX_INSTALL_FILES)
+	-test -z \"\$(AX_INSTALL_FILES)\" || rm -f \$(AX_INSTALL_FILES)
 ])
 ])# AX_INSTALL_FILES
