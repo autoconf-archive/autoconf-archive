@@ -17,12 +17,12 @@
 #
 # LAST MODIFICATION
 #
-#   2008-04-12
+#   2009-04-24
 #
 # COPYLEFT
 #
-#   Copyright (c) 2008 Steven G. Johnson <stevenj@alum.mit.edu>
-#   Copyright (c) 2008 Matteo Frigo
+#   Copyright (c) 2009 Steven G. Johnson <stevenj@alum.mit.edu>
+#   Copyright (c) 2009 Matteo Frigo
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
