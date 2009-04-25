@@ -6,84 +6,64 @@ Autoconf Macro Archive
 :Macro Index By:  Category_ ; Author_
 :Latest Release:  autoconf-archive-2009-04-19.tar.bz2_
 :Change History:  `ATOM Log`_ ; `RSS Feed`_
-:GIT Repository:  git_ clone http://git.cryp.to/autoconf-archive
+:GIT Repository:  git clone http://git.cryp.to/autoconf-archive
 
 -------------------------------------------------------------------------------
 
 Synopsis
 --------
 
- The `Autoconf Macro Archive <http://autoconf-archive.cryp.to/>`_
- aims to provide a collection of reusable Autoconf_ macros as
- free software. The archive currently features more than 500
- macros which perform portability tests ranging from compiler
- support for weird language extensions to automatic generation of
- sophisticated Automake_ rules. All these macros have been
- contributed by friendly supporters of the cause from all over
- the Internet; this archive is merely a distribution of other
- people's efforts.
+The `Autoconf Archive`_ is a collection of more than 600 freely re-usable
+Autoconf_ macros. These macros have been contributed by friendly supporters
+of the cause from all over the Internet.
 
 How To Contribute
 -----------------
 
- Have you written a macro and would like to share it? Great!
- Simply send the m4 source code to <simons@cryp.to> and include a
- brief description of the macro's functionality. Suggestions into
- which Archive category the macro belongs are appreciated. In any
- case, please state the following bits of information:
+If you have written a macro and would like to share it, then please `e-mail
+the m4 file to me <mailto:simons@cryp.to>`_. In addition to the actual
+source code, your submission should also include the following bits of
+information:
 
- * A synopsis showing how the macro is to be called.
+* A synopsis that shows how the macro must be be called.
 
- * The list of authors (optionally with e-mail addresses).
+* A brief description of the macro's purpose.
 
- * Licensing information.
+* The list of authors (optionally with e-mail addresses).
 
- Any OSI_ compliant free software license is fine, but the best
- choice typically is the all-permissive license recommended_ for
- Autoconf macros by the Free Software Foundation. Other popular
- licenses used on this site are BSD, GPL, GPL with Autoconf
- exception, and LGPL.
+* Licensing information.
 
- Formatting the macro submission in the Archive's markup is
- unnecessary, but it makes my life a little easier of you go
- through the trouble. You can use any of existing entries as a
- template to start from. When you submit a marked-up entry,
- however, please do not rely on special layout in your
- documentation except plain text and indented block quotes. One
- of the reasons for this limitation is that macro documentation
- will be subject to word-wrapping when presented as an HTML page.
+You can submit your macro under any `GPL-compatible free software
+license`_, but the best choice is the `all-permissive license`_ recommended
+by the Free Software Foundation.
 
- Another way to contribute to the Archive is to patch any of the
- existing macros. If you have fixed a bug or made any other
- enhancement, please send your complete edited version to the
- address above and Cc the e-mail to the *original authors* to
- give them a chance to comment on your changes. If you would like
- to submit a "diff" instead, please make sure to update the "last
- modified" date stamp appropriately so that the original version
- information is visible in the patch.
+Another great way to contribute to the Archive is to submit patches. Git_
+patches are particularly welcome.
 
 Copyleft
 --------
 
- Compilation Copyright (c) 2009 by Peter Simons <simons@cryp.to>.
- The Autoconf Macro Archive is free software: you can
- redistribute it and/or modify it under the terms of the `GNU
- General Public License version 3
- <http://www.gnu.org/licenses/gpl.html>`_ or (at your option) any
- later version.
+Compilation Copyright (c) 2009 by Peter Simons <simons@cryp.to>
 
- All macros are copyrighted by their respective authors.
- Please refer to the individual files for details.
+The Autoconf Macro Archive is free software: you can redistribute it and/or
+modify it under the terms of the `GNU General Public License version 3
+<http://www.gnu.org/licenses/gpl.html>`_ or (at your option) any later
+version.
+
+All macros are copyrighted by their respective authors. Please refer to the
+individual files for details.
 
 
 .. References used in the text above
 .. .................................
 
+.. _Autoconf Archive: http://autoconf-archive.cryp.to/
+
 .. _Category: macros-by-category.html
 
 .. _Author: macros-by-author.html
 
-.. _git: http://git.or.cz/
+.. _Git: http://git-scm.com/
 
 .. _RSS Feed: http://git.cryp.to/autoconf-archive?a=rss
 
@@ -91,10 +71,8 @@ Copyleft
 
 .. _Autoconf: http://www.gnu.org/software/autoconf/
 
-.. _Automake: http://sources.redhat.com/automake/
-
 .. _autoconf-archive-2009-04-19.tar.bz2: http://autoconf-archive.cryp.to/autoconf-archive-2009-04-19.tar.bz2
 
-.. _OSI: http://www.opensource.org/
+.. _GPL-compatible free software license: http://www.gnu.org/licenses/license-list.html
 
-.. _recommended: http://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html
+.. _all-permissive license: http://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html
