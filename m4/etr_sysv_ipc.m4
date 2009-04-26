@@ -12,11 +12,7 @@
 #   can compile a program with them, not whether the system actually
 #   implements working SysV IPC.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Warren Young <warren@etr-usa.com>
 #

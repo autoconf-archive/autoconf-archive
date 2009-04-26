@@ -20,11 +20,7 @@
 #   Based on Caolan McNamara's gethostbyname_r macro. Based on David
 #   Arnold's autoconf suggestion in the threads faq.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 raf <raf@raf.org>
 #
@@ -50,9 +46,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AC_raf_FUNC_WHICH_GETSERVBYNAME_R],
 [AC_CACHE_CHECK(for getservbyname_r, ac_cv_func_which_getservbyname_r, [

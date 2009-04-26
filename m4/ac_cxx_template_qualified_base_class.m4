@@ -11,11 +11,7 @@
 #   If the compiler supports template-qualified base class specifiers,
 #   define HAVE_TEMPLATE_QUALIFIED_BASE_CLASS.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Todd Veldhuizen
 #   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>

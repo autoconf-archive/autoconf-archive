@@ -11,11 +11,7 @@
 #   If the compiler supports partial specialization, define
 #   HAVE_PARTIAL_SPECIALIZATION.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Todd Veldhuizen
 #   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>

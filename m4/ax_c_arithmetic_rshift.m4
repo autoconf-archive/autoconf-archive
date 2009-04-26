@@ -12,11 +12,7 @@
 #
 #   This macro uses compile-time detection and so is cross-compile ready.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 YAMAMOTO Kengo <yamaken AT bp.iij4u.or.jp>
 #

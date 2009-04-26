@@ -24,11 +24,7 @@
 #   safe to assume that AX_HAVE_SELECT would succeed if AX_HAVE_SELECT_PWAIT
 #   has, but not the other way round.
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Peter Simons <simons@cryp.to>
 #

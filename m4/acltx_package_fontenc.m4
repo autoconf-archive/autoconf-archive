@@ -11,11 +11,7 @@
 #   Check if the package fontenc exists and try to use T1 or OT1 and set
 #   fontenc to T1, OT1 or no
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Boretti Mathieu <boretti@eig.unige.ch>
 #

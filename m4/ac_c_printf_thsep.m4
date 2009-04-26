@@ -13,11 +13,7 @@
 #   and grouping determined by the locale. If true, HAVE_PRINTF_THSEP is
 #   defined in config.h
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Bill Poser <billposer@alum.mit.edu>
 #

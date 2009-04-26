@@ -11,11 +11,7 @@
 #   If the C++ compiler supports exceptions handling (try, throw and catch),
 #   define HAVE_EXCEPTIONS.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Todd Veldhuizen
 #   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>

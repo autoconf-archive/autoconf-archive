@@ -14,11 +14,7 @@
 #   respectively (as well as gaining the macros defined by
 #   `AC_STRUCT_TIMEZONE').
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Mark R. Bannister
 #
@@ -44,9 +40,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AC_VAR_TIMEZONE_EXTERNALS],
 [  AC_REQUIRE([AC_STRUCT_TIMEZONE])dnl

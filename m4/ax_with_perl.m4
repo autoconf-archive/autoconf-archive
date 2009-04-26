@@ -19,11 +19,7 @@
 #
 #         AX_WITH_PERL
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>
 #

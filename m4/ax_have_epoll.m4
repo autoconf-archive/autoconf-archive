@@ -33,11 +33,7 @@
 #   AX_HAVE_EPOLL would succeed if AX_HAVE_EPOLL_PWAIT has, but not the
 #   other way round.
 #
-# LAST MODIFICATION
-#
-#   2008-05-07
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Peter Simons <simons@cryp.to>
 #

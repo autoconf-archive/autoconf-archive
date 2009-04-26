@@ -23,11 +23,7 @@
 #   the compiler we found is GCC. All these variables but GCC_FOR_BUILD are
 #   substituted in the Makefile.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Paolo Bonzini <bonzini@gnu.org>
 #

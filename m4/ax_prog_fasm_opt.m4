@@ -16,11 +16,7 @@
 #
 #     AX_PROG_FASM_OPT([-m 256], [FASM_OPTS])
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Bogdan Drozdowski <bogdandr # op . pl>
 #

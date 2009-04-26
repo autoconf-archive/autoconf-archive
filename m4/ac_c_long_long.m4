@@ -11,11 +11,7 @@
 #   Provides a test for the existence of the long long int type and defines
 #   HAVE_LONG_LONG if it is found.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Caolan McNamara <caolan@skynet.ie>
 #

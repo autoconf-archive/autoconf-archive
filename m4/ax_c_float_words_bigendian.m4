@@ -27,11 +27,7 @@
 #   If neither value is found, the user is instructed to specify the
 #   ordering.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Daniel Amelang <dan@amelang.net>
 #

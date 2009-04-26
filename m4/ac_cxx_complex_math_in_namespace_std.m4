@@ -11,11 +11,7 @@
 #   If the C math functions are in the cmath header file and std::
 #   namespace, define HAVE_MATH_FN_IN_NAMESPACE_STD.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Todd Veldhuizen
 #   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>

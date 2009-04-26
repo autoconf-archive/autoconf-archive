@@ -11,11 +11,7 @@
 #   If the compiler handle (int) casts in enum computations, define
 #   HAVE_ENUM_COMPUTATIONS_WITH_CAST.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Todd Veldhuizen
 #   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>

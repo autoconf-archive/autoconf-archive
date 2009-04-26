@@ -15,11 +15,7 @@
 #   This is one of several autoconf macros intended to assist in configuring
 #   and installing loadable kernel modules.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Kaelin Colclasure <kaelin@acm.org>
 #

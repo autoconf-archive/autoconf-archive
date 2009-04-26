@@ -27,11 +27,7 @@
 #   consequencd, most of the generatable installable stuff can be made from
 #   information being updated in a single place for the whole project.
 #
-# LAST MODIFICATION
-#
-#   2008-06-02
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
 #   Copyright (c) 2008 Sven Verdoolaege <skimo@kotnet.org>
@@ -58,9 +54,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_CREATE_PKGCONFIG_INFO],[dnl
 AS_VAR_PUSHDEF([PKGCONFIG_suffix],[ax_create_pkgconfig_suffix])dnl

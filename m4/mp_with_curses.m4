@@ -18,11 +18,7 @@
 #   This macro adds the option "--with-ncurses" to configure which can force
 #   the use of ncurses or nothing at all.
 #
-# LAST MODIFICATION
-#
-#   2008-08-25
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Mark Pulford <mark@kyne.com.au>
 #
@@ -48,9 +44,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([MP_WITH_CURSES],
   [AC_ARG_WITH(ncurses, [  --with-ncurses          Force the use of ncurses over curses],,)

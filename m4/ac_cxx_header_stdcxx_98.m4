@@ -10,11 +10,7 @@
 #
 #   Check for complete library coverage of the C++1998/2003 standard.
 #
-# LAST MODIFICATION
-#
-#   2008-04-17
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Benjamin Kosnik <bkoz@redhat.com>
 #

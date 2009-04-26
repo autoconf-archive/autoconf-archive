@@ -12,11 +12,7 @@
 #   __LARGEFILE64_SOURCE where one is needed. (Note that an appropriative
 #   entry must be in config.h.in.)
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Ruslan Shevchenko <Ruslan@Shevchenko.Kiev.UA>
 #

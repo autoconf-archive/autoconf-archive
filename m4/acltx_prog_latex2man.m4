@@ -13,11 +13,7 @@
 #   ACTION-IF-NOT-FOUND is not specified, configure fail when then
 #   application is not found.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Boretti Mathieu <boretti@eig.unige.ch>
 #

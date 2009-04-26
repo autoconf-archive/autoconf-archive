@@ -13,11 +13,7 @@
 #   AC_DEFINE_UNQUOTED() on the VARIABLENAME for VARIABLENAMEs that should
 #   be entered into the config.h file as well.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Wes Hardaker <wjhardaker@ucdavis.edu>
 #

@@ -15,11 +15,7 @@
 #   flagged for uploading (see ax_extra_dist.m4 and ax_upload.m4 for
 #   details).
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Tom Howard <tomhoward@users.sf.net>
 #

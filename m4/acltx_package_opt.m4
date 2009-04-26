@@ -11,11 +11,7 @@
 #   This package do the same thing as ACLTX_PACKAGE, except, that PARAMETER
 #   is optional parameter for the package
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Boretti Mathieu <boretti@eig.unige.ch>
 #

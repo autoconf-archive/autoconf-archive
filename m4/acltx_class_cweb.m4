@@ -19,11 +19,7 @@
 #   the compatible offshoot CWEBx are tested here. See
 #   http://www.ctan.org/tex-archive/help/Catalogue/entries/cweb-latex.html.
 #
-# LAST MODIFICATION
-#
-#   2008-08-19
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Rhys Ulerich <rhys.ulerich@gmail.com>
 #   Copyright (c) 2008 Boretti Mathieu <boretti@eig.unige.ch>

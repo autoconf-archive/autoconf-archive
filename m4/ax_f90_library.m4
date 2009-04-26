@@ -23,11 +23,7 @@
 #   proper flag for substitution in Makefiles (xxx is built from the first
 #   argument, with autoconf traditional escapes).
 #
-# LAST MODIFICATION
-#
-#   2009-04-19
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Luc Maisonobe <luc@spaceroots.org>
 #

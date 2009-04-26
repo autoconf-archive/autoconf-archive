@@ -42,11 +42,7 @@
 #     --with-lua-includes=DIR   Lua include files are in DIR.
 #     --with-lua-libraries=DIR  Lua library files are in DIR.
 #
-# LAST MODIFICATION
-#
-#   2009-04-19
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Reuben Thomas <rrt@sc3d.org>
 #   Copyright (c) 2009 Matthieu Moy <Matthieu.Moy@imag.fr>
@@ -74,9 +70,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 dnl Helper function to declare extra options
 AC_DEFUN([_AX_LUA_OPTS],

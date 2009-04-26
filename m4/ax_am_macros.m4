@@ -15,11 +15,7 @@
 #
 #   to your Makefile.in (or Makefile.am if you use Automake) files.
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Tom Howard <tomhoward@users.sf.net>
 #

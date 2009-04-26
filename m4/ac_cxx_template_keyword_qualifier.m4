@@ -11,11 +11,7 @@
 #   If the compiler supports use of the template keyword as a qualifier,
 #   define HAVE_TEMPLATE_KEYWORD_QUALIFIER.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Todd Veldhuizen
 #   Copyright (c) 2008 Bernardo Innocenti

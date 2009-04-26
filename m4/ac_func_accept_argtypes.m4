@@ -22,11 +22,7 @@
 #   NOTE: This is just a modified version of the AC_FUNC_SELECT_ARGTYPES
 #   macro. Credit for that one goes to David MacKenzie et. al.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Daniel Richard G. <skunk@iskunk.org>
 #
@@ -52,9 +48,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AC_FUNC_ACCEPT_ARGTYPES],
 [AC_MSG_CHECKING([types of arguments for accept()])

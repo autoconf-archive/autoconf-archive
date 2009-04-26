@@ -25,11 +25,7 @@
 #   Finally, it defines AFS_int32 to be the in32 type needed. In older
 #   versions of afs it was 'int32', and in newer versions it's 'afs_int32'.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Scott Grosch <Scott.Grosch@intel.com>
 #

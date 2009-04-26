@@ -19,11 +19,7 @@
 #   with the `--with-mpatrol' option to the resulting `configure' shell
 #   script.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Graeme S. Roy <graeme@epc.co.uk>
 #

@@ -29,11 +29,7 @@
 #
 #   The test itself is based on the autoconf 2.53 version of AC_SEARCH_LIBS.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Duncan Simpson <dps@simpson.demon.co.uk>
 #

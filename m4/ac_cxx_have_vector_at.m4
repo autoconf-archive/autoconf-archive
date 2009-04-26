@@ -11,11 +11,7 @@
 #   If the implementation of the C++ library provides the method
 #   std::vector::at(std::size_t), define HAVE_VECTOR_AT.
 #
-# LAST MODIFICATION
-#
-#   2008-11-07
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Jan Langer <jan@langernetz.de>
 #

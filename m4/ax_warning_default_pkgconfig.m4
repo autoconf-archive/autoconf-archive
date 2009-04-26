@@ -33,11 +33,7 @@
 #   to the primary path where `pkg-config` looks for .pc files. The user may
 #   also override the default on the command line.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
 #
@@ -63,9 +59,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_WARNING_DEFAULT_PKGCONFIGDIR],[dnl
 AC_REQUIRE([AX_EXPAND_PREFIX])dnl

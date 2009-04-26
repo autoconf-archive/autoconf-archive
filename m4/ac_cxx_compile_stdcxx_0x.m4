@@ -11,11 +11,7 @@
 #   Check for baseline language coverage in the compiler for the C++0x
 #   standard.
 #
-# LAST MODIFICATION
-#
-#   2008-04-17
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Benjamin Kosnik <bkoz@redhat.com>
 #

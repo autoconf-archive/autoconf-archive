@@ -12,11 +12,7 @@
 #   looks for the jni.h header file. If available, JAVAH is set to the full
 #   path of javah and CPPFLAGS is updated accordingly.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
 #

@@ -31,11 +31,7 @@
 #   If you need to use this macro for an older Python version, please
 #   contact the authors. We're always open for feedback.
 #
-# LAST MODIFICATION
-#
-#   2009-04-24
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Sebastian Huber <sebastian-huber@web.de>
 #   Copyright (c) 2009 Alan W. Irwin <irwin@beluga.phys.uvic.ca>
@@ -66,9 +62,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AC_PYTHON_DEVEL],[
 	#

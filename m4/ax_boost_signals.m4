@@ -20,11 +20,7 @@
 #
 #     HAVE_BOOST_SIGNALS
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Thomas Porschberg <thomas@randspringer.de>
 #   Copyright (c) 2008 Michael Tindal

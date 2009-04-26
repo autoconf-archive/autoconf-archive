@@ -11,11 +11,7 @@
 #   Check that the POSIX compliant sysinfo(2) call works properly. Linux has
 #   its own weirdo alternative.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Bruce Korb <bkorb@gnu.org>
 #

@@ -10,11 +10,7 @@
 #
 #   If the C++ library has a working stringstream, define HAVE_SSTREAM.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Ben Stanley <Ben.Stanley@exemail.com.au>
 #

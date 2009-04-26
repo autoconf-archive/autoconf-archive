@@ -27,11 +27,7 @@
 #   Additionally, the C preprocessor symbol HAVE_ID3LIB will be defined with
 #   AC_DEFINE if id3lib is available.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Oskar Liljeblad <oskar@osk.mine.nu>
 #

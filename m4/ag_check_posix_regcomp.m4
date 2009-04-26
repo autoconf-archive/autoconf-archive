@@ -12,11 +12,7 @@
 #   in the POSIX specified manner, and it works. If it fails, we have a
 #   backup -- use gnu-regex.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Bruce Korb <bkorb@gnu.org>
 #

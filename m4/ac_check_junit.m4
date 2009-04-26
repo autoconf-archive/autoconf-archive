@@ -36,11 +36,7 @@
 #       echo "exec @JUNIT@ my.package.name.AllJunitTests" >> $@
 #       chmod +x $@
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
 #

@@ -11,11 +11,7 @@
 #   This macro test if class book is installed and fail (default) with a
 #   error message if not
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Boretti Mathieu <boretti@eig.unige.ch>
 #

@@ -11,11 +11,7 @@
 #   Adds target for creating a install_files file, which contains the list
 #   of files that will be installed.
 #
-# LAST MODIFICATION
-#
-#   2009-04-24
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Tom Howard <tomhoward@users.sf.net>
 #

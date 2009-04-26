@@ -11,11 +11,7 @@
 #   If the compiler has the complex math functions cos, cosh, exp, log, pow,
 #   sin, sinh, sqrt, tan and tanh, define HAVE_COMPLEX_MATH1.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Todd Veldhuizen
 #   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>

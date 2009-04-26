@@ -11,11 +11,7 @@
 #   Checks whether snprintf ignores the value of n or not and defines
 #   HAVE_SNPRINTF_BUG if it does.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Duncan Simpson <dps@simpson.demon.co.uk>
 #

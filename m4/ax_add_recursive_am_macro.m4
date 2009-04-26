@@ -13,11 +13,7 @@
 #   recursively for each subdirectory. See also
 #   AX_ADD_RECURSIVE_AM_MACRO_STATIC.
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Tom Howard <tomhoward@users.sf.net>
 #

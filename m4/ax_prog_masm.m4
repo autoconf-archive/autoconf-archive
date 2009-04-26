@@ -18,11 +18,7 @@
 #     AX_PROG_MASM()
 #     AX_PROG_MASM([masm_avail="no"])
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Bogdan Drozdowski <bogdandr # op . pl>
 #

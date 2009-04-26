@@ -15,11 +15,7 @@
 #
 #   llvm-config will also include any libraries that are depended apon.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Andy Kitchen <agimbleinthewabe@gmail.com>
 #

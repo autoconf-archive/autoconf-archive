@@ -23,11 +23,7 @@
 #
 #   It is all pretty horrific, but I have found nothing else that works.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Bruce Korb <bkorb@gnu.org>
 #

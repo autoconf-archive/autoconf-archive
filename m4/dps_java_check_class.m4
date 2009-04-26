@@ -19,11 +19,7 @@
 #   to know if the class could be imported. This is a recommended followup
 #   to DPS_CHECK_JAVA_PLUGIN with classpath appropriately adjusted.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Duncan Simpson <dps@simpson.demon.co.uk>
 #
@@ -49,9 +45,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([DPS_JAVA_CHECK_CLASS],[
 m4_define([cache_val],[m4_translit(dps_cv_have_java_class_$1, " ." ,"__")])

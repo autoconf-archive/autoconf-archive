@@ -54,11 +54,7 @@
 #        AC_COMPILE_CHECK_SIZEOF(ptrdiff_t, $headers)
 #        AC_COMPILE_CHECK_SIZEOF(off_t, $headers)
 #
-# LAST MODIFICATION
-#
-#   2008-05-16
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Kaveh Ghazi <ghazi@caip.rutgers.edu>
 #
@@ -84,9 +80,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AC_COMPILE_CHECK_SIZEOF],
 [changequote(<<, >>)dnl

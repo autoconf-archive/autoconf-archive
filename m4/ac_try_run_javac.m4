@@ -20,11 +20,7 @@
 #   general documentation, as well as the sample configure.in, is included
 #   in the AC_PROG_JAVA macro.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Devin Weaver <ktohg@tritarget.com>
 #

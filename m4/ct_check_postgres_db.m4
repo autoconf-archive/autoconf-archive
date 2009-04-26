@@ -15,11 +15,7 @@
 #   are found, the variable PQLIBPATH will be set. if no check was
 #   successful, the script exits with a error message.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Christian Toepp <c.toepp@gmail.com>
 #

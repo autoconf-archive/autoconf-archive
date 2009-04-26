@@ -166,11 +166,7 @@
 #     # end of file
 #     ---------- >8 ----------
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Dale K. Hawkins <dhawkins@cdrgts.com>
 #

@@ -26,11 +26,7 @@
 #   Additionally, the C preprocessor symbol HAVE_LIBUPNP will be defined
 #   with AC_DEFINE if libupnp is available.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Oskar Liljeblad <oskar@osk.mine.nu>
 #

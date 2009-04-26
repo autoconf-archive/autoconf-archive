@@ -10,11 +10,7 @@
 #
 #   If the compiler supports namespace std, define HAVE_NAMESPACE_STD.
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Todd Veldhuizen
 #   Copyright (c) 2009 Luc Maisonobe <luc@spaceroots.org>

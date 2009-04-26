@@ -42,11 +42,7 @@
 #   You can then manually edit the resulting list and incorporate it into
 #   one or more calls to AX_AUTO_INCLUDE_HEADERS.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Scott Pakin <pakin@uiuc.edu>
 #

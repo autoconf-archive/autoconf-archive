@@ -12,11 +12,7 @@
 #   and "extern inline" correctly. An application may replace "inline" with
 #   "static inline" as a workaround for older compilers.
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Michael McMaster <email@michaelmcmaster.name>
 #

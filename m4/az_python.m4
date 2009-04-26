@@ -110,11 +110,7 @@
 #   The above compiles the modules only if PYTHON_USE was specified as true.
 #   Also, the else portion of the if was optional.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Robert White <kranki@mac.com>
 #   Copyright (c) 2008 Dustin J. Mitchell <dustin@cs.uchicago.edu>

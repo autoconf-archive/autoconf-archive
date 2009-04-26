@@ -1,9 +1,9 @@
-Autoconf Macro Archive
-======================
+Autoconf Archive
+================
 
 -------------------------------------------------------------------------------
 
-:Macro Index By:  Category_ ; Author_
+:Macro Index By:  Category_ ; Author_ ; License_
 :Latest Release:  autoconf-archive-2009-04-19.tar.bz2_
 :Change History:  `ATOM Log`_ ; `RSS Feed`_
 :GIT Repository:  git clone http://git.cryp.to/autoconf-archive
@@ -13,7 +13,7 @@ Autoconf Macro Archive
 Synopsis
 --------
 
-The `Autoconf Archive`_ is a collection of more than 600 freely re-usable
+The `Autoconf Archive`_ is a collection of more than 500 freely re-usable
 Autoconf_ macros. These macros have been contributed by friendly supporters
 of the cause from all over the Internet.
 
@@ -40,12 +40,12 @@ by the Free Software Foundation.
 Another great way to contribute to the Archive is to submit patches. Git_
 patches are particularly welcome.
 
-Copyleft
---------
+License
+-------
 
 Compilation Copyright (c) 2009 by Peter Simons <simons@cryp.to>
 
-The Autoconf Macro Archive is free software: you can redistribute it and/or
+The Autoconf Archive is free software: you can redistribute it and/or
 modify it under the terms of the `GNU General Public License version 3
 <http://www.gnu.org/licenses/gpl.html>`_ or (at your option) any later
 version.
@@ -62,6 +62,8 @@ individual files for details.
 .. _Category: macros-by-category.html
 
 .. _Author: macros-by-author.html
+
+.. _License: macros-by-license.html
 
 .. _Git: http://git-scm.com/
 

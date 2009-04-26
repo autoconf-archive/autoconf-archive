@@ -21,11 +21,7 @@
 #   in your C/C++ code. DB_LIBS is set to linker flags needed to link
 #   against the library (e.g. -ldb3.1) and AC_SUBST is called on it.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Vaclav Slavik <vaclav.slavik@matfyz.cz>
 #

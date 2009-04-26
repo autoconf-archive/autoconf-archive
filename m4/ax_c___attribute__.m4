@@ -11,11 +11,7 @@
 #   Provides a test for the compiler support of __attribute__ extensions.
 #   Defines HAVE___ATTRIBUTE__ if it is found.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Stepan Kasal <skasal@redhat.com>
 #   Copyright (c) 2008 Christian Haggstrom
@@ -43,9 +39,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_C___ATTRIBUTE__], [
   AC_CACHE_CHECK([for __attribute__], [ax_cv___attribute__],

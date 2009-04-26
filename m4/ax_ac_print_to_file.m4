@@ -12,11 +12,7 @@
 #   If you want to print to a file when configure is run use
 #   AX_PRINT_TO_FILE instead.
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Allan Caffee <allan.caffee@gmail.com>
 #

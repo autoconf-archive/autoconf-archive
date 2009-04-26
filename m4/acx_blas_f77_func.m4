@@ -22,11 +22,7 @@
 #   that calls ACX_BLAS_F77_FUNC after detecting a BLAS library and rejects
 #   it on failure (i.e. pretends that no library was found).
 #
-# LAST MODIFICATION
-#
-#   2008-06-18
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Jaroslav Hajek <highegg@gmail.com>
 #
@@ -52,9 +48,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([ACX_BLAS_F77_FUNC], [
 AC_PREREQ(2.50)

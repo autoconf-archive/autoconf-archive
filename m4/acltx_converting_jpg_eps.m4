@@ -11,11 +11,7 @@
 #   This macro find a way to convert jpg to eps file. If the way is found,
 #   set jpg_to_eps to this way else set jpg_to_eps to no.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Boretti Mathieu <boretti@eig.unige.ch>
 #

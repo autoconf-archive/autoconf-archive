@@ -46,11 +46,7 @@
 #
 #     ./configure --with-alchemy=$HOME/esoteric
 #
-# LAST MODIFICATION
-#
-#   2009-04-19
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Luc Maisonobe <luc@spaceroots.org>
 #

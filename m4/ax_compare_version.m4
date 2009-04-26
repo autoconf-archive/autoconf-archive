@@ -70,11 +70,7 @@
 #   portions necessary to perform the specific comparison specified by the
 #   OP argument in the final configure script.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Tim Toolan <toolan@ele.uri.edu>
 #

@@ -64,11 +64,7 @@
 #    1/5/05 applied patch from Rafa Rzepecki to eliminate compiler
 #           warning about unused variable, argv
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Tim Toolan <toolan@ele.uri.edu>
 #

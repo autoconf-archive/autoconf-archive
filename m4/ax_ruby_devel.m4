@@ -16,11 +16,7 @@
 #   You can search for some particular version of Ruby by passing a
 #   parameter to this macro, for example "1.8.6".
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Rafal Rzepecki <divided.mind@gmail.com>
 #   Copyright (c) 2008 Sebastian Huber <sebastian-huber@web.de>
@@ -52,9 +48,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_RUBY_DEVEL],[
     AC_REQUIRE([AX_WITH_RUBY])

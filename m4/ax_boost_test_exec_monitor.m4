@@ -20,11 +20,7 @@
 #
 #     HAVE_BOOST_TEST_EXEC_MONITOR
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Dodji Seketeli <dodji@seketeli.org>
 #   Copyright (c) 2008 Thomas Porschberg <thomas@randspringer.de>

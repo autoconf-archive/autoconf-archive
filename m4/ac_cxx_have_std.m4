@@ -11,11 +11,7 @@
 #   If the compiler supports ISO C++ standard library (i.e., can include the
 #   files iostream, map, iomanip and cmath}), define HAVE_STD.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Todd Veldhuizen
 #   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>

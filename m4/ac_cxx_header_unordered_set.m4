@@ -11,11 +11,7 @@
 #   Check whether the C++ include <unordered_set> exists and define
 #   HAVE_UNORDERED_SET if it does.
 #
-# LAST MODIFICATION
-#
-#   2008-04-17
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Benjamin Kosnik <bkoz@redhat.com>
 #

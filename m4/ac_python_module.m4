@@ -12,11 +12,7 @@
 #
 #   If fatal is non-empty then absence of a module will trigger an error.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Andrew Collier <colliera@ukzn.ac.za>
 #

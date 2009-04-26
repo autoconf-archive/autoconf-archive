@@ -19,11 +19,7 @@
 #   Separate multiple directories using colons; e.g.
 #   "--with-build-path=DIR1:DIR2:DIR3".
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Steve M. Robbins <smr@debian.org>
 #

@@ -16,11 +16,7 @@
 #   and the "#define wint_t unsigned int" patch-up-hack mutilates the
 #   typedef. This macro will get it right.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Bruce Korb <bkorb@gnu.org>
 #

@@ -19,11 +19,7 @@
 #     AC_CHECK_PERL_MODULES(Text::Wrap Net::LDAP, ,
 #                           AC_MSG_WARN(Need some Perl modules)
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Dean Povey <povey@wedgetail.com>
 #

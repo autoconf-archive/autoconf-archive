@@ -10,11 +10,7 @@
 #
 #   Checks STRUCT for MEMBER and defines DEFINE if found.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Wes Hardaker <wjhardaker@ucdavis.edu>
 #

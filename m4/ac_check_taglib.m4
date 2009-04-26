@@ -11,11 +11,7 @@
 #   Defines and exports TAGLIB_LIBS, TAGLIB_CFLAGS. See taglib-config man
 #   page.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Akos Maroy <darkeye@tyrell.hu>
 #

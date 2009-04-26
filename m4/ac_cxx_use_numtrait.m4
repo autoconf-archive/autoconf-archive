@@ -11,11 +11,7 @@
 #   If the compiler supports numeric traits promotions, define
 #   HAVE_USE_NUMTRAIT.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Todd Veldhuizen
 #   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>

@@ -13,11 +13,7 @@
 #   of `wchar_t', and defines WCHAR_MAX to the maximum value that can be
 #   stored in a variable of type `wchar_t'.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Ville Laurikari <vl@iki.fi>
 #
