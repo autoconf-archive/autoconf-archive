@@ -18,11 +18,7 @@
 #     MYSQL_LIBS
 #     MYSQL_CFLAGS
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Can Bican <bican@yahoo.com>
 #

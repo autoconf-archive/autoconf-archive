@@ -49,11 +49,7 @@
 #   Acknowledgement: this macro was in part inspired by Dean Povey's
 #   AC_PROG_PERL_VERSION.
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Soren Andersen <somian *AT* pobox |DOT| com>
 #

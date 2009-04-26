@@ -20,11 +20,7 @@
 #
 #     HAVE_BOOST_WAVE
 #
-# LAST MODIFICATION
-#
-#   2009-04-19
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Thomas Porschberg <thomas@randspringer.de>
 #   Copyright (c) 2009 Michael Tindal

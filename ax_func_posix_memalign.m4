@@ -13,11 +13,7 @@
 #   argument. AX_FUNC_POSIX_MEMALIGN defines HAVE_POSIX_MEMALIGN if the
 #   power-of-two check is correctly applied to the alignment argument.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Scott Pakin <pakin@uiuc.edu>
 #

@@ -14,11 +14,7 @@
 #
 #   It is possible to set manually the program to use using dvips=...
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Boretti Mathieu <boretti@eig.unige.ch>
 #

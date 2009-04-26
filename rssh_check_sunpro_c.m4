@@ -12,11 +12,7 @@
 #   cache values is rssh_cv_check_sunpro_c, which is set to "yes" or "no"
 #   respectively.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Ruslan Shevchenko <Ruslan@Shevchenko.Kiev.UA>
 #

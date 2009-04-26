@@ -18,11 +18,7 @@
 #   NOTE: The upcoming autoconf 2.53 does include the idea of this macro,
 #   what makes it superfluous by then.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
 #
@@ -48,9 +44,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AC_C_BIGENDIAN_CROSS],
 [AC_CACHE_CHECK(whether byte ordering is bigendian, ac_cv_c_bigendian,

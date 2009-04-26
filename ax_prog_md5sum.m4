@@ -12,11 +12,7 @@
 #   name of the application or to no if not found if ACTION-IF-NOT-FOUND is
 #   not specified, configure fail when then application is not found.
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Gabriele Bartolini <gabriele.bartolini@devise.it>
 #

@@ -18,11 +18,7 @@
 #       AX_REQUIRE_ONE_FUNC([posix_memalign memalign valloc], ,
 #         [AC_MSG_ERROR([unable to allocate page-aligned memory])])
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Scott Pakin <pakin@uiuc.edu>
 #

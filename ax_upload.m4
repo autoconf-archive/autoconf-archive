@@ -33,11 +33,7 @@
 #
 #      make upload
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Tom Howard <tomhoward@users.sf.net>
 #

@@ -19,11 +19,7 @@
 #
 #         AX_WITH_PYTHON
 #
-# LAST MODIFICATION
-#
-#   2008-05-05
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Francesco Salvestrini <salvestrini@users.sourceforge.net>
 #

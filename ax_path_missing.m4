@@ -21,11 +21,7 @@
 #   you do not want to run AC_PATH_PROG, simply use AX_MISSING_PROG or
 #   AM_MISSING.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Noah Slater <nslater@bytesexual.org>
 #   Copyright (c) 2008 Francesco Salvestrini <salvestrini@sourceforge.net>

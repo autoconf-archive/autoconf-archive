@@ -17,11 +17,7 @@
 #   You should call ETR_SYSV_IPC before this macro, to separate the check
 #   for System V IPC headers from the check for struct semun.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Warren Young <warren@etr-usa.com>
 #

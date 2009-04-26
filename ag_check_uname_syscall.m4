@@ -10,11 +10,7 @@
 #
 #   Check that the POSIX compliant uname(2) call works properly.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Bruce Korb <bkorb@gnu.org>
 #

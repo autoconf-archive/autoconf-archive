@@ -11,11 +11,7 @@
 #   Check for the definition of macro MACRO-NAME using the current
 #   language's compiler.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
 #

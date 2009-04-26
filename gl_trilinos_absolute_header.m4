@@ -17,11 +17,7 @@
 #   may be non-portable". Use `""', not `<>', so that the /// cannot be
 #   confused with a C99 comment.
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Derek Price
 #   Copyright (c) 2009 Rhys Ulerich <rhys.ulerich@gmail.com>

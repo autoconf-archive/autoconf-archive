@@ -14,11 +14,7 @@
 #   system libraries, but we don't know how to search for them yet.
 #   Contributions joyously accepted. :)
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Warren Young <warren@etr-usa.com>
 #

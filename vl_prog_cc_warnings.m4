@@ -17,11 +17,7 @@
 #   SX-5 (Super-UX 10) C compiler, and Cray J90 (Unicos 10.0.0.8) C
 #   compiler.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Ville Laurikari <vl@iki.fi>
 #

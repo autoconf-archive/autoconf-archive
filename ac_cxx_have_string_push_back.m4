@@ -11,11 +11,7 @@
 #   If the implementation of the C++ library provides the method
 #   std::string::push_back (char), define HAVE_STRING_PUSH_BACK.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Jan Langer <jan@langernetz.de>
 #

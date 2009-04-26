@@ -45,11 +45,7 @@
 #   Then, if any (well almost any) other make is called, and GNU make also
 #   exists, then the other make wraps the GNU make.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 John Darrington <j.darrington@elvis.murdoch.edu.au>
 #

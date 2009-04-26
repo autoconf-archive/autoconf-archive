@@ -16,11 +16,7 @@
 #
 #     AX_PROG_MASM_OPT([/coff], [MASM_OPTS])
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Bogdan Drozdowski <bogdandr # op . pl>
 #

@@ -26,11 +26,7 @@
 #
 #     AX_PERL_EXT_LDFLAGS([PERLXS_LDFLAGS], [-std Socket])
 #
-# LAST MODIFICATION
-#
-#   2009-04-19
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Mats Kindahl of Sun Microsystems <mats@sun.com>
 #

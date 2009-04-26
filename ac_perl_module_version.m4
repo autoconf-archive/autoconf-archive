@@ -18,11 +18,7 @@
 #     AC_PERL_MODULE_VERSION(CGI::Test 0.104 CGI::Ajax 0.694, ,
 #        AC_MSG_ERROR(Need some Perl modules))
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Marco Gomes <mpglesi@gmail.com>
 #   Copyright (c) 2009 Ruben Fonseca <fonseka@gmail.com>

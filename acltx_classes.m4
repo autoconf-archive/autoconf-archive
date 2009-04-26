@@ -11,11 +11,7 @@
 #   This class search for the first suitable package in CLASSESNAMES (comma
 #   separated list) and set VARIABLETOSET to the class found or to no
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Boretti Mathieu <boretti@eig.unige.ch>
 #

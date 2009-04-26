@@ -11,11 +11,7 @@
 #   Define CXX_HAVE_KOENIG_LOOKUP if the C++ compiler has argument-dependent
 #   name lookup (a.k.a. Koenig lookup).
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Steve M. Robbins <smr@debian.org>
 #

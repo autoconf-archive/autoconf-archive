@@ -12,11 +12,7 @@
 #   Libtool friendly, ie. prefix each of them with `-Xcompiler' so that
 #   Libtool doesn't remove them.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
 #

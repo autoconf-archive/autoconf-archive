@@ -10,11 +10,7 @@
 #
 #   Appends the specified data to the specified file.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Tom Howard <tomhoward@users.sf.net>
 #

@@ -11,11 +11,7 @@
 #   Appends the specified data to the specified Autoconf is run. If you want
 #   to append to a file when configure is run use AX_APPEND_TO_FILE instead.
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Allan Caffee <allan.caffee@gmail.com>
 #

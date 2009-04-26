@@ -12,11 +12,7 @@
 #   nearest, rsqrt, uitrunc, copysign, drem, finite, and unordered, define
 #   HAVE_SYSTEM_V_MATH.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Todd Veldhuizen
 #   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>

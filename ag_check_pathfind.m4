@@ -12,11 +12,7 @@
 #   this work, you have to do horrible things. See the doc for
 #   AG_CHECK_STRCSPN.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Bruce Korb <bkorb@gnu.org>
 #

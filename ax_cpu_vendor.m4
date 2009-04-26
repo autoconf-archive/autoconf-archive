@@ -11,11 +11,7 @@
 #   Find your CPU's vendor by requesting cpuid and define "ax_cpu_vendor"
 #   accordingly. This macro depends on AX_GCC_X86_CPUID.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Christophe Tournayre <turn3r@users.sourceforge.net>
 #

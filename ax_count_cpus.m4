@@ -13,11 +13,7 @@
 #
 #   The value is placed in the CPU_COUNT variable.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Michael Paul Bailey <jinxidoru@byu.net>
 #   Copyright (c) 2008 Christophe Tournayre <turn3r@users.sourceforge.net>

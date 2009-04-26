@@ -23,11 +23,7 @@
 #   note that autoheader will complain of not having the HAVE_PKG_PACKAGE
 #   and you will have to add it to acconfig.h manually
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Caolan McNamara <caolan@skynet.ie>
 #   Copyright (c) 2008 Alexandre Duret-Lutz <adl@gnu.org>

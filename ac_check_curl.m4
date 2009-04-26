@@ -10,11 +10,7 @@
 #
 #   Defines CURL_LIBS, CURL_CFLAGS. See curl-config(1) man page.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Akos Maroy <darkeye@tyrell.hu>
 #

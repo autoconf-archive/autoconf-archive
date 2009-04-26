@@ -21,11 +21,7 @@
 #
 #   See also AX_LIB_BEECRYPT and AX_LIB_GCRYPT.
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Fabien Coelho <autoconf.archive@coelho.net>
 #

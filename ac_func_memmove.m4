@@ -11,11 +11,7 @@
 #   Checks for a memmove that can handle overlaps correctly. If no working
 #   memmove is found, request a replacement and warn the user about it.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Rüdiger Kuhlmann <info@ruediger-kuhlmann.de>
 #

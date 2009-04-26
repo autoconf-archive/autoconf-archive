@@ -52,11 +52,7 @@
 #   Make sure ax_upload.am is added to aminclude.am and you have 'include
 #   aminclude.am' in your toplevel Makefile.am
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Tom Howard <tomhoward@users.sf.net>
 #

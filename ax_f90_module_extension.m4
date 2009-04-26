@@ -12,11 +12,7 @@
 #   in the cached variable ax_f90_modext, or "unknown" if the extension
 #   cannot be found.
 #
-# LAST MODIFICATION
-#
-#   2009-04-19
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Luc Maisonobe <luc@spaceroots.org>
 #   Copyright (c) 2009 Alexander Pletzer <pletzer@txcorp.com>

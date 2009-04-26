@@ -13,11 +13,7 @@
 #   This macro is modeled after _AC_LANG_COMPILER_GNU in the GNU Autoconf
 #   implementation.
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Braden McDaniel <braden@endoframe.com>
 #

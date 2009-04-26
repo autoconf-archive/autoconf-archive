@@ -18,11 +18,7 @@
 #
 #      AC_DEFINE_DIR([DATADIR], [datadir], [Where data are placed to.])
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Stepan Kasal <kasal@ucw.cz>
 #   Copyright (c) 2008 Andreas Schwab <schwab@suse.de>

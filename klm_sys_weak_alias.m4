@@ -101,11 +101,7 @@
 #   depending on whether or not weak aliases may cross object file
 #   boundaries.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Kevin L. Mitchell <klmitch@mit.edu>
 #

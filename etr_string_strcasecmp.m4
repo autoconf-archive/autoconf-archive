@@ -22,11 +22,7 @@
 #   to be defined in config.h, which will tell your code what header to
 #   include to get strcasecmp()'s prototype.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Warren Young <warren@etr-usa.com>
 #

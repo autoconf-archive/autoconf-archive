@@ -15,11 +15,7 @@
 #   This macro depends on AX_GCC_X86_CPUID, AC_PROG_SED, AX_COUNT_CPUS, and
 #   AX_CPU_VENDOR.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Christophe Tournayre <turn3r@users.sourceforge.net>
 #

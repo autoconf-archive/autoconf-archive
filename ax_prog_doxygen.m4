@@ -245,11 +245,7 @@
 #
 #     ----- end aminclude.am ---------------------------------------
 #
-# LAST MODIFICATION
-#
-#   2009-04-19
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Oren Ben-Kiki <oren@ben-kiki.org>
 #

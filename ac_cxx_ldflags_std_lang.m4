@@ -15,11 +15,7 @@
 #   prefix each of those switches with `-Xlinker' so that Libtool doesn't
 #   discard them (see Libtool's manual and `AC_LIBTOOLIZE_LDFLAGS').
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
 #

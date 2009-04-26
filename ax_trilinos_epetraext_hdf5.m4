@@ -12,11 +12,7 @@
 #   (--enable-epetraext-hdf5) enabled. When ACTION-IF-NOT-FOUND is not
 #   specified, the default behavior is for configure to fail.
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Rhys Ulerich <rhys.ulerich@gmail.com>
 #

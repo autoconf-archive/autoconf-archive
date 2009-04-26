@@ -14,11 +14,7 @@
 #   with `-Lps' and new versions with `-Leps', this macro finds out the
 #   correct language option automatically.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Ville Laurikari <vl@iki.fi>
 #

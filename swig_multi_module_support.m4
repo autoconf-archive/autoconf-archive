@@ -14,11 +14,7 @@
 #   use the SWIG_PYTHON macro and link the modules against
 #   $(SWIG_PYTHON_LIBS).
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Sebastian Huber <sebastian-huber@web.de>
 #   Copyright (c) 2008 Alan W. Irwin <irwin@beluga.phys.uvic.ca>
@@ -47,9 +43,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([SWIG_MULTI_MODULE_SUPPORT],[
         AC_REQUIRE([AC_PROG_SWIG])

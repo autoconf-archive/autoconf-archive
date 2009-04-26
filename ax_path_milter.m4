@@ -71,11 +71,7 @@
 #   use the ACX_PTHREAD macro by Steven G. Johnson and Alejandro Forero
 #   Cuervo which is available from the Autoconf Macro Archive.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Tim Toolan <toolan@ele.uri.edu>
 #

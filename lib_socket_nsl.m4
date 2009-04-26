@@ -17,11 +17,7 @@
 #   break networking. Unisys also includes gethostbyname() in libsocket but
 #   needs libnsl for socket().
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Russ Allbery <rra@stanford.edu>
 #   Copyright (c) 2008 Stepan Kasal <kasal@ucw.cz>

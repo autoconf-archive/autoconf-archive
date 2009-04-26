@@ -44,11 +44,7 @@
 #   [1]
 #   http://www.python.org/doc/current/dist/module-distutils.sysconfig.html
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Dustin J. Mitchell <dustin@cs.uchicago.edu>
 #

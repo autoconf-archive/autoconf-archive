@@ -27,11 +27,7 @@
 #   extremely unlikely -- that AX_CHECK_PAGE_ALIGNED_MALLOC can return a
 #   false positive.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Scott Pakin <pakin@uiuc.edu>
 #

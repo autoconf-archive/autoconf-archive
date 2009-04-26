@@ -11,11 +11,7 @@
 #   Find the file FILENAME in the acces path of texmf and set VARIABLETOSET
 #   to the location or no if not found
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Boretti Mathieu <boretti@eig.unige.ch>
 #

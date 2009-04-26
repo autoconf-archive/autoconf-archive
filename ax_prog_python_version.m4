@@ -26,11 +26,7 @@
 #   macro. The $PYTHON_VERSION variable will be valorized with the detected
 #   version.
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>
 #

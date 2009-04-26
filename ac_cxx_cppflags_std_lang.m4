@@ -13,11 +13,7 @@
 #   ANSI C++ standard (eg. use of standard iostream classes in the `std'
 #   namespace, etc.).
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
 #

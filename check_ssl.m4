@@ -29,11 +29,7 @@
 #           SRCS+= @srcdir@/my_file_that_needs_ssl.c
 #       .endif
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Mark Ethan Trostler <trostler@juniper.net>
 #

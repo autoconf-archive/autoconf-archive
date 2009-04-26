@@ -19,11 +19,7 @@
 #
 #   pgclient can be found at http://pgclient.freesources.org
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Moritz Sinn <moritz@freesources.org>
 #
@@ -49,9 +45,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([MS_PROG_PGCLIENT], [
 AC_ARG_WITH(pgclient, [  --with-pgclient=DIR                    where to find pgclient (default: $PATH)], [pgclient_dir=$withval], [pgclient_dir=$PATH])

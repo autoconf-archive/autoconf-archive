@@ -23,11 +23,7 @@
 #   leading to a link error on some systems. In this case, you should set
 #   the FFLAGS for that program to include F77_CMAIN_FFLAGS.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Steven G. Johnson <stevenj@alum.mit.edu>
 #
@@ -53,9 +49,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([ACX_F77_CMAIN_FFLAGS],
 [AC_CACHE_CHECK([for f77 flags to use C main function], acx_cv_f77_cmain_fflags,

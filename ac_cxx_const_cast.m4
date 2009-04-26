@@ -10,11 +10,7 @@
 #
 #   If the compiler supports const_cast<>, define HAVE_CONST_CAST.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Todd Veldhuizen
 #   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>

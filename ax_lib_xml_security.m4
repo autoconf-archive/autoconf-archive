@@ -35,11 +35,7 @@
 #
 #     HAVE_XML_SECURITY
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Alexander Petry <petry@itwm.fhg.de>
 #   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>

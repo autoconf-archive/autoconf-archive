@@ -10,11 +10,7 @@
 #
 #   If the compiler supports member templates, define HAVE_MEMBER_TEMPLATES.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Todd Veldhuizen
 #   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>

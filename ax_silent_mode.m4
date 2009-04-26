@@ -16,11 +16,7 @@
 #     AX_SILENT_MODE(off)   dnl enable console output
 #     AC_PROG_RANLIB
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Peter Simons <simons@cryp.to>
 #   Copyright (c) 2008 Paolo Bonzini <bonzini@gnu.org>

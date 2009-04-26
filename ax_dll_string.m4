@@ -14,11 +14,7 @@
 #   handling. See bug 24196 in gcc's bugzilla for more details:
 #   http://gcc.gnu.org/bugzilla/show_bug.cgi?id=24196
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Steven Brown <swbrown@variadic.org>
 #

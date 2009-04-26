@@ -79,11 +79,7 @@
 #   in stead of a --with-Qt-*, "have_qt" is set to "no" and the other
 #   variables are set to the empty string.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Bastiaan Veelo <Bastiaan@Veelo.net>
 #

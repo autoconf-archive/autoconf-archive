@@ -13,11 +13,7 @@
 #   the flag cannot be found. Supported are the -I GNU compilers flag, the
 #   -M SUN compilers flag, and the -p Absoft Pro Fortran compiler flag.
 #
-# LAST MODIFICATION
-#
-#   2009-04-19
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Luc Maisonobe <luc@spaceroots.org>
 #   Copyright (c) 2009 Julian C. Cummings <cummings@cacr.caltech.edu>

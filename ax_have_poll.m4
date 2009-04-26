@@ -25,11 +25,7 @@
 #   AX_HAVE_POLL would succeed if AX_HAVE_PPOLL has, but not the other way
 #   round.
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Peter Simons <simons@cryp.to>
 #

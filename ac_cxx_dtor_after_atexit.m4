@@ -13,11 +13,7 @@
 #   cannot be performed, the default action is to define
 #   HAVE_DTOR_AFTER_ATEXIT.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Todd Veldhuizen
 #   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>

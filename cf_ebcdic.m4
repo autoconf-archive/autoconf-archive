@@ -14,11 +14,7 @@
 #   I originally wrote this and submitted it to the Lynx distribution.
 #   Editorial revisions by Tom Dickey, et. al.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Paul Gilmartin <pg@sweng.stortek.com>
 #
@@ -44,9 +40,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 dnl Check whether character set is EBCDIC.
 AC_DEFUN([CF_EBCDIC],[

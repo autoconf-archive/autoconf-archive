@@ -16,11 +16,7 @@
 #   test for errors when you open it and then fall back to poll() if it is
 #   unavailable.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Dave Benson <daveb@ffem.org>
 #

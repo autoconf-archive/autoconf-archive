@@ -35,11 +35,7 @@
 #       # endif
 #       #endif
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Scott Pakin <pakin@uiuc.edu>
 #

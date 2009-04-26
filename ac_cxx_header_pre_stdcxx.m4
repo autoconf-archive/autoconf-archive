@@ -10,11 +10,7 @@
 #
 #   Check whether pre-ISO-C++ headers exist.
 #
-# LAST MODIFICATION
-#
-#   2008-04-17
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Benjamin Kosnik <bkoz@redhat.com>
 #

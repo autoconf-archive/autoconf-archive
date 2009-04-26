@@ -11,11 +11,7 @@
 #   This macro tries to find strcasecmp() in strings.h. See the
 #   ETR_STRING_STRCASECMP macro's commentary for usage details.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Warren Young <warren@etr-usa.com>
 #

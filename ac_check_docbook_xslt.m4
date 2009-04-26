@@ -27,11 +27,7 @@
 #    if test "x$HAVE_DOCBOOK_XSLT_1_72_0" = "xyes"; then
 #    ...
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Zmanda Inc. <http://www.zmanda.com/>
 #   Copyright (c) 2008 Dustin J. Mitchell <dustin@zmanda.com>
@@ -58,9 +54,9 @@
 #   all other use of the material that constitutes the Autoconf Macro.
 #
 #   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Macro Archive. When you make and
-#   distribute a modified version of the Autoconf Macro, you may extend this
-#   special exception to the GPL to apply to your modified version as well.
+#   Macro released by the Autoconf Archive. When you make and distribute a
+#   modified version of the Autoconf Macro, you may extend this special
+#   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AC_CHECK_DOCBOOK_XSLT],
 [

@@ -11,11 +11,7 @@
 #   If the compiler does have the verbose terminate handler, define
 #   HAVE_VERBOSE_TERMINATE_HANDLER.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Lapo Luchini <lapo@lapo.it>
 #

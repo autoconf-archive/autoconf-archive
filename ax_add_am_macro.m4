@@ -12,11 +12,7 @@
 #   properly with implementations of Make which allow include statements.
 #   See also AX_ADD_AM_MACRO_STATIC.
 #
-# LAST MODIFICATION
-#
-#   2009-04-20
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2009 Tom Howard <tomhoward@users.sf.net>
 #

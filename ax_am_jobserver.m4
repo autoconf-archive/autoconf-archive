@@ -24,11 +24,7 @@
 #
 #   to your Makefile.am files.
 #
-# LAST MODIFICATION
-#
-#   2008-04-12
-#
-# COPYLEFT
+# LICENSE
 #
 #   Copyright (c) 2008 Michael Paul Bailey <jinxidoru@byu.net>
 #
