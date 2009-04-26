@@ -4,7 +4,7 @@ Autoconf Archive
 -------------------------------------------------------------------------------
 
 :Macro Index By:  Category_ ; Author_ ; License_
-:Latest Release:  autoconf-archive-2009-04-19.tar.bz2_
+:Latest Release:  autoconf-archive-2009-04-26.tar.bz2_
 :Change History:  `ATOM Log`_ ; `RSS Feed`_
 :GIT Repository:  git clone http://git.cryp.to/autoconf-archive
 
@@ -73,7 +73,7 @@ individual files for details.
 
 .. _Autoconf: http://www.gnu.org/software/autoconf/
 
-.. _autoconf-archive-2009-04-19.tar.bz2: http://autoconf-archive.cryp.to/autoconf-archive-2009-04-19.tar.bz2
+.. _autoconf-archive-2009-04-26.tar.bz2: http://autoconf-archive.cryp.to/autoconf-archive-2009-04-26.tar.bz2
 
 .. _GPL-compatible free software license: http://www.gnu.org/licenses/license-list.html
 
