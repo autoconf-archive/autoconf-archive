@@ -1,0 +1,103 @@
+# ===========================================================================
+#        http://autoconf-archive.cryp.to/ac_cxx_header_stdcxx_0x.html
+# ===========================================================================
+#
+# SYNOPSIS
+#
+#   AC_CXX_HEADER_STDCXX_0X
+#
+# DESCRIPTION
+#
+#   Check for library coverage of the C++0x standard.
+#
+# LICENSE
+#
+#   Copyright (c) 2008 Benjamin Kosnik <bkoz@redhat.com>
+#
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.
+
+AC_DEFUN([AC_CXX_HEADER_STDCXX_0X], [
+  AC_CACHE_CHECK(for ISO C++ 0x include files,
+  ac_cv_cxx_stdcxx_0x,
+  [AC_REQUIRE([AC_COMPILE_STDCXX_0X])
+  AC_LANG_SAVE
+  AC_LANG_CPLUSPLUS
+  ac_save_CXXFLAGS="$CXXFLAGS"
+  CXXFLAGS="$CXXFLAGS -std=gnu++0x"
+
+  AC_TRY_COMPILE([
+    #include <cassert>
+    #include <ccomplex>
+    #include <cctype>
+    #include <cerrno>
+    #include <cfenv>
+    #include <cfloat>
+    #include <cinttypes>
+    #include <ciso646>
+    #include <climits>
+    #include <clocale>
+    #include <cmath>
+    #include <csetjmp>
+    #include <csignal>
+    #include <cstdarg>
+    #include <cstdbool>
+    #include <cstddef>
+    #include <cstdint>
+    #include <cstdio>
+    #include <cstdlib>
+    #include <cstring>
+    #include <ctgmath>
+    #include <ctime>
+    #include <cwchar>
+    #include <cwctype>
+
+    #include <algorithm>
+    #include <array>
+    #include <bitset>
+    #include <complex>
+    #include <deque>
+    #include <exception>
+    #include <fstream>
+    #include <functional>
+    #include <iomanip>
+    #include <ios>
+    #include <iosfwd>
+    #include <iostream>
+    #include <istream>
+    #include <iterator>
+    #include <limits>
+    #include <list>
+    #include <locale>
+    #include <map>
+    #include <memory>
+    #include <new>
+    #include <numeric>
+    #include <ostream>
+    #include <queue>
+    #include <random>
+    #include <regex>
+    #include <set>
+    #include <sstream>
+    #include <stack>
+    #include <stdexcept>
+    #include <streambuf>
+    #include <string>
+    #include <tuple>
+    #include <typeinfo>
+    #include <type_traits>
+    #include <unordered_map>
+    #include <unordered_set>
+    #include <utility>
+    #include <valarray>
+    #include <vector>
+  ],,
+  ac_cv_cxx_stdcxx_0x=yes, ac_cv_cxx_stdcxx_0x=no)
+  AC_LANG_RESTORE
+  CXXFLAGS="$ac_save_CXXFLAGS"
+  ])
+  if test "$ac_cv_cxx_stdcxx_0x" = yes; then
+    AC_DEFINE(STDCXX_0X_HEADERS,,[Define if ISO C++ 0x header files are present. ])
+  fi
+])

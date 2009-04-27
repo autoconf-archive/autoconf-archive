@@ -1,0 +1,80 @@
+Autoconf Archive
+================
+
+-------------------------------------------------------------------------------
+
+:Macro Index By:  Category_ ; Author_ ; License_
+:Latest Release:  autoconf-archive-2009-04-26.tar.bz2_
+:Change History:  `ATOM Log`_ ; `RSS Feed`_
+:GIT Repository:  git clone http://git.cryp.to/autoconf-archive
+
+-------------------------------------------------------------------------------
+
+Synopsis
+--------
+
+The `Autoconf Archive`_ is a collection of more than 500 freely re-usable
+Autoconf_ macros. These macros have been contributed by friendly supporters
+of the cause from all over the Internet.
+
+How To Contribute
+-----------------
+
+If you have written a macro and would like to share it, then please `e-mail
+the m4 file to me <mailto:simons@cryp.to>`_. In addition to the actual
+source code, your submission should also include the following bits of
+information:
+
+* A synopsis that shows how the macro must be be called.
+
+* A brief description of the macro's purpose.
+
+* The list of authors (optionally with e-mail addresses).
+
+* Licensing information.
+
+You can submit your macro under any `GPL-compatible free software
+license`_, but the best choice is the `all-permissive license`_ recommended
+by the Free Software Foundation.
+
+Another great way to contribute to the Archive is to submit patches. Git_
+patches are particularly welcome.
+
+License
+-------
+
+Compilation Copyright (c) 2009 by Peter Simons <simons@cryp.to>
+
+The Autoconf Archive is free software: you can redistribute it and/or
+modify it under the terms of the `GNU General Public License version 3
+<http://www.gnu.org/licenses/gpl.html>`_ or (at your option) any later
+version.
+
+All macros are copyrighted by their respective authors. Please refer to the
+individual files for details.
+
+
+.. References used in the text above
+.. .................................
+
+.. _Autoconf Archive: http://autoconf-archive.cryp.to/
+
+.. _Category: macros-by-category.html
+
+.. _Author: macros-by-author.html
+
+.. _License: macros-by-license.html
+
+.. _Git: http://git-scm.com/
+
+.. _RSS Feed: http://git.cryp.to/autoconf-archive/rss
+
+.. _ATOM Log: http://git.cryp.to/autoconf-archive/atom
+
+.. _Autoconf: http://www.gnu.org/software/autoconf/
+
+.. _autoconf-archive-2009-04-26.tar.bz2: http://autoconf-archive.cryp.to/autoconf-archive-2009-04-26.tar.bz2
+
+.. _GPL-compatible free software license: http://www.gnu.org/licenses/license-list.html
+
+.. _all-permissive license: http://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html
