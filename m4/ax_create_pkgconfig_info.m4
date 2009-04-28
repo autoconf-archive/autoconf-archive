@@ -203,6 +203,7 @@ prefix=@prefix@
 exec_prefix=@exec_prefix@
 bindir=@bindir@
 libdir=@libdir@
+datarootdir=@datarootdir@
 datadir=@datadir@
 sysconfdir=@sysconfdir@
 includedir=@includedir@
@@ -223,6 +224,7 @@ s|@prefix@|${pkgconfig_prefix}|
 s|@exec_prefix@|${pkgconfig_execprefix}|
 s|@bindir@|${pkgconfig_bindir}|
 s|@libdir@|${pkgconfig_libdir}|
+s|@datarootdir@|${pkgconfig_datarootdir}|
 s|@datadir@|${pkgconfig_datadir}|
 s|@sysconfdir@|${pkgconfig_sysconfdir}|
 s|@includedir@|${pkgconfig_includedir}|
@@ -247,6 +249,7 @@ s|@prefix@|${pkgconfig_prefix}|
 s|@exec_prefix@|${pkgconfig_execprefix}|
 s|@bindir@|${pkgconfig_bindir}|
 s|@libdir@|${pkgconfig_src_libdir}|
+s|@datarootdir@|${pkgconfig_datarootdir}|
 s|@datadir@|${pkgconfig_datadir}|
 s|@sysconfdir@|${pkgconfig_sysconfdir}|
 s|@includedir@|${pkgconfig_src_headers}|
@@ -275,6 +278,7 @@ s|@prefix@|\"${pkgconfig_prefix}\"|
 s|@exec_prefix@|\"${pkgconfig_execprefix}\"|
 s|@bindir@|\"${pkgconfig_bindir}\"|
 s|@libdir@|\"${pkgconfig_src_libdir}\"|
+s|@datarootdir@|\"${pkgconfig_datarootdir}\"|
 s|@datadir@|\"${pkgconfig_datadir}\"|
 s|@sysconfdir@|\"${pkgconfig_sysconfdir}\"|
 s|@includedir@|\"${pkgconfig_src_headers}\"|
@@ -313,6 +317,7 @@ pkgconfig_execprefix='$exec_prefix'
 pkgconfig_bindir='$bindir'
 pkgconfig_libdir='$libdir'
 pkgconfig_includedir='$includedir'
+pkgconfig_datarootdir='$datarootdir'
 pkgconfig_datadir='$datadir'
 pkgconfig_sysconfdir='$sysconfdir'
 pkgconfig_suffix='$ax_create_pkgconfig_suffix'
