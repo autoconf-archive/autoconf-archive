@@ -11,13 +11,13 @@
 #   Adds support for a rpm dist target.
 #
 #   You will need to create a spec template with everything except the files
-#   and the Changlog. @NAME@ will be replaced with the value of @PACKAGE@
-#   and @VER@ will be replaced with the value of @VERSION@. The files and
-#   ChangeLog will be filled in automatically. For instance:
+#   and the Changlog. Use @PACKAGE@ and @VERSION@ to refer to the package name
+#   and version respectively.  The files and ChangeLog will be filled in
+#   automatically. For instance:
 #
 #       Summary: Foobar
-#       Name: @NAME@
-#       Version: @VER@
+#       Name: @PACKAGE@
+#       Version: @VERSION@
 #       Release: 0
 #       License: GPL
 #       Group: Productivity/Networking
