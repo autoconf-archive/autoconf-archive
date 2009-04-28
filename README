@@ -20,20 +20,21 @@ of the cause from all over the Internet.
 How To Contribute
 -----------------
 
-If you have written a macro that you'd like to submit for inclusion in the
-archive, then please post the m4 source code to the `patch tracker`_.
-Furthermore, we'll also need the following bits of information:
+Please post to the `patch tracker`_ to submit a macro for inclusion in the
+archive. Your submission should contain:
 
-* A synopsis that shows how the macro must be be called.
+* synopsis that shows how the macro must be be called,
 
-* A brief description of the macro's purpose.
+* brief description of the macro's purpose,
 
-* The list of authors (optionally with e-mail addresses).
+* list of authors (optionally with e-mail addresses),
 
-* Licensing information.
+* licensing terms, and
 
-You can submit your macro under any `GPL-compatible free software license`_.
-The Free Software Foundation, however, recommends the `all-permissive
+* m4 source code.
+
+Macros can be submitted under any `GPL-compatible free software license`_.
+The Free Software Foundation, however, recommends use of the `all-permissive
 license`_ for Autoconf macros.
 
 Migration to Savannah
