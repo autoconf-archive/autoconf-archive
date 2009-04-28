@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/ac_lib_upnp.html
+#           http://www.nongnu.org/autoconf-archive/ac_lib_upnp.html
 # ===========================================================================
 #
 # SYNOPSIS

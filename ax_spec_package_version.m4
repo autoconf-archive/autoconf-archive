@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/ax_spec_package_version.html
+#     http://www.nongnu.org/autoconf-archive/ax_spec_package_version.html
 # ===========================================================================
 #
 # SYNOPSIS

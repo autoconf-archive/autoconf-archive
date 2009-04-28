@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/ac_caolan_search_package.html
+#    http://www.nongnu.org/autoconf-archive/ac_caolan_search_package.html
 # ===========================================================================
 #
 # SYNOPSIS

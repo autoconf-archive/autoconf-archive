@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/mp_with_curses.html
+#         http://www.nongnu.org/autoconf-archive/mp_with_curses.html
 # ===========================================================================
 #
 # SYNOPSIS

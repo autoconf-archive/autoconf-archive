@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/ax_lang_compiler_ms.html
+#       http://www.nongnu.org/autoconf-archive/ax_lang_compiler_ms.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ax_prog_tasm_opt.html
+#        http://www.nongnu.org/autoconf-archive/ax_prog_tasm_opt.html
 # ===========================================================================
 #
 # SYNOPSIS

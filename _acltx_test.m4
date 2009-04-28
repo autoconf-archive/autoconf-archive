@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/_acltx_test.html
+#           http://www.nongnu.org/autoconf-archive/_acltx_test.html
 # ===========================================================================
 #
 # SYNOPSIS

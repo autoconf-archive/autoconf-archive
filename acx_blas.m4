@@ -1,5 +1,5 @@
 # ===========================================================================
-#                http://autoconf-archive.cryp.to/acx_blas.html
+#            http://www.nongnu.org/autoconf-archive/acx_blas.html
 # ===========================================================================
 #
 # SYNOPSIS

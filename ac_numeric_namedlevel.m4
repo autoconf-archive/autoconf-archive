@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://autoconf-archive.cryp.to/ac_numeric_namedlevel.html
+#      http://www.nongnu.org/autoconf-archive/ac_numeric_namedlevel.html
 # ===========================================================================
 #
 # SYNOPSIS

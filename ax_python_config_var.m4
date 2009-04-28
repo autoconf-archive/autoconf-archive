@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/ax_python_config_var.html
+#      http://www.nongnu.org/autoconf-archive/ax_python_config_var.html
 # ===========================================================================
 #
 # SYNOPSIS

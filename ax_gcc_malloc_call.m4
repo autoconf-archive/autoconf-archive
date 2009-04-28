@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ax_gcc_malloc_call.html
+#       http://www.nongnu.org/autoconf-archive/ax_gcc_malloc_call.html
 # ===========================================================================
 #
 # SYNOPSIS

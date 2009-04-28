@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ac_try_run_javac.html
+#        http://www.nongnu.org/autoconf-archive/ac_try_run_javac.html
 # ===========================================================================
 #
 # SYNOPSIS

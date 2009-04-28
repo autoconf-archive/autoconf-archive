@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/acltx_default_class.html
+#       http://www.nongnu.org/autoconf-archive/acltx_default_class.html
 # ===========================================================================
 #
 # SYNOPSIS

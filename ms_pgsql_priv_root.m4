@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ms_pgsql_priv_root.html
+#       http://www.nongnu.org/autoconf-archive/ms_pgsql_priv_root.html
 # ===========================================================================
 #
 # SYNOPSIS

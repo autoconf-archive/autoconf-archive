@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ax_enable_builddir.html
+#       http://www.nongnu.org/autoconf-archive/ax_enable_builddir.html
 # ===========================================================================
 #
 # SYNOPSIS

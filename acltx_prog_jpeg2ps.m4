@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/acltx_prog_jpeg2ps.html
+#       http://www.nongnu.org/autoconf-archive/acltx_prog_jpeg2ps.html
 # ===========================================================================
 #
 # SYNOPSIS

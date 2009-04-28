@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://autoconf-archive.cryp.to/ax_warning_default_pkgconfig.html
+#  http://www.nongnu.org/autoconf-archive/ax_warning_default_pkgconfig.html
 # ===========================================================================
 #
 # SYNOPSIS

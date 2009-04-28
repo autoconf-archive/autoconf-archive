@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/ac_libtoolize_cflags.html
+#      http://www.nongnu.org/autoconf-archive/ac_libtoolize_cflags.html
 # ===========================================================================
 #
 # SYNOPSIS

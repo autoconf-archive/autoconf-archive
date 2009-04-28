@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/acltx_prog_pnmtops.html
+#       http://www.nongnu.org/autoconf-archive/acltx_prog_pnmtops.html
 # ===========================================================================
 #
 # SYNOPSIS

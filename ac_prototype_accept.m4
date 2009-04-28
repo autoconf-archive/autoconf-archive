@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/ac_prototype_accept.html
+#       http://www.nongnu.org/autoconf-archive/ac_prototype_accept.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ac_path_generic.html
+#         http://www.nongnu.org/autoconf-archive/ac_path_generic.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/dps_xtra_classpath.html
+#       http://www.nongnu.org/autoconf-archive/dps_xtra_classpath.html
 # ===========================================================================
 #
 # SYNOPSIS

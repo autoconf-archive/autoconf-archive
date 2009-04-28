@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ax_prefix_config_h.html
+#       http://www.nongnu.org/autoconf-archive/ax_prefix_config_h.html
 # ===========================================================================
 #
 # SYNOPSIS

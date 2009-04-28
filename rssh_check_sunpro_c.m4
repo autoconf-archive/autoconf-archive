@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/rssh_check_sunpro_c.html
+#       http://www.nongnu.org/autoconf-archive/rssh_check_sunpro_c.html
 # ===========================================================================
 #
 # SYNOPSIS

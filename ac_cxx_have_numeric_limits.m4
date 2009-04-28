@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://autoconf-archive.cryp.to/ac_cxx_have_numeric_limits.html
+#   http://www.nongnu.org/autoconf-archive/ac_cxx_have_numeric_limits.html
 # ===========================================================================
 #
 # SYNOPSIS

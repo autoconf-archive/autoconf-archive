@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/merk_sip_devel.html
+#         http://www.nongnu.org/autoconf-archive/merk_sip_devel.html
 # ===========================================================================
 #
 # SYNOPSIS

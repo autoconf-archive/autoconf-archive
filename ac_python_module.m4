@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ac_python_module.html
+#        http://www.nongnu.org/autoconf-archive/ac_python_module.html
 # ===========================================================================
 #
 # SYNOPSIS

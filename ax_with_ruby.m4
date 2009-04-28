@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/ax_with_ruby.html
+#          http://www.nongnu.org/autoconf-archive/ax_with_ruby.html
 # ===========================================================================
 #
 # SYNOPSIS

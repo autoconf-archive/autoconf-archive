@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/ax_lib_xml_security.html
+#       http://www.nongnu.org/autoconf-archive/ax_lib_xml_security.html
 # ===========================================================================
 #
 # SYNOPSIS

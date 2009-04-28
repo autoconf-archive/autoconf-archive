@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ax_c_declare_block.html
+#       http://www.nongnu.org/autoconf-archive/ax_c_declare_block.html
 # ===========================================================================
 #
 # SYNOPSIS

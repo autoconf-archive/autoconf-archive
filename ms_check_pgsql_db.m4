@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ms_check_pgsql_db.html
+#        http://www.nongnu.org/autoconf-archive/ms_check_pgsql_db.html
 # ===========================================================================
 #
 # SYNOPSIS

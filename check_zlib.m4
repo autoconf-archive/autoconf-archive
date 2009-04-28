@@ -1,5 +1,5 @@
 # ===========================================================================
-#               http://autoconf-archive.cryp.to/check_zlib.html
+#           http://www.nongnu.org/autoconf-archive/check_zlib.html
 # ===========================================================================
 #
 # SYNOPSIS

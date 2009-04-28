@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/ac_create_generic_config.html
+#    http://www.nongnu.org/autoconf-archive/ac_create_generic_config.html
 # ===========================================================================
 #
 # SYNOPSIS

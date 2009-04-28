@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/acltx_converting_fig.html
+#      http://www.nongnu.org/autoconf-archive/acltx_converting_fig.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/bnv_have_qt.html
+#           http://www.nongnu.org/autoconf-archive/bnv_have_qt.html
 # ===========================================================================
 #
 # SYNOPSIS

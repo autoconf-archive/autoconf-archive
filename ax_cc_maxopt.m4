@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/ax_cc_maxopt.html
+#          http://www.nongnu.org/autoconf-archive/ax_cc_maxopt.html
 # ===========================================================================
 #
 # SYNOPSIS

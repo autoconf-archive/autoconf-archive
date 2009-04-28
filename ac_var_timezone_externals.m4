@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://autoconf-archive.cryp.to/ac_var_timezone_externals.html
+#    http://www.nongnu.org/autoconf-archive/ac_var_timezone_externals.html
 # ===========================================================================
 #
 # SYNOPSIS

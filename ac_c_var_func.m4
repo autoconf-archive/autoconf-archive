@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ac_c_var_func.html
+#          http://www.nongnu.org/autoconf-archive/ac_c_var_func.html
 # ===========================================================================
 #
 # SYNOPSIS

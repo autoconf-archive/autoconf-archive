@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/klm_sys_weak_alias.html
+#       http://www.nongnu.org/autoconf-archive/klm_sys_weak_alias.html
 # ===========================================================================
 #
 # SYNOPSIS

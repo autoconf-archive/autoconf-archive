@@ -1,5 +1,5 @@
 # ===========================================================================
-#                 http://autoconf-archive.cryp.to/sg_afs.html
+#             http://www.nongnu.org/autoconf-archive/sg_afs.html
 # ===========================================================================
 #
 # SYNOPSIS

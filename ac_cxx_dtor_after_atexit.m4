@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/ac_cxx_dtor_after_atexit.html
+#    http://www.nongnu.org/autoconf-archive/ac_cxx_dtor_after_atexit.html
 # ===========================================================================
 #
 # SYNOPSIS

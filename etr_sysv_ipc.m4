@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/etr_sysv_ipc.html
+#          http://www.nongnu.org/autoconf-archive/etr_sysv_ipc.html
 # ===========================================================================
 #
 # SYNOPSIS

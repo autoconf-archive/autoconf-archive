@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ax_f90_library.html
+#         http://www.nongnu.org/autoconf-archive/ax_f90_library.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://autoconf-archive.cryp.to/etr_strings_strcasecmp.html
+#     http://www.nongnu.org/autoconf-archive/etr_strings_strcasecmp.html
 # ===========================================================================
 #
 # SYNOPSIS

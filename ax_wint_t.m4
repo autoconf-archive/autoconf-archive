@@ -1,5 +1,5 @@
 # ===========================================================================
-#               http://autoconf-archive.cryp.to/ax_wint_t.html
+#            http://www.nongnu.org/autoconf-archive/ax_wint_t.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://autoconf-archive.cryp.to/ac_set_default_paths_system.html
+#   http://www.nongnu.org/autoconf-archive/ac_set_default_paths_system.html
 # ===========================================================================
 #
 # SYNOPSIS

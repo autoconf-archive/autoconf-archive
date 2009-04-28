@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ax_c___attribute__.html
+#       http://www.nongnu.org/autoconf-archive/ax_c___attribute__.html
 # ===========================================================================
 #
 # SYNOPSIS

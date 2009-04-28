@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/dps_check_plugin.html
+#        http://www.nongnu.org/autoconf-archive/dps_check_plugin.html
 # ===========================================================================
 #
 # SYNOPSIS

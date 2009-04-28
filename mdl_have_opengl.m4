@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/mdl_have_opengl.html
+#         http://www.nongnu.org/autoconf-archive/mdl_have_opengl.html
 # ===========================================================================
 #
 # SYNOPSIS

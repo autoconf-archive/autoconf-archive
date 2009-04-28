@@ -1,5 +1,5 @@
 # ===========================================================================
-#               http://autoconf-archive.cryp.to/check_ssl.html
+#            http://www.nongnu.org/autoconf-archive/check_ssl.html
 # ===========================================================================
 #
 # SYNOPSIS

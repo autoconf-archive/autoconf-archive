@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/ac_prog_cc_for_build.html
+#      http://www.nongnu.org/autoconf-archive/ac_prog_cc_for_build.html
 # ===========================================================================
 #
 # SYNOPSIS

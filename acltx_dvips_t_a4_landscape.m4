@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://autoconf-archive.cryp.to/acltx_dvips_t_a4_landscape.html
+#   http://www.nongnu.org/autoconf-archive/acltx_dvips_t_a4_landscape.html
 # ===========================================================================
 #
 # SYNOPSIS

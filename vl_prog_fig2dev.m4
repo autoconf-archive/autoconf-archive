@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/vl_prog_fig2dev.html
+#         http://www.nongnu.org/autoconf-archive/vl_prog_fig2dev.html
 # ===========================================================================
 #
 # SYNOPSIS

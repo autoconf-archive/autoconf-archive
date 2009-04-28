@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/acx_pthread.html
+#           http://www.nongnu.org/autoconf-archive/acx_pthread.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ax_check_awk_atan2.html
+#       http://www.nongnu.org/autoconf-archive/ax_check_awk_atan2.html
 # ===========================================================================
 #
 # SYNOPSIS

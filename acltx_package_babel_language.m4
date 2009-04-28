@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://autoconf-archive.cryp.to/acltx_package_babel_language.html
+#  http://www.nongnu.org/autoconf-archive/acltx_package_babel_language.html
 # ===========================================================================
 #
 # SYNOPSIS

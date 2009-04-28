@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/acltx_compress_eps.html
+#       http://www.nongnu.org/autoconf-archive/acltx_compress_eps.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/ac_try_compile_java.html
+#       http://www.nongnu.org/autoconf-archive/ac_try_compile_java.html
 # ===========================================================================
 #
 # SYNOPSIS

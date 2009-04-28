@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://autoconf-archive.cryp.to/ax_not_enable_frame_pointer.html
+#   http://www.nongnu.org/autoconf-archive/ax_not_enable_frame_pointer.html
 # ===========================================================================
 #
 # SYNOPSIS

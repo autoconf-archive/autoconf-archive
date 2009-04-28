@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://autoconf-archive.cryp.to/acltx_package_amsmath.html
+#      http://www.nongnu.org/autoconf-archive/acltx_package_amsmath.html
 # ===========================================================================
 #
 # SYNOPSIS

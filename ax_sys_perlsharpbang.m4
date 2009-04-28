@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/ax_sys_perlsharpbang.html
+#      http://www.nongnu.org/autoconf-archive/ax_sys_perlsharpbang.html
 # ===========================================================================
 #
 # SYNOPSIS

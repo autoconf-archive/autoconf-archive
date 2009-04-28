@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/acltx_texmf_path.html
+#        http://www.nongnu.org/autoconf-archive/acltx_texmf_path.html
 # ===========================================================================
 #
 # SYNOPSIS

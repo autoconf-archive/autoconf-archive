@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ac_cond_with_level.html
+#       http://www.nongnu.org/autoconf-archive/ac_cond_with_level.html
 # ===========================================================================
 #
 # SYNOPSIS

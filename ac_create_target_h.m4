@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ac_create_target_h.html
+#       http://www.nongnu.org/autoconf-archive/ac_create_target_h.html
 # ===========================================================================
 #
 # SYNOPSIS

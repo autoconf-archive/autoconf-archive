@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/ac_prompt_user_no_define.html
+#    http://www.nongnu.org/autoconf-archive/ac_prompt_user_no_define.html
 # ===========================================================================
 #
 # SYNOPSIS

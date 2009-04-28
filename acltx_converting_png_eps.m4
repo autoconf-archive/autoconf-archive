@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/acltx_converting_png_eps.html
+#    http://www.nongnu.org/autoconf-archive/acltx_converting_png_eps.html
 # ===========================================================================
 #
 # SYNOPSIS

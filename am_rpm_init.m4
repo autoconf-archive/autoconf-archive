@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/am_rpm_init.html
+#           http://www.nongnu.org/autoconf-archive/am_rpm_init.html
 # ===========================================================================
 #
 # SYNOPSIS

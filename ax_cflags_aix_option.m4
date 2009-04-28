@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/ax_cflags_aix_option.html
+#      http://www.nongnu.org/autoconf-archive/ax_cflags_aix_option.html
 # ===========================================================================
 #
 # SYNOPSIS

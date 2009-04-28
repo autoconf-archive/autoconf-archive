@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ax_missing_prog.html
+#         http://www.nongnu.org/autoconf-archive/ax_missing_prog.html
 # ===========================================================================
 #
 # SYNOPSIS

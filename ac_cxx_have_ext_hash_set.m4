@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/ac_cxx_have_ext_hash_set.html
+#    http://www.nongnu.org/autoconf-archive/ac_cxx_have_ext_hash_set.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/type_socklen_t.html
+#         http://www.nongnu.org/autoconf-archive/type_socklen_t.html
 # ===========================================================================
 #
 # SYNOPSIS

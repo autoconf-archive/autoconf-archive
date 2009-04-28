@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://autoconf-archive.cryp.to/mdl_cxx_function_try_blocks.html
+#   http://www.nongnu.org/autoconf-archive/mdl_cxx_function_try_blocks.html
 # ===========================================================================
 #
 # SYNOPSIS

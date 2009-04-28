@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/vl_decl_wchar_max.html
+#        http://www.nongnu.org/autoconf-archive/vl_decl_wchar_max.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ax_count_cpus.html
+#          http://www.nongnu.org/autoconf-archive/ax_count_cpus.html
 # ===========================================================================
 #
 # SYNOPSIS

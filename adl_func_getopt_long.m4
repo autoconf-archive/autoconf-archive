@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/adl_func_getopt_long.html
+#      http://www.nongnu.org/autoconf-archive/adl_func_getopt_long.html
 # ===========================================================================
 #
 # SYNOPSIS

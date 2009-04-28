@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/ac_prog_mysqlimport.html
+#       http://www.nongnu.org/autoconf-archive/ac_prog_mysqlimport.html
 # ===========================================================================
 #
 # SYNOPSIS

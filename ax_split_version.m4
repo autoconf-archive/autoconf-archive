@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ax_split_version.html
+#        http://www.nongnu.org/autoconf-archive/ax_split_version.html
 # ===========================================================================
 #
 # SYNOPSIS

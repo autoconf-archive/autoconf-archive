@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/acx_blas_f77_func.html
+#        http://www.nongnu.org/autoconf-archive/acx_blas_f77_func.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/ax_cxx_gcc_abi_demangle.html
+#     http://www.nongnu.org/autoconf-archive/ax_cxx_gcc_abi_demangle.html
 # ===========================================================================
 #
 # SYNOPSIS

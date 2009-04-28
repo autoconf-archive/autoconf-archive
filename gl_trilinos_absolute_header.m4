@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://autoconf-archive.cryp.to/gl_trilinos_absolute_header.html
+#   http://www.nongnu.org/autoconf-archive/gl_trilinos_absolute_header.html
 # ===========================================================================
 #
 # SYNOPSIS
