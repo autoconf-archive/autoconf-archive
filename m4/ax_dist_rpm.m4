@@ -19,7 +19,7 @@
 #       Name: @NAME@
 #       Version: @VER@
 #       Release: 0
-#       Copyright: GPL
+#       License: GPL
 #       Group: Productivity/Networking
 #       Source0: http://somewhere/Foobar/%{name}-%{version}.tar.gz
 #       URL: http://somewhere
