@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/ac_cxx_header_pre_stdcxx.html
+#    http://www.nongnu.org/autoconf-archive/ac_cxx_header_pre_stdcxx.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ax_with_python.html
+#         http://www.nongnu.org/autoconf-archive/ax_with_python.html
 # ===========================================================================
 #
 # SYNOPSIS

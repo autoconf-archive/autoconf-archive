@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/dps_java_check_class.html
+#      http://www.nongnu.org/autoconf-archive/dps_java_check_class.html
 # ===========================================================================
 #
 # SYNOPSIS

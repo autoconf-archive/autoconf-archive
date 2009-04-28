@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://autoconf-archive.cryp.to/ax_check_awk_match_3parms.html
+#    http://www.nongnu.org/autoconf-archive/ax_check_awk_match_3parms.html
 # ===========================================================================
 #
 # SYNOPSIS

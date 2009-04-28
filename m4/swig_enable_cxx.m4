@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/swig_enable_cxx.html
+#         http://www.nongnu.org/autoconf-archive/swig_enable_cxx.html
 # ===========================================================================
 #
 # SYNOPSIS

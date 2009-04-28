@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ax_c99_inline.html
+#          http://www.nongnu.org/autoconf-archive/ax_c99_inline.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/lib_socket_nsl.html
+#         http://www.nongnu.org/autoconf-archive/lib_socket_nsl.html
 # ===========================================================================
 #
 # SYNOPSIS

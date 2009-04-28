@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/ax_path_bdb.html
+#           http://www.nongnu.org/autoconf-archive/ax_path_bdb.html
 # ===========================================================================
 #
 # SYNOPSIS

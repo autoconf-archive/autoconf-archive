@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/ac_cxx_partial_ordering.html
+#     http://www.nongnu.org/autoconf-archive/ac_cxx_partial_ordering.html
 # ===========================================================================
 #
 # SYNOPSIS

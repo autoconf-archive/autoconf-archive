@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/ac_check_rqrd_class.html
+#       http://www.nongnu.org/autoconf-archive/ac_check_rqrd_class.html
 # ===========================================================================
 #
 # SYNOPSIS

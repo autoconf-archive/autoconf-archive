@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ax_cache_size.html
+#          http://www.nongnu.org/autoconf-archive/ax_cache_size.html
 # ===========================================================================
 #
 # SYNOPSIS

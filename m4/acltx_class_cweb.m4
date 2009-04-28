@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/acltx_class_cweb.html
+#        http://www.nongnu.org/autoconf-archive/acltx_class_cweb.html
 # ===========================================================================
 #
 # SYNOPSIS

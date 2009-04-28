@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/ax_have_poll.html
+#          http://www.nongnu.org/autoconf-archive/ax_have_poll.html
 # ===========================================================================
 #
 # SYNOPSIS

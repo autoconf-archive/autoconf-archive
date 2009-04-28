@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/vl_check_sign.html
+#          http://www.nongnu.org/autoconf-archive/vl_check_sign.html
 # ===========================================================================
 #
 # SYNOPSIS

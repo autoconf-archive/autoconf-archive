@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/acx_f77_cmain_fflags.html
+#      http://www.nongnu.org/autoconf-archive/acx_f77_cmain_fflags.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/acx_func_fork.html
+#          http://www.nongnu.org/autoconf-archive/acx_func_fork.html
 # ===========================================================================
 #
 # SYNOPSIS

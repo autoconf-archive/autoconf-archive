@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ac_define_sub_path.html
+#       http://www.nongnu.org/autoconf-archive/ac_define_sub_path.html
 # ===========================================================================
 #
 # SYNOPSIS

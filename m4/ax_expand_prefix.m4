@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ax_expand_prefix.html
+#        http://www.nongnu.org/autoconf-archive/ax_expand_prefix.html
 # ===========================================================================
 #
 # SYNOPSIS

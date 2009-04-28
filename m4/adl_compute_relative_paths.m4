@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://autoconf-archive.cryp.to/adl_compute_relative_paths.html
+#   http://www.nongnu.org/autoconf-archive/adl_compute_relative_paths.html
 # ===========================================================================
 #
 # SYNOPSIS

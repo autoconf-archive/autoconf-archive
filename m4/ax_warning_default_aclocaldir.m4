@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://autoconf-archive.cryp.to/ax_warning_default_aclocaldir.html
+#  http://www.nongnu.org/autoconf-archive/ax_warning_default_aclocaldir.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ac_check_java_home.html
+#       http://www.nongnu.org/autoconf-archive/ac_check_java_home.html
 # ===========================================================================
 #
 # SYNOPSIS

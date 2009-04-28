@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://autoconf-archive.cryp.to/ac_perl_module_version.html
+#     http://www.nongnu.org/autoconf-archive/ac_perl_module_version.html
 # ===========================================================================
 #
 # SYNOPSIS

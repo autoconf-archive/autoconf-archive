@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/etr_struct_semun.html
+#        http://www.nongnu.org/autoconf-archive/etr_struct_semun.html
 # ===========================================================================
 #
 # SYNOPSIS

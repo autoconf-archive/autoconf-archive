@@ -1,5 +1,5 @@
 # ===========================================================================
-#               http://autoconf-archive.cryp.to/ax_dirname.html
+#           http://www.nongnu.org/autoconf-archive/ax_dirname.html
 # ===========================================================================
 #
 # SYNOPSIS

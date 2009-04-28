@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ax_cpu_vendor.html
+#          http://www.nongnu.org/autoconf-archive/ax_cpu_vendor.html
 # ===========================================================================
 #
 # SYNOPSIS

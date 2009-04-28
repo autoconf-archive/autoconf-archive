@@ -1,5 +1,5 @@
 # ===========================================================================
-#                http://autoconf-archive.cryp.to/acx_mpi.html
+#             http://www.nongnu.org/autoconf-archive/acx_mpi.html
 # ===========================================================================
 #
 # SYNOPSIS

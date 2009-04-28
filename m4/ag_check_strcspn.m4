@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ag_check_strcspn.html
+#        http://www.nongnu.org/autoconf-archive/ag_check_strcspn.html
 # ===========================================================================
 #
 # SYNOPSIS

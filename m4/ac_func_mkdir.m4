@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ac_func_mkdir.html
+#          http://www.nongnu.org/autoconf-archive/ac_func_mkdir.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ac_jni_include_dir.html
+#       http://www.nongnu.org/autoconf-archive/ac_jni_include_dir.html
 # ===========================================================================
 #
 # SYNOPSIS

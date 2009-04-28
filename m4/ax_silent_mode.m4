@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ax_silent_mode.html
+#         http://www.nongnu.org/autoconf-archive/ax_silent_mode.html
 # ===========================================================================
 #
 # SYNOPSIS

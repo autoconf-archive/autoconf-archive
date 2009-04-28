@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://autoconf-archive.cryp.to/ax_func_which_gethostbyname_r.html
+#  http://www.nongnu.org/autoconf-archive/ax_func_which_gethostbyname_r.html
 # ===========================================================================
 #
 # SYNOPSIS

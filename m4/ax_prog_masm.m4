@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/ax_prog_masm.html
+#          http://www.nongnu.org/autoconf-archive/ax_prog_masm.html
 # ===========================================================================
 #
 # SYNOPSIS

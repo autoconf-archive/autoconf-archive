@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/ax_check_compiler_flags.html
+#     http://www.nongnu.org/autoconf-archive/ax_check_compiler_flags.html
 # ===========================================================================
 #
 # SYNOPSIS

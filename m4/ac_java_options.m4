@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ac_java_options.html
+#         http://www.nongnu.org/autoconf-archive/ac_java_options.html
 # ===========================================================================
 #
 # SYNOPSIS

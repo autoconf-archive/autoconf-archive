@@ -1,5 +1,5 @@
 # ===========================================================================
-#               http://autoconf-archive.cryp.to/cf_ebcdic.html
+#            http://www.nongnu.org/autoconf-archive/cf_ebcdic.html
 # ===========================================================================
 #
 # SYNOPSIS

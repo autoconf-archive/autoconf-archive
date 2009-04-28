@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ax_ext_have_lib.html
+#         http://www.nongnu.org/autoconf-archive/ax_ext_have_lib.html
 # ===========================================================================
 #
 # SYNOPSIS

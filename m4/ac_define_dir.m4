@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ac_define_dir.html
+#          http://www.nongnu.org/autoconf-archive/ac_define_dir.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/check_gnu_make.html
+#         http://www.nongnu.org/autoconf-archive/check_gnu_make.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ac_subdir_files.html
+#         http://www.nongnu.org/autoconf-archive/ac_subdir_files.html
 # ===========================================================================
 #
 # SYNOPSIS

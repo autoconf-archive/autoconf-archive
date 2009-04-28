@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/smr_with_build_path.html
+#       http://www.nongnu.org/autoconf-archive/smr_with_build_path.html
 # ===========================================================================
 #
 # SYNOPSIS

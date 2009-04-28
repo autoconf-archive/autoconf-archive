@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ax_compiler_vendor.html
+#       http://www.nongnu.org/autoconf-archive/ax_compiler_vendor.html
 # ===========================================================================
 #
 # SYNOPSIS

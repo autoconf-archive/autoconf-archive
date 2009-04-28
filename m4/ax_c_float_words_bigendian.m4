@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://autoconf-archive.cryp.to/ax_c_float_words_bigendian.html
+#   http://www.nongnu.org/autoconf-archive/ax_c_float_words_bigendian.html
 # ===========================================================================
 #
 # SYNOPSIS

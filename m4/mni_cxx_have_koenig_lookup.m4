@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://autoconf-archive.cryp.to/mni_cxx_have_koenig_lookup.html
+#   http://www.nongnu.org/autoconf-archive/mni_cxx_have_koenig_lookup.html
 # ===========================================================================
 #
 # SYNOPSIS

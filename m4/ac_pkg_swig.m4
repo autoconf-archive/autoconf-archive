@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/ac_pkg_swig.html
+#           http://www.nongnu.org/autoconf-archive/ac_pkg_swig.html
 # ===========================================================================
 #
 # SYNOPSIS

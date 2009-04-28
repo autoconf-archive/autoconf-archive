@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://autoconf-archive.cryp.to/ax_c_arithmetic_rshift.html
+#     http://www.nongnu.org/autoconf-archive/ax_c_arithmetic_rshift.html
 # ===========================================================================
 #
 # SYNOPSIS

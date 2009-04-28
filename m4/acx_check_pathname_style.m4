@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/acx_check_pathname_style.html
+#    http://www.nongnu.org/autoconf-archive/acx_check_pathname_style.html
 # ===========================================================================
 #
 # SYNOPSIS

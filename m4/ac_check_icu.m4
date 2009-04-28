@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/ac_check_icu.html
+#          http://www.nongnu.org/autoconf-archive/ac_check_icu.html
 # ===========================================================================
 #
 # SYNOPSIS

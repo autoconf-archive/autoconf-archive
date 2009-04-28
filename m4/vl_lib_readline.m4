@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/vl_lib_readline.html
+#         http://www.nongnu.org/autoconf-archive/vl_lib_readline.html
 # ===========================================================================
 #
 # SYNOPSIS

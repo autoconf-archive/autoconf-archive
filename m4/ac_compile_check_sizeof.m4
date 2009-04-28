@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/ac_compile_check_sizeof.html
+#     http://www.nongnu.org/autoconf-archive/ac_compile_check_sizeof.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/immdx_lib_metis.html
+#         http://www.nongnu.org/autoconf-archive/immdx_lib_metis.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://autoconf-archive.cryp.to/ax_check_page_aligned_malloc.html
+#  http://www.nongnu.org/autoconf-archive/ax_check_page_aligned_malloc.html
 # ===========================================================================
 #
 # SYNOPSIS

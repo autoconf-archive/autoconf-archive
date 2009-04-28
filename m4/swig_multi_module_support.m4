@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://autoconf-archive.cryp.to/swig_multi_module_support.html
+#    http://www.nongnu.org/autoconf-archive/swig_multi_module_support.html
 # ===========================================================================
 #
 # SYNOPSIS

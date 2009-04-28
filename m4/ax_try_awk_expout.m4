@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ax_try_awk_expout.html
+#        http://www.nongnu.org/autoconf-archive/ax_try_awk_expout.html
 # ===========================================================================
 #
 # SYNOPSIS

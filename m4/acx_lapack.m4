@@ -1,5 +1,5 @@
 # ===========================================================================
-#               http://autoconf-archive.cryp.to/acx_lapack.html
+#           http://www.nongnu.org/autoconf-archive/acx_lapack.html
 # ===========================================================================
 #
 # SYNOPSIS

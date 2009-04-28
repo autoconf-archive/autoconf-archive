@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ax_dll_string.html
+#          http://www.nongnu.org/autoconf-archive/ax_dll_string.html
 # ===========================================================================
 #
 # SYNOPSIS

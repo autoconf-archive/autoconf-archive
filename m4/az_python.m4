@@ -1,5 +1,5 @@
 # ===========================================================================
-#               http://autoconf-archive.cryp.to/az_python.html
+#            http://www.nongnu.org/autoconf-archive/az_python.html
 # ===========================================================================
 #
 # SYNOPSIS

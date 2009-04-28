@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ax_path_lib_pcre.html
+#        http://www.nongnu.org/autoconf-archive/ax_path_lib_pcre.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/ax_ac_append_to_file.html
+#      http://www.nongnu.org/autoconf-archive/ax_ac_append_to_file.html
 # ===========================================================================
 #
 # SYNOPSIS

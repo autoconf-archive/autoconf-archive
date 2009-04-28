@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/ax_require_one_func.html
+#       http://www.nongnu.org/autoconf-archive/ax_require_one_func.html
 # ===========================================================================
 #
 # SYNOPSIS

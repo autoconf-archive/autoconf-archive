@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ax_subst_with.html
+#          http://www.nongnu.org/autoconf-archive/ax_subst_with.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://autoconf-archive.cryp.to/ac_check_docbook_xslt_min.html
+#    http://www.nongnu.org/autoconf-archive/ac_check_docbook_xslt_min.html
 # ===========================================================================
 #
 # SYNOPSIS

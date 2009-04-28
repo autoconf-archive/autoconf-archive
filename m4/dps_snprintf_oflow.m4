@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/dps_snprintf_oflow.html
+#       http://www.nongnu.org/autoconf-archive/dps_snprintf_oflow.html
 # ===========================================================================
 #
 # SYNOPSIS

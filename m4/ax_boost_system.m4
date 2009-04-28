@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ax_boost_system.html
+#         http://www.nongnu.org/autoconf-archive/ax_boost_system.html
 # ===========================================================================
 #
 # SYNOPSIS

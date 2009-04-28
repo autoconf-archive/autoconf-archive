@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/acltx_packages.html
+#         http://www.nongnu.org/autoconf-archive/acltx_packages.html
 # ===========================================================================
 #
 # SYNOPSIS

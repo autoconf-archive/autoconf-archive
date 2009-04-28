@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://autoconf-archive.cryp.to/ax_func_posix_memalign.html
+#     http://www.nongnu.org/autoconf-archive/ax_func_posix_memalign.html
 # ===========================================================================
 #
 # SYNOPSIS

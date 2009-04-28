@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ax_install_files.html
+#        http://www.nongnu.org/autoconf-archive/ax_install_files.html
 # ===========================================================================
 #
 # SYNOPSIS

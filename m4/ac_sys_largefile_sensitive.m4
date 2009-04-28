@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://autoconf-archive.cryp.to/ac_sys_largefile_sensitive.html
+#   http://www.nongnu.org/autoconf-archive/ac_sys_largefile_sensitive.html
 # ===========================================================================
 #
 # SYNOPSIS

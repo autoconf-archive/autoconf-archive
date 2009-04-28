@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ax_lib_beecrypt.html
+#         http://www.nongnu.org/autoconf-archive/ax_lib_beecrypt.html
 # ===========================================================================
 #
 # SYNOPSIS

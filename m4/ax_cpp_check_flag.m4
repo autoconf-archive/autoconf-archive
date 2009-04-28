@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ax_cpp_check_flag.html
+#        http://www.nongnu.org/autoconf-archive/ax_cpp_check_flag.html
 # ===========================================================================
 #
 # SYNOPSIS

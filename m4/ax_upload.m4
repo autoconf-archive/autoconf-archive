@@ -1,5 +1,5 @@
 # ===========================================================================
-#               http://autoconf-archive.cryp.to/ax_upload.html
+#            http://www.nongnu.org/autoconf-archive/ax_upload.html
 # ===========================================================================
 #
 # SYNOPSIS

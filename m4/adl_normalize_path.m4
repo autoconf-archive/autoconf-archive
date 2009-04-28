@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/adl_normalize_path.html
+#       http://www.nongnu.org/autoconf-archive/adl_normalize_path.html
 # ===========================================================================
 #
 # SYNOPSIS

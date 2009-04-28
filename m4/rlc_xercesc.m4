@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/rlc_xercesc.html
+#           http://www.nongnu.org/autoconf-archive/rlc_xercesc.html
 # ===========================================================================
 #
 # SYNOPSIS

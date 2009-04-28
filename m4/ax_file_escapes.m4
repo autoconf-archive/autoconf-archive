@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ax_file_escapes.html
+#         http://www.nongnu.org/autoconf-archive/ax_file_escapes.html
 # ===========================================================================
 #
 # SYNOPSIS

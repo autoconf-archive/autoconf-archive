@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/swig_python.html
+#           http://www.nongnu.org/autoconf-archive/swig_python.html
 # ===========================================================================
 #
 # SYNOPSIS

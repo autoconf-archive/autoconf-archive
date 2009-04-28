@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ac_cxx_have_std.html
+#         http://www.nongnu.org/autoconf-archive/ac_cxx_have_std.html
 # ===========================================================================
 #
 # SYNOPSIS

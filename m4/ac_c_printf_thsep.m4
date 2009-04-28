@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ac_c_printf_thsep.html
+#        http://www.nongnu.org/autoconf-archive/ac_c_printf_thsep.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ax_compare_version.html
+#       http://www.nongnu.org/autoconf-archive/ax_compare_version.html
 # ===========================================================================
 #
 # SYNOPSIS

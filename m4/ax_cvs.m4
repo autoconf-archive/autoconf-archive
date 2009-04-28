@@ -1,5 +1,5 @@
 # ===========================================================================
-#                 http://autoconf-archive.cryp.to/ax_cvs.html
+#             http://www.nongnu.org/autoconf-archive/ax_cvs.html
 # ===========================================================================
 #
 # SYNOPSIS

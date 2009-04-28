@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/compile_value.html
+#          http://www.nongnu.org/autoconf-archive/compile_value.html
 # ===========================================================================
 #
 # SYNOPSIS

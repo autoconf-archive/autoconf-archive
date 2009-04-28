@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://autoconf-archive.cryp.to/ac_arg_with_path_style.html
+#     http://www.nongnu.org/autoconf-archive/ac_arg_with_path_style.html
 # ===========================================================================
 #
 # SYNOPSIS

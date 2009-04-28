@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/ax_check_awk_toupper.html
+#      http://www.nongnu.org/autoconf-archive/ax_check_awk_toupper.html
 # ===========================================================================
 #
 # SYNOPSIS

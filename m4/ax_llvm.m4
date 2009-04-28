@@ -1,5 +1,5 @@
 # ===========================================================================
-#                http://autoconf-archive.cryp.to/ax_llvm.html
+#             http://www.nongnu.org/autoconf-archive/ax_llvm.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://autoconf-archive.cryp.to/ax_cflags_irix_option.html
+#      http://www.nongnu.org/autoconf-archive/ax_cflags_irix_option.html
 # ===========================================================================
 #
 # SYNOPSIS

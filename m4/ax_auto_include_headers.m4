@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/ax_auto_include_headers.html
+#     http://www.nongnu.org/autoconf-archive/ax_auto_include_headers.html
 # ===========================================================================
 #
 # SYNOPSIS

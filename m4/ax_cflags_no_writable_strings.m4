@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://autoconf-archive.cryp.to/ax_cflags_no_writable_strings.html
+#  http://www.nongnu.org/autoconf-archive/ax_cflags_no_writable_strings.html
 # ===========================================================================
 #
 # SYNOPSIS

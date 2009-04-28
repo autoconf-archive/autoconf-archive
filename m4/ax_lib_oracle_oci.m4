@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ax_lib_oracle_oci.html
+#        http://www.nongnu.org/autoconf-archive/ax_lib_oracle_oci.html
 # ===========================================================================
 #
 # SYNOPSIS

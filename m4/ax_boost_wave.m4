@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ax_boost_wave.html
+#          http://www.nongnu.org/autoconf-archive/ax_boost_wave.html
 # ===========================================================================
 #
 # SYNOPSIS

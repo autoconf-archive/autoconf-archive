@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/am_with_mpatrol.html
+#         http://www.nongnu.org/autoconf-archive/am_with_mpatrol.html
 # ===========================================================================
 #
 # SYNOPSIS

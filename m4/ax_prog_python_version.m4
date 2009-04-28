@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://autoconf-archive.cryp.to/ax_prog_python_version.html
+#     http://www.nongnu.org/autoconf-archive/ax_prog_python_version.html
 # ===========================================================================
 #
 # SYNOPSIS

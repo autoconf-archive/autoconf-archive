@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/_ac_c_ifdef.html
+#           http://www.nongnu.org/autoconf-archive/_ac_c_ifdef.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://autoconf-archive.cryp.to/ax_perl_ext_flags.html
+#        http://www.nongnu.org/autoconf-archive/ax_perl_ext_flags.html
 # ===========================================================================
 #
 # SYNOPSIS

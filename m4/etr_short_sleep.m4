@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/etr_short_sleep.html
+#         http://www.nongnu.org/autoconf-archive/etr_short_sleep.html
 # ===========================================================================
 #
 # SYNOPSIS

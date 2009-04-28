@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/ax_create_pkgconfig_info.html
+#    http://www.nongnu.org/autoconf-archive/ax_create_pkgconfig_info.html
 # ===========================================================================
 #
 # SYNOPSIS

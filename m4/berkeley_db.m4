@@ -1,5 +1,5 @@
 # ===========================================================================
-#              http://autoconf-archive.cryp.to/berkeley_db.html
+#           http://www.nongnu.org/autoconf-archive/berkeley_db.html
 # ===========================================================================
 #
 # SYNOPSIS

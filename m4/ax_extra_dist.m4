@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ax_extra_dist.html
+#          http://www.nongnu.org/autoconf-archive/ax_extra_dist.html
 # ===========================================================================
 #
 # SYNOPSIS

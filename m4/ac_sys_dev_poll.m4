@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ac_sys_dev_poll.html
+#         http://www.nongnu.org/autoconf-archive/ac_sys_dev_poll.html
 # ===========================================================================
 #
 # SYNOPSIS

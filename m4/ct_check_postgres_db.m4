@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://autoconf-archive.cryp.to/ct_check_postgres_db.html
+#      http://www.nongnu.org/autoconf-archive/ct_check_postgres_db.html
 # ===========================================================================
 #
 # SYNOPSIS

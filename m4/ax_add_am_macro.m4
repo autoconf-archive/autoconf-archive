@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://autoconf-archive.cryp.to/ax_add_am_macro.html
+#         http://www.nongnu.org/autoconf-archive/ax_add_am_macro.html
 # ===========================================================================
 #
 # SYNOPSIS

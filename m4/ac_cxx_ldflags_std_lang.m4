@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://autoconf-archive.cryp.to/ac_cxx_ldflags_std_lang.html
+#     http://www.nongnu.org/autoconf-archive/ac_cxx_ldflags_std_lang.html
 # ===========================================================================
 #
 # SYNOPSIS

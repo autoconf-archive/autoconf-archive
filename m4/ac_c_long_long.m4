@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://autoconf-archive.cryp.to/ac_c_long_long.html
+#         http://www.nongnu.org/autoconf-archive/ac_c_long_long.html
 # ===========================================================================
 #
 # SYNOPSIS
