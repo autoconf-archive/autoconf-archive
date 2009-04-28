@@ -73,7 +73,7 @@ if test "x$AX_HAVE_INSTALL_FILES" = "xtrue"; then
         AC_MSG_RESULT([$1.in])
         AX_RPM_SPEC_FILE="$1";
 	AC_SUBST(AX_RPM_SPEC_FILE)
-	AC_CONFIG_FILES([spec.tmpl])
+	AC_CONFIG_FILES([$1])
 	AC_ARG_VAR(EDITOR, [default text editor])
 	if test "x$EDITOR" = "x"; then
    	    AC_CHECK_PROGS(EDITOR,[vim vi emacs])
