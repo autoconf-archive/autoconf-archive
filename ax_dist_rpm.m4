@@ -69,7 +69,7 @@ AM_CONDITIONAL([ax_dist_rpm_using_ax_extra_dist],[test "x$USING_AX_EXTRA_DIST" !
 ax_dist_rpm_enabled=false
 if test "x$AX_HAVE_INSTALL_FILES" = "xtrue"; then
     AC_MSG_CHECKING([rpm spec template])
-    if test -f "$1.in"; then
+    if test -f "$srcdir/$1.in"; then
         AC_MSG_RESULT([$1.in])
         AX_RPM_SPEC_FILE="$1";
 	AC_SUBST(AX_RPM_SPEC_FILE)
