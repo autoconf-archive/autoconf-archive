@@ -15,12 +15,21 @@
 #   automatically. If no working curses libary is found CURSES_LIB will be
 #   left blank.
 #
-#   This macro adds the option "--with-ncurses" to configure which can force
-#   the use of ncurses or nothing at all.
+#   There are two options: --with-ncurses forces the use of ncurses, and
+#   --with-ncursesw forces the use of ncursesw (wide character ncurses).
+#   The corresponding options --without-ncurses and --without-ncursesw force
+#   those libraries not to be used. By default, ncursesw is preferred to
+#   ncurses, which is preferred to plain curses.
+#
+#   mp_cv_curses is set to "yes" if any curses is found (including
+#   ncurses!); mp_cv_ncurses is set to "yes" if any ncurses is found,
+#   and mp_cv_ncursesw is set to "yes" if ncursesw is found.
 #
 # LICENSE
 #
-#   Copyright (c) 2008 Mark Pulford <mark@kyne.com.au>
+#   Copyright (c) 2009 Mark Pulford <mark@kyne.com.au>
+#   Copyright (c) 2009 Damian Pietras <daper@daper.net>
+#   Copyright (c) 2009 Reuben Thomas <rrt@sc3d.org>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -49,24 +58,32 @@
 #   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([MP_WITH_CURSES],
-  [AC_ARG_WITH(ncurses, [  --with-ncurses          Force the use of ncurses over curses],,)
+  [AC_ARG_WITH(ncurses, [AC_HELP_STRING([--with-ncurses],
+        [Force the use of ncurses over curses])],,)
    mp_save_LIBS="$LIBS"
+   AC_ARG_WITH(ncursesw, [AC_HELP_STRING([--without-ncursesw],
+        [Don't use ncursesw (wide character support)])],,)
    CURSES_LIB=""
-   if test "$with_ncurses" != yes
+   if test "$with_ncurses" != no -a "$with_ncursesw" != "no"
    then
-     AC_CACHE_CHECK([for working curses], mp_cv_curses,
-       [LIBS="$LIBS -lcurses"
-        AC_TRY_LINK(
-          [#include <curses.h>],
-          [chtype a; int b=A_STANDOUT, c=KEY_LEFT; initscr(); ],
-          mp_cv_curses=yes, mp_cv_curses=no)])
-     if test "$mp_cv_curses" = yes
-     then
-       AC_DEFINE([HAVE_CURSES_H],[1],[Define if you have curses.h])
-       CURSES_LIB="-lcurses"
-     fi
+       AC_CACHE_CHECK([for working ncursesw], mp_cv_ncursesw,
+         [LIBS="$mp_save_LIBS -lncursesw"
+          AC_TRY_LINK(
+            [#include <ncurses.h>],
+            [chtype a; int b=A_STANDOUT, c=KEY_LEFT; initscr(); ],
+            mp_cv_ncursesw=yes, mp_cv_ncursesw=no)])
+       if test "$mp_cv_ncursesw" = yes
+       then
+         AC_CHECK_HEADER([ncursesw/curses.h], AC_DEFINE(HAVE_NCURSESW_H, 1,
+            [Define if you have ncursesw.h]))
+         AC_DEFINE(HAVE_NCURSES_H, 1, [Define if you have ncursesw/curses.h])
+         AC_DEFINE(HAVE_NCURSESW, 1, [Define if you have libncursesw])
+         CURSES_LIB="-lncursesw"
+         mp_cv_ncurses=yes
+         mp_cv_curses=yes
+       fi
    fi
-   if test ! "$CURSES_LIB"
+   if test ! "$CURSES_LIB" -a "$with_ncurses" != no -a "$with_ncursesw" != yes
    then
      AC_CACHE_CHECK([for working ncurses], mp_cv_ncurses,
        [LIBS="$mp_save_LIBS -lncurses"
@@ -78,6 +95,21 @@ AC_DEFUN([MP_WITH_CURSES],
      then
        AC_DEFINE([HAVE_NCURSES_H],[1],[Define if you have ncurses.h])
        CURSES_LIB="-lncurses"
+     fi
+     mp_cv_curses=yes
+   fi
+   if test ! "$CURSES_LIB" -a "$with_ncurses" != yes -a "$with_ncursesw" != yes
+   then
+     AC_CACHE_CHECK([for working curses], mp_cv_curses,
+       [LIBS="$LIBS -lcurses"
+        AC_TRY_LINK(
+          [#include <curses.h>],
+          [chtype a; int b=A_STANDOUT, c=KEY_LEFT; initscr(); ],
+          mp_cv_curses=yes, mp_cv_curses=no)])
+     if test "$mp_cv_curses" = yes
+     then
+       AC_DEFINE([HAVE_CURSES_H],[1],[Define if you have curses.h])
+       CURSES_LIB="-lcurses"
      fi
    fi
    LIBS="$mp_save_LIBS"
