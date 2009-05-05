@@ -1,0 +1,58 @@
+#+TITLE: Autoconf Archive    -*- mode: org; coding: utf-8; fill-column: 79; -*-
+#+STARTUP: hidestars odd
+
+* Maintainer's Guide
+
+*** How to check-out the 'maint' branch
+
+    : git clone ssh://git.sv.gnu.org/srv/git/autoconf-archive
+    : cd autoconf-archive
+    : git checkout -b maint origin/maint
+    : git submodule update -i
+
+*** How to build the distribution.
+
+    The build system depends on the following external packages:
+
+    - Git (1.6.x.x or later)
+
+    - Python (2.5 or later)
+
+    - Python StringTemplate Library: http://www.stringtemplate.org/
+
+    - SCons (optional, but recommended): http://www.scons.org/
+
+    - Pandoc: http://johnmacfarlane.net/pandoc/
+
+      Pandoc is currently required for Markdown-to-HTML conversion. In
+      future, this won't be necessary anymore, because StringTemplate can
+      generate HTML directly just fine; there is no reason to go through
+      Markdown as an intermediate format (except that I was too lazy so far).
+
+
+* THINGS TO DO
+
+*** TODO Decide how to handle non-ASCII content in m4 files
+
+   Several macros contain non-ASCII characters, for example:
+
+   : $ grep@ Ludo m4/*.m4
+   : m4/_ac_c_ifdef.m4:#   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
+   : m4/ac_cxx_compiler_vendor.m4:#   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
+   : m4/ac_cxx_cppflags_std_lang.m4:#   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
+   : m4/ac_cxx_cxxflags_std_lang.m4:#   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
+   : m4/ac_cxx_ldflags_std_lang.m4:#   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
+   : m4/ac_libtoolize_cflags.m4:#   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
+
+   The encoding currently in use is "latin1", but the m4 files don't expose
+   that information. The situation can be improved as follows:
+
+   1) We add machine-readable charset declarations (i.e. for Emacs) to all m4
+      files. (Or just to those that actually use non-ASCII?)
+
+   2) We encode all files in UTF-8, like everyone else seems to do. (But add
+      charset declarations anyway?)
+
+   3) We restrict m4 files to ASCII.
+
+   Pure ASCII is my favorite.
