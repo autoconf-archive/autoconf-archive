@@ -10,47 +10,30 @@ CANON_M4_FILES	:= $(patsubst %,$(STAGEDIR)/%.m4,$(MACROS))
 MARKDOWN_FILES	:= $(patsubst %,$(STAGEDIR)/%.mdown,$(MACROS))
 HTML_FILES	:= $(patsubst %,$(STAGEDIR)/%.html,$(MACROS))
 
-GENERATED_FILES := $(CANON_M4_FILES) $(MARKDOWN_FILES) $(HTML_FILES) \
-		   $(STAGEDIR)/.canonUptodate $(STAGEDIR)/.markdownUptodate \
-		   $(STAGEDIR)/autoconf-archive.css
+GENERATED_FILES = $(CANON_M4_FILES) $(MARKDOWN_FILES) $(HTML_FILES)
+CLEAN_FILES	= $(GENERATED_FILES) $(STAGEDIR)/.dirCreated $(STAGEDIR)/autoconf-archive.css
 
-.PHONY: all canon mdown html clean
+.SECONDARY: $(GENERATED_FILES)
+.PHONY: all clean
 
-all: canon mdown html
+all: $(HTML_FILES)
 
-canon:	$(CANON_M4_FILES)
+$(STAGEDIR)/%.m4 : $(m4dir)/%.m4 $(STAGEDIR)/.dirCreated $(srcdir)/macro.py $(srcdir)/canon.st
+	@$(srcdir)/macro.py --template-lexer=angle-bracket --input-encoding=latin1 --output-encoding=latin1 --output-dir=$(STAGEDIR) --output-suffix=.m4 $(srcdir)/canon.st $<
+	@diff -ub $@ $< || (rm $@; exit 1)
 
-mdown:  canon $(MARKDOWN_FILES)
+$(STAGEDIR)/%.mdown : $(STAGEDIR)/%.m4 $(srcdir)/macro.py $(srcdir)/markdown.st
+	@$(srcdir)/macro.py --template-lexer=angle-bracket --input-encoding=latin1 --output-encoding=latin1 --output-dir=$(STAGEDIR) --output-suffix=.mdown $(srcdir)/markdown.st $<
 
-html:  mdown $(HTML_FILES)
+$(STAGEDIR)/%.html : $(STAGEDIR)/%.mdown $(STAGEDIR)/autoconf-archive.css $(srcdir)/header.html
+	@pandoc --standalone --title-prefix='Autoconf Macro: ' --include-before-body=$(srcdir)/header.html --css=autoconf-archive.css --from=markdown --to=html -o $@ $<
+
+$(STAGEDIR)/autoconf-archive.css : $(srcdir)/autoconf-archive.css $(STAGEDIR)/.dirCreated
+	@cp -v $< $@
+
+%/.dirCreated:
+	@install -D /dev/null $@
 
 clean:
-	@rm -f $(GENERATED_FILES)
+	@rm -f $(CLEAN_FILES)
 	@if [ -d "$(STAGEDIR)" ] ; then rmdir "$(STAGEDIR)"; fi
-
-##### Generate canon versions of the m4 files #####
-
-$(CANON_M4_FILES) : $(STAGEDIR)/.canonUptodate
-
-$(STAGEDIR)/.canonUptodate :  $(M4_FILES)
-	@mkdir -p $(STAGEDIR)
-	@$(srcdir)/macro.py --template-lexer=angle-bracket --input-encoding=latin1 --output-encoding=latin1 --output-dir=$(STAGEDIR) --output-suffix=.m4 $(srcdir)/canon.st $?
-	@date >$@
-
-##### Generate markdown files #####
-
-$(MARKDOWN_FILES) : $(STAGEDIR)/.canonUptodate $(STAGEDIR)/.markdownUptodate
-
-$(STAGEDIR)/.markdownUptodate : $(CANON_M4_FILES)
-	@mkdir -p $(STAGEDIR)
-	@$(srcdir)/macro.py --template-lexer=angle-bracket --input-encoding=latin1 --output-encoding=latin1 --output-dir=$(STAGEDIR) --output-suffix=.mdown $(srcdir)/markdown.st $?
-	@date >$@
-
-##### Generate HTML files #####
-
-$(STAGEDIR)/%.html : $(STAGEDIR)/%.mdown $(STAGEDIR)/autoconf-archive.css
-	@echo generate $@
-	@pandoc --standalone --css=autoconf-archive.css --from=markdown --to=html -o $@ $<
-
-$(STAGEDIR)/autoconf-archive.css : $(srcdir)/autoconf-archive.css
-	@cp -v -p $< $@
