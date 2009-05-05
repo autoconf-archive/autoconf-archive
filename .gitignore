@@ -1,0 +1,8 @@
+# all generated files reside in here
+/stage/*
+
+# byte-compiled version of the python module
+/macro.pyc
+
+# build system meta-data
+/.sconsign.*
