@@ -10,6 +10,8 @@
     : git checkout -b maint origin/maint
     : git submodule update -i
 
+    : cvs -z3 -d:ext:cvs.savannah.nongnu.org:/web/autoconf-archive co -d html autoconf-archive
+
 *** How to build the distribution.
 
     The build system depends on the following external packages:
