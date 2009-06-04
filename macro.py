@@ -75,7 +75,8 @@ class Macro:
     url = "http://www.nongnu.org/autoconf-archive/%s" % (self.name + ".html")
     lineLen = max(75,len(url) + 2)
     separator = '=' * lineLen
-    self.m4header = "# %s\n"*3 % (separator, url.center(lineLen), separator)
+    padding = ' ' * ((lineLen - len(url)) / 2)
+    self.m4header = "# %s\n"*3 % (separator, padding + url, separator)
     # parse each section in the remaining list
     for (key, body) in splitSections(header):
       # drop empty lines at beginning and end of body
