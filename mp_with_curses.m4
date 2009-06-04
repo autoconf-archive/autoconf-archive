@@ -16,14 +16,14 @@
 #   left blank.
 #
 #   There are two options: --with-ncurses forces the use of ncurses, and
-#   --with-ncursesw forces the use of ncursesw (wide character ncurses).
-#   The corresponding options --without-ncurses and --without-ncursesw force
+#   --with-ncursesw forces the use of ncursesw (wide character ncurses). The
+#   corresponding options --without-ncurses and --without-ncursesw force
 #   those libraries not to be used. By default, ncursesw is preferred to
 #   ncurses, which is preferred to plain curses.
 #
 #   mp_cv_curses is set to "yes" if any curses is found (including
-#   ncurses!); mp_cv_ncurses is set to "yes" if any ncurses is found,
-#   and mp_cv_ncursesw is set to "yes" if ncursesw is found.
+#   ncurses!); mp_cv_ncurses is set to "yes" if any ncurses is found, and
+#   mp_cv_ncursesw is set to "yes" if ncursesw is found.
 #
 # LICENSE
 #
