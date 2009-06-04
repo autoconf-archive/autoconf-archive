@@ -28,7 +28,7 @@ cssfile = Command(path.join(stagedir, cssfile), cssfile, Copy("$TARGET", "$SOURC
 for m in Glob(path.join(m4dir, "*.m4")):
   t = path.join(stagedir, path.basename(m.path))
   s = Command(t, [m, "canon.st"], formatMacro, inputEncoding = "latin1", outputEncoding = "latin1")
-  AddPostAction(s, "@diff -ub $SOURCE $TARGET")
+  AddPostAction(s, "@diff -u $SOURCE $TARGET")
   t = path.splitext(t)[0] + ".mdown"
   s = Command(t, [s, "markdown.st"], formatMacro, inputEncoding = "latin1", outputEncoding = "utf-8")
   t = path.splitext(t)[0] + ".html"
