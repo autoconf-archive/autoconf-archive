@@ -58,12 +58,12 @@
    The encoding currently in use is "latin1", but the m4 files don't expose
    that information. The situation can be improved as follows:
 
-   1) We add machine-readable charset declarations (i.e. for Emacs) to all m4
+   1) Add machine-readable charset declarations (i.e. for Emacs) to all m4
       files. (Or just to those that actually use non-ASCII?)
 
-   2) We encode all files in UTF-8, like everyone else seems to do. (But add
+   2) Encode all files in UTF-8, like everyone else seems to do. (But add
       charset declarations anyway?)
 
-   3) We restrict m4 files to ASCII.
+   3) Restrict m4 files to ASCII.
 
    Pure ASCII is my favorite.
