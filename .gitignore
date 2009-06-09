@@ -6,3 +6,6 @@
 
 # build system meta-data
 /.sconsign.*
+
+# the html tree is maintained in a separate, CVS-based repository
+/html/*
