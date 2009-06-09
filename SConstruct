@@ -33,5 +33,6 @@ for m in Glob(path.join(m4dir, "*.m4")):
   s = Command(t, [s, "markdown.st"], formatMacro, inputEncoding = "latin1", outputEncoding = "utf-8")
   t = path.splitext(t)[0] + ".html"
   s = Command(t, [s, cssfile, "header.html"], "pandoc --standalone --title-prefix='Autoconf Macro: ' --include-before-body=header.html --css=autoconf-archive.css --from=markdown --to=html -o $TARGET $SOURCE")
+  AddPostAction(s, "@tidy -quiet --indent yes --indent-spaces 1 --write-back yes --tidy-mark no -wrap 80 --hide-comments yes $TARGET")
 
 Clean(".", [stagedir])
