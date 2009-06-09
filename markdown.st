@@ -19,17 +19,16 @@ DESCRIPTION
 
    <description:{e| <e; separator="\n">}; separator="\n\n">
 
+SOURCE CODE
+===========
+
+Download [ac_check_class.m4](http://git.savannah.gnu.org/gitweb/?p=autoconf-archive.git;a=blob_plain;f=<name>.m4)
+or browse the [revision history](http://git.savannah.gnu.org/gitweb/?p=autoconf-archive.git;a=history;f=<name>.m4).
+
 LICENSE
 =======
 
 <authors:copyrightLine(); separator="  \n">
 
 <license:{e| <e; separator="\n">}; separator="\n\n">
-
-M4 SOURCE CODE
-==============
-
-~~~~~~~~~~ {.m4}
-<body; separator="\n">
-~~~~~~~~~~
 >>
