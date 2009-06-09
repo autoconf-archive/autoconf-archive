@@ -34,6 +34,15 @@
 
 * THINGS TO DO
 
+*** TODO Figure out how to handle quoting in Markdown output
+
+    Macro descriptions frequently contain words like "numeric_limits<T>", but
+    in Markdown this is a literal HTML tag. The initial '<' character would
+    need to be quoted.
+
+    In indented blocks of text, however, use of the '<' character does not need
+    to be quoted.
+
 *** TODO Decide how to handle non-ASCII content in m4 files
 
    Several macros contain non-ASCII characters, for example:
