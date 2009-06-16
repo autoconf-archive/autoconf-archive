@@ -67,3 +67,25 @@
    3) Restrict m4 files to ASCII.
 
    Pure ASCII is my favorite.
+*** TODO Improve submission guide lines on the web site
+
+***** New submissions should use an AX_ prefix.
+
+      Other prefixes are fine, too, but use of AX_ inside of the Autoconf
+      Archive is encouraged. The AC_ prefix should definitely be avoided,
+      because it's reserved for the GNU Autoconf distribution.
+
+***** Patch submissions should put the original authors on Cc.
+
+      Everyone is welcome to submit patches, bug reports, or suggestions to the
+      Autoconf Archive. If you do, please add the original authors to
+      carbon-copy list in the patch tracker. You don't have to, if you don't
+      want to look their addresses up, but it's considered good practice to
+      give the other authors a heads up when the macro is being changed.
+
+***** If possible, submit patches with Git.
+
+      Give a usage example for git format-patch.
+
+      If you have an account Savannah, simply request access to the Autoconf
+      Archive's repository so that you can use git push.
