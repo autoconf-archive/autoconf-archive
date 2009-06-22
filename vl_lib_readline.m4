@@ -80,11 +80,12 @@ AC_DEFUN([VL_LIB_READLINE], [
     done
     if test -z "$vl_cv_lib_readline"; then
       vl_cv_lib_readline="no"
-      LIBS="$ORIG_LIBS"
     fi
+    LIBS="$ORIG_LIBS"
   ])
 
   if test "$vl_cv_lib_readline" != "no"; then
+    LIBS="$LIBS $vl_cv_lib_readline"
     AC_DEFINE(HAVE_LIBREADLINE, 1,
               [Define if you have a readline compatible library])
     AC_CHECK_HEADERS(readline.h readline/readline.h)
