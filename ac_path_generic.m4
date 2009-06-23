@@ -75,6 +75,9 @@ AC_ARG_WITH(DOWN-prefix,[AS_HELP_STRING([--with-]DOWN[-prefix=PREFIX], [Prefix w
         DOWN[]_config_prefix="$withval", DOWN[]_config_prefix="")
 AC_ARG_WITH(DOWN-exec-prefix,[AS_HELP_STRING([--with-]DOWN[-exec-prefix=PREFIX], [Exec prefix where $1 is installed (optional)])],
         DOWN[]_config_exec_prefix="$withval", DOWN[]_config_exec_prefix="")
+AC_ARG_VAR(UP[]_CONFIG, [config script used for $1])
+AC_ARG_VAR(UP[]_CFLAGS, [CFLAGS used for the $1])
+AC_ARG_VAR(UP[]_LIBS,   [LIBS used for the $1])
 
   if test x$DOWN[]_config_exec_prefix != x ; then
      DOWN[]_config_args="$DOWN[]_config_args --exec-prefix=$DOWN[]_config_exec_prefix"
