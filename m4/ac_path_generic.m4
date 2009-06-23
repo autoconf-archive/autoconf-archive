@@ -4,7 +4,12 @@
 #
 # SYNOPSIS
 #
-#   AC_PATH_GENERIC(LIBRARY [, MINIMUM-VERSION [, ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]]])
+#   AC_PATH_GENERIC(LIBRARY [, MINIMUM-VERSION
+#                           [, ACTION-IF-FOUND
+#                           [, ACTION-IF-NOT-FOUND
+#                           [, CONFIG-SCRIPTS
+#                           [, CFLAGS-ARG
+#                           [, LIBS-ARG]]]]]])
 #
 # DESCRIPTION
 #
@@ -14,7 +19,8 @@
 #   is specified, the script must also support the `--version' arg. If the
 #   `--with-library-[exec-]prefix' arguments to ./configure are given, it
 #   must also support `--prefix' and `--exec-prefix'. (In other words, it
-#   must be like gtk-config.)
+#   must be like gtk-config.) Prefereable use CONFIG-SCRIPTS as config script,
+#   CFLAGS-ARG instead of `--cflags` and LIBS-ARG instead of `--libs`, if given.
 #
 #   For example:
 #
@@ -92,7 +98,7 @@ AC_ARG_VAR(UP[]_LIBS,   [LIBS used for the $1])
      fi
   fi
 
-  AC_PATH_PROG(UP[]_CONFIG, DOWN-config, no)
+  AC_PATH_PROGS(UP[]_CONFIG, $5 DOWN-config, no)
   ifelse([$2], ,
      AC_MSG_CHECKING(for $1),
      AC_MSG_CHECKING(for $1 - version >= $2)
@@ -101,8 +107,16 @@ AC_ARG_VAR(UP[]_LIBS,   [LIBS used for the $1])
   if test "$UP[]_CONFIG" = "no" ; then
      no_[]DOWN=yes
   else
-     UP[]_CFLAGS="`$UP[]_CONFIG $DOWN[]_config_args --cflags`"
-     UP[]_LIBS="`$UP[]_CONFIG $DOWN[]_config_args --libs`"
+     ifelse([$6], , [
+        UP[]_CFLAGS="`$UP[]_CONFIG $DOWN[]_config_args --cflags`"
+     ], [
+        UP[]_CFLAGS="`$UP[]_CONFIG $DOWN[]_config_args $6`"
+     ])
+     ifelse([$7], , [
+        UP[]_LIBS="`$UP[]_CONFIG $DOWN[]_config_args --libs`"
+     ], [
+        UP[]_LIBS="`$UP[]_CONFIG $DOWN[]_config_args $7`"
+     ])
      ifelse([$2], , ,[
         DOWN[]_config_major_version=`$UP[]_CONFIG $DOWN[]_config_args \
          --version | sed 's/[[^0-9]]*\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\1/'`
