@@ -3,6 +3,8 @@
 
 2009-04-26:
 
+        Moved the entire project to Savannah: http://www.nongnu.org/autoconf-archive/
+
         Obsolete macros were deleted from the archive. The release tarballs
         will no longer contain them, but the download URLs will continue to
         work for the foreseeable future. For every deleted macros, there is
