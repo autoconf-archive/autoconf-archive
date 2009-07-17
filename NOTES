@@ -34,6 +34,12 @@
 
 * THINGS TO DO
 
+*** TODO Document the newly mailing lists.
+
+***** autoconf-archive-maintainers
+***** autoconf-archive-commits
+***** autoconf-archive-announce
+
 *** TODO Figure out how to handle quoting in Markdown output
 
     Macro descriptions frequently contain words like "numeric_limits<T>", but
@@ -67,6 +73,7 @@
    3) Restrict m4 files to ASCII.
 
    Pure ASCII is my favorite.
+
 *** TODO Improve submission guide lines on the web site
 
 ***** New submissions should use an AX_ prefix.
