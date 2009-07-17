@@ -96,3 +96,8 @@
 
       If you have an account Savannah, simply request access to the Autoconf
       Archive's repository so that you can use git push.
+
+*** TODO Customize quoting function
+
+    String templates can be registered with a quoting function that adapts the
+    generated output for a target format, i.e. HTML.
