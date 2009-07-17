@@ -1,3 +1,5 @@
+# Build the autoconf archive
+
 from SCons.Script import *
 import os.path as path
 from macro import Macro, writeFile
