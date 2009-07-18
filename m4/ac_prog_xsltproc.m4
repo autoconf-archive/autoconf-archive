@@ -79,7 +79,7 @@ AS_HELP_STRING([  --with-xsltproc-flags=FLAGS],
 
 # search for xsltproc if it wasn't specified
 if test "$ac_with_xsltproc" = "yes" -o "$ac_with_xsltproc" = "maybe"; then
-    AC_PATH_PROGS(XSLTPROC,xsltproc,,$LOCSYSPATH)
+    AC_PATH_PROGS(XSLTPROC,xsltproc)
 else
     if test "$ac_with_xsltproc" != "no"; then
         if test -x "$ac_with_xsltproc"; then
@@ -87,7 +87,7 @@ else
         else
             AC_MSG_WARN([Specified xsltproc of $ac_with_xsltproc isn't])
             AC_MSG_WARN([executable; searching for an alternative.])
-            AC_PATH_PROGS(XSLTPROC,xsltproc,,$LOCSYSPATH)
+            AC_PATH_PROGS(XSLTPROC,xsltproc)
         fi
     fi
 fi
