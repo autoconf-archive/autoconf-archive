@@ -23,8 +23,8 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2008 Zmanda Inc. <http://www.zmanda.com/>
-#   Copyright (c) 2008 Dustin J. Mitchell <dustin@zmanda.com>
+#   Copyright (c) 2008,2009 Zmanda Inc. <http://www.zmanda.com/>
+#   Copyright (c) 2008,2009 Dustin J. Mitchell <dustin@zmanda.com>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
