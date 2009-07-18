@@ -18,7 +18,10 @@
 
     - Git (1.6.x.x or later)
 
-    - Python (2.5 or later)
+    - Python (2.6 or later)
+
+      Python 2.6 is needed for textwrap.TextWrapper break_on_hypens option only.
+      This is being worked on decrease python version requirements.
 
     - Python StringTemplate Library: http://www.stringtemplate.org/
 
