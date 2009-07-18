@@ -123,7 +123,7 @@ if __name__ == "__main__":
   opts.add_option('', "--output-suffix", dest = "suffix", default = ".m4")
   (options, args) = opts.parse_args()
   stFile = args.pop(0)
-  formatter = StringTemplateGroup(fileName = stFile, lexer = options.lexer)
+  formatter = StringTemplateGroup(file = open(stFile), lexer = options.lexer)
   for m4File in args:
     (stem,suff) = path.splitext(path.basename(m4File))
     assert suff == ".m4"

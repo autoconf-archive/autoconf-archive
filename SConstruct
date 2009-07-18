@@ -5,8 +5,8 @@ import os.path as path
 from macro import Macro, writeFile
 from stringtemplate3 import StringTemplateGroup, StringTemplate
 
-__formatters = { "canon.st"    : StringTemplateGroup(fileName = "canon.st")
-               , "markdown.st" : StringTemplateGroup(fileName = "markdown.st")
+__formatters = { "canon.st"    : StringTemplateGroup(file = open("canon.st"))
+               , "markdown.st" : StringTemplateGroup(file = open("markdown.st"))
                }
 
 def formatMacro(target, source, env):
