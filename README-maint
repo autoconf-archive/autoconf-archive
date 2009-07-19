@@ -126,3 +126,8 @@
 
     String templates can be registered with a quoting function that adapts the
     generated output for a target format, i.e. HTML.
+
+*** TODO Figure out how to generate the AUTHORS file
+
+    The file should contain the people who committed to Git and the people who
+    are listed in m4 file copyright lines.
