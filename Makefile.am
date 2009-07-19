@@ -11,3 +11,6 @@ aclocaldir              = $(datadir)/aclocal
 dist_aclocal_DATA       = $(M4SOURCE)
 
 EXTRA_DIST		= build-aux/git-version-gen
+
+dist-hook:
+	echo $(VERSION) > $(distdir)/.tarball-version
