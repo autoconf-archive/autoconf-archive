@@ -1,9 +1,9 @@
 #+TITLE: Autoconf Archive    -*- mode: org; coding: utf-8; fill-column: 79; -*-
-#+STARTUP: hidestars odd
+#+STARTUP: hidestars odd showall
 
 * Maintainer's Guide
 
-*** How to check-out the 'maint' branch
+*** How to check-out the 'maint' branch.
 
     : git clone ssh://git.sv.gnu.org/srv/git/autoconf-archive
     : cd autoconf-archive
@@ -33,6 +33,28 @@
       future, this won't be necessary anymore, because StringTemplate can
       generate HTML directly just fine; there is no reason to go through
       Markdown as an intermediate format (except that I was too lazy so far).
+
+*** How to build release tarballs.
+
+    The release tarballs are created by Automake. The process depends on the
+    following packages to be installed:
+
+    - Gnulib: git://git.savannah.gnu.org/gnulib.git
+
+    - Automake and Autoconf
+
+    Add the following settings to your =.git/config= file:
+
+    : [alias]
+    :       update-gnulib = !gnulib-tool --m4-base build-aux --source-base build-aux --import git-version-gen gitlog-to-changelog
+    :       update-autotools = !autoreconf --install -Wall
+    :       update-changelog = !build-aux/gitlog-to-changelog -- --branches >ChangeLog
+    :       update-authors = !touch AUTHORS
+    :       configure = !./configure --prefix=$(pwd)/_stage
+    :       bootstrap = !git update-gnulib && git update-changelog && git update-authors && git update-autotools && git configure
+
+    Running =git bootstrap= sets up and configures the Autotools build. Once
+    that's accomplished, run =make -f Makefile distcheck=.
 
 
 * THINGS TO DO
