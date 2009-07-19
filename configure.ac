@@ -1,9 +1,9 @@
 dnl configure the Autoconf Archive
 
-AC_INIT([autoconf-archive], [2009-04-29], [simons@cryp.to])
-AM_INIT_AUTOMAKE([-Wall gnu no-dist-gzip dist-bzip2])
-AC_CONFIG_SRCDIR([html/autoconf-archive.css])
-
+AC_INIT([autoconf-archive], [2009-07-19], [autoconf-archive-maintainers@nongnu.org])
+AC_CONFIG_AUX_DIR([build-aux])
+AM_INIT_AUTOMAKE([-Wall gnu dist-bzip2])
+AC_CONFIG_SRCDIR([m4/ax_have_epoll.m4])
 AC_COPYRIGHT([dnl
 Copyright (c) 2009 by Peter Simons <simons@cryp.to>
 
@@ -23,14 +23,6 @@ for n in ${srcdir}/m4/*.m4 ; do
   M4SOURCE="${M4SOURCE} ${n}"
 done
 AC_SUBST([M4SOURCE])
-AC_MSG_RESULT([done])
-
-AC_MSG_CHECKING([for available documentation])
-HTMLDOC=""
-for n in ${srcdir}/html/*.html ${srcdir}/html/*.css ; do
-  HTMLDOC="${HTMLDOC} ${n}"
-done
-AC_SUBST([HTMLDOC])
 AC_MSG_RESULT([done])
 
 AC_CONFIG_FILES([Makefile])
