@@ -17,7 +17,9 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 General Public License for more details.])
 
-AC_MSG_CHECKING([for available Autoconf macros])
+AC_MSG_NOTICE([Autoconf Archive version $VERSION])
+
+AC_MSG_CHECKING([for available macros])
 M4SOURCE=""
 for n in ${srcdir}/m4/*.m4 ; do
   M4SOURCE="${M4SOURCE} ${n}"
@@ -27,3 +29,5 @@ AC_MSG_RESULT([done])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
+
+dnl Responsibility shifts to the user after this point.
