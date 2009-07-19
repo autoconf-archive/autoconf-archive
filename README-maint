@@ -46,7 +46,7 @@
     Add the following settings to your =.git/config= file:
 
     : [alias]
-    :       update-gnulib = !gnulib-tool --m4-base build-aux --source-base build-aux --import git-version-gen gitlog-to-changelog
+    :       update-gnulib = !gnulib-tool --m4-base build-aux --source-base build-aux --import git-version-gen gitlog-to-changelog gnupload
     :       update-autotools = !autoreconf --install -Wall
     :       update-changelog = !build-aux/gitlog-to-changelog -- --branches >ChangeLog
     :       update-authors = !touch AUTHORS
@@ -55,6 +55,10 @@
 
     Running =git bootstrap= sets up and configures the Autotools build. Once
     that's accomplished, run =make -f Makefile distcheck=.
+
+    The tarballs can be uploaded to Savannah as follows:
+
+    : build-aux/gnupload --to dl.sv.nongnu.org:/releases/autoconf-archive -- autoconf-archive-${version}.tar.{gz,bz2}
 
 
 * THINGS TO DO
