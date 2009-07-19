@@ -1,6 +1,6 @@
 dnl configure the Autoconf Archive
 
-AC_INIT([autoconf-archive], [2009-07-19], [autoconf-archive-maintainers@nongnu.org])
+AC_INIT([autoconf-archive], m4_esyscmd([build-aux/git-version-gen .tarball-version]), [autoconf-archive-maintainers@nongnu.org])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([-Wall gnu dist-bzip2])
 AC_CONFIG_SRCDIR([m4/ax_have_epoll.m4])
