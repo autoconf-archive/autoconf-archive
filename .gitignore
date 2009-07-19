@@ -17,8 +17,7 @@
 /Makefile
 /Makefile.in
 /aclocal.m4
-/autoconf-archive-*.*.*.tar.gz
-/autoconf-archive-*.*.*.tar.bz2
+/autoconf-archive-*.*.*.tar.*
 /autom4te.cache/*
 /build-aux/*
 /config.log
