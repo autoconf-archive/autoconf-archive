@@ -12,10 +12,9 @@ CANON_M4_FILES	:= $(patsubst %,$(stagedir)/%.m4,$(MACROS))
 RAW_HTML_FILES	:= $(patsubst %,$(stagedir)/%.html,$(MACROS))
 HTML_FILES	:= $(patsubst %,$(htmldir)/%.html,$(MACROS))
 
-GENERATED_FILES = $(HTML_FILES) $(stagedir)/.dirCreated AUTHORS ChangeLog
-CLEAN_FILES	= $(GENERATED_FILES)
+CLEAN_FILES	= $(RAW_HTML_FILES) $(stagedir)/.dirCreated AUTHORS ChangeLog
 
-.SECONDARY: $(GENERATED_FILES)
+.SECONDARY: $(CLEAN_FILES)
 .PHONY: all clean update-gnulib autoreconf configure bootstrap
 
 all: $(HTML_FILES)
@@ -29,11 +28,6 @@ $(htmldir)/%.html : $(stagedir)/%.html
 
 %/.dirCreated:
 	@install -D /dev/null $@
-
-clean:
-	@rm -f $(CLEAN_FILES)
-	@if [ -d "$(stagedir)" ] ; then rmdir "$(stagedir)"; fi
-	@rm -rf $(buildauxdir)
 
 update-gnulib:
 	gnulib-tool --m4-base build-aux --source-base build-aux --import git-version-gen gitlog-to-changelog gnupload
@@ -55,3 +49,8 @@ bootstrap:
 	$(MAKE) -f Makefile-maint AUTHORS ChangeLog
 	$(MAKE) -f Makefile-maint autoreconf
 	$(MAKE) -f Makefile-maint configure
+
+clean:
+	@rm -f $(CLEAN_FILES)
+	@if [ -d "$(stagedir)" ] ; then rmdir "$(stagedir)"; fi
+	@rm -rf $(buildauxdir)
