@@ -13,7 +13,7 @@ opts.add_option('', "--output-encoding", dest = "outEncode", default = "latin1")
 opts.add_option('', "--output-dir", dest = "outDir", default = "stage")
 opts.add_option('', "--output-suffix", dest = "suffix", default = ".html")
 (options, args) = opts.parse_args()
-# www.nongnu.org/autoconf-archive/
+
 tmpl = """\
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
@@ -38,7 +38,7 @@ tmpl = """\
      <td style="width:33%%;" align="center" valign="top">
       <form method="get" action="http://www.google.com/search">
        <div>
-        <input name="sitesearch" value="autoconf-archive.cryp.to" type=
+        <input name="sitesearch" value="www.nongnu.org/autoconf-archive/" type=
         "hidden">Search: <input name="q" maxlength="255" type="text">
        </div>
       </form>
@@ -53,19 +53,19 @@ tmpl = """\
   <h2>
    SYNOPSIS
   </h2>
-   <p class="indent" style="white-space:nowrap;">
+   <p style="white-space:nowrap;">
 %(synopsis)s
   </p>
   <h2>
    DESCRIPTION
   </h2>
-  <div class="indent">
+  <div>
 %(description)s
   </div>
   <h2>
    SOURCE CODE
   </h2>
-  <p class="indent">
+  <p>
    Download <a href=
    "http://git.savannah.gnu.org/gitweb/?p=autoconf-archive.git;a=blob_plain;f=%(name)s.m4">
    %(name)s.m4</a> or browse the <a href=
@@ -75,12 +75,10 @@ tmpl = """\
   <h2>
    LICENSE
   </h2>
-  <div class="indent">
    <p style="white-space:nowrap;">
 %(authors)s
    </p>
 %(license)s
-  </div>
  </body>
 </html>
 """
