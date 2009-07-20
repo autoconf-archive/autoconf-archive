@@ -1,0 +1,56 @@
+#+TITLE: Autoconf Archive TODO    -*- mode:org;coding:utf-8;fill-column:79; -*-
+
+* TODO Document our new mailing lists.
+
+* TODO Decide how to handle non-ASCII content in m4 files
+
+  Several macros contain non-ASCII characters, for example:
+
+  : $ grep@ Ludo m4/*.m4
+  : m4/_ac_c_ifdef.m4:#   Copyright (c) 2008 Ludovic CourtÃ¨s <ludo@chbouib.org>
+  : m4/ac_cxx_compiler_vendor.m4:#   Copyright (c) 2008 Ludovic CourtÃ¨s <ludo@chbouib.org>
+  : m4/ac_cxx_cppflags_std_lang.m4:#   Copyright (c) 2008 Ludovic CourtÃ¨s <ludo@chbouib.org>
+  : m4/ac_cxx_cxxflags_std_lang.m4:#   Copyright (c) 2008 Ludovic CourtÃ¨s <ludo@chbouib.org>
+  : m4/ac_cxx_ldflags_std_lang.m4:#   Copyright (c) 2008 Ludovic CourtÃ¨s <ludo@chbouib.org>
+  : m4/ac_libtoolize_cflags.m4:#   Copyright (c) 2008 Ludovic CourtÃ¨s <ludo@chbouib.org>
+
+  The encoding currently in use is "latin1", but the m4 files don't expose
+  that information. The situation can be improved as follows:
+
+  1) Add machine-readable charset declarations (i.e. for Emacs) to all m4
+     files. (Or just to those that actually use non-ASCII?)
+
+  2) Encode all files in UTF-8, like everyone else seems to do. (But add
+     charset declarations anyway?)
+
+  3) Restrict m4 files to ASCII.
+
+  Pure ASCII is my favorite.
+
+* TODO Figure out how to generate the AUTHORS file
+
+  The file should contain the people who committed to Git and the people who
+  are listed in m4 file copyright lines.
+
+* TODO Improve submission guide lines on the web site
+
+** New submissions should use an AX_ prefix.
+
+   Other prefixes are fine, too, but use of AX_ inside of the Autoconf Archive
+   is encouraged. The AC_ prefix should definitely be avoided, because it's
+   reserved for the GNU Autoconf distribution.
+
+** Patch submissions should put the original authors on Cc.
+
+   Everyone is welcome to submit patches, bug reports, or suggestions to the
+   Autoconf Archive. If you do, please add the original authors to carbon-copy
+   list in the patch tracker. You don't have to, if you don't want to look
+   their addresses up, but it's considered good practice to give the other
+   authors a heads up when the macro is being changed.
+
+** If possible, submit patches with Git.
+
+   Give a usage example for git format-patch.
+
+   If you have an account Savannah, simply request access to the Autoconf
+   Archive's repository so that you can use git push.

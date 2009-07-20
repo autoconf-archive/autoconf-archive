@@ -1,120 +1,36 @@
-#+TITLE: Autoconf Archive    -*- mode: org; coding: utf-8; fill-column: 79; -*-
-#+STARTUP: hidestars odd showall
+#+TITLE: Autoconf Archive README-maint         -*- mode:org;fill-column:79; -*-
+#+STARTUP: showall
 
-* Maintainer's Guide
+* How to set up the 'maint' branch.
 
-*** How to check-out the 'maint' branch.
+  Ensure that the following packages are installed in your system:
 
-    : git clone ssh://git.sv.gnu.org/srv/git/autoconf-archive
-    : cd autoconf-archive
-    : git checkout -b maint origin/maint
-    : git submodule update -i
+  - Autoconf, Automake, and GNU Make.
 
-    : cvs -z3 -d:ext:cvs.savannah.nongnu.org:/web/autoconf-archive co -d html autoconf-archive
+  - Git (1.6.x.x or later)
 
-*** How to build the web site.
+  - Python (2.6 or later)
 
-    The build system depends on the following external packages:
+    Python 2.6 is needed for textwrap.TextWrapper break_on_hypens option only.
+    This is being worked on decrease python version requirements.
 
-    - Git (1.6.x.x or later)
+  Now run the following commands:
 
-    - Python (2.6 or later)
+  : git clone ssh://git.sv.gnu.org/srv/git/autoconf-archive
+  : cd autoconf-archive
+  : git checkout -b maint origin/maint
+  : git submodule update -i
+  : cvs -z3 -d:ext:cvs.savannah.nongnu.org:/web/autoconf-archive co -d html autoconf-archive
+  : ./bootstrap.sh
+  : ./configure
 
-      Python 2.6 is needed for textwrap.TextWrapper break_on_hypens option only.
-      This is being worked on decrease python version requirements.
+* How to build the web site.
 
-    Run =make -f Makefile-maint= to update the files html/*.
+  Run "make website".
 
-*** How to build release tarballs.
+* How to build release tarballs.
 
-    The release tarballs are created by Automake. The process depends on the
-    following packages to be installed:
-
-    - Gnulib: git://git.savannah.gnu.org/gnulib.git
-
-    - Automake and Autoconf
-
-    - GNU Make
-
-    Running =make -f Makefile-maint bootstrap= sets up and configures the
-    Autotools build. Once that's accomplished, run =make distcheck=.
-
-    The tarballs can be uploaded to Savannah as follows:
-
-    : build-aux/gnupload --to dl.sv.nongnu.org:/releases/autoconf-archive -- autoconf-archive-${version}.tar.{gz,bz2}
-
-
-* THINGS TO DO
-
-*** TODO Document our new mailing lists.
-
-***** autoconf-archive-maintainers
-***** autoconf-archive-commits
-***** autoconf-archive-announce
-
-*** TODO Figure out how to handle quoting in Markdown output
-
-    Macro descriptions frequently contain words like "numeric_limits<T>", but
-    in Markdown this is a literal HTML tag. The initial '<' character would
-    need to be quoted.
-
-    In indented blocks of text, however, use of the '<' character does not need
-    to be quoted.
-
-*** TODO Decide how to handle non-ASCII content in m4 files
-
-   Several macros contain non-ASCII characters, for example:
-
-   : $ grep@ Ludo m4/*.m4
-   : m4/_ac_c_ifdef.m4:#   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
-   : m4/ac_cxx_compiler_vendor.m4:#   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
-   : m4/ac_cxx_cppflags_std_lang.m4:#   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
-   : m4/ac_cxx_cxxflags_std_lang.m4:#   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
-   : m4/ac_cxx_ldflags_std_lang.m4:#   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
-   : m4/ac_libtoolize_cflags.m4:#   Copyright (c) 2008 Ludovic Courtès <ludo@chbouib.org>
-
-   The encoding currently in use is "latin1", but the m4 files don't expose
-   that information. The situation can be improved as follows:
-
-   1) Add machine-readable charset declarations (i.e. for Emacs) to all m4
-      files. (Or just to those that actually use non-ASCII?)
-
-   2) Encode all files in UTF-8, like everyone else seems to do. (But add
-      charset declarations anyway?)
-
-   3) Restrict m4 files to ASCII.
-
-   Pure ASCII is my favorite.
-
-*** TODO Improve submission guide lines on the web site
-
-***** New submissions should use an AX_ prefix.
-
-      Other prefixes are fine, too, but use of AX_ inside of the Autoconf
-      Archive is encouraged. The AC_ prefix should definitely be avoided,
-      because it's reserved for the GNU Autoconf distribution.
-
-***** Patch submissions should put the original authors on Cc.
-
-      Everyone is welcome to submit patches, bug reports, or suggestions to the
-      Autoconf Archive. If you do, please add the original authors to
-      carbon-copy list in the patch tracker. You don't have to, if you don't
-      want to look their addresses up, but it's considered good practice to
-      give the other authors a heads up when the macro is being changed.
-
-***** If possible, submit patches with Git.
-
-      Give a usage example for git format-patch.
-
-      If you have an account Savannah, simply request access to the Autoconf
-      Archive's repository so that you can use git push.
-
-*** TODO Customize quoting function
-
-    String templates can be registered with a quoting function that adapts the
-    generated output for a target format, i.e. HTML.
-
-*** TODO Figure out how to generate the AUTHORS file
-
-    The file should contain the people who committed to Git and the people who
-    are listed in m4 file copyright lines.
+  Run "make </dev/null alpha". Other possible release types are "beta" and
+  "major". Unfortunately, one of the tests performed during that procedure
+  doesn't terminate until it receives an EOF on standard input. I have no idea
+  why, but redirecting from /dev/null remedies the problem.

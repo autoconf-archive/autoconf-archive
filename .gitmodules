@@ -1,3 +1,9 @@
+# autoconf-archive/.gitmodules
+
 [submodule "m4"]
 	path = m4
 	url = ssh://git.sv.gnu.org/srv/git/autoconf-archive.git
+
+[submodule "gnulib"]
+	path = gnulib
+	url = git://git.savannah.gnu.org/gnulib.git

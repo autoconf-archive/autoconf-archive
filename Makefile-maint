@@ -30,7 +30,7 @@ $(htmldir)/%.html : $(stagedir)/%.html
 	@install -D /dev/null $@
 
 update-gnulib:
-	gnulib-tool --m4-base build-aux --source-base build-aux --import git-version-gen gitlog-to-changelog gnupload
+	gnulib/gnulib-tool --m4-base build-aux --source-base build-aux --import git-version-gen gitlog-to-changelog gnupload maintainer-makefile announce-gen
 
 autoreconf:
 	autoreconf --install -Wall
