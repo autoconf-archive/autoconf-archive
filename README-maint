@@ -12,7 +12,7 @@
 
     : cvs -z3 -d:ext:cvs.savannah.nongnu.org:/web/autoconf-archive co -d html autoconf-archive
 
-*** How to build the distribution.
+*** How to build the web site.
 
     The build system depends on the following external packages:
 
@@ -23,16 +23,7 @@
       Python 2.6 is needed for textwrap.TextWrapper break_on_hypens option only.
       This is being worked on decrease python version requirements.
 
-    - Python StringTemplate Library: http://www.stringtemplate.org/
-
-    - SCons (optional, but recommended): http://www.scons.org/
-
-    - Pandoc: http://johnmacfarlane.net/pandoc/
-
-      Pandoc is currently required for Markdown-to-HTML conversion. In
-      future, this won't be necessary anymore, because StringTemplate can
-      generate HTML directly just fine; there is no reason to go through
-      Markdown as an intermediate format (except that I was too lazy so far).
+    Run =make -f Makefile-maint= to update the files html/*.
 
 *** How to build release tarballs.
 
