@@ -12,7 +12,7 @@ CANON_M4_FILES	:= $(patsubst %,$(stagedir)/%.m4,$(MACROS))
 RAW_HTML_FILES	:= $(patsubst %,$(stagedir)/%.html,$(MACROS))
 HTML_FILES	:= $(patsubst %,$(htmldir)/%.html,$(MACROS))
 
-CLEAN_FILES	= $(RAW_HTML_FILES) $(stagedir)/.dirCreated AUTHORS ChangeLog
+CLEAN_FILES	= $(RAW_HTML_FILES) $(stagedir)/.dirCreated AUTHORS ChangeLog macro.pyc
 
 .SECONDARY: $(CLEAN_FILES)
 .PHONY: all clean update-gnulib autoreconf configure bootstrap
