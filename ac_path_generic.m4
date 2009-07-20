@@ -4,12 +4,7 @@
 #
 # SYNOPSIS
 #
-#   AC_PATH_GENERIC(LIBRARY [, MINIMUM-VERSION
-#                           [, ACTION-IF-FOUND
-#                           [, ACTION-IF-NOT-FOUND
-#                           [, CONFIG-SCRIPTS
-#                           [, CFLAGS-ARG
-#                           [, LIBS-ARG]]]]]])
+#   AC_PATH_GENERIC(LIBRARY [, MINIMUM-VERSION [, ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND [, CONFIG-SCRIPTS [, CFLAGS-ARG [, LIBS-ARG]]]]]])
 #
 # DESCRIPTION
 #
