@@ -27,6 +27,14 @@ done
 AC_SUBST([M4SOURCE])
 AC_MSG_RESULT([done])
 
+AC_MSG_CHECKING([for available documentation])
+HTMLFILE=""
+for n in ${srcdir}/html/*.* ; do
+  HTMLFILE="${HTMLFILE} ${n}"
+done
+AC_SUBST([HTMLFILE])
+AC_MSG_RESULT([done])
+
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
 

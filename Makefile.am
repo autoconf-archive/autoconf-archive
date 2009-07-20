@@ -10,6 +10,9 @@ MAINTAINERCLEANFILES    = missing install-sh configure Makefile.in aclocal.m4
 aclocaldir              = $(datadir)/aclocal
 dist_aclocal_DATA       = $(M4SOURCE)
 
+htmldir                 = $(pkgdatadir)/html
+dist_html_DATA          = $(HTMLFILE)
+
 EXTRA_DIST		= build-aux/git-version-gen
 
 dist-hook:
