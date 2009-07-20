@@ -110,28 +110,3 @@ class Macro:
 
   def __repr__(self):
     return repr(self.__dict__)
-
-if __name__ == "__main__":
-  from stringtemplate3 import StringTemplateGroup, StringTemplate
-  from optparse import OptionParser
-
-  opts = OptionParser()
-  opts.add_option('', "--input-encoding", dest = "inEncode", default = "latin1")
-  opts.add_option('', "--output-encoding", dest = "outEncode", default = "latin1")
-  opts.add_option('', "--template-lexer",  dest = "lexer", default = "angle-bracket")
-  opts.add_option('', "--output-dir", dest = "outDir", default = "stage")
-  opts.add_option('', "--output-suffix", dest = "suffix", default = ".m4")
-  (options, args) = opts.parse_args()
-  stFile = args.pop(0)
-  formatter = StringTemplateGroup(file = open(stFile), lexer = options.lexer)
-  for m4File in args:
-    (stem,suff) = path.splitext(path.basename(m4File))
-    assert suff == ".m4"
-    outFile = path.join(options.outDir, stem + options.suffix)
-    assert outFile != m4File
-    print m4File, "->", outFile
-    m = Macro(m4File, options.inEncode)
-    f = formatter.getInstanceOf("canon")
-    for (k,v) in m.__dict__.items():
-      f[k] = v
-    writeFile(outFile, options.outEncode, f.toString().strip() + '\n')

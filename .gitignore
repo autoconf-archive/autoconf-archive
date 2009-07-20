@@ -4,9 +4,6 @@
 # byte-compiled version of the python module
 /macro.pyc
 
-# build system meta-data
-/.sconsign.*
-
 # the html tree is maintained in a separate, CVS-based repository
 /html/*
 
