@@ -77,7 +77,7 @@ in "-pedantic % -fno-writable-strings -Wwrite-strings" dnl   GCC
    #
 do FLAGS="$ac_save_[]FLAGS "`echo $ac_arg | sed -e 's,%%.*,,' -e 's,%,,'`
    AC_TRY_COMPILE([],[return 0;],
-   [VAR=`echo $ac_arg | -e 's,.*% *,,'` ; break])
+   [VAR=`echo $ac_arg | sed -e 's,.*% *,,'` ; break])
 done
 case ".$VAR" in
    .|.no|.no,*) ;;
