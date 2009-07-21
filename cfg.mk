@@ -30,8 +30,9 @@ $(HTMLDIR)/%.html : $(STAGEDIR)/%.html
 	@echo publish $*
 	@tidy -quiet -ascii --indent yes --indent-spaces 1 --tidy-mark no -wrap 80 --hide-comments yes $< >$@
 
-%/.dirCreated:
-	@$(install_sh) -D /dev/null $@
+$(STAGEDIR)/.dirCreated:
+	@$(MKDIR_P) $(STAGEDIR)
+	@touch $@
 
 taint-distcheck:
 
