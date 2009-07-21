@@ -11,8 +11,8 @@
 #   Detect SysV compatible curses, such as ncurses.
 #
 #   Defines HAVE_CURSES_H or HAVE_NCURSES_H if curses is found. CURSES_LIB
-#   is also set with the required libary, but is not appended to LIBS
-#   automatically. If no working curses libary is found CURSES_LIB will be
+#   is also set with the required library, but is not appended to LIBS
+#   automatically. If no working curses library is found CURSES_LIB will be
 #   left blank.
 #
 #   There are two options: --with-ncurses forces the use of ncurses, and
