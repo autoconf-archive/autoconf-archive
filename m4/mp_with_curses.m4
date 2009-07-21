@@ -13,7 +13,8 @@
 #   Defines HAVE_CURSES_H or HAVE_NCURSES_H if curses is found. CURSES_LIB
 #   is also set with the required library, but is not appended to LIBS
 #   automatically. If no working curses library is found CURSES_LIB will be
-#   left blank.
+#   left blank. If CURSES_LIB is set in the environment, the supplied value
+#   will be used.
 #
 #   There are two options: --with-ncurses forces the use of ncurses, and
 #   --with-ncursesw forces the use of ncursesw (wide character ncurses). The
@@ -63,8 +64,7 @@ AC_DEFUN([MP_WITH_CURSES],
    mp_save_LIBS="$LIBS"
    AC_ARG_WITH(ncursesw, [AC_HELP_STRING([--without-ncursesw],
         [Don't use ncursesw (wide character support)])],,)
-   CURSES_LIB=""
-   if test "$with_ncurses" != no -a "$with_ncursesw" != "no"
+   if test ! "$CURSES_LIB" -a "$with_ncurses" != no -a "$with_ncursesw" != "no"
    then
        AC_CACHE_CHECK([for working ncursesw], mp_cv_ncursesw,
          [LIBS="$mp_save_LIBS -lncursesw"
@@ -98,10 +98,14 @@ AC_DEFUN([MP_WITH_CURSES],
      fi
      mp_cv_curses=yes
    fi
-   if test ! "$CURSES_LIB" -a "$with_ncurses" != yes -a "$with_ncursesw" != yes
+   if test "$mp_cv_curses" != yes -a "$with_ncurses" != yes -a "$with_ncursesw" != yes
    then
+     if test ! "$CURSES_LIB"
+     then
+       CURSES_LIB="-lcurses"
+     fi
      AC_CACHE_CHECK([for working curses], mp_cv_curses,
-       [LIBS="$LIBS -lcurses"
+       [LIBS="$mp_save_LIBS $CURSES_LIB"
         AC_TRY_LINK(
           [#include <curses.h>],
           [chtype a; int b=A_STANDOUT, c=KEY_LEFT; initscr(); ],
@@ -109,7 +113,6 @@ AC_DEFUN([MP_WITH_CURSES],
      if test "$mp_cv_curses" = yes
      then
        AC_DEFINE([HAVE_CURSES_H],[1],[Define if you have curses.h])
-       CURSES_LIB="-lcurses"
      fi
    fi
    LIBS="$mp_save_LIBS"
