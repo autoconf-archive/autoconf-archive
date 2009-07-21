@@ -2,10 +2,12 @@
 
 # settings required by the maintainer-makefile module
 
-gnu_rel_host = savannah.nongnu.org
-old_NEWS_hash = 5ad7b87198d89e04d76b99221591c076
-gpg_key_ID = 99089D72
-url_dir_list = http://download.savannah.nongnu.org/releases/autoconf-archive
+gnu_rel_host	:= savannah.nongnu.org
+old_NEWS_hash	:= 5ad7b87198d89e04d76b99221591c076
+gpg_key_ID	:= 99089D72
+url_dir_list	:= http://download.savannah.nongnu.org/releases/autoconf-archive
+today		:= $(date "+%Y-%m-%d")
+TAR_OPTIONS	+= --mtime=$(today)
 
 # maintainer targets
 
