@@ -8,8 +8,8 @@
 #
 # DESCRIPTION
 #
-#   Splits a version number in the format MAJOR.MINOR.POINT into it's
-#   separeate components.
+#   Splits a version number in the format MAJOR.MINOR.POINT into its
+#   separate components.
 #
 #   Sets the variables.
 #
