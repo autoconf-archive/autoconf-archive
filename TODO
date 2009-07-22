@@ -54,6 +54,10 @@
 
 * TODO Improve submission guide lines on the web site
 
+* TODO VL_PROG_CC_WARNINGS and AX_CFLAGS_WARN* overlap.
+
+  Contact the authors and ask whether they'd like to help re-factor the code.
+
 ** New submissions should use an AX_ prefix.
 
    Other prefixes are fine, too, but use of AX_ inside of the Autoconf Archive
