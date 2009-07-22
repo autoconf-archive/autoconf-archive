@@ -2,6 +2,26 @@
 
 * TODO Document our new mailing lists.
 
+  * http://lists.nongnu.org/mailman/listinfo/autoconf-archive-announce
+
+    This is a low-traffic mailing list used to announce new releases of the
+    Autoconf Archive.
+
+  * http://lists.nongnu.org/mailman/listinfo/autoconf-archive-maintainers
+
+    This mailing list can be used to contact the archive maintainers, i.e. to
+    report problems with the website, the release tarballs, or the
+    documentation. Patches (git-formatted or otherwise) can be posted here,
+    too, although the patch tracker is the preferred way of submitting patches
+    or new macros.
+
+  * http://lists.nongnu.org/mailman/listinfo/autoconf-archive-commits
+
+    This mailing list distributes an e-mail every time the 'master' branch has
+    been changed in Git. Other branches, like 'maint', aren't tracked; there is
+    only a moderate amount of traffic.
+
+
 * TODO Decide how to handle non-ASCII content in m4 files
 
   Several macros contain non-ASCII characters, for example:
