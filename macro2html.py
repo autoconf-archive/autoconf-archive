@@ -2,17 +2,8 @@
 
 assert __name__ == "__main__"
 
-import os.path as path
+import sys
 from macro import Macro, writeFile
-from optparse import OptionParser
-
-opts = OptionParser()
-opts.add_option('-v', "--verbose", dest = "verbose", default = False, action = "store_true")
-opts.add_option('', "--input-encoding", dest = "inEncode", default = "latin-1")
-opts.add_option('', "--output-encoding", dest = "outEncode", default = "latin1")
-opts.add_option('', "--output-dir", dest = "outDir", default = "stage")
-opts.add_option('', "--output-suffix", dest = "suffix", default = ".html")
-(options, args) = opts.parse_args()
 
 tmpl = """\
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
@@ -105,17 +96,14 @@ def formatAuthor(a):
   else:
     return "Copyright &copy; %(year)s %(name)s" % a
 
-for m4File in args:
-  (stem,suff) = path.splitext(path.basename(m4File))
-  assert suff == ".m4"
-  outFile = path.join(options.outDir, stem + options.suffix)
-  assert outFile != m4File
-  if options.verbose:
-    print m4File, "->", outFile
-  m = Macro(m4File, options.inEncode)
-  m.synopsis = "<br>\n".join([ "<code>%s</code>" % quoteHtml(l) for l in m.synopsis ])
-  m.description = '\n\n'.join(map(formatParagraph, m.description))
-  m.description = m.description.replace("</pre>\n\n<pre>", "\n\n")
-  m.authors = "<br>\n".join(map(formatAuthor, m.authors))
-  m.license = '\n'.join(map(formatParagraph, m.license))
-  writeFile(outFile, options.outEncode, tmpl % m.__dict__)
+if len(sys.argv) != 3:
+  raise Exception("invalid command line syntax: %s" % ' '.join(map(repr, sys.argv)))
+(m4File,outFile) = sys.argv[1:]
+assert outFile != m4File
+m = Macro(m4File)
+m.synopsis = "<br>\n".join([ "<code>%s</code>" % quoteHtml(l) for l in m.synopsis ])
+m.description = '\n\n'.join(map(formatParagraph, m.description))
+m.description = m.description.replace("</pre>\n\n<pre>", "\n\n")
+m.authors = "<br>\n".join(map(formatAuthor, m.authors))
+m.license = '\n'.join(map(formatParagraph, m.license))
+writeFile(outFile, tmpl % m.__dict__)

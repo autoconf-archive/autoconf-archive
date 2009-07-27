@@ -26,11 +26,11 @@ ALL_RECURSIVE_TARGETS += website
 website: $(HTML_FILES)
 
 $(STAGEDIR)/%.html : $(M4DIR)/%.m4 $(STAGEDIR)/.dirCreated $(srcdir)/macro.py $(srcdir)/macro2html.py
-	@$(srcdir)/macro2html.py --input-encoding=latin-1 --output-encoding=latin-1 --output-dir=$(STAGEDIR) --output-suffix=.html $<
+	@$(srcdir)/macro2html.py "$<" "$@"
 
 $(HTMLDIR)/%.html : $(STAGEDIR)/%.html
-	@echo publish $*
-	@tidy -quiet -ascii --indent yes --indent-spaces 1 --tidy-mark no -wrap 80 --hide-comments yes $< >$@
+	@echo generating $*.html
+	@tidy -quiet -ascii --indent yes --indent-spaces 1 --tidy-mark no -wrap 80 --hide-comments yes "$<" >"$@"
 
 $(STAGEDIR)/.dirCreated:
 	@$(MKDIR_P) $(STAGEDIR)

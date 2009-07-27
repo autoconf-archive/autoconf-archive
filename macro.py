@@ -6,14 +6,13 @@ import re
 import os.path as path
 import sys
 import textwrap
-import encodings
 
-def loadFile(path, encoding):
-  with closing( encodings.search_function(encoding).streamreader(open(path)) ) as fd:
+def loadFile(path):
+  with closing( open(path) ) as fd:
     return fd.read()
 
-def writeFile(path, encoding, buffer):
-  with closing( encodings.search_function(encoding).streamwriter(open(path, "w")) ) as fd:
+def writeFile(path, buffer):
+  with closing( open(path, "w") ) as fd:
     fd.write(buffer)
 
 def splitSections(buffer):
@@ -61,10 +60,10 @@ def collapseText(lines, width = 72):
   return body
 
 class Macro:
-  def __init__(self, filePath, encoding):
+  def __init__(self, filePath):
     self.name = path.splitext(path.basename(filePath))[0]
     # header and body are separated by an empty line.
-    (header,body) = loadFile(filePath, encoding).split("\n\n", 1)
+    (header,body) = loadFile(filePath).split("\n\n", 1)
     self.body = body.split('\n')
     # drop initial header (if present)
     header = re.sub(r"^\n*# =+\n#[^\n]*\n# =+\n(#\n)+", '', header, 1)
