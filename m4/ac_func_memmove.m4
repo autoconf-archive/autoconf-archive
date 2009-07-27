@@ -13,7 +13,7 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2008 Rüdiger Kuhlmann <info@ruediger-kuhlmann.de>
+#   Copyright (c) 2008 Ruediger Kuhlmann <info@ruediger-kuhlmann.de>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
