@@ -9,7 +9,7 @@
 # DESCRIPTION
 #
 #   If the compiler supports ISO C++ standard library (i.e., can include the
-#   files iostream, map, iomanip and cmath}), define HAVE_STD.
+#   files iostream, map, iomanip and cmath), define HAVE_STD.
 #
 # LICENSE
 #
