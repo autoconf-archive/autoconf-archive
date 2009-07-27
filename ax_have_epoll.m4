@@ -23,7 +23,7 @@
 #   the macro verifies that a kernel newer than this is installed. This
 #   check is somewhat unreliable if <linux/version.h> doesn't match the
 #   running kernel, but it is necessary regardless, because glibc comes with
-#   stubs for the epoll_create(), epolL_wait(), etc. that allow programs to
+#   stubs for the epoll_create(), epoll_wait(), etc. that allow programs to
 #   compile and link even if the kernel is too old; the problem would then
 #   be detected only at runtime.
 #
