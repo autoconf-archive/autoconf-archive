@@ -17,24 +17,40 @@ STAGEDIR	:= $(srcdir)/stage
 
 M4_FILES	:= $(wildcard $(M4DIR)/*.m4)
 MACROS		:= $(patsubst $(M4DIR)/%.m4,%, $(M4_FILES))
-CANON_M4_FILES	:= $(patsubst %,$(STAGEDIR)/%.m4,$(MACROS))
-RAW_HTML_FILES	:= $(patsubst %,$(STAGEDIR)/%.html,$(MACROS))
 HTML_FILES	:= $(patsubst %,$(HTMLDIR)/%.html,$(MACROS))
+TEXI_FILES	:= $(patsubst %,$(STAGEDIR)/%.texi,$(MACROS))
 
-.PHONY: website
-ALL_RECURSIVE_TARGETS += website
-website: $(HTML_FILES)
+.PHONY: generate
+ALL_RECURSIVE_TARGETS += generate
+generate: $(HTML_FILES) $(TEXI_FILES) autoconf-archive.info
 
-$(STAGEDIR)/%.html : $(M4DIR)/%.m4 $(STAGEDIR)/.dirCreated $(srcdir)/macro.py $(srcdir)/macro2html.py
+$(STAGEDIR)/manifest:
+	@$(MKDIR_P) $(STAGEDIR)
+	@rm -f "$@"
+	@for n in $(basename $(notdir $(M4_FILES))); do echo "$$n" >>"$@"; done
+
+$(STAGEDIR)/%.html : $(M4DIR)/%.m4 $(STAGEDIR)/manifest $(srcdir)/macro.py $(srcdir)/macro2html.py
+	@echo generating $@
 	@$(srcdir)/macro2html.py "$<" "$@"
 
+$(STAGEDIR)/%.texi : $(M4DIR)/%.m4 $(STAGEDIR)/manifest $(srcdir)/macro.py $(srcdir)/macro2texi.py
+	@echo generating $@
+	@$(srcdir)/macro2texi.py "$<" "$@"
+
 $(HTMLDIR)/%.html : $(STAGEDIR)/%.html
-	@echo generating $*.html
+	@echo pretty-printing $@
 	@tidy -quiet -ascii --indent yes --indent-spaces 1 --tidy-mark no -wrap 80 --hide-comments yes "$<" >"$@"
 
-$(STAGEDIR)/.dirCreated:
+$(STAGEDIR)/all-macros.texi:	$(TEXI_FILES)
 	@$(MKDIR_P) $(STAGEDIR)
-	@touch $@
+	@rm -f "$@"
+	@for n in $(TEXI_FILES); do echo "@include $$n" >>"$@"; done
+
+autoconf-archive.info: autoconf-archive.texi $(STAGEDIR)/all-macros.texi $(STAGEDIR)/version.texi
+	makeinfo $<
+
+$(STAGEDIR)/version.texi:
+	echo @set VERSION $(VERSION) >"$@"
 
 taint-distcheck:
 
