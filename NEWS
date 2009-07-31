@@ -1,6 +1,41 @@
 #+TITLE: Autoconf Archive NEWS                 -*- mode:org;fill-column:79; -*-
 #+STARTUP: showall
 
-* Noteworthy changes in release 2009.07.20 (2009-07-21) [alpha]
+* Noteworthy changes in release 2009.07.31 (2009-07-31) [alpha]
 
   The archive has moved to Savannah: http://www.nongnu.org/autoconf-archive/
+  Version 2009-04-26 was the last to be released at autoconf-archive.cryp.to.
+
+  The following macros have been added to the distribution:
+
+    AX_CHECK_OPENSSL
+    AX_LIB_NOKALVA
+    AX_LIB_XALAN
+
+  The following macros have been updated:
+
+    _AC_C_IFDEF
+    AC_CXX_COMPILER_VENDOR
+    AC_CXX_CPPFLAGS_STD_LANG
+    AC_CXX_CXXFLAGS_STD_LANG
+    AC_CXX_HAVE_STD
+    AC_CXX_LDFLAGS_STD_LANG
+    AC_FUNC_MEMMOVE
+    AC_FUNC_SNPRINTF
+    AC_LIBTOOLIZE_CFLAGS
+    AC_PATH_GENERIC
+    AC_PYTHON_DEVEL
+    AX_CFLAGS_NO_WRITABLE_STRINGS
+    AX_COMPARE_VERSION
+    AX_CREATE_PKGCONFIG_INFO
+    AX_DIST_RPM
+    AX_HAVE_EPOLL
+    AX_RUBY_DEVEL
+    AX_SPLIT_VERSION
+    AX_WITH_PROG
+    MP_WITH_CURSES
+    VL_LIB_READLINE
+
+  The following macros have been obsoleted:
+
+    CHECK_SSL
