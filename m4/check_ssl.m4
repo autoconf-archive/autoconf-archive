@@ -2,6 +2,10 @@
 #            http://www.nongnu.org/autoconf-archive/check_ssl.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Replaced by AX_CHECK_OPENSSL.
+#
 # SYNOPSIS
 #
 #   CHECK_SSL
