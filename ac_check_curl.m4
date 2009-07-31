@@ -2,6 +2,10 @@
 #          http://www.nongnu.org/autoconf-archive/ac_check_curl.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Replaced by AX_LIB_CURL.
+#
 # SYNOPSIS
 #
 #   AC_CHECK_CURL(version, action-if, action-not)
