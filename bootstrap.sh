@@ -11,6 +11,6 @@ $gnulibtool --m4-base build-aux --source-base build-aux --import git-version-gen
 
 echo TODO >AUTHORS
 
-(cd m4 && ../build-aux/gitlog-to-changelog -- master >../ChangeLog)
+build-aux/gitlog-to-changelog -- master >ChangeLog
 
 autoreconf --install -Wall
