@@ -22,7 +22,7 @@ TEXI_FILES	:= $(patsubst %,$(STAGEDIR)/%.texi,$(MACROS))
 
 .PHONY: generate
 ALL_RECURSIVE_TARGETS += generate
-generate: $(HTML_FILES) $(TEXI_FILES) autoconf-archive.info
+generate: $(HTML_FILES) $(TEXI_FILES) $(STAGEDIR)/autoconf-archive.info
 
 $(STAGEDIR)/manifest:
 	@$(MKDIR_P) $(STAGEDIR)
@@ -46,8 +46,8 @@ $(STAGEDIR)/all-macros.texi:	$(TEXI_FILES)
 	@rm -f "$@"
 	@for n in $(TEXI_FILES); do echo "@include $$n" >>"$@"; done
 
-autoconf-archive.info: autoconf-archive.texi $(STAGEDIR)/all-macros.texi $(STAGEDIR)/version.texi
-	makeinfo $<
+$(STAGEDIR)/autoconf-archive.info: $(srcdir)/autoconf-archive.texi $(STAGEDIR)/all-macros.texi $(STAGEDIR)/version.texi
+	makeinfo -o $@ $<
 
 $(STAGEDIR)/version.texi:
 	echo @set VERSION $(VERSION) >"$@"
