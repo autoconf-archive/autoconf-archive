@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_check_taglib.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Replaced by AX_LIB_TAGLIB.
+#
 # SYNOPSIS
 #
 #   AC_CHECK_TAGLIB(version, action-if, action-if-not)
