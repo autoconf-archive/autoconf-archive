@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_path_generic.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Replaced by AX_PATH_GENERIC.
+#
 # SYNOPSIS
 #
 #   AC_PATH_GENERIC(LIBRARY [, MINIMUM-VERSION [, ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND [, CONFIG-SCRIPTS [, CFLAGS-ARG [, LIBS-ARG]]]]]])
