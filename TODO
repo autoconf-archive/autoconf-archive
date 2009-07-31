@@ -52,3 +52,14 @@
 
    If you have an account Savannah, simply request access to the Autoconf
    Archive's repository so that you can use git push.
+
+* TODO Recognize cross-links in macro documentation.
+
+  Macros often refer to other entries in the archive. The macro2html and
+  macro2texi scripts should recognize those references and generate appropriate
+  links in the output.
+
+* TODO Recognize URIs in macro documentation.
+
+  Some macros feature http or mailto URIs. The generator scripts should
+  recognize those and generate appropriate hyperlinks output (where feasible).
