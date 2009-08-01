@@ -119,13 +119,36 @@ AC_ARG_VAR(UP[]_LIBS,   [LIBS used for the $1])
      ifelse([$2], , ,[
         DOWN[]_config_major_version=`$UP[]_CONFIG $DOWN[]_config_args \
          --version | sed 's/[[^0-9]]*\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\1/'`
+        if test "$DOWN[]_config_major_version" = "" ; then
+           DOWN[]_config_major_version="0"
+        fi
+
         DOWN[]_config_minor_version=`$UP[]_CONFIG $DOWN[]_config_args \
          --version | sed 's/[[^0-9]]*\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\2/'`
+        if test "$DOWN[]_config_minor_version" = "" ; then
+           DOWN[]_config_minor_version="0"
+        fi
+
         DOWN[]_config_micro_version=`$UP[]_CONFIG $DOWN[]_config_args \
          --version | sed 's/[[^0-9]]*\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\3/'`
+        if test "$DOWN[]_config_micro_version" = "" ; then
+           DOWN[]_config_micro_version="0"
+        fi
+
         DOWN[]_wanted_major_version="regexp($2, [\<\([0-9]*\)], [\1])"
+        if test "$DOWN[]_wanted_major_version" = "" ; then
+           DOWN[]_wanted_major_version="0"
+        fi
+
         DOWN[]_wanted_minor_version="regexp($2, [\<\([0-9]*\)\.\([0-9]*\)], [\2])"
+        if test "$DOWN[]_wanted_minor_version" = "" ; then
+           DOWN[]_wanted_minor_version="0"
+        fi
+
         DOWN[]_wanted_micro_version="regexp($2, [\<\([0-9]*\).\([0-9]*\).\([0-9]*\)], [\3])"
+        if test "$DOWN[]_wanted_micro_version" = "" ; then
+           DOWN[]_wanted_micro_version="0"
+        fi
 
         # Compare wanted version to what config script returned.
         # If I knew what library was being run, i'd probably also compile
