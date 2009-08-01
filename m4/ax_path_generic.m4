@@ -43,6 +43,8 @@
 #      BAR_CFLAGS to `bar-config --cflags`
 #      BAR_LIBS   to `bar-config --libs`
 #
+#   This macro is a rearranged version of AC_PATH_GENERIC from Angus Lees.
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>

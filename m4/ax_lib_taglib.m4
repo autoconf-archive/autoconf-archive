@@ -19,6 +19,8 @@
 #       AC_MSG_ERROR([Your system lacks of taglib >= 1.5])
 #     ])
 #
+#   This macro is a rearranged version of AC_LIB_TAGLIB from Akos Maroy.
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>

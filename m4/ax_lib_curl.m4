@@ -19,6 +19,8 @@
 #       AC_MSG_ERROR([Your system lacks of libcurl >= 7.19.4])
 #     ])
 #
+#   This macro is a rearranged version of AC_LIB_CURL from Akos Maroy.
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>
