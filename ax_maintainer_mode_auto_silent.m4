@@ -9,15 +9,15 @@
 # DESCRIPTION
 #
 #   Set autotools to error/sleep settings so that they are not run when
-#   being errornously triggered. Likewise make libtool-silent when libtool
+#   being erroneously triggered. Likewise make libtool-silent when libtool
 #   has been used.
 #
-#   I am using the macro quite a lot since some automake versions had the
+#   I use the macro quite a lot since some automake versions have the
 #   tendency to try to rerun some autotools on a mere make even when not
 #   quite in --maintainer-mode. That is very annoying. Likewise, a user who
 #   installs from source does not want to see doubled compiler messages.
 #
-#   I did not put an AC-REQUIRE(MAINTAINER_MODE) in here - should I?
+#   I did not put an AC_REQUIRE(MAINTAINER_MODE) in here - should I?
 #
 # LICENSE
 #
