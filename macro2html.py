@@ -41,6 +41,7 @@ tmpl = """\
   <h1>
    %(name)s
   </h1>
+%(obsolete)s
   <h2>
    SYNOPSIS
   </h2>
@@ -101,6 +102,10 @@ if len(sys.argv) != 3:
 (m4File,outFile) = sys.argv[1:]
 assert outFile != m4File
 m = Macro(m4File)
+if m.__dict__.get("obsolete"):
+  m.obsolete = "<h2>Obsolete Macro</h2>" + '\n'.join(map(formatParagraph, m.obsolete))
+else:
+  m.obsolete = ""
 m.synopsis = "<br>\n".join([ "<code>%s</code>" % quoteHtml(l) for l in m.synopsis ])
 m.description = '\n\n'.join(map(formatParagraph, m.description))
 m.description = m.description.replace("</pre>\n\n<pre>", "\n\n")
