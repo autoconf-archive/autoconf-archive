@@ -61,7 +61,6 @@ General Public License for more details.
 * ac_caolan_search_package::
 * ac_check_class::
 * ac_check_classpath::
-* ac_check_curl::
 * ac_check_docbook_dtd::
 * ac_check_docbook_xslt::
 * ac_check_docbook_xslt_min::
@@ -74,7 +73,6 @@ General Public License for more details.
 * ac_check_rqrd_class::
 * ac_check_struct_for::
 * ac_check_symbol::
-* ac_check_taglib::
 * ac_check_typedef::
 * ac_check_user::
 * ac_compile_check_sizeof::
@@ -166,7 +164,6 @@ General Public License for more details.
 * ac_lib_wad::
 * ac_libtoolize_cflags::
 * ac_numeric_namedlevel::
-* ac_path_generic::
 * ac_perl_module_version::
 * ac_pkg_mico::
 * ac_pkg_swig::
@@ -250,11 +247,11 @@ General Public License for more details.
 * acltx_prog_jpeg2ps::
 * acltx_prog_jpegtopnm::
 * acltx_prog_kpsewhich::
-* acltx_prog_latex::
 * acltx_prog_latex2html::
 * acltx_prog_latex2man::
 * acltx_prog_latex2png::
 * acltx_prog_latex2rtf::
+* acltx_prog_latex::
 * acltx_prog_makeindex::
 * acltx_prog_mf::
 * acltx_prog_mktexpk::
@@ -455,6 +452,7 @@ General Public License for more details.
 * ax_ld_check_flag::
 * ax_lib_beecrypt::
 * ax_lib_crypto::
+* ax_lib_curl::
 * ax_lib_expat::
 * ax_lib_firebird::
 * ax_lib_gcrypt::
@@ -462,8 +460,10 @@ General Public License for more details.
 * ax_lib_nettle::
 * ax_lib_nokalva::
 * ax_lib_oracle_oci::
+* ax_lib_orbit2::
 * ax_lib_postgresql::
 * ax_lib_sqlite3::
+* ax_lib_taglib::
 * ax_lib_xalan::
 * ax_lib_xerces::
 * ax_lib_xml_security::
@@ -474,6 +474,7 @@ General Public License for more details.
 * ax_not_enable_frame_pointer::
 * ax_openmp::
 * ax_path_bdb::
+* ax_path_generic::
 * ax_path_lib_pcre::
 * ax_path_milter::
 * ax_path_missing::
@@ -541,7 +542,6 @@ General Public License for more details.
 * bnv_have_qt::
 * cf_ebcdic::
 * check_gnu_make::
-* check_ssl::
 * check_zlib::
 * compile_value::
 * ct_check_postgres_db::
@@ -583,6 +583,15 @@ General Public License for more details.
 * vl_lib_readline::
 * vl_prog_cc_warnings::
 * vl_prog_fig2dev::
+@end menu
+
+Obsolete macros:
+
+@menu
+* ac_check_curl::       For a superior replacement @xref{ax_lib_curl}.
+* ac_check_taglib::     For a superior replacement @xref{ax_lib_taglib}.
+* ac_path_generic::     For a superior replacement @xref{ax_path_generic}.
+* check_ssl::           For a superior replacement @xref{ax_check_openssl}.
 @end menu
 
 @include stage/all-macros.texi
