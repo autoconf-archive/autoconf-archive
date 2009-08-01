@@ -9,8 +9,12 @@
   The following macros have been added to the distribution:
 
     AX_CHECK_OPENSSL
+    AX_LIB_CURL
     AX_LIB_NOKALVA
+    AX_LIB_ORBIT2
+    AX_LIB_TAGLIB
     AX_LIB_XALAN
+    AX_PATH_GENERIC
 
   The following macros have been updated:
 
@@ -38,4 +42,7 @@
 
   The following macros have been obsoleted:
 
+    AC_CHECK_CURL
+    AC_CHECK_TAGLIB
+    AC_PATH_GENERIC: marked obsolete
     CHECK_SSL
