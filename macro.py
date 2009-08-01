@@ -103,6 +103,12 @@ class Macro:
         if body.pop(0) != '':
           raise Exception("%s: malformed license section" % filePath)
         body = collapseText(body)
+      elif key == "obsolete macro":
+        key = "obsolete"
+        if '' in body:
+          raise Exception("%s: malformed obsoleted section" % filePath)
+      elif key == "description":
+        body = collapseText(body)
       else:
         raise Exception("%s: unknown section %r in macro" % (filePath, key))
       self.__dict__[key] = body
