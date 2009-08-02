@@ -191,8 +191,6 @@ General Public License for more details.
 * ac_prog_scp::
 * ac_prog_ssh::
 * ac_prog_xsltproc::
-* ac_prompt_user::
-* ac_prompt_user_no_define::
 * ac_prototype::
 * ac_prototype_accept::
 * ac_prototype_getsockname::
@@ -588,10 +586,12 @@ General Public License for more details.
 Obsolete macros:
 
 @menu
-* ac_check_curl::       For a superior replacement @xref{ax_lib_curl}.
-* ac_check_taglib::     For a superior replacement @xref{ax_lib_taglib}.
-* ac_path_generic::     For a superior replacement @xref{ax_path_generic}.
-* check_ssl::           For a superior replacement @xref{ax_check_openssl}.
+* ac_check_curl::               For a superior replacement @xref{ax_lib_curl}.
+* ac_check_taglib::             For a superior replacement @xref{ax_lib_taglib}.
+* ac_path_generic::             For a superior replacement @xref{ax_path_generic}.
+* ac_prompt_user::              Configure scripts are expected to run non-interactively.
+* ac_prompt_user_no_define::    Configure scripts are expected to run non-interactively.
+* check_ssl::                   For a superior replacement @xref{ax_check_openssl}.
 @end menu
 
 @include stage/all-macros.texi
