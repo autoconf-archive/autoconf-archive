@@ -18,8 +18,6 @@
 
   : git clone ssh://[<login>@]git.sv.gnu.org/srv/git/autoconf-archive
   : cd autoconf-archive
-  : git checkout -b maint origin/maint
-  : git submodule update -i
   : cvs -z3 -d:ext:[<login>@]cvs.savannah.nongnu.org:/web/autoconf-archive co -d html autoconf-archive
   : ./bootstrap.sh
   : ./configure
