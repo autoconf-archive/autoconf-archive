@@ -29,11 +29,16 @@ $(STAGEDIR)/manifest:
 	@rm -f "$@"
 	@for n in $(basename $(notdir $(M4_FILES))); do echo "$$n" >>"$@"; done
 
-$(STAGEDIR)/%.html : $(M4DIR)/%.m4 $(STAGEDIR)/manifest $(srcdir)/macro.py $(srcdir)/macro2html.py
+$(STAGEDIR)/%.m4 : $(M4DIR)/%.m4 $(STAGEDIR)/manifest $(srcdir)/macro.py $(srcdir)/macro2m4.py
+	@echo generating $@
+	@$(srcdir)/macro2m4.py "$<" "$@"
+	@diff -u "$<" "$@"
+
+$(STAGEDIR)/%.html : $(STAGEDIR)/%.m4 $(srcdir)/macro2html.py
 	@echo generating $@
 	@$(srcdir)/macro2html.py "$<" "$@"
 
-$(STAGEDIR)/%.texi : $(M4DIR)/%.m4 $(STAGEDIR)/manifest $(srcdir)/macro.py $(srcdir)/macro2texi.py
+$(STAGEDIR)/%.texi : $(STAGEDIR)/%.m4 $(srcdir)/macro2texi.py
 	@echo generating $@
 	@$(srcdir)/macro2texi.py "$<" "$@"
 
