@@ -76,7 +76,6 @@ General Public License for more details.
 * ac_check_typedef::
 * ac_check_user::
 * ac_compile_check_sizeof::
-* ac_compile_warnings::
 * ac_cond_with_level::
 * ac_create_generic_config::
 * ac_create_target_h::
@@ -332,7 +331,6 @@ General Public License for more details.
 * ax_cflags_strict_prototypes::
 * ax_cflags_sun_option::
 * ax_cflags_warn_all::
-* ax_cflags_warn_all_ansi::
 * ax_check_aligned_access_required::
 * ax_check_awk__v::
 * ax_check_awk__x_escapes::
@@ -579,7 +577,6 @@ General Public License for more details.
 * vl_check_sign::
 * vl_decl_wchar_max::
 * vl_lib_readline::
-* vl_prog_cc_warnings::
 * vl_prog_fig2dev::
 @end menu
 
@@ -588,10 +585,13 @@ Obsolete macros:
 @menu
 * ac_check_curl::               For a superior replacement @xref{ax_lib_curl}.
 * ac_check_taglib::             For a superior replacement @xref{ax_lib_taglib}.
+* ac_compile_warnings::         For a superior replacement @xref{ax_cflags_warn_all}.
 * ac_path_generic::             For a superior replacement @xref{ax_path_generic}.
 * ac_prompt_user::              Configure scripts are expected to run non-interactively.
 * ac_prompt_user_no_define::    Configure scripts are expected to run non-interactively.
+* ax_cflags_warn_all_ansi::     For a superior replacement @xref{ax_cflags_warn_all}.
 * check_ssl::                   For a superior replacement @xref{ax_check_openssl}.
+* vl_prog_cc_warnings::         For a superior replacement @xref{ax_cflags_warn_all}.
 @end menu
 
 @include stage/all-macros.texi
