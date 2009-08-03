@@ -2,6 +2,10 @@
 #     http://www.nongnu.org/autoconf-archive/ax_cflags_warn_all_ansi.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated in favor of AX_CFLAGS_WARN_ALL.
+#
 # SYNOPSIS
 #
 #   AX_CFLAGS_WARN_ALL_ANSI [(shellvar [,default, [A/NA]])]

@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/vl_prog_cc_warnings.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated in favor of AX_CFLAGS_WARN_ALL.
+#
 # SYNOPSIS
 #
 #   VL_PROG_CC_WARNINGS([ANSI])

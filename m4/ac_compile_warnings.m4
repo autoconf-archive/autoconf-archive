@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/ac_compile_warnings.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated in favor of AX_CFLAGS_WARN_ALL.
+#
 # SYNOPSIS
 #
 #   AC_COMPILE_WARNINGS
