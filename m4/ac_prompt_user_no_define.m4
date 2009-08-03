@@ -2,6 +2,10 @@
 #    http://www.nongnu.org/autoconf-archive/ac_prompt_user_no_define.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Configure scripts are generally expected to run without user interaction.
+#
 # SYNOPSIS
 #
 #   AC_PROMPT_USER_NO_DEFINE(VARIABLENAME,QUESTION,[DEFAULT])
