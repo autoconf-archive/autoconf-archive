@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://www.nongnu.org/autoconf-archive/ax_lib_curl.html
+#           http://www.nongnu.org/autoconf-archive/ax_lib_curl.html
 # ===========================================================================
 #
 # SYNOPSIS
