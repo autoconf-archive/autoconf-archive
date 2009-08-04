@@ -18,8 +18,9 @@
 #   is specified, the script must also support the `--version' arg. If the
 #   `--with-library-[exec-]prefix' arguments to ./configure are given, it
 #   must also support `--prefix' and `--exec-prefix'. (In other words, it
-#   must be like gtk-config.) Prefereable use CONFIG-SCRIPTS as config script,
-#   CFLAGS-ARG instead of `--cflags` and LIBS-ARG instead of `--libs`, if given.
+#   must be like gtk-config.) Prefereable use CONFIG-SCRIPTS as config
+#   script, CFLAGS-ARG instead of `--cflags` and LIBS-ARG instead of
+#   `--libs`, if given.
 #
 #   For example:
 #
