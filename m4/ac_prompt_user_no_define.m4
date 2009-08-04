@@ -4,7 +4,8 @@
 #
 # OBSOLETE MACRO
 #
-#   Configure scripts are generally expected to run without user interaction.
+#   Configure scripts are generally expected to run without user
+#   interaction.
 #
 # SYNOPSIS
 #
