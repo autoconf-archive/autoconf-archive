@@ -8,18 +8,19 @@
 #
 # DESCRIPTION
 #
-#   Runs the LIBRARY-config script and defines LIBRARY_CFLAGS and LIBRARY_LIBS
+#   Runs the LIBRARY-config script and defines LIBRARY_CFLAGS and
+#   LIBRARY_LIBS
 #
 #   The script must support `--cflags' and `--libs' args. If MINIMUM-VERSION
 #   is specified, the script must also support the `--version' arg. If the
 #   `--with-library-[exec-]prefix' arguments to ./configure are given, it
-#   must also support `--prefix' and `--exec-prefix'.
-#   Prefereable use CONFIG-SCRIPTS as config script, CFLAGS-ARG instead of
-#   `--cflags` and LIBS-ARG instead of `--libs`, if given.
+#   must also support `--prefix' and `--exec-prefix'. Prefereable use
+#   CONFIG-SCRIPTS as config script, CFLAGS-ARG instead of `--cflags` and
+#   LIBS-ARG instead of `--libs`, if given.
 #
 #   The SED-EXPR-EXTRACTOR parameter representes the expression used in sed
-#   to extract the version number. Use it if your 'foo-config --version' dumps
-#   something like 'Foo library v1.0.0 (alfa)' instead of '1.0.0'.
+#   to extract the version number. Use it if your 'foo-config --version'
+#   dumps something like 'Foo library v1.0.0 (alfa)' instead of '1.0.0'.
 #
 #   Example:
 #
