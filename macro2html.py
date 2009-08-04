@@ -59,9 +59,9 @@ tmpl = """\
   </h2>
   <p>
    Download <a href=
-   "http://git.savannah.gnu.org/gitweb/?p=autoconf-archive.git;a=blob_plain;f=%(name)s.m4">
+   "http://git.savannah.gnu.org/gitweb/?p=autoconf-archive.git;a=blob_plain;f=m4/%(name)s.m4">
    %(name)s.m4</a> or browse the <a href=
-   "http://git.savannah.gnu.org/gitweb/?p=autoconf-archive.git;a=history;f=%(name)s.m4">
+   "http://git.savannah.gnu.org/gitweb/?p=autoconf-archive.git;a=history;f=m4/%(name)s.m4">
    revision history</a>.
   </p>
   <h2>
