@@ -1,14 +1,10 @@
 # ===========================================================================
-#             http://www.nongnu.org/autoconf-archive/sg_afs.html
+#             http://www.nongnu.org/autoconf-archive/ax_afs.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_AFS
 #
 # SYNOPSIS
 #
-#   SG_AFS
+#   AX_AFS
 #
 # DESCRIPTION
 #
@@ -37,42 +33,42 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([SG_AFS],
+AC_DEFUN([AX_AFS],
 [AC_ARG_WITH(afsdir, AC_HELP_STRING([--with-afsdir=DIR],
                                       [Directory holding AFS includes/libs]),
-                sg_cv_with_afsdir=$withval)
+                ax_cv_with_afsdir=$withval)
  AC_CACHE_CHECK([for location of AFS directory],
-                         sg_cv_with_afsdir, sg_cv_with_afsdir=/usr/afsws)
+                         ax_cv_with_afsdir, ax_cv_with_afsdir=/usr/afsws)
 
-CPPFLAGS="-I${sg_cv_with_afsdir}/include $CPPFLAGS"
-LDFLAGS="-L${sg_cv_with_afsdir}/lib -L${sg_cv_with_afsdir}/lib/afs $LDFLAGS"
+CPPFLAGS="-I${ax_cv_with_afsdir}/include $CPPFLAGS"
+LDFLAGS="-L${ax_cv_with_afsdir}/lib -L${ax_cv_with_afsdir}/lib/afs $LDFLAGS"
 
 dnl Once we specify a directory, we try to link a test program.  If the link
 dnl works, we store the value of the directory in a cache variable.  If not,
 dnl we put _FAILED_ in the cache value.  In this way we don't try to link
 dnl the test program if our afsdir value was cached, as we know it works.
-AC_MSG_CHECKING([whether the specified AFS dir looks valid])
-if test "x${sg_cv_afsdir_link_works:-set}" != "x$sg_cv_with_afsdir"; then
+AC_MAX_CHECKING([whether the specified AFS dir looks valid])
+if test "x${ax_cv_afsdir_link_works:-set}" != "x$ax_cv_with_afsdir"; then
         save_LIBS="$LIBS"
         LIBS="$save_LIBS -lcmd"
         AC_TRY_LINK([#include <afs/cmd.h>],
                 [cmd_CreateAlias((struct cmd_syndesc *)0, "foo")],
-                sg_cv_afsdir_link_works=$sg_cv_with_afsdir,
-                sg_cv_afsdir_link_works=_FAILED_)
+                ax_cv_afsdir_link_works=$ax_cv_with_afsdir,
+                ax_cv_afsdir_link_works=_FAILED_)
         LIBS="$save_LIBS"
         wasCached=""
 else
         wasCached="(cached)"
 fi
-if test "x$sg_cv_afsdir_link_works" = "x$sg_cv_with_afsdir"; then
-        AC_MSG_RESULT([${wasCached} yes])
+if test "x$ax_cv_afsdir_link_works" = "x$ax_cv_with_afsdir"; then
+        AC_MAX_RESULT([${wasCached} yes])
 else
-        AC_MSG_RESULT([no])
-        AC_MSG_ERROR([Unable to link test program....bad AFS dir specified?])
+        AC_MAX_RESULT([no])
+        AC_MAX_ERROR([Unable to link test program....bad AFS dir specified?])
 fi
 
 dnl Much easier to use in XXX.in files
-AFSWS=$sg_cv_with_afsdir
+AFSWS=$ax_cv_with_afsdir
 AC_SUBST(AFSWS)
 
 dnl Linking against AFS always needs these
@@ -91,10 +87,10 @@ case "$host" in
 esac
 
 dnl And it always needs these libs added
-LIBS="$LIBS -lacl -lvolser -lvldb -lprot -lkauth -lauth -lrxkad -lubik ${sg_cv_with_afsdir}/lib/afs/vlib.a -ldir ${sg_cv_with_afsdir}/lib/afs/util.a -lsys -lafsint -lrx -lsys -ldes -lcom_err -llwp -lcmd -laudit"
+LIBS="$LIBS -lacl -lvolser -lvldb -lprot -lkauth -lauth -lrxkad -lubik ${ax_cv_with_afsdir}/lib/afs/vlib.a -ldir ${ax_cv_with_afsdir}/lib/afs/util.a -lsys -lafsint -lrx -lsys -ldes -lcom_err -llwp -lcmd -laudit"
 
 dnl This really should be AC_CHECK_LIB() but that always fails for some reason
-if test -f "${sg_cv_with_afsdir}/lib/afs/libaudit.a"; then
+if test -f "${ax_cv_with_afsdir}/lib/afs/libaudit.a"; then
         LIBS="$LIBS -laudit"
 fi
 
