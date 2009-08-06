@@ -1,14 +1,10 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/smr_with_build_path.html
+#       http://www.nongnu.org/autoconf-archive/ax_with_build_path.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_WITH_BUILD_PATH
 #
 # SYNOPSIS
 #
-#   smr_WITH_BUILD_PATH
+#   AX_WITH_BUILD_PATH
 #
 # DESCRIPTION
 #
@@ -31,7 +27,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([smr_WITH_BUILD_PATH],
+AC_DEFUN([AX_WITH_BUILD_PATH],
 [
     AC_ARG_WITH([build-path],
     [  --with-build-path=DIR   build using DIR/include and DIR/lib],
