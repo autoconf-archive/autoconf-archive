@@ -1,14 +1,10 @@
 # ===========================================================================
-#     http://www.nongnu.org/autoconf-archive/ag_check_posix_sysinfo.html
+#     http://www.nongnu.org/autoconf-archive/ax_check_posix_sysinfo.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to ax_check_posix_sysinfo
 #
 # SYNOPSIS
 #
-#   AG_CHECK_POSIX_SYSINFO
+#   AX_CHECK_POSIX_SYSINFO
 #
 # DESCRIPTION
 #
@@ -23,19 +19,19 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([AG_CHECK_POSIX_SYSINFO],[
+AC_DEFUN([AX_CHECK_POSIX_SYSINFO],[
   AC_MSG_CHECKING([whether sysinfo(2) is POSIX])
-  AC_CACHE_VAL([ag_cv_posix_sysinfo],[
+  AC_CACHE_VAL([ax_cv_posix_sysinfo],[
   AC_TRY_RUN([#include <sys/systeminfo.h>
 int main() { char z[ 256 ];
 long sz = sysinfo( SI_SYSNAME, z, sizeof( z ));
-return (sz > 0) ? 0 : 1; }],[ag_cv_posix_sysinfo=yes],[ag_cv_posix_sysinfo=no],[ag_cv_posix_sysinfo=no]
+return (sz > 0) ? 0 : 1; }],[ax_cv_posix_sysinfo=yes],[ax_cv_posix_sysinfo=no],[ax_cv_posix_sysinfo=no]
   ) # end of TRY_RUN]) # end of CACHE_VAL
 
-  AC_MSG_RESULT([$ag_cv_posix_sysinfo])
-  if test x$ag_cv_posix_sysinfo = xyes
+  AC_MSG_RESULT([$ax_cv_posix_sysinfo])
+  if test x$ax_cv_posix_sysinfo = xyes
   then
     AC_DEFINE(HAVE_POSIX_SYSINFO, 1,
        [Define this if sysinfo(2) is POSIX])
   fi
-]) # end of AC_DEFUN of AG_CHECK_POSIX_SYSINFO
+]) # end of AC_DEFUN of AX_CHECK_POSIX_SYSINFO

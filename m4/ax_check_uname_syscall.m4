@@ -1,14 +1,10 @@
 # ===========================================================================
-#     http://www.nongnu.org/autoconf-archive/ag_check_uname_syscall.html
+#     http://www.nongnu.org/autoconf-archive/ax_check_uname_syscall.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to ax_check_uname_syscall
 #
 # SYNOPSIS
 #
-#   AG_CHECK_UNAME_SYSCALL
+#   AX_CHECK_UNAME_SYSCALL
 #
 # DESCRIPTION
 #
@@ -22,18 +18,18 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([AG_CHECK_UNAME_SYSCALL],[
+AC_DEFUN([AX_CHECK_UNAME_SYSCALL],[
   AC_MSG_CHECKING([whether uname(2) is POSIX])
-  AC_CACHE_VAL([ag_cv_uname_syscall],[
+  AC_CACHE_VAL([ax_cv_uname_syscall],[
   AC_TRY_RUN([#include <sys/utsname.h>
 int main() { struct utsname unm;
-return uname( &unm ); }],[ag_cv_uname_syscall=yes],[ag_cv_uname_syscall=no],[ag_cv_uname_syscall=no]
+return uname( &unm ); }],[ax_cv_uname_syscall=yes],[ax_cv_uname_syscall=no],[ax_cv_uname_syscall=no]
   ) # end of TRY_RUN]) # end of CACHE_VAL
 
-  AC_MSG_RESULT([$ag_cv_uname_syscall])
-  if test x$ag_cv_uname_syscall = xyes
+  AC_MSG_RESULT([$ax_cv_uname_syscall])
+  if test x$ax_cv_uname_syscall = xyes
   then
     AC_DEFINE(HAVE_UNAME_SYSCALL, 1,
        [Define this if uname(2) is POSIX])
   fi
-]) # end of AC_DEFUN of AG_CHECK_UNAME_SYSCALL
+]) # end of AC_DEFUN of AX_CHECK_UNAME_SYSCALL

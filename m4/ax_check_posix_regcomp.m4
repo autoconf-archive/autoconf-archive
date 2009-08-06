@@ -1,14 +1,10 @@
 # ===========================================================================
-#     http://www.nongnu.org/autoconf-archive/ag_check_posix_regcomp.html
+#     http://www.nongnu.org/autoconf-archive/ax_check_posix_regcomp.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to ax_check_posix_regcomp
 #
 # SYNOPSIS
 #
-#   AG_CHECK_POSIX_REGCOMP
+#   AX_CHECK_POSIX_REGCOMP
 #
 # DESCRIPTION
 #
@@ -24,9 +20,9 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([AG_CHECK_POSIX_REGCOMP],[
+AC_DEFUN([AX_CHECK_POSIX_REGCOMP],[
   AC_MSG_CHECKING([whether POSIX compliant regcomp()/regexec()])
-  AC_CACHE_VAL([ag_cv_posix_regcomp],[
+  AC_CACHE_VAL([ax_cv_posix_regcomp],[
   AC_TRY_RUN([#include <sys/types.h>
 #include <regex.h>
 int main() {
@@ -34,13 +30,13 @@ int main() {
   regex_t  re;
   if (regcomp( &re, "^.*$", flags ) != 0)
     return 1;
-  return regcomp( &re, "|no.*", flags ); }],[ag_cv_posix_regcomp=yes],[ag_cv_posix_regcomp=no],[ag_cv_posix_regcomp=no]
+  return regcomp( &re, "|no.*", flags ); }],[ax_cv_posix_regcomp=yes],[ax_cv_posix_regcomp=no],[ax_cv_posix_regcomp=no]
   ) # end of TRY_RUN]) # end of CACHE_VAL
 
-  AC_MSG_RESULT([$ag_cv_posix_regcomp])
-  if test x$ag_cv_posix_regcomp = xyes
+  AC_MSG_RESULT([$ax_cv_posix_regcomp])
+  if test x$ax_cv_posix_regcomp = xyes
   then
     AC_DEFINE(HAVE_POSIX_REGCOMP, 1,
        [Define this if POSIX compliant regcomp()/regexec()])
   fi
-]) # end of AC_DEFUN of AG_CHECK_POSIX_REGCOMP
+]) # end of AC_DEFUN of AX_CHECK_POSIX_REGCOMP

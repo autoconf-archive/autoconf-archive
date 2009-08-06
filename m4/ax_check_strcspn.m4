@@ -1,14 +1,10 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ag_check_strcspn.html
+#        http://www.nongnu.org/autoconf-archive/ax_check_strcspn.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to ax_check_strcspn
 #
 # SYNOPSIS
 #
-#   AG_CHECK_STRCSPN
+#   AX_CHECK_STRCSPN
 #
 # DESCRIPTION
 #
@@ -35,23 +31,23 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([AG_CHECK_STRCSPN],[
+AC_DEFUN([AX_CHECK_STRCSPN],[
   AC_MSG_CHECKING([whether strcspn matches prototype and works])
-  AC_CACHE_VAL([ag_cv_strcspn],[
+  AC_CACHE_VAL([ax_cv_strcspn],[
   AC_TRY_RUN([#include <string.h>
 int main (int argc, char** argv) {
    char zRej[] = "reject";
    char zAcc[] = "a-ok-eject";
    return strcspn( zAcc, zRej ) - 5;
-}],[ag_cv_strcspn=yes],[ag_cv_strcspn=no],[ag_cv_strcspn=no]
+}],[ax_cv_strcspn=yes],[ax_cv_strcspn=no],[ax_cv_strcspn=no]
   ) # end of TRY_RUN]) # end of CACHE_VAL
 
-  AC_MSG_RESULT([$ag_cv_strcspn])
-  if test x$ag_cv_strcspn = xyes
+  AC_MSG_RESULT([$ax_cv_strcspn])
+  if test x$ax_cv_strcspn = xyes
   then
     AC_DEFINE(HAVE_STRCSPN, 1,
        [Define this if strcspn matches prototype and works])
   else
     COMPATOBJ="$COMPATOBJ strcspn.lo"
   fi
-]) # end of AC_DEFUN of AG_CHECK_STRCSPN
+]) # end of AC_DEFUN of AX_CHECK_STRCSPN
