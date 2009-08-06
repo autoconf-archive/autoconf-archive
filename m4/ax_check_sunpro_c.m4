@@ -1,19 +1,15 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/rssh_check_sunpro_c.html
+#       http://www.nongnu.org/autoconf-archive/ax_check_sunpro_c.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_CHECK_SUNPRO_C
 #
 # SYNOPSIS
 #
-#   RSSH_CHECK_SUNPRO_C([ACTION-IF-YES],[ACTION-IF-NOT])
+#   AX_CHECK_SUNPRO_C([ACTION-IF-YES],[ACTION-IF-NOT])
 #
 # DESCRIPTION
 #
 #   Check whether we are using SUN workshop C compiler. The corresponding
-#   cache values is rssh_cv_check_sunpro_c, which is set to "yes" or "no"
+#   cache values is ax_cv_check_sunpro_c, which is set to "yes" or "no"
 #   respectively.
 #
 # LICENSE
@@ -24,9 +20,9 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([RSSH_CHECK_SUNPRO_C],
+AC_DEFUN([AX_CHECK_SUNPRO_C],
 [AC_CACHE_CHECK([whether using Sun Worckshop C compiler],
-                [rssh_cv_check_sunpro_c],
+                [ax_cv_check_sunpro_c],
 
 [AC_LANG_SAVE
  AC_LANG_C
@@ -35,10 +31,10 @@ AC_DEFUN([RSSH_CHECK_SUNPRO_C],
 # include "error: this is not Sun Workshop."
 #endif
 ],
-               rssh_cv_check_sunpro_c=yes,
-                rssh_cv_check_sunpro_c=no)
+               ax_cv_check_sunpro_c=yes,
+                ax_cv_check_sunpro_c=no)
 AC_LANG_RESTORE])
-if test ${rssh_cv_check_sunpro_c} = yes
+if test ${ax_cv_check_sunpro_c} = yes
 then
   $2
 else
