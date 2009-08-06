@@ -1,20 +1,16 @@
 # ===========================================================================
-#            http://www.nongnu.org/autoconf-archive/az_python.html
+#            http://www.nongnu.org/autoconf-archive/ax_python.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_PYTHON_DEFAULT &c.
 #
 # SYNOPSIS
 #
-#   AZ_PYTHON_DEFAULT
-#   AZ_PYTHON_ENABLE
-#   AZ_PYTHON_WITH
-#   AZ_PYTHON_PATH
-#   AZ_PYTHON_VERSION_ENSURE( [2.2] )
-#   AZ_PYTHON_CSPEC
-#   AZ_PYTHON_LSPEC
+#   AX_PYTHON_DEFAULT
+#   AX_PYTHON_ENABLE
+#   AX_PYTHON_WITH
+#   AX_PYTHON_PATH
+#   AX_PYTHON_VERSION_ENSURE( [2.2] )
+#   AX_PYTHON_CSPEC
+#   AX_PYTHON_LSPEC
 #
 # DESCRIPTION
 #
@@ -23,8 +19,8 @@
 #   release containing distutils. Version 2.2 of python was released
 #   December 21, 2001. Since it actually executes the python, cross platform
 #   configuration will probably not work. Also, most of the platforms
-#   supported are consistent until you look into MacOSX. The python included
-#   with it is installed as a framework which is a very different
+#   supported are consistent until you look into Mac OS X. The python
+#   included with it is installed as a framework which is a very different
 #   environment to set up the normal tools such as gcc and libtool to deal
 #   with. Therefore, once we establish which python that we are going to
 #   use, we use its distutils to actually compile and link our modules or
@@ -48,34 +44,34 @@
 #   The following is an example of how to set up for python usage within
 #   your application in your configure.in:
 #
-#     AZ_PYTHON_DEFAULT( )
-#     AZ_PYTHON_ENABLE( )             # Optional
-#     AZ_PYTHON_WITH( )               # Optional
-#     AZ_PYTHON_PATH( )               # or AZ_PYTHON_INSIST( )
+#     AX_PYTHON_DEFAULT( )
+#     AX_PYTHON_ENABLE( )             # Optional
+#     AX_PYTHON_WITH( )               # Optional
+#     AX_PYTHON_PATH( )               # or AX_PYTHON_INSIST( )
 #     # if $PYTHON is not defined, then the following do nothing.
-#     AZ_PYTHON_VERSION_ENSURE( [2.2] )
-#     AZ_PYTHON_CSPEC
-#     AZ_PYTHON_LSPEC
+#     AX_PYTHON_VERSION_ENSURE( [2.2] )
+#     AX_PYTHON_CSPEC
+#     AX_PYTHON_LSPEC
 #
-#   The AZ_PYTHON_DEFAULT sets the $PYTHON_USE to false. Thereby, excluding
+#   The AX_PYTHON_DEFAULT sets the $PYTHON_USE to false. Thereby, excluding
 #   it if it was optional.
 #
-#   The AZ_PYTHON_ENABLE looks for the optional configure parameters of
+#   The AX_PYTHON_ENABLE looks for the optional configure parameters of
 #   --enable-python/--disable-python and establishes the $PYTHON and
 #   $PYTHON_USE variables accordingly.
 #
-#   The AZ_PYTHON_WITH looks for the optional configure parameters of
+#   The AX_PYTHON_WITH looks for the optional configure parameters of
 #   --with-python/--without-python and establishes the $PYTHON and
 #   $PYTHON_USE variables accordingly.
 #
-#   The AZ_PYTHON_PATH looks for python assuming that none has been
+#   The AX_PYTHON_PATH looks for python assuming that none has been
 #   previously found or defined and issues an error if it does not find it.
 #   If it does find it, it establishes the $PYTHON and $PYTHON_USE variables
-#   accordingly. AZ_PYTHON_INSIST could be used here instead if you want to
+#   accordingly. AX_PYTHON_INSIST could be used here instead if you want to
 #   insist that Python support be included using the --enable-python or
 #   --with-python checks previously done.
 #
-#   The AZ_PYTHON_VERSION_ENSURE issues an error if the Python previously
+#   The AX_PYTHON_VERSION_ENSURE issues an error if the Python previously
 #   found is not of version 2.2 or greater.
 #
 #   Once that these macros have be run, we can use PYTHON_USE within the
@@ -123,19 +119,19 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-# AZ_PYTHON_DEFAULT( )
+# AX_PYTHON_DEFAULT( )
 # -----------------
 # Sets the default to not include Python support.
 
-AC_DEFUN([AZ_PYTHON_DEFAULT],
+AC_DEFUN([AX_PYTHON_DEFAULT],
 [
-    az_python_use=false
-    AM_CONDITIONAL(PYTHON_USE, test x"$az_python_use" = x"true")
+    ax_python_use=false
+    AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
 ])
 
 
 
-# AZ_PYTHON_ENABLE( [path] )
+# AX_PYTHON_ENABLE( [path] )
 # -----------------------------------------------------------------
 # Handles the various --enable-python commands.
 # Input:
@@ -147,11 +143,11 @@ AC_DEFUN([AZ_PYTHON_DEFAULT],
 #   is true.
 #
 # Example:
-#   AZ_PYTHON_ENABLE( )
+#   AX_PYTHON_ENABLE( )
 #   or
-#   AZ_PYTHON_ENABLE( "/usr/bin" )
+#   AX_PYTHON_ENABLE( "/usr/bin" )
 
-AC_DEFUN([AZ_PYTHON_ENABLE],
+AC_DEFUN([AX_PYTHON_ENABLE],
 [
     AC_ARG_VAR([PYTHON],[Python Executable Path])
 
@@ -183,28 +179,28 @@ AC_DEFUN([AZ_PYTHON_ENABLE],
                     then
                         AC_MSG_ERROR(no path to python found)
                     fi
-                    az_python_use=true
-                    AM_CONDITIONAL(PYTHON_USE, test x"$az_python_use" = x"true")
-                    AZ_PYTHON_PREFIX( )
+                    ax_python_use=true
+                    AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
+                    AX_PYTHON_PREFIX( )
                 elif test "$enableval" = "no"
                 then
                     AC_MSG_RESULT(no)
-                    az_python_use=false
-                    AM_CONDITIONAL(PYTHON_USE, test x"$az_python_use" = x"true")
+                    ax_python_use=false
+                    AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
                 else
                     # $enableval must be the executable path then.
                     AC_SUBST([PYTHON], ["${enableval}"])
                     AC_MSG_RESULT($withval)
-                    az_python_use=true
-                    AM_CONDITIONAL(PYTHON_USE, test x"$az_python_use" = x"true")
-                    AZ_PYTHON_PREFIX( )
+                    ax_python_use=true
+                    AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
+                    AX_PYTHON_PREFIX( )
                 fi
             ],
             [
                 # --with-python was not specified.
                 AC_MSG_RESULT(no)
-                az_python_use=false
-                AM_CONDITIONAL(PYTHON_USE, test x"$az_python_use" = x"true")
+                ax_python_use=false
+                AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
             ]
         )
     fi
@@ -213,44 +209,44 @@ AC_DEFUN([AZ_PYTHON_ENABLE],
 
 
 
-# AZ_PYTHON_CSPEC( )
+# AX_PYTHON_CSPEC( )
 # -----------------
 # Set up the c compiler options to compile Python
 # embedded programs/libraries in $PYTHON_CSPEC if
 # $PYTHON has been defined.
 
-AC_DEFUN([AZ_PYTHON_CSPEC],
+AC_DEFUN([AX_PYTHON_CSPEC],
 [
     AC_ARG_VAR( [PYTHON], [Python Executable Path] )
     if test -n "$PYTHON"
     then
-        az_python_prefix=`${PYTHON} -c "import sys; print sys.prefix"`
-        if test -z "$az_python_prefix"
+        ax_python_prefix=`${PYTHON} -c "import sys; print sys.prefix"`
+        if test -z "$ax_python_prefix"
         then
             AC_MSG_ERROR([Python Prefix is not known])
         fi
-        az_python_execprefix=`${PYTHON} -c "import sys; print sys.exec_prefix"`
-        az_python_version=`$PYTHON -c "import sys; print sys.version[[:3]]"`
-        az_python_includespec="-I${az_python_prefix}/include/python${az_python_version}"
+        ax_python_execprefix=`${PYTHON} -c "import sys; print sys.exec_prefix"`
+        ax_python_version=`$PYTHON -c "import sys; print sys.version[[:3]]"`
+        ax_python_includespec="-I${ax_python_prefix}/include/python${ax_python_version}"
         if test x"$python_prefix" != x"$python_execprefix"; then
-            az_python_execspec="-I${az_python_execprefix}/include/python${az_python_version}"
-            az_python_includespec="${az_python_includespec} $az_python_execspec"
+            ax_python_execspec="-I${ax_python_execprefix}/include/python${ax_python_version}"
+            ax_python_includespec="${ax_python_includespec} $ax_python_execspec"
         fi
-        az_python_ccshared=`${PYTHON} -c "import distutils.sysconfig; print distutils.sysconfig.get_config_var('CFLAGSFORSHARED')"`
-        az_python_cspec="${az_python_ccshared} ${az_python_includespec}"
-        AC_SUBST([PYTHON_CSPEC], [${az_python_cspec}])
-        AC_MSG_NOTICE([PYTHON_CSPEC=${az_python_cspec}])
+        ax_python_ccshared=`${PYTHON} -c "import distutils.sysconfig; print distutils.sysconfig.get_config_var('CFLAGSFORSHARED')"`
+        ax_python_cspec="${ax_python_ccshared} ${ax_python_includespec}"
+        AC_SUBST([PYTHON_CSPEC], [${ax_python_cspec}])
+        AC_MSG_NOTICE([PYTHON_CSPEC=${ax_python_cspec}])
     fi
 ])
 
 
 
-# AZ_PYTHON_INSIST( )
+# AX_PYTHON_INSIST( )
 # -----------------
 # Look for Python and set the output variable 'PYTHON'
 # to 'python' if found, empty otherwise.
 
-AC_DEFUN([AZ_PYTHON_PATH],
+AC_DEFUN([AX_PYTHON_PATH],
 [
     AC_ARG_VAR( [PYTHON], [Python Executable Path] )
     if test -z "$PYTHON"
@@ -261,18 +257,18 @@ AC_DEFUN([AZ_PYTHON_PATH],
 
 
 
-# AZ_PYTHON_LSPEC( )
+# AX_PYTHON_LSPEC( )
 # -----------------
 # Set up the linker options to link Python embedded
 # programs/libraries in $PYTHON_LSPEC if $PYTHON
 # has been defined.
 
-AC_DEFUN([AZ_PYTHON_LSPEC],
+AC_DEFUN([AX_PYTHON_LSPEC],
 [
     AC_ARG_VAR( [PYTHON], [Python Executable Path] )
     if test -n "$PYTHON"
     then
-        AZ_PYTHON_RUN([
+        AX_PYTHON_RUN([
 import sys
 import distutils.sysconfig
 strUseFrameWork = "--enable-framework"
@@ -308,19 +304,19 @@ else:
 strLinkSpec += " %s" % (dictConfig.get('LINKFORSHARED'))
 print strLinkSpec
         ])
-        AC_SUBST([PYTHON_LSPEC], [${az_python_output}])
-        AC_MSG_NOTICE([PYTHON_LSPEC=${az_python_output}])
+        AC_SUBST([PYTHON_LSPEC], [${ax_python_output}])
+        AC_MSG_NOTICE([PYTHON_LSPEC=${ax_python_output}])
     fi
 ])
 
 
 
-# AZ_PYTHON_PATH( )
+# AX_PYTHON_PATH( )
 # -----------------
 # Look for Python and set the output variable 'PYTHON'
 # to 'python' if found, empty otherwise.
 
-AC_DEFUN([AZ_PYTHON_PATH],
+AC_DEFUN([AX_PYTHON_PATH],
 [
     AC_ARG_VAR( [PYTHON], [Python Executable Path] )
     AC_PATH_PROG( PYTHON, python, [], $1 )
@@ -328,19 +324,19 @@ AC_DEFUN([AZ_PYTHON_PATH],
     then
         AC_MSG_ERROR([Python Executable not found])
     else
-        az_python_use=true
+        ax_python_use=true
     fi
-    AM_CONDITIONAL(PYTHON_USE, test "$az_python_use" = "true")
+    AM_CONDITIONAL(PYTHON_USE, test "$ax_python_use" = "true")
 ])
 
 
 
-# AZ_PYTHON_PREFIX( )
+# AX_PYTHON_PREFIX( )
 # -------------------
 # Use the values of $prefix and $exec_prefix for the corresponding
 # values of PYTHON_PREFIX and PYTHON_EXEC_PREFIX.
 
-AC_DEFUN([AZ_PYTHON_PREFIX],
+AC_DEFUN([AX_PYTHON_PREFIX],
 [
     if test -z "$PYTHON"
     then
@@ -354,13 +350,13 @@ AC_DEFUN([AZ_PYTHON_PREFIX],
 
 
 
-# AZ_PYTHON_RUN( PYTHON_PROGRAM )
+# AX_PYTHON_RUN( PYTHON_PROGRAM )
 # -----------------
 # Run a Python Test Program saving its output
-# in az_python_output and its condition code
-# in az_python_cc.
+# in ax_python_output and its condition code
+# in ax_python_cc.
 
-AC_DEFUN([AZ_PYTHON_RUN],
+AC_DEFUN([AX_PYTHON_RUN],
 [
     AC_ARG_VAR( [PYTHON], [Python Executable Path] )
     if test -z "$PYTHON"
@@ -370,8 +366,8 @@ AC_DEFUN([AZ_PYTHON_RUN],
         cat >conftest.py <<_ACEOF
 $1
 _ACEOF
-        az_python_output=`$PYTHON conftest.py`
-        az_python_cc=$?
+        ax_python_output=`$PYTHON conftest.py`
+        ax_python_cc=$?
         rm conftest.py
         if test -f "conftest.pyc"
         then
@@ -382,7 +378,7 @@ _ACEOF
 
 
 
-# AZ_PYTHON_VERSION_CHECK( VERSION, [ACTION-IF-TRUE], [ACTION-IF-FALSE] )
+# AX_PYTHON_VERSION_CHECK( VERSION, [ACTION-IF-TRUE], [ACTION-IF-FALSE] )
 # -----------------------------------------------------------------------------
 # Run ACTION-IF-TRUE if the Python interpreter has version >= VERSION.
 # Run ACTION-IF-FALSE otherwise.
@@ -391,13 +387,13 @@ _ACEOF
 # hexversion has been introduced in Python 1.5.2; it's probably not
 # worth to support older versions (1.5.1 was released on October 31, 1998).
 
-AC_DEFUN([AZ_PYTHON_VERSION_CHECK],
+AC_DEFUN([AX_PYTHON_VERSION_CHECK],
  [
     AC_ARG_VAR( [PYTHON], [Python Executable Path] )
     if test -n "$PYTHON"
     then
         AC_MSG_CHECKING([whether $PYTHON version >= $1])
-        AZ_PYTHON_RUN([
+        AX_PYTHON_RUN([
 import sys, string
 # split strings by '.' and convert to numeric.  Append some zeros
 # because we need at least 4 digits for the hex conversion.
@@ -409,7 +405,7 @@ if sys.hexversion >= minverhex:
 else:
     sys.exit( 1 )
         ])
-        if test $az_python_cc -eq 0
+        if test $ax_python_cc -eq 0
         then
             $2
         m4_ifvaln(
@@ -422,15 +418,15 @@ else:
 
 
 
-# AZ_PYTHON_VERSION_ENSURE( VERSION )
+# AX_PYTHON_VERSION_ENSURE( VERSION )
 # -----------------
 # Insure that the Python Interpreter Version
 # is greater than or equal to the VERSION
 # parameter.
 
-AC_DEFUN([AZ_PYTHON_VERSION_ENSURE],
+AC_DEFUN([AX_PYTHON_VERSION_ENSURE],
 [
-    AZ_PYTHON_VERSION_CHECK(
+    AX_PYTHON_VERSION_CHECK(
         [$1],
         [AC_MSG_RESULT(yes)],
         [AC_MSG_ERROR(too old)]
@@ -439,7 +435,7 @@ AC_DEFUN([AZ_PYTHON_VERSION_ENSURE],
 
 
 
-# AZ_PYTHON_WITH( [path] )
+# AX_PYTHON_WITH( [path] )
 # -----------------------------------------------------------------
 # Handles the various --with-python commands.
 # Input:
@@ -451,11 +447,11 @@ AC_DEFUN([AZ_PYTHON_VERSION_ENSURE],
 #   is true.
 #
 # Example:
-#   AZ_PYTHON_WITH( )
+#   AX_PYTHON_WITH( )
 #   or
-#   AZ_PYTHON_WITH("/usr/bin")
+#   AX_PYTHON_WITH("/usr/bin")
 
-AC_DEFUN([AZ_PYTHON_WITH],
+AC_DEFUN([AX_PYTHON_WITH],
 [
     AC_ARG_VAR([PYTHON],[Python Executable Path])
 
@@ -487,28 +483,28 @@ AC_DEFUN([AZ_PYTHON_WITH],
                     then
                         AC_MSG_ERROR(no path to python found)
                     fi
-                    az_python_use=true
-                    AM_CONDITIONAL(PYTHON_USE, test x"$az_python_use" = x"true")
-                    AZ_PYTHON_PREFIX( )
+                    ax_python_use=true
+                    AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
+                    AX_PYTHON_PREFIX( )
                 elif test "$withval" = "no"
                 then
                     AC_MSG_RESULT(no)
-                    az_python_use=false
-                    AM_CONDITIONAL(PYTHON_USE, test x"$az_python_use" = x"true")
+                    ax_python_use=false
+                    AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
                 else
                     # $withval must be the executable path then.
                     AC_SUBST([PYTHON], ["${withval}"])
                     AC_MSG_RESULT($withval)
-                    az_python_use=true
-                    AM_CONDITIONAL(PYTHON_USE, test x"$az_python_use" = x"true")
-                    AZ_PYTHON_PREFIX( )
+                    ax_python_use=true
+                    AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
+                    AX_PYTHON_PREFIX( )
                 fi
             ],
             [
                 # --with-python was not specified.
                 AC_MSG_RESULT(no)
-                az_python_use=false
-                AM_CONDITIONAL(PYTHON_USE, test x"$az_python_use" = x"true")
+                ax_python_use=false
+                AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
             ]
         )
     fi
