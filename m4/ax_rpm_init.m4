@@ -1,14 +1,10 @@
 # ===========================================================================
-#           http://www.nongnu.org/autoconf-archive/am_rpm_init.html
+#           http://www.nongnu.org/autoconf-archive/ax_rpm_init.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to ax_rpm_init
 #
 # SYNOPSIS
 #
-#   AM_RPM_INIT
+#   AX_RPM_INIT
 #
 # DESCRIPTION
 #
@@ -29,7 +25,7 @@
 #     RPM_RELEASE=1
 #     AC_SUBST(RPM_RELEASE)
 #
-#     AM_RPM_INIT
+#     AX_RPM_INIT
 #     dnl Enable or disable the rpm making rules in Makefile.am
 #     AM_CONDITIONAL(MAKE_RPMS, test x$make_rpms = xtrue)
 #
@@ -178,11 +174,11 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-dnl AM_RPM_INIT
+dnl AX_RPM_INIT
 dnl Figure out how to create rpms for this system and setup for an
 dnl automake target
 
-AC_DEFUN([AM_RPM_INIT],
+AC_DEFUN([AX_RPM_INIT],
 [dnl
 AC_REQUIRE([AC_CANONICAL_HOST])
 dnl Find the RPM program
