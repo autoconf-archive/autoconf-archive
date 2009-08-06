@@ -36,7 +36,6 @@ print OUTFILE $new_text;
 
 my $old_text = $text;
 $old_text =~ s/^\# SYNOPSIS/"$insertion\n\# SYNOPSIS"/me;
-$old_text =~ s/^\# SYNOPSIS/"$insertion\n\# SYNOPSIS"/me;
 open OUTFILE, ">$old" or die "could not write $old";
 print OUTFILE $old_text;
 
