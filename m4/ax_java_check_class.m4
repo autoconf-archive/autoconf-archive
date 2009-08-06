@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.nongnu.org/autoconf-archive/dps_java_check_class.html
+#      http://www.nongnu.org/autoconf-archive/ax_java_check_class.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -50,7 +50,7 @@
 #   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_JAVA_CHECK_CLASS],[
-m4_define([cache_val],[m4_translit(dps_cv_have_java_class_$1, " ." ,"__")])
+m4_define([cache_val],[m4_translit(ax_cv_have_java_class_$1, " ." ,"__")])
 if test "x$CLASSPATH" != "x"; then
 xtra=" with classpath ${CLASSPATH}"
 xopts=`echo ${CLASSPATH} | ${SED} 's/^ *://'`

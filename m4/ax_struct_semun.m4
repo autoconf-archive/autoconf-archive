@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/etr_struct_semun.html
+#        http://www.nongnu.org/autoconf-archive/ax_struct_semun.html
 # ===========================================================================
 #
 # SYNOPSIS

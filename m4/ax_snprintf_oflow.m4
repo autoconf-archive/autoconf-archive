@@ -1,10 +1,10 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/dps_snprintf_oflow.html
+#       http://www.nongnu.org/autoconf-archive/ax_snprintf_oflow.html
 # ===========================================================================
 #
 # SYNOPSIS
 #
-#   dps_snprintf_oflow
+#   ax_snprintf_oflow
 #
 # DESCRIPTION
 #
@@ -19,9 +19,9 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([dps_snprintf_oflow],
+AC_DEFUN([ax_snprintf_oflow],
 [AC_MSG_CHECKING(whether snprintf ignores n)
-AC_CACHE_VAL(dps_cv_snprintf_bug,
+AC_CACHE_VAL(ax_cv_snprintf_bug,
 [AC_TRY_RUN(
 changequote(<<, >>)dnl
 <<#include <stdio.h>
@@ -45,11 +45,11 @@ snprintf(ovbuf, 4,"foo%d", 666);
 if (ovbuf[5]!='x') exit(1);
 exit(0);
 } >>
-changequote([, ]), dps_cv_snprintf_bug=0, dps_cv_snprintf_bug=1,
-dps_cv_snprintf_bug=2)])
-if test $dps_cv_snprintf_bug -eq 0; then
+changequote([, ]), ax_cv_snprintf_bug=0, ax_cv_snprintf_bug=1,
+ax_cv_snprintf_bug=2)])
+if test $ax_cv_snprintf_bug -eq 0; then
   AC_MSG_RESULT([no, snprintf is ok])
-else if test $dps_cv_snprintf_bug -eq 1; then
+else if test $ax_cv_snprintf_bug -eq 1; then
   AC_MSG_RESULT([yes, snprintf is broken])
   AC_DEFINE(HAVE_SNPRINTF_BUG,1)
 else

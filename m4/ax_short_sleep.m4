@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/etr_short_sleep.html
+#         http://www.nongnu.org/autoconf-archive/ax_short_sleep.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -27,50 +27,50 @@ AC_DEFUN([AX_SHORT_SLEEP],
         AC_MSG_CHECKING([for nap() in libc])
         AC_TRY_LINK([ extern "C" long nap(long ms); ], [ nap(42); ],
                 [
-                        etr_ss_found=yes
-                        etr_ss_factor=1
+                        ax_ss_found=yes
+                        ax_ss_factor=1
                         AC_DEFINE(HAVE_NAP,1,
                                 [Define to use the nap() system call for short sleeps])
                         AC_MSG_RESULT(yes)
                 ],
                 [
                         AC_MSG_RESULT(no)
-                        etr_ss_found=no
+                        ax_ss_found=no
                 ])
 
-        if test x"$etr_ss_found" = "xno"
+        if test x"$ax_ss_found" = "xno"
         then
                 AC_MSG_CHECKING([for usleep()])
                 AC_TRY_LINK([ #include <unistd.h> ], [ usleep(42); ],
                         [
-                                etr_ss_found=yes
-                                etr_ss_factor=1000
+                                ax_ss_found=yes
+                                ax_ss_factor=1000
                                 AC_DEFINE(HAVE_USLEEP,1,
                                         [Define to use the usleep() system call for short sleeps])
                                 AC_MSG_RESULT(yes)
                         ],
                         [
                                 AC_MSG_RESULT(no)
-                                etr_ss_found=no
+                                ax_ss_found=no
                         ])
         fi
 
-        if test x"$etr_ss_found" = "xno"
+        if test x"$ax_ss_found" = "xno"
         then
                 save_LIBS=$LIBS
                 LIBS="$LIBS -lx"
                 AC_MSG_CHECKING([for nap() in libx])
                 AC_TRY_LINK([ extern "C" long nap(long ms); ], [ nap(42); ],
                         [
-                                etr_ss_found=yes
-                                etr_ss_factor=1
+                                ax_ss_found=yes
+                                ax_ss_factor=1
                                 AC_DEFINE(HAVE_NAP,1,
                                         [Define to use the nap() system call for short sleeps])
                                 AC_MSG_RESULT(yes)
                         ],
                         [
                                 AC_MSG_RESULT(no)
-                                etr_ss_found=no
+                                ax_ss_found=no
                         ])
 
                 LIBS=$save_LIBS
@@ -78,9 +78,9 @@ AC_DEFUN([AX_SHORT_SLEEP],
                 AC_SUBST(AX_SS_LIB)
         fi
 
-        if test x"$etr_ss_found" = "xyes"
+        if test x"$ax_ss_found" = "xyes"
         then
-                AC_DEFINE_UNQUOTED(SHORT_SLEEP_FACTOR, $etr_ss_factor,
+                AC_DEFINE_UNQUOTED(SHORT_SLEEP_FACTOR, $ax_ss_factor,
                         [Multiply milliseconds by this to get the argument for the short sleep system call])
         else
                 AC_MSG_ERROR([Could not find a "short sleep" system call.])

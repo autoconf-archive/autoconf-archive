@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/dps_libgcj_jar.html
+#         http://www.nongnu.org/autoconf-archive/ax_libgcj_jar.html
 # ===========================================================================
 #
 # SYNOPSIS
