@@ -1,14 +1,10 @@
 # ===========================================================================
-#      http://www.nongnu.org/autoconf-archive/adl_func_getopt_long.html
+#      http://www.nongnu.org/autoconf-archive/ax_func_getopt_long.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_FUNC_GETOPT_LONG
 #
 # SYNOPSIS
 #
-#   adl_FUNC_GETOPT_LONG
+#   AX_FUNC_GETOPT_LONG
 #
 # DESCRIPTION
 #
@@ -50,7 +46,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([adl_FUNC_GETOPT_LONG],
+AC_DEFUN([AX_FUNC_GETOPT_LONG],
  [AC_PREREQ(2.49)dnl
   # clean out junk possibly left behind by a previous configuration
   rm -f lib/getopt.h

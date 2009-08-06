@@ -1,14 +1,10 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/adl_normalize_path.html
+#       http://www.nongnu.org/autoconf-archive/ax_normalize_path.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_NORMALIZE_PATH
 #
 # SYNOPSIS
 #
-#   adl_NORMALIZE_PATH(VARNAME, [REFERENCE_STRING])
+#   AX_NORMALIZE_PATH(VARNAME, [REFERENCE_STRING])
 #
 # DESCRIPTION
 #
@@ -30,13 +26,13 @@
 #     filename='A:\FOO\\BAR\'
 #     old_filename="$filename"
 #     # Switch to the unix notation
-#     adl_NORMALIZE_PATH([filename], ["/"])
+#     AX_NORMALIZE_PATH([filename], ["/"])
 #     # now we have $filename = 'A:/FOO/BAR' and we can process it as if
 #     # it was a Unix path.  For instance let's say that you want
 #     # to append '/subpath':
 #     filename="$filename/subpath"
 #     # finally switch back to the original notation
-#     adl_NORMALIZE_PATH([filename], ["$old_filename"])
+#     AX_NORMALIZE_PATH([filename], ["$old_filename"])
 #     # now $filename equals to 'A:\FOO\BAR\subpath'
 #
 #   One good reason to make all path processing with the unix convention is
@@ -53,7 +49,7 @@
 #   Such behavior makes DOS filenames extremely unpleasant to work with. So
 #   temporary turn your paths to the Unix notation, and revert them to the
 #   original notation after the processing. See the macro
-#   adl_COMPUTE_RELATIVE_PATHS for a concrete example of this.
+#   AX_COMPUTE_RELATIVE_PATHS for a concrete example of this.
 #
 #   REFERENCE_STRING defaults to $VARIABLE, this means that slashes will be
 #   converted to backslashes if $VARIABLE already contains some backslashes
@@ -62,9 +58,9 @@
 #     firstdir='/usr/local//share'
 #     seconddir='C:\Program Files\\'
 #     thirddir='C:\home/usr/'
-#     adl_NORMALIZE_PATH([firstdir])
-#     adl_NORMALIZE_PATH([seconddir])
-#     adl_NORMALIZE_PATH([thirddir])
+#     AX_NORMALIZE_PATH([firstdir])
+#     AX_NORMALIZE_PATH([seconddir])
+#     AX_NORMALIZE_PATH([thirddir])
 #     # $firstdir = '/usr/local/share'
 #     # $seconddir = 'C:\Program Files'
 #     # $thirddir = 'C:\home\usr'
@@ -99,7 +95,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([adl_NORMALIZE_PATH],
+AC_DEFUN([AX_NORMALIZE_PATH],
 [case ":[$]$1:" in
 # change empty paths to '.'
   ::) $1='.' ;;

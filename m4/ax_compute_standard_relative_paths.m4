@@ -1,14 +1,10 @@
 # =================================================================================
-#  http://www.nongnu.org/autoconf-archive/adl_compute_standard_relative_paths.html
+#  http://www.nongnu.org/autoconf-archive/ax_compute_standard_relative_paths.html
 # =================================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_COMPUTE_STANDARD_RELATIVE_PATHS
 #
 # SYNOPSIS
 #
-#   adl_COMPUTE_STANDARD_RELATIVE_PATHS
+#   AX_COMPUTE_STANDARD_RELATIVE_PATHS
 #
 # DESCRIPTION
 #
@@ -42,8 +38,8 @@
 #   `bindir_backward_relative_path' the value to append to $bindir to reach
 #   the $exec_prefix directory (usually '..').
 #
-#   This macro requires adl_COMPUTE_RELATIVE_PATHS which itself requires
-#   adl_NORMALIZE_PATH.
+#   This macro requires AX_COMPUTE_RELATIVE_PATHS which itself requires
+#   AX_NORMALIZE_PATH.
 #
 # LICENSE
 #
@@ -75,15 +71,15 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([adl_COMPUTE_STANDARD_RELATIVE_PATHS],
+AC_DEFUN([AX_COMPUTE_STANDARD_RELATIVE_PATHS],
 ## These calls need to be on separate lines for aclocal to work!
-[adl_COMPUTE_RELATIVE_PATHS(dnl
-adl_STANDARD_RELATIVE_PATH_LIST)])
+[AX_COMPUTE_RELATIVE_PATHS(dnl
+AX_STANDARD_RELATIVE_PATH_LIST)])
 
-dnl adl_STANDARD_RELATIVE_PATH_LIST
+dnl AX_STANDARD_RELATIVE_PATH_LIST
 dnl ===============================
-dnl A list of standard paths, ready to supply to adl_COMPUTE_RELATIVE_PATHS.
-AC_DEFUN([adl_STANDARD_RELATIVE_PATH_LIST],
+dnl A list of standard paths, ready to supply to AX_COMPUTE_RELATIVE_PATHS.
+AC_DEFUN([AX_STANDARD_RELATIVE_PATH_LIST],
 [pushdef([TRIPLET],
 [$][1:$][2:$][2_forward_relative_path $]dnl
 [2:$][1:$][2_backward_relative_path])dnl
