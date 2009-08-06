@@ -1,14 +1,10 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/klm_sys_weak_alias.html
+#       http://www.nongnu.org/autoconf-archive/ax_sys_weak_alias.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_SYS_WEAK_ALIAS
 #
 # SYNOPSIS
 #
-#   KLM_SYS_WEAK_ALIAS
+#   AX_SYS_WEAK_ALIAS
 #
 # DESCRIPTION
 #
@@ -113,39 +109,39 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([KLM_SYS_WEAK_ALIAS], [
+AC_DEFUN([AX_SYS_WEAK_ALIAS], [
   # starting point: no aliasing scheme yet...
-  klm_sys_weak_alias=no
+  ax_sys_weak_alias=no
 
   # Figure out what kind of aliasing may be supported...
-  _KLM_SYS_WEAK_ALIAS_ATTRIBUTE
-  _KLM_SYS_WEAK_ALIAS_PRAGMA
-  _KLM_SYS_WEAK_ALIAS_HPSECONDARY
-  _KLM_SYS_WEAK_ALIAS_CRIDUPLICATE
+  _AX_SYS_WEAK_ALIAS_ATTRIBUTE
+  _AX_SYS_WEAK_ALIAS_PRAGMA
+  _AX_SYS_WEAK_ALIAS_HPSECONDARY
+  _AX_SYS_WEAK_ALIAS_CRIDUPLICATE
 
   # Do we actually support aliasing?
   AC_CACHE_CHECK([how to create weak aliases with $CC],
-                 [klm_cv_sys_weak_alias],
-                 [klm_cv_sys_weak_alias=$klm_sys_weak_alias])
+                 [ax_cv_sys_weak_alias],
+                 [ax_cv_sys_weak_alias=$ax_sys_weak_alias])
 
   # OK, set a #define
-  AS_IF([test $klm_cv_sys_weak_alias != no], [
+  AS_IF([test $ax_cv_sys_weak_alias != no], [
     AC_DEFINE([HAVE_SYS_WEAK_ALIAS], 1,
               [Define this if your system can create weak aliases])
   ])
 
   # Can aliases cross object file boundaries?
-  _KLM_SYS_WEAK_ALIAS_CROSSFILE
+  _AX_SYS_WEAK_ALIAS_CROSSFILE
 
   # OK, remember the results
-  AC_SUBST([WEAK_ALIAS], [$klm_cv_sys_weak_alias])
-  AC_SUBST([WEAK_ALIAS_CROSSFILE], [$klm_cv_sys_weak_alias_crossfile])
+  AC_SUBST([WEAK_ALIAS], [$ax_cv_sys_weak_alias])
+  AC_SUBST([WEAK_ALIAS_CROSSFILE], [$ax_cv_sys_weak_alias_crossfile])
 ])
 
-AC_DEFUN([_KLM_SYS_WEAK_ALIAS_ATTRIBUTE],
+AC_DEFUN([_AX_SYS_WEAK_ALIAS_ATTRIBUTE],
 [ # Test whether compiler accepts __attribute__ form of weak aliasing
   AC_CACHE_CHECK([whether $CC accepts function __attribute__((weak,alias()))],
-  [klm_cv_sys_weak_alias_attribute], [
+  [ax_cv_sys_weak_alias_attribute], [
     # We add -Werror if it's gcc to force an error exit if the weak attribute
     # isn't understood
     AS_IF([test $GCC = yes], [
@@ -158,8 +154,8 @@ AC_DEFUN([_KLM_SYS_WEAK_ALIAS_ATTRIBUTE],
 void __weakf(int c) {}
 void weakf(int c) __attribute__((weak, alias("__weakf")));],
         [weakf(0)])],
-      [klm_cv_sys_weak_alias_attribute=yes],
-      [klm_cv_sys_weak_alias_attribute=no])
+      [ax_cv_sys_weak_alias_attribute=yes],
+      [ax_cv_sys_weak_alias_attribute=no])
 
     # Restore original CFLAGS
     AS_IF([test $GCC = yes], [
@@ -167,18 +163,18 @@ void weakf(int c) __attribute__((weak, alias("__weakf")));],
   ])
 
   # What was the result of the test?
-  AS_IF([test $klm_sys_weak_alias = no &&
-         test $klm_cv_sys_weak_alias_attribute = yes], [
-    klm_sys_weak_alias=attribute
+  AS_IF([test $ax_sys_weak_alias = no &&
+         test $ax_cv_sys_weak_alias_attribute = yes], [
+    ax_sys_weak_alias=attribute
     AC_DEFINE([HAVE_SYS_WEAK_ALIAS_ATTRIBUTE], 1,
               [Define this if weak aliases may be created with __attribute__])
   ])
 ])
 
-AC_DEFUN([_KLM_SYS_WEAK_ALIAS_PRAGMA],
+AC_DEFUN([_AX_SYS_WEAK_ALIAS_PRAGMA],
 [ # Test whether compiler accepts #pragma form of weak aliasing
   AC_CACHE_CHECK([whether $CC supports @%:@pragma weak],
-  [klm_cv_sys_weak_alias_pragma], [
+  [ax_cv_sys_weak_alias_pragma], [
 
     # Try linking with a weak alias...
     AC_LINK_IFELSE([
@@ -187,23 +183,23 @@ extern void weakf(int c);
 @%:@pragma weak weakf = __weakf
 void __weakf(int c) {}],
         [weakf(0)])],
-      [klm_cv_sys_weak_alias_pragma=yes],
-      [klm_cv_sys_weak_alias_pragma=no])
+      [ax_cv_sys_weak_alias_pragma=yes],
+      [ax_cv_sys_weak_alias_pragma=no])
   ])
 
   # What was the result of the test?
-  AS_IF([test $klm_sys_weak_alias = no &&
-         test $klm_cv_sys_weak_alias_pragma = yes], [
-    klm_sys_weak_alias=pragma
+  AS_IF([test $ax_sys_weak_alias = no &&
+         test $ax_cv_sys_weak_alias_pragma = yes], [
+    ax_sys_weak_alias=pragma
     AC_DEFINE([HAVE_SYS_WEAK_ALIAS_PRAGMA], 1,
               [Define this if weak aliases may be created with @%:@pragma weak])
   ])
 ])
 
-AC_DEFUN([_KLM_SYS_WEAK_ALIAS_HPSECONDARY],
+AC_DEFUN([_AX_SYS_WEAK_ALIAS_HPSECONDARY],
 [ # Test whether compiler accepts _HP_SECONDARY_DEF pragma from HP...
   AC_CACHE_CHECK([whether $CC supports @%:@pragma _HP_SECONDARY_DEF],
-  [klm_cv_sys_weak_alias_hpsecondary], [
+  [ax_cv_sys_weak_alias_hpsecondary], [
 
     # Try linking with a weak alias...
     AC_LINK_IFELSE([
@@ -212,23 +208,23 @@ extern void weakf(int c);
 @%:@pragma _HP_SECONDARY_DEF __weakf weakf
 void __weakf(int c) {}],
         [weakf(0)])],
-      [klm_cv_sys_weak_alias_hpsecondary=yes],
-      [klm_cv_sys_weak_alias_hpsecondary=no])
+      [ax_cv_sys_weak_alias_hpsecondary=yes],
+      [ax_cv_sys_weak_alias_hpsecondary=no])
   ])
 
   # What was the result of the test?
-  AS_IF([test $klm_sys_weak_alias = no &&
-         test $klm_cv_sys_weak_alias_hpsecondary = yes], [
-    klm_sys_weak_alias=hpsecondary
+  AS_IF([test $ax_sys_weak_alias = no &&
+         test $ax_cv_sys_weak_alias_hpsecondary = yes], [
+    ax_sys_weak_alias=hpsecondary
     AC_DEFINE([HAVE_SYS_WEAK_ALIAS_HPSECONDARY], 1,
               [Define this if weak aliases may be created with @%:@pragma _HP_SECONDARY_DEF])
   ])
 ])
 
-AC_DEFUN([_KLM_SYS_WEAK_ALIAS_CRIDUPLICATE],
+AC_DEFUN([_AX_SYS_WEAK_ALIAS_CRIDUPLICATE],
 [ # Test whether compiler accepts "_CRI duplicate" pragma from Cray
   AC_CACHE_CHECK([whether $CC supports @%:@pragma _CRI duplicate],
-  [klm_cv_sys_weak_alias_criduplicate], [
+  [ax_cv_sys_weak_alias_criduplicate], [
 
     # Try linking with a weak alias...
     AC_LINK_IFELSE([
@@ -237,14 +233,14 @@ extern void weakf(int c);
 @%:@pragma _CRI duplicate weakf as __weakf
 void __weakf(int c) {}],
         [weakf(0)])],
-      [klm_cv_sys_weak_alias_criduplicate=yes],
-      [klm_cv_sys_weak_alias_criduplicate=no])
+      [ax_cv_sys_weak_alias_criduplicate=yes],
+      [ax_cv_sys_weak_alias_criduplicate=no])
   ])
 
   # What was the result of the test?
-  AS_IF([test $klm_sys_weak_alias = no &&
-         test $klm_cv_sys_weak_alias_criduplicate = yes], [
-    klm_sys_weak_alias=criduplicate
+  AS_IF([test $ax_sys_weak_alias = no &&
+         test $ax_cv_sys_weak_alias_criduplicate = yes], [
+    ax_sys_weak_alias=criduplicate
     AC_DEFINE([HAVE_SYS_WEAK_ALIAS_CRIDUPLICATE], 1,
               [Define this if weak aliases may be created with @%:@pragma _CRI duplicate])
   ])
@@ -254,12 +250,12 @@ dnl Note: This macro is modeled closely on AC_LINK_IFELSE, and in fact
 dnl depends on some implementation details of that macro, particularly
 dnl its use of _AC_MSG_LOG_CONFTEST to log the failed test program and
 dnl its use of ac_link for running the linker.
-AC_DEFUN([_KLM_SYS_WEAK_ALIAS_CROSSFILE],
+AC_DEFUN([_AX_SYS_WEAK_ALIAS_CROSSFILE],
 [ # Check to see if weak aliases can cross object file boundaries
   AC_CACHE_CHECK([whether $CC supports weak aliases across object file boundaries],
-  [klm_cv_sys_weak_alias_crossfile], [
-    AS_IF([test $klm_cv_sys_weak_alias = no],
-          [klm_cv_sys_weak_alias_crossfile=no], [
+  [ax_cv_sys_weak_alias_crossfile], [
+    AS_IF([test $ax_cv_sys_weak_alias = no],
+          [ax_cv_sys_weak_alias_crossfile=no], [
 dnl Must build our own test files...
       # conftest1 contains our weak alias definition...
       cat >conftest1.$ac_ext <<_ACEOF
@@ -316,8 +312,8 @@ echo ">>> conftest2.$ac_ext" >&AS_MESSAGE_LOG_FD
 sed "s/^/| /" conftest2.$ac_ext >&AS_MESSAGE_LOG_FD
 ])dnl
       # Since we created the files ourselves, don't use SOURCE argument
-      AC_LINK_IFELSE(, [klm_cv_sys_weak_alias_crossfile=yes],
-                     [klm_cv_sys_weak_alias_crossfile=no])
+      AC_LINK_IFELSE(, [ax_cv_sys_weak_alias_crossfile=yes],
+                     [ax_cv_sys_weak_alias_crossfile=no])
 dnl Restore _AC_MSG_LOG_CONFTEST
 m4_popdef([_AC_MSG_LOG_CONFTEST])dnl
       # Restore ac_link
@@ -330,7 +326,7 @@ m4_popdef([_AC_MSG_LOG_CONFTEST])dnl
   ])
 
   # What were the results of the test?
-  AS_IF([test $klm_cv_sys_weak_alias_crossfile = yes], [
+  AS_IF([test $ax_cv_sys_weak_alias_crossfile = yes], [
     AC_DEFINE([HAVE_SYS_WEAK_ALIAS_CROSSFILE], 1,
               [Define this if weak aliases in other files are honored])
   ])
