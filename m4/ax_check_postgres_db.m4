@@ -1,14 +1,10 @@
 # ===========================================================================
-#      http://www.nongnu.org/autoconf-archive/ct_check_postgres_db.html
+#      http://www.nongnu.org/autoconf-archive/ax_check_postgres_db.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_CHECK_POSTGRES_DB
 #
 # SYNOPSIS
 #
-#   CT_CHECK_POSTGRES_DB
+#   AX_CHECK_POSTGRES_DB
 #
 # DESCRIPTION
 #
@@ -27,7 +23,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([CT_CHECK_POSTGRES_DB], [
+AC_DEFUN([AX_CHECK_POSTGRES_DB], [
 
 AC_ARG_WITH(pgsql,
 	[  --with-pgsql=PREFIX		Prefix of your PostgreSQL installation],
