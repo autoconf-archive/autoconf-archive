@@ -1,14 +1,10 @@
 # ===========================================================================
-#           http://www.nongnu.org/autoconf-archive/rlc_xercesc.html
+#           http://www.nongnu.org/autoconf-archive/ax_xercesc.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_XERCESC
 #
 # SYNOPSIS
 #
-#   rlc_XERCESC
+#   ax_XERCESC
 #
 # DESCRIPTION
 #
@@ -45,14 +41,14 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([rlc_XERCESC],
+AC_DEFUN([ax_XERCESC],
 [
   dnl Prerequisites of AC_LIB_LINKFLAGS_BODY.
   AC_REQUIRE([AC_LIB_PREPARE_PREFIX])
   AC_REQUIRE([AC_LIB_RPATH])
 
   AC_LANG_PUSH(C++)
-  rlc_XERCESC_BODY()
+  ax_XERCESC_BODY()
 
   ac_save_CPPFLAGS="$CPPFLAGS"
   AC_LIB_APPENDTOVAR([CPPFLAGS], [$INCXERCES_C])
@@ -97,7 +93,7 @@ XMLPlatformUtils::Terminate();
   AC_SUBST(LTLIBXERCES_C)
 ])
 
-AC_DEFUN([rlc_XERCESC_BODY],
+AC_DEFUN([ax_XERCESC_BODY],
 [
   dnl By default, look in $includedir and $libdir.
   use_additional=yes
