@@ -2,17 +2,9 @@
 #        http://www.nongnu.org/autoconf-archive/vl_decl_wchar_max.html
 # ===========================================================================
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_DECL_WCHAR_MAX
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_DECL_WCHAR_MAX
-#
 # SYNOPSIS
 #
-#   VL_DECL_WCHAR_MAX
+#   AX_DECL_WCHAR_MAX
 #
 # DESCRIPTION
 #
@@ -29,7 +21,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([VL_DECL_WCHAR_MAX], [
+AC_DEFUN([AX_DECL_WCHAR_MAX], [
   AC_CACHE_CHECK([whether WCHAR_MAX is defined], vl_cv_decl_wchar_max, [
     AC_TRY_COMPILE([
 #ifdef HAVE_WCHAR_H
@@ -37,7 +29,7 @@ AC_DEFUN([VL_DECL_WCHAR_MAX], [
 #endif
 ],[WCHAR_MAX],[vl_cv_decl_wchar_max="yes"],[vl_cv_decl_wchar_max="no"])])
   if test $vl_cv_decl_wchar_max = "no"; then
-    VL_CHECK_SIGN([wchar_t],
+    AX_CHECK_SIGN([wchar_t],
       [ wc_signed="yes"
         AC_DEFINE(WCHAR_T_SIGNED, 1, [Define if wchar_t is signed]) ],
       [ wc_signed="no"

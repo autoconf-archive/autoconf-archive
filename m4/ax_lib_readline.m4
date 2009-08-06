@@ -2,17 +2,9 @@
 #         http://www.nongnu.org/autoconf-archive/vl_lib_readline.html
 # ===========================================================================
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_LIB_READLINE
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_LIB_READLINE
-#
 # SYNOPSIS
 #
-#   VL_LIB_READLINE
+#   AX_LIB_READLINE
 #
 # DESCRIPTION
 #
@@ -65,7 +57,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([VL_LIB_READLINE], [
+AC_DEFUN([AX_LIB_READLINE], [
   AC_CACHE_CHECK([for a readline compatible library],
                  vl_cv_lib_readline, [
     ORIG_LIBS="$LIBS"

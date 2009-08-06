@@ -6,17 +6,9 @@
 #
 #   Deprecated in favor of AX_CFLAGS_WARN_ALL.
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_PROG_CC_WARNINGS
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_PROG_CC_WARNINGS
-#
 # SYNOPSIS
 #
-#   VL_PROG_CC_WARNINGS([ANSI])
+#   AX_PROG_CC_WARNINGS([ANSI])
 #
 # DESCRIPTION
 #
@@ -37,7 +29,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([VL_PROG_CC_WARNINGS], [
+AC_DEFUN([AX_PROG_CC_WARNINGS], [
   ansi=$1
   if test -z "$ansi"; then
     msg="for C compiler warning flags"

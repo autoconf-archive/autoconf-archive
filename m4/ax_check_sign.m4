@@ -2,17 +2,9 @@
 #          http://www.nongnu.org/autoconf-archive/vl_check_sign.html
 # ===========================================================================
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_CHECK_SIGN
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_CHECK_SIGN
-#
 # SYNOPSIS
 #
-#   VL_CHECK_SIGN (TYPE, [ACTION-IF-SIGNED], [ACTION-IF-UNSIGNED], [INCLUDES])
+#   AX_CHECK_SIGN (TYPE, [ACTION-IF-SIGNED], [ACTION-IF-UNSIGNED], [INCLUDES])
 #
 # DESCRIPTION
 #
@@ -26,7 +18,7 @@
 #
 #     AC_CHECK_HEADERS([wchar.h])
 #     AC_CHECK_TYPE([wchar_t],,[ AC_MSG_ERROR([Type wchar_t not found.]) ])
-#     VL_CHECK_SIGN([wchar_t],
+#     AX_CHECK_SIGN([wchar_t],
 #       [ AC_DEFINE(WCHAR_T_SIGNED, 1, [Define if wchar_t is signed]) ],
 #       [ AC_DEFINE(WCHAR_T_UNSIGNED, 1, [Define if wchar_t is unsigned]) ], [
 #     #ifdef HAVE_WCHAR_H
@@ -42,7 +34,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([VL_CHECK_SIGN], [
+AC_DEFUN([AX_CHECK_SIGN], [
  typename=`echo $1 | sed "s/@<:@^a-zA-Z0-9_@:>@/_/g"`
  AC_CACHE_CHECK([whether $1 is signed], vl_cv_decl_${typename}_signed, [
    AC_TRY_COMPILE([$4],
