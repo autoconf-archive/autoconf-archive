@@ -1,14 +1,10 @@
 # ===========================================================================
-#   http://www.nongnu.org/autoconf-archive/gl_trilinos_absolute_header.html
+#   http://www.nongnu.org/autoconf-archive/ax_absolute_header.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_ABSOLUTE_HEADER
 #
 # SYNOPSIS
 #
-#   gl_TRILINOS_ABSOLUTE_HEADER(HEADER1 HEADER2 ...)
+#   AX_ABSOLUTE_HEADER(HEADER1 HEADER2 ...)
 #
 # DESCRIPTION
 #
@@ -38,7 +34,7 @@ dnl with or without modifications, as long as this notice is preserved.
 dnl From Derek Price.
 dnl Modified by Rhys Ulerich to use AC_CHECK_HEADERS instead of _ONCE
 
-AC_DEFUN([gl_TRILINOS_ABSOLUTE_HEADER],
+AC_DEFUN([AX_ABSOLUTE_HEADER],
 [AC_LANG_PREPROC_REQUIRE()dnl
 AC_FOREACH([gl_HEADER_NAME], [$1],
   [AS_VAR_PUSHDEF([gl_absolute_header],
@@ -68,4 +64,4 @@ sed -n '\#/]m4_quote(m4_defn([gl_HEADER_NAME]))[#{
                      [Define this to an absolute name of <]m4_quote(m4_defn([gl_HEADER_NAME]))[>.])
   AS_VAR_POPDEF([gl_absolute_header])dnl
 ])dnl
-])# gl_TRILINOS_ABSOLUTE_HEADER
+])# AX_ABSOLUTE_HEADER
