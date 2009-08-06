@@ -1,14 +1,10 @@
 # ===========================================================================
-#   http://www.nongnu.org/autoconf-archive/mdl_cxx_function_try_blocks.html
+#   http://www.nongnu.org/autoconf-archive/ax_cxx_function_try_blocks.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_CXX_FUNCTION_TRY_BLOCKS
 #
 # SYNOPSIS
 #
-#   MDL_CXX_FUNCTION_TRY_BLOCKS
+#   AX_CXX_FUNCTION_TRY_BLOCKS
 #
 # DESCRIPTION
 #
@@ -45,23 +41,23 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([MDL_CXX_FUNCTION_TRY_BLOCKS],
+AC_DEFUN([AX_CXX_FUNCTION_TRY_BLOCKS],
 [
 AC_REQUIRE([AC_PROG_CXX])
 changequote(,)dnl
 AC_MSG_CHECKING(whether ${CXX} supports function try blocks)
 changequote([,])dnl
-AC_CACHE_VAL(mdl_cv_have_function_try_blocks,
+AC_CACHE_VAL(ax_cv_have_function_try_blocks,
 [
 AC_LANG_SAVE
 AC_LANG_CPLUSPLUS
 AC_TRY_COMPILE([void foo() try{} catch( ... ){}],
 [foo();],
-mdl_cv_have_function_try_blocks=yes,
-mdl_cv_have_function_try_blocks=no)
+ax_cv_have_function_try_blocks=yes,
+ax_cv_have_function_try_blocks=no)
 AC_LANG_RESTORE
 ])
-AC_MSG_RESULT($mdl_cv_have_function_try_blocks)
-if test "$mdl_cv_have_function_try_blocks" = yes; then
+AC_MSG_RESULT($ax_cv_have_function_try_blocks)
+if test "$ax_cv_have_function_try_blocks" = yes; then
 AC_DEFINE(HAVE_FUNCTION_TRY_BLOCKS)
 fi])

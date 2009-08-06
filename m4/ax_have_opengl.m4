@@ -1,14 +1,10 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/mdl_have_opengl.html
+#         http://www.nongnu.org/autoconf-archive/ax_have_opengl.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_HAVE_OPENGL
 #
 # SYNOPSIS
 #
-#   MDL_HAVE_OPENGL
+#   AX_HAVE_OPENGL
 #
 # DESCRIPTION
 #
@@ -69,13 +65,13 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([MDL_HAVE_OPENGL],
+AC_DEFUN([AX_HAVE_OPENGL],
 [
   AC_REQUIRE([AC_PROG_CC])
   AC_REQUIRE([AC_PATH_X])
   AC_REQUIRE([AC_PATH_XTRA])
 
-  AC_CACHE_CHECK([for OpenGL], mdl_cv_have_OpenGL,
+  AC_CACHE_CHECK([for OpenGL], ax_cv_have_OpenGL,
   [
 dnl Check for Mesa first, unless we were asked not to.
     AC_ARG_WITH([--with-Mesa],
@@ -128,12 +124,12 @@ fi
     exec AC_FD_MSG>&8
 
     if test -n "$LIBS"; then
-      mdl_cv_have_OpenGL=yes
+      ax_cv_have_OpenGL=yes
       GL_LIBS="$LIBS"
       AC_SUBST(GL_CFLAGS)
       AC_SUBST(GL_LIBS)
     else
-      mdl_cv_have_OpenGL=no
+      ax_cv_have_OpenGL=no
       GL_CFLAGS=
     fi
 
@@ -147,18 +143,18 @@ dnl and we don't want to be global namespace polluters.
     AC_LANG_RESTORE
 
 dnl bugfix: dont forget to cache this variables, too
-    mdl_cv_GL_CFLAGS="$GL_CFLAGS"
-    mdl_cv_GL_LIBS="$GL_LIBS"
-    mdl_cv_have_GL="$have_GL"
-    mdl_cv_have_GLU="$have_GLU"
-    mdl_cv_have_GLX="$have_GLX"
-    mdl_cv_have_glut="$have_glut"
+    ax_cv_GL_CFLAGS="$GL_CFLAGS"
+    ax_cv_GL_LIBS="$GL_LIBS"
+    ax_cv_have_GL="$have_GL"
+    ax_cv_have_GLU="$have_GLU"
+    ax_cv_have_GLX="$have_GLX"
+    ax_cv_have_glut="$have_glut"
   ])
-  GL_CFLAGS="$mdl_cv_GL_CFLAGS"
-  GL_LIBS="$mdl_cv_GL_LIBS"
-  have_GL="$mdl_cv_have_GL"
-  have_GLU="$mdl_cv_have_GLU"
-  have_GLX="$mdl_cv_have_GLX"
-  have_glut="$mdl_cv_have_glut"
+  GL_CFLAGS="$ax_cv_GL_CFLAGS"
+  GL_LIBS="$ax_cv_GL_LIBS"
+  have_GL="$ax_cv_have_GL"
+  have_GLU="$ax_cv_have_GLU"
+  have_GLX="$ax_cv_have_GLX"
+  have_glut="$ax_cv_have_glut"
 ])
 dnl endof bugfix -ainan
