@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/vl_lib_readline.html
+#         http://www.nongnu.org/autoconf-archive/ax_lib_readline.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -59,7 +59,7 @@
 
 AC_DEFUN([AX_LIB_READLINE], [
   AC_CACHE_CHECK([for a readline compatible library],
-                 vl_cv_lib_readline, [
+                 ax_cv_lib_readline, [
     ORIG_LIBS="$LIBS"
     for readline_lib in readline edit editline; do
       for termcap_lib in "" termcap curses ncurses; do
@@ -69,32 +69,32 @@ AC_DEFUN([AX_LIB_READLINE], [
           TRY_LIB="-l$readline_lib -l$termcap_lib"
         fi
         LIBS="$ORIG_LIBS $TRY_LIB"
-        AC_TRY_LINK_FUNC(readline, vl_cv_lib_readline="$TRY_LIB")
-        if test -n "$vl_cv_lib_readline"; then
+        AC_TRY_LINK_FUNC(readline, ax_cv_lib_readline="$TRY_LIB")
+        if test -n "$ax_cv_lib_readline"; then
           break
         fi
       done
-      if test -n "$vl_cv_lib_readline"; then
+      if test -n "$ax_cv_lib_readline"; then
         break
       fi
     done
-    if test -z "$vl_cv_lib_readline"; then
-      vl_cv_lib_readline="no"
+    if test -z "$ax_cv_lib_readline"; then
+      ax_cv_lib_readline="no"
     fi
     LIBS="$ORIG_LIBS"
   ])
 
-  if test "$vl_cv_lib_readline" != "no"; then
-    LIBS="$LIBS $vl_cv_lib_readline"
+  if test "$ax_cv_lib_readline" != "no"; then
+    LIBS="$LIBS $ax_cv_lib_readline"
     AC_DEFINE(HAVE_LIBREADLINE, 1,
               [Define if you have a readline compatible library])
     AC_CHECK_HEADERS(readline.h readline/readline.h)
     AC_CACHE_CHECK([whether readline supports history],
-                   vl_cv_lib_readline_history, [
-      vl_cv_lib_readline_history="no"
-      AC_TRY_LINK_FUNC(add_history, vl_cv_lib_readline_history="yes")
+                   ax_cv_lib_readline_history, [
+      ax_cv_lib_readline_history="no"
+      AC_TRY_LINK_FUNC(add_history, ax_cv_lib_readline_history="yes")
     ])
-    if test "$vl_cv_lib_readline_history" = "yes"; then
+    if test "$ax_cv_lib_readline_history" = "yes"; then
       AC_DEFINE(HAVE_READLINE_HISTORY, 1,
                 [Define if your readline library has \`add_history'])
       AC_CHECK_HEADERS(history.h readline/history.h)

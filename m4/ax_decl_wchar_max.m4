@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/vl_decl_wchar_max.html
+#        http://www.nongnu.org/autoconf-archive/ax_decl_wchar_max.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -22,13 +22,13 @@
 #   and this notice are preserved.
 
 AC_DEFUN([AX_DECL_WCHAR_MAX], [
-  AC_CACHE_CHECK([whether WCHAR_MAX is defined], vl_cv_decl_wchar_max, [
+  AC_CACHE_CHECK([whether WCHAR_MAX is defined], ax_cv_decl_wchar_max, [
     AC_TRY_COMPILE([
 #ifdef HAVE_WCHAR_H
 #include <wchar.h>
 #endif
-],[WCHAR_MAX],[vl_cv_decl_wchar_max="yes"],[vl_cv_decl_wchar_max="no"])])
-  if test $vl_cv_decl_wchar_max = "no"; then
+],[WCHAR_MAX],[ax_cv_decl_wchar_max="yes"],[ax_cv_decl_wchar_max="no"])])
+  if test $ax_cv_decl_wchar_max = "no"; then
     AX_CHECK_SIGN([wchar_t],
       [ wc_signed="yes"
         AC_DEFINE(WCHAR_T_SIGNED, 1, [Define if wchar_t is signed]) ],

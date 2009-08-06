@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/vl_prog_fig2dev.html
+#         http://www.nongnu.org/autoconf-archive/ax_prog_fig2dev.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -26,14 +26,14 @@ AC_DEFUN([AX_PROG_FIG2DEV], [
   AC_CHECK_PROG(FIG2DEV, fig2dev, fig2dev)
   if test "x$FIG2DEV" != "x"; then
     AC_CACHE_CHECK(how to produce EPS with fig2dev,
-                   vl_cv_sys_fig2dev_epslang, [
+                   ax_cv_sys_fig2dev_epslang, [
       if "$FIG2DEV" -Leps /dev/null 2>&1 | grep Unknown > /dev/null; then
-        vl_cv_sys_fig2dev_epslang=ps
+        ax_cv_sys_fig2dev_epslang=ps
       else
-        vl_cv_sys_fig2dev_epslang=eps
+        ax_cv_sys_fig2dev_epslang=eps
       fi
     ])
-    FIG2DEV_EPSLANG=$vl_cv_sys_fig2dev_epslang
+    FIG2DEV_EPSLANG=$ax_cv_sys_fig2dev_epslang
     AC_SUBST(FIG2DEV_EPSLANG)
   fi
 ])

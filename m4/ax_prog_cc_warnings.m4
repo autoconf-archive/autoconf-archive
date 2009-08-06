@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/vl_prog_cc_warnings.html
+#       http://www.nongnu.org/autoconf-archive/ax_prog_cc_warnings.html
 # ===========================================================================
 #
 # OBSOLETE MACRO
@@ -36,7 +36,7 @@ AC_DEFUN([AX_PROG_CC_WARNINGS], [
   else
     msg="for C compiler warning and ANSI conformance flags"
   fi
-  AC_CACHE_CHECK($msg, vl_cv_prog_cc_warnings, [
+  AC_CACHE_CHECK($msg, ax_cv_prog_cc_warnings, [
     if test -n "$CC"; then
       cat > conftest.c <<EOF
 int main(int argc, char **argv) { return 0; }
@@ -45,9 +45,9 @@ EOF
       dnl GCC
       if test "$GCC" = "yes"; then
         if test -z "$ansi"; then
-          vl_cv_prog_cc_warnings="-Wall"
+          ax_cv_prog_cc_warnings="-Wall"
         else
-          vl_cv_prog_cc_warnings="-Wall -ansi -pedantic"
+          ax_cv_prog_cc_warnings="-Wall -ansi -pedantic"
         fi
 
       dnl Most compilers print some kind of a version string with some command
@@ -64,9 +64,9 @@ EOF
            $CC -c -v -Xc conftest.c > /dev/null 2>&1 &&
            test -f conftest.o; then
         if test -z "$ansi"; then
-          vl_cv_prog_cc_warnings="-v"
+          ax_cv_prog_cc_warnings="-v"
         else
-          vl_cv_prog_cc_warnings="-v -Xc"
+          ax_cv_prog_cc_warnings="-v -Xc"
         fi
 
       dnl Digital Unix C compiler
@@ -74,9 +74,9 @@ EOF
            $CC -c -verbose -w0 -warnprotos -std1 conftest.c > /dev/null 2>&1 &&
            test -f conftest.o; then
         if test -z "$ansi"; then
-          vl_cv_prog_cc_warnings="-verbose -w0 -warnprotos"
+          ax_cv_prog_cc_warnings="-verbose -w0 -warnprotos"
         else
-          vl_cv_prog_cc_warnings="-verbose -w0 -warnprotos -std1"
+          ax_cv_prog_cc_warnings="-verbose -w0 -warnprotos -std1"
         fi
 
       dnl C for AIX Compiler
@@ -84,9 +84,9 @@ EOF
            $CC -c -qlanglvl=ansi -qinfo=all conftest.c > /dev/null 2>&1 &&
            test -f conftest.o; then
         if test -z "$ansi"; then
-          vl_cv_prog_cc_warnings="-qsrcmsg -qinfo=all:noppt:noppc:noobs:nocnd"
+          ax_cv_prog_cc_warnings="-qsrcmsg -qinfo=all:noppt:noppc:noobs:nocnd"
         else
-          vl_cv_prog_cc_warnings="-qsrcmsg -qinfo=all:noppt:noppc:noobs:nocnd -qlanglvl=ansi"
+          ax_cv_prog_cc_warnings="-qsrcmsg -qinfo=all:noppt:noppc:noobs:nocnd -qlanglvl=ansi"
         fi
 
       dnl IRIX C compiler
@@ -94,9 +94,9 @@ EOF
            $CC -c -fullwarn -ansi -ansiE conftest.c > /dev/null 2>&1 &&
            test -f conftest.o; then
         if test -z "$ansi"; then
-          vl_cv_prog_cc_warnings="-fullwarn"
+          ax_cv_prog_cc_warnings="-fullwarn"
         else
-          vl_cv_prog_cc_warnings="-fullwarn -ansi -ansiE"
+          ax_cv_prog_cc_warnings="-fullwarn -ansi -ansiE"
         fi
 
       dnl HP-UX C compiler
@@ -104,9 +104,9 @@ EOF
            $CC -c -Aa +w1 conftest.c > /dev/null 2>&1 &&
            test -f conftest.o; then
         if test -z "$ansi"; then
-          vl_cv_prog_cc_warnings="+w1"
+          ax_cv_prog_cc_warnings="+w1"
         else
-          vl_cv_prog_cc_warnings="+w1 -Aa"
+          ax_cv_prog_cc_warnings="+w1 -Aa"
         fi
 
       dnl The NEC SX-5 (Super-UX 10) C compiler
@@ -114,9 +114,9 @@ EOF
            $CC -c -pvctl[,]fullmsg -Xc conftest.c > /dev/null 2>&1 &&
            test -f conftest.o; then
         if test -z "$ansi"; then
-          vl_cv_prog_cc_warnings="-pvctl[,]fullmsg"
+          ax_cv_prog_cc_warnings="-pvctl[,]fullmsg"
         else
-          vl_cv_prog_cc_warnings="-pvctl[,]fullmsg -Xc"
+          ax_cv_prog_cc_warnings="-pvctl[,]fullmsg -Xc"
         fi
 
       dnl The Cray C compiler (Unicos)
@@ -124,18 +124,18 @@ EOF
            $CC -c -h msglevel 2 conftest.c > /dev/null 2>&1 &&
            test -f conftest.o; then
         if test -z "$ansi"; then
-          vl_cv_prog_cc_warnings="-h msglevel 2"
+          ax_cv_prog_cc_warnings="-h msglevel 2"
         else
-          vl_cv_prog_cc_warnings="-h msglevel 2 -h conform"
+          ax_cv_prog_cc_warnings="-h msglevel 2 -h conform"
         fi
 
       fi
       rm -f conftest.*
     fi
-    if test -n "$vl_cv_prog_cc_warnings"; then
-      CFLAGS="$CFLAGS $vl_cv_prog_cc_warnings"
+    if test -n "$ax_cv_prog_cc_warnings"; then
+      CFLAGS="$CFLAGS $ax_cv_prog_cc_warnings"
     else
-      vl_cv_prog_cc_warnings="unknown"
+      ax_cv_prog_cc_warnings="unknown"
     fi
   ])
 ])dnl
