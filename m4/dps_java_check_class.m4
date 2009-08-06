@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/dps_java_check_class.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_JAVA_CHECK_CLASS
+#
 # SYNOPSIS
 #
 #   DPS_JAVA_CHECK_CLASS(<class>,<action-if-found>,<action-if-not-found>)

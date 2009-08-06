@@ -1,20 +1,15 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/dps_xtra_classpath.html
+#         http://www.nongnu.org/autoconf-archive/dps_libgcj_jar.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_XTRA_CLASSPATH
 #
 # SYNOPSIS
 #
-#   DPS_XTRA_CLASSPATH(<classpath>,<class>,<jarfile>,<action-if-found>,<action-if-not-found>)
+#   AX_LIBGCJ_JAR
 #
 # DESCRIPTION
 #
-#   Set $1 to extra classpath components required for class $2 found in a
-#   jar file in $3. If the class is found do $4 and otherwise do $5. Uses
-#   DPS_JAVA_CHECK_CLASS for testing whether a class is avialable
+#   Locate libgcj.jar so you can place it before everything else when using
+#   gcj.
 #
 # LICENSE
 #
@@ -46,24 +41,40 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([DPS_XTRA_CLASSPATH],[
+AC_DEFUN([AX_LIBGCJ_JAR],
+[
+AC_REQUIRE([AC_EXEEXT])
+AC_REQUIRE([AC_PROG_JAVAC])
+AC_REQUIRE([AC_PROG_FGREP])
 AC_CHECK_PROG(SED, sed)
-DPS_JAVA_CHECK_CLASS([$2],[got="yes"],[got="no"])
-cpxtra=""; saved_cp="${CLASSPATH}";
-for jhome in `ls -dr /usr/java/* /usr/local/java/* 2> /dev/null`; do
-for jdir in lib jre/lib; do
-for jfile in $3; do
-if test "x$got" != "xyes" && test -f "$jhome/$jdir/$jfile"; then
-CLASSPATH="${saved_cp}:$jhome/$jdir/$jfile"
-DPS_JAVA_CHECK_CLASS([$2],[got="yes"; cpxtra="$jhome/$jdir/$jfile:"],[got="no"])
-fi; done; done; done
-if test "x${saved_cp}" != "x"; then
-CLASSPATH="${saved_cp}"
-else unset CLASSPATH; fi
-if test "x$got" = "xyes"; then
-$1="$cpxtra"
-$4
-true; else
-$5
-false; fi
+if test "x$SED" = "x"; then
+AC_MSG_WARN([sed not avaiable, so libgcj.jar test skipped])
+else
+AC_MSG_CHECKING([if $JAVAC is gcj]);
+jc=`eval "[echo x$JAVAC | $SED 's/^x.*\\/\\([^/]*\\)\$/x\\1/;s/^ *\\([^ ]*\\) .*$/\\1/;s/"$EXEEXT"$//']"`
+if test "x$jc" != "xxgcj"; then
+AC_MSG_RESULT(no)
+else
+AC_MSG_RESULT(yes)
+AC_MSG_CHECKING([libgcj.jar location])
+save_cp="$CLASSPATH";
+unset CLASSPATH;
+AC_MSG_CHECKING([gcj default classpath])
+cat << \EOF > Test.java
+/* [#]line __oline__ "configure" */
+public class Test {
+}
+EOF
+lgcj=`eval "[$JAVAC -v -C Test.java 2>&1 | $FGREP \\(system\\) | $SED 's/^ *\\([^ ]*\\) .*$/\\1/;s/\\.jar\\//.jar/']"`;
+if test -f Test.class && test "x$lgcj" != "x"; then
+AC_MSG_RESULT($lgcj)
+$1="$lgcj:"
+else
+AC_MSG_RESULT(failed)
+$1=""
+fi
+if test "x$save_cp" != "x"; then CLASSPATH="$save_cp"; fi
+rm -f Test.java Test.class
+fi
+fi
 ])

@@ -2,10 +2,6 @@
 #       http://www.nongnu.org/autoconf-archive/dps_snprintf_oflow.html
 # ===========================================================================
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_SNPRINTF_OFLOW
-#
 # SYNOPSIS
 #
 #   dps_snprintf_oflow

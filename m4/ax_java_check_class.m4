@@ -1,20 +1,23 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/dps_xtra_classpath.html
+#      http://www.nongnu.org/autoconf-archive/dps_java_check_class.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_XTRA_CLASSPATH
 #
 # SYNOPSIS
 #
-#   DPS_XTRA_CLASSPATH(<classpath>,<class>,<jarfile>,<action-if-found>,<action-if-not-found>)
+#   AX_JAVA_CHECK_CLASS(<class>,<action-if-found>,<action-if-not-found>)
 #
 # DESCRIPTION
 #
-#   Set $1 to extra classpath components required for class $2 found in a
-#   jar file in $3. If the class is found do $4 and otherwise do $5. Uses
-#   DPS_JAVA_CHECK_CLASS for testing whether a class is avialable
+#   Test if a Java class is available. Based on AC_PROG_JAVAC_WORKS. This
+#   version uses a cache variable which is both compiler, options and
+#   classpath dependent (so if you switch from javac to gcj it correctly
+#   notices and redoes the test).
+#
+#   The macro tries to compile a minimal program importing <class>. Some
+#   newer compilers moan about the failure to use this but fail or produce a
+#   class file anyway. All moaing is sunk to /dev/null since I only wanted
+#   to know if the class could be imported. This is a recommended followup
+#   to AX_CHECK_JAVA_PLUGIN with classpath appropriately adjusted.
 #
 # LICENSE
 #
@@ -46,24 +49,34 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([DPS_XTRA_CLASSPATH],[
-AC_CHECK_PROG(SED, sed)
-DPS_JAVA_CHECK_CLASS([$2],[got="yes"],[got="no"])
-cpxtra=""; saved_cp="${CLASSPATH}";
-for jhome in `ls -dr /usr/java/* /usr/local/java/* 2> /dev/null`; do
-for jdir in lib jre/lib; do
-for jfile in $3; do
-if test "x$got" != "xyes" && test -f "$jhome/$jdir/$jfile"; then
-CLASSPATH="${saved_cp}:$jhome/$jdir/$jfile"
-DPS_JAVA_CHECK_CLASS([$2],[got="yes"; cpxtra="$jhome/$jdir/$jfile:"],[got="no"])
-fi; done; done; done
-if test "x${saved_cp}" != "x"; then
-CLASSPATH="${saved_cp}"
-else unset CLASSPATH; fi
-if test "x$got" = "xyes"; then
-$1="$cpxtra"
-$4
-true; else
-$5
-false; fi
+AC_DEFUN([AX_JAVA_CHECK_CLASS],[
+m4_define([cache_val],[m4_translit(dps_cv_have_java_class_$1, " ." ,"__")])
+if test "x$CLASSPATH" != "x"; then
+xtra=" with classpath ${CLASSPATH}"
+xopts=`echo ${CLASSPATH} | ${SED} 's/^ *://'`
+xopts="-classpath $xopts"
+else xtra=""; xopts=""; fi
+cache_var="cache_val"AS_TR_SH([_Jc_${JAVAC}_Cp_${CLASSPATH}])
+AC_CACHE_CHECK([if the $1 class is avialable$xtra], [$cache_var], [
+JAVA_TEST=Test.java
+CLASS_TEST=Test.class
+cat << \EOF > $JAVA_TEST
+/* [#]xline __oline__ "configure" */
+import $1;
+public class Test {
+}
+EOF
+if AC_TRY_COMMAND($JAVAC $JAVACFLAGS $xopts $JAVA_TEST) >/dev/null 2>&1; then
+  eval "${cache_var}=yes"
+else
+  eval "${cache_var}=no"
+  echo "configure: failed program was:" >&AC_FD_CC
+  cat $JAVA_TEST >&AC_FD_CC
+fi
+rm -f $JAVA_TEST $CLASS_TEST
 ])
+if eval 'test "x$'${cache_var}'" = "xyes"'; then
+$2
+true; else
+$3
+false; fi])

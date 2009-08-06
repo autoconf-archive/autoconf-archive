@@ -2,13 +2,9 @@
 #        http://www.nongnu.org/autoconf-archive/dps_check_plugin.html
 # ===========================================================================
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_CHECK_PLUGIN
-#
 # SYNOPSIS
 #
-#   DPS_CHECK_JAVA_PLUGIN(<shell-variable>)
+#   AX_CHECK_JAVA_PLUGIN(<shell-variable>)
 #
 # DESCRIPTION
 #
@@ -54,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([DPS_CHECK_JAVA_PLUGIN],
+AC_DEFUN([AX_CHECK_JAVA_PLUGIN],
 [AC_REQUIRE([AC_PROG_AWK])
 AC_REQUIRE([AC_PROG_FGREP])
 AC_CHECK_PROG(ZIPINFO,[zipinfo unzip pkzipc])

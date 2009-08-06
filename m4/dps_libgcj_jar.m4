@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/dps_libgcj_jar.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_LIBGCJ_JAR
+#
 # SYNOPSIS
 #
 #   DPS_LIBGCJ_JAR

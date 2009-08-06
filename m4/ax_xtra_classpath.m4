@@ -2,19 +2,15 @@
 #       http://www.nongnu.org/autoconf-archive/dps_xtra_classpath.html
 # ===========================================================================
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_XTRA_CLASSPATH
-#
 # SYNOPSIS
 #
-#   DPS_XTRA_CLASSPATH(<classpath>,<class>,<jarfile>,<action-if-found>,<action-if-not-found>)
+#   AX_XTRA_CLASSPATH(<classpath>,<class>,<jarfile>,<action-if-found>,<action-if-not-found>)
 #
 # DESCRIPTION
 #
 #   Set $1 to extra classpath components required for class $2 found in a
 #   jar file in $3. If the class is found do $4 and otherwise do $5. Uses
-#   DPS_JAVA_CHECK_CLASS for testing whether a class is avialable
+#   AX_JAVA_CHECK_CLASS for testing whether a class is avialable
 #
 # LICENSE
 #
@@ -46,16 +42,16 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([DPS_XTRA_CLASSPATH],[
+AC_DEFUN([AX_XTRA_CLASSPATH],[
 AC_CHECK_PROG(SED, sed)
-DPS_JAVA_CHECK_CLASS([$2],[got="yes"],[got="no"])
+AX_JAVA_CHECK_CLASS([$2],[got="yes"],[got="no"])
 cpxtra=""; saved_cp="${CLASSPATH}";
 for jhome in `ls -dr /usr/java/* /usr/local/java/* 2> /dev/null`; do
 for jdir in lib jre/lib; do
 for jfile in $3; do
 if test "x$got" != "xyes" && test -f "$jhome/$jdir/$jfile"; then
 CLASSPATH="${saved_cp}:$jhome/$jdir/$jfile"
-DPS_JAVA_CHECK_CLASS([$2],[got="yes"; cpxtra="$jhome/$jdir/$jfile:"],[got="no"])
+AX_JAVA_CHECK_CLASS([$2],[got="yes"; cpxtra="$jhome/$jdir/$jfile:"],[got="no"])
 fi; done; done; done
 if test "x${saved_cp}" != "x"; then
 CLASSPATH="${saved_cp}"
