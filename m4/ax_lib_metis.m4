@@ -1,14 +1,10 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/immdx_lib_metis.html
+#         http://www.nongnu.org/autoconf-archive/ax_lib_metis.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_LIB_METIS
 #
 # SYNOPSIS
 #
-#   IMMDX_LIB_METIS([ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
+#   AX_LIB_METIS([ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
 #
 # DESCRIPTION
 #
@@ -35,7 +31,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([IMMDX_LIB_METIS], [
+AC_DEFUN([AX_LIB_METIS], [
 	AC_MSG_CHECKING(for METIS library)
 	AC_REQUIRE([AC_PROG_CC])
 	#
@@ -116,4 +112,4 @@ AC_DEFUN([IMMDX_LIB_METIS], [
 			ifelse([$1],,[AC_DEFINE(HAVE_METIS,1,[Define if you have METIS library])],[$1])
 			:
 		fi
-	])dnl IMMDX_LIB_METIS
+	])dnl AX_LIB_METIS
