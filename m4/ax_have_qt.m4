@@ -1,15 +1,11 @@
 # ===========================================================================
-#           http://www.nongnu.org/autoconf-archive/bnv_have_qt.html
+#           http://www.nongnu.org/autoconf-archive/ax_have_qt.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_HAVE_QT
 #
 # SYNOPSIS
 #
-#   BNV_HAVE_QT [--with-Qt-dir=DIR] [--with-Qt-lib-dir=DIR] [--with-Qt-lib=LIB]
-#   BNV_HAVE_QT [--with-Qt-include-dir=DIR] [--with-Qt-bin-dir=DIR] [--with-Qt-lib-dir=DIR] [--with-Qt-lib=LIB]
+#   AX_HAVE_QT [--with-Qt-dir=DIR] [--with-Qt-lib-dir=DIR] [--with-Qt-lib=LIB]
+#   AX_HAVE_QT [--with-Qt-include-dir=DIR] [--with-Qt-bin-dir=DIR] [--with-Qt-lib-dir=DIR] [--with-Qt-lib=LIB]
 #
 # DESCRIPTION
 #
@@ -91,35 +87,8 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-dnl Copyright (C) 2001, 2002, 2003, 2005, 2006, 2007 Bastiaan Veelo
-
-dnl THANKS! This code includes bug fixes and contributions made by:
-dnl Tim McClarren,
-dnl Dennis R. Weilert,
-dnl Qingning Huo,
-dnl Brian Mingus,
-dnl Jens Hannemann,
-dnl Pavel Roskin,
-dnl Scott J. Bertin.
-dnl Pierre Hebert
-
-dnl ChangeLog
-dnl 2008-04-12  * Add QT_LRELEASE and QT_LUPDATE (due to Pierre Hebert)
-dnl 2008-04-12  * Hide output of ls and fix an m4 quoting problem (due to Scott J. Bertin).
-dnl 2008-04-12  * Check compiler return value instead of parsing the error stream,
-dnl               which detected warnings as false negatives (due to Jens Hannemann).
-dnl 2008-04-12  * Spelling of "Success".
-dnl             * Fixed unsave test for $bnv_qt_lib without quotes.
-dnl             * Put dnl in front of all comments.
-dnl             * Changed -l$bnv_qt_lib_dir into -L$bnv_qt_lib_dir (all due to Pavel Roskin).
-dnl 2008-04-12  * Support for 64bit architectures.
-dnl             * Updated documentation.
-dnl 2008-04-12: * Fix "cat: bnv_qt_test.c: No such file or directory" (due to Jens Hannemann).
-dnl             * Hide output of failing ls.
-dnl 2008-04-12: * Check in /Developer on Mac OS X; Check in $QTDIR (due to Brian Mingus).
-
-dnl Calls BNV_PATH_QT_DIRECT (contained in this file) as a subroutine.
-AC_DEFUN([BNV_HAVE_QT],
+dnl Calls AX_PATH_QT_DIRECT (contained in this file) as a subroutine.
+AC_DEFUN([AX_HAVE_QT],
 [
   AC_REQUIRE([AC_PROG_CXX])
   AC_REQUIRE([AC_PATH_X])
@@ -170,83 +139,83 @@ AC_DEFUN([BNV_HAVE_QT],
     have_qt=no
     # Check whether we are requested to link with a specific version
     if test x"$with_Qt_lib" != x; then
-      bnv_qt_lib="$with_Qt_lib"
+      ax_qt_lib="$with_Qt_lib"
     fi
     # Check whether we were supplied with an answer already
     if test x"$with_Qt_dir" != x; then
       have_qt=yes
-      bnv_qt_dir="$with_Qt_dir"
-      bnv_qt_include_dir="$with_Qt_dir/include"
-      bnv_qt_bin_dir="$with_Qt_dir/bin"
-      bnv_qt_lib_dir="$with_Qt_dir/lib"
+      ax_qt_dir="$with_Qt_dir"
+      ax_qt_include_dir="$with_Qt_dir/include"
+      ax_qt_bin_dir="$with_Qt_dir/bin"
+      ax_qt_lib_dir="$with_Qt_dir/lib"
       # Only search for the lib if the user did not define one already
-      if test x"$bnv_qt_lib" = x; then
-        bnv_qt_lib="`ls $bnv_qt_lib_dir/libqt* | sed -n 1p |
-                     sed s@$bnv_qt_lib_dir/lib@@ | [sed s@[.].*@@]`"
+      if test x"$ax_qt_lib" = x; then
+        ax_qt_lib="`ls $ax_qt_lib_dir/libqt* | sed -n 1p |
+                     sed s@$ax_qt_lib_dir/lib@@ | [sed s@[.].*@@]`"
       fi
-      bnv_qt_LIBS="-L$bnv_qt_lib_dir -l$bnv_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
+      ax_qt_LIBS="-L$ax_qt_lib_dir -l$ax_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
     else
       # Use cached value or do search, starting with suggestions from
       # the command line
-      AC_CACHE_VAL(bnv_cv_have_qt,
+      AC_CACHE_VAL(ax_cv_have_qt,
       [
         # We are not given a solution and there is no cached value.
-        bnv_qt_dir=NO
-        bnv_qt_include_dir=NO
-        bnv_qt_lib_dir=NO
-        if test x"$bnv_qt_lib" = x; then
-          bnv_qt_lib=NO
+        ax_qt_dir=NO
+        ax_qt_include_dir=NO
+        ax_qt_lib_dir=NO
+        if test x"$ax_qt_lib" = x; then
+          ax_qt_lib=NO
         fi
-        BNV_PATH_QT_DIRECT
-        if test "$bnv_qt_dir" = NO ||
-           test "$bnv_qt_include_dir" = NO ||
-           test "$bnv_qt_lib_dir" = NO ||
-           test "$bnv_qt_lib" = NO; then
+        AX_PATH_QT_DIRECT
+        if test "$ax_qt_dir" = NO ||
+           test "$ax_qt_include_dir" = NO ||
+           test "$ax_qt_lib_dir" = NO ||
+           test "$ax_qt_lib" = NO; then
           # Problem with finding complete Qt.  Cache the known absence of Qt.
-          bnv_cv_have_qt="have_qt=no"
+          ax_cv_have_qt="have_qt=no"
         else
           # Record where we found Qt for the cache.
-          bnv_cv_have_qt="have_qt=yes                  \
-                       bnv_qt_dir=$bnv_qt_dir          \
-               bnv_qt_include_dir=$bnv_qt_include_dir  \
-                   bnv_qt_bin_dir=$bnv_qt_bin_dir      \
-                      bnv_qt_LIBS=\"$bnv_qt_LIBS\""
+          ax_cv_have_qt="have_qt=yes                  \
+                       ax_qt_dir=$ax_qt_dir          \
+               ax_qt_include_dir=$ax_qt_include_dir  \
+                   ax_qt_bin_dir=$ax_qt_bin_dir      \
+                      ax_qt_LIBS=\"$ax_qt_LIBS\""
         fi
       ])dnl
-      eval "$bnv_cv_have_qt"
-    fi # all $bnv_qt_* are set
+      eval "$ax_cv_have_qt"
+    fi # all $ax_qt_* are set
   fi   # $have_qt reflects the system status
   if test x"$have_qt" = xyes; then
-    QT_CXXFLAGS="-I$bnv_qt_include_dir"
-    if test x"$bnv_qt_lib" = xqt-mt; then
+    QT_CXXFLAGS="-I$ax_qt_include_dir"
+    if test x"$ax_qt_lib" = xqt-mt; then
         QT_CXXFLAGS="$QT_CXXFLAGS -DQT_THREAD_SUPPORT"
     fi
-    QT_DIR="$bnv_qt_dir"
-    QT_LIBS="$bnv_qt_LIBS"
-    # If bnv_qt_dir is defined, utilities are expected to be in the
+    QT_DIR="$ax_qt_dir"
+    QT_LIBS="$ax_qt_LIBS"
+    # If ax_qt_dir is defined, utilities are expected to be in the
     # bin subdirectory
-    if test x"$bnv_qt_dir" != x; then
-        if test -x "$bnv_qt_dir/bin/uic"; then
-          QT_UIC="$bnv_qt_dir/bin/uic"
+    if test x"$ax_qt_dir" != x; then
+        if test -x "$ax_qt_dir/bin/uic"; then
+          QT_UIC="$ax_qt_dir/bin/uic"
         else
           # Old versions of Qt don't have uic
           QT_UIC=
         fi
-      QT_MOC="$bnv_qt_dir/bin/moc"
-      QT_LRELEASE="$bnv_qt_dir/bin/lrelease"
-      QT_LUPDATE="$bnv_qt_dir/bin/lupdate"
+      QT_MOC="$ax_qt_dir/bin/moc"
+      QT_LRELEASE="$ax_qt_dir/bin/lrelease"
+      QT_LUPDATE="$ax_qt_dir/bin/lupdate"
     else
       # Or maybe we are told where to look for the utilities
-      if test x"$bnv_qt_bin_dir" != x; then
-        if test -x "$bnv_qt_bin_dir/uic"; then
-          QT_UIC="$bnv_qt_bin_dir/uic"
+      if test x"$ax_qt_bin_dir" != x; then
+        if test -x "$ax_qt_bin_dir/uic"; then
+          QT_UIC="$ax_qt_bin_dir/uic"
         else
           # Old versions of Qt don't have uic
           QT_UIC=
         fi
-        QT_MOC="$bnv_qt_bin_dir/moc"
-        QT_LRELEASE="$bnv_qt_bin_dir/lrelease"
-        QT_LUPDATE="$bnv_qt_bin_dir/lupdate"
+        QT_MOC="$ax_qt_bin_dir/moc"
+        QT_LRELEASE="$ax_qt_bin_dir/lrelease"
+        QT_LUPDATE="$ax_qt_bin_dir/lupdate"
       else
       # Last possibility is that they are in $PATH
         QT_UIC="`which uic`"
@@ -286,9 +255,9 @@ AC_DEFUN([BNV_HAVE_QT],
   #### Being paranoid:
   if test x"$have_qt" = xyes; then
     AC_MSG_CHECKING(correct functioning of Qt installation)
-    AC_CACHE_VAL(bnv_cv_qt_test_result,
+    AC_CACHE_VAL(ax_cv_qt_test_result,
     [
-      cat > bnv_qt_test.h << EOF
+      cat > ax_qt_test.h << EOF
 #include <qobject.h>
 class Test : public QObject
 {
@@ -303,8 +272,8 @@ signals:
 };
 EOF
 
-      cat > bnv_qt_main.$ac_ext << EOF
-#include "bnv_qt_test.h"
+      cat > ax_qt_main.$ac_ext << EOF
+#include "ax_qt_test.h"
 #include <qapplication.h>
 int main( int argc, char **argv )
 {
@@ -314,67 +283,67 @@ int main( int argc, char **argv )
 }
 EOF
 
-      bnv_cv_qt_test_result="failure"
-      bnv_try_1="$QT_MOC bnv_qt_test.h -o moc_bnv_qt_test.$ac_ext >/dev/null 2>/dev/null"
-      AC_TRY_EVAL(bnv_try_1)
+      ax_cv_qt_test_result="failure"
+      ax_try_1="$QT_MOC ax_qt_test.h -o moc_ax_qt_test.$ac_ext >/dev/null 2>/dev/null"
+      AC_TRY_EVAL(ax_try_1)
       if test x"$ac_status" != x0; then
-        echo "$bnv_err_1" >&AC_FD_CC
+        echo "$ax_err_1" >&AC_FD_CC
         echo "configure: could not run $QT_MOC on:" >&AC_FD_CC
-        cat bnv_qt_test.h >&AC_FD_CC
+        cat ax_qt_test.h >&AC_FD_CC
       else
-        bnv_try_2="$CXX $QT_CXXFLAGS -c $CXXFLAGS -o moc_bnv_qt_test.o moc_bnv_qt_test.$ac_ext >/dev/null 2>/dev/null"
-        AC_TRY_EVAL(bnv_try_2)
+        ax_try_2="$CXX $QT_CXXFLAGS -c $CXXFLAGS -o moc_ax_qt_test.o moc_ax_qt_test.$ac_ext >/dev/null 2>/dev/null"
+        AC_TRY_EVAL(ax_try_2)
         if test x"$ac_status" != x0; then
-          echo "$bnv_err_2" >&AC_FD_CC
+          echo "$ax_err_2" >&AC_FD_CC
           echo "configure: could not compile:" >&AC_FD_CC
-          cat moc_bnv_qt_test.$ac_ext >&AC_FD_CC
+          cat moc_ax_qt_test.$ac_ext >&AC_FD_CC
         else
-          bnv_try_3="$CXX $QT_CXXFLAGS -c $CXXFLAGS -o bnv_qt_main.o bnv_qt_main.$ac_ext >/dev/null 2>/dev/null"
-          AC_TRY_EVAL(bnv_try_3)
+          ax_try_3="$CXX $QT_CXXFLAGS -c $CXXFLAGS -o ax_qt_main.o ax_qt_main.$ac_ext >/dev/null 2>/dev/null"
+          AC_TRY_EVAL(ax_try_3)
           if test x"$ac_status" != x0; then
-            echo "$bnv_err_3" >&AC_FD_CC
+            echo "$ax_err_3" >&AC_FD_CC
             echo "configure: could not compile:" >&AC_FD_CC
-            cat bnv_qt_main.$ac_ext >&AC_FD_CC
+            cat ax_qt_main.$ac_ext >&AC_FD_CC
           else
-            bnv_try_4="$CXX $QT_LIBS $LIBS -o bnv_qt_main bnv_qt_main.o moc_bnv_qt_test.o >/dev/null 2>/dev/null"
-            AC_TRY_EVAL(bnv_try_4)
+            ax_try_4="$CXX $QT_LIBS $LIBS -o ax_qt_main ax_qt_main.o moc_ax_qt_test.o >/dev/null 2>/dev/null"
+            AC_TRY_EVAL(ax_try_4)
             if test x"$ac_status" != x0; then
-              echo "$bnv_err_4" >&AC_FD_CC
+              echo "$ax_err_4" >&AC_FD_CC
             else
-              bnv_cv_qt_test_result="success"
+              ax_cv_qt_test_result="success"
             fi
           fi
         fi
       fi
-    ])dnl AC_CACHE_VAL bnv_cv_qt_test_result
-    AC_MSG_RESULT([$bnv_cv_qt_test_result]);
-    if test x"$bnv_cv_qt_test_result" = "xfailure"; then
+    ])dnl AC_CACHE_VAL ax_cv_qt_test_result
+    AC_MSG_RESULT([$ax_cv_qt_test_result]);
+    if test x"$ax_cv_qt_test_result" = "xfailure"; then
       AC_MSG_ERROR([Failed to find matching components of a complete
                   Qt installation. Try using more options,
                   see ./configure --help.])
     fi
 
-    rm -f bnv_qt_test.h moc_bnv_qt_test.$ac_ext moc_bnv_qt_test.o \
-          bnv_qt_main.$ac_ext bnv_qt_main.o bnv_qt_main
+    rm -f ax_qt_test.h moc_ax_qt_test.$ac_ext moc_ax_qt_test.o \
+          ax_qt_main.$ac_ext ax_qt_main.o ax_qt_main
   fi
 ])
 
-dnl Internal subroutine of BNV_HAVE_QT
-dnl Set bnv_qt_dir bnv_qt_include_dir bnv_qt_bin_dir bnv_qt_lib_dir bnv_qt_lib
-AC_DEFUN([BNV_PATH_QT_DIRECT],
+dnl Internal subroutine of AX_HAVE_QT
+dnl Set ax_qt_dir ax_qt_include_dir ax_qt_bin_dir ax_qt_lib_dir ax_qt_lib
+AC_DEFUN([AX_PATH_QT_DIRECT],
 [
   ## Binary utilities ##
   if test x"$with_Qt_bin_dir" != x; then
-    bnv_qt_bin_dir=$with_Qt_bin_dir
+    ax_qt_bin_dir=$with_Qt_bin_dir
   fi
   ## Look for header files ##
   if test x"$with_Qt_include_dir" != x; then
-    bnv_qt_include_dir="$with_Qt_include_dir"
+    ax_qt_include_dir="$with_Qt_include_dir"
   else
     # The following header file is expected to define QT_VERSION.
     qt_direct_test_header=qglobal.h
     # Look for the header file in a standard set of common directories.
-    bnv_include_path_list="
+    ax_include_path_list="
       /usr/include
       `ls -dr ${QTDIR}/include 2>/dev/null`
       `ls -dr /usr/include/qt* 2>/dev/null`
@@ -383,65 +352,65 @@ AC_DEFUN([BNV_PATH_QT_DIRECT],
       `ls -dr /opt/qt*/include 2>/dev/null`
       `ls -dr /Developer/qt*/include 2>/dev/null`
     "
-    for bnv_dir in $bnv_include_path_list; do
-      if test -r "$bnv_dir/$qt_direct_test_header"; then
-        bnv_dirs="$bnv_dirs $bnv_dir"
+    for ax_dir in $ax_include_path_list; do
+      if test -r "$ax_dir/$qt_direct_test_header"; then
+        ax_dirs="$ax_dirs $ax_dir"
       fi
     done
     # Now look for the newest in this list
-    bnv_prev_ver=0
-    for bnv_dir in $bnv_dirs; do
-      bnv_this_ver=`egrep -w '#define QT_VERSION' $bnv_dir/$qt_direct_test_header | sed s/'#define QT_VERSION'//`
-      if expr $bnv_this_ver '>' $bnv_prev_ver > /dev/null; then
-        bnv_qt_include_dir=$bnv_dir
-        bnv_prev_ver=$bnv_this_ver
+    ax_prev_ver=0
+    for ax_dir in $ax_dirs; do
+      ax_this_ver=`egrep -w '#define QT_VERSION' $ax_dir/$qt_direct_test_header | sed s/'#define QT_VERSION'//`
+      if expr $ax_this_ver '>' $ax_prev_ver > /dev/null; then
+        ax_qt_include_dir=$ax_dir
+        ax_prev_ver=$ax_this_ver
       fi
     done
   fi dnl Found header files.
 
   # Are these headers located in a traditional Trolltech installation?
-  # That would be $bnv_qt_include_dir stripped from its last element:
-  bnv_possible_qt_dir=`dirname $bnv_qt_include_dir`
-  if (test -x $bnv_possible_qt_dir/bin/moc) &&
-     ((ls $bnv_possible_qt_dir/lib/libqt* > /dev/null 2>/dev/null) ||
-      (ls $bnv_possible_qt_dir/lib64/libqt* > /dev/null 2>/dev/null)); then
+  # That would be $ax_qt_include_dir stripped from its last element:
+  ax_possible_qt_dir=`dirname $ax_qt_include_dir`
+  if (test -x $ax_possible_qt_dir/bin/moc) &&
+     ((ls $ax_possible_qt_dir/lib/libqt* > /dev/null 2>/dev/null) ||
+      (ls $ax_possible_qt_dir/lib64/libqt* > /dev/null 2>/dev/null)); then
     # Then the rest is a piece of cake
-    bnv_qt_dir=$bnv_possible_qt_dir
-    bnv_qt_bin_dir="$bnv_qt_dir/bin"
+    ax_qt_dir=$ax_possible_qt_dir
+    ax_qt_bin_dir="$ax_qt_dir/bin"
     if test x"$with_Qt_lib_dir" != x; then
-      bnv_qt_lib_dir="$with_Qt_lib_dir"
+      ax_qt_lib_dir="$with_Qt_lib_dir"
     else
-      if (test -d $bnv_qt_dir/lib64); then
-	bnv_qt_lib_dir="$bnv_qt_dir/lib64"
+      if (test -d $ax_qt_dir/lib64); then
+	ax_qt_lib_dir="$ax_qt_dir/lib64"
       else
-	bnv_qt_lib_dir="$bnv_qt_dir/lib"
+	ax_qt_lib_dir="$ax_qt_dir/lib"
       fi
     fi
     # Only look for lib if the user did not supply it already
-    if test x"$bnv_qt_lib" = xNO; then
-      bnv_qt_lib="`ls $bnv_qt_lib_dir/libqt* | sed -n 1p |
-                   sed s@$bnv_qt_lib_dir/lib@@ | [sed s@[.].*@@]`"
+    if test x"$ax_qt_lib" = xNO; then
+      ax_qt_lib="`ls $ax_qt_lib_dir/libqt* | sed -n 1p |
+                   sed s@$ax_qt_lib_dir/lib@@ | [sed s@[.].*@@]`"
     fi
-    bnv_qt_LIBS="-L$bnv_qt_lib_dir -l$bnv_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
+    ax_qt_LIBS="-L$ax_qt_lib_dir -l$ax_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
   else
     # There is no valid definition for $QTDIR as Trolltech likes to see it
-    bnv_qt_dir=
+    ax_qt_dir=
     ## Look for Qt library ##
     if test x"$with_Qt_lib_dir" != x; then
-      bnv_qt_lib_dir="$with_Qt_lib_dir"
+      ax_qt_lib_dir="$with_Qt_lib_dir"
       # Only look for lib if the user did not supply it already
-      if test x"$bnv_qt_lib" = xNO; then
-        bnv_qt_lib="`ls $bnv_qt_lib_dir/libqt* | sed -n 1p |
-                     sed s@$bnv_qt_lib_dir/lib@@ | [sed s@[.].*@@]`"
+      if test x"$ax_qt_lib" = xNO; then
+        ax_qt_lib="`ls $ax_qt_lib_dir/libqt* | sed -n 1p |
+                     sed s@$ax_qt_lib_dir/lib@@ | [sed s@[.].*@@]`"
       fi
-      bnv_qt_LIBS="-L$bnv_qt_lib_dir -l$bnv_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
+      ax_qt_LIBS="-L$ax_qt_lib_dir -l$ax_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
     else
       # Normally, when there is no traditional Trolltech installation,
       # the library is installed in a place where the linker finds it
       # automatically.
       # If the user did not define the library name, try with qt
-      if test x"$bnv_qt_lib" = xNO; then
-        bnv_qt_lib=qt
+      if test x"$ax_qt_lib" = xNO; then
+        ax_qt_lib=qt
       fi
       qt_direct_test_header=qapplication.h
       qt_direct_test_main="
@@ -451,45 +420,45 @@ AC_DEFUN([BNV_PATH_QT_DIRECT],
       "
       # See if we find the library without any special options.
       # Don't add top $LIBS permanently yet
-      bnv_save_LIBS="$LIBS"
-      LIBS="-l$bnv_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
-      bnv_qt_LIBS="$LIBS"
-      bnv_save_CXXFLAGS="$CXXFLAGS"
-      CXXFLAGS="-I$bnv_qt_include_dir"
+      ax_save_LIBS="$LIBS"
+      LIBS="-l$ax_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
+      ax_qt_LIBS="$LIBS"
+      ax_save_CXXFLAGS="$CXXFLAGS"
+      CXXFLAGS="-I$ax_qt_include_dir"
       AC_TRY_LINK([#include <$qt_direct_test_header>],
         $qt_direct_test_main,
       [
         # Success.
         # We can link with no special library directory.
-        bnv_qt_lib_dir=
+        ax_qt_lib_dir=
       ], [
         # That did not work. Try the multi-threaded version
         echo "Non-critical error, please neglect the above." >&AC_FD_CC
-        bnv_qt_lib=qt-mt
-        LIBS="-l$bnv_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
+        ax_qt_lib=qt-mt
+        LIBS="-l$ax_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
         AC_TRY_LINK([#include <$qt_direct_test_header>],
           $qt_direct_test_main,
         [
           # Success.
           # We can link with no special library directory.
-          bnv_qt_lib_dir=
+          ax_qt_lib_dir=
         ], [
           # That did not work. Try the OpenGL version
           echo "Non-critical error, please neglect the above." >&AC_FD_CC
-          bnv_qt_lib=qt-gl
-          LIBS="-l$bnv_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
+          ax_qt_lib=qt-gl
+          LIBS="-l$ax_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
           AC_TRY_LINK([#include <$qt_direct_test_header>],
             $qt_direct_test_main,
           [
             # Success.
             # We can link with no special library directory.
-            bnv_qt_lib_dir=
+            ax_qt_lib_dir=
           ], [
             # That did not work. Maybe a library version I don't know about?
             echo "Non-critical error, please neglect the above." >&AC_FD_CC
             # Look for some Qt lib in a standard set of common directories.
-            bnv_dir_list="
-              `echo $bnv_qt_includes | sed ss/includess`
+            ax_dir_list="
+              `echo $ax_qt_includes | sed ss/includess`
               /lib
 	      /usr/lib64
               /usr/lib
@@ -503,36 +472,36 @@ AC_DEFUN([BNV_PATH_QT_DIRECT],
               `ls -dr /usr/local/qt* 2>/dev/null`
               `ls -dr /opt/qt* 2>/dev/null`
             "
-            for bnv_dir in $bnv_dir_list; do
-              if ls $bnv_dir/libqt* >/dev/null 2>/dev/null; then
+            for ax_dir in $ax_dir_list; do
+              if ls $ax_dir/libqt* >/dev/null 2>/dev/null; then
                 # Gamble that it's the first one...
-                bnv_qt_lib="`ls $bnv_dir/libqt* | sed -n 1p |
-                            sed s@$bnv_dir/lib@@ | sed s/[[.]].*//`"
-                bnv_qt_lib_dir="$bnv_dir"
+                ax_qt_lib="`ls $ax_dir/libqt* | sed -n 1p |
+                            sed s@$ax_dir/lib@@ | sed s/[[.]].*//`"
+                ax_qt_lib_dir="$ax_dir"
                 break
               fi
             done
             # Try with that one
-            LIBS="-l$bnv_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
+            LIBS="-l$ax_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
             AC_TRY_LINK([#include <$qt_direct_test_header>],
               $qt_direct_test_main,
             [
               # Success.
               # We can link with no special library directory.
-              bnv_qt_lib_dir=
+              ax_qt_lib_dir=
             ], [
-              # Leave bnv_qt_lib_dir defined
+              # Leave ax_qt_lib_dir defined
             ])
           ])
         ])
       ])
-      if test x"$bnv_qt_lib_dir" != x; then
-        bnv_qt_LIBS="-L$bnv_qt_lib_dir $LIBS"
+      if test x"$ax_qt_lib_dir" != x; then
+        ax_qt_LIBS="-L$ax_qt_lib_dir $LIBS"
       else
-        bnv_qt_LIBS="$LIBS"
+        ax_qt_LIBS="$LIBS"
       fi
-      LIBS="$bnv_save_LIBS"
-      CXXFLAGS="$bnv_save_CXXFLAGS"
+      LIBS="$ax_save_LIBS"
+      CXXFLAGS="$ax_save_CXXFLAGS"
     fi dnl $with_Qt_lib_dir was not given
   fi dnl Done setting up for non-traditional Trolltech installation
 ])
