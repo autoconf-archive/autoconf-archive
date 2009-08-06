@@ -1,14 +1,10 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ms_prog_pgclient.html
+#        http://www.nongnu.org/autoconf-archive/ax_prog_pgclient.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_PROG_PGCLIENT
 #
 # SYNOPSIS
 #
-#   MS_PROG_PGCLIENT()
+#   AX_PROG_PGCLIENT()
 #
 # DESCRIPTION
 #
@@ -53,7 +49,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([MS_PROG_PGCLIENT], [
+AC_DEFUN([AX_PROG_PGCLIENT], [
 AC_ARG_WITH(pgclient, [  --with-pgclient=DIR                    where to find pgclient (default: $PATH)], [pgclient_dir=$withval], [pgclient_dir=$PATH])
 AC_PATH_PROG([pgclient], [pgclient], [0], $pgclient_dir)
 ])dnl

@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/ms_pgsql_priv_root.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PGSQL_PRIV_ROOT
+#
 # SYNOPSIS
 #
 #   MS_PGSQL_PRIV_ROOT(DB, USER, [HOST], [PASSWORD], [ACTION_IF_FAILED], [ACTION_IF_OK])

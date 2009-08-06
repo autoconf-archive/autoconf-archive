@@ -1,28 +1,27 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ms_check_pgsql_db.html
+#       http://www.nongnu.org/autoconf-archive/ax_pgsql_priv_root.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_CHECK_PGSQL_DB
 #
 # SYNOPSIS
 #
-#   MS_CHECK_PGSQL_DB([DB], [USER], [HOST], [PASSWORD], [ACTION_IF_FAILED], [ACTION_IF_OK])
+#   AX_PGSQL_PRIV_ROOT(DB, USER, [HOST], [PASSWORD], [ACTION_IF_FAILED], [ACTION_IF_OK])
 #
 # DESCRIPTION
 #
-#   This macro checks wether we can connect to a PostgreSQL server with the
-#   given data. The macro MS_PROG_PGCLIENT is required by this one. The
-#   variable $pgclient_call is set for later use in Makefiles, if you'd like
-#   to make use of this, you must do
+#   This macro checks wether the given PostgreSQL user has root privileges
+#   (can create and drop databases) It is recommended to first call
+#   AX_CHECK_PGSQL_DB, this makes it easier to locate the cause of error.
+#   The macro AX_PROG_PGCLIENT is required by this one.
 #
-#       AC_SUBST(pgclient_call)
+#   The variable $pgclient_root_call is set for later use in Makefiles, if
+#   you'd like to make use of this, you must do
 #
-#   after having called MS_CHECK_PGSQL_DB. You can then do something like
-#   the following in your Makefile.am:
+#       AC_SUBST(pgclient_root_call)
 #
-#       @pgclient_call@ -f file.sql
+#   after having called AX_CHECK_PGSQL_PRIV_ROOT. You can then do something
+#   like the following in your Makefile.am:
+#
+#       @pgclient_root_call@ -f file.sql
 #
 #   If you want the user to set the data, you should support something like
 #   these configure options:
@@ -32,20 +31,20 @@
 #               [pg_host=$withval], [pg_host=])
 #
 #       AC_ARG_WITH(pgsql-db,
-#               [  --with-pgsql-db=DATABASE             use DATABASE @<:@tarantoola@:>@],
-#               [pg_db=$withval], [pg_db=tarantoola])
+#               [  --with-pgsql-db=DBNAME               use database DBNAME @<:@test@:>@],
+#               [pg_db=$withval], [pg_db=test])
 #
-#       AC_ARG_WITH(pgsql-user,
-#               [  --with-pgsql-user=USER               use USER @<:@postgres@:>@],
-#               [pg_user=$withval], [pg_user=postgres])
+#       AC_ARG_WITH(pgsql-root-user,
+#               [  --with-pgsql-root-user=USER          use user USER, must have root (all) privileges @<:@postgres@:>@],
+#               [pg_root_user=$withval], [pg_root_user=postgres])
 #
 #       AC_ARG_WITH(pgsql-password,
-#               [  --with-pgsql-password=PASSWORD       use PASSWORD @<:@none@:>@],
+#               [  --with-pgsql-password=PASSWORD       use password PASSWORD @<:@none@:>@],
 #               [pg_password=$withval], [pg_password=""])
 #
 #   You can then call the macro like this:
 #
-#       MS_CHECK_PGSQL_DB([$pg_db], [$pg_user], [$pg_host], [$pg_password], [AC_MSG_ERROR([We need a database connection!])])
+#       AX_CHECK_PGSQL_PRIV_ROOT([$pg_db], [$pg_root_user], [$pg_host], [$pg_password], [AC_MSG_ERROR([We need root privileges on database!])])
 #
 # LICENSE
 #
@@ -77,26 +76,28 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([MS_CHECK_PGSQL_DB], [
-AC_REQUIRE([MS_PROG_PGCLIENT])
-AC_MSG_CHECKING([for PostgreSQL db $1 (user: $2, host: $3)])
+AC_DEFUN([AX_CHECK_PGSQL_PRIV_ROOT], [
+AC_REQUIRE([AX_PROG_PGCLIENT])dnl
+AC_REQUIRE([AX_CHECK_PGSQL_DB])dnl
+AC_MSG_CHECKING([if PostgreSQL user $2 has root privileges])
 
-pgclient_call="$pgclient"
+pgclient_root_call="$pgclient"
 
 if test "x$1" != "x"; then
-        pgclient_call="$pgclient_call dbname=$1";
+        pgclient_root_call="$pgclient_root_call dbname=$1";
 fi
 if test "x$2" != "x"; then
-        pgclient_call="$pgclient_call user=$2";
+        pgclient_root_call="$pgclient_root_call user=$2";
 fi
 if test "x$3" != "x"; then
-        pgclient_call="$pgclient_call host=$3";
+        pgclient_root_call="$pgclient_root_call host=$3";
 fi
 if test "x$4" != "x"; then
-        pgclient_call="$pgclient_call password=$4";
+        pgclient_root_call="$pgclient_root_call password=$4";
 fi
 
-$pgclient_call -c 'SELECT 1' > /dev/null 2>&1
+testdb="test`date +%s`"
+echo "CREATE DATABASE $testdb; DROP DATABASE $testdb;" | $pgclient_root_call  > /dev/null 2>&1
 if test "x$?" = "x0"; then
         AC_MSG_RESULT([yes])
         $6

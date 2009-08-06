@@ -1,25 +1,21 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ms_check_pgsql_db.html
+#        http://www.nongnu.org/autoconf-archive/ax_check_pgsql_db.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_CHECK_PGSQL_DB
 #
 # SYNOPSIS
 #
-#   MS_CHECK_PGSQL_DB([DB], [USER], [HOST], [PASSWORD], [ACTION_IF_FAILED], [ACTION_IF_OK])
+#   AX_CHECK_PGSQL_DB([DB], [USER], [HOST], [PASSWORD], [ACTION_IF_FAILED], [ACTION_IF_OK])
 #
 # DESCRIPTION
 #
 #   This macro checks wether we can connect to a PostgreSQL server with the
-#   given data. The macro MS_PROG_PGCLIENT is required by this one. The
+#   given data. The macro AX_PROG_PGCLIENT is required by this one. The
 #   variable $pgclient_call is set for later use in Makefiles, if you'd like
 #   to make use of this, you must do
 #
 #       AC_SUBST(pgclient_call)
 #
-#   after having called MS_CHECK_PGSQL_DB. You can then do something like
+#   after having called AX_CHECK_PGSQL_DB. You can then do something like
 #   the following in your Makefile.am:
 #
 #       @pgclient_call@ -f file.sql
@@ -45,7 +41,7 @@
 #
 #   You can then call the macro like this:
 #
-#       MS_CHECK_PGSQL_DB([$pg_db], [$pg_user], [$pg_host], [$pg_password], [AC_MSG_ERROR([We need a database connection!])])
+#       AX_CHECK_PGSQL_DB([$pg_db], [$pg_user], [$pg_host], [$pg_password], [AC_MSG_ERROR([We need a database connection!])])
 #
 # LICENSE
 #
@@ -77,8 +73,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([MS_CHECK_PGSQL_DB], [
-AC_REQUIRE([MS_PROG_PGCLIENT])
+AC_DEFUN([AX_CHECK_PGSQL_DB], [
+AC_REQUIRE([AX_PROG_PGCLIENT])
 AC_MSG_CHECKING([for PostgreSQL db $1 (user: $2, host: $3)])
 
 pgclient_call="$pgclient"
