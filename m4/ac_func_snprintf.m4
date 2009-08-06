@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/ac_func_snprintf.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_FUNC_SNPRINTF
+#
 # SYNOPSIS
 #
 #   AC_FUNC_SNPRINTF

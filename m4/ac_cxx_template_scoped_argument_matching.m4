@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_cxx_template_scoped_argument_matching.html
 # ======================================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_TEMPLATE_SCOPED_ARGUMENT_MATCHING
+#
 # SYNOPSIS
 #
 #   AC_CXX_TEMPLATE_SCOPED_ARGUMENT_MATCHING

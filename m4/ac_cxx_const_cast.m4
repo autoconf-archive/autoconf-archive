@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/ac_cxx_const_cast.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_CONST_CAST
+#
 # SYNOPSIS
 #
 #   AC_CXX_CONST_CAST

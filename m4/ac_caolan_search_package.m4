@@ -2,6 +2,10 @@
 #    http://www.nongnu.org/autoconf-archive/ac_caolan_search_package.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CAOLAN_SEARCH_PACKAGE
+#
 # SYNOPSIS
 #
 #   AC_caolan_SEARCH_PACKAGE(PACKAGE, FUNCTION, LIBRARY LIST, HEADERFILE [, ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]])

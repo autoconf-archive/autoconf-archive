@@ -2,6 +2,10 @@
 #     http://www.nongnu.org/autoconf-archive/ac_compile_check_sizeof.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_COMPILE_CHECK_SIZEOF
+#
 # SYNOPSIS
 #
 #   AC_COMPILE_CHECK_SIZEOF(TYPE [, HEADERS [, EXTRA_SIZES...]])

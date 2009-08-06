@@ -2,6 +2,10 @@
 #          http://www.nongnu.org/autoconf-archive/ac_prog_mysql.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_MYSQL
+#
 # SYNOPSIS
 #
 #   AC_PROG_MYSQL

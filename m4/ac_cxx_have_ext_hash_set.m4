@@ -2,6 +2,10 @@
 #    http://www.nongnu.org/autoconf-archive/ac_cxx_have_ext_hash_set.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_HAVE_EXT_HASH_SET
+#
 # SYNOPSIS
 #
 #   AC_CXX_HAVE_EXT_HASH_SET

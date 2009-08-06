@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_cxx_template_qualified_return_type.html
 # ===================================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_TEMPLATE_QUALIFIED_RETURN_TYPE
+#
 # SYNOPSIS
 #
 #   AC_CXX_TEMPLATE_QUALIFIED_RETURN_TYPE

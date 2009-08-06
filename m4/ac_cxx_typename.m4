@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_cxx_typename.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_TYPENAME
+#
 # SYNOPSIS
 #
 #   AC_CXX_TYPENAME

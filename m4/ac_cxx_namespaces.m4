@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/ac_cxx_namespaces.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_NAMESPACES
+#
 # SYNOPSIS
 #
 #   AC_CXX_NAMESPACES

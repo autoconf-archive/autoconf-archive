@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_sys_dev_poll.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_SYS_DEV_POLL
+#
 # SYNOPSIS
 #
 #   AC_SYS_DEV_POLL([ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])

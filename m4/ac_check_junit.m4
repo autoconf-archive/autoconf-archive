@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_check_junit.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CHECK_JUNIT
+#
 # SYNOPSIS
 #
 #   AC_CHECK_JUNIT

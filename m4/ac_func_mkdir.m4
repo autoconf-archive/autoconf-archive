@@ -2,6 +2,10 @@
 #          http://www.nongnu.org/autoconf-archive/ac_func_mkdir.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_FUNC_MKDIR
+#
 # SYNOPSIS
 #
 #   AC_FUNC_MKDIR

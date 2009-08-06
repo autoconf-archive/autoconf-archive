@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/ac_check_docbook_dtd.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CHECK_DOCBOOK_DTD
+#
 # SYNOPSIS
 #
 #   AC_CHECK_DOCBOOK_DTD([dtd-version])

@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_prog_javadoc.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_JAVADOC
+#
 # SYNOPSIS
 #
 #   AC_PROG_JAVADOC

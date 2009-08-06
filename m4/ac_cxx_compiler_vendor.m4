@@ -2,6 +2,10 @@
 #     http://www.nongnu.org/autoconf-archive/ac_cxx_compiler_vendor.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_COMPILER_VENDOR
+#
 # SYNOPSIS
 #
 #   AC_CXX_COMPILER_VENDOR(VENDOR-NAME, [NICKNAME])

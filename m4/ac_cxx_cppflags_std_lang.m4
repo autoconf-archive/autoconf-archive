@@ -2,6 +2,10 @@
 #    http://www.nongnu.org/autoconf-archive/ac_cxx_cppflags_std_lang.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_CPPFLAGS_STD_LANG
+#
 # SYNOPSIS
 #
 #   AC_CXX_CPPFLAGS_STD_LANG(CPP-FLAGS)

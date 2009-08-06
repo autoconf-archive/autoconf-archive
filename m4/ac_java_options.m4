@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_java_options.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_JAVA_OPTIONS
+#
 # SYNOPSIS
 #
 #   AC_JAVA_OPTIONS

@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_cxx_default_template_parameters.html
 # ================================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_DEFAULT_TEMPLATE_PARAMETERS
+#
 # SYNOPSIS
 #
 #   AC_CXX_DEFAULT_TEMPLATE_PARAMETERS

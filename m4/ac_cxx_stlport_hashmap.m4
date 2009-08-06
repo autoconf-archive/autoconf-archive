@@ -2,6 +2,10 @@
 #     http://www.nongnu.org/autoconf-archive/ac_cxx_stlport_hashmap.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_STLPORT_HASHMAP
+#
 # SYNOPSIS
 #
 #   AC_CXX_STLPORT_HASHMAP

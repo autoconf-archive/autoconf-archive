@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/ac_try_run_javac.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_TRY_RUN_JAVAC
+#
 # SYNOPSIS
 #
 #   AC_TRY_RUN_JAVA

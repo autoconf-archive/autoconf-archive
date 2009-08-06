@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/ac_define_sub_path.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_DEFINE_SUB_PATH
+#
 # SYNOPSIS
 #
 #   AC_DEFINE_SUB_PATH(DEFNAME, varname, description)

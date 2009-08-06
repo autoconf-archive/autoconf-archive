@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/ac_check_func_in.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CHECK_FUNC_IN
+#
 # SYNOPSIS
 #
 #   AC_CHECK_FUNC_IN(HEADER, FUNCTION [,ACTION-IF-FOUNC [,ACTION-IF-NOT-FOUND]])

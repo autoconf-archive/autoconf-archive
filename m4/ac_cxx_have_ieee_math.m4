@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/ac_cxx_have_ieee_math.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_HAVE_IEEE_MATH
+#
 # SYNOPSIS
 #
 #   AC_CXX_HAVE_IEEE_MATH

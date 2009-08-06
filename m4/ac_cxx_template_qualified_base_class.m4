@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_cxx_template_qualified_base_class.html
 # ==================================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_TEMPLATE_QUALIFIED_BASE_CLASS
+#
 # SYNOPSIS
 #
 #   AC_CXX_TEMPLATE_QUALIFIED_BASE_CLASS

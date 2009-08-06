@@ -2,6 +2,10 @@
 #           http://www.nongnu.org/autoconf-archive/ac_prog_ssh.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_SSH
+#
 # SYNOPSIS
 #
 #   AC_PROG_SSH

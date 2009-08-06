@@ -2,6 +2,10 @@
 #          http://www.nongnu.org/autoconf-archive/ac_prototype.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROTOTYPE
+#
 # SYNOPSIS
 #
 #   AC_PROTOTYPE(function, includes, code, TAG1, values1 [, TAG2, values2 [...]])

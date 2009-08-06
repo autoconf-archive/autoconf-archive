@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/ac_prog_mysqlimport.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_MYSQLIMPORT
+#
 # SYNOPSIS
 #
 #   AC_PROG_MYSQLIMPORT

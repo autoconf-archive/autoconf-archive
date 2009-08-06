@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_cxx_function_nontype_parameters.html
 # ================================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_FUNCTION_NONTYPE_PARAMETERS
+#
 # SYNOPSIS
 #
 #   AC_CXX_FUNCTION_NONTYPE_PARAMETERS

@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/ac_check_struct_for.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CHECK_STRUCT_FOR
+#
 # SYNOPSIS
 #
 #   AC_CHECK_STRUCT_FOR(INCLUDES,STRUCT,MEMBER,DEFINE,[no])

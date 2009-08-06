@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/ac_c_bigendian_cross.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_C_BIGENDIAN_CROSS
+#
 # SYNOPSIS
 #
 #   AC_C_BIGENDIAN_CROSS

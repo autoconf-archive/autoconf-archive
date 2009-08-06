@@ -2,6 +2,10 @@
 #           http://www.nongnu.org/autoconf-archive/_ac_c_ifdef.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to _AX_C_IFDEF
+#
 # SYNOPSIS
 #
 #   _AC_C_IFDEF(MACRO-NAME, ACTION-IF-DEF, ACTION-IF-NOT-DEF)

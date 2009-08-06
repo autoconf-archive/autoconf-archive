@@ -2,6 +2,10 @@
 #          http://www.nongnu.org/autoconf-archive/ac_c_var_func.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_C_VAR_FUNC
+#
 # SYNOPSIS
 #
 #   AC_C_VAR_FUNC

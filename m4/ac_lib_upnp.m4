@@ -2,6 +2,10 @@
 #           http://www.nongnu.org/autoconf-archive/ac_lib_upnp.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_LIB_UPNP
+#
 # SYNOPSIS
 #
 #   AC_LIB_UPNP([ACTION-IF-TRUE], [ACTION-IF-FALSE])

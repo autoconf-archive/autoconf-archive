@@ -2,6 +2,10 @@
 #     http://www.nongnu.org/autoconf-archive/ac_func_accept_argtypes.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_FUNC_ACCEPT_ARGTYPES
+#
 # SYNOPSIS
 #
 #   AC_FUNC_ACCEPT_ARGTYPES

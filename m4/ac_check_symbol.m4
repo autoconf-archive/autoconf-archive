@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_check_symbol.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CHECK_SYMBOL
+#
 # SYNOPSIS
 #
 #   AC_CHECK_SYMBOL(SYMBOL, HEADER... [,ACTION-IF-FOUND [,ACTION-IF-NOT-FOUND]])

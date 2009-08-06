@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/ac_prog_perl_modules.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_PERL_MODULES
+#
 # SYNOPSIS
 #
 #   AC_PROG_PERL_MODULES([MODULES], [ACTION-IF-TRUE], [ACTION-IF-FALSE])

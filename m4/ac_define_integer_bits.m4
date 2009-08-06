@@ -2,6 +2,10 @@
 #     http://www.nongnu.org/autoconf-archive/ac_define_integer_bits.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_DEFINE_INTEGER_BITS
+#
 # SYNOPSIS
 #
 #   AC_DEFINE_INTEGER_BITS (TYPE [, CANDIDATE-TYPE]...)

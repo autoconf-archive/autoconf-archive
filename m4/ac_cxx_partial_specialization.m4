@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_cxx_partial_specialization.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_PARTIAL_SPECIALIZATION
+#
 # SYNOPSIS
 #
 #   AC_CXX_PARTIAL_SPECIALIZATION

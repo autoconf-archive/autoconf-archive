@@ -2,6 +2,10 @@
 #           http://www.nongnu.org/autoconf-archive/ac_prog_jar.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_JAR
+#
 # SYNOPSIS
 #
 #   AC_PROG_JAR

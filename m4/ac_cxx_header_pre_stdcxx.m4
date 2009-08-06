@@ -2,6 +2,10 @@
 #    http://www.nongnu.org/autoconf-archive/ac_cxx_header_pre_stdcxx.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_HEADER_PRE_STDCXX
+#
 # SYNOPSIS
 #
 #   AC_CXX_HEADER_PRE_STDCXX

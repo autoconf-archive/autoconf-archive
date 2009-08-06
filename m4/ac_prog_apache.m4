@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_prog_apache.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_APACHE
+#
 # SYNOPSIS
 #
 #   AC_PROG_APACHE([version])

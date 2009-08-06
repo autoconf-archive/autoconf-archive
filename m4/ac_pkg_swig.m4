@@ -2,6 +2,10 @@
 #           http://www.nongnu.org/autoconf-archive/ac_pkg_swig.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PKG_SWIG
+#
 # SYNOPSIS
 #
 #   AC_PROG_SWIG([major.minor.micro])

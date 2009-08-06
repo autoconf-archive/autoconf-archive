@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/ac_prog_javac_works.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_JAVAC_WORKS
+#
 # SYNOPSIS
 #
 #   AC_PROG_JAVAC_WORKS

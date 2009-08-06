@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/ac_try_compile_java.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_TRY_COMPILE_JAVA
+#
 # SYNOPSIS
 #
 #   AC_TRY_COMPILE_JAVA

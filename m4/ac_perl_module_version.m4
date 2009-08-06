@@ -2,6 +2,10 @@
 #     http://www.nongnu.org/autoconf-archive/ac_perl_module_version.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PERL_MODULE_VERSION
+#
 # SYNOPSIS
 #
 #   AC_PERL_MODULE_VERSION([MODULE VERSION], [ACTION-IF-TRUE], [ACTION-IF-FALSE])

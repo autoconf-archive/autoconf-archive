@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/ac_check_rqrd_class.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CHECK_RQRD_CLASS
+#
 # SYNOPSIS
 #
 #   AC_CHECK_RQRD_CLASS

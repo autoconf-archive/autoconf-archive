@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/ac_check_java_home.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CHECK_JAVA_HOME
+#
 # SYNOPSIS
 #
 #   AC_CHECK_JAVA_HOME

@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_subdir_files.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_SUBDIR_FILES
+#
 # SYNOPSIS
 #
 #   AC_SUBDIR_FILES [(SUBDIRS [, CASEPATTERN])]

@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_cxx_template_keyword_qualifier.html
 # ===============================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_TEMPLATE_KEYWORD_QUALIFIER
+#
 # SYNOPSIS
 #
 #   AC_CXX_TEMPLATE_KEYWORD_QUALIFIER

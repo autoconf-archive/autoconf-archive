@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/ac_numeric_namedlevel.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_NUMERIC_NAMEDLEVEL
+#
 # SYNOPSIS
 #
 #   AC_NUMERIC_NAMEDLEVEL(VARNAME [,FROMVAR [,DEFAULT [,YESLEVEL]]])

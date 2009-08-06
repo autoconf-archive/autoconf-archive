@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_cxx_explicit.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_EXPLICIT
+#
 # SYNOPSIS
 #
 #   AC_CXX_EXPLICIT

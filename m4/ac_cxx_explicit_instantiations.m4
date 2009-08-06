@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_cxx_explicit_instantiations.html
 # ============================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_EXPLICIT_INSTANTIATIONS
+#
 # SYNOPSIS
 #
 #   AC_CXX_EXPLICIT_INSTANTIATIONS

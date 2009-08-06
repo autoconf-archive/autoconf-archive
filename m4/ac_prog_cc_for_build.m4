@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/ac_prog_cc_for_build.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_CC_FOR_BUILD
+#
 # SYNOPSIS
 #
 #   AC_PROG_CC_FOR_BUILD

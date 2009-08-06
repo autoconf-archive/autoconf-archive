@@ -2,6 +2,10 @@
 #          http://www.nongnu.org/autoconf-archive/ac_prog_javah.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_JAVAH
+#
 # SYNOPSIS
 #
 #   AC_PROG_JAVAH

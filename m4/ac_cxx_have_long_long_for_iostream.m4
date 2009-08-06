@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_cxx_have_long_long_for_iostream.html
 # ================================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_HAVE_LONG_LONG_FOR_IOSTREAM
+#
 # SYNOPSIS
 #
 #   AC_CXX_HAVE_LONG_LONG_FOR_IOSTREAM

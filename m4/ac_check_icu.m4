@@ -2,6 +2,10 @@
 #          http://www.nongnu.org/autoconf-archive/ac_check_icu.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CHECK_ICU
+#
 # SYNOPSIS
 #
 #   AC_CHECK_ICU(version, action-if, action-if-not)

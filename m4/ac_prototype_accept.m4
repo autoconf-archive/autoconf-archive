@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/ac_prototype_accept.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROTOTYPE_ACCEPT
+#
 # SYNOPSIS
 #
 #   AC_PROTOTYPE_ACCEPT

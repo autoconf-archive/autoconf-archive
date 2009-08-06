@@ -2,6 +2,10 @@
 #   http://www.nongnu.org/autoconf-archive/ac_set_default_paths_system.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_SET_DEFAULT_PATHS_SYSTEM
+#
 # SYNOPSIS
 #
 #   AC_SET_DEFAULT_PATHS_SYSTEM

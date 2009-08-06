@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/ac_check_docbook_xslt.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CHECK_DOCBOOK_XSLT
+#
 # SYNOPSIS
 #
 #   AC_CHECK_DOCBOOK_XSLT([xslt-version])

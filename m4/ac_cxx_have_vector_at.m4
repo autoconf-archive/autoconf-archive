@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/ac_cxx_have_vector_at.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_HAVE_VECTOR_AT
+#
 # SYNOPSIS
 #
 #   AC_CXX_HAVE_VECTOR_AT

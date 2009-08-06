@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/ac_cxx_gnucxx_hashmap.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_GNUCXX_HASHMAP
+#
 # SYNOPSIS
 #
 #   AC_CXX_GNUCXX_HASHMAP

@@ -2,6 +2,10 @@
 #          http://www.nongnu.org/autoconf-archive/ac_very_nice.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_VERY_NICE
+#
 # SYNOPSIS
 #
 #   AC_VERY_NICE

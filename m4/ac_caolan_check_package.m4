@@ -2,6 +2,10 @@
 #     http://www.nongnu.org/autoconf-archive/ac_caolan_check_package.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CAOLAN_CHECK_PACKAGE
+#
 # SYNOPSIS
 #
 #   AC_caolan_CHECK_PACKAGE(PACKAGE, FUNCTION, LIBRARY , HEADERFILE [, ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]])

@@ -2,6 +2,10 @@
 #     http://www.nongnu.org/autoconf-archive/ac_prototype_setsockopt.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROTOTYPE_SETSOCKOPT
+#
 # SYNOPSIS
 #
 #   AC_PROTOTYPE_SETSOCKOPT

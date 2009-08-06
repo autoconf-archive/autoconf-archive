@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/ac_c_printf_thsep.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_C_PRINTF_THSEP
+#
 # SYNOPSIS
 #
 #   AC_C_PRINTF_THSEP

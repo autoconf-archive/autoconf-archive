@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_c_long_long.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_C_LONG_LONG
+#
 # SYNOPSIS
 #
 #   AC_C_LONG_LONG

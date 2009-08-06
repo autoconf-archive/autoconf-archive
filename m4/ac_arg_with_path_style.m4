@@ -2,6 +2,10 @@
 #     http://www.nongnu.org/autoconf-archive/ac_arg_with_path_style.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_ARG_WITH_PATH_STYLE
+#
 # SYNOPSIS
 #
 #   AC_ARG_WITH_PATH_STYLE

@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/ac_python_module.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PYTHON_MODULE
+#
 # SYNOPSIS
 #
 #   AC_PYTHON_MODULE(modname[, fatal])

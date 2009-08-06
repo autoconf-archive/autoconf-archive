@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_check_mysqlr.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CHECK_MYSQLR
+#
 # SYNOPSIS
 #
 #   AC_CHECK_MYSQLR

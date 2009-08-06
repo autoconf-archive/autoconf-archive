@@ -2,6 +2,10 @@
 #   http://www.nongnu.org/autoconf-archive/ac_cxx_header_unordered_set.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_HEADER_UNORDERED_SET
+#
 # SYNOPSIS
 #
 #   AC_CXX_HEADER_UNORDERED_SET

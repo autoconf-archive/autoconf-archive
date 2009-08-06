@@ -2,6 +2,10 @@
 #   http://www.nongnu.org/autoconf-archive/ac_cxx_have_empty_iostream.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_HAVE_EMPTY_IOSTREAM
+#
 # SYNOPSIS
 #
 #   AC_CXX_HAVE_EMPTY_IOSTREAM

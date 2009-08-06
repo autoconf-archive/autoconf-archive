@@ -2,6 +2,10 @@
 #          http://www.nongnu.org/autoconf-archive/ac_define_dir.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_DEFINE_DIR
+#
 # SYNOPSIS
 #
 #   AC_DEFINE_DIR(VARNAME, DIR [, DESCRIPTION])

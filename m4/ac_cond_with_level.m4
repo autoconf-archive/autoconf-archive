@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/ac_cond_with_level.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_COND_WITH_LEVEL
+#
 # SYNOPSIS
 #
 #   AC_COND_WITH_LEVEL(PACKAGE [,DEFAULT [,YESLEVEL]])

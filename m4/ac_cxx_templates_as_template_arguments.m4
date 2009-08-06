@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_cxx_templates_as_template_arguments.html
 # ====================================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_TEMPLATES_AS_TEMPLATE_ARGUMENTS
+#
 # SYNOPSIS
 #
 #   AC_CXX_TEMPLATES_AS_TEMPLATE_ARGUMENTS

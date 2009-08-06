@@ -2,6 +2,10 @@
 #          http://www.nongnu.org/autoconf-archive/ac_prog_httpd.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_HTTPD
+#
 # SYNOPSIS
 #
 #   AC_PROG_HTTPD

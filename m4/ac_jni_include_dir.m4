@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/ac_jni_include_dir.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_JNI_INCLUDE_DIR
+#
 # SYNOPSIS
 #
 #   AC_JNI_INCLUDE_DIR

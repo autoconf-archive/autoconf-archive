@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_cxx_have_string_push_back.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_HAVE_STRING_PUSH_BACK
+#
 # SYNOPSIS
 #
 #   AC_CXX_HAVE_STRING_PUSH_BACK

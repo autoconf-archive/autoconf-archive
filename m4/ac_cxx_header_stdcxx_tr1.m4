@@ -2,6 +2,10 @@
 #    http://www.nongnu.org/autoconf-archive/ac_cxx_header_stdcxx_tr1.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_HEADER_STDCXX_TR1
+#
 # SYNOPSIS
 #
 #   AC_CXX_HEADER_STDCXX_TR1

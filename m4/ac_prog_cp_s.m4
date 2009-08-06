@@ -2,6 +2,10 @@
 #          http://www.nongnu.org/autoconf-archive/ac_prog_cp_s.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_CP_S
+#
 # SYNOPSIS
 #
 #   AC_PROG_CP_S

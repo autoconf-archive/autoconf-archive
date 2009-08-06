@@ -2,6 +2,10 @@
 #           http://www.nongnu.org/autoconf-archive/ac_cxx_rtti.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_RTTI
+#
 # SYNOPSIS
 #
 #   AC_CXX_RTTI

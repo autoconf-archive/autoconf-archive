@@ -2,6 +2,10 @@
 #           http://www.nongnu.org/autoconf-archive/ac_pkg_mico.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PKG_MICO
+#
 # SYNOPSIS
 #
 #   AC_PKG_MICO([X.X.X optional required])

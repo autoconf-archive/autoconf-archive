@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/ac_cxx_dynamic_cast.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_DYNAMIC_CAST
+#
 # SYNOPSIS
 #
 #   AC_CXX_DYNAMIC_CAST

@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_python_devel.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PYTHON_DEVEL
+#
 # SYNOPSIS
 #
 #   AC_PYTHON_DEVEL([version])

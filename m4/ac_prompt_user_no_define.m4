@@ -7,6 +7,10 @@
 #   Configure scripts are generally expected to run without user
 #   interaction.
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROMPT_USER_NO_DEFINE
+#
 # SYNOPSIS
 #
 #   AC_PROMPT_USER_NO_DEFINE(VARIABLENAME,QUESTION,[DEFAULT])

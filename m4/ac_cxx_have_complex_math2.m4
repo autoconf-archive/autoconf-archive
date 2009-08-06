@@ -2,6 +2,10 @@
 #    http://www.nongnu.org/autoconf-archive/ac_cxx_have_complex_math2.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_HAVE_COMPLEX_MATH2
+#
 # SYNOPSIS
 #
 #   AC_CXX_HAVE_COMPLEX_MATH2

@@ -2,6 +2,10 @@
 #     http://www.nongnu.org/autoconf-archive/ac_cxx_partial_ordering.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_PARTIAL_ORDERING
+#
 # SYNOPSIS
 #
 #   AC_CXX_PARTIAL_ORDERING

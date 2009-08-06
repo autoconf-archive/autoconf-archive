@@ -6,6 +6,10 @@
 #
 #   Deprecated in favor of AX_CFLAGS_WARN_ALL.
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_COMPILE_WARNINGS
+#
 # SYNOPSIS
 #
 #   AC_COMPILE_WARNINGS

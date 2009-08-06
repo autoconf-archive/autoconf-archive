@@ -2,6 +2,10 @@
 #    http://www.nongnu.org/autoconf-archive/ac_prototype_getsockname.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROTOTYPE_GETSOCKNAME
+#
 # SYNOPSIS
 #
 #   AC_PROTOTYPE_GETSOCKNAME

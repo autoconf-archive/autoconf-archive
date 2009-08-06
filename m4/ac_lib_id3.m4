@@ -2,6 +2,10 @@
 #           http://www.nongnu.org/autoconf-archive/ac_lib_id3.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_LIB_ID3
+#
 # SYNOPSIS
 #
 #   AC_LIB_ID3([ACTION-IF-TRUE], [ACTION-IF-FALSE])

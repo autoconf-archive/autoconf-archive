@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/ac_prog_mysqlshow.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_MYSQLSHOW
+#
 # SYNOPSIS
 #
 #   AC_PROG_MYSQLSHOW

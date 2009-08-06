@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_cxx_full_specialization_syntax.html
 # ===============================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_FULL_SPECIALIZATION_SYNTAX
+#
 # SYNOPSIS
 #
 #   AC_CXX_FULL_SPECIALIZATION_SYNTAX

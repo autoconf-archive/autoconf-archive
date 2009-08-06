@@ -2,6 +2,10 @@
 #    http://www.nongnu.org/autoconf-archive/ac_cxx_compile_stdcxx_0x.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_COMPILE_STDCXX_0X
+#
 # SYNOPSIS
 #
 #   AC_CXX_COMPILE_STDCXX_0X

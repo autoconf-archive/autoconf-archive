@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/ac_check_typedef.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CHECK_TYPEDEF
+#
 # SYNOPSIS
 #
 #   AC_CHECK_TYPEDEF(TYPEDEF, HEADER [, ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND ]])

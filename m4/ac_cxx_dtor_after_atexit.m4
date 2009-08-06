@@ -2,6 +2,10 @@
 #    http://www.nongnu.org/autoconf-archive/ac_cxx_dtor_after_atexit.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_DTOR_AFTER_ATEXIT
+#
 # SYNOPSIS
 #
 #   AC_CXX_DTOR_AFTER_ATEXIT

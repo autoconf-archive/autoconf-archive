@@ -2,6 +2,10 @@
 #   http://www.nongnu.org/autoconf-archive/ac_sys_largefile_sensitive.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_SYS_LARGEFILE_SENSITIVE
+#
 # SYNOPSIS
 #
 #   AC_SYS_LARGEFILE_SENSITIVE

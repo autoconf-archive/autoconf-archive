@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_prog_crontab.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_CRONTAB
+#
 # SYNOPSIS
 #
 #   AC_PROG_CRONTAB

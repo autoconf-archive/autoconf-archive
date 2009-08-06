@@ -2,6 +2,10 @@
 #    http://www.nongnu.org/autoconf-archive/ac_check_docbook_xslt_min.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CHECK_DOCBOOK_XSLT_MIN
+#
 # SYNOPSIS
 #
 #   AC_CHECK_DOCBOOK_XSLT_MIN(min-xslt-version)

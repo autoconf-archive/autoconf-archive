@@ -2,6 +2,10 @@
 #   http://www.nongnu.org/autoconf-archive/ac_prog_cc_char_subscripts.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_CC_CHAR_SUBSCRIPTS
+#
 # SYNOPSIS
 #
 #   AC_PROG_CC_CHAR_SUBSCRIPTS(substvar [,hard])

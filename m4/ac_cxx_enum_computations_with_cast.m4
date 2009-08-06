@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_cxx_enum_computations_with_cast.html
 # ================================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_ENUM_COMPUTATIONS_WITH_CAST
+#
 # SYNOPSIS
 #
 #   AC_CXX_ENUM_COMPUTATIONS_WITH_CAST

@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_cxx_mutable.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_MUTABLE
+#
 # SYNOPSIS
 #
 #   AC_CXX_MUTABLE

@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/ac_cxx_have_valarray.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_HAVE_VALARRAY
+#
 # SYNOPSIS
 #
 #   AC_CXX_HAVE_VALARRAY

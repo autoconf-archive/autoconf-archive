@@ -2,6 +2,10 @@
 #     http://www.nongnu.org/autoconf-archive/ac_cxx_member_templates.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_MEMBER_TEMPLATES
+#
 # SYNOPSIS
 #
 #   AC_CXX_MEMBER_TEMPLATES

@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/ac_prog_modprobe.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_MODPROBE
+#
 # SYNOPSIS
 #
 #   AC_PROG_MODPROBE

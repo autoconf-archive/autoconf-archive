@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/ac_prog_xsltproc.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_PROG_XSLTPROC
+#
 # SYNOPSIS
 #
 #   AC_PROG_XSLTPROC([default-flags])

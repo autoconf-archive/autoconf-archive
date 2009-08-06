@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/ac_cxx_have_complex.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_HAVE_COMPLEX
+#
 # SYNOPSIS
 #
 #   AC_CXX_HAVE_COMPLEX

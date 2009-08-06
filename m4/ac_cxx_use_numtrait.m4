@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/ac_cxx_use_numtrait.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_USE_NUMTRAIT
+#
 # SYNOPSIS
 #
 #   AC_CXX_USE_NUMTRAIT

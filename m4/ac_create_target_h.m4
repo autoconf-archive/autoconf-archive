@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/ac_create_target_h.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CREATE_TARGET_H
+#
 # SYNOPSIS
 #
 #   AC_CREATE_TARGET_H [(HEADER-FILE [,PREFIX)]

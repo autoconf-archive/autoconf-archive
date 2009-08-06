@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/ac_check_mysql_db.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CHECK_MYSQL_DB
+#
 # SYNOPSIS
 #
 #   AC_CHECK_MYSQL_DB

@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_cxx_complex_math_in_namespace_std.html
 # ==================================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_COMPLEX_MATH_IN_NAMESPACE_STD
+#
 # SYNOPSIS
 #
 #   AC_CXX_COMPLEX_MATH_IN_NAMESPACE_STD

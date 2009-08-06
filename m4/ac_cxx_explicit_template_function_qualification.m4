@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_cxx_explicit_template_function_qualification.html
 # =============================================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION
+#
 # SYNOPSIS
 #
 #   AC_CXX_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION

@@ -2,6 +2,10 @@
 #           http://www.nongnu.org/autoconf-archive/ac_cxx_bool.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_BOOL
+#
 # SYNOPSIS
 #
 #   AC_CXX_BOOL

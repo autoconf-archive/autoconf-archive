@@ -2,6 +2,10 @@
 #     http://www.nongnu.org/autoconf-archive/ac_cxx_old_for_scoping.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_OLD_FOR_SCOPING
+#
 # SYNOPSIS
 #
 #   AC_CXX_OLD_FOR_SCOPING

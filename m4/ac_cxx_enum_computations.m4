@@ -2,6 +2,10 @@
 #    http://www.nongnu.org/autoconf-archive/ac_cxx_enum_computations.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_ENUM_COMPUTATIONS
+#
 # SYNOPSIS
 #
 #   AC_CXX_ENUM_COMPUTATIONS

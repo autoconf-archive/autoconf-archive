@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/ac_func_memmove.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_FUNC_MEMMOVE
+#
 # SYNOPSIS
 #
 #   AC_FUNC_MEMMOVE

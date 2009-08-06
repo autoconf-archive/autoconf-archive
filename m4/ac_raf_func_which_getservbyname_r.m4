@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_raf_func_which_getservbyname_r.html
 # ===============================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_RAF_FUNC_WHICH_GETSERVBYNAME_R
+#
 # SYNOPSIS
 #
 #   AC_raf_FUNC_WHICH_GETSERVBYNAME_R

@@ -2,6 +2,10 @@
 #    http://www.nongnu.org/autoconf-archive/ac_var_timezone_externals.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_VAR_TIMEZONE_EXTERNALS
+#
 # SYNOPSIS
 #
 #   AC_VAR_TIMEZONE_EXTERNALS

@@ -2,6 +2,10 @@
 #    http://www.nongnu.org/autoconf-archive/ac_create_generic_config.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CREATE_GENERIC_CONFIG
+#
 # SYNOPSIS
 #
 #   AC_CREATE_GENERIC_CONFIG [(PACKAGEnlibs [, VERSION])]

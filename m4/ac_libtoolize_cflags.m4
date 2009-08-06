@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/ac_libtoolize_cflags.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_LIBTOOLIZE_CFLAGS
+#
 # SYNOPSIS
 #
 #   AC_LIBTOOLIZE_CFLAGS(COMPILER-FLAGS-VAR)

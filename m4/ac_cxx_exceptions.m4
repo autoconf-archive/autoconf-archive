@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/ac_cxx_exceptions.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_EXCEPTIONS
+#
 # SYNOPSIS
 #
 #   AC_CXX_EXCEPTIONS

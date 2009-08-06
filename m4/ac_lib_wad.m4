@@ -2,6 +2,10 @@
 #           http://www.nongnu.org/autoconf-archive/ac_lib_wad.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_LIB_WAD
+#
 # SYNOPSIS
 #
 #   AC_LIB_WAD

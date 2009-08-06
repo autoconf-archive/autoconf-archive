@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/ac_cxx_verbose_terminate_handler.html
 # ==============================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CXX_VERBOSE_TERMINATE_HANDLER
+#
 # SYNOPSIS
 #
 #   AC_CXX_VERBOSE_TERMINATE_HANDLER
