@@ -1,14 +1,10 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/merk_sip_devel.html
+#         http://www.nongnu.org/autoconf-archive/ax_sip_devel.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_SIP_DEVEL
 #
 # SYNOPSIS
 #
-#   MERK_SIP_DEVEL([<min_version>])
+#   AX_SIP_DEVEL([<min_version>])
 #
 # DESCRIPTION
 #
@@ -25,10 +21,11 @@
 #
 #   Example:
 #
-#     MERK_SIP_DEVEL
-#     MERK_SIP_DEVEL([4.1])
+#     AX_SIP_DEVEL
+#     AX_SIP_DEVEL([4.1])
 #
 #   Requires: perl (for version string comparison)
+#   FIXME: Use AX_COMPARE_VERSION instead.
 #
 # LICENSE
 #
@@ -38,7 +35,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([MERK_SIP_DEVEL],[
+AC_DEFUN([AX_SIP_DEVEL],[
 #-- provice --with-sip=PATH command line argument
 AC_ARG_WITH([sip],
         AS_HELP_STRING([--with-sip=PATH], [specify the location of the qt/qtmod.sip file]),
@@ -60,8 +57,8 @@ if test x"$1" != x""; then
         fi
         AC_MSG_CHECKING([sip version >= $1])
         sip_version=$($SIP -V |cut -f 1 -d " ")
-        merk_sip_devel_result=$(echo "$sip_version" |perl -e '("$1" lt <STDIN>) && print "ok"')
-        if test x"$merk_sip_devel_result" == x""; then
+        ax_sip_devel_result=$(echo "$sip_version" |perl -e '("$1" lt <STDIN>) && print "ok"')
+        if test x"$ax_sip_devel_result" == x""; then
                 AC_MSG_RESULT([$sip_version])
                 AC_MSG_ERROR([a newer version of sip is required])
         else
@@ -90,14 +87,14 @@ dnl this part of the code to detect python version and include path
 dnl  was taken from ac_python_devel macro, (rev. 2008-04-12)
 python_path=`echo $PYTHON | sed "s,/bin.*$,,"`
 for i in "$python_path/include/python$PYTHON_VERSION/" "$python_path/include/python/" "$python_path/" ; do
-	python_path=`find $i -type f -name Python.h -print | sed "1q"`
+        python_path=`find $i -type f -name Python.h -print | sed "1q"`
         if test -n "$python_path" ; then
-        	break
+                break
         fi
 done
 sip_path2=`echo $python_path | sed "s,/Python.h$,,"`
 if ! test -f "$sip_path2/sip.h"; then
-	AC_MSG_ERROR([cannot find include path to sip.h])
+        AC_MSG_ERROR([cannot find include path to sip.h])
 fi
 
 AC_MSG_RESULT([$sip_path1,$sip_path2])
