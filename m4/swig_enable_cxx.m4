@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/swig_enable_cxx.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_SWIG_ENABLE_CXX
+#
 # SYNOPSIS
 #
 #   SWIG_ENABLE_CXX

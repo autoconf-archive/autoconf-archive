@@ -1,14 +1,10 @@
 # ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/swig_multi_module_support.html
+#    http://www.nongnu.org/autoconf-archive/ax_swig_multi_module_support.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_SWIG_MULTI_MODULE_SUPPORT
 #
 # SYNOPSIS
 #
-#   SWIG_MULTI_MODULE_SUPPORT
+#   AX_SWIG_MULTI_MODULE_SUPPORT
 #
 # DESCRIPTION
 #
@@ -51,7 +47,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([SWIG_MULTI_MODULE_SUPPORT],[
+AC_DEFUN([AX_SWIG_MULTI_MODULE_SUPPORT],[
         AC_REQUIRE([AC_PROG_SWIG])
         SWIG="$SWIG -noruntime"
 ])

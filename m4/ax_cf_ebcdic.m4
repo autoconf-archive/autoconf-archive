@@ -1,33 +1,26 @@
 # ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/swig_multi_module_support.html
+#            http://www.nongnu.org/autoconf-archive/ax_cf_ebcdic.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_SWIG_MULTI_MODULE_SUPPORT
 #
 # SYNOPSIS
 #
-#   SWIG_MULTI_MODULE_SUPPORT
+#   AX_CF_EBCDIC
 #
 # DESCRIPTION
 #
-#   Enable support for multiple modules. This effects all invocations of
-#   $(SWIG). You have to link all generated modules against the appropriate
-#   SWIG runtime library. If you want to build Python modules for example,
-#   use the SWIG_PYTHON macro and link the modules against
-#   $(SWIG_PYTHON_LIBS).
+#   If the target character set is EBCDIC, defines variables cf_cv_ebcdic,
+#   EBCDIC, and NOT_ASCII.
+#
+#   I originally wrote this and submitted it to the Lynx distribution.
+#   Editorial revisions by Tom Dickey, et. al.
 #
 # LICENSE
 #
-#   Copyright (c) 2008 Sebastian Huber <sebastian-huber@web.de>
-#   Copyright (c) 2008 Alan W. Irwin <irwin@beluga.phys.uvic.ca>
-#   Copyright (c) 2008 Rafael Laboissiere <rafael@laboissiere.net>
-#   Copyright (c) 2008 Andrew Collier <colliera@ukzn.ac.za>
+#   Copyright (c) 2008 Paul Gilmartin <pg@sweng.stortek.com>
 #
-#   This program is free software; you can redistribute it and/or modify it
+#   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
-#   Free Software Foundation; either version 2 of the License, or (at your
+#   Free Software Foundation, either version 3 of the License, or (at your
 #   option) any later version.
 #
 #   This program is distributed in the hope that it will be useful, but
@@ -51,7 +44,28 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([SWIG_MULTI_MODULE_SUPPORT],[
-        AC_REQUIRE([AC_PROG_SWIG])
-        SWIG="$SWIG -noruntime"
-])
+dnl Check whether character set is EBCDIC.
+AC_DEFUN([AX_CF_EBCDIC],[
+AC_MSG_CHECKING(if character set is EBCDIC)
+AC_CACHE_VAL(cf_cv_ebcdic,[
+        AC_TRY_COMPILE([ ],
+[ /* TryCompile function for CharSet.
+   Treat any failure as ASCII for compatibility with existing art.
+   Use compile-time rather than run-time tests for cross-compiler
+   tolerance.  */
+#if '0'!=240
+make an error "Character set is not EBCDIC"
+#endif ],
+[ # TryCompile action if true
+cf_cv_ebcdic=yes ],
+[ # TryCompile action if false
+cf_cv_ebcdic=no])
+# end of TryCompile ])
+# end of CacheVal CvEbcdic
+AC_MSG_RESULT($cf_cv_ebcdic)
+case "$cf_cv_ebcdic" in  #(vi
+    yes) AC_DEFINE(EBCDIC)
+         AC_DEFINE(NOT_ASCII);; #(vi
+    *)   ;;
+esac
+])dnl

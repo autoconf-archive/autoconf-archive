@@ -1,14 +1,10 @@
 # ===========================================================================
-#           http://www.nongnu.org/autoconf-archive/check_zlib.html
+#           http://www.nongnu.org/autoconf-archive/ax_check_zlib.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_CHECK_ZLIB
 #
 # SYNOPSIS
 #
-#   CHECK_ZLIB()
+#   AX_CHECK_ZLIB()
 #
 # DESCRIPTION
 #
@@ -60,7 +56,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([CHECK_ZLIB],
+AC_DEFUN([AX_CHECK_ZLIB],
 #
 # Handle user hints
 #

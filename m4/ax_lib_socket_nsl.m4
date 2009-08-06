@@ -1,14 +1,10 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/lib_socket_nsl.html
+#         http://www.nongnu.org/autoconf-archive/ax_lib_socket_nsl.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_LIB_SOCKET_NSL
 #
 # SYNOPSIS
 #
-#   LIB_SOCKET_NSL
+#   AX_LIB_SOCKET_NSL
 #
 # DESCRIPTION
 #
@@ -31,7 +27,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([LIB_SOCKET_NSL],
+AC_DEFUN([AX_LIB_SOCKET_NSL],
 [
 	AC_SEARCH_LIBS([gethostbyname], [nsl])
 	AC_SEARCH_LIBS([socket], [socket], [], [

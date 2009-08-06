@@ -1,22 +1,14 @@
 # ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/swig_multi_module_support.html
+#         http://www.nongnu.org/autoconf-archive/ax_swig_enable_cxx.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_SWIG_MULTI_MODULE_SUPPORT
 #
 # SYNOPSIS
 #
-#   SWIG_MULTI_MODULE_SUPPORT
+#   AX_SWIG_ENABLE_CXX
 #
 # DESCRIPTION
 #
-#   Enable support for multiple modules. This effects all invocations of
-#   $(SWIG). You have to link all generated modules against the appropriate
-#   SWIG runtime library. If you want to build Python modules for example,
-#   use the SWIG_PYTHON macro and link the modules against
-#   $(SWIG_PYTHON_LIBS).
+#   Enable SWIG C++ support. This affects all invocations of $(SWIG).
 #
 # LICENSE
 #
@@ -51,7 +43,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([SWIG_MULTI_MODULE_SUPPORT],[
+AC_DEFUN([AX_SWIG_ENABLE_CXX],[
         AC_REQUIRE([AC_PROG_SWIG])
-        SWIG="$SWIG -noruntime"
+        AC_REQUIRE([AC_PROG_CXX])
+        SWIG="$SWIG -c++"
 ])

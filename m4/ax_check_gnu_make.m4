@@ -1,14 +1,10 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/check_gnu_make.html
+#         http://www.nongnu.org/autoconf-archive/ax_check_gnu_make.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_CHECK_GNU_MAKE
 #
 # SYNOPSIS
 #
-#   CHECK_GNU_MAKE()
+#   AX_CHECK_GNU_MAKE()
 #
 # DESCRIPTION
 #
@@ -33,7 +29,7 @@
 #
 #   Then configure.in would normally contain:
 #
-#       CHECK_GNU_MAKE()
+#       AX_CHECK_GNU_MAKE()
 #       AC_OUTPUT(Makefile)
 #
 #   Then perhaps to cause gnu make to override any other make, we could do
@@ -58,7 +54,7 @@
 #   and this notice are preserved.
 
 AC_DEFUN(
-        [CHECK_GNU_MAKE], [ AC_CACHE_CHECK( for GNU make,_cv_gnu_make_command,
+        [AX_CHECK_GNU_MAKE], [ AC_CACHE_CHECK( for GNU make,_cv_gnu_make_command,
                 _cv_gnu_make_command='' ;
 dnl Search all the common names for GNU make
                 for a in "$MAKE" make gmake gnumake ; do

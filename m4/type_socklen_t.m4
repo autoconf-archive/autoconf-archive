@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/type_socklen_t.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_TYPE_SOCKLEN_T
+#
 # SYNOPSIS
 #
 #   TYPE_SOCKLEN_T

@@ -2,6 +2,10 @@
 #            http://www.nongnu.org/autoconf-archive/cf_ebcdic.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_CF_EBCDIC
+#
 # SYNOPSIS
 #
 #   CF_EBCDIC

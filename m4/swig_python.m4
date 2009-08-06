@@ -2,6 +2,10 @@
 #           http://www.nongnu.org/autoconf-archive/swig_python.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to AX_SWIG_PYTHON
+#
 # SYNOPSIS
 #
 #   SWIG_PYTHON([use-shadow-classes = {no, yes}])

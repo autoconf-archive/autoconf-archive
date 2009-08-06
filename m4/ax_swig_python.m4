@@ -1,22 +1,23 @@
 # ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/swig_multi_module_support.html
+#           http://www.nongnu.org/autoconf-archive/ax_swig_python.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_SWIG_MULTI_MODULE_SUPPORT
 #
 # SYNOPSIS
 #
-#   SWIG_MULTI_MODULE_SUPPORT
+#   AX_SWIG_PYTHON([use-shadow-classes = {no, yes}])
 #
 # DESCRIPTION
 #
-#   Enable support for multiple modules. This effects all invocations of
-#   $(SWIG). You have to link all generated modules against the appropriate
-#   SWIG runtime library. If you want to build Python modules for example,
-#   use the SWIG_PYTHON macro and link the modules against
-#   $(SWIG_PYTHON_LIBS).
+#   Checks for Python and provides the $(AX_SWIG_PYTHON_CPPFLAGS), and
+#   $(AX_SWIG_PYTHON_OPT) output variables.
+#
+#   $(AX_SWIG_PYTHON_OPT) contains all necessary SWIG options to generate code
+#   for Python. Shadow classes are enabled unless the value of the optional
+#   first argument is exactly 'no'. If you need multi module support
+#   (provided by the SWIG_MULTI_MODULE_SUPPORT macro) use
+#   $(AX_SWIG_PYTHON_LIBS) to link against the appropriate library. It contains
+#   the SWIG Python runtime library that is needed by the type check system
+#   for example.
 #
 # LICENSE
 #
@@ -51,7 +52,10 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([SWIG_MULTI_MODULE_SUPPORT],[
+AC_DEFUN([AX_SWIG_PYTHON],[
         AC_REQUIRE([AC_PROG_SWIG])
-        SWIG="$SWIG -noruntime"
+        AC_REQUIRE([AC_PYTHON_DEVEL])
+        test "x$1" != "xno" || swig_shadow=" -noproxy"
+        AC_SUBST([AX_SWIG_PYTHON_OPT],[-python$swig_shadow])
+        AC_SUBST([AX_SWIG_PYTHON_CPPFLAGS],[$PYTHON_CPPFLAGS])
 ])

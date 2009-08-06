@@ -1,14 +1,10 @@
 # =============================================================================
-#  http://www.nongnu.org/autoconf-archive/patch_libtool_changing_cmds_ifs.html
+#  http://www.nongnu.org/autoconf-archive/ax_patch_libtool_changing_cmds_ifs.html
 # =============================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_PATCH_LIBTOOL_CHANGING_CMDS_IFS
 #
 # SYNOPSIS
 #
-#   PATCH_LIBTOOL_CHANGING_CMDS_IFS
+#   AX_PATCH_LIBTOOL_CHANGING_CMDS_IFS
 #
 # DESCRIPTION
 #
@@ -76,7 +72,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([PATCH_LIBTOOL_CHANGING_CMDS_IFS],
+AC_DEFUN([AX_PATCH_LIBTOOL_CHANGING_CMDS_IFS],
 [# patch libtool to change $_cmds IFS from ~ to ? character
 if grep "^[[_$as_cr_letters]]_cmds=.*[[?]]" libtool >/dev/null; then
   AC_MSG_WARN(dnl

@@ -1,29 +1,20 @@
 # ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/swig_multi_module_support.html
+#         http://www.nongnu.org/autoconf-archive/ax_type_socklen_t.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_SWIG_MULTI_MODULE_SUPPORT
 #
 # SYNOPSIS
 #
-#   SWIG_MULTI_MODULE_SUPPORT
+#   AX_TYPE_SOCKLEN_T
 #
 # DESCRIPTION
 #
-#   Enable support for multiple modules. This effects all invocations of
-#   $(SWIG). You have to link all generated modules against the appropriate
-#   SWIG runtime library. If you want to build Python modules for example,
-#   use the SWIG_PYTHON macro and link the modules against
-#   $(SWIG_PYTHON_LIBS).
+#   Check whether sys/socket.h defines type socklen_t. Please note that some
+#   systems require sys/types.h to be included before sys/socket.h can be
+#   compiled.
 #
 # LICENSE
 #
-#   Copyright (c) 2008 Sebastian Huber <sebastian-huber@web.de>
-#   Copyright (c) 2008 Alan W. Irwin <irwin@beluga.phys.uvic.ca>
-#   Copyright (c) 2008 Rafael Laboissiere <rafael@laboissiere.net>
-#   Copyright (c) 2008 Andrew Collier <colliera@ukzn.ac.za>
+#   Copyright (c) 2008 Lars Brinkhoff <lars@nocrew.org>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -51,7 +42,17 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([SWIG_MULTI_MODULE_SUPPORT],[
-        AC_REQUIRE([AC_PROG_SWIG])
-        SWIG="$SWIG -noruntime"
+AC_DEFUN([AX_TYPE_SOCKLEN_T],
+[AC_CACHE_CHECK([for socklen_t], ac_cv_ax_type_socklen_t,
+[
+  AC_TRY_COMPILE(
+  [#include <sys/types.h>
+   #include <sys/socket.h>],
+  [socklen_t len = 42; return 0;],
+  ac_cv_ax_type_socklen_t=yes,
+  ac_cv_ax_type_socklen_t=no)
+])
+  if test $ac_cv_ax_type_socklen_t != yes; then
+    AC_DEFINE(socklen_t, int, [Substitute for socklen_t])
+  fi
 ])
