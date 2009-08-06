@@ -1,14 +1,10 @@
 # ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/acx_check_pathname_style.html
+#    http://www.nongnu.org/autoconf-archive/ax_check_pathname_style.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to ax_check_pathname_style
 #
 # SYNOPSIS
 #
-#   ACX_CHECK_PATHNAME_STYLE_DOS
+#   AX_CHECK_PATHNAME_STYLE_DOS
 #
 # DESCRIPTION
 #
@@ -52,18 +48,18 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([ACX_CHECK_PATHNAME_STYLE_DOS],
+AC_DEFUN([AX_CHECK_PATHNAME_STYLE_DOS],
 [AC_MSG_CHECKING(for Windows and DOS and OS/2 style pathnames)
-AC_CACHE_VAL(acx_cv_pathname_style_dos,
+AC_CACHE_VAL(ax_cv_pathname_style_dos,
 [AC_REQUIRE([AC_CANONICAL_HOST])
 
-acx_cv_pathname_style_dos="no"
+ax_cv_pathname_style_dos="no"
 case ${host_os} in
-  *djgpp | *mingw32* | *emx*) acx_cv_pathname_style_dos="yes" ;;
+  *djgpp | *mingw32* | *emx*) ax_cv_pathname_style_dos="yes" ;;
 esac
 ])
-AC_MSG_RESULT($acx_cv_pathname_style_dos)
-if test "$acx_cv_pathname_style_dos" = "yes"; then
+AC_MSG_RESULT($ax_cv_pathname_style_dos)
+if test "$ax_cv_pathname_style_dos" = "yes"; then
   AC_DEFINE(HAVE_PATHNAME_STYLE_DOS,,[defined if running on a system with dos style paths])
   AC_DEFINE(PATH_SEPARATOR, ';')
 else

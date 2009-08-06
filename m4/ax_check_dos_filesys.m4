@@ -1,26 +1,21 @@
 # ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/acx_check_pathname_style.html
+#      http://www.nongnu.org/autoconf-archive/ax_check_dos_filesys.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to ax_check_pathname_style
 #
 # SYNOPSIS
 #
-#   ACX_CHECK_PATHNAME_STYLE_DOS
+#   AX_CHECK_DOS_FILESYS_LIMITATIONS
 #
 # DESCRIPTION
 #
-#   Check if host OS uses DOS-style pathnames. This includes the use of
-#   drive letters and backslashes. Under DOS, Windows, and OS/2, defines
-#   HAVE_PATHNAME_STYLE_DOS and PATH_SEPARATOR to ';'. Otherwise, defines
-#   PATH_SEPARATOR to ':'.
+#   Check if the target is running on DOS. DOS doesn't allow a dot as the
+#   first character, more than one dot, more than eight characters before a
+#   dot, and just three letters after the dot. A DOS VM running under
+#   Windows 9X does not have these restrictions. A DOS program can be
+#   running in either environment, so its important to code accordingly.
+#   Defines HAVE_DOS_FILESYS_LIMITATIONS if under DOS.
 #
-#   This macro depends on the AC_CANONICAL_HOST.
-#
-#   Use for enabling code to handle drive letters, backslashes in filenames
-#   and semicolons in the PATH.
+#   Use in conjunction with AX_CHECK_PATHNAME_STYLE_DOS.
 #
 # LICENSE
 #
@@ -52,21 +47,17 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([ACX_CHECK_PATHNAME_STYLE_DOS],
-[AC_MSG_CHECKING(for Windows and DOS and OS/2 style pathnames)
-AC_CACHE_VAL(acx_cv_pathname_style_dos,
+AC_DEFUN([AX_CHECK_DOS_FILESYS_LIMITATIONS],
+[AC_MSG_CHECKING(for potential DOS filename limitations)
+AC_CACHE_VAL(ax_cv_dos_limitations,
 [AC_REQUIRE([AC_CANONICAL_HOST])
-
-acx_cv_pathname_style_dos="no"
+ax_cv_dos_limitations="yes"
 case ${host_os} in
-  *djgpp | *mingw32* | *emx*) acx_cv_pathname_style_dos="yes" ;;
+  *dos | *djgpp) ax_cv_dos_limitations="yes"
 esac
 ])
-AC_MSG_RESULT($acx_cv_pathname_style_dos)
-if test "$acx_cv_pathname_style_dos" = "yes"; then
-  AC_DEFINE(HAVE_PATHNAME_STYLE_DOS,,[defined if running on a system with dos style paths])
-  AC_DEFINE(PATH_SEPARATOR, ';')
-else
-  AC_DEFINE(PATH_SEPARATOR, ':')
+AC_MSG_RESULT($ax_cv_dos_limitations)
+if test $ax_cv_dos_limitations = "yes"; then
+  AC_DEFINE(HAVE_DOS_FILESYS_LIMITATIONS)
 fi
 ])

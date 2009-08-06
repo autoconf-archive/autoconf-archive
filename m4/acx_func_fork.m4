@@ -2,6 +2,10 @@
 #          http://www.nongnu.org/autoconf-archive/acx_func_fork.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_func_fork
+#
 # SYNOPSIS
 #
 #   ACX_FUNC_FORK

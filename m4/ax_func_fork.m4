@@ -1,26 +1,18 @@
 # ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/acx_check_pathname_style.html
+#          http://www.nongnu.org/autoconf-archive/ax_func_fork.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to ax_check_pathname_style
 #
 # SYNOPSIS
 #
-#   ACX_CHECK_PATHNAME_STYLE_DOS
+#   AX_FUNC_FORK
 #
 # DESCRIPTION
 #
-#   Check if host OS uses DOS-style pathnames. This includes the use of
-#   drive letters and backslashes. Under DOS, Windows, and OS/2, defines
-#   HAVE_PATHNAME_STYLE_DOS and PATH_SEPARATOR to ';'. Otherwise, defines
-#   PATH_SEPARATOR to ':'.
+#   Check to for a working fork. Use to provide a workaround for systems
+#   that don't have a working fork. For example, the workaround for the
+#   fork()/exec() sequence for DOS is to use spawn.
 #
-#   This macro depends on the AC_CANONICAL_HOST.
-#
-#   Use for enabling code to handle drive letters, backslashes in filenames
-#   and semicolons in the PATH.
+#   Defines HAVE_NO_FORK is fork() doesn't work or isn't implemented.
 #
 # LICENSE
 #
@@ -52,21 +44,37 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([ACX_CHECK_PATHNAME_STYLE_DOS],
-[AC_MSG_CHECKING(for Windows and DOS and OS/2 style pathnames)
-AC_CACHE_VAL(acx_cv_pathname_style_dos,
-[AC_REQUIRE([AC_CANONICAL_HOST])
+AC_DEFUN([AX_FUNC_FORK],
+[AC_MSG_CHECKING(for a working fork)
+AC_CACHE_VAL(ax_cv_func_fork_works,
+[AC_REQUIRE([AC_TYPE_PID_T])
+AC_REQUIRE([AC_HEADER_SYS_WAIT])
+AC_TRY_RUN([#include <sys/types.h>
+#ifdef HAVE_SYS_WAIT_H
+#include <sys/wait.h>
+#endif
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
 
-acx_cv_pathname_style_dos="no"
-case ${host_os} in
-  *djgpp | *mingw32* | *emx*) acx_cv_pathname_style_dos="yes" ;;
-esac
+int main()
+{
+  int status;
+  pid_t child = fork();
+
+  if (child < 0) /* Error */
+    return (1);
+  else if (child == 0) /* Child */
+    return (0);
+
+  /* Parent */
+  status = (wait(&status) != child);
+  return  (status >= 0) ? 0 : 1;
+}
+], ax_cv_func_fork_works=yes, ax_cv_func_fork_works=no, ax_cv_func_fork_works=no)
 ])
-AC_MSG_RESULT($acx_cv_pathname_style_dos)
-if test "$acx_cv_pathname_style_dos" = "yes"; then
-  AC_DEFINE(HAVE_PATHNAME_STYLE_DOS,,[defined if running on a system with dos style paths])
-  AC_DEFINE(PATH_SEPARATOR, ';')
-else
-  AC_DEFINE(PATH_SEPARATOR, ':')
+AC_MSG_RESULT($ax_cv_func_fork_works)
+if test $ax_cv_func_fork_works = no; then
+  AC_DEFINE(HAVE_NO_FORK)
 fi
 ])

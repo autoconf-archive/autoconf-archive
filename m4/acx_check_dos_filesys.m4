@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/acx_check_dos_filesys.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_check_dos_filesys
+#
 # SYNOPSIS
 #
 #   ACX_CHECK_DOS_FILESYS_LIMITATIONS

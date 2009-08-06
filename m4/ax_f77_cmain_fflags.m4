@@ -1,14 +1,10 @@
 # ===========================================================================
-#      http://www.nongnu.org/autoconf-archive/acx_f77_cmain_fflags.html
+#      http://www.nongnu.org/autoconf-archive/ax_f77_cmain_fflags.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to ax_f77_cmain_fflags
 #
 # SYNOPSIS
 #
-#   ACX_F77_CMAIN_FFLAGS([ACTION-IF-SUCCEED], [ACTION-IF-FAIL])
+#   AX_F77_CMAIN_FFLAGS([ACTION-IF-SUCCEED], [ACTION-IF-FAIL])
 #
 # DESCRIPTION
 #
@@ -57,44 +53,44 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([ACX_F77_CMAIN_FFLAGS],
-[AC_CACHE_CHECK([for f77 flags to use C main function], acx_cv_f77_cmain_fflags,
-[acx_cv_f77_cmain_fflags="unknown"
+AC_DEFUN([AX_F77_CMAIN_FFLAGS],
+[AC_CACHE_CHECK([for f77 flags to use C main function], ax_cv_f77_cmain_fflags,
+[ax_cv_f77_cmain_fflags="unknown"
 AC_LANG_PUSH(C)
 AC_COMPILE_IFELSE([[int main(void) { return 0; }]],
 		  [mv conftest.$ac_objext conftest_cmain.$ac_objext],
-		  [acx_cv_f77_cmain_fflags=error])
+		  [ax_cv_f77_cmain_fflags=error])
 AC_LANG_POP(C)
-if test "x$acx_cv_f77_cmain_fflags" != xerror; then
+if test "x$ax_cv_f77_cmain_fflags" != xerror; then
     AC_LANG_PUSH(Fortran 77)
-    acx_save_LIBS=$LIBS
+    ax_save_LIBS=$LIBS
     LIBS="conftest_cmain.$ac_objext $LIBS"
-    acx_save_FFLAGS=$FFLAGS
-    for acx_flag in none -nofor_main; do
-	case $acx_flag in
-	    none) FFLAGS=$acx_save_FFLAGS ;;
-	    *)    FFLAGS="$acx_save_FFLAGS $acx_flag" ;;
+    ax_save_FFLAGS=$FFLAGS
+    for ax_flag in none -nofor_main; do
+	case $ax_flag in
+	    none) FFLAGS=$ax_save_FFLAGS ;;
+	    *)    FFLAGS="$ax_save_FFLAGS $ax_flag" ;;
 	esac
 	AC_LINK_IFELSE([
       subroutine foobar()
       return
       end
-], [acx_cv_f77_cmain_fflags=$acx_flag; break]);
+], [ax_cv_f77_cmain_fflags=$ax_flag; break]);
     done
-    FFLAGS=$acx_save_FFLAGS
-    LIBS=$acx_save_LIBS
+    FFLAGS=$ax_save_FFLAGS
+    LIBS=$ax_save_LIBS
     AC_LANG_POP(Fortran 77)
 fi])
-    case $acx_cv_f77_cmain_fflags in
+    case $ax_cv_f77_cmain_fflags in
 	error|unknown)
 	    F77_CMAIN_FFLAGS=""
 	    ifelse([$2],,[AC_MSG_ERROR([cannot link C main with Fortran])],[$2])
 	    ;;
 	*)
-	    if test "x$acx_cv_f77_cmain_fflags" = xnone; then
+	    if test "x$ax_cv_f77_cmain_fflags" = xnone; then
 		F77_CMAIN_FFLAGS=""
 	    else
-		F77_CMAIN_FFLAGS="$acx_cv_f77_cmain_fflags"
+		F77_CMAIN_FFLAGS="$ax_cv_f77_cmain_fflags"
 	    fi
 	    $1
 	    ;;
