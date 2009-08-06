@@ -9,8 +9,6 @@
 # DESCRIPTION
 #
 #   Try to find a compiler option that enables most reasonable warnings.
-#   This macro is directly derived from VL_PROG_CC_WARNINGS which is split
-#   up into two AX_CFLAGS_WARN_ALL and AX_CFLAGS_WARN_ALL_ANSI
 #
 #   For the GNU CC compiler it will be -Wall (and -ansi -pedantic) The
 #   result is added to the shellvar being CFLAGS by default.
