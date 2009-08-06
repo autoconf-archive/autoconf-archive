@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/acltx_prog_mktexpk.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_mktexpk
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_MKTEXPK

@@ -2,6 +2,10 @@
 #          http://www.nongnu.org/autoconf-archive/acltx_prog_mf.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_mf
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_MF([ACTION-IF-NOT-FOUND])

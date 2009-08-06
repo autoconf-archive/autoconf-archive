@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/acltx_package_opt.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_package_opt
+#
 # SYNOPSIS
 #
 #   ACLTX_PACKAGE_OPT(PACKAGENAME,CLASSNAME,VARIABLETOSET,PARAMETER[,ACTION-IF-FOUND[,ACTION-IF-NOT-FOUND]])

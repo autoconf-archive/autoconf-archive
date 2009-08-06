@@ -2,6 +2,10 @@
 #  http://www.nongnu.org/autoconf-archive/acltx_package_babel_language.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_package_babel_language
+#
 # SYNOPSIS
 #
 #   ACLTX_PACKAGE_BABEL_LANGUAGE(LANGUAGES,VARIABLETOSET[ACTION-IF-FOUND[,ACTION-IF-NOT-FOUND]])

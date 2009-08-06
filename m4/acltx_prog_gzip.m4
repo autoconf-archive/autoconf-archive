@@ -2,6 +2,10 @@
 #         http://www.nongnu.org/autoconf-archive/acltx_prog_gzip.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_gzip
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_GZIP([ACTION-IF-NOT-FOUND])

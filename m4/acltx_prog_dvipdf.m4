@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/acltx_prog_dvipdf.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_dvipdf
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_DVIPDF([ACTION-IF-NOT-FOUND])

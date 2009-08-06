@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/acltx_package_fontenc.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_package_fontenc
+#
 # SYNOPSIS
 #
 #   ACLTX_PACKAGE_FONTENC([ACTION-IF-NOT-FOUND])

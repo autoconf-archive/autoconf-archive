@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/acltx_prog_fig2dev.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_fig2dev
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_FIG2DEV([ACTION-IF-NOT-FOUND])

@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/acltx_prog_bibtex.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_bibtex
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_BIBTEX([ACTION-IF-NOT-FOUND])

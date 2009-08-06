@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/acltx_prog_gnuplot.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_gnuplot
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_GNUPLOT([ACTION-IF-NOT-FOUND])

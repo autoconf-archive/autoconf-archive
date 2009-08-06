@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/acltx_prog_ps2pdf.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_ps2pdf
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_PS2PDF([ACTION-IF-NOT-FOUND])

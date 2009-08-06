@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/acltx_converting_fig.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_converting_fig
+#
 # SYNOPSIS
 #
 #   ACLTX_CONVERTING_FIG([ACTION-IF-FOUND[,ACTION-IF-NOT-FOUND]])

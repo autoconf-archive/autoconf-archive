@@ -2,6 +2,10 @@
 #     http://www.nongnu.org/autoconf-archive/acltx_package_listings.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_package_listings
+#
 # SYNOPSIS
 #
 #   ACLTX_PACKAGE_LISTINGS

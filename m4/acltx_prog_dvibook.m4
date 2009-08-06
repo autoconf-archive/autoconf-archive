@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/acltx_prog_dvibook.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_dvibook
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_DVIBOOK([ACTION-IF-NOT-FOUND])

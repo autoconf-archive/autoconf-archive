@@ -2,6 +2,10 @@
 #          http://www.nongnu.org/autoconf-archive/acltx_classes.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_classes
+#
 # SYNOPSIS
 #
 #   ACLTX_CLASSES(CLASSESNAMES,VARIABLETOSET[,ACTION-IF-FOUND[,ACTION-IF-NOT-FOUND]])

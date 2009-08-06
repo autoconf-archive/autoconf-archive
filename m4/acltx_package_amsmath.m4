@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/acltx_package_amsmath.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_package_amsmath
+#
 # SYNOPSIS
 #
 #   ACLTX_PACKAGE_AMSMATH

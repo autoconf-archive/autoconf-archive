@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/acltx_prog_pdflatex.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_pdflatex
+#
 # SYNOPSIS
 #
 #   AC_PROG_PDFLATEX

@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/acltx_prog_latex2png.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_latex2png
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_LATEX2PNG([ACTION-IF-NOT-FOUND])

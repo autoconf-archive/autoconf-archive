@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/acltx_default_class.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_default_class
+#
 # SYNOPSIS
 #
 #   ACLTX_DEFAULT_CLASS([OTHER-DEFAULT-CLASS])

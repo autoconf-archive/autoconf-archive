@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/acltx_package_input.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_package_input
+#
 # SYNOPSIS
 #
 #   ACLTX_PACKAGE_INPUT(PACKAGENAME,CLASSNAME,VARIABLETOSET)

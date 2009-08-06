@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/acltx_prog_jpeg2ps.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_jpeg2ps
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_JPEG2PS([ACTION-IF-NOT-FOUND])

@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/acltx_prog_texhash.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_texhash
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_TEXHASH([ACTION-IF-NOT-FOUND])

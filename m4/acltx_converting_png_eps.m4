@@ -2,6 +2,10 @@
 #    http://www.nongnu.org/autoconf-archive/acltx_converting_png_eps.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_converting_png_eps
+#
 # SYNOPSIS
 #
 #   ACLTX_CONVERTING_PNG_EPS([ACTION-IF-FOUND[,ACTION-IF-NOT-FOUND]])

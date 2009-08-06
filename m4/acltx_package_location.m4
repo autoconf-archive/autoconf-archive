@@ -2,6 +2,10 @@
 #     http://www.nongnu.org/autoconf-archive/acltx_package_location.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_package_location
+#
 # SYNOPSIS
 #
 #   ACLTX_PACKAGE_LOCATION(FILENAME,VARIABLETOSET)

@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/acltx_class_cweb.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_class_cweb
+#
 # SYNOPSIS
 #
 #   ACLTX_CLASS_CWEB(VARIABLETOSET[,ACTION-IF-FOUND[,ACTION-IF-NOT-FOUND]])

@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/acltx_prog_pstops.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_pstops
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_PSTOPS([ACTION-IF-NOT-FOUND])

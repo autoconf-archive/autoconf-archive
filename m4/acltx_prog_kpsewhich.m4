@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/acltx_prog_kpsewhich.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_kpsewhich
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_KPSEWHICH([ACTION-IF-NOT-FOUND])

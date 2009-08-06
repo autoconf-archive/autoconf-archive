@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/acltx_prog_pnmtops.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_pnmtops
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_PNMTOPS([ACTION-IF-NOT-FOUND])

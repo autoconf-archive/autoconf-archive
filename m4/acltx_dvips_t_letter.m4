@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/acltx_dvips_t_letter.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_dvips_t_letter
+#
 # SYNOPSIS
 #
 #   ACLTX_DVIPS_T_LETTER

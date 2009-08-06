@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/acltx_prog_psnup.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_psnup
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_PSNUP([ACTION-IF-NOT-FOUND])

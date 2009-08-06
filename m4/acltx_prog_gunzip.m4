@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/acltx_prog_gunzip.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_gunzip
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_GUNZIP([ACTION-IF-NOT-FOUND])

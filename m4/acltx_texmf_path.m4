@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/acltx_texmf_path.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_texmf_path
+#
 # SYNOPSIS
 #
 #   ACLTX_TEXMF_PATH

@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/acltx_prog_latex2html.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_latex2html
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_LATEX2HTML([ACTION-IF-NOT-FOUND])

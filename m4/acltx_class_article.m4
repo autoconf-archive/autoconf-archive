@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/acltx_class_article.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_class_article
+#
 # SYNOPSIS
 #
 #   ACLTX_CLASS_ARTICLE([ACTION-IF-NOT-FOUND])

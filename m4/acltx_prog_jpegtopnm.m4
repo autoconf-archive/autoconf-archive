@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/acltx_prog_jpegtopnm.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_jpegtopnm
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_JPGEDTOPNM([ACTION-IF-NOT-FOUND])

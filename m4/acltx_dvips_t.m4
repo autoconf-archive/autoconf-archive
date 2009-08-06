@@ -2,6 +2,10 @@
 #          http://www.nongnu.org/autoconf-archive/acltx_dvips_t.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_dvips_t
+#
 # SYNOPSIS
 #
 #   ACLTX_DVIPS_T(PAPERSIZE,VARIABLETOSET,[LANDSCAPE])

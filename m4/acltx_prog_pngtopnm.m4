@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/acltx_prog_pngtopnm.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_pngtopnm
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_PNGTOPNM([ACTION-IF-NOT-FOUND])

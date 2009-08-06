@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/acltx_prog_psresize.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_psresize
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_PSRESIZE([ACTION-IF-NOT-FOUND])

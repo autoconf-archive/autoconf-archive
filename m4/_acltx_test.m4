@@ -2,6 +2,10 @@
 #           http://www.nongnu.org/autoconf-archive/_acltx_test.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_test
+#
 # SYNOPSIS
 #
 #   _ACLTX_TEST(FILEDATA,VARIABLETOSET,[NOCLEAN])

@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/acltx_compress_eps.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_compress_eps
+#
 # SYNOPSIS
 #
 #   ACLTX_COMPRESS_EPS([ACTION-IF-FOUND[,ACTION-IF-NOT-FOUND]])

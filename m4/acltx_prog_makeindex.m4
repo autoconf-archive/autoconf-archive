@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/acltx_prog_makeindex.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_makeindex
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_MAKEINDEX([ACTION-IF-NOT-FOUND])

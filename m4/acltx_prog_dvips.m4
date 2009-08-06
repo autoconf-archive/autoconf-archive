@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/acltx_prog_dvips.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_dvips
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_DVIPS([ACTION-IF-NOT-FOUND])

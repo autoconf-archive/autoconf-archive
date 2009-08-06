@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/acltx_package_babel.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_package_babel
+#
 # SYNOPSIS
 #
 #   ACLTX_PACKAGE_BABEL([ACTION-IF-FOUND[,ACTION-IF-NOT-FOUND]])

@@ -2,6 +2,10 @@
 #        http://www.nongnu.org/autoconf-archive/acltx_prog_psbook.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_prog_psbook
+#
 # SYNOPSIS
 #
 #   ACLTX_PROG_PSBOOK([ACTION-IF-NOT-FOUND])

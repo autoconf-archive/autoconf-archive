@@ -2,6 +2,10 @@
 #      http://www.nongnu.org/autoconf-archive/acltx_dvips_o_stdout.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_dvips_o_stdout
+#
 # SYNOPSIS
 #
 #   ACLTX_DVIPS_O_STDOUT

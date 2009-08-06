@@ -2,6 +2,10 @@
 #       http://www.nongnu.org/autoconf-archive/acltx_class_report.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Renamed to ax_latex_class_report
+#
 # SYNOPSIS
 #
 #   ACLTX_CLASS_REPORT([ACTION-IF-NOT-FOUND])
