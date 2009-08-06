@@ -2,13 +2,9 @@
 #          http://www.nongnu.org/autoconf-archive/etr_sysv_ipc.html
 # ===========================================================================
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_SYSV_IPC
-#
 # SYNOPSIS
 #
-#   ETR_SYSV_IPC
+#   AX_SYSV_IPC
 #
 # DESCRIPTION
 #
@@ -24,7 +20,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([ETR_SYSV_IPC],
+AC_DEFUN([AX_SYSV_IPC],
 [
 AC_CACHE_CHECK([for System V IPC headers], ac_cv_sysv_ipc, [
         AC_TRY_COMPILE(
@@ -41,4 +37,4 @@ AC_CACHE_CHECK([for System V IPC headers], ac_cv_sysv_ipc, [
         then
                 AC_DEFINE(HAVE_SYSV_IPC, 1, [ Define if you have System V IPC ])
         fi
-]) dnl ETR_SYSV_IPC
+]) dnl AX_SYSV_IPC

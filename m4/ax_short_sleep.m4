@@ -2,13 +2,9 @@
 #         http://www.nongnu.org/autoconf-archive/etr_short_sleep.html
 # ===========================================================================
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_SHORT_SLEEP
-#
 # SYNOPSIS
 #
-#   ETR_SHORT_SLEEP
+#   AX_SHORT_SLEEP
 #
 # DESCRIPTION
 #
@@ -26,7 +22,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([ETR_SHORT_SLEEP],
+AC_DEFUN([AX_SHORT_SLEEP],
 [
         AC_MSG_CHECKING([for nap() in libc])
         AC_TRY_LINK([ extern "C" long nap(long ms); ], [ nap(42); ],
@@ -78,8 +74,8 @@ AC_DEFUN([ETR_SHORT_SLEEP],
                         ])
 
                 LIBS=$save_LIBS
-                ETR_SS_LIB=-lx
-                AC_SUBST(ETR_SS_LIB)
+                AX_SS_LIB=-lx
+                AC_SUBST(AX_SS_LIB)
         fi
 
         if test x"$etr_ss_found" = "xyes"
@@ -89,4 +85,4 @@ AC_DEFUN([ETR_SHORT_SLEEP],
         else
                 AC_MSG_ERROR([Could not find a "short sleep" system call.])
         fi
-])dnl ETR_SHORT_SLEEP
+])dnl AX_SHORT_SLEEP

@@ -2,18 +2,14 @@
 #     http://www.nongnu.org/autoconf-archive/etr_strings_strcasecmp.html
 # ===========================================================================
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_STRINGS_STRCASECMP
-#
 # SYNOPSIS
 #
-#   ETR_STRINGS_STRCASECMP
+#   AX_STRINGS_STRCASECMP
 #
 # DESCRIPTION
 #
 #   This macro tries to find strcasecmp() in strings.h. See the
-#   ETR_STRING_STRCASECMP macro's commentary for usage details.
+#   AX_STRING_STRCASECMP macro's commentary for usage details.
 #
 # LICENSE
 #
@@ -23,7 +19,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([ETR_STRINGS_STRCASECMP],
+AC_DEFUN([AX_STRINGS_STRCASECMP],
 [ AC_CACHE_CHECK([for strcasecmp() in strings.h], ac_cv_strings_strcasecmp, [
 
         AC_TRY_LINK(
@@ -38,4 +34,4 @@ AC_DEFUN([ETR_STRINGS_STRCASECMP],
                 AC_DEFINE(HAVE_STRINGS_STRCASECMP, 1,
                         [ Define if your system has strcasecmp() in strings.h ])
         fi
-]) dnl ETR_STRINGS_STRCASECMP
+]) dnl AX_STRINGS_STRCASECMP

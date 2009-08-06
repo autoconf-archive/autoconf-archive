@@ -2,13 +2,9 @@
 #        http://www.nongnu.org/autoconf-archive/etr_struct_semun.html
 # ===========================================================================
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_STRUCT_SEMUN
-#
 # SYNOPSIS
 #
-#   ETR_STRUCT_SEMUN
+#   AX_STRUCT_SEMUN
 #
 # DESCRIPTION
 #
@@ -18,7 +14,7 @@
 #   have to define this structure before you can call functions like
 #   semctl().
 #
-#   You should call ETR_SYSV_IPC before this macro, to separate the check
+#   You should call AX_SYSV_IPC before this macro, to separate the check
 #   for System V IPC headers from the check for struct semun.
 #
 # LICENSE
@@ -29,7 +25,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([ETR_STRUCT_SEMUN],
+AC_DEFUN([AX_STRUCT_SEMUN],
 [
 AC_CACHE_CHECK([for struct semun], ac_cv_struct_semun, [
         AC_TRY_COMPILE(
@@ -48,4 +44,4 @@ AC_CACHE_CHECK([for struct semun], ac_cv_struct_semun, [
                 AC_DEFINE(HAVE_STRUCT_SEMUN, 1,
                         [ Define if your system's sys/sem.h file defines struct semun ])
         fi
-]) dnl ETR_STRUCT_SEMUN
+]) dnl AX_STRUCT_SEMUN
