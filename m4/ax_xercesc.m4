@@ -4,7 +4,7 @@
 #
 # SYNOPSIS
 #
-#   ax_XERCESC
+#   AX_XERCESC
 #
 # DESCRIPTION
 #
@@ -41,14 +41,14 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([ax_XERCESC],
+AC_DEFUN([AX_XERCESC],
 [
   dnl Prerequisites of AC_LIB_LINKFLAGS_BODY.
   AC_REQUIRE([AC_LIB_PREPARE_PREFIX])
   AC_REQUIRE([AC_LIB_RPATH])
 
   AC_LANG_PUSH(C++)
-  ax_XERCESC_BODY()
+  AX_XERCESC_BODY()
 
   ac_save_CPPFLAGS="$CPPFLAGS"
   AC_LIB_APPENDTOVAR([CPPFLAGS], [$INCXERCES_C])
@@ -61,7 +61,7 @@ AC_DEFUN([ax_XERCESC],
 #ifdef XERCES_CPP_NAMESPACE_USE
 XERCES_CPP_NAMESPACE_USE
 #endif
-	 ], [
+         ], [
 try
 {
    XMLPlatformUtils::Initialize();
@@ -71,7 +71,7 @@ catch (...)
    // ...
 }
 XMLPlatformUtils::Terminate();
-	 ], [ac_cv_libxerces_c=yes], [ac_cv_libxerces_c=no])
+         ], [ac_cv_libxerces_c=yes], [ac_cv_libxerces_c=no])
     LIBS="$ac_save_LIBS"
   ])
   if test "$ac_cv_libxerces_c" = yes; then
@@ -93,7 +93,7 @@ XMLPlatformUtils::Terminate();
   AC_SUBST(LTLIBXERCES_C)
 ])
 
-AC_DEFUN([ax_XERCESC_BODY],
+AC_DEFUN([AX_XERCESC_BODY],
 [
   dnl By default, look in $includedir and $libdir.
   use_additional=yes
@@ -194,12 +194,12 @@ AC_DEFUN([ax_XERCESC_BODY],
                   if test -n "$shlibext"; then
                     found_dir="$dir"
                     found_so="$dir/lib$name.$shlibext*"
- 	                 for i in $found_so; do
-						    if test -f $i && test -x $i; then
-						      found_so="$i"
-						      break
-						    fi
-						  done
+                         for i in $found_so; do
+                                                    if test -f $i && test -x $i; then
+                                                      found_so="$i"
+                                                      break
+                                                    fi
+                                                  done
 
                     if test -f "$dir/lib$name.la"; then
                       found_la="$dir/lib$name.la"
