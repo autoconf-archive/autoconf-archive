@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_check_sys_siglist
+#   Renamed to AX_CHECK_SYS_SIGLIST
 #
 # SYNOPSIS
 #

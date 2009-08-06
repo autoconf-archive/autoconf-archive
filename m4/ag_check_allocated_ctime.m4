@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_check_allocated_ctime
+#   Renamed to AX_CHECK_ALLOCATED_CTIME
 #
 # SYNOPSIS
 #

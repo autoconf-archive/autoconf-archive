@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_class
+#   Renamed to AX_LATEX_CLASS
 #
 # SYNOPSIS
 #

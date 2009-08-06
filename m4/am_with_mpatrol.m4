@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_with_mpatrol
+#   Renamed to AX_WITH_MPATROL
 #
 # SYNOPSIS
 #

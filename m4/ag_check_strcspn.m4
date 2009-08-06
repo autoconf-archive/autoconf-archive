@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_check_strcspn
+#   Renamed to AX_CHECK_STRCSPN
 #
 # SYNOPSIS
 #

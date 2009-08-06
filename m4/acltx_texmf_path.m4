@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_texmf_path
+#   Renamed to AX_LATEX_TEXMF_PATH
 #
 # SYNOPSIS
 #

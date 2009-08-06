@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_compress_eps
+#   Renamed to AX_LATEX_COMPRESS_EPS
 #
 # SYNOPSIS
 #

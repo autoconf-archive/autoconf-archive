@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_package_babel
+#   Renamed to AX_LATEX_PACKAGE_BABEL
 #
 # SYNOPSIS
 #

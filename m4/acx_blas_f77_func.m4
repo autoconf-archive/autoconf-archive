@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_blas_f77_func
+#   Renamed to AX_BLAS_F77_FUNC
 #
 # SYNOPSIS
 #

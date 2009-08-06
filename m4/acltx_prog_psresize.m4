@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_prog_psresize
+#   Renamed to AX_LATEX_PROG_PSRESIZE
 #
 # SYNOPSIS
 #

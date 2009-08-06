@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_prog_pngtopnm
+#   Renamed to AX_LATEX_PROG_PNGTOPNM
 #
 # SYNOPSIS
 #

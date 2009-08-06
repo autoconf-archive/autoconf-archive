@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_check_pathfind
+#   Renamed to AX_CHECK_PATHFIND
 #
 # SYNOPSIS
 #

@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_dvips_t_a4_landscape
+#   Renamed to AX_LATEX_DVIPS_T_A4_LANDSCAPE
 #
 # SYNOPSIS
 #

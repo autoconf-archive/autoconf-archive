@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_f77_cmain_fflags
+#   Renamed to AX_F77_CMAIN_FFLAGS
 #
 # SYNOPSIS
 #

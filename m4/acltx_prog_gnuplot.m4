@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_prog_gnuplot
+#   Renamed to AX_LATEX_PROG_GNUPLOT
 #
 # SYNOPSIS
 #

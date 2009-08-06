@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_check_pathname_style
+#   Renamed to AX_CHECK_PATHNAME_STYLE
 #
 # SYNOPSIS
 #

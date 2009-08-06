@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_dvips_o_stdout
+#   Renamed to AX_LATEX_DVIPS_O_STDOUT
 #
 # SYNOPSIS
 #

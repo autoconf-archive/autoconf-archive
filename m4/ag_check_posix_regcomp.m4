@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_check_posix_regcomp
+#   Renamed to AX_CHECK_POSIX_REGCOMP
 #
 # SYNOPSIS
 #

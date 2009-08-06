@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_blas
+#   Renamed to AX_BLAS
 #
 # SYNOPSIS
 #

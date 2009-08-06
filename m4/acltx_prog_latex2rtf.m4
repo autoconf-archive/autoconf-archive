@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_prog_latex2rtf
+#   Renamed to AX_LATEX_PROG_LATEX2RTF
 #
 # SYNOPSIS
 #

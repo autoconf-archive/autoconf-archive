@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_test
+#   Renamed to AX_LATEX_TEST
 #
 # SYNOPSIS
 #

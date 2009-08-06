@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_converting_png_eps
+#   Renamed to AX_LATEX_CONVERTING_PNG_EPS
 #
 # SYNOPSIS
 #

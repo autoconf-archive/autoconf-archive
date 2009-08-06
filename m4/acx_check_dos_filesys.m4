@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_check_dos_filesys
+#   Renamed to AX_CHECK_DOS_FILESYS
 #
 # SYNOPSIS
 #

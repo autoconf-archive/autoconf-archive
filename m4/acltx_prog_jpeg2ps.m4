@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_prog_jpeg2ps
+#   Renamed to AX_LATEX_PROG_JPEG2PS
 #
 # SYNOPSIS
 #

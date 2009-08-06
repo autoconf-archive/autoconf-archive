@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_rpm_init
+#   Renamed to AX_RPM_INIT
 #
 # SYNOPSIS
 #

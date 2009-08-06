@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_prog_kpsewhich
+#   Renamed to AX_LATEX_PROG_KPSEWHICH
 #
 # SYNOPSIS
 #

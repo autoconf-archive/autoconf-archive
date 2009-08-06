@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_check_strftime
+#   Renamed to AX_CHECK_STRFTIME
 #
 # SYNOPSIS
 #

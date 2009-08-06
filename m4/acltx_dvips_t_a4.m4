@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_dvips_t_a4
+#   Renamed to AX_LATEX_DVIPS_T_A4
 #
 # SYNOPSIS
 #

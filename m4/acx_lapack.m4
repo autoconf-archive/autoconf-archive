@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_lapack
+#   Renamed to AX_LAPACK
 #
 # SYNOPSIS
 #

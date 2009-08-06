@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_mpi
+#   Renamed to AX_MPI
 #
 # SYNOPSIS
 #

@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_prog_ps2pdf
+#   Renamed to AX_LATEX_PROG_PS2PDF
 #
 # SYNOPSIS
 #

@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_pthread
+#   Renamed to AX_PTHREAD
 #
 # SYNOPSIS
 #

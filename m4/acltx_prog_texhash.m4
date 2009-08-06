@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_prog_texhash
+#   Renamed to AX_LATEX_PROG_TEXHASH
 #
 # SYNOPSIS
 #

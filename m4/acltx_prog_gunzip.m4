@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_prog_gunzip
+#   Renamed to AX_LATEX_PROG_GUNZIP
 #
 # SYNOPSIS
 #

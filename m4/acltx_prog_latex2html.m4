@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_prog_latex2html
+#   Renamed to AX_LATEX_PROG_LATEX2HTML
 #
 # SYNOPSIS
 #

@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_prog_fig2dev
+#   Renamed to AX_LATEX_PROG_FIG2DEV
 #
 # SYNOPSIS
 #

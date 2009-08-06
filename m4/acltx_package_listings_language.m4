@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_package_listings_language
+#   Renamed to AX_LATEX_PACKAGE_LISTINGS_LANGUAGE
 #
 # SYNOPSIS
 #

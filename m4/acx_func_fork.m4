@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_func_fork
+#   Renamed to AX_FUNC_FORK
 #
 # SYNOPSIS
 #

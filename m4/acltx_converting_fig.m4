@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to ax_latex_converting_fig
+#   Renamed to AX_LATEX_CONVERTING_FIG
 #
 # SYNOPSIS
 #
