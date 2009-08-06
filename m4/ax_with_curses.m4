@@ -1,14 +1,10 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/mp_with_curses.html
+#         http://www.nongnu.org/autoconf-archive/ax_with_curses.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_WITH_CURSES
 #
 # SYNOPSIS
 #
-#   MP_WITH_CURSES
+#   AX_WITH_CURSES
 #
 # DESCRIPTION
 #
@@ -26,9 +22,9 @@
 #   those libraries not to be used. By default, ncursesw is preferred to
 #   ncurses, which is preferred to plain curses.
 #
-#   mp_cv_curses is set to "yes" if any curses is found (including
-#   ncurses!); mp_cv_ncurses is set to "yes" if any ncurses is found, and
-#   mp_cv_ncursesw is set to "yes" if ncursesw is found.
+#   ax_cv_curses is set to "yes" if any curses is found (including
+#   ncurses!); ax_cv_ncurses is set to "yes" if any ncurses is found, and
+#   ax_cv_ncursesw is set to "yes" if ncursesw is found.
 #
 # LICENSE
 #
@@ -62,62 +58,62 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([MP_WITH_CURSES],
+AC_DEFUN([AX_WITH_CURSES],
   [AC_ARG_WITH(ncurses, [AC_HELP_STRING([--with-ncurses],
         [Force the use of ncurses over curses])],,)
-   mp_save_LIBS="$LIBS"
+   ax_save_LIBS="$LIBS"
    AC_ARG_WITH(ncursesw, [AC_HELP_STRING([--without-ncursesw],
         [Don't use ncursesw (wide character support)])],,)
    if test ! "$CURSES_LIB" -a "$with_ncurses" != no -a "$with_ncursesw" != "no"
    then
-       AC_CACHE_CHECK([for working ncursesw], mp_cv_ncursesw,
-         [LIBS="$mp_save_LIBS -lncursesw"
+       AC_CACHE_CHECK([for working ncursesw], ax_cv_ncursesw,
+         [LIBS="$ax_save_LIBS -lncursesw"
           AC_TRY_LINK(
             [#include <ncurses.h>],
             [chtype a; int b=A_STANDOUT, c=KEY_LEFT; initscr(); ],
-            mp_cv_ncursesw=yes, mp_cv_ncursesw=no)])
-       if test "$mp_cv_ncursesw" = yes
+            ax_cv_ncursesw=yes, ax_cv_ncursesw=no)])
+       if test "$ax_cv_ncursesw" = yes
        then
          AC_CHECK_HEADER([ncursesw/curses.h], AC_DEFINE(HAVE_NCURSESW_H, 1,
             [Define if you have ncursesw.h]))
          AC_DEFINE(HAVE_NCURSES_H, 1, [Define if you have ncursesw/curses.h])
          AC_DEFINE(HAVE_NCURSESW, 1, [Define if you have libncursesw])
          CURSES_LIB="-lncursesw"
-         mp_cv_ncurses=yes
-         mp_cv_curses=yes
+         ax_cv_ncurses=yes
+         ax_cv_curses=yes
        fi
    fi
    if test ! "$CURSES_LIB" -a "$with_ncurses" != no -a "$with_ncursesw" != yes
    then
-     AC_CACHE_CHECK([for working ncurses], mp_cv_ncurses,
-       [LIBS="$mp_save_LIBS -lncurses"
+     AC_CACHE_CHECK([for working ncurses], ax_cv_ncurses,
+       [LIBS="$ax_save_LIBS -lncurses"
         AC_TRY_LINK(
           [#include <ncurses.h>],
           [chtype a; int b=A_STANDOUT, c=KEY_LEFT; initscr(); ],
-          mp_cv_ncurses=yes, mp_cv_ncurses=no)])
-     if test "$mp_cv_ncurses" = yes
+          ax_cv_ncurses=yes, ax_cv_ncurses=no)])
+     if test "$ax_cv_ncurses" = yes
      then
        AC_DEFINE([HAVE_NCURSES_H],[1],[Define if you have ncurses.h])
        CURSES_LIB="-lncurses"
      fi
-     mp_cv_curses=yes
+     ax_cv_curses=yes
    fi
-   if test "$mp_cv_curses" != yes -a "$with_ncurses" != yes -a "$with_ncursesw" != yes
+   if test "$ax_cv_curses" != yes -a "$with_ncurses" != yes -a "$with_ncursesw" != yes
    then
      if test ! "$CURSES_LIB"
      then
        CURSES_LIB="-lcurses"
      fi
-     AC_CACHE_CHECK([for working curses], mp_cv_curses,
-       [LIBS="$mp_save_LIBS $CURSES_LIB"
+     AC_CACHE_CHECK([for working curses], ax_cv_curses,
+       [LIBS="$ax_save_LIBS $CURSES_LIB"
         AC_TRY_LINK(
           [#include <curses.h>],
           [chtype a; int b=A_STANDOUT, c=KEY_LEFT; initscr(); ],
-          mp_cv_curses=yes, mp_cv_curses=no)])
-     if test "$mp_cv_curses" = yes
+          ax_cv_curses=yes, ax_cv_curses=no)])
+     if test "$ax_cv_curses" = yes
      then
        AC_DEFINE([HAVE_CURSES_H],[1],[Define if you have curses.h])
      fi
    fi
-   LIBS="$mp_save_LIBS"
+   LIBS="$ax_save_LIBS"
 ])dnl
