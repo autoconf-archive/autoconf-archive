@@ -6,10 +6,6 @@
 #
 #   Renamed to AX_PROG_FIG2DEV
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_PROG_FIG2DEV
-#
 # SYNOPSIS
 #
 #   VL_PROG_FIG2DEV

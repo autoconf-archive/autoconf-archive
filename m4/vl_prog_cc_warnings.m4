@@ -6,14 +6,6 @@
 #
 #   Deprecated in favor of AX_CFLAGS_WARN_ALL.
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_PROG_CC_WARNINGS
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_PROG_CC_WARNINGS
-#
 # SYNOPSIS
 #
 #   VL_PROG_CC_WARNINGS([ANSI])

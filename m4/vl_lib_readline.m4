@@ -6,10 +6,6 @@
 #
 #   Renamed to AX_LIB_READLINE
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_LIB_READLINE
-#
 # SYNOPSIS
 #
 #   VL_LIB_READLINE

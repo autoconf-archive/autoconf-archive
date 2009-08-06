@@ -6,10 +6,6 @@
 #
 #   Renamed to AX_DECL_WCHAR_MAX
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_DECL_WCHAR_MAX
-#
 # SYNOPSIS
 #
 #   VL_DECL_WCHAR_MAX
