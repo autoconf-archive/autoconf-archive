@@ -1,14 +1,10 @@
 # ===========================================================================
-#   http://www.nongnu.org/autoconf-archive/mni_cxx_have_koenig_lookup.html
+#   http://www.nongnu.org/autoconf-archive/ax_cxx_have_koenig_lookup.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Renamed to AX_CXX_HAVE_KOENIG_LOOKUP
 #
 # SYNOPSIS
 #
-#   mni_CXX_HAVE_KOENIG_LOOKUP
+#   AX_CXX_HAVE_KOENIG_LOOKUP
 #
 # DESCRIPTION
 #
@@ -23,7 +19,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([mni_CXX_HAVE_KOENIG_LOOKUP],
+AC_DEFUN([AX_CXX_HAVE_KOENIG_LOOKUP],
     [AC_CACHE_CHECK(whether the compiler implements Koenig lookup,
                     ac_cv_cxx_have_koenig_lookup,
                     [AC_LANG_PUSH(C++)
