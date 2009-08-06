@@ -4,11 +4,11 @@
 #
 # SYNOPSIS
 #
-#   AC_C_COMPILE_VALUE (COMPILE-VALUE, ALIAS, INCLUDES)
+#   AX_C_COMPILE_VALUE (COMPILE-VALUE, ALIAS, INCLUDES)
 #
 # DESCRIPTION
 #
-#   The AC_C_COMPILE_VALUE macro determines a compile time value by
+#   The AX_C_COMPILE_VALUE macro determines a compile time value by
 #   generating the object code and reading the value from the code. Static
 #   data initializers like sizeof(int) are unavailable to preprocessor. The
 #   macro calculates the values known to compiler's static initializer.
@@ -33,8 +33,8 @@
 #
 #   Example of use in configure.in:
 #
-#     AC_C_COMPILE_VALUE(sizeof(int), sizeof_int)
-#     AC_C_COMPILE_VALUE([sizeof(int[[543]])], sizeof_int543)
+#     AX_C_COMPILE_VALUE(sizeof(int), sizeof_int)
+#     AX_C_COMPILE_VALUE([sizeof(int[[543]])], sizeof_int543)
 #
 #   As a result of runnfing the generated configure script, the following
 #   definition will appear in config.h:
@@ -86,7 +86,7 @@ define([AC_TR_CPP_REUSE],
                  [[^A-Z0-9_]], [_])])
 ])
 
-AC_DEFUN([AC_C_COMPILE_VALUE], [
+AC_DEFUN([AX_C_COMPILE_VALUE], [
   pushdef([ac_c_compile_value],
     AC_TR_SH_REUSE([ac_cv_c_compile_value_$2]))dnl
   ac_c_compile_value_expand="$1"
