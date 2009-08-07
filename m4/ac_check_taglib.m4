@@ -6,10 +6,6 @@
 #
 #   Replaced by AX_LIB_TAGLIB.
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_CHECK_TAGLIB
-#
 # SYNOPSIS
 #
 #   AC_CHECK_TAGLIB(version, action-if, action-if-not)

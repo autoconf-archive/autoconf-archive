@@ -6,10 +6,6 @@
 #
 #   Replaced by AX_LIB_CURL.
 #
-# OBSOLETE MACRO
-#
-#   Renamed to AX_CHECK_CURL
-#
 # SYNOPSIS
 #
 #   AC_CHECK_CURL(version, action-if, action-not)
