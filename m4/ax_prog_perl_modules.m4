@@ -14,9 +14,13 @@
 #   calling AC_CHECK_PROG, or AC_PATH_PROG), AC_CHECK_PROG(PERL, perl, perl)
 #   will be run.
 #
+#   MODULES is a space separated list of module names. To check for a
+#   minimum version of a module, append the version number to the
+#   module name, separated by an equals sign.
+#
 #   Example:
 #
-#     AC_CHECK_PERL_MODULES(Text::Wrap Net::LDAP, ,
+#     AX_PROG_PERL_MODULES( Text::Wrap Net::LDAP=1.0.3, ,
 #                           AC_MSG_WARN(Need some Perl modules)
 #
 # LICENSE
@@ -28,29 +32,36 @@
 #   and this notice are preserved.
 
 AC_DEFUN([AX_PROG_PERL_MODULES],[dnl
-ac_perl_modules="$1"
+
+m4_define([ax_perl_modules])
+m4_foreach([ax_perl_module], m4_split(m4_normalize([$1])),
+	  [
+	   m4_append([ax_perl_modules],
+		     [']m4_bpatsubst(ax_perl_module,=,[ ])[' ])
+          ])
+
 # Make sure we have perl
 if test -z "$PERL"; then
 AC_CHECK_PROG(PERL,perl,perl)
 fi
 
 if test "x$PERL" != x; then
-  ac_perl_modules_failed=0
-  for ac_perl_module in $ac_perl_modules; do
-    AC_MSG_CHECKING(for perl module $ac_perl_module)
+  ax_perl_modules_failed=0
+  for ax_perl_module in ax_perl_modules; do
+    AC_MSG_CHECKING(for perl module $ax_perl_module)
 
     # Would be nice to log result here, but can't rely on autoconf internals
-    $PERL "-M$ac_perl_module" -e exit > /dev/null 2>&1
+    $PERL -e "use $ax_perl_module; exit" > /dev/null 2>&1
     if test $? -ne 0; then
       AC_MSG_RESULT(no);
-      ac_perl_modules_failed=1
+      ax_perl_modules_failed=1
    else
       AC_MSG_RESULT(ok);
     fi
   done
 
   # Run optional shell commands
-  if test "$ac_perl_modules_failed" = 0; then
+  if test "$ax_perl_modules_failed" = 0; then
     :
     $2
   else
