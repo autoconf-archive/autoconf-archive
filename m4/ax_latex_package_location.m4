@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.nongnu.org/autoconf-archive/ax_latex_package_location.html
+#    http://www.nongnu.org/autoconf-archive/ax_latex_package_location.html
 # ===========================================================================
 #
 # SYNOPSIS

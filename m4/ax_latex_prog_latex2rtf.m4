@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.nongnu.org/autoconf-archive/ax_latex_prog_latex2rtf.html
+#     http://www.nongnu.org/autoconf-archive/ax_latex_prog_latex2rtf.html
 # ===========================================================================
 #
 # SYNOPSIS

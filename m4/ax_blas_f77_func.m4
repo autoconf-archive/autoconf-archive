@@ -18,9 +18,9 @@
 #   check for compatibility, and takes a specific action in case of success,
 #   resp. failure, resp. cross-compilation.
 #
-#   AX_BLAS_WITH_F77_FUNC is a drop-in replacement wrapper for AX_BLAS
-#   that calls AX_BLAS_F77_FUNC after detecting a BLAS library and rejects
-#   it on failure (i.e. pretends that no library was found).
+#   AX_BLAS_WITH_F77_FUNC is a drop-in replacement wrapper for AX_BLAS that
+#   calls AX_BLAS_F77_FUNC after detecting a BLAS library and rejects it on
+#   failure (i.e. pretends that no library was found).
 #
 # LICENSE
 #

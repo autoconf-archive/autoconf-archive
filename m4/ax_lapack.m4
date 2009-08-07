@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://www.nongnu.org/autoconf-archive/ax_lapack.html
+#            http://www.nongnu.org/autoconf-archive/ax_lapack.html
 # ===========================================================================
 #
 # SYNOPSIS

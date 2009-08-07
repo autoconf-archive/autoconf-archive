@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/ax_sip_devel.html
+#          http://www.nongnu.org/autoconf-archive/ax_sip_devel.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -25,6 +25,7 @@
 #     AX_SIP_DEVEL([4.1])
 #
 #   Requires: perl (for version string comparison)
+#
 #   FIXME: Use AX_COMPARE_VERSION instead.
 #
 # LICENSE

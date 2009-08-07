@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ax_check_plugin.html
+#      http://www.nongnu.org/autoconf-archive/ax_check_java_plugin.html
 # ===========================================================================
 #
 # SYNOPSIS

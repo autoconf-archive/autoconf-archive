@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://www.nongnu.org/autoconf-archive/berkeley_db.html
+#         http://www.nongnu.org/autoconf-archive/ax_berkeley_db.html
 # ===========================================================================
 #
 # SYNOPSIS

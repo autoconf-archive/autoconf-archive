@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_check_sunpro_c.html
+#        http://www.nongnu.org/autoconf-archive/ax_check_sunpro_c.html
 # ===========================================================================
 #
 # SYNOPSIS

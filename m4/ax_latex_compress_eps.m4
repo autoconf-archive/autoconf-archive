@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_latex_compress_eps.html
+#      http://www.nongnu.org/autoconf-archive/ax_latex_compress_eps.html
 # ===========================================================================
 #
 # SYNOPSIS

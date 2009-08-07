@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/ax_swig_enable_cxx.html
+#       http://www.nongnu.org/autoconf-archive/ax_swig_enable_cxx.html
 # ===========================================================================
 #
 # SYNOPSIS

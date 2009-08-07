@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.nongnu.org/autoconf-archive/ax_strings_strcasecmp.html
+#      http://www.nongnu.org/autoconf-archive/ax_strings_strcasecmp.html
 # ===========================================================================
 #
 # SYNOPSIS

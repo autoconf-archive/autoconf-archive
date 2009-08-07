@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://www.nongnu.org/autoconf-archive/compile_value.html
+#       http://www.nongnu.org/autoconf-archive/ax_c_compile_value.html
 # ===========================================================================
 #
 # SYNOPSIS

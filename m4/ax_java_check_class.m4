@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.nongnu.org/autoconf-archive/ax_java_check_class.html
+#       http://www.nongnu.org/autoconf-archive/ax_java_check_class.html
 # ===========================================================================
 #
 # SYNOPSIS

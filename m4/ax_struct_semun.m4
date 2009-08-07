@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ax_struct_semun.html
+#         http://www.nongnu.org/autoconf-archive/ax_struct_semun.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -14,8 +14,8 @@
 #   have to define this structure before you can call functions like
 #   semctl().
 #
-#   You should call AX_SYSV_IPC before this macro, to separate the check
-#   for System V IPC headers from the check for struct semun.
+#   You should call AX_SYSV_IPC before this macro, to separate the check for
+#   System V IPC headers from the check for struct semun.
 #
 # LICENSE
 #

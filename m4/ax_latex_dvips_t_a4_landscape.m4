@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.nongnu.org/autoconf-archive/ax_latex_dvips_t_a4_landscape.html
+#  http://www.nongnu.org/autoconf-archive/ax_latex_dvips_t_a4_landscape.html
 # ===========================================================================
 #
 # SYNOPSIS

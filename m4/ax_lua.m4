@@ -1,5 +1,5 @@
 # ===========================================================================
-#               http://www.nongnu.org/autoconf-archive/lua.html
+#             http://www.nongnu.org/autoconf-archive/ax_lua.html
 # ===========================================================================
 #
 # SYNOPSIS

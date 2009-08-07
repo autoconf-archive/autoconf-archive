@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/ax_swig_multi_module_support.html
+#  http://www.nongnu.org/autoconf-archive/ax_swig_multi_module_support.html
 # ===========================================================================
 #
 # SYNOPSIS

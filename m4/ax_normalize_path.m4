@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_normalize_path.html
+#        http://www.nongnu.org/autoconf-archive/ax_normalize_path.html
 # ===========================================================================
 #
 # SYNOPSIS

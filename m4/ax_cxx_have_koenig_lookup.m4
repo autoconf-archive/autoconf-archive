@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.nongnu.org/autoconf-archive/ax_cxx_have_koenig_lookup.html
+#    http://www.nongnu.org/autoconf-archive/ax_cxx_have_koenig_lookup.html
 # ===========================================================================
 #
 # SYNOPSIS

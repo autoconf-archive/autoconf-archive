@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/ax_type_socklen_t.html
+#        http://www.nongnu.org/autoconf-archive/ax_type_socklen_t.html
 # ===========================================================================
 #
 # SYNOPSIS

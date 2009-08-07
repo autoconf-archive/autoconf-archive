@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.nongnu.org/autoconf-archive/ax_f77_cmain_fflags.html
+#       http://www.nongnu.org/autoconf-archive/ax_f77_cmain_fflags.html
 # ===========================================================================
 #
 # SYNOPSIS

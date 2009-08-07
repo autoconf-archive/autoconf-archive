@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_snprintf_oflow.html
+#        http://www.nongnu.org/autoconf-archive/ax_snprintf_oflow.html
 # ===========================================================================
 #
 # SYNOPSIS

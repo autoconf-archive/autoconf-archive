@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_latex_prog_psselect.html
+#     http://www.nongnu.org/autoconf-archive/ax_latex_prog_psselect.html
 # ===========================================================================
 #
 # SYNOPSIS

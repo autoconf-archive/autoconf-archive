@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_xtra_classpath.html
+#        http://www.nongnu.org/autoconf-archive/ax_xtra_classpath.html
 # ===========================================================================
 #
 # SYNOPSIS

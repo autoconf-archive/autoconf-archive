@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/ax_latex_converting_png_eps.html
+#   http://www.nongnu.org/autoconf-archive/ax_latex_converting_png_eps.html
 # ===========================================================================
 #
 # SYNOPSIS

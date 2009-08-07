@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ax_latex_package_opt.html
+#      http://www.nongnu.org/autoconf-archive/ax_latex_package_opt.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -8,8 +8,8 @@
 #
 # DESCRIPTION
 #
-#   This package do the same thing as AX_LATEX_PACKAGE, except, that PARAMETER
-#   is optional parameter for the package
+#   This package do the same thing as AX_LATEX_PACKAGE, except, that
+#   PARAMETER is optional parameter for the package
 #
 # LICENSE
 #

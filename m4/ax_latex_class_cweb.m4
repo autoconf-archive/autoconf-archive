@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ax_latex_class_cweb.html
+#       http://www.nongnu.org/autoconf-archive/ax_latex_class_cweb.html
 # ===========================================================================
 #
 # SYNOPSIS

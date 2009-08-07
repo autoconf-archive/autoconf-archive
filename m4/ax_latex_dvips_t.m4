@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://www.nongnu.org/autoconf-archive/ax_latex_dvips_t.html
+#        http://www.nongnu.org/autoconf-archive/ax_latex_dvips_t.html
 # ===========================================================================
 #
 # SYNOPSIS

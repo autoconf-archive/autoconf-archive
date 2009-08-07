@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://www.nongnu.org/autoconf-archive/ax_blas.html
+#             http://www.nongnu.org/autoconf-archive/ax_blas.html
 # ===========================================================================
 #
 # SYNOPSIS

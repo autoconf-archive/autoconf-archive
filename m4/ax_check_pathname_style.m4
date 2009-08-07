@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/ax_check_pathname_style.html
+#     http://www.nongnu.org/autoconf-archive/ax_check_pathname_style.html
 # ===========================================================================
 #
 # SYNOPSIS

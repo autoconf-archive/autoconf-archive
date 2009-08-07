@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.nongnu.org/autoconf-archive/ax_func_getopt_long.html
+#       http://www.nongnu.org/autoconf-archive/ax_func_getopt_long.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_latex_prog_jpeg2ps.html
+#      http://www.nongnu.org/autoconf-archive/ax_latex_prog_jpeg2ps.html
 # ===========================================================================
 #
 # SYNOPSIS

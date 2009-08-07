@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_check_off64_t.html
+#        http://www.nongnu.org/autoconf-archive/ax_check_off64_t.html
 # ===========================================================================
 #
 # SYNOPSIS

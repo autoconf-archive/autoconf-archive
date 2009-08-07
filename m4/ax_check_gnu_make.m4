@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/ax_check_gnu_make.html
+#        http://www.nongnu.org/autoconf-archive/ax_check_gnu_make.html
 # ===========================================================================
 #
 # SYNOPSIS

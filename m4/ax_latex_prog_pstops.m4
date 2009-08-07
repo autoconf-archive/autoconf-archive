@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ax_latex_prog_pstops.html
+#      http://www.nongnu.org/autoconf-archive/ax_latex_prog_pstops.html
 # ===========================================================================
 #
 # SYNOPSIS

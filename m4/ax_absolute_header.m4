@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.nongnu.org/autoconf-archive/ax_absolute_header.html
+#       http://www.nongnu.org/autoconf-archive/ax_absolute_header.html
 # ===========================================================================
 #
 # SYNOPSIS

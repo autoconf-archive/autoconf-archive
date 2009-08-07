@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.nongnu.org/autoconf-archive/ax_latex_converting_fig.html
+#     http://www.nongnu.org/autoconf-archive/ax_latex_converting_fig.html
 # ===========================================================================
 #
 # SYNOPSIS

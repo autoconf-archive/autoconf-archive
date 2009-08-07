@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_latex_default_class.html
+#     http://www.nongnu.org/autoconf-archive/ax_latex_default_class.html
 # ===========================================================================
 #
 # SYNOPSIS

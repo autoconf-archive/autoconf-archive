@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.nongnu.org/autoconf-archive/ax_compute_relative_paths.html
+#    http://www.nongnu.org/autoconf-archive/ax_compute_relative_paths.html
 # ===========================================================================
 #
 # SYNOPSIS

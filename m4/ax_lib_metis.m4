@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/ax_lib_metis.html
+#          http://www.nongnu.org/autoconf-archive/ax_lib_metis.html
 # ===========================================================================
 #
 # SYNOPSIS

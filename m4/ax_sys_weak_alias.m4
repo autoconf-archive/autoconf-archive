@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_sys_weak_alias.html
+#        http://www.nongnu.org/autoconf-archive/ax_sys_weak_alias.html
 # ===========================================================================
 #
 # SYNOPSIS
