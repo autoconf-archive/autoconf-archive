@@ -1,10 +1,10 @@
 # ===========================================================================
-#           http://www.nongnu.org/autoconf-archive/_ax_c_ifdef.html
+#           http://www.nongnu.org/autoconf-archive/ax_c_ifdef.html
 # ===========================================================================
 #
 # SYNOPSIS
 #
-#   _AX_C_IFDEF(MACRO-NAME, ACTION-IF-DEF, ACTION-IF-NOT-DEF)
+#   AX_C_IFDEF(MACRO-NAME, ACTION-IF-DEF, ACTION-IF-NOT-DEF)
 #
 # DESCRIPTION
 #
@@ -19,7 +19,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AC_DEFUN([_AX_C_IFDEF],
+AC_DEFUN([AX_C_IFDEF],
   [AC_COMPILE_IFELSE([#ifndef $1
                       # error "Macro $1 is undefined!"
 		      /* For some compilers (eg. SGI's CC), #error is not

@@ -31,21 +31,21 @@ AC_DEFUN([AX_CXX_COMPILER_VENDOR],
     [AC_LANG_PUSH([C++])
 
      dnl GNU C++
-     _AC_C_IFDEF([__GNUG__],
+     AX_C_IFDEF([__GNUG__],
        [ac_cv_cxx_compiler_vendor=gnu],
-       [_AC_C_IFDEF([__DECCXX],
+       [AX_C_IFDEF([__DECCXX],
 	 [ac_cv_cxx_compiler_vendor=compaq],
 	 [dnl HP's aCC
-	  _AC_C_IFDEF([__HP_aCC],
+	  AX_C_IFDEF([__HP_aCC],
 	   [ac_cv_cxx_compiler_vendor=hp],
 	   [dnl SGI CC
-	    _AC_C_IFDEF([__sgi],
+	    AX_C_IFDEF([__sgi],
 	     [ac_cv_cxx_compiler_vendor=sgi],
 	     [dnl Note:  We are using the C compiler because VC++ doesn't
 	      dnl recognize `.cc'(which is used by `configure') as a C++ file
 	      dnl extension and requires `/TP' to be passed.
 	      AC_LANG_PUSH([C])
-	      _AC_C_IFDEF([_MSC_VER],
+	      AX_C_IFDEF([_MSC_VER],
 		[ac_cv_cxx_compiler_vendor=microsoft],
 		[ac_cv_cxx_compiler_vendor=unknown])
 	      AC_LANG_POP()])])])])

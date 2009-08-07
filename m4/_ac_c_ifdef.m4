@@ -4,7 +4,7 @@
 #
 # OBSOLETE MACRO
 #
-#   Renamed to _AX_C_IFDEF
+#   Renamed to AX_C_IFDEF
 #
 # SYNOPSIS
 #
