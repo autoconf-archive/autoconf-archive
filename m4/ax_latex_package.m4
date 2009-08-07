@@ -48,7 +48,7 @@ then
     AC_MSG_ERROR([Unable to find $2 class])
 fi
 AC_CACHE_CHECK([for usability of package $1 in class $2],[ac_cv_latex_]translit($1,[-],[_])[_]translit($2,[-],[_]),[
-_AX_LATEX_TEST([\documentclass{$2}
+AX_LATEX_TEST([\documentclass{$2}
 \usepackage{$1}
 \begin{document}
 \end{document}],[ac_cv_latex_]translit($1,[-],[_])[_]translit($2,[-],[_]))

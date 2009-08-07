@@ -30,7 +30,7 @@
 AC_DEFUN([AX_LATEX_PACKAGE_BABEL],[
 AC_REQUIRE([AX_LATEX_DEFAULT_CLASS])
 AC_CACHE_CHECK([for babel with class $defaultclass],[ac_cv_latex_package_f_babel],[
-_AX_LATEX_TEST([changequote(*, !)dnl
+AX_LATEX_TEST([changequote(*, !)dnl
 \documentclass{$defaultclass}
 \usepackage[english]{babel}
 \begin{document}

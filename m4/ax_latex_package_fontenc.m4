@@ -39,12 +39,12 @@ AC_DEFUN([AX_LATEX_PACKAGE_FONTENC],[
     AC_REQUIRE([AX_LATEX_DEFAULT_CLASS])
     AX_LATEX_PACKAGE_LOCATION(fontenc.sty,fontenc_location)
     AC_CACHE_CHECK([for fontenc],[ac_cv_latex_package_fontenc_opt],[
-        _AX_LATEX_TEST([_AX_LATEX_PACKAGE_FONTENC_INTERNE(T1)],[ac_cv_latex_package_fontenc_opt])
+        AX_LATEX_TEST([_AX_LATEX_PACKAGE_FONTENC_INTERNE(T1)],[ac_cv_latex_package_fontenc_opt])
         if test $ac_cv_latex_package_fontenc_opt = "yes" ;
         then
             ac_cv_latex_package_fontenc_opt="T1"; export ac_cv_latex_package_fontenc_opt;
         else
-            _AX_LATEX_TEST([_AX_LATEX_PACKAGE_FONTENC_INTERNE(OT1)],[ac_cv_latex_package_fontenc_opt])
+            AX_LATEX_TEST([_AX_LATEX_PACKAGE_FONTENC_INTERNE(OT1)],[ac_cv_latex_package_fontenc_opt])
             if test $ac_cv_latex_package_fontenc_opt = "yes" ;
             then
                 ac_cv_latex_package_fontenc_opt="OT1"; export ac_cv_latex_package_fontenc_opt;

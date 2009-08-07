@@ -31,7 +31,7 @@ AC_DEFUN([AX_LATEX_DVIPS_O_STDOUT],[
 AC_REQUIRE([AX_LATEX_DEFAULT_CLASS])
 AC_REQUIRE([AX_LATEX_PROG_DVIPS])
 AC_CACHE_CHECK([for option -o- in dvips],ac_cv_dvips_o_stdout,[
-_AX_LATEX_TEST([\documentclass{$defaultclass}
+AX_LATEX_TEST([\documentclass{$defaultclass}
 \begin{document}
 Test
 \end{document}],[],no)

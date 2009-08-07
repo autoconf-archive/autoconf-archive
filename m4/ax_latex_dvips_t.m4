@@ -38,7 +38,7 @@ else
 _ac_latex_dvips_local=" " ; export _ac_latex_dvips_local ;
 fi
 AC_CACHE_CHECK([for option $dvips -t $1 $_ac_latex_dvips_local],[ac_cv_dvips_t_]translit($1,[-],[_])[_]translit($3,[-],[_]),[
-_AX_LATEX_TEST([\documentclass{$defaultclass}
+AX_LATEX_TEST([\documentclass{$defaultclass}
 \begin{document}
 Test
 \end{document}],[],no)

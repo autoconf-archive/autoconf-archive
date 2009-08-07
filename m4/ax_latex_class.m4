@@ -36,7 +36,7 @@ if test "[$]$2_location" = "no" ; then
     [ac_cv_latex_class_]translit($1,[-],[_])="no";
 else
 AC_CACHE_CHECK([for usability of class $1],[ac_cv_latex_class_]translit($1,[-],[_]),[
-_AX_LATEX_TEST([\documentclass{$1}
+AX_LATEX_TEST([\documentclass{$1}
 \begin{document}
 \end{document}],[ac_cv_latex_class_]translit($1,[-],[_]))
 ])

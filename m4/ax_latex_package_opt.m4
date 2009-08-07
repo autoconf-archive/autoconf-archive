@@ -57,7 +57,7 @@ then
     AC_MSG_ERROR([Unable to find $1 class])
 fi
 AC_CACHE_CHECK([for usability of package $1 in class $2 with $4 as option],[ac_cv_latex_]translit($1,[-],[_])[_]translit($2,[-],[_])[_]translit([$4],[-,{}()= ],[________]),[
-_AX_LATEX_TEST([
+AX_LATEX_TEST([
 _AX_LATEX_PACKAGE_OPT_INTERNE($1,$2,[$4])
 ],[ac_cv_latex_]translit($1,[-],[_])[_]translit($2,[-],[_])[_]translit([$4],[-,{}()= ],[________]))
 ])

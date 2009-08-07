@@ -41,7 +41,7 @@ changequote([, ])dnl
 AC_DEFUN([AX_LATEX_PACKAGE_LISTINGS_LANGUAGE],[
 AC_REQUIRE([AX_LATEX_PACKAGE_LISTINGS])
 AC_CACHE_CHECK([for $1 language in package listings with class book],[ac_cv_latex_listings_langugae_]translit($1,[-],[_]),[
-_AX_LATEX_TEST([
+AX_LATEX_TEST([
 _AX_LATEX_PACKAGE_LANGUAGE_INTERNE($1)
 ],[ac_cv_latex_listings_langugae_]translit($1,[-],[_]))
 ])

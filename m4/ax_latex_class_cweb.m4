@@ -46,7 +46,7 @@ else
     AC_CACHE_CHECK(
         [for usability of class cweb with Levy/Knuth CWEB],
         [ac_cv_latex_class_cweb_CWEB],[
-        _AX_LATEX_TEST([
+        AX_LATEX_TEST([
         \input cwebmac
         \documentclass{cweb}
         \begin{document}
@@ -59,7 +59,7 @@ else
     AC_CACHE_CHECK(
         [for usability of class cweb with van Leeuwen CWEBx],
         [ac_cv_latex_class_cweb_CWEBx],[
-        _AX_LATEX_TEST([
+        AX_LATEX_TEST([
         \input cwebcmac
         \documentclass{cweb}
         \begin{document}

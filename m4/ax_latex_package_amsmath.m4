@@ -31,7 +31,7 @@
 AC_DEFUN([AX_LATEX_PACKAGE_AMSMATH],[
 AC_REQUIRE([AX_LATEX_DEFAULT_CLASS])
 AC_CACHE_CHECK([for amsmath],[ac_cv_latex_package_f_amsmath],[
-_AX_LATEX_TEST([\documentclass{$defaultclass}
+AX_LATEX_TEST([\documentclass{$defaultclass}
 \usepackage{amsmath,amsfonts}
 \begin{document}
 \end{document}],[ac_cv_latex_package_f_amsmath])
@@ -39,7 +39,7 @@ if test $ac_cv_latex_package_f_amsmath = "yes" ;
 then
     [ac_cv_latex_package_f_amsmath]="\\usepackage{amsmath,amsfonts}" ; export [ac_cv_latex_package_f_amsmath] ;
 else
-    _AX_LATEX_TEST([
+    AX_LATEX_TEST([
     \documentclass{$defaultclass}
     \usepackage{amstex}
     \begin{document}

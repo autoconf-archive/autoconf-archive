@@ -31,7 +31,7 @@
 AC_DEFUN([AX_LATEX_PACKAGE_BABEL_LANGUAGE],[
 AX_LATEX_PACKAGE_BABEL([],[AC_MSG_WARN([Unable to locate babel with $defaultclass])])
 AC_CACHE_CHECK([for babel with class $defaultclass and language $1],[ac_cv_latex_babel_langugage_]translit([$1],[-,{}()= ],[________]),[
-_AX_LATEX_TEST([changequote(*, !)dnl
+AX_LATEX_TEST([changequote(*, !)dnl
 \documentclass{$defaultclass}
 \usepackage[$1]{babel}
 \begin{document}
