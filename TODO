@@ -69,3 +69,144 @@
   Gnulib wants us to use spelling "file system" and objects when it sees the
   name ax_boost_filesystem in autoconf-archive.texi. There ought to be a way to
   avoid that error.
+
+* TODO Remove all references to the recently obsoleted macros.
+
+  : $ egrep -i '_ac_c_ifdef|_acltx_test|ac_arg_with_path_style|ac_c_bigendian_cross|ac_c_long_long|ac_c_printf_thsep|ac_c_var_func|ac_caolan_check_package|ac_caolan_search_package|ac_check_class|ac_check_classpath|ac_check_curl|ac_check_docbook_dtd|ac_check_docbook_xslt|ac_check_docbook_xslt_min|ac_check_func_in|ac_check_icu|ac_check_java_home|ac_check_junit|ac_check_mysql_db|ac_check_mysqlr|ac_check_rqrd_class|ac_check_struct_for|ac_check_symbol|ac_check_taglib|ac_check_typedef|ac_check_user|ac_compile_check_sizeof|ac_compile_warnings|ac_cond_with_level|ac_create_generic_config|ac_create_target_h|ac_cxx_bool|ac_cxx_compile_stdcxx_0x|ac_cxx_compiler_vendor|ac_cxx_complex_math_in_namespace_std|ac_cxx_const_cast|ac_cxx_cppflags_std_lang|ac_cxx_cxxflags_std_lang|ac_cxx_default_template_parameters|ac_cxx_dtor_after_atexit|ac_cxx_dynamic_cast|ac_cxx_enum_computations|ac_cxx_enum_computations_with_cast|ac_cxx_exceptions|ac_cxx_explicit|ac_cxx_explicit_instantiations|ac_cxx_explicit_template_function_qualification|ac_cxx_extern_template|ac_cxx_full_specialization_syntax|ac_cxx_function_nontype_parameters|ac_cxx_gnucxx_hashmap|ac_cxx_have_complex|ac_cxx_have_complex_math1|ac_cxx_have_complex_math2|ac_cxx_have_empty_iostream|ac_cxx_have_ext_hash_map|ac_cxx_have_ext_hash_set|ac_cxx_have_ext_slist|ac_cxx_have_freeze_sstream|ac_cxx_have_ieee_math|ac_cxx_have_long_long_for_iostream|ac_cxx_have_numeric_limits|ac_cxx_have_sstream|ac_cxx_have_std|ac_cxx_have_stl|ac_cxx_have_string_push_back|ac_cxx_have_system_v_math|ac_cxx_have_valarray|ac_cxx_have_vector_at|ac_cxx_header_pre_stdcxx|ac_cxx_header_stdcxx_0x|ac_cxx_header_stdcxx_98|ac_cxx_header_stdcxx_tr1|ac_cxx_header_tr1_unordered_map|ac_cxx_header_tr1_unordered_set|ac_cxx_header_unordered_map|ac_cxx_header_unordered_set|ac_cxx_ldflags_std_lang|ac_cxx_member_constants|ac_cxx_member_templates|ac_cxx_member_templates_outside_class|ac_cxx_mutable|ac_cxx_namespace_std|ac_cxx_namespaces|ac_cxx_new_for_scoping|ac_cxx_old_for_scoping|ac_cxx_partial_ordering|ac_cxx_partial_specialization|ac_cxx_reinterpret_cast|ac_cxx_rtti|ac_cxx_static_cast|ac_cxx_stlport_hashmap|ac_cxx_template_keyword_qualifier|ac_cxx_template_qualified_base_class|ac_cxx_template_qualified_return_type|ac_cxx_template_scoped_argument_matching|ac_cxx_templates|ac_cxx_templates_as_template_arguments|ac_cxx_typename|ac_cxx_use_numtrait|ac_cxx_verbose_terminate_handler|ac_define_dir|ac_define_integer_bits|ac_define_sub_path|ac_func_accept_argtypes|ac_func_memmove|ac_func_mkdir|ac_func_snprintf|ac_java_options|ac_jni_include_dir|ac_lib_id3|ac_lib_upnp|ac_lib_wad|ac_libtoolize_cflags|ac_numeric_namedlevel|ac_path_generic|ac_perl_module_version|ac_pkg_mico|ac_pkg_swig|ac_prog_apache|ac_prog_cc_char_subscripts|ac_prog_cc_for_build|ac_prog_cp_s|ac_prog_crontab|ac_prog_httpd|ac_prog_jar|ac_prog_java|ac_prog_java_cc|ac_prog_java_works|ac_prog_javac|ac_prog_javac_works|ac_prog_javadoc|ac_prog_javah|ac_prog_modprobe|ac_prog_mysql|ac_prog_mysqladmin|ac_prog_mysqld|ac_prog_mysqlimport|ac_prog_mysqlshow|ac_prog_perl_modules|ac_prog_scp|ac_prog_ssh|ac_prog_xsltproc|ac_prompt_user|ac_prompt_user_no_define|ac_prototype|ac_prototype_accept|ac_prototype_getsockname|ac_prototype_setsockopt|ac_python_devel|ac_python_module|ac_raf_func_which_getservbyname_r|ac_set_default_paths_system|ac_subdir_files|ac_sys_dev_poll|ac_sys_largefile_sensitive|ac_try_compile_java|ac_try_run_javac|ac_var_timezone_externals|ac_very_nice|acltx_class|acltx_class_article|acltx_class_book|acltx_class_cweb|acltx_class_report|acltx_classes|acltx_compress_eps|acltx_converting_fig|acltx_converting_jpg_eps|acltx_converting_png_eps|acltx_default_class|acltx_dvips_o_stdout|acltx_dvips_t|acltx_dvips_t_a4|acltx_dvips_t_a4_landscape|acltx_dvips_t_letter|acltx_dvips_t_letter_landscape|acltx_package|acltx_package_amsmath|acltx_package_babel|acltx_package_babel_language|acltx_package_fontenc|acltx_package_input|acltx_package_listings|acltx_package_listings_language|acltx_package_location|acltx_package_opt|acltx_packages|acltx_prog_bibtex|acltx_prog_dvibook|acltx_prog_dvipdf|acltx_prog_dvips|acltx_prog_fig2dev|acltx_prog_gnuplot|acltx_prog_gunzip|acltx_prog_gzip|acltx_prog_jpeg2ps|acltx_prog_jpegtopnm|acltx_prog_kpsewhich|acltx_prog_latex|acltx_prog_latex2html|acltx_prog_latex2man|acltx_prog_latex2png|acltx_prog_latex2rtf|acltx_prog_makeindex|acltx_prog_mf|acltx_prog_mktexpk|acltx_prog_pdflatex|acltx_prog_pngtopnm|acltx_prog_pnmtops|acltx_prog_ps2pdf|acltx_prog_psbook|acltx_prog_psnup|acltx_prog_psresize|acltx_prog_psselect|acltx_prog_pstops|acltx_prog_texhash|acltx_texmf_path|acx_blas|acx_blas_f77_func|acx_check_dos_filesys|acx_check_pathname_style|acx_f77_cmain_fflags|acx_func_fork|acx_lapack|acx_mpi|acx_pthread|adl_compute_relative_paths|adl_compute_standard_relative_paths|adl_func_getopt_long|adl_normalize_path|ag_check_allocated_ctime|ag_check_pathfind|ag_check_posix_regcomp|ag_check_posix_sysinfo|ag_check_strcspn|ag_check_strftime|ag_check_sys_siglist|ag_check_uname_syscall|am_rpm_init|am_with_mpatrol|az_python|bnv_have_qt|cf_ebcdic|check_gnu_make|check_ssl|check_zlib|ct_check_postgres_db|dps_check_plugin|dps_java_check_class|dps_libgcj_jar|dps_snprintf_oflow|dps_xtra_classpath|etr_short_sleep|etr_string_strcasecmp|etr_strings_strcasecmp|etr_struct_semun|etr_sysv_ipc|gl_trilinos_absolute_header|immdx_lib_metis|klm_sys_weak_alias|lib_socket_nsl|mdl_cxx_function_try_blocks|mdl_have_opengl|merk_sip_devel|mni_cxx_have_koenig_lookup|mp_with_curses|ms_check_pgsql_db|ms_pgsql_priv_root|ms_prog_pgclient|patch_libtool_changing_cmds_ifs|rlc_xercesc|rssh_check_off64_t|rssh_check_sunpro_c|sg_afs|smr_with_build_path|swig_enable_cxx|swig_multi_module_support|swig_python|type_socklen_t|vl_check_sign|vl_decl_wchar_max|vl_lib_readline|vl_prog_cc_warnings|vl_prog_fig2dev' m4/ax_*.m4
+  : m4/ax_caolan_check_package.m4:#   AC_caolan_CHECK_PACKAGE(PACKAGE, FUNCTION, LIBRARY , HEADERFILE [, ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]])
+  : m4/ax_caolan_check_package.m4:AC_DEFUN([AC_caolan_CHECK_PACKAGE],
+  : m4/ax_caolan_search_package.m4:#   AC_caolan_SEARCH_PACKAGE(PACKAGE, FUNCTION, LIBRARY LIST, HEADERFILE [, ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]])
+  : m4/ax_caolan_search_package.m4:AC_DEFUN([AC_caolan_SEARCH_PACKAGE],
+  : m4/ax_cf_ebcdic.m4:#          http://www.nongnu.org/autoconf-archive/ax_cf_ebcdic.html
+  : m4/ax_cf_ebcdic.m4:#   AX_CF_EBCDIC
+  : m4/ax_cf_ebcdic.m4:AC_DEFUN([AX_CF_EBCDIC],[
+  : m4/ax_cflags_aix_option.m4:#   ac_cxx_rtti.m4 macro) but allows to check for arbitrary options.
+  : m4/ax_cflags_gcc_option.m4:#   ac_cxx_rtti.m4 macro) but allows to check for arbitrary options.
+  : m4/ax_cflags_hpux_option.m4:#   ac_cxx_rtti.m4 macro) but allows to check for arbitrary options.
+  : m4/ax_cflags_irix_option.m4:#   ac_cxx_rtti.m4 macro) but allows to check for arbitrary options.
+  : m4/ax_cflags_sun_option.m4:#   ac_cxx_rtti.m4 macro) but allows to check for arbitrary options.
+  : m4/ax_check_class.m4:#   in the AC_PROG_JAVA macro.
+  : m4/ax_check_class.m4:AC_REQUIRE([AC_PROG_JAVA])
+  : m4/ax_check_class.m4:        AC_TRY_COMPILE_JAVA([$1], , [eval "ac_cv_class_$ac_var_name=yes"],
+  : m4/ax_check_classpath.m4:#   in the AC_PROG_JAVA macro.
+  : m4/ax_check_docbook_dtd.m4:    AC_REQUIRE([AC_PROG_XSLTPROC])
+  : m4/ax_check_docbook_xslt.m4:    AC_REQUIRE([AC_PROG_XSLTPROC])
+  : m4/ax_check_docbook_xslt_min.m4:    AC_REQUIRE([AC_PROG_XSLTPROC])
+  : m4/ax_check_gl.m4:AC_REQUIRE([ACX_PTHREAD])dnl
+  : m4/ax_check_gnu_make.m4:#        http://www.nongnu.org/autoconf-archive/ax_check_gnu_make.html
+  : m4/ax_check_gnu_make.m4:#   AX_CHECK_GNU_MAKE()
+  : m4/ax_check_gnu_make.m4:#       AX_CHECK_GNU_MAKE()
+  : m4/ax_check_gnu_make.m4:        [AX_CHECK_GNU_MAKE], [ AC_CACHE_CHECK( for GNU make,_cv_gnu_make_command,
+  : m4/ax_check_junit.m4:AC_CHECK_CLASS(junit.textui.TestRunner)
+  : m4/ax_check_mysql_db.m4:AC_REQUIRE([AC_PROG_MYSQLSHOW])dnl
+  : m4/ax_check_rqrd_class.m4:#   in the AC_PROG_JAVA macro.
+  : m4/ax_check_rqrd_class.m4:AC_CHECK_CLASS($1)
+  : m4/ax_check_zlib.m4:#          http://www.nongnu.org/autoconf-archive/ax_check_zlib.html
+  : m4/ax_check_zlib.m4:#   AX_CHECK_ZLIB()
+  : m4/ax_check_zlib.m4:AC_DEFUN([AX_CHECK_ZLIB],
+  : m4/ax_create_generic_config.m4:#   you see ac_path_generic in the autoconf-archive? ;-)
+  : m4/ax_cxx_complex_math_in_namespace_std.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_cppflags_std_lang.m4:  [AC_REQUIRE([AC_CXX_COMPILER_VENDOR])
+  : m4/ax_cxx_cxxflags_std_lang.m4:#   doesn't discard them (see Libtool's manual and `AC_LIBTOOLIZE_CFLAGS').
+  : m4/ax_cxx_cxxflags_std_lang.m4:  [AC_REQUIRE([AC_CXX_COMPILER_VENDOR])
+  : m4/ax_cxx_gcc_abi_demangle.m4:#   Adapted from AC_CXX_RTTI by Luc Maisonobe
+  : m4/ax_cxx_have_complex.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_have_complex_math1.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_have_complex_math2.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_have_empty_iostream.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_have_ext_hash_map.m4:#   This file is Alain BARBET's AC_CXX_HAVE_EXT_HASH_SET 1.1 with
+  : m4/ax_cxx_have_ext_hash_map.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_have_ext_hash_set.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_have_ext_slist.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_have_freeze_sstream.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_have_freeze_sstream.m4:  AC_REQUIRE([AC_CXX_HAVE_SSTREAM])
+  : m4/ax_cxx_have_long_long_for_iostream.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_have_long_long_for_iostream.m4:  AC_REQUIRE([AC_CXX_HAVE_SSTREAM])
+  : m4/ax_cxx_have_numeric_limits.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_have_sstream.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_have_std.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_have_stl.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_have_string_push_back.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_have_valarray.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_have_vector_at.m4:[AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_cxx_ldflags_std_lang.m4:  [AC_REQUIRE([AC_CXX_COMPILER_VENDOR])
+  : m4/ax_cxx_template_qualified_base_class.m4:[AC_REQUIRE([AC_CXX_TYPENAME])
+  : m4/ax_cxx_template_qualified_base_class.m4: AC_REQUIRE([AC_CXX_FULL_SPECIALIZATION_SYNTAX])
+  : m4/ax_cxx_template_qualified_return_type.m4:[AC_REQUIRE([AC_CXX_TYPENAME])
+  : m4/ax_cxx_template_scoped_argument_matching.m4:[AC_REQUIRE([AC_CXX_TYPENAME])
+  : m4/ax_cxx_use_numtrait.m4:[AC_REQUIRE([AC_CXX_TYPENAME])
+  : m4/ax_cxx_verbose_terminate_handler.m4:  AC_REQUIRE([AC_CXX_EXCEPTIONS])
+  : m4/ax_cxx_verbose_terminate_handler.m4:  AC_REQUIRE([AC_CXX_NAMESPACES])
+  : m4/ax_define_sub_path.m4:#      AC_DEFINE_DIR([EPREFIX], [exec_prefix], [--exec-prefix or default])
+  : m4/ax_java_check_class.m4:#   Test if a Java class is available. Based on AC_PROG_JAVAC_WORKS. This
+  : m4/ax_java_options.m4:#   in the AC_PROG_JAVA macro.
+  : m4/ax_lib_socket_nsl.m4:#        http://www.nongnu.org/autoconf-archive/ax_lib_socket_nsl.html
+  : m4/ax_lib_socket_nsl.m4:#   AX_LIB_SOCKET_NSL
+  : m4/ax_lib_socket_nsl.m4:AC_DEFUN([AX_LIB_SOCKET_NSL],
+  : m4/ax_lib_wad.m4:        AC_REQUIRE([AC_PYTHON_DEVEL])
+  : m4/ax_lib_xerces.m4:    AC_REQUIRE([ACX_PTHREAD])
+  : m4/ax_libgcj_jar.m4:AC_REQUIRE([AC_PROG_JAVAC])
+  : m4/ax_patch_libtool_changing_cmds_ifs.m4:#  http://www.nongnu.org/autoconf-archive/ax_patch_libtool_changing_cmds_ifs.html
+  : m4/ax_patch_libtool_changing_cmds_ifs.m4:#   AX_PATCH_LIBTOOL_CHANGING_CMDS_IFS
+  : m4/ax_patch_libtool_changing_cmds_ifs.m4:AC_DEFUN([AX_PATCH_LIBTOOL_CHANGING_CMDS_IFS],
+  : m4/ax_path_generic.m4:#   This macro is a rearranged version of AC_PATH_GENERIC from Angus Lees.
+  : m4/ax_path_milter.m4:#   use the ACX_PTHREAD macro by Steven G. Johnson and Alejandro Forero
+  : m4/ax_pkg_swig.m4:#     SWIG_ENABLE_CXX
+  : m4/ax_pkg_swig.m4:#     SWIG_MULTI_MODULE_SUPPORT
+  : m4/ax_pkg_swig.m4:#     SWIG_PYTHON
+  : m4/ax_prog_jar.m4:#   configure.in, is included in the AC_PROG_JAVA macro.
+  : m4/ax_prog_java.m4:#   AC_CHECK_CLASS: finds if we have the given class (beware of CLASSPATH!).
+  : m4/ax_prog_java.m4:#   AC_CHECK_RQRD_CLASS: finds if we have the given class and stops
+  : m4/ax_prog_java.m4:#   AC_TRY_COMPILE_JAVA: attempt to compile user given source.
+  : m4/ax_prog_java.m4:#   AC_JAVA_OPTIONS: adds Java configure options.
+  : m4/ax_prog_java.m4:#      AC_CHECK_CLASSPATH
+  : m4/ax_prog_java.m4:#      AC_CHECK_RQRD_CLASS(org.xml.sax.Parser)
+  : m4/ax_prog_java.m4:#      AC_CHECK_RQRD_CLASS(com.jclark.xml.sax.Driver)
+  : m4/ax_prog_java_works.m4:#   in the AC_PROG_JAVA macro.
+  : m4/ax_prog_java_works.m4:                AC_PROG_JAVAC
+  : m4/ax_prog_javac.m4:#   in the AC_PROG_JAVA macro.
+  : m4/ax_prog_javac_works.m4:#   in the AC_PROG_JAVA macro.
+  : m4/ax_prog_javadoc.m4:#   configure.in, is included in the AC_PROG_JAVA macro.
+  : m4/ax_prototype_accept.m4:#   Requires the AC_PROTOTYPE macro.
+  : m4/ax_prototype_accept.m4:AC_PROTOTYPE(accept,
+  : m4/ax_prototype_getsockname.m4:#   Requires the AC_PROTOTYPE macro.
+  : m4/ax_prototype_getsockname.m4:AC_PROTOTYPE(getsockname,
+  : m4/ax_prototype_setsockopt.m4:#   Requires the AC_PROTOTYPE macro.
+  : m4/ax_prototype_setsockopt.m4:AC_PROTOTYPE(setsockopt,
+  : m4/ax_raf_func_which_getservbyname_r.m4:#   AC_raf_FUNC_WHICH_GETSERVBYNAME_R
+  : m4/ax_raf_func_which_getservbyname_r.m4:AC_DEFUN([AC_raf_FUNC_WHICH_GETSERVBYNAME_R],
+  : m4/ax_sip_devel.m4:dnl  was taken from ac_python_devel macro, (rev. 2008-04-12)
+  : m4/ax_subdir_files.m4:[AC_BEFORE($0,[AC_PROG_CP_S])
+  : m4/ax_swig_enable_cxx.m4:#       http://www.nongnu.org/autoconf-archive/ax_swig_enable_cxx.html
+  : m4/ax_swig_enable_cxx.m4:#   AX_SWIG_ENABLE_CXX
+  : m4/ax_swig_enable_cxx.m4:AC_DEFUN([AX_SWIG_ENABLE_CXX],[
+  : m4/ax_swig_multi_module_support.m4:#  http://www.nongnu.org/autoconf-archive/ax_swig_multi_module_support.html
+  : m4/ax_swig_multi_module_support.m4:#   AX_SWIG_MULTI_MODULE_SUPPORT
+  : m4/ax_swig_multi_module_support.m4:#   use the SWIG_PYTHON macro and link the modules against
+  : m4/ax_swig_multi_module_support.m4:#   $(SWIG_PYTHON_LIBS).
+  : m4/ax_swig_multi_module_support.m4:AC_DEFUN([AX_SWIG_MULTI_MODULE_SUPPORT],[
+  : m4/ax_swig_python.m4:#         http://www.nongnu.org/autoconf-archive/ax_swig_python.html
+  : m4/ax_swig_python.m4:#   AX_SWIG_PYTHON([use-shadow-classes = {no, yes}])
+  : m4/ax_swig_python.m4:#   Checks for Python and provides the $(AX_SWIG_PYTHON_CPPFLAGS), and
+  : m4/ax_swig_python.m4:#   $(AX_SWIG_PYTHON_OPT) output variables.
+  : m4/ax_swig_python.m4:#   $(AX_SWIG_PYTHON_OPT) contains all necessary SWIG options to generate
+  : m4/ax_swig_python.m4:#   support (provided by the SWIG_MULTI_MODULE_SUPPORT macro) use
+  : m4/ax_swig_python.m4:#   $(AX_SWIG_PYTHON_LIBS) to link against the appropriate library. It
+  : m4/ax_swig_python.m4:AC_DEFUN([AX_SWIG_PYTHON],[
+  : m4/ax_swig_python.m4:        AC_REQUIRE([AC_PYTHON_DEVEL])
+  : m4/ax_swig_python.m4:        AC_SUBST([AX_SWIG_PYTHON_OPT],[-python$swig_shadow])
+  : m4/ax_swig_python.m4:        AC_SUBST([AX_SWIG_PYTHON_CPPFLAGS],[$PYTHON_CPPFLAGS])
+  : m4/ax_trilinos_base.m4:AC_REQUIRE([gl_TRILINOS_ABSOLUTE_HEADER])
+  : m4/ax_trilinos_base.m4:        gl_TRILINOS_ABSOLUTE_HEADER([Trilinos_version.h])
+  : m4/ax_try_compile_java.m4:#   in the AC_PROG_JAVA macro.
+  : m4/ax_try_compile_java.m4:AC_REQUIRE([AC_PROG_JAVAC])dnl
+  : m4/ax_try_run_javac.m4:#   in the AC_PROG_JAVA macro.
+  : m4/ax_try_run_javac.m4:AC_REQUIRE([AC_PROG_JAVAC])dnl
+  : m4/ax_try_run_javac.m4:AC_REQUIRE([AC_PROG_JAVA])dnl
+  : m4/ax_type_socklen_t.m4:#        http://www.nongnu.org/autoconf-archive/ax_type_socklen_t.html
+  : m4/ax_type_socklen_t.m4:#   AX_TYPE_SOCKLEN_T
+  : m4/ax_type_socklen_t.m4:AC_DEFUN([AX_TYPE_SOCKLEN_T],
+  : m4/ax_type_socklen_t.m4:[AC_CACHE_CHECK([for socklen_t], ac_cv_ax_type_socklen_t,
+  : m4/ax_type_socklen_t.m4:  ac_cv_ax_type_socklen_t=yes,
+  : m4/ax_type_socklen_t.m4:  ac_cv_ax_type_socklen_t=no)
+  : m4/ax_type_socklen_t.m4:  if test $ac_cv_ax_type_socklen_t != yes; then
