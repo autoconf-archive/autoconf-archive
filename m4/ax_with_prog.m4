@@ -43,7 +43,7 @@ AC_DEFUN([AX_WITH_PROG],[
 
     AS_IF(test -z "$VARIABLE",[
         AC_MSG_CHECKING(whether EXECUTABLE executable path has been provided)
-        AC_ARG_WITH(EXECUTABLE,AS_HELP_STRING([--with-EXECUTABLE=[[[[PATH]]]]],absolute path to EXECUTABLE executable), [
+        AC_ARG_WITH(EXECUTABLE,AS_HELP_STRING([--with-EXECUTABLE=[[[PATH]]]],absolute path to EXECUTABLE executable), [
             AS_IF([test "$withval" != yes -a "$withval" != no],[
                 VARIABLE="$withval"
                 AC_MSG_RESULT($VARIABLE)
