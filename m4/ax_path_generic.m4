@@ -44,7 +44,7 @@
 #      BAR_CFLAGS to `bar-config --cflags`
 #      BAR_LIBS   to `bar-config --libs`
 #
-#   This macro is a rearranged version of AX_PATH_GENERIC from Angus Lees.
+#   This macro is a rearranged version of AC_PATH_GENERIC from Angus Lees.
 #
 # LICENSE
 #
