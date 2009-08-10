@@ -210,3 +210,5 @@
   : m4/ax_type_socklen_t.m4:  ac_cv_ax_type_socklen_t=yes,
   : m4/ax_type_socklen_t.m4:  ac_cv_ax_type_socklen_t=no)
   : m4/ax_type_socklen_t.m4:  if test $ac_cv_ax_type_socklen_t != yes; then
+
+* TODO Link to http://www.flameeyes.eu/autotools-mythbuster/
