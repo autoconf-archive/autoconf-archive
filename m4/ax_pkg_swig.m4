@@ -20,9 +20,9 @@
 #   In configure.in, use as:
 #
 #     AC_PROG_SWIG(1.3.17)
-#     SWIG_ENABLE_CXX
-#     SWIG_MULTI_MODULE_SUPPORT
-#     SWIG_PYTHON
+#     AX_SWIG_ENABLE_CXX
+#     AX_SWIG_MULTI_MODULE_SUPPORT
+#     AX_SWIG_PYTHON
 #
 # LICENSE
 #

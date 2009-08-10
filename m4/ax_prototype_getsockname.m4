@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   Requires the AC_PROTOTYPE macro.
+#   Requires the AX_PROTOTYPE macro. FIXME: Put this in the code!
 #
 #   Find the type of argument two and three of getsockname. User must
 #   include the following in acconfig.h:
@@ -50,7 +50,7 @@
 #   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_PROTOTYPE_GETSOCKNAME],[
-AC_PROTOTYPE(getsockname,
+AX_PROTOTYPE(getsockname,
  [
   #include <sys/types.h>
   #include <sys/socket.h>

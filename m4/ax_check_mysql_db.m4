@@ -52,7 +52,7 @@
 #   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_CHECK_MYSQL_DB],[
-AC_REQUIRE([AC_PROG_MYSQLSHOW])dnl
+AC_REQUIRE([AX_PROG_MYSQLSHOW])dnl
 AC_MSG_CHECKING([for MySQL db $2])
 if $MYSQLSHOW -u root -prootpass $2 > /dev/null 2>&1; then
         $1=$2

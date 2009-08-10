@@ -14,7 +14,7 @@
 #   $(AX_SWIG_PYTHON_OPT) contains all necessary SWIG options to generate
 #   code for Python. Shadow classes are enabled unless the value of the
 #   optional first argument is exactly 'no'. If you need multi module
-#   support (provided by the SWIG_MULTI_MODULE_SUPPORT macro) use
+#   support (provided by the AX_SWIG_MULTI_MODULE_SUPPORT macro) use
 #   $(AX_SWIG_PYTHON_LIBS) to link against the appropriate library. It
 #   contains the SWIG Python runtime library that is needed by the type
 #   check system for example.
@@ -54,7 +54,7 @@
 
 AC_DEFUN([AX_SWIG_PYTHON],[
         AC_REQUIRE([AC_PROG_SWIG])
-        AC_REQUIRE([AC_PYTHON_DEVEL])
+        AC_REQUIRE([AX_PYTHON_DEVEL])
         test "x$1" != "xno" || swig_shadow=" -noproxy"
         AC_SUBST([AX_SWIG_PYTHON_OPT],[-python$swig_shadow])
         AC_SUBST([AX_SWIG_PYTHON_CPPFLAGS],[$PYTHON_CPPFLAGS])

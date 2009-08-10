@@ -24,7 +24,7 @@
 
 AC_DEFUN([AX_CXX_DTOR_AFTER_ATEXIT],
 [AC_CACHE_CHECK(whether the compiler calls global destructors after functions registered through atexit,
-ac_cv_cxx_dtor_after_atexit,
+ax_cv_cxx_dtor_after_atexit,
 [AC_LANG_SAVE
  AC_LANG_CPLUSPLUS
  AC_TRY_RUN([
@@ -43,11 +43,11 @@ int main (int , char **)
   return 0;
 }
 ],
- ac_cv_cxx_dtor_after_atexit=yes, ac_cv_cxx_dtor_after_atexit=yes=no,
- ac_cv_cxx_dtor_after_atexit=yes)
+ ax_cv_cxx_dtor_after_atexit=yes, ax_cv_cxx_dtor_after_atexit=yes=no,
+ ax_cv_cxx_dtor_after_atexit=yes)
  AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_dtor_after_atexit" = yes; then
+if test "$ax_cv_cxx_dtor_after_atexit" = yes; then
   AC_DEFINE(HAVE_DTOR_AFTER_ATEXIT,,
             [define if the compiler calls global destructors after functions registered through atexit])
 fi

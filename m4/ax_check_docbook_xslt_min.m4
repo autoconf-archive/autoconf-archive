@@ -52,56 +52,56 @@
 
 AC_DEFUN([AX_CHECK_DOCBOOK_XSLT_MIN],
 [
-    AC_REQUIRE([AC_PROG_XSLTPROC])
+    AC_REQUIRE([AX_PROG_XSLTPROC])
 
     AC_CACHE_CHECK([for current Docbook XSLT version], [ac_cv_docbook_xslt_current_version],
     [
-	ac_cv_docbook_xslt_current_version=no
+        ac_cv_docbook_xslt_current_version=no
 
-	if test -n "$XSLTPROC"; then
-	    cat >conftest.xsl <<EOF
-		<xsl:stylesheet
-		    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		    xmlns:fm="http://freshmeat.net/projects/freshmeat-submit/"
-		    version="1.0">
-		    <xsl:output method="text"/>
-		    <xsl:template match="fm:project/fm:Version">
-			<xsl:value-of select="." />
-		    </xsl:template>
-		    <!-- do nothing with any other text -->
-		    <xsl:template match="text()"/>
-		</xsl:stylesheet>
+        if test -n "$XSLTPROC"; then
+            cat >conftest.xsl <<EOF
+                <xsl:stylesheet
+                    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                    xmlns:fm="http://freshmeat.net/projects/freshmeat-submit/"
+                    version="1.0">
+                    <xsl:output method="text"/>
+                    <xsl:template match="fm:project/fm:Version">
+                        <xsl:value-of select="." />
+                    </xsl:template>
+                    <!-- do nothing with any other text -->
+                    <xsl:template match="text()"/>
+                </xsl:stylesheet>
 EOF
-	    echo "Trying '$XSLTPROC $XSLTPROC_FLAGS http://docbook.sourceforge.net/release/xsl/current/VERSION' with input:" >&AS_MESSAGE_LOG_FD
-	    echo "====" >&AS_MESSAGE_LOG_FD
-	    cat conftest.xsl >&AS_MESSAGE_LOG_FD
-	    echo "====" >&AS_MESSAGE_LOG_FD
+            echo "Trying '$XSLTPROC $XSLTPROC_FLAGS http://docbook.sourceforge.net/release/xsl/current/VERSION' with input:" >&AS_MESSAGE_LOG_FD
+            echo "====" >&AS_MESSAGE_LOG_FD
+            cat conftest.xsl >&AS_MESSAGE_LOG_FD
+            echo "====" >&AS_MESSAGE_LOG_FD
 
-	    ac_cv_docbook_xslt_current_version=`$XSLTPROC $XSLTPROC_FLAGS conftest.xsl http://docbook.sourceforge.net/release/xsl/current/VERSION 2>&AS_MESSAGE_LOG_FD`
+            ac_cv_docbook_xslt_current_version=`$XSLTPROC $XSLTPROC_FLAGS conftest.xsl http://docbook.sourceforge.net/release/xsl/current/VERSION 2>&AS_MESSAGE_LOG_FD`
 
-	    if test "$?" != 0; then
-		ac_cv_docbook_xslt_current_version='no'
-	    fi
+            if test "$?" != 0; then
+                ac_cv_docbook_xslt_current_version='no'
+            fi
 
-	    rm conftest.xsl
-	fi
+            rm conftest.xsl
+        fi
     ])
 
     DOCBOOK_XSLT_CURRENT_VERSION="$ac_cv_docbook_xslt_current_version"
     AC_MSG_CHECKING([whether Docbook XSLT version is $1 or newer])
 
     if test x"$DOCBOOK_XSLT_CURRENT_VERSION" = x"no"; then
-	AC_MSG_RESULT([no])
+        AC_MSG_RESULT([no])
     else
-	AX_COMPARE_VERSION([$DOCBOOK_XSLT_CURRENT_VERSION], [lt], [$1], [
-	    # version is less than required, so mark it as "no"
-	    DOCBOOK_XSLT_CURRENT_VERSION=no
-	])
+        AX_COMPARE_VERSION([$DOCBOOK_XSLT_CURRENT_VERSION], [lt], [$1], [
+            # version is less than required, so mark it as "no"
+            DOCBOOK_XSLT_CURRENT_VERSION=no
+        ])
 
-	if test x"$DOCBOOK_XSLT_CURRENT_VERSION" = x"no"; then
-	    AC_MSG_RESULT([no])
-	else
-	    AC_MSG_RESULT([yes ($DOCBOOK_XSLT_CURRENT_VERSION)])
-	fi
+        if test x"$DOCBOOK_XSLT_CURRENT_VERSION" = x"no"; then
+            AC_MSG_RESULT([no])
+        else
+            AC_MSG_RESULT([yes ($DOCBOOK_XSLT_CURRENT_VERSION)])
+        fi
     fi
 ])

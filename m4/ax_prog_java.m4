@@ -14,12 +14,12 @@
 #
 #   AX_PROG_JAVA: finds a Java virtual machine.
 #
-#   AC_CHECK_CLASS: finds if we have the given class (beware of CLASSPATH!).
+#   AX_CHECK_CLASS: finds if we have the given class (beware of CLASSPATH!).
 #
-#   AC_CHECK_RQRD_CLASS: finds if we have the given class and stops
+#   AX_CHECK_RQRD_CLASS: finds if we have the given class and stops
 #   otherwise.
 #
-#   AC_TRY_COMPILE_JAVA: attempt to compile user given source.
+#   AX_TRY_COMPILE_JAVA: attempt to compile user given source.
 #
 #   AC_TRY_RUN_JAVA: attempt to compile and run user given source.
 #
@@ -65,8 +65,8 @@
 #      AX_PROG_JAVA
 #
 #      dnl Checks for classes
-#      AC_CHECK_RQRD_CLASS(org.xml.sax.Parser)
-#      AC_CHECK_RQRD_CLASS(com.jclark.xml.sax.Driver)
+#      AX_CHECK_RQRD_CLASS(org.xml.sax.Parser)
+#      AX_CHECK_RQRD_CLASS(com.jclark.xml.sax.Driver)
 #
 #      AC_OUTPUT(Makefile)
 #

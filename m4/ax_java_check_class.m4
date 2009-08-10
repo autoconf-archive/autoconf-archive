@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   Test if a Java class is available. Based on AC_PROG_JAVAC_WORKS. This
+#   Test if a Java class is available. Based on AX_PROG_JAVAC_WORKS. This
 #   version uses a cache variable which is both compiler, options and
 #   classpath dependent (so if you switch from javac to gcj it correctly
 #   notices and redoes the test).

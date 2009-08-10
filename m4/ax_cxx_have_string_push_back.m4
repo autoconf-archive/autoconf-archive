@@ -21,18 +21,18 @@
 
 AC_DEFUN([AX_CXX_HAVE_STRING_PUSH_BACK],
 [AC_CACHE_CHECK(whether the compiler has std::string::push_back (char),
-ac_cv_cxx_have_string_push_back,
-[AC_REQUIRE([AC_CXX_NAMESPACES])
+ax_cv_cxx_have_string_push_back,
+[AC_REQUIRE([AX_CXX_NAMESPACES])
  AC_LANG_SAVE
  AC_LANG_CPLUSPLUS
  AC_TRY_COMPILE([#include <string>
 #ifdef HAVE_NAMESPACES
 using namespace std;
 #endif],[string message; message.push_back ('a'); return 0;],
- ac_cv_cxx_have_string_push_back=yes, ac_cv_cxx_have_string_push_back=no)
+ ax_cv_cxx_have_string_push_back=yes, ax_cv_cxx_have_string_push_back=no)
  AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_have_string_push_back" = yes; then
+if test "$ax_cv_cxx_have_string_push_back" = yes; then
  AC_DEFINE(HAVE_STRING_PUSH_BACK,,[define if the compiler has the method
 std::string::push_back (char)])
 fi

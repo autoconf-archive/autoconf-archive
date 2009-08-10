@@ -52,18 +52,18 @@
 
 AC_DEFUN([AX_CXX_HAVE_EXT_SLIST],
 [AC_CACHE_CHECK(whether the compiler has ext/slist,
-ac_cv_cxx_have_ext_slist,
-[AC_REQUIRE([AC_CXX_NAMESPACES])
+ax_cv_cxx_have_ext_slist,
+[AC_REQUIRE([AX_CXX_NAMESPACES])
   AC_LANG_SAVE
   AC_LANG_CPLUSPLUS
   AC_TRY_COMPILE([#include <ext/slist>
 #ifdef HAVE_NAMESPACES
 using namespace std;
 #endif],[slist<int> s; return 0;],
-  ac_cv_cxx_have_ext_slist=yes, ac_cv_cxx_have_ext_slist=no)
+  ax_cv_cxx_have_ext_slist=yes, ax_cv_cxx_have_ext_slist=no)
   AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_have_ext_slist" = yes; then
+if test "$ax_cv_cxx_have_ext_slist" = yes; then
    AC_DEFINE(HAVE_EXT_SLIST,,[define if the compiler has ext/slist])
 fi
 ])

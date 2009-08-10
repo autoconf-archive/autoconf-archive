@@ -23,15 +23,15 @@
 
 AC_DEFUN([AX_CXX_EXPLICIT],
 [AC_CACHE_CHECK(whether the compiler supports the explicit keyword,
-ac_cv_cxx_explicit,
+ax_cv_cxx_explicit,
 [AC_LANG_SAVE
  AC_LANG_CPLUSPLUS
  AC_TRY_COMPILE([class A{public:explicit A(double){}};],
 [double c = 5.0;A x(c);return 0;],
- ac_cv_cxx_explicit=yes, ac_cv_cxx_explicit=no)
+ ax_cv_cxx_explicit=yes, ax_cv_cxx_explicit=no)
  AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_explicit" = yes; then
+if test "$ax_cv_cxx_explicit" = yes; then
   AC_DEFINE(HAVE_EXPLICIT,,[define if the compiler supports the explicit keyword])
 fi
 ])

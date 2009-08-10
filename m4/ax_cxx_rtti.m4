@@ -22,7 +22,7 @@
 
 AC_DEFUN([AX_CXX_RTTI],
 [AC_CACHE_CHECK(whether the compiler supports Run-Time Type Identification,
-ac_cv_cxx_rtti,
+ax_cv_cxx_rtti,
 [AC_LANG_SAVE
  AC_LANG_CPLUSPLUS
  AC_TRY_COMPILE([#include <typeinfo>
@@ -38,10 +38,10 @@ class Derived : public Base { public :
 Base *ptr = &d;
 return typeid (*ptr) == typeid (Derived);
 ],
- ac_cv_cxx_rtti=yes, ac_cv_cxx_rtti=no)
+ ax_cv_cxx_rtti=yes, ax_cv_cxx_rtti=no)
  AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_rtti" = yes; then
+if test "$ax_cv_cxx_rtti" = yes; then
   AC_DEFINE(HAVE_RTTI,,
             [define if the compiler supports Run-Time Type Identification])
 fi

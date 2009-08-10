@@ -62,9 +62,9 @@
 
 AC_DEFUN([AX_CXX_HAVE_LONG_LONG_FOR_IOSTREAM],
 [AC_CACHE_CHECK(whether the compiler allow long long for [i|o]stream,
-ac_cv_cxx_have_ll_for_iostream,
-[AC_REQUIRE([AC_CXX_NAMESPACES])
-  AC_REQUIRE([AC_CXX_HAVE_SSTREAM])
+ax_cv_cxx_have_ll_for_iostream,
+[AC_REQUIRE([AX_CXX_NAMESPACES])
+  AC_REQUIRE([AX_CXX_HAVE_SSTREAM])
   AC_LANG_SAVE
   AC_LANG_CPLUSPLUS
   AC_TRY_COMPILE([#include <iostream>
@@ -76,10 +76,10 @@ ac_cv_cxx_have_ll_for_iostream,
 #ifdef HAVE_NAMESPACES
 using namespace std;
 #endif],[ ostream str((streambuf *)0); long long l=1; str << l; return 0;],
-  ac_cv_cxx_have_ll_for_iostream=yes, ac_cv_cxx_have_ll_for_iostream=no)
+  ax_cv_cxx_have_ll_for_iostream=yes, ax_cv_cxx_have_ll_for_iostream=no)
   AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_have_ll_for_iostream" = yes; then
+if test "$ax_cv_cxx_have_ll_for_iostream" = yes; then
    AC_DEFINE(HAVE_LONG_LONG_FOR_IOSTREAM,,[define if the compiler allow long long for [i|o]stream])
 fi
 ])

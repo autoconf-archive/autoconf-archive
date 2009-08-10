@@ -19,7 +19,7 @@
 #   is possible to use different compilers for C and C++).
 #
 #   The macro is a lot simpler than any special AX_CFLAGS_* macro (or
-#   ac_cxx_rtti.m4 macro) but allows to check for arbitrary options.
+#   ax_cxx_rtti.m4 macro) but allows to check for arbitrary options.
 #   However, if you use this macro in a few places, it would be great if you
 #   would make up a new function-macro and submit it to the ac-archive.
 #
@@ -65,7 +65,7 @@
 
 AC_DEFUN([AX_CFLAGS_IRIX_OPTION_OLD], [dnl
 AS_VAR_PUSHDEF([FLAGS],[CFLAGS])dnl
-AS_VAR_PUSHDEF([VAR],[ac_cv_cflags_irix_option_$2])dnl
+AS_VAR_PUSHDEF([VAR],[ax_cv_cflags_irix_option_$2])dnl
 AC_CACHE_CHECK([m4_ifval($1,$1,FLAGS) for irix/cc m4_ifval($2,$2,-option)],
 VAR,[VAR="no, unknown"
  AC_LANG_SAVE
@@ -99,7 +99,7 @@ dnl the only difference - the LANG selection... and the default FLAGS
 
 AC_DEFUN([AX_CXXFLAGS_IRIX_OPTION_OLD], [dnl
 AS_VAR_PUSHDEF([FLAGS],[CXXFLAGS])dnl
-AS_VAR_PUSHDEF([VAR],[ac_cv_cxxflags_irix_option_$2])dnl
+AS_VAR_PUSHDEF([VAR],[ax_cv_cxxflags_irix_option_$2])dnl
 AC_CACHE_CHECK([m4_ifval($1,$1,FLAGS) for irix/cc m4_ifval($2,$2,-option)],
 VAR,[VAR="no, unknown"
  AC_LANG_SAVE
@@ -133,7 +133,7 @@ dnl --------------------------------------------------------------------------
 
 AC_DEFUN([AX_CFLAGS_IRIX_OPTION_NEW], [dnl
 AS_VAR_PUSHDEF([FLAGS],[CFLAGS])dnl
-AS_VAR_PUSHDEF([VAR],[ac_cv_cflags_irix_option_$1])dnl
+AS_VAR_PUSHDEF([VAR],[ax_cv_cflags_irix_option_$1])dnl
 AC_CACHE_CHECK([m4_ifval($2,$2,FLAGS) for irix/cc m4_ifval($1,$1,-option)],
 VAR,[VAR="no, unknown"
  AC_LANG_SAVE
@@ -167,7 +167,7 @@ dnl the only difference - the LANG selection... and the default FLAGS
 
 AC_DEFUN([AX_CXXFLAGS_IRIX_OPTION_NEW], [dnl
 AS_VAR_PUSHDEF([FLAGS],[CXXFLAGS])dnl
-AS_VAR_PUSHDEF([VAR],[ac_cv_cxxflags_irix_option_$1])dnl
+AS_VAR_PUSHDEF([VAR],[ax_cv_cxxflags_irix_option_$1])dnl
 AC_CACHE_CHECK([m4_ifval($2,$2,FLAGS) for irix/cc m4_ifval($1,$1,-option)],
 VAR,[VAR="no, unknown"
  AC_LANG_SAVE

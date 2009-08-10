@@ -21,7 +21,7 @@
 
 AC_DEFUN([AX_CXX_HAVE_KOENIG_LOOKUP],
     [AC_CACHE_CHECK(whether the compiler implements Koenig lookup,
-                    ac_cv_cxx_have_koenig_lookup,
+                    ax_cv_cxx_have_koenig_lookup,
                     [AC_LANG_PUSH(C++)
                      AC_TRY_COMPILE([
     namespace N1 {
@@ -37,10 +37,10 @@ AC_DEFUN([AX_CXX_HAVE_KOENIG_LOOKUP],
         }
     }
     ],[],
-                     ac_cv_cxx_have_koenig_lookup=yes,
-                     ac_cv_cxx_have_koenig_lookup=no)
+                     ax_cv_cxx_have_koenig_lookup=yes,
+                     ax_cv_cxx_have_koenig_lookup=no)
                      AC_LANG_POP])
-    if test "$ac_cv_cxx_have_koenig_lookup" = yes; then
+    if test "$ax_cv_cxx_have_koenig_lookup" = yes; then
         AC_DEFINE(CXX_HAVE_KOENIG_LOOKUP,1,
                   [define to 1 if the compiler implements Koenig lookup])
     fi

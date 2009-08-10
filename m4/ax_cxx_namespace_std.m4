@@ -21,15 +21,15 @@
 
 AC_DEFUN([AX_CXX_NAMESPACE_STD], [
   AC_CACHE_CHECK(if g++ supports namespace std,
-  ac_cv_cxx_have_std_namespace,
+  ax_cv_cxx_have_std_namespace,
   [AC_LANG_SAVE
   AC_LANG_CPLUSPLUS
   AC_TRY_COMPILE([#include <iostream>
                   std::istream& is = std::cin;],,
-  ac_cv_cxx_have_std_namespace=yes, ac_cv_cxx_have_std_namespace=no)
+  ax_cv_cxx_have_std_namespace=yes, ax_cv_cxx_have_std_namespace=no)
   AC_LANG_RESTORE
   ])
-  if test "$ac_cv_cxx_have_std_namespace" = yes; then
+  if test "$ax_cv_cxx_have_std_namespace" = yes; then
     AC_DEFINE(HAVE_NAMESPACE_STD,,[Define if g++ supports namespace std. ])
   fi
 ])

@@ -59,9 +59,9 @@
 
 AC_DEFUN([AX_CXX_HAVE_FREEZE_SSTREAM],
 [AC_CACHE_CHECK(whether the compiler has freeze in stringstream,
-ac_cv_cxx_have_freeze_sstream,
-[AC_REQUIRE([AC_CXX_NAMESPACES])
-  AC_REQUIRE([AC_CXX_HAVE_SSTREAM])
+ax_cv_cxx_have_freeze_sstream,
+[AC_REQUIRE([AX_CXX_NAMESPACES])
+  AC_REQUIRE([AX_CXX_HAVE_SSTREAM])
   AC_LANG_SAVE
   AC_LANG_CPLUSPLUS
   AC_TRY_COMPILE([#include <sstream>
@@ -74,10 +74,10 @@ stringstream message;
 strstream message;
 #endif
 message << "Hello"; message.freeze(0); return 0;],
-  ac_cv_cxx_have_freeze_sstream=yes, ac_cv_cxx_have_freeze_sstream=no)
+  ax_cv_cxx_have_freeze_sstream=yes, ax_cv_cxx_have_freeze_sstream=no)
   AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_have_freeze_sstream" = yes; then
+if test "$ax_cv_cxx_have_freeze_sstream" = yes; then
    AC_DEFINE(HAVE_FREEZE_SSTREAM,,[define if the compiler has freeze in
 stringstream])
 fi

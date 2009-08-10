@@ -20,7 +20,7 @@
 
 AC_DEFUN([AX_CXX_HEADER_STDCXX_0X], [
   AC_CACHE_CHECK(for ISO C++ 0x include files,
-  ac_cv_cxx_stdcxx_0x,
+  ax_cv_cxx_stdcxx_0x,
   [AC_REQUIRE([AC_COMPILE_STDCXX_0X])
   AC_LANG_SAVE
   AC_LANG_CPLUSPLUS
@@ -93,11 +93,11 @@ AC_DEFUN([AX_CXX_HEADER_STDCXX_0X], [
     #include <valarray>
     #include <vector>
   ],,
-  ac_cv_cxx_stdcxx_0x=yes, ac_cv_cxx_stdcxx_0x=no)
+  ax_cv_cxx_stdcxx_0x=yes, ax_cv_cxx_stdcxx_0x=no)
   AC_LANG_RESTORE
   CXXFLAGS="$ac_save_CXXFLAGS"
   ])
-  if test "$ac_cv_cxx_stdcxx_0x" = yes; then
+  if test "$ax_cv_cxx_stdcxx_0x" = yes; then
     AC_DEFINE(STDCXX_0X_HEADERS,,[Define if ISO C++ 0x header files are present. ])
   fi
 ])

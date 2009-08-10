@@ -27,7 +27,7 @@
 #   concept of set of macros, so I had to break it for submission.
 #
 #   The general documentation of those macros, as well as the sample
-#   configure.in, is included in the AC_PROG_JAVA macro.
+#   configure.in, is included in the AX_PROG_JAVA macro.
 #
 # LICENSE
 #

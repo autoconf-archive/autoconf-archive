@@ -15,7 +15,7 @@
 #   on other. Unfortunately, the autoconf archive does not support the
 #   concept of set of macros, so I had to break it for submission. The
 #   general documentation, as well as the sample configure.in, is included
-#   in the AC_PROG_JAVA macro.
+#   in the AX_PROG_JAVA macro.
 #
 # LICENSE
 #
@@ -92,7 +92,7 @@ if test x$ac_cv_prog_uudecode_base64 != xyes; then
                 AC_MSG_ERROR([Cannot compile java source. $JAVAC does not work properly])
         fi
         if test x$ac_cv_prog_javac_works = x; then
-                AC_PROG_JAVAC
+                AX_PROG_JAVAC
         fi
 fi
 AC_CACHE_CHECK(if $JAVA works, ac_cv_prog_java_works, [

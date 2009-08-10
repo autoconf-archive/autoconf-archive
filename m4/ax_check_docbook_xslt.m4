@@ -60,7 +60,7 @@
 
 AC_DEFUN([AX_CHECK_DOCBOOK_XSLT],
 [
-    AC_REQUIRE([AC_PROG_XSLTPROC])
+    AC_REQUIRE([AX_PROG_XSLTPROC])
 
     dnl define a temporary variable for the version, so this macro can be
     dnl used with multiple versions
@@ -74,15 +74,15 @@ AC_DEFUN([AX_CHECK_DOCBOOK_XSLT],
 
     AC_CACHE_CHECK([for Docbook XSLT version ]_VERS, [ac_cv_docbook_xslt_VERS],
     [
-	ac_cv_docbook_xslt_VERS=no
-	if test -n "$XSLTPROC"; then
-	    echo "Trying '$XSLTPROC $XSLTPROC_FLAGS http://docbook.sourceforge.net/release/xsl/_VERS/xhtml/docbook.xsl'" >&AS_MESSAGE_LOG_FD
-	    $XSLTPROC $XSLTPROC_FLAGS http://docbook.sourceforge.net/release/xsl/_VERS/xhtml/docbook.xsl >&AS_MESSAGE_LOG_FD 2>&AS_MESSAGE_LOG_FD
+        ac_cv_docbook_xslt_VERS=no
+        if test -n "$XSLTPROC"; then
+            echo "Trying '$XSLTPROC $XSLTPROC_FLAGS http://docbook.sourceforge.net/release/xsl/_VERS/xhtml/docbook.xsl'" >&AS_MESSAGE_LOG_FD
+            $XSLTPROC $XSLTPROC_FLAGS http://docbook.sourceforge.net/release/xsl/_VERS/xhtml/docbook.xsl >&AS_MESSAGE_LOG_FD 2>&AS_MESSAGE_LOG_FD
 
-	    if test "$?" = 0; then
-		ac_cv_docbook_xslt_VERS=yes
-	    fi
-	fi
+            if test "$?" = 0; then
+                ac_cv_docbook_xslt_VERS=yes
+            fi
+        fi
     ])
 
     HAVE_DOCBOOK_XSLT_VERS="$ac_cv_docbook_xslt_VERS"

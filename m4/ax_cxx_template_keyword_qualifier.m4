@@ -23,7 +23,7 @@
 
 AC_DEFUN([AX_CXX_TEMPLATE_KEYWORD_QUALIFIER],
 [AC_CACHE_CHECK(whether the compiler supports use of the template keyword as a qualifier,
-ac_cv_cxx_template_keyword_qualifier,
+ax_cv_cxx_template_keyword_qualifier,
 [AC_LANG_SAVE
  AC_LANG_CPLUSPLUS
  AC_TRY_COMPILE([
@@ -39,10 +39,10 @@ ac_cv_cxx_template_keyword_qualifier,
     T::template static_member<100>(); // OK: < starts explicit qualification
   }
 ],[X x; f(&x); return 0;],
- ac_cv_cxx_template_keyword_qualifier=yes, ac_cv_cxx_template_keyword_qualifier=no)
+ ax_cv_cxx_template_keyword_qualifier=yes, ax_cv_cxx_template_keyword_qualifier=no)
  AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_template_keyword_qualifier" = yes; then
+if test "$ax_cv_cxx_template_keyword_qualifier" = yes; then
   AC_DEFINE(HAVE_TEMPLATE_KEYWORD_QUALIFIER,,
             [define if the compiler supports use of the template keyword as a qualifier])
 fi

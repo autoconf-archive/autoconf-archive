@@ -18,7 +18,7 @@
 #   on other. Unfortunately, the autoconf archive does not support the
 #   concept of set of macros, so I had to break it for submission. The
 #   general documentation, as well as the sample configure.in, is included
-#   in the AC_PROG_JAVA macro.
+#   in the AX_PROG_JAVA macro.
 #
 # LICENSE
 #
@@ -29,8 +29,8 @@
 #   and this notice are preserved.
 
 AC_DEFUN([AC_TRY_RUN_JAVA],[
-AC_REQUIRE([AC_PROG_JAVAC])dnl
-AC_REQUIRE([AC_PROG_JAVA])dnl
+AC_REQUIRE([AX_PROG_JAVAC])dnl
+AC_REQUIRE([AX_PROG_JAVA])dnl
 cat << \EOF > Test.java
 /* [#]line __oline__ "configure" */
 ifelse([$1], , , [include $1;])

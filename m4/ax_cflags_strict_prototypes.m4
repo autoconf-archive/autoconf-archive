@@ -113,7 +113,7 @@ dnl the only difference - the LANG selection... and the default FLAGS
 
 AC_DEFUN([AX_CXXFLAGS_STRICT_PROTOTYPES],[dnl
 AS_VAR_PUSHDEF([FLAGS],[CXXFLAGS])dnl
-AS_VAR_PUSHDEF([VAR],[ac_cv_cxxflags_strict_prototypes])dnl
+AS_VAR_PUSHDEF([VAR],[ax_cv_cxxflags_strict_prototypes])dnl
 AC_CACHE_CHECK([m4_ifval($1,$1,FLAGS) for strict prototypes],
 VAR,[VAR="no, unknown"
  AC_LANG_SAVE

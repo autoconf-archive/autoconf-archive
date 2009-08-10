@@ -22,8 +22,8 @@
 
 AC_DEFUN([AX_CXX_HAVE_COMPLEX_MATH1],
 [AC_CACHE_CHECK(whether the compiler has complex math functions,
-ac_cv_cxx_have_complex_math1,
-[AC_REQUIRE([AC_CXX_NAMESPACES])
+ax_cv_cxx_have_complex_math1,
+[AC_REQUIRE([AX_CXX_NAMESPACES])
  AC_LANG_SAVE
  AC_LANG_CPLUSPLUS
  ac_save_LIBS="$LIBS"
@@ -35,11 +35,11 @@ using namespace std;
 cos(x); cosh(x); exp(x); log(x); pow(x,1); pow(x,double(2.0));
 pow(x, y); pow(double(2.0), x); sin(x); sinh(x); sqrt(x); tan(x); tanh(x);
 return 0;],
- ac_cv_cxx_have_complex_math1=yes, ac_cv_cxx_have_complex_math1=no)
+ ax_cv_cxx_have_complex_math1=yes, ax_cv_cxx_have_complex_math1=no)
  LIBS="$ac_save_LIBS"
  AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_have_complex_math1" = yes; then
+if test "$ax_cv_cxx_have_complex_math1" = yes; then
   AC_DEFINE(HAVE_COMPLEX_MATH1,,[define if the compiler has complex math functions])
 fi
 ])

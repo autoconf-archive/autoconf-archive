@@ -21,7 +21,7 @@
 
 AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
   AC_CACHE_CHECK(if g++ supports C++0x features without additional flags,
-  ac_cv_cxx_compile_cxx0x_native,
+  ax_cv_cxx_compile_cxx0x_native,
   [AC_LANG_SAVE
   AC_LANG_CPLUSPLUS
   AC_TRY_COMPILE([
@@ -39,12 +39,12 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
     typedef check<int> check_type;
     check_type c;
     check_type&& cr = c;],,
-  ac_cv_cxx_compile_cxx0x_native=yes, ac_cv_cxx_compile_cxx0x_native=no)
+  ax_cv_cxx_compile_cxx0x_native=yes, ax_cv_cxx_compile_cxx0x_native=no)
   AC_LANG_RESTORE
   ])
 
   AC_CACHE_CHECK(if g++ supports C++0x features with -std=c++0x,
-  ac_cv_cxx_compile_cxx0x_cxx,
+  ax_cv_cxx_compile_cxx0x_cxx,
   [AC_LANG_SAVE
   AC_LANG_CPLUSPLUS
   ac_save_CXXFLAGS="$CXXFLAGS"
@@ -64,13 +64,13 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
     typedef check<int> check_type;
     check_type c;
     check_type&& cr = c;],,
-  ac_cv_cxx_compile_cxx0x_cxx=yes, ac_cv_cxx_compile_cxx0x_cxx=no)
+  ax_cv_cxx_compile_cxx0x_cxx=yes, ax_cv_cxx_compile_cxx0x_cxx=no)
   CXXFLAGS="$ac_save_CXXFLAGS"
   AC_LANG_RESTORE
   ])
 
   AC_CACHE_CHECK(if g++ supports C++0x features with -std=gnu++0x,
-  ac_cv_cxx_compile_cxx0x_gxx,
+  ax_cv_cxx_compile_cxx0x_gxx,
   [AC_LANG_SAVE
   AC_LANG_CPLUSPLUS
   ac_save_CXXFLAGS="$CXXFLAGS"
@@ -90,14 +90,14 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
     typedef check<int> check_type;
     check_type c;
     check_type&& cr = c;],,
-  ac_cv_cxx_compile_cxx0x_gxx=yes, ac_cv_cxx_compile_cxx0x_gxx=no)
+  ax_cv_cxx_compile_cxx0x_gxx=yes, ax_cv_cxx_compile_cxx0x_gxx=no)
   CXXFLAGS="$ac_save_CXXFLAGS"
   AC_LANG_RESTORE
   ])
 
-  if test "$ac_cv_cxx_compile_cxx0x_native" = yes ||
-     test "$ac_cv_cxx_compile_cxx0x_cxx" = yes ||
-     test "$ac_cv_cxx_compile_cxx0x_gxx" = yes; then
+  if test "$ax_cv_cxx_compile_cxx0x_native" = yes ||
+     test "$ax_cv_cxx_compile_cxx0x_cxx" = yes ||
+     test "$ax_cv_cxx_compile_cxx0x_gxx" = yes; then
     AC_DEFINE(HAVE_STDCXX_0X,,[Define if g++ supports C++0x features. ])
   fi
 ])

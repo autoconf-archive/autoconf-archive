@@ -52,18 +52,18 @@
 
 AC_DEFUN([AX_CXX_HAVE_EXT_HASH_SET],
 [AC_CACHE_CHECK(whether the compiler has ext/hash_set,
-ac_cv_cxx_have_ext_hash_set,
-[AC_REQUIRE([AC_CXX_NAMESPACES])
+ax_cv_cxx_have_ext_hash_set,
+[AC_REQUIRE([AX_CXX_NAMESPACES])
   AC_LANG_SAVE
   AC_LANG_CPLUSPLUS
   AC_TRY_COMPILE([#include <ext/hash_set>
 #ifdef HAVE_NAMESPACES
 using namespace std;
 #endif],[hash_set<int> t; return 0;],
-  ac_cv_cxx_have_ext_hash_set=yes, ac_cv_cxx_have_ext_hash_set=no)
+  ax_cv_cxx_have_ext_hash_set=yes, ax_cv_cxx_have_ext_hash_set=no)
   AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_have_ext_hash_set" = yes; then
+if test "$ax_cv_cxx_have_ext_hash_set" = yes; then
    AC_DEFINE(HAVE_EXT_HASH_SET,,[define if the compiler has ext/hash_set])
 fi
 ])

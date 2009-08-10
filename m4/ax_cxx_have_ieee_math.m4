@@ -24,7 +24,7 @@
 
 AC_DEFUN([AX_CXX_HAVE_IEEE_MATH],
 [AC_CACHE_CHECK(whether the compiler supports IEEE math library,
-ac_cv_cxx_have_ieee_math,
+ax_cv_cxx_have_ieee_math,
 [AC_LANG_SAVE
  AC_LANG_CPLUSPLUS
  ac_save_LIBS="$LIBS"
@@ -52,11 +52,11 @@ lgamma(x);
 #endif
 hypot(x,y); nextafter(x,y); remainder(x,y); scalb(x,y);
 return 0;],
- ac_cv_cxx_have_ieee_math=yes, ac_cv_cxx_have_ieee_math=no)
+ ax_cv_cxx_have_ieee_math=yes, ax_cv_cxx_have_ieee_math=no)
  LIBS="$ac_save_LIBS"
  AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_have_ieee_math" = yes; then
+if test "$ax_cv_cxx_have_ieee_math" = yes; then
   AC_DEFINE(HAVE_IEEE_MATH,,[define if the compiler supports IEEE math library])
 fi
 ])

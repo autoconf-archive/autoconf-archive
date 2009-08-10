@@ -12,7 +12,7 @@
 #   cxxabi.h and abi::__cxa_demangle() function), define
 #   HAVE_GCC_ABI_DEMANGLE
 #
-#   Adapted from AC_CXX_RTTI by Luc Maisonobe
+#   Adapted from AX_CXX_RTTI by Luc Maisonobe
 #
 # LICENSE
 #
@@ -24,7 +24,7 @@
 
 AC_DEFUN([AX_CXX_GCC_ABI_DEMANGLE],
 [AC_CACHE_CHECK(whether the compiler supports GCC C++ ABI name demangling,
-ac_cv_cxx_gcc_abi_demangle,
+ax_cv_cxx_gcc_abi_demangle,
 [AC_LANG_SAVE
  AC_LANG_CPLUSPLUS
  AC_TRY_COMPILE([#include <typeinfo>
@@ -44,10 +44,10 @@ free(c_name);
 
 return name == "A<int>";
 ],
- ac_cv_cxx_gcc_abi_demangle=yes, ac_cv_cxx_gcc_abi_demangle=no)
+ ax_cv_cxx_gcc_abi_demangle=yes, ax_cv_cxx_gcc_abi_demangle=no)
  AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_gcc_abi_demangle" = yes; then
+if test "$ax_cv_cxx_gcc_abi_demangle" = yes; then
   AC_DEFINE(HAVE_GCC_ABI_DEMANGLE,1,
             [define if the compiler supports GCC C++ ABI name demangling])
 fi

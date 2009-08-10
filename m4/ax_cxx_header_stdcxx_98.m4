@@ -20,7 +20,7 @@
 
 AC_DEFUN([AX_CXX_HEADER_STDCXX_98], [
   AC_CACHE_CHECK(for ISO C++ 98 include files,
-  ac_cv_cxx_stdcxx_98,
+  ax_cv_cxx_stdcxx_98,
   [AC_LANG_SAVE
   AC_LANG_CPLUSPLUS
   AC_TRY_COMPILE([
@@ -74,10 +74,10 @@ AC_DEFUN([AX_CXX_HEADER_STDCXX_98], [
     #include <valarray>
     #include <vector>
   ],,
-  ac_cv_cxx_stdcxx_98=yes, ac_cv_cxx_stdcxx_98=no)
+  ax_cv_cxx_stdcxx_98=yes, ax_cv_cxx_stdcxx_98=no)
   AC_LANG_RESTORE
   ])
-  if test "$ac_cv_cxx_stdcxx_98" = yes; then
+  if test "$ax_cv_cxx_stdcxx_98" = yes; then
     AC_DEFINE(STDCXX_98_HEADERS,,[Define if ISO C++ 1998 header files are present. ])
   fi
 ])

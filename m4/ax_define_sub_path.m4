@@ -22,7 +22,7 @@
 #
 #   Example (configure.ac):
 #
-#      AC_DEFINE_DIR([EPREFIX], [exec_prefix], [--exec-prefix or default])
+#      AX_DEFINE_DIR([EPREFIX], [exec_prefix], [--exec-prefix or default])
 #      AX_DEFINE_SUB_PATH([PATH_LIBDIR], [libdir], [--bindir subdir])
 #      AC_DEFINE_UNQUOTED([PACKAGE],"$PACKAGE", [Name of package])
 #

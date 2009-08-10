@@ -20,16 +20,16 @@
 
 AC_DEFUN([AX_CXX_STLPORT_HASHMAP],[
 AC_CACHE_CHECK(whether the compiler supports std::hash_map,
-ac_cv_cxx_stlport_hashmap,
+ax_cv_cxx_stlport_hashmap,
 [AC_LANG_SAVE
  AC_LANG_CPLUSPLUS
  AC_TRY_COMPILE([#include <hash_map>
 using std::hash_map;],
  [],
- ac_cv_cxx_stlport_hashmap=yes, ac_cv_cxx_stlport_hashmap=no)
+ ax_cv_cxx_stlport_hashmap=yes, ax_cv_cxx_stlport_hashmap=no)
  AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_stlport_hashmap" = yes; then
+if test "$ax_cv_cxx_stlport_hashmap" = yes; then
   AC_DEFINE(HAVE_STLPORT_HASHMAP,,[define if the compiler supports std::hash_map])
 fi
 ])

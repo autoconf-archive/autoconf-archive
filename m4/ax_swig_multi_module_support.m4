@@ -11,8 +11,8 @@
 #   Enable support for multiple modules. This effects all invocations of
 #   $(SWIG). You have to link all generated modules against the appropriate
 #   SWIG runtime library. If you want to build Python modules for example,
-#   use the SWIG_PYTHON macro and link the modules against
-#   $(SWIG_PYTHON_LIBS).
+#   use the AX_SWIG_PYTHON macro and link the modules against
+#   $(AX_SWIG_PYTHON_LIBS).
 #
 # LICENSE
 #

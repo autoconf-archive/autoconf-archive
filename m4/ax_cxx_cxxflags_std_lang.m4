@@ -24,8 +24,8 @@
 #   and this notice are preserved.
 
 AC_DEFUN([AX_CXX_CXXFLAGS_STD_LANG],
-  [AC_REQUIRE([AC_CXX_COMPILER_VENDOR])
-   case "$ac_cv_cxx_compiler_vendor" in
+  [AC_REQUIRE([AX_CXX_COMPILER_VENDOR])
+   case "$ax_cv_cxx_compiler_vendor" in
      sgi)    $1="$$1 -LANG:std -exceptions";;
      hp)     $1="$$1 -AA";;
    esac])

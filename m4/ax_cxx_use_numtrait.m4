@@ -22,8 +22,8 @@
 
 AC_DEFUN([AX_CXX_USE_NUMTRAIT],
 [AC_CACHE_CHECK(whether the compiler supports numeric traits promotions,
-ac_cv_cxx_use_numtrait,
-[AC_REQUIRE([AC_CXX_TYPENAME])
+ax_cv_cxx_use_numtrait,
+[AC_REQUIRE([AX_CXX_TYPENAME])
  AC_LANG_SAVE
  AC_LANG_CPLUSPLUS
  AC_TRY_COMPILE([
@@ -36,10 +36,10 @@ template<class T> class A {};
 template<class T> A<typename SumType<T>::T_sumtype> sum(A<T>)
 { return A<typename SumType<T>::T_sumtype>(); }
 ],[A<float> x; sum(x); return 0;],
- ac_cv_cxx_use_numtrait=yes, ac_cv_cxx_use_numtrait=no)
+ ax_cv_cxx_use_numtrait=yes, ax_cv_cxx_use_numtrait=no)
  AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_use_numtrait" = yes; then
+if test "$ax_cv_cxx_use_numtrait" = yes; then
   AC_DEFINE(HAVE_USE_NUMTRAIT,,[define if the compiler supports numeric traits promotions])
 fi
 ])

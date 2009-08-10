@@ -22,8 +22,8 @@
 
 AC_DEFUN([AX_CXX_TEMPLATE_QUALIFIED_RETURN_TYPE],
 [AC_CACHE_CHECK(whether the compiler supports template-qualified return types,
-ac_cv_cxx_template_qualified_return_type,
-[AC_REQUIRE([AC_CXX_TYPENAME])
+ax_cv_cxx_template_qualified_return_type,
+[AC_REQUIRE([AX_CXX_TYPENAME])
  AC_LANG_SAVE
  AC_LANG_CPLUSPLUS
  AC_TRY_COMPILE([
@@ -37,10 +37,10 @@ template<class X, class Y>
 A<typename promote_trait<X,Y>::T> operator+ (const A<X>&, const A<Y>&)
 { return A<typename promote_trait<X,Y>::T>(); }
 ],[A<int> x; A<float> y; A<float> z = x + y; return 0;],
- ac_cv_cxx_template_qualified_return_type=yes, ac_cv_cxx_template_qualified_return_type=no)
+ ax_cv_cxx_template_qualified_return_type=yes, ax_cv_cxx_template_qualified_return_type=no)
  AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_template_qualified_return_type" = yes; then
+if test "$ax_cv_cxx_template_qualified_return_type" = yes; then
   AC_DEFINE(HAVE_TEMPLATE_QUALIFIED_RETURN_TYPE,,
             [define if the compiler supports template-qualified return types])
 fi

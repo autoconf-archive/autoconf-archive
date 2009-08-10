@@ -40,7 +40,7 @@
 
 AC_DEFUN([AX_TRILINOS_BASE],
 [
-AC_REQUIRE([gl_TRILINOS_ABSOLUTE_HEADER])
+AC_REQUIRE([AX_TRILINOS_ABSOLUTE_HEADER])
 AC_ARG_VAR(TRILINOS_HOME,[root directory of Trilinos installation])
 
 AC_ARG_WITH(trilinos, [AS_HELP_STRING([--with-trilinos[=DIR]],[root directory of Trilinos installation])],[
@@ -132,8 +132,8 @@ if test "${with_trilinos}" != no ; then
     else
         dnl Find the absolute path to Trilinos_version.h
         dnl We need it to back out the discovered TRILINOS_INCLUDE directory.
-        gl_TRILINOS_ABSOLUTE_HEADER([Trilinos_version.h])
-        TRILINOS_INCLUDE=`AS_DIRNAME([$gl_cv_absolute_Trilinos_version_h])`
+        AX_TRILINOS_ABSOLUTE_HEADER([Trilinos_version.h])
+        TRILINOS_INCLUDE=`AS_DIRNAME([$ax_cv_absolute_Trilinos_version_h])`
 
         AC_DEFINE(HAVE_TRILINOS,1,[Define if Trilinos is available])
         AC_SUBST(TRILINOS_INCLUDE)

@@ -68,7 +68,7 @@
 #
 #   NOTE: POSIX threads MUST be configured BEFORE this function is called or
 #   it will not find libmilter.a even if it exists. The easiest way is to
-#   use the ACX_PTHREAD macro by Steven G. Johnson and Alejandro Forero
+#   use the AX_PTHREAD macro by Steven G. Johnson and Alejandro Forero
 #   Cuervo which is available from the Autoconf Macro Archive.
 #
 # LICENSE
@@ -211,8 +211,8 @@ x$ac_milter_found_version" | sort | sed '1q' | sed "s,x${ac_milter_minimum_versi
       if test -r "${ac_milter_tmp}/include/libmilter/mfapi.h" && \
          test "$ac_milter_version_ok" = "yes" ; then
         # The file mfapi.h exists so we will use this as SENDMAIL_BASE_DIR.
-	AC_MSG_RESULT([yes])
-	SENDMAIL_BASE_DIR="$ac_milter_tmp"
+        AC_MSG_RESULT([yes])
+        SENDMAIL_BASE_DIR="$ac_milter_tmp"
       else
         AC_MSG_RESULT([no])
       fi

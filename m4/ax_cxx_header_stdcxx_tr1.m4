@@ -20,7 +20,7 @@
 
 AC_DEFUN([AX_CXX_HEADER_STDCXX_TR1], [
   AC_CACHE_CHECK(for ISO C++ TR1 include files,
-  ac_cv_cxx_stdcxx_tr1,
+  ax_cv_cxx_stdcxx_tr1,
   [AC_LANG_SAVE
   AC_LANG_CPLUSPLUS
   AC_TRY_COMPILE([
@@ -52,10 +52,10 @@ AC_DEFUN([AX_CXX_HEADER_STDCXX_TR1], [
   #include <tr1/unordered_map>
   #include <tr1/utility>
   ],,
-  ac_cv_cxx_stdcxx_tr1=yes, ac_cv_cxx_stdcxx_tr1=no)
+  ax_cv_cxx_stdcxx_tr1=yes, ax_cv_cxx_stdcxx_tr1=no)
   AC_LANG_RESTORE
   ])
-  if test "$ac_cv_cxx_stdcxx_tr1" = yes; then
+  if test "$ax_cv_cxx_stdcxx_tr1" = yes; then
     AC_DEFINE(STDCXX_TR1_HEADERS,,[Define if ISO C++ TR1 header files are present. ])
   fi
 ])

@@ -116,7 +116,7 @@ dnl the only difference - the LANG selection... and the default FLAGS
 
 AC_DEFUN([AX_CXXFLAGS_NO_WRITABLE_STRINGS],[dnl
 AS_VAR_PUSHDEF([FLAGS],[CXXFLAGS])dnl
-AS_VAR_PUSHDEF([VAR],[ac_cv_cxxflags_no_writable_strings])dnl
+AS_VAR_PUSHDEF([VAR],[ax_cv_cxxflags_no_writable_strings])dnl
 AC_CACHE_CHECK([m4_ifval($1,$1,FLAGS) making strings readonly],
 VAR,[VAR="no, unknown"
  AC_LANG_SAVE

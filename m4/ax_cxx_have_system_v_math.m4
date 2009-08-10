@@ -23,7 +23,7 @@
 
 AC_DEFUN([AX_CXX_HAVE_SYSTEM_V_MATH],
 [AC_CACHE_CHECK(whether the compiler supports System V math library,
-ac_cv_cxx_have_system_v_math,
+ax_cv_cxx_have_system_v_math,
 [AC_LANG_SAVE
  AC_LANG_CPLUSPLUS
  ac_save_LIBS="$LIBS"
@@ -42,11 +42,11 @@ ac_cv_cxx_have_system_v_math,
 _class(x); trunc(x); finite(x); itrunc(x); nearest(x); rsqrt(x); uitrunc(x);
 copysign(x,y); drem(x,y); unordered(x,y);
 return 0;],
- ac_cv_cxx_have_system_v_math=yes, ac_cv_cxx_have_system_v_math=no)
+ ax_cv_cxx_have_system_v_math=yes, ax_cv_cxx_have_system_v_math=no)
  LIBS="$ac_save_LIBS"
  AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_have_system_v_math" = yes; then
+if test "$ax_cv_cxx_have_system_v_math" = yes; then
   AC_DEFINE(HAVE_SYSTEM_V_MATH,,[define if the compiler supports System V math library])
 fi
 ])

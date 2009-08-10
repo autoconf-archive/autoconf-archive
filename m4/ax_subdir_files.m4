@@ -46,16 +46,16 @@
 #   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_SUBDIR_FILES],
-[AC_BEFORE($0,[AC_PROG_CP_S])
+[AC_BEFORE($0,[AX_PROG_CP_S])
   for ac_subdir in ifelse([$1], , *, $1) ; do
     if test -d $ac_subdir ; then
       AC_MSG_CHECKING(subdir $ac_subdir)
       for ac_file in $ac_subdir/* ; do
-	if test -f $ac_file ; then
-	  if test ! -e `basename $ac_file` ; then
-	    case `basename $ac_file` in
-	      ifelse([$2], , *.?|*.cc|*.cpp,[$1]))
-		echo ${ECHO_N} "$ac_file," ;
+        if test -f $ac_file ; then
+          if test ! -e `basename $ac_file` ; then
+            case `basename $ac_file` in
+              ifelse([$2], , *.?|*.cc|*.cpp,[$1]))
+                echo ${ECHO_N} "$ac_file," ;
                 $CP_S $ac_file . ;;
             esac
           fi

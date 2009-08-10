@@ -44,7 +44,7 @@
 
 AC_DEFUN([AX_LIB_XERCES],
 [
-    AC_REQUIRE([ACX_PTHREAD])
+    AC_REQUIRE([AX_PTHREAD])
 
     AC_ARG_WITH([xerces],
         AC_HELP_STRING([--with-xerces=@<:@ARG@:>@],

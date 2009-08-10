@@ -26,36 +26,36 @@ AC_DEFUN([AX_CXX_COMPILER_VENDOR],
   [AC_REQUIRE([AC_PROG_CXX])
    AC_REQUIRE([AC_PROG_CXXCPP])
    AC_CACHE_CHECK([the C++ compiler vendor],
-    [ac_cv_cxx_compiler_vendor],
+    [ax_cv_cxx_compiler_vendor],
 
     [AC_LANG_PUSH([C++])
 
      dnl GNU C++
      AX_C_IFDEF([__GNUG__],
-       [ac_cv_cxx_compiler_vendor=gnu],
+       [ax_cv_cxx_compiler_vendor=gnu],
        [AX_C_IFDEF([__DECCXX],
-	 [ac_cv_cxx_compiler_vendor=compaq],
+	 [ax_cv_cxx_compiler_vendor=compaq],
 	 [dnl HP's aCC
 	  AX_C_IFDEF([__HP_aCC],
-	   [ac_cv_cxx_compiler_vendor=hp],
+	   [ax_cv_cxx_compiler_vendor=hp],
 	   [dnl SGI CC
 	    AX_C_IFDEF([__sgi],
-	     [ac_cv_cxx_compiler_vendor=sgi],
+	     [ax_cv_cxx_compiler_vendor=sgi],
 	     [dnl Note:  We are using the C compiler because VC++ doesn't
 	      dnl recognize `.cc'(which is used by `configure') as a C++ file
 	      dnl extension and requires `/TP' to be passed.
 	      AC_LANG_PUSH([C])
 	      AX_C_IFDEF([_MSC_VER],
-		[ac_cv_cxx_compiler_vendor=microsoft],
-		[ac_cv_cxx_compiler_vendor=unknown])
+		[ax_cv_cxx_compiler_vendor=microsoft],
+		[ax_cv_cxx_compiler_vendor=unknown])
 	      AC_LANG_POP()])])])])
 
      AC_LANG_POP()])
-   $1="$ac_cv_cxx_compiler_vendor"
+   $1="$ax_cv_cxx_compiler_vendor"
 
    dnl The compiler nickname
    ifelse([$2], , [],
-     [case "$ac_cv_cxx_compiler_vendor" in
+     [case "$ax_cv_cxx_compiler_vendor" in
 	gnu)       $2=g++;;
 	compaq)    $2=cxx;;
 	hp)        $2=aCC;;

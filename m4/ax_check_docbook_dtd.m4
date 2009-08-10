@@ -60,7 +60,7 @@
 
 AC_DEFUN([AX_CHECK_DOCBOOK_DTD],
 [
-    AC_REQUIRE([AC_PROG_XSLTPROC])
+    AC_REQUIRE([AX_PROG_XSLTPROC])
 
     dnl define a temporary variable for the version, so this macro can be
     dnl used with multiple versions
@@ -71,29 +71,29 @@ AC_DEFUN([AX_CHECK_DOCBOOK_DTD],
 
     AC_CACHE_CHECK([for Docbook DTD version ]_VERS, [ac_cv_docbook_dtd_VERS],
     [
-	ac_cv_docbook_dtd_VERS=no
-	if test -n "$XSLTPROC"; then
-	    MY_XSLTPROC_FLAGS=`echo "" $XSLTPROC_FLAGS|sed -e s/--novalid//g`
-	    cat <<EOF >conftest.xml
+        ac_cv_docbook_dtd_VERS=no
+        if test -n "$XSLTPROC"; then
+            MY_XSLTPROC_FLAGS=`echo "" $XSLTPROC_FLAGS|sed -e s/--novalid//g`
+            cat <<EOF >conftest.xml
 <?xml version="1.0" encoding='ISO-8859-1'?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V[]_VERS//EN" "http://www.oasis-open.org/docbook/xml/_VERS/docbookx.dtd">
 <book id="empty">
 </book>
 EOF
-	    echo "Trying '$XSLTPROC $MY_XSLTPROC_FLAGS conftest.xml'" >&AS_MESSAGE_LOG_FD
-	    $XSLTPROC $MY_XSLTPROC_FLAGS conftest.xml >conftest.out 2>&1
-	    if test "$?" = 0 -o "$?" = 5; then
-		# failing to load the DTD is just a warning, so check for it in the output.
-		if grep 'warning: failed to load external entity' conftest_out >/dev/null 2>&1; then
-		    : # no good..
-		else
-		    ac_cv_docbook_dtd_VERS=yes
-		fi
-	    fi
-	    cat conftest.out >&AS_MESSAGE_LOG_FD
+            echo "Trying '$XSLTPROC $MY_XSLTPROC_FLAGS conftest.xml'" >&AS_MESSAGE_LOG_FD
+            $XSLTPROC $MY_XSLTPROC_FLAGS conftest.xml >conftest.out 2>&1
+            if test "$?" = 0 -o "$?" = 5; then
+                # failing to load the DTD is just a warning, so check for it in the output.
+                if grep 'warning: failed to load external entity' conftest_out >/dev/null 2>&1; then
+                    : # no good..
+                else
+                    ac_cv_docbook_dtd_VERS=yes
+                fi
+            fi
+            cat conftest.out >&AS_MESSAGE_LOG_FD
 
-	    rm -f conftest.xml conftest.out
-	fi
+            rm -f conftest.xml conftest.out
+        fi
     ])
 
     HAVE_DOCBOOK_DTD_VERS="$ac_cv_docbook_dtd_VERS"

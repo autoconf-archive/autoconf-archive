@@ -107,7 +107,7 @@ dnl the only difference - the LANG selection... and the default FLAGS
 
 AC_DEFUN([AX_CXXFLAGS_WARN_ALL_ANSI],[dnl
 AS_VAR_PUSHDEF([FLAGS],[CXXFLAGS])dnl
-AS_VAR_PUSHDEF([VAR],[ac_cv_cxxflags_warn_all_ansi])dnl
+AS_VAR_PUSHDEF([VAR],[ax_cv_cxxflags_warn_all_ansi])dnl
 AC_CACHE_CHECK([m4_ifval($1,$1,FLAGS) for maximum ansi warnings],
 VAR,[VAR="no, unknown"
  AC_LANG_SAVE

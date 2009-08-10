@@ -22,9 +22,9 @@
 
 AC_DEFUN([AX_CXX_TEMPLATE_QUALIFIED_BASE_CLASS],
 [AC_CACHE_CHECK(whether the compiler supports template-qualified base class specifiers,
-ac_cv_cxx_template_qualified_base_class,
-[AC_REQUIRE([AC_CXX_TYPENAME])
- AC_REQUIRE([AC_CXX_FULL_SPECIALIZATION_SYNTAX])
+ax_cv_cxx_template_qualified_base_class,
+[AC_REQUIRE([AX_CXX_TYPENAME])
+ AC_REQUIRE([AX_CXX_FULL_SPECIALIZATION_SYNTAX])
  AC_LANG_SAVE
  AC_LANG_CPLUSPLUS
  AC_TRY_COMPILE([
@@ -44,10 +44,10 @@ template<class T> class Weird : public base_trait<T>::base
   typedef typename base_trait<T>::base base;
   int g () const { return base::f (); }
 };],[ Weird<float> z; return z.g ();],
- ac_cv_cxx_template_qualified_base_class=yes, ac_cv_cxx_template_qualified_base_class=no)
+ ax_cv_cxx_template_qualified_base_class=yes, ax_cv_cxx_template_qualified_base_class=no)
  AC_LANG_RESTORE
 ])
-if test "$ac_cv_cxx_template_qualified_base_class" = yes; then
+if test "$ax_cv_cxx_template_qualified_base_class" = yes; then
   AC_DEFINE(HAVE_TEMPLATE_QUALIFIED_BASE_CLASS,,
             [define if the compiler supports template-qualified base class specifiers])
 fi

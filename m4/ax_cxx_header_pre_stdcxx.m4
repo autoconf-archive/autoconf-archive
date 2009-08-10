@@ -20,7 +20,7 @@
 
 AC_DEFUN([AX_CXX_HEADER_PRE_STDCXX], [
   AC_CACHE_CHECK(for pre-ISO C++ include files,
-  ac_cv_cxx_pre_stdcxx,
+  ax_cv_cxx_pre_stdcxx,
   [AC_LANG_SAVE
   AC_LANG_CPLUSPLUS
   ac_save_CXXFLAGS="$CXXFLAGS"
@@ -62,11 +62,11 @@ AC_DEFUN([AX_CXX_HEADER_PRE_STDCXX], [
   #include <queue.h>
   #include <streambuf.h>
   ],,
-  ac_cv_cxx_pre_stdcxx=yes, ac_cv_cxx_pre_stdcxx=no)
+  ax_cv_cxx_pre_stdcxx=yes, ax_cv_cxx_pre_stdcxx=no)
   CXXFLAGS="$ac_save_CXXFLAGS"
   AC_LANG_RESTORE
   ])
-  if test "$ac_cv_cxx_pre_stdcxx" = yes; then
+  if test "$ax_cv_cxx_pre_stdcxx" = yes; then
     AC_DEFINE(PRE_STDCXX_HEADERS,,[Define if pre-ISO C++ header files are present. ])
   fi
 ])

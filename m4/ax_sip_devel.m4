@@ -85,7 +85,7 @@ fi
 
 # check for sip.h
 dnl this part of the code to detect python version and include path
-dnl  was taken from ac_python_devel macro, (rev. 2008-04-12)
+dnl  was taken from AX_PYTHON_DEVEL macro, (rev. 2008-04-12)
 python_path=`echo $PYTHON | sed "s,/bin.*$,,"`
 for i in "$python_path/include/python$PYTHON_VERSION/" "$python_path/include/python/" "$python_path/" ; do
         python_path=`find $i -type f -name Python.h -print | sed "1q"`

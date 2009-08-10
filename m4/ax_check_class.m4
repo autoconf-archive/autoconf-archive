@@ -19,7 +19,7 @@
 #   on other. Unfortunately, the autoconf archive does not support the
 #   concept of set of macros, so I had to break it for submission. The
 #   general documentation, as well as the sample configure.in, is included
-#   in the AC_PROG_JAVA macro.
+#   in the AX_PROG_JAVA macro.
 #
 # LICENSE
 #
@@ -52,12 +52,12 @@
 #   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_CHECK_CLASS],[
-AC_REQUIRE([AC_PROG_JAVA])
+AC_REQUIRE([AX_PROG_JAVA])
 ac_var_name=`echo $1 | sed 's/\./_/g'`
 dnl Normaly I'd use a AC_CACHE_CHECK here but since the variable name is
 dnl dynamic I need an extra level of extraction
 AC_MSG_CHECKING([for $1 class])
-AC_CACHE_VAL(ac_cv_class_$ac_var_name, [
+AC_CACHE_VAL(ax_cv_class_$ac_var_name, [
 if test x$ac_cv_prog_uudecode_base64 = xyes; then
 dnl /**
 dnl  * Test.java: used to test dynamicaly if a class exists.
@@ -122,7 +122,7 @@ EOF
         fi
         rm -f Test.class
 else
-        AC_TRY_COMPILE_JAVA([$1], , [eval "ac_cv_class_$ac_var_name=yes"],
+        AX_TRY_COMPILE_JAVA([$1], , [eval "ac_cv_class_$ac_var_name=yes"],
                 [eval "ac_cv_class_$ac_var_name=no"])
 fi
 eval "ac_var_val=$`eval echo ac_cv_class_$ac_var_name`"
