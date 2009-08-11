@@ -127,7 +127,6 @@
 # -----------------
 # Sets the default to not include Python support.
 
-AU_ALIAS([AZ_PYTHON], [AX_PYTHON])
 AC_DEFUN([AZ_PYTHON_DEFAULT],
 [
     az_python_use=false

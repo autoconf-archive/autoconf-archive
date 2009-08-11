@@ -56,7 +56,6 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AU_ALIAS([ACX_BLAS_F77_FUNC], [AX_BLAS_F77_FUNC])
 AC_DEFUN([ACX_BLAS_F77_FUNC], [
 AC_PREREQ(2.50)
 AC_REQUIRE([ACX_BLAS])

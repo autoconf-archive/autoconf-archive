@@ -24,7 +24,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_CXX_EXCEPTIONS], [AX_CXX_EXCEPTIONS])
 AC_DEFUN([AC_CXX_EXCEPTIONS],
 [AC_CACHE_CHECK(whether the compiler supports exceptions,
 ac_cv_cxx_exceptions,

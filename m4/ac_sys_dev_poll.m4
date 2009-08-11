@@ -28,7 +28,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_SYS_DEV_POLL], [AX_SYS_DEV_POLL])
 AC_DEFUN([AC_SYS_DEV_POLL], [AC_CACHE_CHECK(for /dev/poll support, ac_cv_dev_poll,
     AC_TRY_COMPILE([#include <sys/ioctl.h>
 #include <sys/stat.h>

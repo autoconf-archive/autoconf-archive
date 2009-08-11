@@ -70,7 +70,6 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AU_ALIAS([AC_PYTHON_DEVEL], [AX_PYTHON_DEVEL])
 AC_DEFUN([AC_PYTHON_DEVEL],[
 	#
 	# Allow the use of a (user set) custom python version

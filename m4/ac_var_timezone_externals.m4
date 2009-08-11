@@ -48,7 +48,6 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AU_ALIAS([AC_VAR_TIMEZONE_EXTERNALS], [AX_VAR_TIMEZONE_EXTERNALS])
 AC_DEFUN([AC_VAR_TIMEZONE_EXTERNALS],
 [  AC_REQUIRE([AC_STRUCT_TIMEZONE])dnl
    AC_CACHE_CHECK(for timezone external, mb_cv_var_timezone,

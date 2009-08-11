@@ -23,7 +23,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_CXX_VERBOSE_TERMINATE_HANDLER], [AX_CXX_VERBOSE_TERMINATE_HANDLER])
 AC_DEFUN([AC_CXX_VERBOSE_TERMINATE_HANDLER],
 [AC_CACHE_CHECK(whether the compiler has __gnu_cxx::__verbose_terminate_handler,
 ac_cv_verbose_terminate_handler,

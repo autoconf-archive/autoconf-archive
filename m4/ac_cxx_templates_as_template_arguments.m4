@@ -24,7 +24,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_CXX_TEMPLATES_AS_TEMPLATE_ARGUMENTS], [AX_CXX_TEMPLATES_AS_TEMPLATE_ARGUMENTS])
 AC_DEFUN([AC_CXX_TEMPLATES_AS_TEMPLATE_ARGUMENTS],
 [AC_CACHE_CHECK(whether the compiler supports templates as template arguments,
 ac_cv_cxx_templates_as_template_arguments,

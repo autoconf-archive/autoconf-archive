@@ -25,7 +25,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_CXX_CPPFLAGS_STD_LANG], [AX_CXX_CPPFLAGS_STD_LANG])
 AC_DEFUN([AC_CXX_CPPFLAGS_STD_LANG],
   [AC_REQUIRE([AC_CXX_COMPILER_VENDOR])
    case "$ac_cv_cxx_compiler_vendor" in

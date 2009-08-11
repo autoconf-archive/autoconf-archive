@@ -31,7 +31,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AM_WITH_MPATROL], [AX_WITH_MPATROL])
 AC_DEFUN([AM_WITH_MPATROL], [
   # Firstly, determine if the mpatrol library should be used.
 

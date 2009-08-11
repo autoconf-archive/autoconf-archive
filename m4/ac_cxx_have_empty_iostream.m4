@@ -45,7 +45,6 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AU_ALIAS([AC_CXX_HAVE_EMPTY_IOSTREAM], [AX_CXX_HAVE_EMPTY_IOSTREAM])
 AC_DEFUN([AC_CXX_HAVE_EMPTY_IOSTREAM],
 [AC_CACHE_CHECK(whether the compiler allow empty iostream,
 ac_cv_cxx_have_empty_iostream,

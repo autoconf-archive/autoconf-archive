@@ -67,7 +67,6 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AU_ALIAS([AC_ARG_WITH_PATH_STYLE], [AX_ARG_WITH_PATH_STYLE])
 AC_DEFUN([AC_ARG_WITH_PATH_STYLE],
 [
  AC_ARG_WITH(path-style,

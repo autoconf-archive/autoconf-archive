@@ -40,7 +40,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_PROG_JAR], [AX_PROG_JAR])
 AC_DEFUN([AC_PROG_JAR],[
 AC_REQUIRE([AC_EXEEXT])dnl
 if test "x$JAVAPREFIX" = x; then

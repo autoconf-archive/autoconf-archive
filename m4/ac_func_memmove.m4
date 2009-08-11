@@ -23,7 +23,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_FUNC_MEMMOVE], [AX_FUNC_MEMMOVE])
 AC_DEFUN([AC_FUNC_MEMMOVE],
 [AC_CHECK_FUNCS(memmove)
 AC_MSG_CHECKING(for working memmove)

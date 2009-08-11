@@ -38,7 +38,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([MERK_SIP_DEVEL], [AX_SIP_DEVEL])
 AC_DEFUN([MERK_SIP_DEVEL],[
 #-- provice --with-sip=PATH command line argument
 AC_ARG_WITH([sip],

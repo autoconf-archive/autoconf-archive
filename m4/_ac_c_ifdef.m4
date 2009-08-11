@@ -23,7 +23,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([_AC_C_IFDEF], [AX_C_IFDEF])
 AC_DEFUN([_AC_C_IFDEF],
   [AC_COMPILE_IFELSE([#ifndef $1
                       # error "Macro $1 is undefined!"

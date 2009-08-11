@@ -22,7 +22,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_CXX_HEADER_STDCXX_TR1], [AX_CXX_HEADER_STDCXX_TR1])
 AC_DEFUN([AC_CXX_HEADER_STDCXX_TR1], [
   AC_CACHE_CHECK(for ISO C++ TR1 include files,
   ac_cv_cxx_stdcxx_tr1,

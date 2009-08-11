@@ -24,7 +24,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_PROG_JAVAH], [AX_PROG_JAVAH])
 AC_DEFUN([AC_PROG_JAVAH],[
 AC_REQUIRE([AC_CANONICAL_SYSTEM])dnl
 AC_REQUIRE([AC_PROG_CPP])dnl

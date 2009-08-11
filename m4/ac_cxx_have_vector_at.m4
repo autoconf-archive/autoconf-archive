@@ -23,7 +23,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_CXX_HAVE_VECTOR_AT], [AX_CXX_HAVE_VECTOR_AT])
 AC_DEFUN([AC_CXX_HAVE_VECTOR_AT],
 [AC_CACHE_CHECK(whether the compiler has std::vector::at (std::size_t),
 ac_cv_cxx_have_vector_at,

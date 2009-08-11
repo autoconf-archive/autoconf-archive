@@ -24,7 +24,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_LIBTOOLIZE_CFLAGS], [AX_LIBTOOLIZE_CFLAGS])
 AC_DEFUN([AC_LIBTOOLIZE_CFLAGS],
   [ac_libtoolize_ldflags_temp=""
    for i in $$1

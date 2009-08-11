@@ -53,7 +53,6 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AU_ALIAS([AC_PROTOTYPE_ACCEPT], [AX_PROTOTYPE_ACCEPT])
 AC_DEFUN([AC_PROTOTYPE_ACCEPT],[
 AC_PROTOTYPE(accept,
  [

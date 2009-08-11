@@ -31,7 +31,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_PERL_MODULE_VERSION], [AX_PERL_MODULE_VERSION])
 AC_DEFUN([AC_PERL_MODULE_VERSION],[dnl
 ac_perl_list_modules="$1"
 # Make sure we have perl

@@ -26,7 +26,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([VL_PROG_FIG2DEV], [AX_PROG_FIG2DEV])
 AC_DEFUN([VL_PROG_FIG2DEV], [
   AC_CHECK_PROG(FIG2DEV, fig2dev, fig2dev)
   if test "x$FIG2DEV" != "x"; then

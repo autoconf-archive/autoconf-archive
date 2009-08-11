@@ -47,7 +47,6 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AU_ALIAS([AC_CHECK_JAVA_HOME], [AX_CHECK_JAVA_HOME])
 AC_DEFUN([AC_CHECK_JAVA_HOME],[
 AC_REQUIRE([AC_EXEEXT])dnl
 TRY_JAVA_HOME=`ls -dr /usr/java/* 2> /dev/null | head -n 1`

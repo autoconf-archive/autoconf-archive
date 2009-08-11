@@ -56,7 +56,6 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AU_ALIAS([AC_FUNC_ACCEPT_ARGTYPES], [AX_FUNC_ACCEPT_ARGTYPES])
 AC_DEFUN([AC_FUNC_ACCEPT_ARGTYPES],
 [AC_MSG_CHECKING([types of arguments for accept()])
  AC_CACHE_VAL(ac_cv_func_accept_arg1,dnl

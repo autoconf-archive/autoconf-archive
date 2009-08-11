@@ -67,7 +67,6 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AU_ALIAS([AC_SYS_LARGEFILE_SENSITIVE], [AX_SYS_LARGEFILE_SENSITIVE])
 AC_DEFUN([AC_SYS_LARGEFILE_SENSITIVE],[dnl
 AC_REQUIRE([AC_SYS_LARGEFILE])dnl
 # we know about some internals of ac_sys_largefile here...

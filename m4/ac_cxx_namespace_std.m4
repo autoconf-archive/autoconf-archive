@@ -23,7 +23,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_CXX_NAMESPACE_STD], [AX_CXX_NAMESPACE_STD])
 AC_DEFUN([AC_CXX_NAMESPACE_STD], [
   AC_CACHE_CHECK(if g++ supports namespace std,
   ac_cv_cxx_have_std_namespace,

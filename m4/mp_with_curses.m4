@@ -62,7 +62,6 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AU_ALIAS([MP_WITH_CURSES], [AX_WITH_CURSES])
 AC_DEFUN([MP_WITH_CURSES],
   [AC_ARG_WITH(ncurses, [AC_HELP_STRING([--with-ncurses],
         [Force the use of ncurses over curses])],,)

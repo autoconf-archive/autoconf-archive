@@ -24,7 +24,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_CXX_RTTI], [AX_CXX_RTTI])
 AC_DEFUN([AC_CXX_RTTI],
 [AC_CACHE_CHECK(whether the compiler supports Run-Time Type Identification,
 ac_cv_cxx_rtti,

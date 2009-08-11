@@ -34,7 +34,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([ETR_STRING_STRCASECMP], [AX_STRING_STRCASECMP])
 AC_DEFUN([ETR_STRING_STRCASECMP],
 [
 AC_CACHE_CHECK([for strcasecmp() in string.h], ac_cv_string_strcasecmp, [

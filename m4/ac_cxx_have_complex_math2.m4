@@ -24,7 +24,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_CXX_HAVE_COMPLEX_MATH2], [AX_CXX_HAVE_COMPLEX_MATH2])
 AC_DEFUN([AC_CXX_HAVE_COMPLEX_MATH2],
 [AC_CACHE_CHECK(whether the compiler has more complex math functions,
 ac_cv_cxx_have_complex_math2,

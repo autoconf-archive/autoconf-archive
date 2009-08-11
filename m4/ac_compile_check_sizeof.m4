@@ -88,7 +88,6 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AU_ALIAS([AC_COMPILE_CHECK_SIZEOF], [AX_COMPILE_CHECK_SIZEOF])
 AC_DEFUN([AC_COMPILE_CHECK_SIZEOF],
 [changequote(<<, >>)dnl
 dnl The name to #define.

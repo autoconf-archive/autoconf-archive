@@ -30,7 +30,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_CHECK_MYSQLR], [AX_CHECK_MYSQLR])
 AC_DEFUN([AC_CHECK_MYSQLR],[
 AC_PATH_PROG(mysqlconfig,mysql_config)
 if test [ -z "$mysqlconfig" ]

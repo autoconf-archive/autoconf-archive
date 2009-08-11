@@ -26,7 +26,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_CXX_BOOL], [AX_CXX_BOOL])
 AC_DEFUN([AC_CXX_BOOL],
 [AC_CACHE_CHECK(whether the compiler recognizes bool as a built-in type,
 ac_cv_cxx_bool,

@@ -27,7 +27,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_CXX_OLD_FOR_SCOPING], [AX_CXX_OLD_FOR_SCOPING])
 AC_DEFUN([AC_CXX_OLD_FOR_SCOPING],
 [AC_CACHE_CHECK(whether the compiler accepts the old for scoping rules,
 ac_cv_cxx_old_for_scoping,

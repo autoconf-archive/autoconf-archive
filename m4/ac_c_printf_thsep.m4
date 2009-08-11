@@ -25,7 +25,6 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-AU_ALIAS([AC_C_PRINTF_THSEP], [AX_C_PRINTF_THSEP])
 AC_DEFUN([AC_C_PRINTF_THSEP],
 [AC_TRY_COMPILE(,[printf("%'2d",101);],ac_cv_c_printf_thsep=yes,ac_cv_c_printf_thsep=no)
  if test $ac_cv_c_printf_thsep = yes; then

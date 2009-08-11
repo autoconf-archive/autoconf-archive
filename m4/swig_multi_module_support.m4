@@ -51,7 +51,6 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AU_ALIAS([SWIG_MULTI_MODULE_SUPPORT], [AX_SWIG_MULTI_MODULE_SUPPORT])
 AC_DEFUN([SWIG_MULTI_MODULE_SUPPORT],[
         AC_REQUIRE([AC_PROG_SWIG])
         SWIG="$SWIG -noruntime"

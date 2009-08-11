@@ -47,7 +47,6 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AU_ALIAS([AC_LIB_WAD], [AX_LIB_WAD])
 AC_DEFUN([AC_LIB_WAD],
 [
         AC_REQUIRE([AC_PYTHON_DEVEL])
