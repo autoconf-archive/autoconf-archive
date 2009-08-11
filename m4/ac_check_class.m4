@@ -55,6 +55,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_CHECK_CLASS], [AX_CHECK_CLASS])
 AC_DEFUN([AC_CHECK_CLASS],[
 AC_REQUIRE([AC_PROG_JAVA])
 ac_var_name=`echo $1 | sed 's/\./_/g'`

@@ -83,6 +83,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_DEFINE_SUB_PATH], [AX_DEFINE_SUB_PATH])
 AC_DEFUN([AC_DEFINE_SUB_PATH],
 [dnl
   test "_$prefix" = _NONE && prefix="$ac_default_prefix"

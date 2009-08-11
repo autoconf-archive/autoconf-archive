@@ -25,6 +25,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_MUTABLE], [AX_CXX_MUTABLE])
 AC_DEFUN([AC_CXX_MUTABLE],
 [AC_CACHE_CHECK(whether the compiler supports the mutable keyword,
 ac_cv_cxx_mutable,

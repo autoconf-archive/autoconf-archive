@@ -52,6 +52,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_PKG_MICO], [AX_PKG_MICO])
 AC_DEFUN([AC_PKG_MICO],
 [
 #

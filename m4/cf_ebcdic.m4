@@ -49,6 +49,7 @@
 #   exception to the GPL to apply to your modified version as well.
 
 dnl Check whether character set is EBCDIC.
+AU_ALIAS([CF_EBCDIC], [AX_CF_EBCDIC])
 AC_DEFUN([CF_EBCDIC],[
 AC_MSG_CHECKING(if character set is EBCDIC)
 AC_CACHE_VAL(cf_cv_ebcdic,[

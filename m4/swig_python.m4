@@ -56,6 +56,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([SWIG_PYTHON], [AX_PYTHON])
 AC_DEFUN([SWIG_PYTHON],[
         AC_REQUIRE([AC_PROG_SWIG])
         AC_REQUIRE([AC_PYTHON_DEVEL])

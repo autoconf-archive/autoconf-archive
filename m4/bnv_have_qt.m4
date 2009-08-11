@@ -119,6 +119,7 @@ dnl             * Hide output of failing ls.
 dnl 2008-04-12: * Check in /Developer on Mac OS X; Check in $QTDIR (due to Brian Mingus).
 
 dnl Calls BNV_PATH_QT_DIRECT (contained in this file) as a subroutine.
+AU_ALIAS([BNV_HAVE_QT], [AX_HAVE_QT])
 AC_DEFUN([BNV_HAVE_QT],
 [
   AC_REQUIRE([AC_PROG_CXX])

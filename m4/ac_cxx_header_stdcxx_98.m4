@@ -22,6 +22,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_HEADER_STDCXX_98], [AX_CXX_HEADER_STDCXX_98])
 AC_DEFUN([AC_CXX_HEADER_STDCXX_98], [
   AC_CACHE_CHECK(for ISO C++ 98 include files,
   ac_cv_cxx_stdcxx_98,

@@ -24,6 +24,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_NAMESPACES], [AX_CXX_NAMESPACES])
 AC_DEFUN([AC_CXX_NAMESPACES],
 [AC_CACHE_CHECK(whether the compiler implements namespaces,
 ac_cv_cxx_namespaces,

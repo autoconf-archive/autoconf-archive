@@ -46,6 +46,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_CHECK_SYMBOL], [AX_CHECK_SYMBOL])
 AC_DEFUN([AC_CHECK_SYMBOL],
 [AC_MSG_CHECKING([for $1 in $2])
 AC_CACHE_VAL(ac_cv_func_$1,

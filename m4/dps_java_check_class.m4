@@ -53,6 +53,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([DPS_JAVA_CHECK_CLASS], [AX_JAVA_CHECK_CLASS])
 AC_DEFUN([DPS_JAVA_CHECK_CLASS],[
 m4_define([cache_val],[m4_translit(dps_cv_have_java_class_$1, " ." ,"__")])
 if test "x$CLASSPATH" != "x"; then

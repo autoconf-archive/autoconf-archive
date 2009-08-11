@@ -23,6 +23,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_COMPILE_STDCXX_0X], [AX_CXX_COMPILE_STDCXX_0X])
 AC_DEFUN([AC_CXX_COMPILE_STDCXX_0X], [
   AC_CACHE_CHECK(if g++ supports C++0x features without additional flags,
   ac_cv_cxx_compile_cxx0x_native,

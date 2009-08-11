@@ -61,6 +61,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([VL_LIB_READLINE], [AX_LIB_READLINE])
 AC_DEFUN([VL_LIB_READLINE], [
   AC_CACHE_CHECK([for a readline compatible library],
                  vl_cv_lib_readline, [

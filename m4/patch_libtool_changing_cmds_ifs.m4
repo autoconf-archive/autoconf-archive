@@ -76,6 +76,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([PATCH_LIBTOOL_CHANGING_CMDS_IFS], [AX_PATCH_LIBTOOL_CHANGING_CMDS_IFS])
 AC_DEFUN([PATCH_LIBTOOL_CHANGING_CMDS_IFS],
 [# patch libtool to change $_cmds IFS from ~ to ? character
 if grep "^[[_$as_cr_letters]]_cmds=.*[[?]]" libtool >/dev/null; then

@@ -26,6 +26,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_COMPILER_VENDOR], [AX_CXX_COMPILER_VENDOR])
 AC_DEFUN([AC_CXX_COMPILER_VENDOR],
   [AC_REQUIRE([AC_PROG_CXX])
    AC_REQUIRE([AC_PROG_CXXCPP])

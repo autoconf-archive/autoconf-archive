@@ -23,6 +23,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_PARTIAL_ORDERING], [AX_CXX_PARTIAL_ORDERING])
 AC_DEFUN([AC_CXX_PARTIAL_ORDERING],
 [AC_CACHE_CHECK(whether the compiler supports partial ordering,
 ac_cv_cxx_partial_ordering,

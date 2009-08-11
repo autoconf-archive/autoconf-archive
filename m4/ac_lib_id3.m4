@@ -39,6 +39,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_LIB_ID3], [AX_LIB_ID3])
 AC_DEFUN([AC_LIB_ID3], [
   AH_TEMPLATE([HAVE_ID3LIB], [Define if id3lib is available])
   AC_ARG_WITH(id3lib, [  --with-id3lib=DIR       prefix for id3 library files and headers], [

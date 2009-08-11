@@ -113,6 +113,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([KLM_SYS_WEAK_ALIAS], [AX_SYS_WEAK_ALIAS])
 AC_DEFUN([KLM_SYS_WEAK_ALIAS], [
   # starting point: no aliasing scheme yet...
   klm_sys_weak_alias=no

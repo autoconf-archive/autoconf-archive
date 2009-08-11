@@ -23,6 +23,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_DYNAMIC_CAST], [AX_CXX_DYNAMIC_CAST])
 AC_DEFUN([AC_CXX_DYNAMIC_CAST],
 [AC_CACHE_CHECK(whether the compiler supports dynamic_cast<>,
 ac_cv_cxx_dynamic_cast,

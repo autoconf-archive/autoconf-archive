@@ -31,6 +31,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([LIB_SOCKET_NSL], [AX_LIB_SOCKET_NSL])
 AC_DEFUN([LIB_SOCKET_NSL],
 [
 	AC_SEARCH_LIBS([gethostbyname], [nsl])

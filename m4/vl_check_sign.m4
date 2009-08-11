@@ -38,6 +38,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([VL_CHECK_SIGN], [AX_CHECK_SIGN])
 AC_DEFUN([VL_CHECK_SIGN], [
  typename=`echo $1 | sed "s/@<:@^a-zA-Z0-9_@:>@/_/g"`
  AC_CACHE_CHECK([whether $1 is signed], vl_cv_decl_${typename}_signed, [

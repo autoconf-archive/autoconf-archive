@@ -81,6 +81,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_NUMERIC_NAMEDLEVEL], [AX_NUMERIC_NAMEDLEVEL])
 AC_DEFUN([AC_NUMERIC_NAMEDLEVEL],
 [dnl the names to be defined...
 $1="ifelse($1,,[$]$2,[$]$1)" ; $1="[$]$1"

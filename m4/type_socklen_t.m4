@@ -46,6 +46,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([TYPE_SOCKLEN_T], [AX_TYPE_SOCKLEN_T])
 AC_DEFUN([TYPE_SOCKLEN_T],
 [AC_CACHE_CHECK([for socklen_t], ac_cv_type_socklen_t,
 [

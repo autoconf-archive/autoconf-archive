@@ -24,6 +24,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_TEMPLATE_QUALIFIED_BASE_CLASS], [AX_CXX_TEMPLATE_QUALIFIED_BASE_CLASS])
 AC_DEFUN([AC_CXX_TEMPLATE_QUALIFIED_BASE_CLASS],
 [AC_CACHE_CHECK(whether the compiler supports template-qualified base class specifiers,
 ac_cv_cxx_template_qualified_base_class,

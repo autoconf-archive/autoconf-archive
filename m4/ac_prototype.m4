@@ -118,6 +118,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_PROTOTYPE], [AX_PROTOTYPE])
 AC_DEFUN([AC_PROTOTYPE],[
 dnl
 dnl Upper case function name

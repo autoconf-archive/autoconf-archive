@@ -80,6 +80,7 @@
 # COMPILER ... is a space separated list of java compilers to search for.
 # This just gives the user an opportunity to specify an alternative
 # search list for the java compiler.
+AU_ALIAS([AC_PROG_JAVA_CC], [AX_PROG_JAVA_CC])
 AC_DEFUN([AC_PROG_JAVA_CC],
 [AC_ARG_VAR([JAVA_CC],                [java compiler command])dnl
 AC_ARG_VAR([JAVA_CC_FLAGS],           [java compiler flags])dnl

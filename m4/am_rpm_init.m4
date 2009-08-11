@@ -182,6 +182,7 @@ dnl AM_RPM_INIT
 dnl Figure out how to create rpms for this system and setup for an
 dnl automake target
 
+AU_ALIAS([AM_RPM_INIT], [AX_RPM_INIT])
 AC_DEFUN([AM_RPM_INIT],
 [dnl
 AC_REQUIRE([AC_CANONICAL_HOST])

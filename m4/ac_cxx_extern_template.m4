@@ -22,6 +22,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_EXTERN_TEMPLATE], [AX_CXX_EXTERN_TEMPLATE])
 AC_DEFUN([AC_CXX_EXTERN_TEMPLATE],[
 AC_CACHE_CHECK(whether the compiler supports extern template,
 ac_cv_cxx_extern_template,

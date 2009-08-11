@@ -25,6 +25,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([VL_DECL_WCHAR_MAX], [AX_DECL_WCHAR_MAX])
 AC_DEFUN([VL_DECL_WCHAR_MAX], [
   AC_CACHE_CHECK([whether WCHAR_MAX is defined], vl_cv_decl_wchar_max, [
     AC_TRY_COMPILE([

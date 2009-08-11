@@ -23,6 +23,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_TEMPLATES], [AX_CXX_TEMPLATES])
 AC_DEFUN([AC_CXX_TEMPLATES],
 [AC_CACHE_CHECK(whether the compiler supports basic templates,
 ac_cv_cxx_templates,

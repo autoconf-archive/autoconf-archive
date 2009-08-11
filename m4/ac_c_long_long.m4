@@ -23,6 +23,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_C_LONG_LONG], [AX_C_LONG_LONG])
 AC_DEFUN([AC_C_LONG_LONG],
 [AC_CACHE_CHECK(for long long int, ac_cv_c_long_long,
 [if test "$GCC" = yes; then

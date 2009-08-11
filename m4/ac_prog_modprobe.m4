@@ -27,6 +27,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_PROG_MODPROBE], [AX_PROG_MODPROBE])
 AC_DEFUN([AC_PROG_MODPROBE],[
 AC_PATH_PROG(MODPROBE, modprobe, , $PATH:/sbin)
 if test -z "$MODPROBE"; then

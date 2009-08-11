@@ -73,6 +73,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_PROG_APACHE], [AX_PROG_APACHE])
 AC_DEFUN([AC_PROG_APACHE],
 #
 # Handle user hints

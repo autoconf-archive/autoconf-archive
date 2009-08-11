@@ -49,6 +49,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_SUBDIR_FILES], [AX_SUBDIR_FILES])
 AC_DEFUN([AC_SUBDIR_FILES],
 [AC_BEFORE($0,[AC_PROG_CP_S])
   for ac_subdir in ifelse([$1], , *, $1) ; do

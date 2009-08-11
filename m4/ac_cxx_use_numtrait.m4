@@ -24,6 +24,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_USE_NUMTRAIT], [AX_CXX_USE_NUMTRAIT])
 AC_DEFUN([AC_CXX_USE_NUMTRAIT],
 [AC_CACHE_CHECK(whether the compiler supports numeric traits promotions,
 ac_cv_cxx_use_numtrait,

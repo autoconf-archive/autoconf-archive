@@ -52,6 +52,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_C_BIGENDIAN_CROSS], [AX_C_BIGENDIAN_CROSS])
 AC_DEFUN([AC_C_BIGENDIAN_CROSS],
 [AC_CACHE_CHECK(whether byte ordering is bigendian, ac_cv_c_bigendian,
 [ac_cv_c_bigendian=unknown

@@ -35,6 +35,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AG_CHECK_STRCSPN], [AX_CHECK_STRCSPN])
 AC_DEFUN([AG_CHECK_STRCSPN],[
   AC_MSG_CHECKING([whether strcspn matches prototype and works])
   AC_CACHE_VAL([ag_cv_strcspn],[

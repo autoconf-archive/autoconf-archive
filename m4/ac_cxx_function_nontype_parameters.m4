@@ -24,6 +24,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_FUNCTION_NONTYPE_PARAMETERS], [AX_CXX_FUNCTION_NONTYPE_PARAMETERS])
 AC_DEFUN([AC_CXX_FUNCTION_NONTYPE_PARAMETERS],
 [AC_CACHE_CHECK(whether the compiler supports function templates with non-type parameters,
 ac_cv_cxx_function_nontype_parameters,

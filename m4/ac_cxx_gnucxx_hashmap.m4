@@ -22,6 +22,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_GNUCXX_HASHMAP], [AX_CXX_GNUCXX_HASHMAP])
 AC_DEFUN([AC_CXX_GNUCXX_HASHMAP],[
 AC_CACHE_CHECK(whether the compiler supports __gnu_cxx::hash_map,
 ac_cv_cxx_gnucxx_hashmap,

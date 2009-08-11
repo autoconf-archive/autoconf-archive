@@ -23,6 +23,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_STATIC_CAST], [AX_CXX_STATIC_CAST])
 AC_DEFUN([AC_CXX_STATIC_CAST],
 [AC_CACHE_CHECK(whether the compiler supports static_cast<>,
 ac_cv_cxx_static_cast,

@@ -26,6 +26,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([ETR_SHORT_SLEEP], [AX_SHORT_SLEEP])
 AC_DEFUN([ETR_SHORT_SLEEP],
 [
         AC_MSG_CHECKING([for nap() in libc])
