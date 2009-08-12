@@ -50,7 +50,7 @@
 
 AC_DEFUN([AX_PROG_HLA],[
 AC_CHECK_PROGS(hla,[hla],no)
-if test hla = "no" ;
+if test "x$hla" = "xno" ;
 then
 	ifelse($#,0,[AC_MSG_ERROR([HLA assembler not found])],
         $1)

@@ -49,8 +49,8 @@
 #   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_PROG_TASM],[
-AC_CHECK_PROGS(tasm,[tasm tasm32],no)
-if test $tasm = "no" ;
+AC_CHECK_PROGS(tasm,[tasm tasm32 tasmx],no)
+if test "x$tasm" = "xno" ;
 then
 	ifelse($#,0,[AC_MSG_ERROR([TASM assembler not found])],
         $1)

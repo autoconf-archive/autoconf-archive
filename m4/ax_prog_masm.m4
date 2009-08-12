@@ -50,7 +50,7 @@
 
 AC_DEFUN([AX_PROG_MASM],[
 AC_CHECK_PROGS(masm,[ml masm ml32 ml64 masm32],no)
-if test $masm = "no" ;
+if test "x$masm" = "xno" ;
 then
 	ifelse($#,0,[AC_MSG_ERROR([MASM assembler not found])],
         $1)

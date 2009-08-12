@@ -50,7 +50,7 @@
 
 AC_DEFUN([AX_PROG_FASM],[
 AC_CHECK_PROGS(fasm,[fasm],no)
-if test $fasm = "no" ;
+if test "x$fasm" = "xno" ;
 then
 	ifelse($#,0,[AC_MSG_ERROR([FASM assembler not found])],
         $1)

@@ -49,8 +49,8 @@
 #   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_PROG_NASM],[
-AC_CHECK_PROGS(nasm,[nasm],no)
-if test $nasm = "no" ;
+AC_CHECK_PROGS(nasm,[nasm nasmw],no)
+if test "x$nasm" = "xno" ;
 then
 	ifelse($#,0,[AC_MSG_ERROR([NASM assembler not found])],
         $1)

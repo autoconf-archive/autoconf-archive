@@ -50,7 +50,7 @@
 
 AC_DEFUN([AX_PROG_YASM],[
 AC_CHECK_PROGS(yasm,[yasm],no)
-if test $yasm = "no" ;
+if test "x$yasm" = "xno" ;
 then
 	ifelse($#,0,[AC_MSG_ERROR([YASM assembler not found])],
         $1)
