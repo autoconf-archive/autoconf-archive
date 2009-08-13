@@ -20,6 +20,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([ETR_SYSV_IPC], [AX_SYSV_IPC])
 AC_DEFUN([AX_SYSV_IPC],
 [
 AC_CACHE_CHECK([for System V IPC headers], ac_cv_sysv_ipc, [

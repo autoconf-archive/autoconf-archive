@@ -71,6 +71,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([ADL_COMPUTE_STANDARD_RELATIVE_PATHS], [AX_COMPUTE_STANDARD_RELATIVE_PATHS])
 AC_DEFUN([AX_COMPUTE_STANDARD_RELATIVE_PATHS],
 ## These calls need to be on separate lines for aclocal to work!
 [AX_COMPUTE_RELATIVE_PATHS(dnl

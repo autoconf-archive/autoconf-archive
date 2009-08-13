@@ -34,6 +34,7 @@ dnl with or without modifications, as long as this notice is preserved.
 dnl From Derek Price.
 dnl Modified by Rhys Ulerich to use AC_CHECK_HEADERS instead of _ONCE
 
+AU_ALIAS([GL_TRILINOS_ABSOLUTE_HEADER], [AX_ABSOLUTE_HEADER])
 AC_DEFUN([AX_ABSOLUTE_HEADER],
 [AC_LANG_PREPROC_REQUIRE()dnl
 AC_FOREACH([gl_HEADER_NAME], [$1],

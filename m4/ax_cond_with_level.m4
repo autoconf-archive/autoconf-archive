@@ -63,6 +63,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_COND_WITH_LEVEL], [AX_COND_WITH_LEVEL])
 AC_DEFUN([AX_COND_WITH_LEVEL],
 [dnl the names to be defined...
 pushdef([WITH_VAR],    patsubst(with_$1, -, _))dnl

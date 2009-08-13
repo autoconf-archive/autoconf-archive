@@ -50,6 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_PROG_MYSQLSHOW], [AX_PROG_MYSQLSHOW])
 AC_DEFUN([AX_PROG_MYSQLSHOW],[
 AC_REQUIRE([AC_EXEEXT])dnl
 AC_PATH_PROG(MYSQLSHOW, mysqlshow$EXEEXT, nocommand)

@@ -53,6 +53,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([ACX_F77_CMAIN_FFLAGS], [AX_F77_CMAIN_FFLAGS])
 AC_DEFUN([AX_F77_CMAIN_FFLAGS],
 [AC_CACHE_CHECK([for f77 flags to use C main function], ax_cv_f77_cmain_fflags,
 [ax_cv_f77_cmain_fflags="unknown"

@@ -37,6 +37,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_PROG_JAVADOC], [AX_PROG_JAVADOC])
 AC_DEFUN([AX_PROG_JAVADOC],[
 AC_REQUIRE([AC_EXEEXT])dnl
 if test "x$JAVAPREFIX" = x; then

@@ -20,6 +20,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AG_CHECK_POSIX_REGCOMP], [AX_CHECK_POSIX_REGCOMP])
 AC_DEFUN([AX_CHECK_POSIX_REGCOMP],[
   AC_MSG_CHECKING([whether POSIX compliant regcomp()/regexec()])
   AC_CACHE_VAL([ax_cv_posix_regcomp],[

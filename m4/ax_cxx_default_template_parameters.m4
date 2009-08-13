@@ -20,6 +20,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_DEFAULT_TEMPLATE_PARAMETERS], [AX_CXX_DEFAULT_TEMPLATE_PARAMETERS])
 AC_DEFUN([AX_CXX_DEFAULT_TEMPLATE_PARAMETERS],
 [AC_CACHE_CHECK(whether the compiler supports default template parameters,
 ax_cv_cxx_default_template_parameters,

@@ -50,6 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_CHECK_RQRD_CLASS], [AX_CHECK_RQRD_CLASS])
 AC_DEFUN([AX_CHECK_RQRD_CLASS],[
 CLASS=`echo $1|sed 's/\./_/g'`
 AC_CHECK_CLASS($1)

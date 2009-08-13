@@ -20,6 +20,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_ENUM_COMPUTATIONS], [AX_CXX_ENUM_COMPUTATIONS])
 AC_DEFUN([AX_CXX_ENUM_COMPUTATIONS],
 [AC_CACHE_CHECK(whether the compiler handle computations inside an enum,
 ax_cv_cxx_enum_computations,

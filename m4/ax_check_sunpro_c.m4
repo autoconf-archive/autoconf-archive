@@ -20,6 +20,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([RSSH_CHECK_SUNPRO_C], [AX_CHECK_SUNPRO_C])
 AC_DEFUN([AX_CHECK_SUNPRO_C],
 [AC_CACHE_CHECK([whether using Sun Worckshop C compiler],
                 [ax_cv_check_sunpro_c],

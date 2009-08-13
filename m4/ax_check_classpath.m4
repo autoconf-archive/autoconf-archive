@@ -48,6 +48,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_CHECK_CLASSPATH], [AX_CHECK_CLASSPATH])
 AC_DEFUN([AX_CHECK_CLASSPATH],[
 if test "x$CLASSPATH" = x; then
         echo "You have no CLASSPATH, I hope it is good"

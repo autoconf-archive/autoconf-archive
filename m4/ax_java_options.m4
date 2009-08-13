@@ -26,6 +26,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_JAVA_OPTIONS], [AX_JAVA_OPTIONS])
 AC_DEFUN([AX_JAVA_OPTIONS],[
 AC_ARG_WITH(java-prefix,
                         [  --with-java-prefix=PFX  prefix where Java runtime is installed (optional)])

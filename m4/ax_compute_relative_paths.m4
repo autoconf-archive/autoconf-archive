@@ -65,6 +65,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([ADL_COMPUTE_RELATIVE_PATHS], [AX_COMPUTE_RELATIVE_PATHS])
 AC_DEFUN([AX_COMPUTE_RELATIVE_PATHS],
 [for _lcl_i in $1; do
   _lcl_from=\[$]`echo "[$]_lcl_i" | sed 's,:.*$,,'`

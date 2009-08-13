@@ -23,6 +23,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_LDFLAGS_STD_LANG], [AX_CXX_LDFLAGS_STD_LANG])
 AC_DEFUN([AX_CXX_LDFLAGS_STD_LANG],
   [AC_REQUIRE([AX_CXX_COMPILER_VENDOR])
    case "$ax_cv_cxx_compiler_vendor" in

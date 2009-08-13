@@ -31,6 +31,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([CHECK_SSL], [AX_CHECK_OPENSSL])
 AC_DEFUN([AX_CHECK_OPENSSL], [
     found=false
     AC_ARG_WITH(openssl,

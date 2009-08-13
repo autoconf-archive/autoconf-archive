@@ -18,6 +18,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AG_CHECK_ALLOCATED_CTIME], [AX_CHECK_ALLOCATED_CTIME])
 AC_DEFUN([AX_CHECK_ALLOCATED_CTIME],[
   AC_MSG_CHECKING([whether ctime() allocates memory for its result])
   AC_CACHE_VAL([ax_cv_allocated_ctime],[

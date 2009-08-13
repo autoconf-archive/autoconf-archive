@@ -43,6 +43,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_DEFINE_INTEGER_BITS], [AX_DEFINE_INTEGER_BITS])
 AC_DEFUN([AX_DEFINE_INTEGER_BITS],
 [m4_define([ac_datatype_bits], [m4_translit($1, [a-zA-Z_])])
 m4_define([ac_datatype_bytes], [m4_eval(ac_datatype_bits/8)])

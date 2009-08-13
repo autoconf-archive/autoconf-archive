@@ -20,6 +20,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_FULL_SPECIALIZATION_SYNTAX], [AX_CXX_FULL_SPECIALIZATION_SYNTAX])
 AC_DEFUN([AX_CXX_FULL_SPECIALIZATION_SYNTAX],
 [AC_CACHE_CHECK(whether the compiler recognizes the full specialization syntax,
 ax_cv_cxx_full_specialization_syntax,

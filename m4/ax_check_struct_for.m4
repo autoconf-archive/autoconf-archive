@@ -18,6 +18,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CHECK_STRUCT_FOR], [AX_CHECK_STRUCT_FOR])
 AC_DEFUN([AX_CHECK_STRUCT_FOR],[
 ac_safe_struct=`echo "$2" | sed 'y%./+-%__p_%'`
 ac_safe_member=`echo "$3" | sed 'y%./+-%__p_%'`

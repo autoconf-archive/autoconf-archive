@@ -33,6 +33,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([SG_AFS], [AX_AFS])
 AC_DEFUN([AX_AFS],
 [AC_ARG_WITH(afsdir, AC_HELP_STRING([--with-afsdir=DIR],
                                       [Directory holding AFS includes/libs]),

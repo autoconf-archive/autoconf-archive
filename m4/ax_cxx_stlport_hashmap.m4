@@ -18,6 +18,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_STLPORT_HASHMAP], [AX_CXX_STLPORT_HASHMAP])
 AC_DEFUN([AX_CXX_STLPORT_HASHMAP],[
 AC_CACHE_CHECK(whether the compiler supports std::hash_map,
 ax_cv_cxx_stlport_hashmap,

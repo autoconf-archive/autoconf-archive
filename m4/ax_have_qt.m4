@@ -88,6 +88,7 @@
 #   and this notice are preserved.
 
 dnl Calls AX_PATH_QT_DIRECT (contained in this file) as a subroutine.
+AU_ALIAS([BNV_HAVE_QT], [AX_HAVE_QT])
 AC_DEFUN([AX_HAVE_QT],
 [
   AC_REQUIRE([AC_PROG_CXX])

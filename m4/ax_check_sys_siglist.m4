@@ -18,6 +18,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AG_CHECK_SYS_SIGLIST], [AX_CHECK_SYS_SIGLIST])
 AC_DEFUN([AX_CHECK_SYS_SIGLIST],[
   AC_MSG_CHECKING([whether there is a global text array sys_siglist])
   AC_CACHE_VAL([ax_cv_sys_siglist],[

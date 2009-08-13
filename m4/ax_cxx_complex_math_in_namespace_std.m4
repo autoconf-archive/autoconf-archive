@@ -20,6 +20,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_COMPLEX_MATH_IN_NAMESPACE_STD], [AX_CXX_COMPLEX_MATH_IN_NAMESPACE_STD])
 AC_DEFUN([AX_CXX_COMPLEX_MATH_IN_NAMESPACE_STD],
 [AC_CACHE_CHECK(whether complex math functions are in std::,
 ac_cx_cxx_complex_math_in_namespace_std,

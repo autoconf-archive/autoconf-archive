@@ -19,6 +19,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_HEADER_TR1_UNORDERED_MAP], [AX_CXX_HEADER_TR1_UNORDERED_MAP])
 AC_DEFUN([AX_CXX_HEADER_TR1_UNORDERED_MAP], [
   AC_CACHE_CHECK(for tr1/unordered_map,
   ax_cv_cxx_tr1_unordered_map,

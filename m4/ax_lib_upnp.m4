@@ -34,6 +34,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_LIB_UPNP], [AX_LIB_UPNP])
 AC_DEFUN([AX_LIB_UPNP], [
   AH_TEMPLATE([HAVE_LIBUPNP], [Define if libupnp is available])
   AC_ARG_WITH(libupnp, [  --with-libupnp=DIR      prefix for upnp library files and headers], [

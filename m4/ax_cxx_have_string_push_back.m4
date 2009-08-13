@@ -19,6 +19,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_HAVE_STRING_PUSH_BACK], [AX_CXX_HAVE_STRING_PUSH_BACK])
 AC_DEFUN([AX_CXX_HAVE_STRING_PUSH_BACK],
 [AC_CACHE_CHECK(whether the compiler has std::string::push_back (char),
 ax_cv_cxx_have_string_push_back,

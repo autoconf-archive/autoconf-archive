@@ -22,6 +22,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_DTOR_AFTER_ATEXIT], [AX_CXX_DTOR_AFTER_ATEXIT])
 AC_DEFUN([AX_CXX_DTOR_AFTER_ATEXIT],
 [AC_CACHE_CHECK(whether the compiler calls global destructors after functions registered through atexit,
 ax_cv_cxx_dtor_after_atexit,

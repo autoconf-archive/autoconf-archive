@@ -18,6 +18,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CHECK_ICU], [AX_CHECK_ICU])
 AC_DEFUN([AX_CHECK_ICU], [
   succeeded=no
 

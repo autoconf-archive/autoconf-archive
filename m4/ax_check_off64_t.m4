@@ -20,6 +20,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([RSSH_CHECK_OFF64_T], [AX_CHECK_OFF64_T])
 AC_DEFUN([AX_CHECK_OFF64_T], [
 AC_REQUIRE([AC_SYS_LARGEFILE])dnl
 AC_CHECK_HEADER(unistd.h)

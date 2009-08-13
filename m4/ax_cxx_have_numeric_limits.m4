@@ -19,6 +19,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_HAVE_NUMERIC_LIMITS], [AX_CXX_HAVE_NUMERIC_LIMITS])
 AC_DEFUN([AX_CXX_HAVE_NUMERIC_LIMITS],
 [AC_CACHE_CHECK(whether the compiler has numeric_limits<T>,
 ax_cv_cxx_have_numeric_limits,

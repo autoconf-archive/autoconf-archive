@@ -20,6 +20,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_PYTHON_MODULE], [AX_PYTHON_MODULE])
 AC_DEFUN([AX_PYTHON_MODULE],[
     if test -z $PYTHON;
     then

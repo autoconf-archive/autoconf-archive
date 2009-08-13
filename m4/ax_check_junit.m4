@@ -44,6 +44,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CHECK_JUNIT], [AX_CHECK_JUNIT])
 AC_DEFUN([AX_CHECK_JUNIT],[
 AC_CACHE_VAL(ac_cv_prog_JUNIT,[
 AC_CHECK_CLASS(junit.textui.TestRunner)

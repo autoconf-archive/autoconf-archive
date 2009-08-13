@@ -18,6 +18,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AG_CHECK_UNAME_SYSCALL], [AX_CHECK_UNAME_SYSCALL])
 AC_DEFUN([AX_CHECK_UNAME_SYSCALL],[
   AC_MSG_CHECKING([whether uname(2) is POSIX])
   AC_CACHE_VAL([ax_cv_uname_syscall],[

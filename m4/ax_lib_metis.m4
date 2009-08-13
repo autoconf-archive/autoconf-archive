@@ -31,6 +31,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([IMMDX_LIB_METIS], [AX_LIB_METIS])
 AC_DEFUN([AX_LIB_METIS], [
 	AC_MSG_CHECKING(for METIS library)
 	AC_REQUIRE([AC_PROG_CC])

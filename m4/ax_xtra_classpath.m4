@@ -42,6 +42,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([DPS_XTRA_CLASSPATH], [AX_XTRA_CLASSPATH])
 AC_DEFUN([AX_XTRA_CLASSPATH],[
 AC_CHECK_PROG(SED, sed)
 AX_JAVA_CHECK_CLASS([$2],[got="yes"],[got="no"])

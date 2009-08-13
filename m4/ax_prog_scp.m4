@@ -46,6 +46,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_PROG_SCP], [AX_PROG_SCP])
 AC_DEFUN([AX_PROG_SCP],[
 AC_REQUIRE([AC_EXEEXT])dnl
 AC_PATH_PROG(SCP, scp$EXEEXT, nocommand)

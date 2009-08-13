@@ -42,6 +42,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_JNI_INCLUDE_DIR], [AX_JNI_INCLUDE_DIR])
 AC_DEFUN([AX_JNI_INCLUDE_DIR],[
 
 JNI_INCLUDE_DIRS=""

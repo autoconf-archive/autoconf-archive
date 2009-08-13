@@ -19,6 +19,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AG_CHECK_POSIX_SYSINFO], [AX_CHECK_POSIX_SYSINFO])
 AC_DEFUN([AX_CHECK_POSIX_SYSINFO],[
   AC_MSG_CHECKING([whether sysinfo(2) is POSIX])
   AC_CACHE_VAL([ax_cv_posix_sysinfo],[

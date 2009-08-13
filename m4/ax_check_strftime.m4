@@ -18,6 +18,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AG_CHECK_STRFTIME], [AX_CHECK_STRFTIME])
 AC_DEFUN([AX_CHECK_STRFTIME],[
   AC_MSG_CHECKING([whether strftime() works])
   AC_CACHE_VAL([ax_cv_strftime],[

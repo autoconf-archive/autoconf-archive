@@ -29,6 +29,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CHECK_TAGLIB], [AX_LIB_TAGLIB])
 AC_DEFUN([AX_LIB_TAGLIB], [
   AX_PATH_GENERIC([taglib],[$1],,[$2],[$3])
 ])

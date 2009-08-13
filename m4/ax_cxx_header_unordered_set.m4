@@ -19,6 +19,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_HEADER_UNORDERED_SET], [AX_CXX_HEADER_UNORDERED_SET])
 AC_DEFUN([AX_CXX_HEADER_UNORDERED_SET], [
   AC_CACHE_CHECK(for unordered_set,
   ax_cv_cxx_unordered_set,

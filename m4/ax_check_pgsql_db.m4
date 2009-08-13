@@ -73,6 +73,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([MS_CHECK_PGSQL_DB], [AX_CHECK_PGSQL_DB])
 AC_DEFUN([AX_CHECK_PGSQL_DB], [
 AC_REQUIRE([AX_PROG_PGCLIENT])
 AC_MSG_CHECKING([for PostgreSQL db $1 (user: $2, host: $3)])

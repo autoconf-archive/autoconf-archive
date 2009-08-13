@@ -20,6 +20,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION], [AX_CXX_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION])
 AC_DEFUN([AX_CXX_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION],
 [AC_CACHE_CHECK(whether the compiler supports explicit template function qualification,
 ax_cv_cxx_explicit_template_function_qualification,

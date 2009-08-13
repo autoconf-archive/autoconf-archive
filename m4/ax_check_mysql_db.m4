@@ -51,6 +51,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_CHECK_MYSQL_DB], [AX_CHECK_MYSQL_DB])
 AC_DEFUN([AX_CHECK_MYSQL_DB],[
 AC_REQUIRE([AX_PROG_MYSQLSHOW])dnl
 AC_MSG_CHECKING([for MySQL db $2])

@@ -19,6 +19,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_CONST_CAST], [AX_CXX_CONST_CAST])
 AC_DEFUN([AX_CXX_CONST_CAST],
 [AC_CACHE_CHECK(whether the compiler supports const_cast<>,
 ax_cv_cxx_const_cast,

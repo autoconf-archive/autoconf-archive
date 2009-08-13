@@ -28,6 +28,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_TRY_COMPILE_JAVA], [AX_TRY_COMPILE_JAVA])
 AC_DEFUN([AX_TRY_COMPILE_JAVA],[
 AC_REQUIRE([AX_PROG_JAVAC])dnl
 cat << \EOF > Test.java

@@ -55,6 +55,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_CHECK_USER], [AX_CHECK_USER])
 AC_DEFUN([AX_CHECK_USER],[
 AC_MSG_CHECKING([for user $2])
 if grep ^$2: /etc/passwd > /dev/null; then

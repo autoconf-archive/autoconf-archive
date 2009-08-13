@@ -25,6 +25,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([ETR_STRUCT_SEMUN], [AX_STRUCT_SEMUN])
 AC_DEFUN([AX_STRUCT_SEMUN],
 [
 AC_CACHE_CHECK([for struct semun], ac_cv_struct_semun, [

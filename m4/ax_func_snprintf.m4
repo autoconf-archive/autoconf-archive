@@ -23,6 +23,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_FUNC_SNPRINTF], [AX_FUNC_SNPRINTF])
 AC_DEFUN([AX_FUNC_SNPRINTF],
 [AC_CHECK_FUNCS(snprintf vsnprintf)
 AC_MSG_CHECKING(for working snprintf)

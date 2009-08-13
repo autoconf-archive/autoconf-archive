@@ -56,6 +56,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_PROG_CP_S], [AX_PROG_CP_S])
 AC_DEFUN([AX_PROG_CP_S],
 [AC_REQUIRE([AC_PROG_LN_S])dnl
 AC_MSG_CHECKING(whether cp -s works)

@@ -50,6 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_CXX_HAVE_EXT_HASH_SET], [AX_CXX_HAVE_EXT_HASH_SET])
 AC_DEFUN([AX_CXX_HAVE_EXT_HASH_SET],
 [AC_CACHE_CHECK(whether the compiler has ext/hash_set,
 ax_cv_cxx_have_ext_hash_set,

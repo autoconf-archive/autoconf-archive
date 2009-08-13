@@ -44,6 +44,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([ACX_FUNC_FORK], [AX_FUNC_FORK])
 AC_DEFUN([AX_FUNC_FORK],
 [AC_MSG_CHECKING(for a working fork)
 AC_CACHE_VAL(ax_cv_func_fork_works,

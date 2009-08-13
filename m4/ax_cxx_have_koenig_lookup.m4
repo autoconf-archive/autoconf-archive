@@ -19,6 +19,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([MNI_CXX_HAVE_KOENIG_LOOKUP], [AX_CXX_HAVE_KOENIG_LOOKUP])
 AC_DEFUN([AX_CXX_HAVE_KOENIG_LOOKUP],
     [AC_CACHE_CHECK(whether the compiler implements Koenig lookup,
                     ax_cv_cxx_have_koenig_lookup,

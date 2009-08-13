@@ -41,6 +41,7 @@
 #   exception to the GPL to apply to your modified version as well.
 
 dnl AX_CHECK_FUNC_IN(HEADER, FUNCTION, [ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]])
+AU_ALIAS([AC_CHECK_FUNC_IN], [AX_CHECK_FUNC_IN])
 AC_DEFUN([AX_CHECK_FUNC_IN],
 [AC_MSG_CHECKING([for $2 in $1])
 AC_CACHE_VAL(ac_cv_func_$2,

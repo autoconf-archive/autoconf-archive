@@ -50,6 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_C_VAR_FUNC], [AX_C_VAR_FUNC])
 AC_DEFUN([AX_C_VAR_FUNC],
 [AC_REQUIRE([AC_PROG_CC])
 AC_CACHE_CHECK(whether $CC recognizes __func__, ac_cv_c_var_func,

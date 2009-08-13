@@ -21,6 +21,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_HAVE_SYSTEM_V_MATH], [AX_CXX_HAVE_SYSTEM_V_MATH])
 AC_DEFUN([AX_CXX_HAVE_SYSTEM_V_MATH],
 [AC_CACHE_CHECK(whether the compiler supports System V math library,
 ax_cv_cxx_have_system_v_math,

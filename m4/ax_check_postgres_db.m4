@@ -23,6 +23,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([CT_CHECK_POSTGRES_DB], [AX_CHECK_POSTGRES_DB])
 AC_DEFUN([AX_CHECK_POSTGRES_DB], [
 
 AC_ARG_WITH(pgsql,

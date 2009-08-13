@@ -19,6 +19,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_HAVE_COMPLEX], [AX_CXX_HAVE_COMPLEX])
 AC_DEFUN([AX_CXX_HAVE_COMPLEX],
 [AC_CACHE_CHECK(whether the compiler has complex<T>,
 ax_cv_cxx_have_complex,

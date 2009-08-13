@@ -19,6 +19,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([AC_CXX_TYPENAME], [AX_CXX_TYPENAME])
 AC_DEFUN([AX_CXX_TYPENAME],
 [AC_CACHE_CHECK(whether the compiler recognizes typename,
 ax_cv_cxx_typename,

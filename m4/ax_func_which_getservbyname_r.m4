@@ -50,6 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+AU_ALIAS([AC_RAF_FUNC_WHICH_GETSERVBYNAME_R], [AX_FUNC_WHICH_GETSERVBYNAME_R])
 AC_DEFUN([AX_FUNC_WHICH_GETSERVBYNAME_R],
 [AC_CACHE_CHECK(for getservbyname_r, ax_cv_func_which_getservbyname_r, [
 AC_CHECK_FUNC(getservbyname_r, [

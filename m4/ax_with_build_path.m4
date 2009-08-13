@@ -27,6 +27,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
+AU_ALIAS([SMR_WITH_BUILD_PATH], [AX_WITH_BUILD_PATH])
 AC_DEFUN([AX_WITH_BUILD_PATH],
 [
     AC_ARG_WITH([build-path],
