@@ -28,10 +28,8 @@ AC_DEFUN([AMINCLUDE_STATIC],[aminclude_static.am])
 
 AC_DEFUN([AX_AM_MACROS_STATIC],
 [
-AMINCLUDE_TIME=`date`
 AX_AC_PRINT_TO_FILE(AMINCLUDE_STATIC,[
-# generated automatically by Autoconf from AX_AUTOMAKE_MACROS_STATIC
-# on $AMINCLUDE_TIME
-
+# ]AMINCLUDE_STATIC[ generated automatically by Autoconf 
+# from AX_AM_MACROS_STATIC on ]m4_esyscmd([date])[
 ])
 ])
