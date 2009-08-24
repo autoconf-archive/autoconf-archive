@@ -2,6 +2,12 @@
 #        http://www.nongnu.org/autoconf-archive/ax_latex_dvips_t.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated because of licensing issues. The Lesser GPL imposes licensing
+#   restrictions on the generated configure script unless it is augmented
+#   with an Autoconf Exception clause.
+#
 # SYNOPSIS
 #
 #   AX_LATEX_DVIPS_T(PAPERSIZE,VARIABLETOSET,[LANDSCAPE])

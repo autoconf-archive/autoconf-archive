@@ -2,6 +2,12 @@
 #        http://www.nongnu.org/autoconf-archive/ax_latex_classes.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated because of licensing issues. The Lesser GPL imposes licensing
+#   restrictions on the generated configure script unless it is augmented
+#   with an Autoconf Exception clause.
+#
 # SYNOPSIS
 #
 #   AX_LATEX_CLASSES(CLASSESNAMES,VARIABLETOSET[,ACTION-IF-FOUND[,ACTION-IF-NOT-FOUND]])

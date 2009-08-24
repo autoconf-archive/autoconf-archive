@@ -2,6 +2,12 @@
 #          http://www.nongnu.org/autoconf-archive/ax_latex_test.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated because of licensing issues. The Lesser GPL imposes licensing
+#   restrictions on the generated configure script unless it is augmented
+#   with an Autoconf Exception clause.
+#
 # SYNOPSIS
 #
 #   AX_LATEX_TEST(FILEDATA,VARIABLETOSET,[NOCLEAN])
