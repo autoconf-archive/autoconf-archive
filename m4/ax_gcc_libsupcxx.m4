@@ -9,11 +9,12 @@
 # DESCRIPTION
 #
 #   AX_GCC_LIBSUPCXX defines VARIABLE as the absolute path to libsupc++.a if
-#   it is available on the system, empty otherwise
+#   it is available on the system, empty otherwise.
 #
 # LICENSE
 #
 #   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>
+#   Copyright (c) 2009 Alessandro Massignan <ff0000.it@gmail.com>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -42,10 +43,27 @@
 #   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_GCC_LIBSUPCXX], [
-	AX_GCC_LIB([libsupc++.a],[
-		AX_GCC_INSTALL_DIR([GCC_INSTALL_DIR])
-		$1="$GCC_INSTALL_DIR/libsupc++.a"
-	],[
-		$1=""
-	])
+    AX_GCC_LIBRARIES_DIR([GCC_LIBRARIES_DIR])
+    AS_IF([test -z "$GCC_LIBRARIES_DIR"],[
+        AC_MSG_ERROR([problems detecting gcc libraries dir])
+    ])
+
+    AC_MSG_CHECKING([for libsupc++.a])
+
+    ax_gcc_libraries_dir_IFS=$IFS
+    IFS=":"
+
+    $1=""
+    for i in $GCC_LIBRARIES_DIR
+    do
+        AS_IF([test -f "$i/libsupc++.a"],[
+             IFS=$ax_gcc_libraries_dir_IFS
+             $1="$i/libsupc++.a"
+             break
+        ])
+    done
+
+    IFS=$ax_gcc_libraries_dir_IFS
+
+    AC_MSG_RESULT([$$1])
 ])
