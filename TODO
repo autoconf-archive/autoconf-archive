@@ -89,8 +89,10 @@
   we compile the release archive, that information should be inserted in the
   script statically. But how?
 
-* TODO Integrate generation of the ChangeLog file into the build system
+* DONE Integrate generation of the ChangeLog file into the build system
 
   Currently, [[bootstrap.sh]] generates that file, but this mechanism doesn't
   ensure that the file is up-to-date come at the time a release archive is
   compiled.
+
+  Coreutils has a nice example of how to do it.
