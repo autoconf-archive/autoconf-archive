@@ -22,3 +22,9 @@ echo TODO >AUTHORS
 build-aux/gitlog-to-changelog -- master >ChangeLog
 
 autoreconf --install -Wall
+
+if [ ! -d html ]; then
+  echo ""
+  echo " Remember to check out the HTML tree before running configure."
+  echo ""
+fi
