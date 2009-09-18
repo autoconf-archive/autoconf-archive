@@ -51,7 +51,3 @@ $(DOCDIR)/all-macros.texi:
 $(HTMLDIR)/%.html : $(STAGEDIR)/%.html
 	@echo pretty-printing $@
 	@tidy -quiet -ascii --indent yes --indent-spaces 1 --tidy-mark no -wrap 80 --hide-comments yes "$<" >"$@"
-
-taint-distcheck:
-
-my-distcheck:
