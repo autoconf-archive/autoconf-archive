@@ -19,7 +19,7 @@ sed -i -e 's/^sc_file_system:/disabled_sc_file_system:/' \
 
 echo TODO >AUTHORS
 
-build-aux/gitlog-to-changelog -- master >ChangeLog
+build-aux/gitlog-to-changelog >ChangeLog -- master m4/
 
 autoreconf --install -Wall
 

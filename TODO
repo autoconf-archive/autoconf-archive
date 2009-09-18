@@ -88,3 +88,9 @@
   This mechanism is pretty fragile. Since the exact list is known at the time
   we compile the release archive, that information should be inserted in the
   script statically. But how?
+
+* TODO Integrate generation of the ChangeLog file into the build system
+
+  Currently, [[bootstrap.sh]] generates that file, but this mechanism doesn't
+  ensure that the file is up-to-date come at the time a release archive is
+  compiled.
