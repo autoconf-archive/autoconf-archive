@@ -26,7 +26,7 @@ AC_DEFUN([AX_CHECK_ALLOCATED_CTIME],[
 int main (int argc, char** argv) {
    time_t  timeVal = time( (time_t*)NULL );
    char*   pzTime  = ctime( &timeVal );
-   free( (void*)pzTime );
+   free( pzTime );
    return 0; }],[ax_cv_allocated_ctime=yes],[ax_cv_allocated_ctime=no],[ax_cv_allocated_ctime=no]
   ) # end of TRY_RUN]) # end of CACHE_VAL
 
