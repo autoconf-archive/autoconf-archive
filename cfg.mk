@@ -14,11 +14,12 @@ TAR_OPTIONS	+= --mtime=$(today)
 M4DIR		:= $(srcdir)/m4
 HTMLDIR		:= $(srcdir)/html
 STAGEDIR	:= $(srcdir)/stage
+DOCDIR		:= $(srcdir)/doc
 
 M4_FILES	:= $(wildcard $(M4DIR)/*.m4)
 MACROS		:= $(patsubst $(M4DIR)/%.m4,%, $(M4_FILES))
 HTML_FILES	:= $(patsubst %,$(HTMLDIR)/%.html,$(MACROS))
-TEXI_FILES	:= $(patsubst %,$(STAGEDIR)/%.texi,$(MACROS))
+TEXI_FILES	:= $(patsubst %,$(DOCDIR)/%.texi,$(MACROS))
 
 .PHONY: generate
 ALL_RECURSIVE_TARGETS += generate
@@ -38,24 +39,18 @@ $(STAGEDIR)/%.html : $(STAGEDIR)/%.m4 $(srcdir)/macro2html.py
 	@echo generating $@
 	@$(srcdir)/macro2html.py "$<" "$@"
 
-$(STAGEDIR)/%.texi : $(STAGEDIR)/%.m4 $(srcdir)/macro2texi.py
+$(DOCDIR)/%.texi : $(STAGEDIR)/%.m4 $(srcdir)/macro2texi.py $(DOCDIR)/all-macros.texi
 	@echo generating $@
 	@$(srcdir)/macro2texi.py "$<" "$@"
+
+$(DOCDIR)/all-macros.texi:
+	@$(MKDIR_P) $(DOCDIR)
+	@rm -f "$@"
+	@for n in $(TEXI_FILES); do echo "@include $$n" >>"$@"; done
 
 $(HTMLDIR)/%.html : $(STAGEDIR)/%.html
 	@echo pretty-printing $@
 	@tidy -quiet -ascii --indent yes --indent-spaces 1 --tidy-mark no -wrap 80 --hide-comments yes "$<" >"$@"
-
-$(STAGEDIR)/all-macros.texi:	$(TEXI_FILES)
-	@$(MKDIR_P) $(STAGEDIR)
-	@rm -f "$@"
-	@for n in $(TEXI_FILES); do echo "@include $$n" >>"$@"; done
-
-$(STAGEDIR)/autoconf-archive.info: $(srcdir)/autoconf-archive.texi $(STAGEDIR)/all-macros.texi $(STAGEDIR)/version.texi
-	makeinfo -o $@ $<
-
-$(STAGEDIR)/version.texi:
-	echo @set VERSION $(VERSION) >"$@"
 
 taint-distcheck:
 

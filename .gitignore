@@ -24,5 +24,8 @@
 /config.log
 /config.status
 /configure
+/doc/*
 /gnulib
 /maint.mk
+/stamp-vti
+/version.texi

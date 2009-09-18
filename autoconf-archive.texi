@@ -7,7 +7,7 @@
 @end ifclear
 @comment %**end of header
 
-@include stage/version.texi
+@include version.texi
 
 @copying
 This manual is for Autoconf Archive @value{VERSION},
@@ -581,6 +581,6 @@ General Public License for more details.
 * ax_xtra_classpath::
 @end menu
 
-@include stage/all-macros.texi
+@include doc/all-macros.texi
 
 @bye
