@@ -8,11 +8,10 @@
 #
 # DESCRIPTION
 #
-#   Use instead of `AC_STRUCT_TIMEZONE' to determine whether the the
-#   external timezone variables `timezone', `altzone' and `daylight' exist,
-#   defining `HAVE_TIMEZONE', `HAVE_ALTZONE' and `HAVE_DAYLIGHT'
-#   respectively (as well as gaining the macros defined by
-#   `AC_STRUCT_TIMEZONE').
+#   Use instead of `AC_STRUCT_TIMEZONE' to determine whether the external
+#   timezone variables `timezone', `altzone' and `daylight' exist, defining
+#   `HAVE_TIMEZONE', `HAVE_ALTZONE' and `HAVE_DAYLIGHT' respectively (as
+#   well as gaining the macros defined by `AC_STRUCT_TIMEZONE').
 #
 # LICENSE
 #

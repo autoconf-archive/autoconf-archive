@@ -83,7 +83,7 @@ if test "x$AX_HAVE_INSTALL_FILES" = "xtrue"; then
    	    AC_CHECK_PROGS(RPM,[rpmbuild rpm echo])
 	fi
 	if test "x$RPM" != "x"; then
-	    AC_ARG_VAR(PLATFORM_SUFFIX, [A short name for your platform that will be added to the name of the the binary RPMs you may choose to create (by running make rpm).  e.g. rh71 for RedHat 7.1, lsb1.3 for a LSB 1.3 compliant system (SuSE 8.2 or RedHat 9), osx103 for OS X 10.3.x, etc])
+	    AC_ARG_VAR(PLATFORM_SUFFIX, [A short name for your platform that will be added to the name of the binary RPMs you may choose to create (by running make rpm).  e.g. rh71 for RedHat 7.1, lsb1.3 for a LSB 1.3 compliant system (SuSE 8.2 or RedHat 9), osx103 for OS X 10.3.x, etc])
      	    AC_MSG_CHECKING([rpm platform suffix])
             if test "x$PLATFORM_SUFFIX" != "x"; then
 	        AC_MSG_RESULT([$PLATFORM_SUFFIX])

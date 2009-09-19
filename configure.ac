@@ -3,9 +3,9 @@ dnl configure the Autoconf Archive
 AC_INIT([autoconf-archive], m4_esyscmd([build-aux/git-version-gen .tarball-version]), [autoconf-archive-maintainers@nongnu.org])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([-Wall gnu dist-bzip2 dist-xz])
-AC_CONFIG_SRCDIR([m4/ax_have_epoll.m4])
+AC_CONFIG_SRCDIR([autoconf-archive.texi])
 AC_COPYRIGHT([dnl
-Compilation Copyright 2009 by Peter Simons <simons@cryp.to>
+Compilation Copyright 2001-2009 by Peter Simons <simons@cryp.to>
 
 This compilation is free software: you can redistribute it and/or
 modify it under the terms of the GNU General Public License as
@@ -27,12 +27,20 @@ done
 AC_SUBST([M4SOURCE])
 AC_MSG_RESULT([done])
 
-AC_MSG_CHECKING([for available documentation])
+AC_MSG_CHECKING([for available HTML documentation])
 HTMLFILE=""
-for n in ${srcdir}/html/*.* ; do
+for n in ${srcdir}/html/*.html ${srcdir}/html/*.css ; do
   HTMLFILE="${HTMLFILE} ${n}"
 done
 AC_SUBST([HTMLFILE])
+AC_MSG_RESULT([done])
+
+AC_MSG_CHECKING([for available Texinfo documentation])
+TEXIFILE=""
+for n in ${srcdir}/doc/*.texi ; do
+  TEXIFILE="${TEXIFILE} ${n}"
+done
+AC_SUBST([TEXIFILE])
 AC_MSG_RESULT([done])
 
 AC_CONFIG_FILES([Makefile])

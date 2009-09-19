@@ -11,7 +11,11 @@ dist_aclocal_DATA       = $(M4SOURCE)
 htmldir                 = $(pkgdatadir)/html
 dist_html_DATA          = $(HTMLFILE)
 
-EXTRA_DIST		= build-aux/git-version-gen
+info_TEXINFOS		= autoconf-archive.texi
+
+EXTRA_DIST		= build-aux/git-version-gen $(TEXIFILE)
+
+autoconf-archive.info: $(TEXIFILE)
 
 # maintainer rules
 
@@ -26,4 +30,4 @@ maintainer-clean-local:
 	@rm -rf $(srcdir)/build-aux
 	@rm -f configure Makefile.in aclocal.m4 AUTHORS ChangeLog
 	@rm -f INSTALL config.log config.status configure maint.mk
-	@rm -f autoconf-archive-*.*.*.tar.* GNUmakefile
+	@rm -f autoconf-archive-*.*.*.tar.* GNUmakefile COPYING

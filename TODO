@@ -26,11 +26,11 @@
   The file should contain the people who committed to Git and the people who
   are listed in m4 file copyright lines.
 
-* TODO Improve submission guide lines on the web site
-
 * TODO VL_PROG_CC_WARNINGS and AX_CFLAGS_WARN* overlap.
 
   Contact the authors and ask whether they'd like to help re-factor the code.
+
+* TODO Improve submission guide lines on the web site
 
 ** New submissions should use an AX_ prefix.
 
@@ -64,10 +64,33 @@
   Some macros feature http or mailto URIs. The generator scripts should
   recognize those and generate appropriate hyperlinks output (where feasible).
 
-* TODO Figure out how to disable sc_file_system check in maint.mk
+* TODO Figure out how to disable sc_file_system check in maint.mk [0/4]
 
   Gnulib wants us to use spelling "file system" and objects when it sees the
   name ax_boost_filesystem in autoconf-archive.texi. There ought to be a way to
   avoid that error.
 
+  Progress: The [[bootstrap.sh]] script disable those checks that don't work well
+  for this project. In order to get on, though, some meaningful tests were
+  disable, too. We should re-enable those and fix the macro contents to comply
+  with those rules:
+
+  * [ ] sc_m4_quote_check
+  * [ ] sc_prohibit_strcmp
+  * [ ] sc_space_tab
+  * [ ] sc_useless_cpp_parens
+
 * TODO Link to http://www.flameeyes.eu/autotools-mythbuster/
+
+* TODO Don't use shell globs to configure the list of available macros
+
+  The [[configure.ac][configure]] script globs m4/*.m4 to determine the list of available macros.
+  This mechanism is pretty fragile. Since the exact list is known at the time
+  we compile the release archive, that information should be inserted in the
+  script statically. But how?
+
+* TODO Integrate generation of the ChangeLog file into the build system
+
+  Currently, [[bootstrap.sh]] generates that file, but this mechanism doesn't
+  ensure that the file is up-to-date come at the time a release archive is
+  compiled.

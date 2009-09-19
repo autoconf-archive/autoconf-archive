@@ -15,8 +15,8 @@
 #   will be run.
 #
 #   MODULES is a space separated list of module names. To check for a
-#   minimum version of a module, append the version number to the
-#   module name, separated by an equals sign.
+#   minimum version of a module, append the version number to the module
+#   name, separated by an equals sign.
 #
 #   Example:
 #
