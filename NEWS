@@ -1,56 +1,30 @@
 #+TITLE: Autoconf Archive NEWS                 -*- mode:org;fill-column:79; -*-
 #+STARTUP: showall
 
+* Noteworthy changes in release 2009.09.22 (2009-09-22) [alpha]
+
+  All macros that used a prefix other than AX_ -- or no prefix at all -- have
+  been renamed to use AX_ consistently. The new version forward old calls under
+  their old names to the new ones via Autoconf's AU_ALIAS mechanism.
+
+  The HTML documentation is obsolete. Instead, the archive now ships its
+  documentation in Texinfo format.
+
+  All macros distributed by the archive are now licensed under terms that do
+  *not* limit the choice of license for the generated configure script.
+  Previous releases didn't meet this requirement because they contained macros
+  that were licensed under GPL or Lesser GPL without an Autoconf Exception.
+
+  Please refer to the [[ChangeLog]] file for a complete list of changes.
+
 * Noteworthy changes in release 2009.07.31 (2009-07-31) [alpha]
 
   The archive has moved to Savannah: http://www.nongnu.org/autoconf-archive/
   Version 2009-04-26 was the last to be released at autoconf-archive.cryp.to.
 
-  The following macros have been added to the distribution:
+  The version identifier has been changed to a "year.month.day" spelling,
+  rather than the ISO format, because the dot-separated spelling works better
+  for most distributions and for the gnulib infrastructure.
 
-    AX_GCC_LIBRARIES_DIR
-    AX_CHECK_OPENSSL
-    AX_LIB_CURL
-    AX_LIB_NOKALVA
-    AX_LIB_ORBIT2
-    AX_LIB_TAGLIB
-    AX_LIB_XALAN
-    AX_PATH_GENERIC
-
-  The following macros have been updated:
-
-    AX_GCC_INSTALL_DIR
-    AX_GCC_LIBSUPCXX
-    _AC_C_IFDEF
-    AC_CXX_COMPILER_VENDOR
-    AC_CXX_CPPFLAGS_STD_LANG
-    AC_CXX_CXXFLAGS_STD_LANG
-    AC_CXX_HAVE_STD
-    AC_CXX_LDFLAGS_STD_LANG
-    AC_FUNC_MEMMOVE
-    AC_FUNC_SNPRINTF
-    AC_LIBTOOLIZE_CFLAGS
-    AC_PATH_GENERIC
-    AC_PYTHON_DEVEL
-    AX_CFLAGS_NO_WRITABLE_STRINGS
-    AX_COMPARE_VERSION
-    AX_CREATE_PKGCONFIG_INFO
-    AX_DIST_RPM
-    AX_HAVE_EPOLL
-    AX_RUBY_DEVEL
-    AX_SPLIT_VERSION
-    AX_WITH_PROG
-    MP_WITH_CURSES
-    VL_LIB_READLINE
-
-  The following macros have been obsoleted:
-
-    AC_CHECK_CURL
-    AC_CHECK_TAGLIB
-    AC_COMPILE_WARNINGS
-    AC_PATH_GENERIC: marked obsolete
-    AC_PROMPT_USER
-    AC_PROMPT_USER_NO_DEFINE
-    AX_CFLAGS_WARN_ALL_ANSI
-    CHECK_SSL
-    VL_PROG_CC_WARNINGS
+  The 2009.07.31 release was an internal test release that has never been
+  publicly available.
