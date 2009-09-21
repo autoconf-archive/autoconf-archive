@@ -8,6 +8,7 @@
 
   The following macros have been added to the distribution:
 
+    AX_GCC_LIBRARIES_DIR
     AX_CHECK_OPENSSL
     AX_LIB_CURL
     AX_LIB_NOKALVA
@@ -18,6 +19,8 @@
 
   The following macros have been updated:
 
+    AX_GCC_INSTALL_DIR
+    AX_GCC_LIBSUPCXX
     _AC_C_IFDEF
     AC_CXX_COMPILER_VENDOR
     AC_CXX_CPPFLAGS_STD_LANG

@@ -12,6 +12,8 @@
 #   directory. The install directory will be obtained using the gcc
 #   -print-search-dirs option. This macro requires AX_GCC_OPTION macro.
 #
+#   Thanks to Alessandro Massignan for his helpful hints.
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Francesco Salvestrini <salvestrini@users.sourceforge.net>
@@ -43,19 +45,20 @@
 #   exception to the GPL to apply to your modified version as well.
 
 AC_DEFUN([AX_GCC_INSTALL_DIR], [
-	AC_REQUIRE([AC_PROG_CC])
+    AC_REQUIRE([AC_PROG_CC])
+    AC_REQUIRE([AC_PROG_SED])
 
-	AS_IF([test "x$GCC" = "xyes"],[
-		AX_GCC_OPTION([-print-search-dirs],[],[],[
-			AC_MSG_CHECKING([gcc install directory])
-			ax_gcc_install_dir=`$CC -print-search-dirs | grep install | sed -e "s,^install:,," -e "s,^\s*,," -e "s,\/$,," `
-			AC_MSG_RESULT([$ax_gcc_install_dir])
-			$1=$ax_gcc_install_dir
-		],[
-			unset $1
-		])
-	],[
-		AC_MSG_RESULT([sorry, no gcc available])
-		unset $1
-	])
+    AS_IF([test "x$GCC" = "xyes"],[
+        AX_GCC_OPTION([-print-search-dirs],[],[],[
+            AC_MSG_CHECKING([gcc install directory])
+            ax_gcc_install_dir="`$CC -print-search-dirs | $SED -n -e 's,^install:[ \t]*,,p'`"
+            AC_MSG_RESULT([$ax_gcc_install_dir])
+            $1=$ax_gcc_install_dir
+        ],[
+            unset $1
+        ])
+    ],[
+        AC_MSG_WARN([sorry, no gcc available])
+        unset $1
+    ])
 ])

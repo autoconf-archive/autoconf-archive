@@ -1,20 +1,22 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ax_gcc_libsupcxx.html
+#       http://www.nongnu.org/autoconf-archive/ax_gcc_libraries_dir.html
 # ===========================================================================
 #
 # SYNOPSIS
 #
-#   AX_GCC_LIBSUPCXX(VARIABLE)
+#   AX_GCC_LIBRARIES_DIR(VARIABLE)
 #
 # DESCRIPTION
 #
-#   AX_GCC_LIBSUPCXX defines VARIABLE as the absolute path to libsupc++.a if
-#   it is available on the system, empty otherwise.
+#   AX_GCC_LIBRARIES_DIR(VARIABLE) defines VARIABLE as the gcc libraries
+#   directory. The libraries directory will be obtained using the gcc
+#   -print-search-dirs option. This macro requires AX_GCC_OPTION macro.
+#
+#   Thanks to Alessandro Massignan for his helpful hints.
 #
 # LICENSE
 #
 #   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>
-#   Copyright (c) 2009 Alessandro Massignan <ff0000.it@gmail.com>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -42,28 +44,21 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([AX_GCC_LIBSUPCXX], [
-    AX_GCC_LIBRARIES_DIR([GCC_LIBRARIES_DIR])
-    AS_IF([test -z "$GCC_LIBRARIES_DIR"],[
-        AC_MSG_ERROR([problems detecting gcc libraries dir])
-    ])
+AC_DEFUN([AX_GCC_LIBRARIES_DIR], [
+    AC_REQUIRE([AC_PROG_CC])
+    AC_REQUIRE([AC_PROG_SED])
 
-    AC_MSG_CHECKING([for libsupc++.a])
-
-    ax_gcc_libraries_dir_IFS=$IFS
-    IFS=":"
-
-    $1=""
-    for i in $GCC_LIBRARIES_DIR
-    do
-        AS_IF([test -f "$i/libsupc++.a"],[
-             IFS=$ax_gcc_libraries_dir_IFS
-             $1="$i/libsupc++.a"
-             break
+    AS_IF([test "x$GCC" = "xyes"],[
+        AX_GCC_OPTION([-print-search-dirs],[],[],[
+            AC_MSG_CHECKING([gcc libraries directory])
+            ax_gcc_libraries_dir="`$CC -print-search-dirs | $SED -n -e 's,^libraries:[ \t]*=,,p'`"
+            AC_MSG_RESULT([$ax_gcc_libraries_dir])
+            $1="$ax_gcc_libraries_dir"
+        ],[
+            unset $1
         ])
-    done
-
-    IFS=$ax_gcc_libraries_dir_IFS
-
-    AC_MSG_RESULT([$$1])
+    ],[
+        AC_MSG_WARN([sorry, no gcc available])
+        unset $1
+    ])
 ])

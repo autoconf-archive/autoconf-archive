@@ -13,14 +13,11 @@ dist_html_DATA          = $(HTMLFILE)
 
 info_TEXINFOS		= autoconf-archive.texi
 
-EXTRA_DIST		= build-aux/git-version-gen $(TEXIFILE)
+EXTRA_DIST		= build-aux/git-version-gen build-aux/gitlog-to-changelog $(TEXIFILE)
 
 autoconf-archive.info: $(TEXIFILE)
 
 # maintainer rules
-
-dist-hook:
-	echo $(VERSION) > $(distdir)/.tarball-version
 
 clean-local:
 	@rm -rf $(srcdir)/stage $(srcdir)/macro.pyc
@@ -31,3 +28,12 @@ maintainer-clean-local:
 	@rm -f configure Makefile.in aclocal.m4 AUTHORS ChangeLog
 	@rm -f INSTALL config.log config.status configure maint.mk
 	@rm -f autoconf-archive-*.*.*.tar.* GNUmakefile COPYING
+
+dist-hook:
+	echo $(VERSION) > $(distdir)/.tarball-version
+	if test -d .git; then						\
+	  $(top_srcdir)/build-aux/gitlog-to-changelog			\
+	    >$(distdir)/cl-t -- master $(top_srcdir)/m4;		\
+	  rm -f $(distdir)/ChangeLog;					\
+	  mv $(distdir)/cl-t $(distdir)/ChangeLog;			\
+	fi
