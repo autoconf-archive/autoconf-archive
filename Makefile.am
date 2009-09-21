@@ -19,6 +19,7 @@ clean-local:
 
 maintainer-clean-local:
 	@rm -rf $(srcdir)/build-aux
+	@rm -rf doc
 	@rm -f configure Makefile.in aclocal.m4 AUTHORS ChangeLog
 	@rm -f INSTALL config.log config.status configure maint.mk
 	@rm -f autoconf-archive-*.*.*.tar.* GNUmakefile
