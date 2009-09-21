@@ -23,7 +23,7 @@ TEXI_FILES	:= $(patsubst %,$(DOCDIR)/%.texi,$(MACROS))
 
 .PHONY: generate
 ALL_RECURSIVE_TARGETS += generate
-generate: $(HTML_FILES) $(TEXI_FILES) $(STAGEDIR)/autoconf-archive.info
+generate: $(HTML_FILES) $(TEXI_FILES)
 
 $(STAGEDIR)/manifest:
 	@$(MKDIR_P) $(STAGEDIR)
