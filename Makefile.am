@@ -4,18 +4,12 @@
 # Licensed under the terms of the GNU General Public License.
 
 dist_pkgdata_DATA       = AUTHORS COPYING README
-
 aclocaldir              = $(datadir)/aclocal
 dist_aclocal_DATA       = $(M4SOURCE)
+info_TEXINFOS           = autoconf-archive.texi
+EXTRA_DIST              = build-aux/git-version-gen build-aux/gitlog-to-changelog $(TEXIFILE)
 
-htmldir                 = $(pkgdatadir)/html
-dist_html_DATA          = $(HTMLFILE)
-
-info_TEXINFOS		= autoconf-archive.texi
-
-EXTRA_DIST		= build-aux/git-version-gen build-aux/gitlog-to-changelog $(TEXIFILE)
-
-autoconf-archive.info: $(TEXIFILE)
+autoconf-archive.info:  $(TEXIFILE)
 
 # maintainer rules
 
@@ -27,7 +21,7 @@ maintainer-clean-local:
 	@rm -rf $(srcdir)/build-aux
 	@rm -f configure Makefile.in aclocal.m4 AUTHORS ChangeLog
 	@rm -f INSTALL config.log config.status configure maint.mk
-	@rm -f autoconf-archive-*.*.*.tar.* GNUmakefile COPYING
+	@rm -f autoconf-archive-*.*.*.tar.* GNUmakefile
 
 dist-hook:
 	echo $(VERSION) > $(distdir)/.tarball-version
