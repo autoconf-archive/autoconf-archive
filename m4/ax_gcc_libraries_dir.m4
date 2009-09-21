@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_gcc_libraries_dir.html
+#      http://www.nongnu.org/autoconf-archive/ax_gcc_libraries_dir.html
 # ===========================================================================
 #
 # SYNOPSIS
