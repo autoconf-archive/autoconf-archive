@@ -583,6 +583,6 @@ General Public License for more details.
 * ax_xtra_classpath::
 @end menu
 
-@include doc/all-macros.texi
+@include all-macros.texi
 
 @bye

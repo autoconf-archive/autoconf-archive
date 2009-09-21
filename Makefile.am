@@ -7,6 +7,8 @@ dist_pkgdata_DATA       = AUTHORS COPYING README
 aclocaldir              = $(datadir)/aclocal
 dist_aclocal_DATA       = $(M4SOURCE)
 info_TEXINFOS           = autoconf-archive.texi
+MAKEINFOFLAGS		= -I $(srcdir)/doc
+am__TEXINFO_TEX_DIR     = $(srcdir)/build-aux$(PATH_SEPARATOR)$(srcdir)/doc
 EXTRA_DIST              = build-aux/git-version-gen build-aux/gitlog-to-changelog $(TEXIFILE)
 
 autoconf-archive.info:  $(TEXIFILE)
