@@ -103,6 +103,7 @@ General Public License for more details.
 * ax_cc_maxopt::
 * ax_cf_ebcdic::
 * ax_cflags_aix_option::
+* ax_cflags_force_c89::
 * ax_cflags_gcc_option::
 * ax_cflags_hpux_option::
 * ax_cflags_irix_option::
@@ -336,6 +337,7 @@ General Public License for more details.
 * ax_gcc_install_dir::
 * ax_gcc_lib::
 * ax_gcc_libgcc_eh::
+* ax_gcc_libraries_dir::
 * ax_gcc_libsupcxx::
 * ax_gcc_malloc_call::
 * ax_gcc_option::
@@ -394,11 +396,11 @@ General Public License for more details.
 * ax_latex_prog_jpeg2ps::
 * ax_latex_prog_jpegtopnm::
 * ax_latex_prog_kpsewhich::
-* ax_latex_prog_latex::
 * ax_latex_prog_latex2html::
 * ax_latex_prog_latex2man::
 * ax_latex_prog_latex2png::
 * ax_latex_prog_latex2rtf::
+* ax_latex_prog_latex::
 * ax_latex_prog_makeindex::
 * ax_latex_prog_mf::
 * ax_latex_prog_mktexpk::
