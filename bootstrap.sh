@@ -17,8 +17,7 @@ sed -i -e 's/^sc_file_system:/disabled_sc_file_system:/' \
        -e 's/^sc_useless_cpp_parens:/disabled_sc_useless_cpp_parens:/' \
   maint.mk
 
-echo TODO >AUTHORS
-
+./git-authors-gen.pl >AUTHORS
 build-aux/gitlog-to-changelog >ChangeLog -- master m4/
 
 autoreconf --install -Wall

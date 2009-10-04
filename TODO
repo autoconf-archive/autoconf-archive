@@ -1,5 +1,6 @@
 #+TITLE: Autoconf Archive TODO                 -*- mode:org;fill-column:79; -*-
 
+* TODO Update the README file
 * TODO Document our new mailing lists.
 
   * http://lists.nongnu.org/mailman/listinfo/autoconf-archive-announce

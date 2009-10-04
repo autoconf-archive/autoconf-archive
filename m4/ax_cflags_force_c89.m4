@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.nongnu.org/autoconf-archive/ax_cflags_force_c89.html
+#       http://www.nongnu.org/autoconf-archive/ax_cflags_force_c89.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -10,8 +10,8 @@
 #
 #   Try to find a compiler option that enables strict C89 mode.
 #
-#   For the GNU CC compiler it will be -ansi -pedantic.  The
-#   result is added to the shellvar being CFLAGS by default.
+#   For the GNU CC compiler it will be -ansi -pedantic.  The result is added
+#   to the shellvar being CFLAGS by default.
 #
 #   Currently this macro knows about GCC, Solaris C compiler, Digital Unix C
 #   compiler, C for AIX Compiler, HP-UX C compiler, IRIX C compiler, NEC

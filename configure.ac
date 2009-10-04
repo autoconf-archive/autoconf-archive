@@ -27,14 +27,6 @@ done
 AC_SUBST([M4SOURCE])
 AC_MSG_RESULT([done])
 
-AC_MSG_CHECKING([for available HTML documentation])
-HTMLFILE=""
-for n in ${srcdir}/html/*.html ${srcdir}/html/*.css ; do
-  HTMLFILE="${HTMLFILE} ${n}"
-done
-AC_SUBST([HTMLFILE])
-AC_MSG_RESULT([done])
-
 AC_MSG_CHECKING([for available Texinfo documentation])
 TEXIFILE=""
 for n in ${srcdir}/doc/*.texi ; do

@@ -16,6 +16,7 @@
 /Makefile.in
 /aclocal.m4
 /autoconf-archive-*.*.*.tar.*
+/autoconf-archive-*.*.*/*
 /autoconf-archive.info
 /autoconf-archive.info-?
 /autom4te.cache/*

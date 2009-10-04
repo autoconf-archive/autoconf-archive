@@ -23,7 +23,7 @@ TEXI_FILES	:= $(patsubst %,$(DOCDIR)/%.texi,$(MACROS))
 
 .PHONY: generate
 ALL_RECURSIVE_TARGETS += generate
-generate: $(HTML_FILES) $(TEXI_FILES) $(STAGEDIR)/autoconf-archive.info
+generate: $(HTML_FILES) $(TEXI_FILES) autoconf-archive.info
 
 $(STAGEDIR)/manifest:
 	@$(MKDIR_P) $(STAGEDIR)
@@ -46,7 +46,7 @@ $(DOCDIR)/%.texi : $(STAGEDIR)/%.m4 $(srcdir)/macro2texi.py $(DOCDIR)/all-macros
 $(DOCDIR)/all-macros.texi:
 	@$(MKDIR_P) $(DOCDIR)
 	@rm -f "$@"
-	@for n in $(TEXI_FILES); do echo "@include $$n" >>"$@"; done
+	@for n in $(MACROS); do echo "@include $$n.texi" >>"$@"; done
 
 $(HTMLDIR)/%.html : $(STAGEDIR)/%.html
 	@echo pretty-printing $@

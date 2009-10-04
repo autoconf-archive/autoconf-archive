@@ -4,18 +4,14 @@
 # Licensed under the terms of the GNU General Public License.
 
 dist_pkgdata_DATA       = AUTHORS COPYING README
-
 aclocaldir              = $(datadir)/aclocal
 dist_aclocal_DATA       = $(M4SOURCE)
+info_TEXINFOS           = autoconf-archive.texi
+MAKEINFOFLAGS		= -I $(srcdir)/doc
+am__TEXINFO_TEX_DIR     = $(srcdir)/build-aux$(PATH_SEPARATOR)$(srcdir)/doc
+EXTRA_DIST              = build-aux/git-version-gen build-aux/gitlog-to-changelog $(TEXIFILE)
 
-htmldir                 = $(pkgdatadir)/html
-dist_html_DATA          = $(HTMLFILE)
-
-info_TEXINFOS		= autoconf-archive.texi
-
-EXTRA_DIST		= build-aux/git-version-gen build-aux/gitlog-to-changelog $(TEXIFILE)
-
-autoconf-archive.info: $(TEXIFILE)
+autoconf-archive.info:  $(TEXIFILE)
 
 # maintainer rules
 
@@ -25,9 +21,10 @@ clean-local:
 
 maintainer-clean-local:
 	@rm -rf $(srcdir)/build-aux
+	@rm -rf doc
 	@rm -f configure Makefile.in aclocal.m4 AUTHORS ChangeLog
 	@rm -f INSTALL config.log config.status configure maint.mk
-	@rm -f autoconf-archive-*.*.*.tar.* GNUmakefile COPYING
+	@rm -f autoconf-archive-*.*.*.tar.* GNUmakefile
 
 dist-hook:
 	echo $(VERSION) > $(distdir)/.tarball-version
@@ -36,4 +33,7 @@ dist-hook:
 	    >$(distdir)/cl-t -- master $(top_srcdir)/m4;		\
 	  rm -f $(distdir)/ChangeLog;					\
 	  mv $(distdir)/cl-t $(distdir)/ChangeLog;			\
+	  $(top_srcdir)/git-authors-gen.pl >$(distdir)/au-t;		\
+	  rm -f $(distdir)/AUTHORS;					\
+	  mv $(distdir)/au-t $(distdir)/AUTHORS;			\
 	fi
