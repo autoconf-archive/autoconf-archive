@@ -4,22 +4,26 @@
 #
 # SYNOPSIS
 #
-#   AC_PROG_SWIG([major.minor.micro])
+#   AX_PKG_SWIG([major.minor.micro], [action-if-found], [action-if-not-found])
 #
 # DESCRIPTION
 #
-#   This macro searches for a SWIG installation on your system. If found you
-#   should call SWIG via $(SWIG). You can use the optional first argument to
-#   check if the version of the available SWIG is greater than or equal to
-#   the value of the argument. It should have the format: N[.N[.N]] (N is a
-#   number between 0 and 999. Only the first N is mandatory.)
+#   This macro searches for a SWIG installation on your system. If found, then
+#   SWIG is AC_SUBST'd; if not found, then $SWIG is empty.  If SWIG is found,
+#   then SWIG_LIB is set to the SWIG library path, and AC_SUBST'd.
 #
-#   If the version argument is given (e.g. 1.3.17), AC_PROG_SWIG checks that
-#   the swig package is this version number or higher.
+#   You can use the optional first argument to check if the version of the
+#   available SWIG is greater than or equal to the value of the argument. It
+#   should have the format: N[.N[.N]] (N is a number between 0 and 999. Only
+#   the first N is mandatory.) If the version argument is given (e.g. 1.3.17),
+#   AX_PKG_SWIG checks that the swig package is this version number or higher.
+#
+#   As usual, action-if-found is executed if SWIG is found, otherwise
+#   action-if-not-found is executed.
 #
 #   In configure.in, use as:
 #
-#     AC_PROG_SWIG(1.3.17)
+#     AX_PKG_SWIG(1.3.17, [], [ AC_MSG_ERROR([SWIG is required to build..]) ])
 #     AX_SWIG_ENABLE_CXX
 #     AX_SWIG_MULTI_MODULE_SUPPORT
 #     AX_SWIG_PYTHON
@@ -57,13 +61,12 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-AC_DEFUN([AC_PROG_SWIG],[
+AC_DEFUN([AX_PKG_SWIG],[
         AC_PATH_PROG([SWIG],[swig])
         if test -z "$SWIG" ; then
-                AC_MSG_WARN([cannot find 'swig' program. You should look at http://www.swig.org])
-                SWIG='echo "Error: SWIG is not installed. You should look at http://www.swig.org" ; false'
+                m4_ifval([$3],[$3],[:])
         elif test -n "$1" ; then
-                AC_MSG_CHECKING([for SWIG version])
+                AC_MSG_CHECKING([SWIG version])
                 [swig_version=`$SWIG -version 2>&1 | grep 'SWIG Version' | sed 's/.*\([0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*\).*/\1/g'`]
                 AC_MSG_RESULT([$swig_version])
                 if test -n "$swig_version" ; then
@@ -102,16 +105,19 @@ AC_DEFUN([AC_PROG_SWIG],[
                         if test $available_major -ne $required_major \
                                 -o $available_minor -ne $required_minor \
                                 -o $available_patch -lt $required_patch ; then
-                                AC_MSG_WARN([SWIG version >= $1 is required.  You have $swig_version.  You should look at http://www.swig.org])
-                                SWIG='echo "Error: SWIG version >= $1 is required.  You have '"$swig_version"'.  You should look at http://www.swig.org" ; false'
+                                AC_MSG_WARN([SWIG version >= $1 is required.  You have $swig_version.])
+                                SWIG=''
+                                m4_ifval([$3],[$3],[])
                         else
-                                AC_MSG_NOTICE([SWIG executable is '$SWIG'])
+                                AC_MSG_CHECKING([for SWIG library])
                                 SWIG_LIB=`$SWIG -swiglib`
-                                AC_MSG_NOTICE([SWIG library directory is '$SWIG_LIB'])
+                                AC_MSG_RESULT([$SWIG_LIB])
+                                m4_ifval([$2],[$2],[])
                         fi
                 else
                         AC_MSG_WARN([cannot determine SWIG version])
-                        SWIG='echo "Error: Cannot determine SWIG version.  You should look at http://www.swig.org" ; false'
+                        SWIG=''
+                        m4_ifval([$3],[$3],[])
                 fi
         fi
         AC_SUBST([SWIG_LIB])
