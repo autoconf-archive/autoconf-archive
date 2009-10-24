@@ -183,8 +183,9 @@ s/^srcdir *=.*/srcdir = ./
 s/^top_srcdir *=.*/top_srcdir = ./
 /[[:=]]/!d
 /^\\./d
-dnl Now handle rules (i.e. lines containing /:/ but not /:=/).
-/:=/b
+dnl Now handle rules (i.e. lines containing ":" but not " = ").
+/ = /b
+/ .= /b
 /:/!b
 s/:.*/:/
 s/ /  /g
