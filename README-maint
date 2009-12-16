@@ -52,3 +52,9 @@
      "major". Unfortunately, one of the tests performed during that procedure
      doesn't terminate until it receives an EOF on standard input. I have no
      idea why, but redirecting from /dev/null remedies the problem.
+
+* Mounting upload area via FUSE+SSHFS
+
+  : sshfs dl.sv.gnu.org:/releases/autoconf-archive /mnt
+  : ls -l /mnt
+  : fusermount -u /mnt
