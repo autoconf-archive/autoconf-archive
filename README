@@ -4,7 +4,7 @@ Autoconf Archive
 -------------------------------------------------------------------------------
 
 :Macro Index By:  Category_ ; Author_ ; License_
-:Latest Release:  autoconf-archive-2009.09.22.tar.bz2_
+:Latest Release:  autoconf-archive-2009.12.16.tar.bz2_
 :Change History:  `ATOM Log`_ ; `RSS Feed`_
 :GIT Repository:  git clone git://git.sv.gnu.org/autoconf-archive.git
 
@@ -85,7 +85,7 @@ individual files for details.
 
 .. _Autoconf: http://www.gnu.org/software/autoconf/
 
-.. _autoconf-archive-2009.09.22.tar.bz2: http://download.savannah.nongnu.org/releases/autoconf-archive/autoconf-archive-2009.09.22.tar.bz2
+.. _autoconf-archive-2009.12.16.tar.bz2: http://download.savannah.nongnu.org/releases/autoconf-archive/autoconf-archive-2009.12.16.tar.bz2
 
 .. _GPL-compatible free software license: http://www.gnu.org/licenses/license-list.html
 
