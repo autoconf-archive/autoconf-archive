@@ -65,7 +65,7 @@
   Some macros feature http or mailto URIs. The generator scripts should
   recognize those and generate appropriate hyperlinks output (where feasible).
 
-* TODO Figure out how to disable sc_file_system check in maint.mk [0/4]
+* TODO Figure out how to disable sc_file_system check in maint.mk [0/5]
 
   Gnulib wants us to use spelling "file system" and objects when it sees the
   name ax_boost_filesystem in autoconf-archive.texi. There ought to be a way to
@@ -80,6 +80,7 @@
   * [ ] sc_prohibit_strcmp
   * [ ] sc_space_tab
   * [ ] sc_useless_cpp_parens
+  * [ ] sc_prohibit_magic_number_exit
 
 * TODO Link to http://www.flameeyes.eu/autotools-mythbuster/
 
