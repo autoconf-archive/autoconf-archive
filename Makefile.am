@@ -1,6 +1,6 @@
 # Build and install the Autoconf Archive.
 #
-# Copyright (c) 2009 by Peter Simons <simons@cryp.to>
+# Copyright (c) 2009 by the Autoconf Archive Maintainers
 # Licensed under the terms of the GNU General Public License.
 
 SUBDIRS                 = doc

@@ -55,7 +55,7 @@ Now, run `git pull` to update the master branch.
 License
 -------
 
-Compilation Copyright 2009 by Peter Simons <simons@cryp.to>
+Compilation Copyright 2009 Autoconf Archive Maintainers <autoconf-archive-maintainers@nongnu.org>
 
 The Autoconf Archive is free software: you can redistribute it and/or
 modify it under the terms of the `GNU General Public License version 3

@@ -13,7 +13,7 @@
 This manual is for Autoconf Archive @value{VERSION},
 which is a collection of re-usable Autoconf macros.
 
-Compilation Copyright @copyright{} 2001-2009 Peter Simons @email{simons@@cryp.to}
+Compilation Copyright @copyright{} 2009 Autoconf Archive Maintainers @email{autoconf-archive-maintainers@@nongnu.org}
 
 This compilation is free software: you can redistribute it and/or
 modify it under the terms of the GNU General Public License as
