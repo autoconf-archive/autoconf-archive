@@ -22,14 +22,12 @@
     been changed in Git. Other branches, like 'maint', aren't tracked; there is
     only a moderate amount of traffic.
 
-* TODO Figure out how to generate the AUTHORS file
+* TODO Auto-generate the AUTHORS file [1/2]
 
-  The file should contain the people who committed to Git and the people who
-  are listed in m4 file copyright lines.
+  The file should contain:
 
-* TODO VL_PROG_CC_WARNINGS and AX_CFLAGS_WARN* overlap.
-
-  Contact the authors and ask whether they'd like to help re-factor the code.
+  * [X] people who committed to the git repository
+  * [ ] people who are listed in m4 file copyright lines
 
 * TODO Improve submission guide lines on the web site
 
@@ -65,7 +63,7 @@
   Some macros feature http or mailto URIs. The generator scripts should
   recognize those and generate appropriate hyperlinks output (where feasible).
 
-* TODO Figure out how to disable sc_file_system check in maint.mk [0/5]
+* TODO Re-enable disabled sc_* checks from maint.mk [0/5]
 
   Gnulib wants us to use spelling "file system" and objects when it sees the
   name ax_boost_filesystem in autoconf-archive.texi. There ought to be a way to
@@ -91,10 +89,3 @@
   we compile the release archive, that information should be inserted in the
   script statically. But how?
 
-* DONE Integrate generation of the ChangeLog file into the build system
-
-  Currently, [[bootstrap.sh]] generates that file, but this mechanism doesn't
-  ensure that the file is up-to-date come at the time a release archive is
-  compiled.
-
-  Coreutils has a nice example of how to do it.
