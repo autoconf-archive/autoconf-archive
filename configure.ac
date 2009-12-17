@@ -3,7 +3,7 @@ dnl configure the Autoconf Archive
 AC_INIT([autoconf-archive], m4_esyscmd([build-aux/git-version-gen .tarball-version]), [autoconf-archive-maintainers@nongnu.org])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([-Wall gnu dist-bzip2 dist-xz])
-AC_CONFIG_SRCDIR([autoconf-archive.texi])
+AC_CONFIG_SRCDIR([doc/autoconf-archive.texi])
 AC_COPYRIGHT([dnl
 Compilation Copyright 2001-2009 by Peter Simons <simons@cryp.to>
 
@@ -29,13 +29,14 @@ AC_MSG_RESULT([done])
 
 AC_MSG_CHECKING([for available Texinfo documentation])
 TEXIFILE=""
-for n in ${srcdir}/doc/*.texi ; do
+(cd ${srcdir}/doc
+for n in *.texi ; do
   TEXIFILE="${TEXIFILE} ${n}"
-done
+done)
 AC_SUBST([TEXIFILE])
 AC_MSG_RESULT([done])
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile doc/Makefile])
 AC_OUTPUT
 
 dnl Responsibility shifts to the user after this point.

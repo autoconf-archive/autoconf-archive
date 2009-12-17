@@ -1,0 +1,10 @@
+# ignore generated files
+
+/Makefile
+/Makefile.in
+/all-macros.texi
+/autoconf-archive.info
+/autoconf-archive.info-?
+/ax_*.texi
+/stamp-vti
+/version.texi
