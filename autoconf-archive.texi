@@ -275,6 +275,7 @@ General Public License for more details.
 * ax_cxx_header_tr1_unordered_set::
 * ax_cxx_header_unordered_map::
 * ax_cxx_header_unordered_set::
+* ax_cxx_helpful_terminate_handler::
 * ax_cxx_ldflags_std_lang::
 * ax_cxx_member_constants::
 * ax_cxx_member_templates::
