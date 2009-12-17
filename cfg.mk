@@ -8,6 +8,7 @@ gpg_key_ID	:= 99089D72
 url_dir_list	:= http://download.savannah.nongnu.org/releases/autoconf-archive
 today		:= $(date "+%Y-%m-%d")
 TAR_OPTIONS	+= --mtime=$(today)
+manual_title	:= Autoconf Archive Web Site
 
 # maintainer targets
 

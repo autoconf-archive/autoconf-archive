@@ -7,7 +7,7 @@ if [ -x "gnulib/gnulib-tool" ]; then
 else
   gnulibtool=gnulib-tool
 fi
-$gnulibtool --m4-base build-aux --source-base build-aux --import git-version-gen gitlog-to-changelog gnupload maintainer-makefile announce-gen
+$gnulibtool --m4-base build-aux --source-base build-aux --import git-version-gen gitlog-to-changelog gnupload maintainer-makefile announce-gen gendocs
 
 sed -i -e 's/^sc_file_system:/disabled_sc_file_system:/' \
        -e 's/^sc_GPL_version:/disabled_sc_GPL_version:/' \
