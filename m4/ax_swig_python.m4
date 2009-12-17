@@ -54,7 +54,7 @@
 
 AU_ALIAS([SWIG_PYTHON], [AX_SWIG_PYTHON])
 AC_DEFUN([AX_SWIG_PYTHON],[
-        AC_REQUIRE([AC_PROG_SWIG])
+        AC_REQUIRE([AX_PKG_SWIG])
         AC_REQUIRE([AX_PYTHON_DEVEL])
         test "x$1" != "xno" || swig_shadow=" -noproxy"
         AC_SUBST([AX_SWIG_PYTHON_OPT],[-python$swig_shadow])
