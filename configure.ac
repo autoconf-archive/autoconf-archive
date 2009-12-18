@@ -29,10 +29,10 @@ AC_MSG_RESULT([done])
 
 AC_MSG_CHECKING([for available Texinfo documentation])
 TEXIFILE=""
-(cd ${srcdir}/doc
-for n in *.texi ; do
-  TEXIFILE="${TEXIFILE} ${n}"
-done)
+for n in ${srcdir}/doc/*.texi ; do
+  m=`basename ${n}`
+  TEXIFILE="${TEXIFILE} ${m}"
+done
 AC_SUBST([TEXIFILE])
 AC_MSG_RESULT([done])
 
