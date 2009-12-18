@@ -24,7 +24,7 @@ TEXI_FILES	:= $(patsubst %,$(DOCDIR)/%.texi,$(MACROS))
 
 .PHONY: generate
 ALL_RECURSIVE_TARGETS += generate
-generate: $(HTML_FILES) $(TEXI_FILES)
+generate: $(HTML_FILES) $(TEXI_FILES) $(DOCDIR)/all-macros.texi
 
 $(STAGEDIR)/manifest:
 	@$(MKDIR_P) $(STAGEDIR)
