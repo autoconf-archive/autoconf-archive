@@ -89,3 +89,8 @@
   we compile the release archive, that information should be inserted in the
   script statically. But how?
 
+* TODO Generate serial lines
+
+  A way to obtain that number automatically might be the following approach:
+
+  : git log -- m4/ax_have_epoll.m4 | egrep -c '^commit [0-9a-f]'
