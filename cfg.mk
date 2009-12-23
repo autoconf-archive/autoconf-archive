@@ -25,7 +25,7 @@ TEXI_FILES	:= $(patsubst %,$(DOCDIR)/%.texi,$(MACROS))
 .PHONY: generate
 .PRECIOUS: $(patsubst %,$(STAGEDIR)/%.m4,$(MACROS))
 ALL_RECURSIVE_TARGETS += generate
-generate: $(HTML_FILES) $(TEXI_FILES) $(DOCDIR)/all-macros.texi
+generate: $(TEXI_FILES) $(DOCDIR)/all-macros.texi
 
 $(STAGEDIR)/manifest:
 	@$(MKDIR_P) $(STAGEDIR)
@@ -36,10 +36,6 @@ $(STAGEDIR)/%.m4 : $(M4DIR)/%.m4 $(STAGEDIR)/manifest $(srcdir)/macro.py $(srcdi
 	@echo generating $@
 	@$(srcdir)/macro2m4.py "$<" "$@"
 	@diff -u "$<" "$@"
-
-$(STAGEDIR)/%.html : $(STAGEDIR)/%.m4 $(srcdir)/macro2html.py $(srcdir)/macro.py
-	@echo generating $@
-	@$(srcdir)/macro2html.py "$<" "$@"
 
 $(DOCDIR)/%.texi : $(STAGEDIR)/%.m4 $(srcdir)/macro2texi.py $(srcdir)/macro.py $(DOCDIR)/all-macros.texi
 	@echo generating $@
