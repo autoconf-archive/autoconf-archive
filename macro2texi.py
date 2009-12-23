@@ -17,9 +17,13 @@ tmpl = """\
 
 %(description)s
 
-@majorheading Homepage
+@majorheading Source Code
 
-@url{http://www.nongnu.org/autoconf-archive/%(name)s.html}
+Download the
+@uref{http://git.savannah.gnu.org/gitweb/?p=autoconf-archive.git;a=blob_plain;f=m4/%(name)s.m4,latest
+version of @file{%(name)s.m4}} or browse
+@uref{http://git.savannah.gnu.org/gitweb/?p=autoconf-archive.git;a=history;f=m4/%(name)s.m4,the
+macro's revision history}.
 
 @majorheading License
 
