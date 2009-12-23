@@ -17,7 +17,7 @@
 #   Besides checking mysql, this macro also set these environment variables
 #   upon completion:
 #
-#   	MYSQLADMIN = which mysqladmin
+#       MYSQLADMIN = which mysqladmin
 #       MYSQL_DATADIR = directory containing mysql database
 #
 # LICENSE

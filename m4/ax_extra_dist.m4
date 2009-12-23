@@ -15,7 +15,7 @@
 #   <TYPE> to EXTRA_SRC_DISTS or EXTRA_BIN_DISTS. For example:
 #
 #      dist-foobar:
-#      	<rules for making the foobar dist>
+#       <rules for making the foobar dist>
 #
 #      EXTRA_BIN_DISTS += foobar
 #

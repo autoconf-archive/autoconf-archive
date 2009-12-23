@@ -20,14 +20,14 @@
 #
 #       AX_CONFIG_FEATURE_DEFAULT_ENABLED
 #       AX_CONFIG_FEATURE(feature_xxxxx, [turns on/off XXXXX support],
-#       		  HAVE_XXXXX, [Define if you want XXXXX support])
+#                         HAVE_XXXXX, [Define if you want XXXXX support])
 #
 #       ...
 #
 #       AX_CONFIG_FEATURE_DEFAULT_DISABLED
 #       AX_CONFIG_FEATURE(feature_yyyyy, [turns on/off YYYYY support],
 #                         HAVE_YYYYY, [Define if you want YYYYY support],
-#       		  [enable_yyyyy="yes"], [enable_yyyyy="no"])
+#                         [enable_yyyyy="yes"], [enable_yyyyy="no"])
 #       AM_CONDITIONAL(YYYYY, [test "$enable_yyyyy" = "yes"])
 #
 #       AX_CONFIG_FEATURE_DEFAULT_ENABLED
@@ -48,10 +48,10 @@
 #       AS_IF([some_test_here],[AX_CONFIG_FEATURE_ENABLE(feature_xxxxx)],[])
 #
 #       AX_CONFIG_FEATURE(feature_xxxxx, [turns on/off XXXXX support],
-#       		  HAVE_XXXXX, [Define if you want XXXXX support])
+#                         HAVE_XXXXX, [Define if you want XXXXX support])
 #       AX_CONFIG_FEATURE(feature_yyyyy, [turns on/off YYYYY support],
 #                         HAVE_YYYYY, [Define if you want YYYYY support],
-#       		  [enable_yyyyy="yes"], [enable_yyyyy="no"])
+#                         [enable_yyyyy="yes"], [enable_yyyyy="no"])
 #
 #       ...
 #
