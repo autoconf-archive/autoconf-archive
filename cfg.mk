@@ -37,11 +37,11 @@ $(STAGEDIR)/%.m4 : $(M4DIR)/%.m4 $(STAGEDIR)/manifest $(srcdir)/macro.py $(srcdi
 	@$(srcdir)/macro2m4.py "$<" "$@"
 	@diff -u "$<" "$@"
 
-$(STAGEDIR)/%.html : $(STAGEDIR)/%.m4 $(srcdir)/macro2html.py
+$(STAGEDIR)/%.html : $(STAGEDIR)/%.m4 $(srcdir)/macro2html.py $(srcdir)/macro.py
 	@echo generating $@
 	@$(srcdir)/macro2html.py "$<" "$@"
 
-$(DOCDIR)/%.texi : $(STAGEDIR)/%.m4 $(srcdir)/macro2texi.py $(DOCDIR)/all-macros.texi
+$(DOCDIR)/%.texi : $(STAGEDIR)/%.m4 $(srcdir)/macro2texi.py $(srcdir)/macro.py $(DOCDIR)/all-macros.texi
 	@echo generating $@
 	@$(srcdir)/macro2texi.py "$<" "$@"
 
