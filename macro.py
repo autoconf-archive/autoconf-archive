@@ -65,6 +65,8 @@ class Macro:
     # header and body are separated by an empty line.
     (header,body) = loadFile(filePath).split("\n\n", 1)
     self.body = body.split('\n')
+    # headers may not contain tab characters
+    assert not ('\t' in header)
     # drop initial header (if present)
     header = re.sub(r"^\n*# =+\n#[^\n]*\n# =+\n(#\n)+", '', header, 1)
     # split buffer into lines and drop initial "# " prefix in the process
