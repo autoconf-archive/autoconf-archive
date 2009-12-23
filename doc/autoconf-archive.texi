@@ -10,8 +10,8 @@
 @include version.texi
 
 @copying
-This manual is for Autoconf Archive @value{VERSION},
-which is a collection of re-usable Autoconf macros.
+This manual is for Autoconf Archive version @value{VERSION}, a
+collection of re-usable Autoconf macros.
 
 Compilation Copyright @copyright{} 2009 Autoconf Archive Maintainers @email{autoconf-archive-maintainers@@nongnu.org}
 
@@ -50,6 +50,10 @@ General Public License for more details.
 @end ifnottex
 
 @menu
+* Introduction::
+
+The Macros:
+
 * ax_absolute_header::
 * ax_ac_append_to_file::
 * ax_ac_print_to_file::
@@ -524,6 +528,11 @@ General Public License for more details.
 * ax_xercesc::
 * ax_xtra_classpath::
 @end menu
+
+@node Introduction
+@unnumbered Introduction
+
+To do.
 
 @include all-macros.texi
 
