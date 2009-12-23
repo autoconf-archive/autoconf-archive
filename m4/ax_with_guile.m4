@@ -17,7 +17,7 @@
 #
 #   A typical use could be the following one:
 #
-#         AX_WITH_GUILE
+#     AX_WITH_GUILE
 #
 # LICENSE
 #

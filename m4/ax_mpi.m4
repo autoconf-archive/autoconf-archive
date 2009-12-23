@@ -21,8 +21,8 @@
 #
 #   If you want to compile everything with MPI, you should set:
 #
-#       CC="MPICC" #OR# CXX="MPICXX" #OR# F77="MPIF77" #OR# FC="MPIFC"
-#       LIBS="$MPILIBS $LIBS"
+#     CC="MPICC" #OR# CXX="MPICXX" #OR# F77="MPIF77" #OR# FC="MPIFC"
+#     LIBS="$MPILIBS $LIBS"
 #
 #   NOTE: The above assumes that you will use $CC (or whatever) for linking
 #   as well as for compiling. (This is the default for automake and most

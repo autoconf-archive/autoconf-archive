@@ -17,23 +17,23 @@
 #   For example, the following ensures that uint64_t is defined as a 64-bit
 #   datatype:
 #
-#       AX_DEFINE_INTEGER_BITS(uint64_t, unsigned long long, unsigned __int64, long)
-#       if test "$uint64_t" = no; then
-#         AC_MSG_ERROR([unable to continue without a 64-bit datatype])
-#       fi
+#     AX_DEFINE_INTEGER_BITS(uint64_t, unsigned long long, unsigned __int64, long)
+#     if test "$uint64_t" = no; then
+#       AC_MSG_ERROR([unable to continue without a 64-bit datatype])
+#     fi
 #
 #   You should then put the following in your C code to ensure that all
 #   datatypes defined by AX_DEFINE_INTEGER_BITS are visible to your program:
 #
-#       #include "config.h"
+#     #include "config.h"
 #
-#       #if HAVE_INTTYPES_H
-#       # include <inttypes.h>
-#       #else
-#       # if HAVE_STDINT_H
-#       #  include <stdint.h>
-#       # endif
-#       #endif
+#     #if HAVE_INTTYPES_H
+#     # include <inttypes.h>
+#     #else
+#     # if HAVE_STDINT_H
+#     #  include <stdint.h>
+#     # endif
+#     #endif
 #
 # LICENSE
 #

@@ -22,25 +22,25 @@
 #
 #   Example (configure.ac):
 #
-#      AX_DEFINE_DIR([EPREFIX], [exec_prefix], [--exec-prefix or default])
-#      AX_DEFINE_SUB_PATH([PATH_LIBDIR], [libdir], [--bindir subdir])
-#      AC_DEFINE_UNQUOTED([PACKAGE],"$PACKAGE", [Name of package])
+#     AX_DEFINE_DIR([EPREFIX], [exec_prefix], [--exec-prefix or default])
+#     AX_DEFINE_SUB_PATH([PATH_LIBDIR], [libdir], [--bindir subdir])
+#     AC_DEFINE_UNQUOTED([PACKAGE],"$PACKAGE", [Name of package])
 #
 #   Example (in C):
 #
-#      static const char _libdir[] = PATH_LIBDIR; /* configure default */
-#      char* libdir;
-#      char* eprefix = getenv (PACKAGE "DIR");
-#      if (! eprefix) eprefix = EPREFIX; /* default */
-#      if (*_libdir != '.') libdir = strdup(_libdir);
-#      else {
-#         libdir = malloc(strlen(eprefix) + strlen(_libdir) + 2);
-#         strcpy(libdir, eprefix);
-#         strcat(libdir, PATH_DELIMITER_STRING);
-#         strcat(libdir, _libdir);
-#      }
-#      ...
-#      free (libdir);
+#     static const char _libdir[] = PATH_LIBDIR; /* configure default */
+#     char* libdir;
+#     char* eprefix = getenv (PACKAGE "DIR");
+#     if (! eprefix) eprefix = EPREFIX; /* default */
+#     if (*_libdir != '.') libdir = strdup(_libdir);
+#     else {
+#        libdir = malloc(strlen(eprefix) + strlen(_libdir) + 2);
+#        strcpy(libdir, eprefix);
+#        strcat(libdir, PATH_DELIMITER_STRING);
+#        strcat(libdir, _libdir);
+#     }
+#     ...
+#     free (libdir);
 #
 #   The AX_DEFINE_SUB_PATHS(varnames) macro looks for the given various
 #   install-paths that largely depend on either ${prefix} or ${exec_prefix}.

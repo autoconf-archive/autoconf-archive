@@ -11,21 +11,21 @@
 #   Here is the standard hierarchy of paths, as defined by the GNU Coding
 #   Standards:
 #
-#      prefix
-#         exec_prefix
-#            bindir
-#            libdir
-#            libexecdir
-#            sbindir
-#         datadir
-#         sysconfdir
-#         sharestatedir
-#         localstatedir
-#         infodir
-#         lispdir
-#         includedir
-#         oldincludedir
-#         mandir
+#     prefix
+#        exec_prefix
+#           bindir
+#           libdir
+#           libexecdir
+#           sbindir
+#        datadir
+#        sysconfdir
+#        sharestatedir
+#        localstatedir
+#        infodir
+#        lispdir
+#        includedir
+#        oldincludedir
+#        mandir
 #
 #   This macro will setup a set of variables of the form
 #   'xxx_forward_relative_path' and 'xxx_backward_relative_path' where xxx

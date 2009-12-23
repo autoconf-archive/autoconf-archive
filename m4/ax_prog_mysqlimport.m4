@@ -14,7 +14,7 @@
 #   Besides checking existence, this macro also set these environment
 #   variables upon completion:
 #
-#       MYSQLIMPORT = which mysqlimport
+#     MYSQLIMPORT = which mysqlimport
 #
 # LICENSE
 #

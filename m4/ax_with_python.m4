@@ -17,7 +17,7 @@
 #
 #   A typical use could be the following one:
 #
-#         AX_WITH_PYTHON
+#     AX_WITH_PYTHON
 #
 # LICENSE
 #

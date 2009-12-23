@@ -19,28 +19,28 @@
 #
 #   Makefile.in might contain:
 #
-#       # A failsafe way of putting a dependency rule into a makefile
-#       $(DEPEND):
-#               $(CC) -MM $(srcdir)/*.c > $(DEPEND)
+#     # A failsafe way of putting a dependency rule into a makefile
+#     $(DEPEND):
+#             $(CC) -MM $(srcdir)/*.c > $(DEPEND)
 #
-#       @ifGNUmake@ ifeq ($(DEPEND),$(wildcard $(DEPEND)))
-#       @ifGNUmake@ include $(DEPEND)
-#       @ifGNUmake@ endif
+#     @ifGNUmake@ ifeq ($(DEPEND),$(wildcard $(DEPEND)))
+#     @ifGNUmake@ include $(DEPEND)
+#     @ifGNUmake@ endif
 #
 #   Then configure.in would normally contain:
 #
-#       AX_CHECK_GNU_MAKE()
-#       AC_OUTPUT(Makefile)
+#     AX_CHECK_GNU_MAKE()
+#     AC_OUTPUT(Makefile)
 #
 #   Then perhaps to cause gnu make to override any other make, we could do
 #   something like this (note that GNU make always looks for GNUmakefile
 #   first):
 #
-#       if  ! test x$_cv_gnu_make_command = x ; then
-#               mv Makefile GNUmakefile
-#               echo .DEFAULT: > Makefile ;
-#               echo \  $_cv_gnu_make_command \$@ >> Makefile;
-#       fi
+#     if  ! test x$_cv_gnu_make_command = x ; then
+#             mv Makefile GNUmakefile
+#             echo .DEFAULT: > Makefile ;
+#             echo \  $_cv_gnu_make_command \$@ >> Makefile;
+#     fi
 #
 #   Then, if any (well almost any) other make is called, and GNU make also
 #   exists, then the other make wraps the GNU make.

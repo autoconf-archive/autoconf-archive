@@ -17,7 +17,7 @@
 #
 #   A typical example could be the following one:
 #
-#         AX_WITH_PROG(PERL,perl)
+#     AX_WITH_PROG(PERL,perl)
 #
 #   NOTE: This macro is based upon the original AX_WITH_PYTHON macro from
 #   Dustin J. Mitchell <dustin@cs.uchicago.edu>.

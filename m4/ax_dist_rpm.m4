@@ -15,39 +15,39 @@
 #   name and version respectively.  The files and ChangeLog will be filled
 #   in automatically. For instance:
 #
-#       Summary: Foobar
-#       Name: @PACKAGE@
-#       Version: @VERSION@
-#       Release: 0
-#       License: GPL
-#       Group: Productivity/Networking
-#       Source0: http://somewhere/Foobar/%{name}-%{version}.tar.gz
-#       URL: http://somewhere
-#       BuildRoot: %{_tmppath}/%{name}-root
-#       Prefix: %{_prefix}
+#     Summary: Foobar
+#     Name: @PACKAGE@
+#     Version: @VERSION@
+#     Release: 0
+#     License: GPL
+#     Group: Productivity/Networking
+#     Source0: http://somewhere/Foobar/%{name}-%{version}.tar.gz
+#     URL: http://somewhere
+#     BuildRoot: %{_tmppath}/%{name}-root
+#     Prefix: %{_prefix}
 #
-#       %description
-#       Foobar does something
+#     %description
+#     Foobar does something
 #
-#       %prep
-#       %setup
+#     %prep
+#     %setup
 #
-#       %build
-#       %configure
-#       make
+#     %build
+#     %configure
+#     make
 #
-#       %install
-#       %makeinstall
+#     %install
+#     %makeinstall
 #
-#       %clean
-#       rm -rf $RPM_BUILD_ROOT
+#     %clean
+#     rm -rf $RPM_BUILD_ROOT
 #
-#       %files
-#       %defattr(-,root,root)
+#     %files
+#     %defattr(-,root,root)
 #
-#       %doc AUTHORS BUGS COPYING INSTALL NEWS README
+#     %doc AUTHORS BUGS COPYING INSTALL NEWS README
 #
-#       %changelog
+#     %changelog
 #
 #   Make sure ax_upload.am is added to aminclude.am and you have 'include
 #   aminclude.am' in your toplevel Makefile.am

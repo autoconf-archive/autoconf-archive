@@ -13,10 +13,10 @@
 #   Use this macro in conjunction with AX_STRINGS_STRCASECMP in your
 #   configure.in like so:
 #
-#       AX_STRING_STRCASECMP
-#       if test x"$ac_cv_string_strcasecmp" = "xno" ; then
-#           AX_STRINGS_STRCASECMP
-#       fi
+#     AX_STRING_STRCASECMP
+#     if test x"$ac_cv_string_strcasecmp" = "xno" ; then
+#         AX_STRINGS_STRCASECMP
+#     fi
 #
 #   This will cause either HAVE_STRING_STRCASECMP or HAVE_STRINGS_STRCASECMP
 #   to be defined in config.h, which will tell your code what header to

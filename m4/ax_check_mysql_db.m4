@@ -14,12 +14,12 @@
 #
 #   Example:
 #
-#       AX_CHECK_MYSQL_DB(DBNAME, [fishmarket])
-#       if test x$DBNAME = xfishmarket; then
-#           bla..bla..bla..
-#       else
-#           bla..bla..bla..
-#       fi
+#     AX_CHECK_MYSQL_DB(DBNAME, [fishmarket])
+#     if test x$DBNAME = xfishmarket; then
+#         bla..bla..bla..
+#     else
+#         bla..bla..bla..
+#     fi
 #
 # LICENSE
 #

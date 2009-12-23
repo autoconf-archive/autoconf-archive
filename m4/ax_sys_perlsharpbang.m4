@@ -18,9 +18,9 @@
 #   the final 'configure' script, in this context) by making the option
 #   argument like:
 #
-#      --with-perl-shebang='#! /my/funky/perlpath' # OR
-#      --with-perl-shebang='/my/funky/perlpath'  # we just throw away the #! anyway
-#                                                # bec it must be absent in Makefile
+#     --with-perl-shebang='#! /my/funky/perlpath' # OR
+#     --with-perl-shebang='/my/funky/perlpath'  # we just throw away the #! anyway
+#                                               # bec it must be absent in Makefile
 #
 #   Rationale: The are various ways of starting an interpreter on different
 #   *nix-like systems. Many use the simple

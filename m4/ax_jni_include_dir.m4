@@ -17,12 +17,12 @@
 #
 #   Example usage follows:
 #
-#       AX_JNI_INCLUDE_DIR
+#     AX_JNI_INCLUDE_DIR
 #
-#       for JNI_INCLUDE_DIR in $JNI_INCLUDE_DIRS
-#       do
-#               CPPFLAGS="$CPPFLAGS -I$JNI_INCLUDE_DIR"
-#       done
+#     for JNI_INCLUDE_DIR in $JNI_INCLUDE_DIRS
+#     do
+#             CPPFLAGS="$CPPFLAGS -I$JNI_INCLUDE_DIR"
+#     done
 #
 #   If you want to force a specific compiler:
 #

@@ -14,7 +14,7 @@
 #   Besides checking existence, this macro also set these environment
 #   variables upon completion:
 #
-#       SSH = which ssh
+#     SSH = which ssh
 #
 # LICENSE
 #

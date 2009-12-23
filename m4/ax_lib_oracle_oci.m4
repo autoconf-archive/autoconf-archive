@@ -16,12 +16,12 @@
 #
 #   1) Single-option usage:
 #
-#       --with-oci         -- path to ORACLE_HOME directory
+#     --with-oci         -- path to ORACLE_HOME directory
 #
 #   2) Two-options usage (both options are required):
 #
-#       --with-oci-include -- path to directory with OCI headers
-#       --with-oci-lib     -- path to directory with OCI libraries
+#     --with-oci-include -- path to directory with OCI headers
+#     --with-oci-lib     -- path to directory with OCI libraries
 #
 #   NOTE: These options described above do not take yes|no values. If 'yes'
 #   value is passed, then WARNING message will be displayed, 'no' value, as

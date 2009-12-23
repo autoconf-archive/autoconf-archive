@@ -24,25 +24,25 @@
 #
 #   Example:
 #
-#      AX_PATH_GENERIC(Foo, 1.0.0)
+#     AX_PATH_GENERIC(Foo, 1.0.0)
 #
 #   would run `foo-config --version' and check that it is at least 1.0.0, if
 #   successful the following variables would be defined and substituted:
 #
-#      FOO_CFLAGS to `foo-config --cflags`
-#      FOO_LIBS   to `foo-config --libs`
+#     FOO_CFLAGS to `foo-config --cflags`
+#     FOO_LIBS   to `foo-config --libs`
 #
 #   Example:
 #
-#      AX_PATH_GENERIC([Bar],,,[
-#         AC_MSG_ERROR([Cannot find Bar library])
-#      ])
+#     AX_PATH_GENERIC([Bar],,,[
+#        AC_MSG_ERROR([Cannot find Bar library])
+#     ])
 #
 #   would check for bar-config program, defining and substituting the
 #   following variables:
 #
-#      BAR_CFLAGS to `bar-config --cflags`
-#      BAR_LIBS   to `bar-config --libs`
+#     BAR_CFLAGS to `bar-config --cflags`
+#     BAR_LIBS   to `bar-config --libs`
 #
 #   This macro is a rearranged version of AC_PATH_GENERIC from Angus Lees.
 #

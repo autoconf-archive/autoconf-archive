@@ -14,7 +14,7 @@
 #   Besides checking existence, this macro also set these environment
 #   variables upon completion:
 #
-#       SCP = which scp
+#     SCP = which scp
 #
 # LICENSE
 #

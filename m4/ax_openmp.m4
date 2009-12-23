@@ -21,9 +21,9 @@
 #
 #   If you want to compile everything with OpenMP, you should set:
 #
-#       CFLAGS="$CFLAGS $OPENMP_CFLAGS"
-#       #OR#  CXXFLAGS="$CXXFLAGS $OPENMP_CXXFLAGS"
-#       #OR#  FFLAGS="$FFLAGS $OPENMP_FFLAGS"
+#     CFLAGS="$CFLAGS $OPENMP_CFLAGS"
+#     #OR#  CXXFLAGS="$CXXFLAGS $OPENMP_CXXFLAGS"
+#     #OR#  FFLAGS="$FFLAGS $OPENMP_FFLAGS"
 #
 #   (depending on the selected language).
 #

@@ -13,35 +13,35 @@
 #   variable $pgclient_call is set for later use in Makefiles, if you'd like
 #   to make use of this, you must do
 #
-#       AC_SUBST(pgclient_call)
+#     AC_SUBST(pgclient_call)
 #
 #   after having called AX_CHECK_PGSQL_DB. You can then do something like
 #   the following in your Makefile.am:
 #
-#       @pgclient_call@ -f file.sql
+#     @pgclient_call@ -f file.sql
 #
 #   If you want the user to set the data, you should support something like
 #   these configure options:
 #
-#       AC_ARG_WITH(pgsql-host,
-#               [  --with-pgsql-host=HOST               server is running on HOST @<:@local socket@:>@],
-#               [pg_host=$withval], [pg_host=])
+#     AC_ARG_WITH(pgsql-host,
+#             [  --with-pgsql-host=HOST               server is running on HOST @<:@local socket@:>@],
+#             [pg_host=$withval], [pg_host=])
 #
-#       AC_ARG_WITH(pgsql-db,
-#               [  --with-pgsql-db=DATABASE             use DATABASE @<:@tarantoola@:>@],
-#               [pg_db=$withval], [pg_db=tarantoola])
+#     AC_ARG_WITH(pgsql-db,
+#             [  --with-pgsql-db=DATABASE             use DATABASE @<:@tarantoola@:>@],
+#             [pg_db=$withval], [pg_db=tarantoola])
 #
-#       AC_ARG_WITH(pgsql-user,
-#               [  --with-pgsql-user=USER               use USER @<:@postgres@:>@],
-#               [pg_user=$withval], [pg_user=postgres])
+#     AC_ARG_WITH(pgsql-user,
+#             [  --with-pgsql-user=USER               use USER @<:@postgres@:>@],
+#             [pg_user=$withval], [pg_user=postgres])
 #
-#       AC_ARG_WITH(pgsql-password,
-#               [  --with-pgsql-password=PASSWORD       use PASSWORD @<:@none@:>@],
-#               [pg_password=$withval], [pg_password=""])
+#     AC_ARG_WITH(pgsql-password,
+#             [  --with-pgsql-password=PASSWORD       use PASSWORD @<:@none@:>@],
+#             [pg_password=$withval], [pg_password=""])
 #
 #   You can then call the macro like this:
 #
-#       AX_CHECK_PGSQL_DB([$pg_db], [$pg_user], [$pg_host], [$pg_password], [AC_MSG_ERROR([We need a database connection!])])
+#     AX_CHECK_PGSQL_DB([$pg_db], [$pg_user], [$pg_host], [$pg_password], [AC_MSG_ERROR([We need a database connection!])])
 #
 # LICENSE
 #

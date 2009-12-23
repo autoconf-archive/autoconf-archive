@@ -17,7 +17,7 @@
 #
 #   A typical use could be the following one:
 #
-#         AX_WITH_RUBY
+#     AX_WITH_RUBY
 #
 # LICENSE
 #

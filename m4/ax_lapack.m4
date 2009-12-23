@@ -14,7 +14,7 @@
 #
 #   To link with LAPACK, you should link with:
 #
-#       $LAPACK_LIBS $BLAS_LIBS $LIBS $FLIBS
+#     $LAPACK_LIBS $BLAS_LIBS $LIBS $FLIBS
 #
 #   in that order. BLAS_LIBS is the output variable of the AX_BLAS macro,
 #   called automatically. FLIBS is the output variable of the

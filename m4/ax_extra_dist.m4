@@ -14,22 +14,22 @@
 #   your Makefile.am, where <TYPE> is the name of the dist and then add
 #   <TYPE> to EXTRA_SRC_DISTS or EXTRA_BIN_DISTS. For example:
 #
-#      dist-foobar:
-#       <rules for making the foobar dist>
+#     dist-foobar:
+#      <rules for making the foobar dist>
 #
-#      EXTRA_BIN_DISTS += foobar
+#     EXTRA_BIN_DISTS += foobar
 #
 #   You can then build all the src dist targets by running:
 #
-#      make dist-src
+#     make dist-src
 #
 #   You can build all the binary dist targets by running:
 #
-#      make dist-bin
+#     make dist-bin
 #
 #   and you can build both the src and dist targets by running:
 #
-#      make all-dist
+#     make all-dist
 #
 # LICENSE
 #

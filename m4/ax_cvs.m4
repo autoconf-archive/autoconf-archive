@@ -13,7 +13,7 @@
 #   Branching and releasing relies on you using the following version
 #   format:
 #
-#      MAJOR.MINOR.POINT
+#     MAJOR.MINOR.POINT
 #
 #   where MAJOR is the major version number, MINOR is the minor version
 #   number and POINT is the point release number.

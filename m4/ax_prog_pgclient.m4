@@ -15,7 +15,7 @@
 #   program, you can do something like the following to stop configure with
 #   an error if pgclient wasn't found:
 #
-#         if test "x$pgclient" = "x0"; then AC_MSG_ERROR([We need that to setup the database!]); fi
+#     if test "x$pgclient" = "x0"; then AC_MSG_ERROR([We need that to setup the database!]); fi
 #
 #   pgclient can be found at http://pgclient.freesources.org
 #

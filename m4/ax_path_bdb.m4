@@ -25,11 +25,11 @@
 #
 #   An example of it's use is:
 #
-#      AX_PATH_BDB([3],[
-#        LIBS="$BDB_LIBS $LIBS"
-#        LDFLAGS="$BDB_LDFLAGS $LDFLAGS"
-#        CPPFLAGS="$CPPFLAGS $BDB_CPPFLAGS"
-#      ])
+#     AX_PATH_BDB([3],[
+#       LIBS="$BDB_LIBS $LIBS"
+#       LDFLAGS="$BDB_LDFLAGS $LDFLAGS"
+#       CPPFLAGS="$CPPFLAGS $BDB_CPPFLAGS"
+#     ])
 #
 #   which will locate the latest version of Berkeley DB on the system, and
 #   ensure that it is version 3.0 or higher.

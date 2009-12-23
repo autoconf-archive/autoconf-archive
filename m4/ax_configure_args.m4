@@ -22,10 +22,10 @@
 #
 #   Example:
 #
-#      AC_DEFUN([AX_ENABLE_SUBDIR],[dnl
-#        AC_REQUIRE([AX_CONFIGURE_ARGS])dnl
-#        eval $SHELL $ac_configure_args || exit $?
-#        ...])
+#     AC_DEFUN([AX_ENABLE_SUBDIR],[dnl
+#       AC_REQUIRE([AX_CONFIGURE_ARGS])dnl
+#       eval $SHELL $ac_configure_args || exit $?
+#       ...])
 #
 # LICENSE
 #

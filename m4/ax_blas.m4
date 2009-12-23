@@ -14,7 +14,7 @@
 #
 #   To link with BLAS, you should link with:
 #
-#       $BLAS_LIBS $LIBS $FLIBS
+#     $BLAS_LIBS $LIBS $FLIBS
 #
 #   in that order. FLIBS is the output variable of the
 #   AC_F77_LIBRARY_LDFLAGS macro (called if necessary by AX_BLAS), and is

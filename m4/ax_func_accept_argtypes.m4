@@ -12,9 +12,9 @@
 #   placed into the symbols ACCEPT_TYPE_ARG[123], consistent with the
 #   following example:
 #
-#         #define ACCEPT_TYPE_ARG1 int
-#         #define ACCEPT_TYPE_ARG2 struct sockaddr *
-#         #define ACCEPT_TYPE_ARG3 socklen_t *
+#     #define ACCEPT_TYPE_ARG1 int
+#     #define ACCEPT_TYPE_ARG2 struct sockaddr *
+#     #define ACCEPT_TYPE_ARG3 socklen_t *
 #
 #   This macro requires AC_CHECK_HEADERS to have already verified the
 #   presence or absence of sys/types.h and sys/socket.h.

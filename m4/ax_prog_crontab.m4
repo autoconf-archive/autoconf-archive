@@ -14,7 +14,7 @@
 #   Besides checking existence, this macro also set these environment
 #   variables upon completion:
 #
-#       CRONTAB = which crontab
+#     CRONTAB = which crontab
 #
 # LICENSE
 #

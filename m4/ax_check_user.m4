@@ -13,17 +13,17 @@
 #
 #   Example:
 #
-#       AX_CHECK_USER(USER, [gleensalmon])
-#       if test x$USER = xgleensalmon; then
-#           bla..bla..bla..
-#       else
-#           bla..bla..bla..
-#       fi
+#     AX_CHECK_USER(USER, [gleensalmon])
+#     if test x$USER = xgleensalmon; then
+#         bla..bla..bla..
+#     else
+#         bla..bla..bla..
+#     fi
 #
 #   Besides checking existence, this macro also set these environment
 #   variables upon completion:
 #
-#       USER_HOME = home directory of user, written in /etc/passwd
+#     USER_HOME = home directory of user, written in /etc/passwd
 #
 # LICENSE
 #

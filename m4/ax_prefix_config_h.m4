@@ -68,10 +68,10 @@
 #   it by itself". You might want to clean up about these - consider an
 #   extra mylib/conf.h that reads something like:
 #
-#      #include <mylib/_config.h>
-#      #ifndef _testpkg_const
-#      #define _testpkg_const const
-#      #endif
+#     #include <mylib/_config.h>
+#     #ifndef _testpkg_const
+#     #define _testpkg_const const
+#     #endif
 #
 #   and then start using _testpkg_const in the header files. That is also a
 #   good thing to differentiate whether some library-user has starting to

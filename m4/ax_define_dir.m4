@@ -16,7 +16,7 @@
 #
 #   Example:
 #
-#      AX_DEFINE_DIR([DATADIR], [datadir], [Where data are placed to.])
+#     AX_DEFINE_DIR([DATADIR], [datadir], [Where data are placed to.])
 #
 # LICENSE
 #

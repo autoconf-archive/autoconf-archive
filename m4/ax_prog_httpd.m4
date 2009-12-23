@@ -16,14 +16,14 @@
 #   Besides checking existence, this macro also set these environment
 #   variables upon completion:
 #
-#       HTTPD                    = which httpd
-#       HTTPD_ROOT               = Apache's root directory, specified when compiled / run with -d option
-#       HTTPD_SERVER_ROOT        = Directory for Apache's essential files, e.g. access logs / error logs / modules / scripts.
-#       HTTPD_SERVER_CONFIG_FILE = Full-path of the 'httpd.conf' file
-#       HTTPD_USER               = Which user that httpd runs as
-#       HTTPD_GROUP              = Which group that httpd runs as
-#       HTTPD_DOC_HOME           = Document directory, taken as the first DocumentRoot path found in httpd.conf
-#       HTTPD_SCRIPT_HOME        = CGI script directory, taken as the first ScriptAlias path found in httpd.conf
+#     HTTPD                    = which httpd
+#     HTTPD_ROOT               = Apache's root directory, specified when compiled / run with -d option
+#     HTTPD_SERVER_ROOT        = Directory for Apache's essential files, e.g. access logs / error logs / modules / scripts.
+#     HTTPD_SERVER_CONFIG_FILE = Full-path of the 'httpd.conf' file
+#     HTTPD_USER               = Which user that httpd runs as
+#     HTTPD_GROUP              = Which group that httpd runs as
+#     HTTPD_DOC_HOME           = Document directory, taken as the first DocumentRoot path found in httpd.conf
+#     HTTPD_SCRIPT_HOME        = CGI script directory, taken as the first ScriptAlias path found in httpd.conf
 #
 # LICENSE
 #

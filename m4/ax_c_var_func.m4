@@ -15,7 +15,7 @@
 #   __func__ shall be implictly declared by the compiler as if, immediately
 #   following the opening brace of each function definition, the declaration
 #
-#       static const char __func__[] = "function-name";
+#     static const char __func__[] = "function-name";
 #
 #   appeared, where function-name is the name of the function where the
 #   __func__ identifier is used.

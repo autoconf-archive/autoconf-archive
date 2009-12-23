@@ -15,17 +15,17 @@
 #
 #   For instance,
 #
-#      first=/usr/local/bin
-#      second=/usr/local/share
-#      AX_COMPUTE_RELATIVE_PATHS([first:second:fs second:first:sf])
-#      # $fs is set to ../share
-#      # $sf is set to ../bin
+#     first=/usr/local/bin
+#     second=/usr/local/share
+#     AX_COMPUTE_RELATIVE_PATHS([first:second:fs second:first:sf])
+#     # $fs is set to ../share
+#     # $sf is set to ../bin
 #
 #   $FROM and $TO are both eval'ed recursively and normalized, this means
 #   that you can call this macro with autoconf's dirnames like `prefix' or
 #   `datadir'. For example:
 #
-#      AX_COMPUTE_RELATIVE_PATHS([bindir:datadir:bin_to_data])
+#     AX_COMPUTE_RELATIVE_PATHS([bindir:datadir:bin_to_data])
 #
 #   AX_COMPUTE_RELATIVE_PATHS should also works with DOS filenames.
 #

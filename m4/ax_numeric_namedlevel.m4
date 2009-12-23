@@ -27,15 +27,15 @@
 #
 #   the mnemonic names are:
 #
-#      9| insane |ultrasome|experimentalplus
-#      8| ultra  |ultra|experimental)
-#      7| all    |muchmore|somemanymore|manymoreplus
-#      6| most   |manymore|most)
-#      5| strict |somemore|almost
-#      4| more   |more
-#      3| extra  |manyplus|plusmuch|somemany|plusmany
-#      2| many   |many|much|(yes)
-#      1| some   |some|plus
+#     9| insane |ultrasome|experimentalplus
+#     8| ultra  |ultra|experimental)
+#     7| all    |muchmore|somemanymore|manymoreplus
+#     6| most   |manymore|most)
+#     5| strict |somemore|almost
+#     4| more   |more
+#     3| extra  |manyplus|plusmuch|somemany|plusmany
+#     2| many   |many|much|(yes)
+#     1| some   |some|plus
 #
 #   note that a level can be construcct of (some|plus) = bit-0, (many|much)
 #   = bit-1, (more) = bit-2, (ultra|experimental) = bit-3 atleast in a
@@ -43,9 +43,9 @@
 #
 #   Example usage:
 #
-#      AX_NUMERIC_NAMEDLEVEL(OPTLEVEL,with_optlevel,1,3)
-#      AC_DEFINE(OPTLEVEL)
-#      test "$GCC" = "yes" && CFLAGS="$CFLAGS -O$OPTLEVEL)
+#     AX_NUMERIC_NAMEDLEVEL(OPTLEVEL,with_optlevel,1,3)
+#     AC_DEFINE(OPTLEVEL)
+#     test "$GCC" = "yes" && CFLAGS="$CFLAGS -O$OPTLEVEL)
 #
 # LICENSE
 #

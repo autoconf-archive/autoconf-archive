@@ -25,9 +25,9 @@
 #   If you are only building threads programs, you may wish to use these
 #   variables in your default LIBS, CFLAGS, and CC:
 #
-#          LIBS="$PTHREAD_LIBS $LIBS"
-#          CFLAGS="$CFLAGS $PTHREAD_CFLAGS"
-#          CC="$PTHREAD_CC"
+#     LIBS="$PTHREAD_LIBS $LIBS"
+#     CFLAGS="$CFLAGS $PTHREAD_CFLAGS"
+#     CC="$PTHREAD_CC"
 #
 #   In addition, if the PTHREAD_CREATE_JOINABLE thread-attribute constant
 #   has a nonstandard name, defines PTHREAD_CREATE_JOINABLE to that name

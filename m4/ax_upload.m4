@@ -11,27 +11,27 @@
 #   Adds support for uploading dist files. %%s in the command will be
 #   substituted with the name of the file. e.g:
 #
-#      AX_UPLOAD([ncftpput -v upload.sourceforge.net /incoming %%s])
+#     AX_UPLOAD([ncftpput -v upload.sourceforge.net /incoming %%s])
 #
 #   To add upload support for other custom dists add upload-<TYPE> to
 #   UPLOAD_BIN or UPLOAD_SRC, where <TYPE> is the type of dist that is being
 #   uploaded and add a mapping from <TYPE> to the dist file name in the
 #   format '{<TYPE>=><FILENAME>}' to UPLOAD_TARGETS. For example:
 #
-#      UPLOAD_BIN += upload-foobar
-#      UPLOAD_TARGETS += {foobar=>@PACKAGE@-@VERSION@.fb}
+#     UPLOAD_BIN += upload-foobar
+#     UPLOAD_TARGETS += {foobar=>@PACKAGE@-@VERSION@.fb}
 #
 #   You can then upload of the src distribution files by running:
 #
-#      make upload-src
+#     make upload-src
 #
 #   all the binaru distribution files by running:
 #
-#      make upload-bin
+#     make upload-bin
 #
 #   or both by running:
 #
-#      make upload
+#     make upload
 #
 # LICENSE
 #

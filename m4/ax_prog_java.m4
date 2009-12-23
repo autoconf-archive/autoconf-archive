@@ -57,18 +57,18 @@
 #   This is a sample configure.in Process this file with autoconf to produce
 #   a configure script.
 #
-#      AC_INIT(UnTag.java)
+#     AC_INIT(UnTag.java)
 #
-#      dnl Checks for programs.
-#      AC_CHECK_CLASSPATH
-#      AX_PROG_JAVAC
-#      AX_PROG_JAVA
+#     dnl Checks for programs.
+#     AC_CHECK_CLASSPATH
+#     AX_PROG_JAVAC
+#     AX_PROG_JAVA
 #
-#      dnl Checks for classes
-#      AX_CHECK_RQRD_CLASS(org.xml.sax.Parser)
-#      AX_CHECK_RQRD_CLASS(com.jclark.xml.sax.Driver)
+#     dnl Checks for classes
+#     AX_CHECK_RQRD_CLASS(org.xml.sax.Parser)
+#     AX_CHECK_RQRD_CLASS(com.jclark.xml.sax.Driver)
 #
-#      AC_OUTPUT(Makefile)
+#     AC_OUTPUT(Makefile)
 #
 # LICENSE
 #

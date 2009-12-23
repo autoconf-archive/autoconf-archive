@@ -18,7 +18,7 @@
 #   Besides checking mysql, this macro also set these environment variables
 #   upon completion:
 #
-#       MYSQLSHOW = which mysqlshow
+#     MYSQLSHOW = which mysqlshow
 #
 # LICENSE
 #

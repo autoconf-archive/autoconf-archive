@@ -19,7 +19,7 @@
 #   Besides checking mysql, this macro also set these environment variables
 #   upon completion:
 #
-#       MYSQL = which mysql
+#     MYSQL = which mysql
 #
 # LICENSE
 #

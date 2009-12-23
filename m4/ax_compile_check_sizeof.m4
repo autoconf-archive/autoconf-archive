@@ -18,11 +18,11 @@
 #   The trick is that C will not allow duplicate case labels. While this is
 #   valid C code:
 #
-#        switch (0) case 0: case 1:;
+#     switch (0) case 0: case 1:;
 #
 #   The following is not:
 #
-#        switch (0) case 0: case 0:;
+#     switch (0) case 0: case 0:;
 #
 #   Thus, the AC_TRY_COMPILE will fail if the currently tried size does not
 #   match.
@@ -30,29 +30,29 @@
 #   Here is an example skeleton configure.in script, demonstrating the
 #   macro's usage:
 #
-#        AC_PROG_CC
-#        AC_CHECK_HEADERS(stddef.h unistd.h)
-#        AC_TYPE_SIZE_T
-#        AC_CHECK_TYPE(ssize_t, int)
+#     AC_PROG_CC
+#     AC_CHECK_HEADERS(stddef.h unistd.h)
+#     AC_TYPE_SIZE_T
+#     AC_CHECK_TYPE(ssize_t, int)
 #
-#        headers='#ifdef HAVE_STDDEF_H
-#        #include <stddef.h>
-#        #endif
-#        #ifdef HAVE_UNISTD_H
-#        #include <unistd.h>
-#        #endif
-#        '
+#     headers='#ifdef HAVE_STDDEF_H
+#     #include <stddef.h>
+#     #endif
+#     #ifdef HAVE_UNISTD_H
+#     #include <unistd.h>
+#     #endif
+#     '
 #
-#        AX_COMPILE_CHECK_SIZEOF(char)
-#        AX_COMPILE_CHECK_SIZEOF(short)
-#        AX_COMPILE_CHECK_SIZEOF(int)
-#        AX_COMPILE_CHECK_SIZEOF(long)
-#        AX_COMPILE_CHECK_SIZEOF(unsigned char *)
-#        AX_COMPILE_CHECK_SIZEOF(void *)
-#        AX_COMPILE_CHECK_SIZEOF(size_t, $headers)
-#        AX_COMPILE_CHECK_SIZEOF(ssize_t, $headers)
-#        AX_COMPILE_CHECK_SIZEOF(ptrdiff_t, $headers)
-#        AX_COMPILE_CHECK_SIZEOF(off_t, $headers)
+#     AX_COMPILE_CHECK_SIZEOF(char)
+#     AX_COMPILE_CHECK_SIZEOF(short)
+#     AX_COMPILE_CHECK_SIZEOF(int)
+#     AX_COMPILE_CHECK_SIZEOF(long)
+#     AX_COMPILE_CHECK_SIZEOF(unsigned char *)
+#     AX_COMPILE_CHECK_SIZEOF(void *)
+#     AX_COMPILE_CHECK_SIZEOF(size_t, $headers)
+#     AX_COMPILE_CHECK_SIZEOF(ssize_t, $headers)
+#     AX_COMPILE_CHECK_SIZEOF(ptrdiff_t, $headers)
+#     AX_COMPILE_CHECK_SIZEOF(off_t, $headers)
 #
 # LICENSE
 #

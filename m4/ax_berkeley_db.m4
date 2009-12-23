@@ -16,7 +16,7 @@
 #   location of db.h header in quotes (e.g. "db3/db.h") and
 #   AC_DEFINE_UNQUOTED is called on it, so that you can type
 #
-#        #include DB_HEADER
+#     #include DB_HEADER
 #
 #   in your C/C++ code. DB_LIBS is set to linker flags needed to link
 #   against the library (e.g. -ldb3.1) and AC_SUBST is called on it.

@@ -31,7 +31,7 @@
 #   installable file mylib-int.h that all your other installable header may
 #   include. So if you have a library package named "mylib", just use
 #
-#        AX_CREATE_STDINT_H(mylib-int.h)
+#     AX_CREATE_STDINT_H(mylib-int.h)
 #
 #   in configure.ac and go to install that very header file in Makefile.am
 #   along with the other headers (mylib.h) - and the mylib-specific headers

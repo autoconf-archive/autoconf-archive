@@ -15,8 +15,8 @@
 #
 #   Here's an example:
 #
-#       AX_REQUIRE_ONE_FUNC([posix_memalign memalign valloc], ,
-#         [AC_MSG_ERROR([unable to allocate page-aligned memory])])
+#     AX_REQUIRE_ONE_FUNC([posix_memalign memalign valloc], ,
+#       [AC_MSG_ERROR([unable to allocate page-aligned memory])])
 #
 # LICENSE
 #

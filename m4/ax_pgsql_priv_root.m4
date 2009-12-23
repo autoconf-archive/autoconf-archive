@@ -16,35 +16,35 @@
 #   The variable $pgclient_root_call is set for later use in Makefiles, if
 #   you'd like to make use of this, you must do
 #
-#       AC_SUBST(pgclient_root_call)
+#     AC_SUBST(pgclient_root_call)
 #
 #   after having called AX_CHECK_PGSQL_PRIV_ROOT. You can then do something
 #   like the following in your Makefile.am:
 #
-#       @pgclient_root_call@ -f file.sql
+#     @pgclient_root_call@ -f file.sql
 #
 #   If you want the user to set the data, you should support something like
 #   these configure options:
 #
-#       AC_ARG_WITH(pgsql-host,
-#               [  --with-pgsql-host=HOST               server is running on HOST @<:@local socket@:>@],
-#               [pg_host=$withval], [pg_host=])
+#     AC_ARG_WITH(pgsql-host,
+#             [  --with-pgsql-host=HOST               server is running on HOST @<:@local socket@:>@],
+#             [pg_host=$withval], [pg_host=])
 #
-#       AC_ARG_WITH(pgsql-db,
-#               [  --with-pgsql-db=DBNAME               use database DBNAME @<:@test@:>@],
-#               [pg_db=$withval], [pg_db=test])
+#     AC_ARG_WITH(pgsql-db,
+#             [  --with-pgsql-db=DBNAME               use database DBNAME @<:@test@:>@],
+#             [pg_db=$withval], [pg_db=test])
 #
-#       AC_ARG_WITH(pgsql-root-user,
-#               [  --with-pgsql-root-user=USER          use user USER, must have root (all) privileges @<:@postgres@:>@],
-#               [pg_root_user=$withval], [pg_root_user=postgres])
+#     AC_ARG_WITH(pgsql-root-user,
+#             [  --with-pgsql-root-user=USER          use user USER, must have root (all) privileges @<:@postgres@:>@],
+#             [pg_root_user=$withval], [pg_root_user=postgres])
 #
-#       AC_ARG_WITH(pgsql-password,
-#               [  --with-pgsql-password=PASSWORD       use password PASSWORD @<:@none@:>@],
-#               [pg_password=$withval], [pg_password=""])
+#     AC_ARG_WITH(pgsql-password,
+#             [  --with-pgsql-password=PASSWORD       use password PASSWORD @<:@none@:>@],
+#             [pg_password=$withval], [pg_password=""])
 #
 #   You can then call the macro like this:
 #
-#       AX_CHECK_PGSQL_PRIV_ROOT([$pg_db], [$pg_root_user], [$pg_host], [$pg_password], [AC_MSG_ERROR([We need root privileges on database!])])
+#     AX_CHECK_PGSQL_PRIV_ROOT([$pg_db], [$pg_root_user], [$pg_host], [$pg_password], [AC_MSG_ERROR([We need root privileges on database!])])
 #
 # LICENSE
 #
