@@ -40,11 +40,23 @@ def formatAuthor(a):
   else:
     return "#   Copyright (c) %(year)s %(name)s" % a
 
+def countSpaces(line):
+  for i in range(len(line)):
+    if not line[i].isspace():
+      break
+  return i
+
 if len(sys.argv) != 3:
   raise Exception("invalid command line syntax: %s" % ' '.join(map(repr, sys.argv)))
 (m4File,outFile) = sys.argv[1:]
 assert outFile != m4File
 m = Macro(m4File)
+for i in range(len(m.description)):
+  para = m.description[i]
+  if para[0][0].isspace():
+    spaces = min(map(countSpaces, para))
+    if spaces > 1:
+      m.description[i] = map(lambda l: '  ' + l[spaces:], para)
 url = "http://www.nongnu.org/autoconf-archive/%s.html" % m.name
 lineLen = max(len(url) + 2, 75)
 m.url = "# %s\n# %s\n# %s" % ('=' * lineLen, (' ' * ((lineLen - len(url)) / 2)) + url, '=' * lineLen)
@@ -57,4 +69,5 @@ m.description = '\n#\n'.join(map(formatParagraph, m.description))
 m.authors = "\n".join(map(formatAuthor, m.authors))
 m.license = '\n#\n'.join(map(formatParagraph, m.license))
 m.body = '\n'.join(m.body)
+
 writeFile(outFile, tmpl % m.__dict__)
