@@ -8,6 +8,8 @@
   AX_C_IFDEF has been deprecated, because standard Autoconf contains a macro,
   AC_CHECK_DECL, which replaces its functionality.
 
+  AX_CHECK_ICU has been extended to support icu-specific CPPFLAGS.
+
 * Noteworthy changes in release 2009.12.16 (2009-12-16) [alpha]
 
   All macros that used a prefix other than AX_ -- or no prefix at all -- have

@@ -38,6 +38,10 @@ AC_DEFUN([AX_CHECK_ICU], [
             AC_MSG_RESULT(yes)
             succeeded=yes
 
+            AC_MSG_CHECKING(ICU_CPPFLAGS)
+            ICU_CPPFLAGS=`$ICU_CONFIG --cppflags`
+            AC_MSG_RESULT($ICU_CPPFLAGS)
+
             AC_MSG_CHECKING(ICU_CFLAGS)
             ICU_CFLAGS=`$ICU_CONFIG --cflags`
             AC_MSG_RESULT($ICU_CFLAGS)
@@ -50,6 +54,7 @@ AC_DEFUN([AX_CHECK_ICU], [
             ICU_LIBS=`$ICU_CONFIG --ldflags`
             AC_MSG_RESULT($ICU_LIBS)
         else
+            ICU_CPPFLAGS=""
             ICU_CFLAGS=""
             ICU_CXXFLAGS=""
             ICU_LIBS=""
@@ -58,6 +63,7 @@ AC_DEFUN([AX_CHECK_ICU], [
             ifelse([$3], ,echo "can't find ICU >= $1",)
         fi
 
+        AC_SUBST(ICU_CPPFLAGS)
         AC_SUBST(ICU_CFLAGS)
         AC_SUBST(ICU_CXXFLAGS)
         AC_SUBST(ICU_LIBS)
