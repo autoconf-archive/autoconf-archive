@@ -2,6 +2,10 @@
 #           http://www.nongnu.org/autoconf-archive/ax_c_ifdef.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated in favor of the standard Autoconf macro AC_CHECK_DECL.
+#
 # SYNOPSIS
 #
 #   AX_C_IFDEF(MACRO-NAME, ACTION-IF-DEF, ACTION-IF-NOT-DEF)
