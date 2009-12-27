@@ -2,6 +2,12 @@
 #        http://www.nongnu.org/autoconf-archive/ax_c_printf_thsep.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro has been deprecated because of technical flaws, i.e. it may
+#   generate false positive results. Further details can be found at
+#   <http://savannah.nongnu.org/patch/?6848>.
+#
 # SYNOPSIS
 #
 #   AX_C_PRINTF_THSEP
