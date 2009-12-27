@@ -47,9 +47,15 @@
 
 * TODO Recognize cross-links in macro documentation.
 
-  Macros often refer to other entries in the archive. The macro2html and
-  macro2texi scripts should recognize those references and generate appropriate
-  links in the output.
+  Macros often refer to other entries in the archive. The macro2texi scripts
+  should recognize those references and generate appropriate links in the
+  output.
+
+  The implementation of this feature is not as simple as it may sound, because
+  Texinfo doesn't offer plain and simple cross-references. There is @xref, of
+  course, but use of that macros inserts additional words into the text! The
+  reference =@xref{Node}=, for instance, is rendered as =*Note Node=. This
+  property makes it very hard to insert references automatically.
 
 * TODO Recognize URIs in macro documentation.
 
@@ -74,7 +80,6 @@
   * [ ] sc_prohibit_magic_number_exit
 
 * TODO Link to http://www.flameeyes.eu/autotools-mythbuster/
-
 * TODO Don't use shell globs to configure the list of available macros
 
   The [[configure.ac][configure]] script globs m4/*.m4 to determine the list of available macros.
