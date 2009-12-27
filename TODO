@@ -59,3 +59,13 @@
   serial number (i.e. the number of commits that have occurred) and patches
   that number into the m4 file. The solution seems to work nicely, but it isn't
   integrated into the build process yet.
+* TODO Don't repeat license texts in Texinfo for every macro
+
+  The Texinfo documentation has a section "license" for every macro that
+  contains the complete license disclaimer. In case of the all-permissive
+  license, that's no big deal because that license is very short. In case of
+  GPL + Autoconf exception, however, this leads to a significant amount of
+  redundancy in the generated documentation.
+
+  It would be desirable to have the license texts in the documentation *once*
+  and to have every macro refer to the appropriate section.
