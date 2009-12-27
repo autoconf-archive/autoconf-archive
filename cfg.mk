@@ -22,10 +22,10 @@ MACROS		:= $(patsubst $(M4DIR)/%.m4,%, $(M4_FILES))
 HTML_FILES	:= $(patsubst %,$(HTMLDIR)/%.html,$(MACROS))
 TEXI_FILES	:= $(patsubst %,$(DOCDIR)/%.texi,$(MACROS))
 
-.PHONY: generate
+.PHONY: maintainer-generate
 .PRECIOUS: $(patsubst %,$(STAGEDIR)/%.m4,$(MACROS))
-ALL_RECURSIVE_TARGETS += generate
-generate: $(TEXI_FILES) $(DOCDIR)/all-macros.texi
+ALL_RECURSIVE_TARGETS += maintainer-generate
+maintainer-generate: $(TEXI_FILES) $(DOCDIR)/all-macros.texi
 
 $(STAGEDIR)/manifest:
 	@$(MKDIR_P) $(STAGEDIR)
