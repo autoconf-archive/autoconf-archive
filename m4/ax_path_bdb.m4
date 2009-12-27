@@ -61,7 +61,7 @@
 #
 #   Changes:
 #
-#    1/5/05 applied patch from Rafa Rzepecki to eliminate compiler
+#    1/5/05 applied patch from Rafal Rzepecki to eliminate compiler
 #           warning about unused variable, argv
 #
 # LICENSE
