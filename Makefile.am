@@ -29,7 +29,7 @@ dist-hook:
 	    >$(distdir)/cl-t -- master $(top_srcdir)/m4;		\
 	  rm -f $(distdir)/ChangeLog;					\
 	  mv $(distdir)/cl-t $(distdir)/ChangeLog;			\
-	  $(top_srcdir)/git-authors-gen.pl >$(distdir)/au-t;		\
+	  $(top_srcdir)/gen-authors.sh >$(distdir)/au-t;		\
 	  rm -f $(distdir)/AUTHORS;					\
 	  mv $(distdir)/au-t $(distdir)/AUTHORS;			\
 	fi

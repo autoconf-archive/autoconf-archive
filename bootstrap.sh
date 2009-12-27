@@ -18,7 +18,7 @@ sed -i -e 's/^sc_file_system:/disabled_sc_file_system:/' \
        -e 's/^sc_prohibit_magic_number_exit:/disabled_sc_prohibit_magic_number_exit:/' \
   maint.mk
 
-./git-authors-gen.pl >AUTHORS
+./gen-authors.sh >AUTHORS
 build-aux/gitlog-to-changelog >ChangeLog -- master m4/
 
 autoreconf --install -Wall

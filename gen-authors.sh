@@ -1,0 +1,21 @@
+#! /bin/bash
+
+set -eu
+
+trap 'rm -f AUTHORS-m4.tmp AUTHORS-git.tmp' 0
+
+sed -n -e 's/# *Copyright (c) [0-9,-]* *//p' m4/*.m4 >AUTHORS-m4.tmp
+git log | sed -n -e 's/^Author: *//p' >AUTHORS-git.tmp
+
+cat AUTHORS-m4.tmp AUTHORS-git.tmp \
+  | sed -e 's/ *<.*>.*//' \
+	-e 's/^Bogdan$/Bogdan Drozdowski/' \
+	-e 's/Fabien COELHO/Fabien Coelho/' \
+	-e 's/Dustin Mitchell/Dustin J. Mitchell/' \
+        -e 's/Alain BARBET/Alain Barbet/' \
+        -e 's/Mats Kindahl of Sun Microsystems/Mats Kindahl/' \
+        -e 's/Perceval ANICHINI/Perceval Anichini/' \
+        -e 's/Rafa Rzepecki/Rafal Rzepecki/' \
+        -e '/Zmanda Inc./d' \
+  | sort \
+  | uniq
