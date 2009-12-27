@@ -53,13 +53,6 @@
   * [ ] sc_prohibit_magic_number_exit
 
 * TODO Link to http://www.flameeyes.eu/autotools-mythbuster/
-* TODO Don't use shell globs to configure the list of available macros
-
-  The [[configure.ac][configure]] script globs m4/*.m4 to determine the list of available macros.
-  This mechanism is pretty fragile. Since the exact list is known at the time
-  we compile the release archive, that information should be inserted in the
-  script statically. But how?
-
 * TODO Generate serial lines
 
   The script [[file:set-serial.sh][set-serial.sh]] uses the git repository to determine an appropriate

@@ -19,22 +19,11 @@ General Public License for more details.])
 
 AC_MSG_NOTICE([Autoconf Archive version $VERSION])
 
-AC_MSG_CHECKING([for available macros])
-M4SOURCE=""
-for n in ${srcdir}/m4/*.m4 ; do
-  M4SOURCE="${M4SOURCE} ${n}"
-done
-AC_SUBST([M4SOURCE])
-AC_MSG_RESULT([done])
+M4FILES="m4_esyscmd([echo -n m4/*.m4])"
+AC_SUBST([M4FILES])
 
-AC_MSG_CHECKING([for available Texinfo documentation])
-TEXIFILE=""
-for n in ${srcdir}/doc/*.texi ; do
-  m=`basename ${n}`
-  TEXIFILE="${TEXIFILE} ${m}"
-done
-AC_SUBST([TEXIFILE])
-AC_MSG_RESULT([done])
+TEXIFILES="m4_esyscmd([cd m4 && echo -n *.m4 | sed -e 's/\.m4/.texi/g'])"
+AC_SUBST([TEXIFILES])
 
 AC_CONFIG_FILES([Makefile doc/Makefile])
 AC_OUTPUT

@@ -4,6 +4,6 @@
 # Licensed under the terms of the GNU General Public License.
 
 info_TEXINFOS           = autoconf-archive.texi
-EXTRA_DIST              = $(TEXIFILE)
+EXTRA_DIST              = $(TEXIFILES) all-macros.texi
 
-autoconf-archive.info:  $(TEXIFILE)
+autoconf-archive.info:  autoconf-archive.texi all-macros.texi $(TEXIFILES)

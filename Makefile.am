@@ -7,7 +7,7 @@ SUBDIRS                 = doc
 
 dist_pkgdata_DATA       = AUTHORS COPYING README
 aclocaldir              = $(datadir)/aclocal
-dist_aclocal_DATA       = $(M4SOURCE)
+dist_aclocal_DATA       = $(M4FILES)
 EXTRA_DIST              = build-aux/git-version-gen build-aux/gitlog-to-changelog
 
 # maintainer rules
