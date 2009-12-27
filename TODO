@@ -35,7 +35,7 @@
   Some macros feature http or mailto URIs. The generator scripts should
   recognize those and generate appropriate hyperlinks output (where feasible).
 
-* TODO Re-enable disabled sc_* checks from maint.mk [0/5]
+* TODO Re-enable disabled sc_* checks from maint.mk [0/6]
 
   Gnulib wants us to use spelling "file system" and objects when it sees the
   name ax_boost_filesystem in autoconf-archive.texi. There ought to be a way to
@@ -51,6 +51,7 @@
   * [ ] sc_space_tab
   * [ ] sc_useless_cpp_parens
   * [ ] sc_prohibit_magic_number_exit
+  * [ ] sc_copyright_check
 
 * TODO Link to http://www.flameeyes.eu/autotools-mythbuster/
 * TODO Generate serial lines
