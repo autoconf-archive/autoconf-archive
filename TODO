@@ -1,35 +1,8 @@
 #+TITLE: Autoconf Archive TODO                 -*- mode:org;fill-column:79; -*-
 
-* TODO Update the README file
-* TODO Document our new mailing lists.
-
-  * http://lists.nongnu.org/mailman/listinfo/autoconf-archive-announce
-
-    This is a low-traffic mailing list used to announce new releases of the
-    Autoconf Archive.
-
-  * http://lists.nongnu.org/mailman/listinfo/autoconf-archive-maintainers
-
-    This mailing list can be used to contact the archive maintainers, i.e. to
-    report problems with the website, the release tarballs, or the
-    documentation. Patches (git-formatted or otherwise) can be posted here,
-    too, although the patch tracker is the preferred way of submitting patches
-    or new macros.
-
-  * http://lists.nongnu.org/mailman/listinfo/autoconf-archive-commits
-
-    This mailing list distributes an e-mail every time the 'master' branch has
-    been changed in Git. Other branches, like 'maint', aren't tracked; there is
-    only a moderate amount of traffic.
-
+* TODO Improve the web site's front page
 * TODO Improve submission guide lines on the web site
-
-** New submissions should use an AX_ prefix.
-
-   Other prefixes are fine, too, but use of AX_ inside of the Autoconf Archive
-   is encouraged. The AC_ prefix should definitely be avoided, because it's
-   reserved for the GNU Autoconf distribution.
-
+** Macros must use an AX_ prefix.
 ** Patch submissions should put the original authors on Cc.
 
    Everyone is welcome to submit patches, bug reports, or suggestions to the

@@ -1,4 +1,4 @@
-\input texinfo   @c -*-texinfo-*-
+\input texinfo   @c -*-mode:texinfo;fill-column:79;-*-
 @comment %**start of header
 @setfilename autoconf-archive.info
 @settitle Autoconf Archive
@@ -10,20 +10,20 @@
 @include version.texi
 
 @copying
-This manual is for Autoconf Archive version @value{VERSION}, a
-collection of re-usable Autoconf macros.
+This manual is for Autoconf Archive version @value{VERSION}, a collection of
+freely re-usable Autoconf macros.
 
-Compilation Copyright @copyright{} 2009 Autoconf Archive Maintainers @email{autoconf-archive-maintainers@@nongnu.org}
+Compilation Copyright @copyright{} 2009 Autoconf Archive Maintainers
+@email{autoconf-archive-maintainers@@nongnu.org}
 
-This compilation is free software: you can redistribute it and/or
-modify it under the terms of the GNU General Public License as
-published by the Free Software Foundation, either version 3 of the
-License, or (at your option) any later version.
+This compilation is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
 
-This compilation is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-General Public License for more details.
+This compilation is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 @end copying
 
 @dircategory Software development
@@ -532,7 +532,74 @@ The Macros:
 @node Introduction
 @unnumbered Introduction
 
-To do.
+The Autoconf Archive is a collection of more than 450 freely re-usable macros
+for @uref{http://www.gnu.org/software/autoconf,GNU Autoconf} that have been
+contributed by friendly supporters of the cause from all over the Internet.
+
+The term ``free'' means two things in this context: (1) all macros distributed
+by the Archive can be used free of charge and (2) their use imposes no
+restrictions whatsoever on the licensing of the generated @file{configure}
+script, i.e. it is possible to use those macros in @file{configure} scripts
+that are meant for non-free software.
+
+This official web site of this project is located at
+@uref{http://savannah.nongnu.org/projects/autoconf-archive/}. All available
+information concerning this project is referenced from there.
+
+@unnumberedsec Downloading The Archive
+
+The macros distributed by the Archive are maintained in a public Git repository
+at @indicateurl{git://git.sv.gnu.org/autoconf-archive.git}. That repository can
+be cloned anonymously, which is probably the most convenient way to access the
+Archive. Gitweb offers an
+@uref{http://git.savannah.gnu.org/gitweb/?p=autoconf-archive.git;a=rss,RSS
+feed} for subscription that informs about changes to the repository. The same
+information is available via e-mail, too, on the
+@uref{http://lists.nongnu.org/mailman/listinfo/autoconf-archive-commits,commits
+mailing list}.
+
+For the benefit of everyone who doesn't use Git, traditional release archives
+can be downloaded from
+@uref{http://download.savannah.nongnu.org/releases/autoconf-archive/}. New
+release are always announced on the low-traffic
+@uref{http://lists.nongnu.org/mailman/listinfo/autoconf-archive-announce,announcements
+mailing list}.
+
+@unnumberedsec How To Contribute
+
+Please post to the
+@uref{https://savannah.nongnu.org/patch/?func=additem&group=autoconf-archive,patch
+tracker} to submit a macro for inclusion in the Archive. Your submission should
+contain:
+
+@itemize @bullet
+
+@item
+a synopsis that shows how the macro must be be called,
+
+@item
+a brief description of the macro's purpose,
+
+@item
+the list of authors (optionally with e-mail addresses),
+
+@item
+licensing terms, and
+
+@item
+the m4 source code.
+
+@end itemize
+
+Macros can be submitted under any
+@uref{http://www.gnu.org/licenses/license-list.html,GPL-compatible free
+software license}. The Free Software Foundation, however, recommends use of the
+@uref{http://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html,all-permissive
+license} for Autoconf macros.
+
+If you have questions, suggestions, are any other feedback that you'd like to
+share, then please don't hesitate to contact the Archive maintainers at
+@email{autoconf-archive-maintainers@@nongnu.org}.
 
 @include all-macros.texi
 
