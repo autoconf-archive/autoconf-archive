@@ -10,8 +10,8 @@
   AX_BOOST_BASE has been extended to support an
   ACTION-IF-FOUND/ACTION-IF-NOT-FOUND-style API.
 
-  AX_C_IFDEF has been deprecated, because standard Autoconf contains a macro,
-  AC_CHECK_DECL, which replaces its functionality.
+  AX_C_IFDEF has been deprecated, because the standard Autoconf macro
+  AC_CHECK_DECL provides the same functionality.
 
   AX_C_PRINTF_THSEP has been deprecated because of technical flaws. See
   http://savannah.nongnu.org/patch/?6848 for further details.
