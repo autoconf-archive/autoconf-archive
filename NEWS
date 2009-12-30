@@ -12,6 +12,8 @@
   environment and extended to support an
   ACTION-IF-FOUND/ACTION-IF-NOT-FOUND-style API.
 
+  AX_PTHREAD has been updated to succeed when compiling with -Wall and -Werror.
+
   AX_C_IFDEF has been deprecated, because the standard Autoconf macro
   AC_CHECK_DECL provides the same functionality.
 
