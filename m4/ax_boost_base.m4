@@ -92,7 +92,7 @@ if test "x$want_boost" = "xyes"; then
     if test "$ac_boost_path" != ""; then
         BOOST_LDFLAGS="-L$ac_boost_path/$libsubdir"
         BOOST_CPPFLAGS="-I$ac_boost_path/include"
-    else
+    elif test "$cross_compiling" != yes; then
         for ac_boost_path_tmp in /usr /usr/local /opt /opt/local ; do
             if test -d "$ac_boost_path_tmp/include/boost" && test -r "$ac_boost_path_tmp/include/boost"; then
                 BOOST_LDFLAGS="-L$ac_boost_path_tmp/$libsubdir"
@@ -153,24 +153,26 @@ if test "x$want_boost" = "xyes"; then
                 done
             fi
         else
-            for ac_boost_path in /usr /usr/local /opt /opt/local ; do
-                if test -d "$ac_boost_path" && test -r "$ac_boost_path"; then
-                    for i in `ls -d $ac_boost_path/include/boost-* 2>/dev/null`; do
-                        _version_tmp=`echo $i | sed "s#$ac_boost_path##" | sed 's/\/include\/boost-//' | sed 's/_/./'`
-                        V_CHECK=`expr $_version_tmp \> $_version`
-                        if test "$V_CHECK" = "1" ; then
-                            _version=$_version_tmp
-                                    best_path=$ac_boost_path
-                        fi
-                    done
-                fi
-            done
+            if test "$cross_compiling" != yes; then
+                for ac_boost_path in /usr /usr/local /opt /opt/local ; do
+                    if test -d "$ac_boost_path" && test -r "$ac_boost_path"; then
+                        for i in `ls -d $ac_boost_path/include/boost-* 2>/dev/null`; do
+                            _version_tmp=`echo $i | sed "s#$ac_boost_path##" | sed 's/\/include\/boost-//' | sed 's/_/./'`
+                            V_CHECK=`expr $_version_tmp \> $_version`
+                            if test "$V_CHECK" = "1" ; then
+                                _version=$_version_tmp
+                                best_path=$ac_boost_path
+                            fi
+                        done
+                    fi
+                done
 
-            VERSION_UNDERSCORE=`echo $_version | sed 's/\./_/'`
-            BOOST_CPPFLAGS="-I$best_path/include/boost-$VERSION_UNDERSCORE"
-            if test "$ac_boost_lib_path" = ""
-            then
-               BOOST_LDFLAGS="-L$best_path/$libsubdir"
+                VERSION_UNDERSCORE=`echo $_version | sed 's/\./_/'`
+                BOOST_CPPFLAGS="-I$best_path/include/boost-$VERSION_UNDERSCORE"
+                if test "$ac_boost_lib_path" = ""
+                then
+                   BOOST_LDFLAGS="-L$best_path/$libsubdir"
+                fi
             fi
 
             if test "x$BOOST_ROOT" != "x"; then
