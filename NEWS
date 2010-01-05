@@ -3,7 +3,8 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
-  The following macros have been added: AX_CXX_HELPFUL_TERMINATE_HANDLER.
+  AX_CXX_VERBOSE_TERMINATE_HANDLER has been generalized to support
+  architectures other than GNU libstdc++.
 
   AX_CHECK_ICU has been extended to support icu-specific CPPFLAGS.
 
