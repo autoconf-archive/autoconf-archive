@@ -50,6 +50,8 @@ FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 @end ifnottex
 
 @menu
+About the Archive:
+
 * Introduction::
 
 The Macros:
@@ -279,7 +281,6 @@ The Macros:
 * ax_cxx_header_tr1_unordered_set::
 * ax_cxx_header_unordered_map::
 * ax_cxx_header_unordered_set::
-* ax_cxx_helpful_terminate_handler::
 * ax_cxx_ldflags_std_lang::
 * ax_cxx_member_constants::
 * ax_cxx_member_templates::
@@ -546,7 +547,7 @@ This official web site of this project is located at
 @uref{http://savannah.nongnu.org/projects/autoconf-archive/}. All available
 information concerning this project is referenced from there.
 
-@unnumberedsec Downloading The Archive
+@unnumberedsec Downloading The Macros
 
 The macros distributed by the Archive are maintained in a public Git repository
 at @indicateurl{git://git.sv.gnu.org/autoconf-archive.git}. That repository can
