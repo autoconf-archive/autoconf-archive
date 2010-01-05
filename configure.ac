@@ -5,7 +5,7 @@ AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([-Wall gnu dist-bzip2 dist-xz])
 AC_CONFIG_SRCDIR([doc/autoconf-archive.texi])
 AC_COPYRIGHT([dnl
-Compilation Copyright 2009 Autoconf Archive Maintainers
+Compilation Copyright 2010 Autoconf Archive Maintainers
 
 This compilation is free software: you can redistribute it and/or
 modify it under the terms of the GNU General Public License as
