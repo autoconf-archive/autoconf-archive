@@ -593,8 +593,9 @@ the m4 source code.
 @end itemize
 
 Macros can be submitted under any
-@uref{http://www.gnu.org/licenses/license-list.html,GPL-compatible free
-software license}. The Free Software Foundation, however, recommends use of the
+@uref{http://www.gnu.org/licenses/license-list.html#GPLCompatibleLicenses,GPL-compatible
+free software license}. The Free Software Foundation, however, recommends use
+of the
 @uref{http://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html,all-permissive
 license} for Autoconf macros.
 
