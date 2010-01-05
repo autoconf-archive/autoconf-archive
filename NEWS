@@ -7,7 +7,8 @@
 
   AX_CHECK_ICU has been extended to support icu-specific CPPFLAGS.
 
-  AX_BOOST_BASE has been extended to support an
+  AX_BOOST_BASE has been improved to work correctly in a cross-compilation
+  environment and extended to support an
   ACTION-IF-FOUND/ACTION-IF-NOT-FOUND-style API.
 
   AX_C_IFDEF has been deprecated, because the standard Autoconf macro
