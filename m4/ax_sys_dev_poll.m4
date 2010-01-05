@@ -22,7 +22,8 @@
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
-#   and this notice are preserved.
+#   and this notice are preserved. This file is offered as-is, without any
+#   warranty.
 
 AU_ALIAS([AC_SYS_DEV_POLL], [AX_SYS_DEV_POLL])
 AC_DEFUN([AX_SYS_DEV_POLL], [AC_CACHE_CHECK(for /dev/poll support, ac_cv_dev_poll,

@@ -18,7 +18,8 @@
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
-#   and this notice are preserved.
+#   and this notice are preserved. This file is offered as-is, without any
+#   warranty.
 
 AU_ALIAS([AC_CXX_MEMBER_TEMPLATES_OUTSIDE_CLASS], [AX_CXX_MEMBER_TEMPLATES_OUTSIDE_CLASS])
 AC_DEFUN([AX_CXX_MEMBER_TEMPLATES_OUTSIDE_CLASS],

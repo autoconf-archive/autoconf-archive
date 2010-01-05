@@ -17,7 +17,8 @@
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
-#   and this notice are preserved.
+#   and this notice are preserved. This file is offered as-is, without any
+#   warranty.
 
 AC_DEFUN([AX_ADD_AM_MACRO_STATIC],[
   AC_REQUIRE([AX_AM_MACROS_STATIC])

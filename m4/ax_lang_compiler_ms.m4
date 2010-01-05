@@ -19,7 +19,8 @@
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
-#   and this notice are preserved.
+#   and this notice are preserved. This file is offered as-is, without any
+#   warranty.
 
 AC_DEFUN([AX_LANG_COMPILER_MS],
 [AC_CACHE_CHECK([whether we are using the Microsoft _AC_LANG compiler],

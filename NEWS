@@ -3,6 +3,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The text of the all-permissive license has been augmented by an express
+  warranty disclaimer as [[http://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html][suggested by the Free Software Foundation]].
+
   AX_CXX_VERBOSE_TERMINATE_HANDLER has been generalized to support
   architectures other than GNU libstdc++.
 

@@ -30,8 +30,8 @@
 #
 #   Copying and distribution of this file, with or without modification, is
 #   permitted in any medium, without royalty, provided the copyright notice
-#   and this notice are preserved.  This file is offered as-is, without any
-#   warranty.
+#   and this notice are preserved. This file is offered as-is, without any
+#   warranty.  This file is offered as-is, without any warranty.
 
 AC_DEFUN([AX_CXX_VERBOSE_TERMINATE_HANDLER],
 [AC_CACHE_CHECK([whether the terminate function prints useful information],

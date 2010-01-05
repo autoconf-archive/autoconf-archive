@@ -34,7 +34,8 @@
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
-#   and this notice are preserved.
+#   and this notice are preserved. This file is offered as-is, without any
+#   warranty.
 
 AU_ALIAS([MERK_SIP_DEVEL], [AX_SIP_DEVEL])
 AC_DEFUN([AX_SIP_DEVEL],[
