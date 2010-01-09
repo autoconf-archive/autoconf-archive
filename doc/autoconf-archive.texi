@@ -601,6 +601,9 @@ of the
 @uref{http://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html,all-permissive
 license} for Autoconf macros.
 
+See the @uref{http://www.flameeyes.eu/autotools-mythbuster, Autotools
+Mythbuster} for suggestions on how to write well-encapsulated, portable macros.
+
 If you have questions, suggestions, are any other feedback that you'd like to
 share, then please don't hesitate to contact the Archive maintainers at
 @email{autoconf-archive-maintainers@@nongnu.org}.
