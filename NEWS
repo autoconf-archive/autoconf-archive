@@ -23,6 +23,8 @@
   AX_C_PRINTF_THSEP has been deprecated because of technical flaws. See
   http://savannah.nongnu.org/patch/?6848 for further details.
 
+  AX_RESTORE_FLAGS and AX_SAVE_FLAGS have been added.
+
 * Noteworthy changes in release 2009.12.16 (2009-12-16) [alpha]
 
   All macros that used a prefix other than AX_ -- or no prefix at all -- have

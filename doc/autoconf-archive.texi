@@ -471,7 +471,9 @@ The Macros:
 * ax_python_module::
 * ax_require_one_func::
 * ax_rpm_init::
+* ax_restore_flags::
 * ax_ruby_devel::
+* ax_save_flags::
 * ax_set_default_paths_system::
 * ax_short_sleep::
 * ax_silent_mode::
