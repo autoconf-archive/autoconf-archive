@@ -41,4 +41,8 @@ $(DOCDIR)/all-macros.texi: $(srcdir)/configure
 	@echo generating $@
 	@$(MKDIR_P) $(DOCDIR)
 	@rm -f "$@"
+	@echo '@menu' >>"$@"
+	@for n in $(MACROS); do echo "* $$n::" >>"$@"; done
+	@echo '@end menu' >>"$@"
+	@echo '' >>"$@"
 	@for n in $(MACROS); do echo "@include $$n.texi" >>"$@"; done

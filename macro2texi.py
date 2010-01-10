@@ -7,7 +7,7 @@ from macro import Macro, writeFile
 
 tmpl = """\
 @node %(name)s
-@unnumbered %(name)s
+@unnumberedsec %(name)s
 
 @majorheading Synopsis
 

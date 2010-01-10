@@ -1,0 +1,19 @@
+The Autoconf Archive is a collection of more than 450 freely re-usable macros
+for @uref{http://www.gnu.org/software/autoconf,GNU Autoconf} that have been
+contributed by friendly supporters of the cause from all over the Internet.
+
+The term ``free'' means two things in this context: (1) all macros distributed
+by the Archive can be used free of charge and (2) their use imposes no
+restrictions whatsoever on the licensing of the generated @file{configure}
+script, i.e. it is possible to use those macros in @file{configure} scripts
+that are meant for non-free software.
+
+This official web site of this project is located at
+@uref{http://savannah.nongnu.org/projects/autoconf-archive/}. All available
+information concerning this project is referenced from there.
+
+If you have questions, suggestions, are any other feedback that you'd like to
+share, then please don't hesitate to contact the Archive maintainers at
+@email{autoconf-archive-maintainers@@nongnu.org}.
+
+

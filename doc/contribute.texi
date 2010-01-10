@@ -1,0 +1,82 @@
+@section Macro Format
+
+Each macro in the Archive has an all-upper-case name with the prefix
+@code{AX_}.  The macro is stored in a file with the same name, in lower case,
+and with the suffix @code{.m4}.
+
+The file should begin with a header comment containing three named sections:
+synopsis, description, and license.
+
+The synopsis gives a summary of the macro usage and arguments.  In this
+section, square brackets (@code{[]}) are used to indicate optional parameters, and
+may be nested.
+
+The description contains a prose description of the macro.  It should describe
+the function of the macro, and the meaning of any arguments given in the
+synopsis.  The description should also identify:
+
+@itemize
+@item
+any default macro parameter values
+@item
+any new @code{--with} or @code{--enable} options, and their default values
+@item
+any argument variables consulted (@code{AC_ARG_VAR})
+@item
+any substituted variables (@code{AC_SUBST})
+@item
+any defined precompiler constants (@code{AC_DEFINE})
+@end itemize
+
+Macros should be defined with @code{AC_DEFUN}, using correct quoting.  Comments
+should be used liberally within the macro, with @code{dnl} used for comments at
+the m4sh level and @code{#} used for comments at the shell level.
+
+If a macro is renamed, the @code{AU_ALIAS} macro should be used to guide users
+of the old name to the new name:
+
+@example
+AU_ALIAS([OLD_NAME], [AX_NEW_NAME])
+@end example
+
+@section Submitting Macros
+
+Please post to the
+@uref{https://savannah.nongnu.org/patch/?func=additem&group=autoconf-archive,patch
+tracker} to submit a macro for inclusion in the Archive. Your submission should
+contain:
+
+@itemize @bullet
+
+@item
+a synopsis that shows how the macro must be be called,
+
+@item
+a brief description of the macro's purpose,
+
+@item
+the list of authors (optionally with e-mail addresses),
+
+@item
+licensing terms, and
+
+@item
+the m4 source code.
+
+@end itemize
+
+Macros can be submitted under any
+@uref{http://www.gnu.org/licenses/license-list.html#GPLCompatibleLicenses,GPL-compatible
+free software license}. The Free Software Foundation, however, recommends use
+of the
+@uref{http://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html,all-permissive
+license} for Autoconf macros.
+
+@section Writing Highly Usable Macros
+
+Autoconf macros are used in a surprising variety of ways, and a well-written
+macro should be flexible enough to suit all of these uses.
+
+See the @uref{http://www.flameeyes.eu/autotools-mythbuster, Autotools
+Mythbuster} for suggestions on how to write well-encapsulated, portable macros.
+
