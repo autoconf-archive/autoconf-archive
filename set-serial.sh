@@ -14,7 +14,7 @@ set-serial-number()
 for n in "$@"; do
   echo "$n ... "
   # Determine the number of revisions that have occurred to the macro.
-  revision=$(git log -- "$n" | egrep -c '^commit [0-9a-f]')
+  revision=$(git log --oneline -- "$n" | wc -l)
   # Update the serial number in the m4 file.
   set-serial-number "$n" "$revision"
   # Check whether git regards the file as "modified" now. If it does,
