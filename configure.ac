@@ -2,7 +2,7 @@ dnl configure the Autoconf Archive
 
 AC_INIT([autoconf-archive], m4_esyscmd([build-aux/git-version-gen .tarball-version]), [autoconf-archive-maintainers@nongnu.org])
 AC_CONFIG_AUX_DIR([build-aux])
-AM_INIT_AUTOMAKE([-Wall gnu dist-bzip2 dist-xz])
+AM_INIT_AUTOMAKE([1.11 -Wall gnu dist-bzip2 dist-xz])
 AC_CONFIG_SRCDIR([doc/autoconf-archive.texi])
 AC_COPYRIGHT([dnl
 Compilation Copyright 2010 Autoconf Archive Maintainers
