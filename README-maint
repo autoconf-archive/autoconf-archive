@@ -19,8 +19,14 @@
   : git clone ssh://[<login>@]git.sv.gnu.org/srv/git/autoconf-archive
   : cd autoconf-archive
   : cvs -z3 -d:ext:[<login>@]cvs.savannah.nongnu.org:/web/autoconf-archive co -d html autoconf-archive
+  # set up autotools and gnulib environment
   : ./bootstrap.sh
+  # determine system properties
   : ./configure
+  # create/update all generated files that will be in a release
+  : make maintainer-generate
+  # update texinfo documentation
+  : make
 
 * How to update the web site.
 
