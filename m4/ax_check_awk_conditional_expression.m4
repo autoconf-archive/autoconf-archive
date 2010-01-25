@@ -26,6 +26,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 7
+
 AC_DEFUN([AX_CHECK_AWK_CONDITIONAL_EXPRESSION], [
   AX_TRY_AWK_EXPOUT([conditional expression],
     [],[ a=(1)?("y"):("n"); print a ],[y],

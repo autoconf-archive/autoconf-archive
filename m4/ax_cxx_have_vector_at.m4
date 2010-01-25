@@ -20,6 +20,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_CXX_HAVE_VECTOR_AT], [AX_CXX_HAVE_VECTOR_AT])
 AC_DEFUN([AX_CXX_HAVE_VECTOR_AT],
 [AC_CACHE_CHECK(whether the compiler has std::vector::at (std::size_t),

@@ -21,6 +21,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_TRILINOS_EPETRAEXT_HDF5],[
     AC_REQUIRE([AC_LIB_HDF5])
     AC_REQUIRE([AX_TRILINOS_EPETRAEXT])

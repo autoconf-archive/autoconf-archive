@@ -31,6 +31,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 12
+
 AC_DEFUN([AX_BOOST_FILESYSTEM],
 [
 	AC_ARG_WITH([boost-filesystem],

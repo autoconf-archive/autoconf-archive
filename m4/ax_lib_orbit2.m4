@@ -28,6 +28,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 4
+
 AC_DEFUN([AX_LIB_ORBIT2], [
   AX_PATH_GENERIC([orbit2],[$1],'s/^ORBit2\ \+//',[$2],[$3])
 ])

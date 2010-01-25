@@ -32,6 +32,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 8
+
 AC_DEFUN([AX_F90_MODULE],[
  AC_REQUIRE([AX_F90_MODULE_FLAG])
  AX_F90_INTERNAL_HEADMOD([$1 fortran 90 module],[$2],"$ax_cv_f90_modflag",

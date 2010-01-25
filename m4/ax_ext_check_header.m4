@@ -29,6 +29,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_EXT_HAVE_HEADER],
 [AC_LANG_PUSH(C)
  AC_CHECK_HEADER($1, [$3 got="yes"], [$4 got="no"], $5)

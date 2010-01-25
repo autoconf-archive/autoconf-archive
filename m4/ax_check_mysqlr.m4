@@ -27,6 +27,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 4
+
 AU_ALIAS([AC_CHECK_MYSQLR], [AX_CHECK_MYSQLR])
 AC_DEFUN([AX_CHECK_MYSQLR],[
 AC_PATH_PROG(mysqlconfig,mysql_config)

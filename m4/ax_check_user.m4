@@ -55,6 +55,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 4
+
 AU_ALIAS([AC_CHECK_USER], [AX_CHECK_USER])
 AC_DEFUN([AX_CHECK_USER],[
 AC_MSG_CHECKING([for user $2])

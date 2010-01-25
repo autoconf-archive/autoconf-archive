@@ -47,6 +47,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 3
+
 AU_ALIAS([ACX_CHECK_DOS_FILESYS], [AX_CHECK_DOS_FILESYS])
 AC_DEFUN([AX_CHECK_DOS_FILESYS_LIMITATIONS],
 [AC_MSG_CHECKING(for potential DOS filename limitations)

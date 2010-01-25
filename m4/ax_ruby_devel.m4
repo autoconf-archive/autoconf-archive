@@ -52,6 +52,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 7
+
 AC_DEFUN([AX_RUBY_DEVEL],[
     AC_REQUIRE([AX_WITH_RUBY])
     AS_IF([test -n "$1"], [AX_PROG_RUBY_VERSION([$1])])

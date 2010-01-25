@@ -20,6 +20,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AU_ALIAS([ETR_STRINGS_STRCASECMP], [AX_STRINGS_STRCASECMP])
 AC_DEFUN([AX_STRINGS_STRCASECMP],
 [ AC_CACHE_CHECK([for strcasecmp() in strings.h], ac_cv_strings_strcasecmp, [

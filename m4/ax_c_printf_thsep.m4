@@ -28,6 +28,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_C_PRINTF_THSEP], [AX_C_PRINTF_THSEP])
 AC_DEFUN([AX_C_PRINTF_THSEP],
 [AC_TRY_COMPILE(,[printf("%'2d",101);],ac_cv_c_printf_thsep=yes,ac_cv_c_printf_thsep=no)

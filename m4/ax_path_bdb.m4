@@ -73,6 +73,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 9
+
 dnl #########################################################################
 AC_DEFUN([AX_PATH_BDB], [
   dnl # Used to indicate success or failure of this function.

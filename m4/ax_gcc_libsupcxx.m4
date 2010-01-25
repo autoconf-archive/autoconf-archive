@@ -42,6 +42,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 6
+
 AC_DEFUN([AX_GCC_LIBSUPCXX], [
     AX_GCC_LIBRARIES_DIR([GCC_LIBRARIES_DIR])
     AS_IF([test -z "$GCC_LIBRARIES_DIR"],[

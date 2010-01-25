@@ -41,6 +41,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 6
+
 AU_ALIAS([DPS_LIBGCJ_JAR], [AX_LIBGCJ_JAR])
 AC_DEFUN([AX_LIBGCJ_JAR],
 [

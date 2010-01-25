@@ -55,6 +55,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 5
+
 dnl AX_SUBST_WITH_IF(flag,cond) - not unlike AM_CONDITIONAL
 AC_DEFUN([AX_SUBST_WITH_IF],[dnl
 pushdef([VAR_WITH],    patsubst(translit([with_$1], [a-z], [A-Z]), -, _))dnl

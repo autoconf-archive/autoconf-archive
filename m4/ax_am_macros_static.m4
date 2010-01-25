@@ -25,6 +25,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 8
+
 AC_DEFUN([AMINCLUDE_STATIC],[aminclude_static.am])
 
 AC_DEFUN([AX_AM_MACROS_STATIC],

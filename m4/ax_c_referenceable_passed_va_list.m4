@@ -51,6 +51,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_C_REFERENCEABLE_PASSED_VA_LIST], [
   AC_CACHE_CHECK([whether f(va_list va){ &va; } works as expected],
     [ax_cv_c_referenceable_passed_va_list],

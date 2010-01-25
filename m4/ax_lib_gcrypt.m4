@@ -31,6 +31,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 # AX_CHECK_GCRYPT_ALGO([algo])
 # generate convenient defines for each algorithm
 AC_DEFUN([AX_CHECK_GCRYPT_ALGO],[

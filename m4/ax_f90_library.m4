@@ -32,6 +32,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 8
+
 AC_DEFUN([AX_F90_LIBRARY],[
 AS_VAR_PUSHDEF([ax_ldflags],[ax_cv_f90_ldflags_$1])
 AS_VAR_PUSHDEF([ax_libs],[ax_cv_f90_libs_$1])

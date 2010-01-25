@@ -65,6 +65,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 3
+
 AU_ALIAS([MDL_HAVE_OPENGL], [AX_HAVE_OPENGL])
 AC_DEFUN([AX_HAVE_OPENGL],
 [

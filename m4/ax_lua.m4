@@ -72,6 +72,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 4
+
 dnl Helper function to declare extra options
 AC_DEFUN([_AX_LUA_OPTS],
   [AC_ARG_WITH([lua-prefix],

@@ -20,6 +20,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_CPU_VENDOR],
 [
  AC_REQUIRE([AX_GCC_X86_CPUID])

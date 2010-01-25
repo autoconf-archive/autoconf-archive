@@ -28,6 +28,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 13
+
 AC_DEFUN([AX_WITH_PYTHON],[
     AX_WITH_PROG(PYTHON,python,$1,$2)
 ])

@@ -28,6 +28,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 10
+
 AC_DEFUN([AX_WITH_GUILE],[
     AX_WITH_PROG(GUILE,guile,$1,$2)
 ])

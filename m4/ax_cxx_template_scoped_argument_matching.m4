@@ -21,6 +21,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_CXX_TEMPLATE_SCOPED_ARGUMENT_MATCHING], [AX_CXX_TEMPLATE_SCOPED_ARGUMENT_MATCHING])
 AC_DEFUN([AX_CXX_TEMPLATE_SCOPED_ARGUMENT_MATCHING],
 [AC_CACHE_CHECK(whether the compiler supports function matching with argument types which are template scope-qualified,

@@ -19,6 +19,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_FILE_ESCAPES],[
 AX_DOLLAR="\$"
 AX_SRB="\\135"

@@ -28,6 +28,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 7
+
 AC_DEFUN([AX_TRY_AWK_EXPOUT], [
   AC_REQUIRE([AX_NEED_AWK])
 

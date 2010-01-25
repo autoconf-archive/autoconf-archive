@@ -19,6 +19,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 4
+
 AU_ALIAS([AG_CHECK_STRFTIME], [AX_CHECK_STRFTIME])
 AC_DEFUN([AX_CHECK_STRFTIME],[
   AC_MSG_CHECKING([whether strftime() works])

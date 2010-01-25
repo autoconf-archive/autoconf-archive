@@ -35,6 +35,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 9
+
 AC_DEFUN([AX_PROG_GUILE_VERSION],[
     AC_REQUIRE([AC_PROG_SED])
 

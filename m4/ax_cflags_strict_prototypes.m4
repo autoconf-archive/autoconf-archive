@@ -56,6 +56,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 6
+
 AC_DEFUN([AX_CFLAGS_STRICT_PROTOTYPES],[dnl
 AS_VAR_PUSHDEF([FLAGS],[CFLAGS])dnl
 AS_VAR_PUSHDEF([VAR],[ac_cv_cflags_strict_prototypes])dnl

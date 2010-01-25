@@ -71,6 +71,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 3
+
 # AX_PROG_JAVA_CC([COMPILER ...])
 # --------------------------
 # COMPILER ... is a space separated list of java compilers to search for.

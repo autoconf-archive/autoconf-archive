@@ -119,6 +119,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 7
+
 AC_DEFUN([AX_PREFIX_CONFIG_H],[dnl
 AC_BEFORE([AC_CONFIG_HEADERS],[$0])dnl
 AC_CONFIG_COMMANDS([ifelse($1,,$PACKAGE-config.h,$1)],[dnl

@@ -20,6 +20,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_ADD_AM_MACRO_STATIC],[
   AC_REQUIRE([AX_AM_MACROS_STATIC])
   AX_AC_APPEND_TO_FILE(AMINCLUDE_STATIC,[$1])

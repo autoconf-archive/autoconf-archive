@@ -36,6 +36,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 4
+
 AU_ALIAS([AC_LIB_ID3], [AX_LIB_ID3])
 AC_DEFUN([AX_LIB_ID3], [
   AH_TEMPLATE([HAVE_ID3LIB], [Define if id3lib is available])

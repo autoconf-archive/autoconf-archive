@@ -58,6 +58,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 4
+
 AU_ALIAS([MP_WITH_CURSES], [AX_WITH_CURSES])
 AC_DEFUN([AX_WITH_CURSES],
   [AC_ARG_WITH(ncurses, [AC_HELP_STRING([--with-ncurses],

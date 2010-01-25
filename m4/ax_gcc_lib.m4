@@ -43,6 +43,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 5
+
 AC_DEFUN([AX_GCC_LIB], [
 	AX_GCC_INSTALL_DIR([GCC_INSTALL_DIR])
 

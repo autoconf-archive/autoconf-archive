@@ -41,6 +41,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 3
+
 AU_ALIAS([MDL_CXX_FUNCTION_TRY_BLOCKS], [AX_CXX_FUNCTION_TRY_BLOCKS])
 AC_DEFUN([AX_CXX_FUNCTION_TRY_BLOCKS],
 [

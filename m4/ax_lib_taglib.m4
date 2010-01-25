@@ -30,6 +30,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AU_ALIAS([AC_CHECK_TAGLIB], [AX_LIB_TAGLIB])
 AC_DEFUN([AX_LIB_TAGLIB], [
   AX_PATH_GENERIC([taglib],[$1],,[$2],[$3])

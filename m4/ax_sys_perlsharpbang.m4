@@ -58,6 +58,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 8
+
 AC_DEFUN([AX_SYS_PERLSHARPBANG],[dnl
 
    AC_PATH_PROG(PERLINTERP,perl,perl)

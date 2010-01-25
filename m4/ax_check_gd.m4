@@ -33,6 +33,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_CHECK_GD], [
 	AC_ARG_WITH(gd,
 		AC_HELP_STRING([--with-gd(=DIR)], [use the gd library (in DIR)]),,

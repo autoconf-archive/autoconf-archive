@@ -35,6 +35,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 4
+
 AU_ALIAS([AC_LIB_UPNP], [AX_LIB_UPNP])
 AC_DEFUN([AX_LIB_UPNP], [
   AH_TEMPLATE([HAVE_LIBUPNP], [Define if libupnp is available])

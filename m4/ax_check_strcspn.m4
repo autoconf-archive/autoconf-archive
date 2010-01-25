@@ -32,6 +32,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 4
+
 AU_ALIAS([AG_CHECK_STRCSPN], [AX_CHECK_STRCSPN])
 AC_DEFUN([AX_CHECK_STRCSPN],[
   AC_MSG_CHECKING([whether strcspn matches prototype and works])

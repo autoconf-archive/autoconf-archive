@@ -19,6 +19,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 4
+
 AU_ALIAS([AG_CHECK_SYS_SIGLIST], [AX_CHECK_SYS_SIGLIST])
 AC_DEFUN([AX_CHECK_SYS_SIGLIST],[
   AC_MSG_CHECKING([whether there is a global text array sys_siglist])

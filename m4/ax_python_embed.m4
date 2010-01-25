@@ -120,6 +120,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 4
+
 # AX_PYTHON_DEFAULT( )
 # -----------------
 # Sets the default to not include Python support.

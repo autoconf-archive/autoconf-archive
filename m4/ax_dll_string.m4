@@ -23,6 +23,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 dnl Plan: compile conftest-dll.cc, conftest-exe.cc.  It has a 'crash' param
 dnl that can be passed.  Verify the compile worked and we can run it normally
 dnl ok.  Then, pass 'crash', test if it crashed, fail.

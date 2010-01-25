@@ -30,6 +30,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 # AX_CHECK_NETTLE_ALGO([name],[function])
 AC_DEFUN([AX_CHECK_NETTLE_ALGO],[
   AC_CHECK_LIB([nettle], [nettle_$2],

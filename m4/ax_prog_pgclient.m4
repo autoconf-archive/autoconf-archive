@@ -49,6 +49,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 4
+
 AU_ALIAS([MS_PROG_PGCLIENT], [AX_PROG_PGCLIENT])
 AC_DEFUN([AX_PROG_PGCLIENT], [
 AC_ARG_WITH(pgclient, [  --with-pgclient=DIR                    where to find pgclient (default: $PATH)], [pgclient_dir=$withval], [pgclient_dir=$PATH])

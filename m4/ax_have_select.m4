@@ -33,6 +33,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_HAVE_SELECT], [dnl
   AC_MSG_CHECKING([for select(2)])
   AC_CACHE_VAL([ax_cv_have_select], [dnl

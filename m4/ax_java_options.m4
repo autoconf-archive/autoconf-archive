@@ -27,6 +27,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_JAVA_OPTIONS], [AX_JAVA_OPTIONS])
 AC_DEFUN([AX_JAVA_OPTIONS],[
 AC_ARG_WITH(java-prefix,

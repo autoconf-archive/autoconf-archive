@@ -110,6 +110,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([KLM_SYS_WEAK_ALIAS], [AX_SYS_WEAK_ALIAS])
 AC_DEFUN([AX_SYS_WEAK_ALIAS], [
   # starting point: no aliasing scheme yet...

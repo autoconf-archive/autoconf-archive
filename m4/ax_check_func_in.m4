@@ -40,6 +40,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 3
+
 dnl AX_CHECK_FUNC_IN(HEADER, FUNCTION, [ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]])
 AU_ALIAS([AC_CHECK_FUNC_IN], [AX_CHECK_FUNC_IN])
 AC_DEFUN([AX_CHECK_FUNC_IN],

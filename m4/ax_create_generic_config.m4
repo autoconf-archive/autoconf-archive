@@ -59,6 +59,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 4
+
 AU_ALIAS([AC_CREATE_GENERIC_CONFIG], [AX_CREATE_GENERIC_CONFIG])
 AC_DEFUN([AX_CREATE_GENERIC_CONFIG],[# create a generic PACKAGE-config file
 L=`echo ifelse($1, , $PACKAGE $LIBS, $1)`

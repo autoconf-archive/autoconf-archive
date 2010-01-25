@@ -49,6 +49,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 4
+
 AU_ALIAS([AC_PROTOTYPE_GETSOCKNAME], [AX_PROTOTYPE_GETSOCKNAME])
 AC_DEFUN([AX_PROTOTYPE_GETSOCKNAME],[
 AX_PROTOTYPE(getsockname,

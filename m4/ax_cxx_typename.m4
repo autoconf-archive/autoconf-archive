@@ -20,6 +20,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_CXX_TYPENAME], [AX_CXX_TYPENAME])
 AC_DEFUN([AX_CXX_TYPENAME],
 [AC_CACHE_CHECK(whether the compiler recognizes typename,

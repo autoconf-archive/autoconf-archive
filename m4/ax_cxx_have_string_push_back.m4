@@ -20,6 +20,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_CXX_HAVE_STRING_PUSH_BACK], [AX_CXX_HAVE_STRING_PUSH_BACK])
 AC_DEFUN([AX_CXX_HAVE_STRING_PUSH_BACK],
 [AC_CACHE_CHECK(whether the compiler has std::string::push_back (char),

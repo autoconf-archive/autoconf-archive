@@ -20,6 +20,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AU_ALIAS([MNI_CXX_HAVE_KOENIG_LOOKUP], [AX_CXX_HAVE_KOENIG_LOOKUP])
 AC_DEFUN([AX_CXX_HAVE_KOENIG_LOOKUP],
     [AC_CACHE_CHECK(whether the compiler implements Koenig lookup,

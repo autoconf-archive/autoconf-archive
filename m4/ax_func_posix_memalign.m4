@@ -22,6 +22,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_FUNC_POSIX_MEMALIGN],
 [AC_CACHE_CHECK([for working posix_memalign],
   [ax_cv_func_posix_memalign_works],

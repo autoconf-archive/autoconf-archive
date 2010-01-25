@@ -33,6 +33,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.  This file is offered as-is, without any warranty.
 
+#serial 6
+
 AC_DEFUN([AX_CXX_VERBOSE_TERMINATE_HANDLER],
 [AC_CACHE_CHECK([whether the terminate function prints useful information],
 [ax_cv_cxx_verbose_terminate_handler],

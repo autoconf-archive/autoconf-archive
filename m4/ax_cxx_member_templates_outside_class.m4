@@ -21,6 +21,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_CXX_MEMBER_TEMPLATES_OUTSIDE_CLASS], [AX_CXX_MEMBER_TEMPLATES_OUTSIDE_CLASS])
 AC_DEFUN([AX_CXX_MEMBER_TEMPLATES_OUTSIDE_CLASS],
 [AC_CACHE_CHECK(whether the compiler supports member templates outside the class declaration,

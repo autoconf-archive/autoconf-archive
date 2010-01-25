@@ -22,6 +22,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 7
+
 AC_DEFUN([AX_LANG_COMPILER_MS],
 [AC_CACHE_CHECK([whether we are using the Microsoft _AC_LANG compiler],
                 [ax_cv_[]_AC_LANG_ABBREV[]_compiler_ms],

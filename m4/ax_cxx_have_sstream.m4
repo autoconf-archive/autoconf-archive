@@ -19,6 +19,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_CXX_HAVE_SSTREAM], [AX_CXX_HAVE_SSTREAM])
 AC_DEFUN([AX_CXX_HAVE_SSTREAM],
 [AC_CACHE_CHECK(whether the compiler has stringstream,

@@ -46,6 +46,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 4
+
 AU_ALIAS([AC_PROG_SSH], [AX_PROG_SSH])
 AC_DEFUN([AX_PROG_SSH],[
 AC_REQUIRE([AC_EXEEXT])dnl

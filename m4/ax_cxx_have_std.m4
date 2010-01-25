@@ -21,6 +21,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_CXX_HAVE_STD], [AX_CXX_HAVE_STD])
 AC_DEFUN([AX_CXX_HAVE_STD],
 [AC_CACHE_CHECK(whether the compiler supports ISO C++ standard library,

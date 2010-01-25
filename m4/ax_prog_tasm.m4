@@ -48,6 +48,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 7
+
 AC_DEFUN([AX_PROG_TASM],[
 AC_CHECK_PROGS(tasm,[tasm tasm32 tasmx],no)
 if test "x$tasm" = "xno" ;

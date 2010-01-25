@@ -24,6 +24,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_CXX_LDFLAGS_STD_LANG], [AX_CXX_LDFLAGS_STD_LANG])
 AC_DEFUN([AX_CXX_LDFLAGS_STD_LANG],
   [AC_REQUIRE([AX_CXX_COMPILER_VENDOR])

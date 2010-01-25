@@ -42,6 +42,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 9
+
 AC_DEFUN([AX_HAVE_EPOLL], [dnl
   ax_have_epoll_cppflags="${CPPFLAGS}"
   AC_CHECK_HEADER([linux/version.h], [CPPFLAGS="${CPPFLAGS} -DHAVE_LINUX_VERSION_H"])

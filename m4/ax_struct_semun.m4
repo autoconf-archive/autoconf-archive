@@ -26,6 +26,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AU_ALIAS([ETR_STRUCT_SEMUN], [AX_STRUCT_SEMUN])
 AC_DEFUN([AX_STRUCT_SEMUN],
 [

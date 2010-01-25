@@ -49,6 +49,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 6
+
 AC_DEFUN([AX_MAINTAINER_MODE_AUTO_SILENT],[dnl
 dnl ac_REQUIRE([am_MAINTAINER_MODE])dn
 AC_MSG_CHECKING(auto silent in maintainer mode)

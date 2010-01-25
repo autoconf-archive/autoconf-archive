@@ -36,6 +36,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 3
+
 AC_DEFUN([AX_LIB_NOKALVA], [
   AH_TEMPLATE([HAVE_NOKALVA], [Define if Nokalva is available])
   AC_ARG_WITH(nokalva, [  --with-nokalva=DIR      prefix for Nokalva library files and headers], [

@@ -21,6 +21,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_CXX_HAVE_COMPLEX_MATH2], [AX_CXX_HAVE_COMPLEX_MATH2])
 AC_DEFUN([AX_CXX_HAVE_COMPLEX_MATH2],
 [AC_CACHE_CHECK(whether the compiler has more complex math functions,

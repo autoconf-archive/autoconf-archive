@@ -43,6 +43,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 6
+
 AC_DEFUN([AX_TLS], [
   AC_MSG_CHECKING(for thread local storage (TLS) class)
   AC_CACHE_VAL(ac_cv_tls, [

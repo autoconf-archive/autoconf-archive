@@ -26,6 +26,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 7
+
 AC_DEFUN([AX_CHECK_AWK_SIN], [
   AX_TRY_AWK_EXPOUT([sin()],
     [],[ print sin(0) ],[0],

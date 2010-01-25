@@ -19,6 +19,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 4
+
 AU_ALIAS([AG_CHECK_UNAME_SYSCALL], [AX_CHECK_UNAME_SYSCALL])
 AC_DEFUN([AX_CHECK_UNAME_SYSCALL],[
   AC_MSG_CHECKING([whether uname(2) is POSIX])

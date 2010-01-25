@@ -28,6 +28,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 10
+
 AC_DEFUN([AX_WITH_RUBY],[
     AX_WITH_PROG(RUBY,ruby,$1,$2)
 ])

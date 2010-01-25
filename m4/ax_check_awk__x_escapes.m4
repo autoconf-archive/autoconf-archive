@@ -26,6 +26,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 7
+
 AC_DEFUN([AX_CHECK_AWK__X_ESCAPES], [
   AX_TRY_AWK_EXPOUT([\x escapes],
     [],[ if ( "\x41" != "A" ) exit (1) ],[],

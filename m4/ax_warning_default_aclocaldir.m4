@@ -63,6 +63,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 5
+
 AC_DEFUN([AX_WARNING_DEFAULT_ACLOCALDIR],[dnl
 AC_REQUIRE([AX_EXPAND_PREFIX])dnl
 AS_VAR_PUSHDEF([DIR],[ax_warning_default_aclocal_dir])dnl

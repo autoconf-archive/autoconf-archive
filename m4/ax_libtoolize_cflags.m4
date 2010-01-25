@@ -21,6 +21,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 4
+
 AU_ALIAS([AC_LIBTOOLIZE_CFLAGS], [AX_LIBTOOLIZE_CFLAGS])
 AC_DEFUN([AX_LIBTOOLIZE_CFLAGS],
   [ac_libtoolize_ldflags_temp=""

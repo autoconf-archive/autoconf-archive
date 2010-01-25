@@ -48,6 +48,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 5
+
 AC_DEFUN([AX_CHECK_LINKER_FLAGS],
 [AC_MSG_CHECKING([whether the linker accepts $1])
 dnl Some hackery here since AC_CACHE_VAL can't handle a non-literal varname:

@@ -21,6 +21,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_CXX_ENUM_COMPUTATIONS_WITH_CAST], [AX_CXX_ENUM_COMPUTATIONS_WITH_CAST])
 AC_DEFUN([AX_CXX_ENUM_COMPUTATIONS_WITH_CAST],
 [AC_CACHE_CHECK(whether the compiler handles (int) casts in enum computations,

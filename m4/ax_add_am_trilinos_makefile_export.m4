@@ -23,6 +23,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT],[
 AC_REQUIRE([AX_TRILINOS_BASE])
 AC_REQUIRE([AX_AM_MACROS])

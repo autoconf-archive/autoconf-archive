@@ -26,6 +26,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 7
+
 AC_DEFUN([AX_CHECK_AWK_ASORTI], [
   AX_TRY_AWK_EXPOUT([asorti()],
     [],[ s[1]="b"; s[2]="a"; if (asorti(s) != 2) exit(1); print s[1] ],[1],

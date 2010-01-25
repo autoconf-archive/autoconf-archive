@@ -21,6 +21,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 4
+
 AU_ALIAS([AG_CHECK_PATHFIND], [AX_CHECK_PATHFIND])
 AC_DEFUN([AX_CHECK_PATHFIND],[
   AC_MSG_CHECKING([whether pathfind(3) works])

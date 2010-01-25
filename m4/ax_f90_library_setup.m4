@@ -55,6 +55,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 8
+
 AC_DEFUN([AX_F90_LIBRARY_SETUP],[
  AC_ARG_WITH([$1],[  --with-$1=path   specify search path form $1 module and library],
    [if test x${withval} = xno ; then

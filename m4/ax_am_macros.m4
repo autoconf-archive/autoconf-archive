@@ -24,6 +24,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 8
+
 AC_DEFUN([AX_AM_MACROS],
 [
 AC_MSG_NOTICE([adding automake macro support])

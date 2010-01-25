@@ -35,6 +35,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 10
+
 AC_DEFUN([AX_PROG_PYTHON_VERSION],[
     AC_REQUIRE([AC_PROG_SED])
     AC_REQUIRE([AC_PROG_GREP])

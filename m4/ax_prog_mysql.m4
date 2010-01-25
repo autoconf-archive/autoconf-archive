@@ -51,6 +51,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 4
+
 AU_ALIAS([AC_PROG_MYSQL], [AX_PROG_MYSQL])
 AC_DEFUN([AX_PROG_MYSQL],[
 AC_REQUIRE([AC_EXEEXT])dnl

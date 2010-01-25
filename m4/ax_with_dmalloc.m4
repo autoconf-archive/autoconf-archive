@@ -32,6 +32,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_WITH_DMALLOC], [
 AC_MSG_CHECKING(whether to use the dmalloc library)
 AC_ARG_WITH(dmalloc,

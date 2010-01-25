@@ -43,6 +43,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 4
+
 AU_ALIAS([AC_VAR_TIMEZONE_EXTERNALS], [AX_VAR_TIMEZONE_EXTERNALS])
 AC_DEFUN([AX_VAR_TIMEZONE_EXTERNALS],
 [  AC_REQUIRE([AC_STRUCT_TIMEZONE])dnl

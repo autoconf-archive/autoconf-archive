@@ -19,6 +19,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 8
+
 AC_DEFUN([AX_F90_INTERNAL_HEADMOD],[
 AS_VAR_PUSHDEF([ax_include],[ax_cv_f90_headmod_$2])
 AC_MSG_CHECKING([$1])

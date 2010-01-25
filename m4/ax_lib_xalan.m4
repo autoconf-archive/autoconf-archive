@@ -45,6 +45,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 3
+
 AC_DEFUN([AX_LIB_XALAN],
 [
     AC_REQUIRE([AX_LIB_XERCES])

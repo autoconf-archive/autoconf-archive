@@ -31,6 +31,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 10
+
 AC_DEFUN([AX_PATH_MISSING], [
     AC_PATH_PROG([$1],[$2],[$4])
     AS_IF([ test -z "${$1}" ],[

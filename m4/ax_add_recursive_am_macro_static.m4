@@ -22,6 +22,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_ADD_RECURSIVE_AM_MACRO_STATIC],[
   AX_ADD_AM_MACRO_STATIC([
 $1-recursive:

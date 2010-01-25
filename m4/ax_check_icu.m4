@@ -19,6 +19,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_CHECK_ICU], [AX_CHECK_ICU])
 AC_DEFUN([AX_CHECK_ICU], [
   succeeded=no

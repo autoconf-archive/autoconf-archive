@@ -26,6 +26,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 7
+
 AC_DEFUN([AX_CHECK_AWK_ARRAY_DELETE], [
   AX_TRY_AWK_EXPOUT([array delete],
     [],[ a[1]=1; delete a; if (a[1]!=0) exit (1) ],[],

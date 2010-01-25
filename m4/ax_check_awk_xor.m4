@@ -26,6 +26,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 7
+
 AC_DEFUN([AX_CHECK_AWK_XOR], [
   AX_TRY_AWK_EXPOUT([xor()],
     [],[ print xor(1,0) ],[1],

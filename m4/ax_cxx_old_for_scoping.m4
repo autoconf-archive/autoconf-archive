@@ -24,6 +24,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_CXX_OLD_FOR_SCOPING], [AX_CXX_OLD_FOR_SCOPING])
 AC_DEFUN([AX_CXX_OLD_FOR_SCOPING],
 [AC_CACHE_CHECK(whether the compiler accepts the old for scoping rules,

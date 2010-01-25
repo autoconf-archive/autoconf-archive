@@ -57,6 +57,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 4
+
 AU_ALIAS([AC_CXX_HAVE_FREEZE_SSTREAM], [AX_CXX_HAVE_FREEZE_SSTREAM])
 AC_DEFUN([AX_CXX_HAVE_FREEZE_SSTREAM],
 [AC_CACHE_CHECK(whether the compiler has freeze in stringstream,

@@ -27,6 +27,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 7
+
 AC_DEFUN([AX_REQUIRE_ONE_FUNC],
 [m4_define([ax_1func_cv], [AS_TR_SH(ax_cv_func_any_$1)])
 AC_CACHE_VAL([ax_1func_cv],

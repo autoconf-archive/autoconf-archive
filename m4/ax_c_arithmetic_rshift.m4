@@ -21,6 +21,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_C_ARITHMETIC_RSHIFT], [
   AC_CACHE_CHECK([whether right shift operation is arithmetic],
                  [ax_cv_c_arithmetic_rshift],

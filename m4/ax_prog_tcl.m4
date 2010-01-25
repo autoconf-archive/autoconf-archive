@@ -55,6 +55,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 6
+
 AC_DEFUN([AX_PROG_TCL], [
 #-- check for tclsh in PATH
 AC_PATH_PROG([TCLSH], [tclsh], [no])

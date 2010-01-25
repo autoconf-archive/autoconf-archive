@@ -44,6 +44,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_DEFINE_INTEGER_BITS], [AX_DEFINE_INTEGER_BITS])
 AC_DEFUN([AX_DEFINE_INTEGER_BITS],
 [m4_define([ac_datatype_bits], [m4_translit($1, [a-zA-Z_])])

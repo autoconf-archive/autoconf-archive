@@ -77,6 +77,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 4
+
 AU_ALIAS([AC_NUMERIC_NAMEDLEVEL], [AX_NUMERIC_NAMEDLEVEL])
 AC_DEFUN([AX_NUMERIC_NAMEDLEVEL],
 [dnl the names to be defined...

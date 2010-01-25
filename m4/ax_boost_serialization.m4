@@ -29,6 +29,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 10
+
 AC_DEFUN([AX_BOOST_SERIALIZATION],
 [
 	AC_ARG_WITH([boost-serialization],

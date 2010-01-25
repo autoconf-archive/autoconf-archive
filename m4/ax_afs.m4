@@ -34,6 +34,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 4
+
 AU_ALIAS([SG_AFS], [AX_AFS])
 AC_DEFUN([AX_AFS],
 [AC_ARG_WITH(afsdir, AC_HELP_STRING([--with-afsdir=DIR],

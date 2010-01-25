@@ -20,6 +20,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AC_DEFUN([ax_snprintf_oflow],
 [AC_MSG_CHECKING(whether snprintf ignores n)
 AC_CACHE_VAL(ax_cv_snprintf_bug,

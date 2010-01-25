@@ -73,6 +73,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 4
+
 AU_ALIAS([MS_CHECK_PGSQL_DB], [AX_CHECK_PGSQL_DB])
 AC_DEFUN([AX_CHECK_PGSQL_DB], [
 AC_REQUIRE([AX_PROG_PGCLIENT])

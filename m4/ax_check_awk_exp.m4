@@ -26,6 +26,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 7
+
 AC_DEFUN([AX_CHECK_AWK_EXP], [
   AX_TRY_AWK_EXPOUT([exp()],
     [],[ print exp(0) ],[1],

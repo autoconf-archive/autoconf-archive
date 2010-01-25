@@ -61,6 +61,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 5
+
 AC_DEFUN([AX_C_DECLARE_BLOCK],[dnl
 AC_CACHE_CHECK(
  [if C variables must be declared at the beginning of a block],

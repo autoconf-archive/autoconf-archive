@@ -21,6 +21,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 4
+
 AU_ALIAS([AG_CHECK_POSIX_REGCOMP], [AX_CHECK_POSIX_REGCOMP])
 AC_DEFUN([AX_CHECK_POSIX_REGCOMP],[
   AC_MSG_CHECKING([whether POSIX compliant regcomp()/regexec()])

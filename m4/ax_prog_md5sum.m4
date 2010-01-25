@@ -21,6 +21,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_PROG_MD5SUM],[
 # Mac users have md5 instead of md5sum
 AC_CHECK_PROGS(md5sum,[md5sum md5],no)

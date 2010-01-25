@@ -53,6 +53,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 8
+
 AC_DEFUN([AX_PYTHON_CONFIG_VAR],
 [
  AC_MSG_CHECKING(for Python config variable $1)

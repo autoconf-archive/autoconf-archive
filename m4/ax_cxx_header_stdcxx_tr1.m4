@@ -19,6 +19,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_CXX_HEADER_STDCXX_TR1], [AX_CXX_HEADER_STDCXX_TR1])
 AC_DEFUN([AX_CXX_HEADER_STDCXX_TR1], [
   AC_CACHE_CHECK(for ISO C++ TR1 include files,

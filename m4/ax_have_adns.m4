@@ -22,6 +22,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AC_DEFUN([AX_HAVE_ADNS], [dnl
   AC_CHECK_HEADER([adns.h], [dnl
     AC_SEARCH_LIBS([adns_init], [adns], [dnl

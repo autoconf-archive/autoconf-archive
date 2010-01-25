@@ -23,6 +23,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 7
+
 AC_DEFUN([AX_TRILINOS_EPETRA],[
     AC_REQUIRE([AX_TRILINOS_BASE])
     ax_trilinos_epetra=yes

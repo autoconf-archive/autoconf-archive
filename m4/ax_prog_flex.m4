@@ -41,6 +41,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 7
+
 AC_DEFUN([AX_PROG_FLEX], [
   AC_REQUIRE([AM_PROG_LEX])
   AC_REQUIRE([AC_PROG_SED])

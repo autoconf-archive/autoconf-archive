@@ -41,6 +41,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 5
+
 AC_DEFUN([AX_GCC_WARN_UNUSED_RESULT],[dnl
 AC_CACHE_CHECK(
  [whether the compiler supports function __attribute__((__warn_unused_result__))],

@@ -3,6 +3,11 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  All macros have been assigned a unique serial number that corresponds to the
+  number of commits that have modified the macro in the Archive's Git
+  repository. Refer to the [[http://www.gnu.org/software/libtool//manual/automake/Serials.html][Automake documentation on serial numbers]] for further
+  details about why these numbers are useful.
+
   The text of the all-permissive license has been augmented by an express
   warranty disclaimer as [[http://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html][suggested by the Free Software Foundation]].
 

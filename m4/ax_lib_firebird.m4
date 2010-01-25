@@ -38,6 +38,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_LIB_FIREBIRD],
 [
     AC_ARG_WITH([firebird],

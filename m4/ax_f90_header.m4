@@ -31,6 +31,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_F90_HEADER],[
  AX_F90_INTERNAL_HEADMOD([$1 fortran 90 header],[$2],-I,
                          [$3],AS_TR_SH(F90_HEADER_$1),[$4],[$5],[$6])

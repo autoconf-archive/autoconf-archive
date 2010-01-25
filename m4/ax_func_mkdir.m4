@@ -58,6 +58,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 3
+
 AU_ALIAS([AC_FUNC_MKDIR], [AX_FUNC_MKDIR])
 AC_DEFUN([AX_FUNC_MKDIR],
 [AC_CHECK_FUNCS([mkdir _mkdir])

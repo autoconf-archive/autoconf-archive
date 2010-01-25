@@ -30,6 +30,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 7
+
 AC_DEFUN([AX_EXT],
 [
   AC_REQUIRE([AX_GCC_X86_CPUID])

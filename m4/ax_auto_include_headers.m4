@@ -51,6 +51,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 7
+
 AC_DEFUN([AX_AUTO_INCLUDE_HEADERS], [dnl
 AC_FOREACH([AX_Header], [$1], [dnl
 m4_pushdef([AX_IfDef], AS_TR_CPP(HAVE_[]AX_Header))dnl

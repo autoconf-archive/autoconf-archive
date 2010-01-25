@@ -21,6 +21,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_CXX_TEMPLATES_AS_TEMPLATE_ARGUMENTS], [AX_CXX_TEMPLATES_AS_TEMPLATE_ARGUMENTS])
 AC_DEFUN([AX_CXX_TEMPLATES_AS_TEMPLATE_ARGUMENTS],
 [AC_CACHE_CHECK(whether the compiler supports templates as template arguments,

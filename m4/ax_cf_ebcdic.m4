@@ -44,6 +44,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 4
+
 dnl Check whether character set is EBCDIC.
 AU_ALIAS([CF_EBCDIC], [AX_CF_EBCDIC])
 AC_DEFUN([AX_CF_EBCDIC],[

@@ -28,6 +28,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 4
+
 AU_ALIAS([SMR_WITH_BUILD_PATH], [AX_WITH_BUILD_PATH])
 AC_DEFUN([AX_WITH_BUILD_PATH],
 [

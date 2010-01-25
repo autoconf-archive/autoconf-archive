@@ -30,6 +30,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 5
+
 AU_ALIAS([AC_DEFINE_DIR], [AX_DEFINE_DIR])
 AC_DEFUN([AX_DEFINE_DIR], [
   prefix_NONE=

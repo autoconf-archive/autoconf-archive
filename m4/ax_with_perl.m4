@@ -28,6 +28,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 11
+
 AC_DEFUN([AX_WITH_PERL],[
     AX_WITH_PROG(PERL,perl,$1,$2)
 ])

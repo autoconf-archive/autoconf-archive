@@ -40,6 +40,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 10
+
 AC_DEFUN([AX_EXTRA_DIST],
 [
 AC_MSG_NOTICE([adding custom dist support])

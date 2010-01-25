@@ -79,6 +79,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 10
+
 dnl #########################################################################
 AC_DEFUN([AX_COMPARE_VERSION], [
   AC_REQUIRE([AC_PROG_AWK])

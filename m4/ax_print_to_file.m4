@@ -19,6 +19,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
+#serial 6
+
 AC_DEFUN([AX_PRINT_TO_FILE],[
 AC_REQUIRE([AX_FILE_ESCAPES])
 printf "$2" > "$1"
