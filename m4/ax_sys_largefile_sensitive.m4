@@ -63,7 +63,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 3
+#serial 4
 
 AU_ALIAS([AC_SYS_LARGEFILE_SENSITIVE], [AX_SYS_LARGEFILE_SENSITIVE])
 AC_DEFUN([AX_SYS_LARGEFILE_SENSITIVE],[dnl
@@ -71,7 +71,7 @@ AC_REQUIRE([AC_SYS_LARGEFILE])dnl
 # we know about some internals of ac_sys_largefile here...
 AC_MSG_CHECKING(whether system differentiates 64bit off_t by defines)
 ac_cv_sys_largefile_sensitive="no"
-if test ".$ac_cv_sys_file_offset_bits$ac_cv_sys_large_files" != ".nono"
+if test ".${ac_cv_sys_file_offset_bits-no}${ac_cv_sys_large_files-no}" != ".nono"
 then ac_cv_sys_largefile_sensitive="yes"
   AC_DEFINE(LARGEFILE_SENSITIVE, 1,
   [whether the system defaults to 32bit off_t but can do 64bit when requested])
