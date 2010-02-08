@@ -63,7 +63,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([ACX_BLAS], [AX_BLAS])
 AC_DEFUN([AX_BLAS], [
@@ -72,7 +72,7 @@ AC_REQUIRE([AC_F77_LIBRARY_LDFLAGS])
 ax_blas_ok=no
 
 AC_ARG_WITH(blas,
-	[AC_HELP_STRING([--with-blas=<lib>], [use BLAS library <lib>])])
+	[AS_HELP_STRING([--with-blas=<lib>], [use BLAS library <lib>])])
 case $with_blas in
 	yes | "") ;;
 	no) ax_blas_ok=disable ;;

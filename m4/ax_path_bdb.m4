@@ -73,7 +73,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 dnl #########################################################################
 AC_DEFUN([AX_PATH_BDB], [
@@ -82,7 +82,7 @@ AC_DEFUN([AX_PATH_BDB], [
 
   # Add --with-bdb-dir option to configure.
   AC_ARG_WITH([bdb-dir],
-    [AC_HELP_STRING([--with-bdb-dir=DIR],
+    [AS_HELP_STRING([--with-bdb-dir=DIR],
                     [Berkeley DB installation directory])])
 
   # Check if --with-bdb-dir was specified.

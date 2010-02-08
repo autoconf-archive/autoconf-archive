@@ -58,14 +58,14 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([MP_WITH_CURSES], [AX_WITH_CURSES])
 AC_DEFUN([AX_WITH_CURSES],
-  [AC_ARG_WITH(ncurses, [AC_HELP_STRING([--with-ncurses],
+  [AC_ARG_WITH(ncurses, [AS_HELP_STRING([--with-ncurses],
         [Force the use of ncurses over curses])],,)
    ax_save_LIBS="$LIBS"
-   AC_ARG_WITH(ncursesw, [AC_HELP_STRING([--without-ncursesw],
+   AC_ARG_WITH(ncursesw, [AS_HELP_STRING([--without-ncursesw],
         [Don't use ncursesw (wide character support)])],,)
    if test ! "$CURSES_LIB" -a "$with_ncurses" != no -a "$with_ncursesw" != "no"
    then

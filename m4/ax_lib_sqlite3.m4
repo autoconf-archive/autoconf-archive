@@ -36,12 +36,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_LIB_SQLITE3],
 [
     AC_ARG_WITH([sqlite3],
-        AC_HELP_STRING(
+        AS_HELP_STRING(
             [--with-sqlite3=@<:@ARG@:>@],
             [use SQLite 3 library @<:@default=yes@:>@, optionally specify the prefix for sqlite3 library]
         ),

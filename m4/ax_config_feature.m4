@@ -88,12 +88,12 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_CONFIG_FEATURE],[ dnl
 m4_pushdef([FEATURE], patsubst([$1], -, _))dnl
 
-AC_ARG_ENABLE([$1],AC_HELP_STRING([--enable-$1],[$2]),[
+AC_ARG_ENABLE([$1],AS_HELP_STRING([--enable-$1],[$2]),[
 case "${enableval}" in
    yes)
      ax_config_feature_[]FEATURE[]="yes"

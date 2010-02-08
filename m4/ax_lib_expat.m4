@@ -44,12 +44,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_LIB_EXPAT],
 [
     AC_ARG_WITH([expat],
-        AC_HELP_STRING([--with-expat=@<:@ARG@:>@],
+        AS_HELP_STRING([--with-expat=@<:@ARG@:>@],
             [use Expat XML Parser from given prefix (ARG=path); check standard prefixes (ARG=yes); disable (ARG=no)]
         ),
         [
@@ -83,14 +83,14 @@ AC_DEFUN([AX_LIB_EXPAT],
     )
 
     AC_ARG_WITH([expat-inc],
-        AC_HELP_STRING([--with-expat-inc=@<:@DIR@:>@],
+        AS_HELP_STRING([--with-expat-inc=@<:@DIR@:>@],
             [path to Expat XML Parser headers]
         ),
         [expat_include_dir="$withval"],
         [expat_include_dir=""]
     )
     AC_ARG_WITH([expat-lib],
-        AC_HELP_STRING([--with-expat-lib=@<:@ARG@:>@],
+        AS_HELP_STRING([--with-expat-lib=@<:@ARG@:>@],
             [link options for Expat XML Parser libraries]
         ),
         [expat_lib_flags="$withval"],

@@ -58,7 +58,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_SYS_PERLSHARPBANG],[dnl
 
@@ -67,7 +67,7 @@ AC_DEFUN([AX_SYS_PERLSHARPBANG],[dnl
    _sHpB='#!'
 
    AC_ARG_WITH(perl-shebang,
-                AC_HELP_STRING([--with-perl-shebang],
+                AS_HELP_STRING([--with-perl-shebang],
            [override what perl thinks is the way for the kernel to start it (seldom needed)]dnl
 		           ),
 		[opt_perl_shebang="$withval"]dnl

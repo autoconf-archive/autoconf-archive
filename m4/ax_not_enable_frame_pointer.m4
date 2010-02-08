@@ -43,12 +43,12 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_NOT_ENABLE_FRAME_POINTER],[dnl
 AS_VAR_PUSHDEF([VAR],[enable_frame_pointer])dnl
 AC_MSG_CHECKING([m4_ifval($1,$1,CFLAGS) frame-pointer])
-AC_ARG_ENABLE([frame-pointer], AC_HELP_STRING(
+AC_ARG_ENABLE([frame-pointer], AS_HELP_STRING(
   [--enable-frame-pointer],[enable callframe generation for debugging]))
 case ".$VAR" in
   .|.no|.no,*) test ".$VAR" = "." && VAR="no"

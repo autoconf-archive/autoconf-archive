@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([IMMDX_LIB_METIS], [AX_LIB_METIS])
 AC_DEFUN([AX_LIB_METIS], [
@@ -43,7 +43,7 @@ AC_DEFUN([AX_LIB_METIS], [
 	#
 	AC_ARG_VAR([METIS], [METIS library location])
 	AC_ARG_WITH([metis],
-		[AC_HELP_STRING([--with-metis],
+		[AS_HELP_STRING([--with-metis],
 		[user defined path to METIS library])],
 		[
 			if test -n "$METIS" ; then

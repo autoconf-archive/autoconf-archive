@@ -120,7 +120,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 # AX_PYTHON_DEFAULT( )
 # -----------------
@@ -162,7 +162,7 @@ AC_DEFUN([AX_PYTHON_ENABLE],
         AC_MSG_CHECKING(for --enable-python)
         AC_ARG_ENABLE(
             python,
-            AC_HELP_STRING([--enable-python@<:@=PYTHON@:>@],
+            AS_HELP_STRING([--enable-python@<:@=PYTHON@:>@],
                 [absolute path name of Python executable]
             ),
             [
@@ -466,7 +466,7 @@ AC_DEFUN([AX_PYTHON_WITH],
         AC_MSG_CHECKING(for --with-python)
         AC_ARG_WITH(
             python,
-            AC_HELP_STRING([--with-python@<:@=PYTHON@:>@],
+            AS_HELP_STRING([--with-python@<:@=PYTHON@:>@],
                 [absolute path name of Python executable]
             ),
             [

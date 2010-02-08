@@ -63,13 +63,13 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_GCC_ARCHFLAG],
 [AC_REQUIRE([AC_PROG_CC])
 AC_REQUIRE([AC_CANONICAL_HOST])
 
-AC_ARG_WITH(gcc-arch, [AC_HELP_STRING([--with-gcc-arch=<arch>], [use architecture <arch> for gcc -march/-mtune, instead of guessing])],
+AC_ARG_WITH(gcc-arch, [AS_HELP_STRING([--with-gcc-arch=<arch>], [use architecture <arch> for gcc -march/-mtune, instead of guessing])],
 	ax_gcc_arch=$withval, ax_gcc_arch=yes)
 
 AC_MSG_CHECKING([for gcc architecture flag])

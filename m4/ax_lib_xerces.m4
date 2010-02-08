@@ -43,14 +43,14 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_LIB_XERCES],
 [
     AC_REQUIRE([AX_PTHREAD])
 
     AC_ARG_WITH([xerces],
-        AC_HELP_STRING([--with-xerces=@<:@ARG@:>@],
+        AS_HELP_STRING([--with-xerces=@<:@ARG@:>@],
             [use Xerces C++ Parser from given prefix (ARG=path); check standard prefixes (ARG=yes); disable (ARG=no)]
         ),
         [
@@ -84,14 +84,14 @@ AC_DEFUN([AX_LIB_XERCES],
     )
 
     AC_ARG_WITH([xerces-inc],
-        AC_HELP_STRING([--with-xerces-inc=@<:@DIR@:>@],
+        AS_HELP_STRING([--with-xerces-inc=@<:@DIR@:>@],
             [path to Xerces C++ Parser headers]
         ),
         [xerces_include_dir="$withval"],
         [xerces_include_dir=""]
     )
     AC_ARG_WITH([xerces-lib],
-        AC_HELP_STRING([--with-xerces-lib=@<:@ARG@:>@],
+        AS_HELP_STRING([--with-xerces-lib=@<:@ARG@:>@],
             [link options for Xerces C++ Parser libraries]
         ),
         [xerces_ldflags="$withval"],

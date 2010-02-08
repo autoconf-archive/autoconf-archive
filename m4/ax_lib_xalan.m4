@@ -45,14 +45,14 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_LIB_XALAN],
 [
     AC_REQUIRE([AX_LIB_XERCES])
 
     AC_ARG_WITH([xalan],
-        AC_HELP_STRING([--with-xalan=@<:@ARG@:>@],
+        AS_HELP_STRING([--with-xalan=@<:@ARG@:>@],
             [use Xalan C++ XSLT processor from given prefix (ARG=path); check standard prefixes (ARG=yes); disable (ARG=no)]
         ),
         [
@@ -86,14 +86,14 @@ AC_DEFUN([AX_LIB_XALAN],
     )
 
     AC_ARG_WITH([xalan-inc],
-        AC_HELP_STRING([--with-xalan-inc=@<:@DIR@:>@],
+        AS_HELP_STRING([--with-xalan-inc=@<:@DIR@:>@],
             [path to Xalan C++ XSLT processor headers]
         ),
         [xalan_include_dir="$withval"],
         [xalan_include_dir=""]
     )
     AC_ARG_WITH([xalan-lib],
-        AC_HELP_STRING([--with-xalan-lib=@<:@ARG@:>@],
+        AS_HELP_STRING([--with-xalan-lib=@<:@ARG@:>@],
             [link options for Xalan C++ XSLT processor libraries]
         ),
         [xalan_ldflags="$withval"],

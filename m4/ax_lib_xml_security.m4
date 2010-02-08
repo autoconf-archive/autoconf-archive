@@ -45,12 +45,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_LIB_XML_SECURITY],
 [
     AC_ARG_WITH([xml-security],
-	 AC_HELP_STRING([--with-xml-security=@<:@ARG@:>@],
+	 AS_HELP_STRING([--with-xml-security=@<:@ARG@:>@],
 	     [use Xml-Security C++ library from given prefix (ARG=path); check standard prefixes (ARG=yes); disable (ARG=no)]
 	 ),
 	 [
@@ -84,14 +84,14 @@ AC_DEFUN([AX_LIB_XML_SECURITY],
     )
 
     AC_ARG_WITH([xml-security-inc],
-	  AC_HELP_STRING([--with-xml-security-inc=@<:@DIR@:>@],
+	  AS_HELP_STRING([--with-xml-security-inc=@<:@DIR@:>@],
 	      [path to Xml-Security C++ headers]
 	  ),
 	  [xml_security_include_dir="$withval"],
 	  [xml_security_include_dir=""]
      )
      AC_ARG_WITH([xml-security-lib],
-	  AC_HELP_STRING([--with-xml-security-lib=@<:@ARG@:>@],
+	  AS_HELP_STRING([--with-xml-security-lib=@<:@ARG@:>@],
 	      [link options for Xml-Security C++ Parser libraries]
 	  ),
 	  [xml_security_lib_flags="$withval"],

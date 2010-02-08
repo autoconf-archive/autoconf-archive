@@ -79,7 +79,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 17
+#serial 18
 
 AC_DEFUN([AX_ENABLE_BUILDDIR],[
 AC_REQUIRE([AC_CANONICAL_HOST])[]dnl
@@ -90,7 +90,7 @@ AS_VAR_PUSHDEF([SUB],[ax_enable_builddir])dnl
 AS_VAR_PUSHDEF([AUX],[ax_enable_builddir_auxdir])dnl
 AS_VAR_PUSHDEF([SED],[ax_enable_builddir_sed])dnl
 SUB="."
-AC_ARG_ENABLE([builddir], AC_HELP_STRING(
+AC_ARG_ENABLE([builddir], AS_HELP_STRING(
   [--disable-builddir],[disable automatic build in subdir of sources])
   ,[SUB="$enableval"], [SUB="auto"])
 if test ".$ac_srcdir_defaulted" != ".no" ; then

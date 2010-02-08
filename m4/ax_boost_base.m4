@@ -33,12 +33,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_BOOST_BASE],
 [
 AC_ARG_WITH([boost],
-  [AC_HELP_STRING([--with-boost@<:@=ARG@:>@],
+  [AS_HELP_STRING([--with-boost@<:@=ARG@:>@],
     [use Boost library from a standard location (ARG=yes),
      from the specified location (ARG=<path>),
      or disable it (ARG=no)

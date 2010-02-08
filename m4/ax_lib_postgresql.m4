@@ -44,12 +44,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_LIB_POSTGRESQL],
 [
     AC_ARG_WITH([postgresql],
-        AC_HELP_STRING([--with-postgresql=@<:@ARG@:>@],
+        AS_HELP_STRING([--with-postgresql=@<:@ARG@:>@],
             [use PostgreSQL library @<:@default=yes@:>@, optionally specify path to pg_config]
         ),
         [

@@ -27,7 +27,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_WITH_APXS],
 [
@@ -38,7 +38,7 @@ AC_DEFUN([AX_WITH_APXS],
   then
     AC_MSG_CHECKING(for --with-apxs)
     AC_ARG_WITH(apxs,
-                AC_HELP_STRING([--with-apxs=APXS],
+                AS_HELP_STRING([--with-apxs=APXS],
                                [absolute path name of apxs executable]),
                 [ if test "$withval" != "yes"
                   then

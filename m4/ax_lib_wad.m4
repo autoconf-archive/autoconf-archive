@@ -43,14 +43,14 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([AC_LIB_WAD], [AX_LIB_WAD])
 AC_DEFUN([AX_LIB_WAD],
 [
         AC_REQUIRE([AX_PYTHON_DEVEL])
         AC_ARG_ENABLE(wad,
-        AC_HELP_STRING([--enable-wad], [enable wad module]),
+        AS_HELP_STRING([--enable-wad], [enable wad module]),
         [
                 case "${enableval}" in
                         no)     ;;

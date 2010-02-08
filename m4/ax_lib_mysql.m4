@@ -43,12 +43,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_LIB_MYSQL],
 [
     AC_ARG_WITH([mysql],
-        AC_HELP_STRING([--with-mysql=@<:@ARG@:>@],
+        AS_HELP_STRING([--with-mysql=@<:@ARG@:>@],
             [use MySQL client library @<:@default=yes@:>@, optionally specify path to mysql_config]
         ),
         [
