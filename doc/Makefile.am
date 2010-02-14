@@ -8,3 +8,7 @@ info_TEXINFOS           = autoconf-archive.texi
 EXTRA_DIST              = $(TEXIFILES) $(CHAPTERS) all-macros.texi
 
 autoconf-archive.info:  autoconf-archive.texi all-macros.texi $(TEXIFILES) $(CHAPTERS)
+
+maintainer-clean-local:
+	@rm -f ax_*.texi all-macros.texi Makefile.in
+	@rm -rf manual gendocs_template
