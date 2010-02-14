@@ -3,7 +3,7 @@
 # settings required by the maintainer-makefile module
 
 gnu_rel_host    := dl.sv.nongnu.org:/releases/autoconf-archive/
-old_NEWS_hash   := 7ee3ca1f4f7e7307a45f7608a7061895
+old_NEWS_hash   := 6617325115eed1b0e56a3c272f9d15d7
 gpg_key_ID      := 99089D72
 url_dir_list    := http://download.savannah.nongnu.org/releases/autoconf-archive
 today           := $(date "+%Y-%m-%d")
