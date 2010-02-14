@@ -51,8 +51,8 @@ FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 @menu
 * Introduction::
-* Using the Autoconf Archive::
-* Contributing to the Autoconf Archive::
+* Downloads::
+* How to contribute::
 * The Macros::
 @end menu
 
@@ -60,12 +60,12 @@ FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 @chapter Introduction
 @include introduction.texi
 
-@node Using the Autoconf Archive
-@chapter Using the Autoconf Archive
-@include using.texi
+@node Downloads
+@chapter Downloading the Autoconf Archive
+@include downloads.texi
 
-@node Contributing to the Autoconf Archive
-@chapter Contributing to the Autoconf Archive
+@node How to contribute
+@chapter How to contributing to the Autoconf Archive
 @include contribute.texi
 
 @node The Macros

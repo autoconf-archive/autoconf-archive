@@ -3,7 +3,7 @@
 # Copyright (c) 2010 by the Autoconf Archive Maintainers
 # Licensed under the terms of the GNU General Public License.
 
-CHAPTERS				= using.texi contribute.texi introduction.texi
+CHAPTERS                = introduction.texi downloads.texi contribute.texi
 info_TEXINFOS           = autoconf-archive.texi
 EXTRA_DIST              = $(TEXIFILES) $(CHAPTERS) all-macros.texi
 

@@ -1,5 +1,3 @@
-@section Downloading The Macros
-
 The macros distributed by the Archive are maintained in a public Git repository
 at @indicateurl{git://git.sv.gnu.org/autoconf-archive.git}. That repository can
 be cloned anonymously, which is probably the most convenient way to access the
