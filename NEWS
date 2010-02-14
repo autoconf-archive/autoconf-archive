@@ -1,7 +1,7 @@
 #+TITLE: Autoconf Archive NEWS                 -*- mode:org;fill-column:79; -*-
 #+STARTUP: showall
 
-* Noteworthy changes in release ?.? (????-??-??) [?]
+* Noteworthy changes in release 2010.02.14 (2010-02-14) [beta]
 
   All macros have been assigned a unique serial number that corresponds to the
   number of commits that have modified the macro in the Archive's Git
@@ -31,6 +31,11 @@
   AX_RESTORE_FLAGS and AX_SAVE_FLAGS have been added.
 
   AX_SYS_LARGEFILE_SENSITIVE has improved support for x86_64 hosts.
+
+  AX_MPIP has been added.
+
+  In all macros, calls to the obsolete AC_HELP_STRING function have been
+  replaced with the newer, recommended AS_HELP_STRING.
 
 * Noteworthy changes in release 2009.12.16 (2009-12-16) [alpha]
 

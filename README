@@ -1,94 +1,68 @@
 Autoconf Archive
 ================
 
--------------------------------------------------------------------------------
+The Autoconf Archive is a collection of more than 450 freely re-usable macros
+for `GNU Autoconf <http://www.gnu.org/software/autoconf>`_ that have been
+contributed by friendly supporters of the cause from all over the Internet.
 
-:Macro Index By:  Category_ ; Author_ ; License_
-:Latest Release:  autoconf-archive-2009.12.16.tar.bz2_
-:Change History:  `ATOM Log`_ ; `RSS Feed`_
-:GIT Repository:  git clone git://git.sv.gnu.org/autoconf-archive.git
+The term "free" means two things in this context: (1) all macros distributed by
+the Archive can be used free of charge and (2) their use imposes no restrictions
+whatsoever on the licensing of the generated `configure` script, i.e. it is
+possible to use those macros in `configure` scripts that are meant for non-free
+software.
 
--------------------------------------------------------------------------------
+The best place to start exploring the Archive is the `on-line documentation
+<http://www.nongnu.org/autoconf-archive/>`_. There is also the `Autoconf Archive
+home page <http://savannah.nongnu.org/projects/autoconf-archive/>`_ at Savannah.
 
-Synopsis
---------
+Downloads
+---------
 
-The `Autoconf Archive`_ is a collection of more than 500 freely re-usable
-Autoconf_ macros. These macros have been contributed by friendly supporters
-of the cause from all over the Internet.
+Here are the compressed sources:
 
-How To Contribute
------------------
+* autoconf-archive-2010.02.14.tar.gz_   (785KB)
+* autoconf-archive-2010.02.14.tar.bz2_  (577KB)
+* autoconf-archive-2010.02.14.tar.xz_   (442KB)
 
-Please post to the `patch tracker`_ to submit a macro for inclusion in the
-archive. Your submission should contain:
+Here are the GPG detached signatures:
 
-* synopsis that shows how the macro must be be called,
+* autoconf-archive-2010.02.14.tar.gz.sig_
+* autoconf-archive-2010.02.14.tar.bz2.sig_
+* autoconf-archive-2010.02.14.tar.xz.sig_
 
-* brief description of the macro's purpose,
+You can use either of the above signature files to verify that the
+corresponding file (without the .sig suffix) is intact. First, be sure
+to download both the .sig file and the corresponding tarball. Then, run
+a command like this::
 
-* list of authors (optionally with e-mail addresses),
+  gpg --verify autoconf-archive-2010.02.14.tar.gz.sig
 
-* licensing terms, and
+If that command fails because you don't have the required public key,
+then run this command to import it::
 
-* m4 source code.
+  gpg --keyserver keys.gnupg.net --recv-keys 99089D72
 
-Macros can be submitted under any `GPL-compatible free software license`_.
-The Free Software Foundation, however, recommends use of the `all-permissive
-license`_ for Autoconf macros.
-
-Migration to Savannah
----------------------
-
-The Autoconf Archive is now hosted on Savannah. Previously cloned Git
-repositories can be migrated to the new location by updating the settings
-for "origin" and "master"::
-
-  git config remote.origin.url 'git://git.sv.gnu.org/autoconf-archive.git'
-  git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
-
-  git config branch.master.remote origin
-  git config branch.master.merge refs/heads/master
-
-Now, run `git pull` to update the master branch.
+and rerun the `gpg --verify' command.
 
 License
 -------
 
-Compilation Copyright 2009 Autoconf Archive Maintainers <autoconf-archive-maintainers@nongnu.org>
+Compilation Copyright 2010 Autoconf Archive Maintainers <autoconf-archive-maintainers@nongnu.org>
 
-The Autoconf Archive is free software: you can redistribute it and/or
-modify it under the terms of the `GNU General Public License version 3
-<http://www.gnu.org/licenses/gpl.html>`_ or (at your option) any later
-version.
+The Autoconf Archive is free software: you can redistribute it and/or modify it
+under the terms of the `GNU General Public License version 3
+<http://www.gnu.org/licenses/gpl.html>`_ or (at your option) any later version.
 
 All macros are copyrighted by their respective authors. Please refer to the
 individual files for details.
 
 
-.. References used in the text above
-.. .................................
+.. References
+.. ..........
 
-.. _Autoconf Archive: http://www.nongnu.org/autoconf-archive/
-
-.. _Category: macros-by-category.html
-
-.. _Author: macros-by-author.html
-
-.. _License: macros-by-license.html
-
-.. _Git: http://git-scm.com/
-
-.. _RSS Feed: http://git.savannah.gnu.org/gitweb/?p=autoconf-archive.git;a=rss
-
-.. _ATOM Log: http://git.savannah.gnu.org/gitweb/?p=autoconf-archive.git;a=atom
-
-.. _Autoconf: http://www.gnu.org/software/autoconf/
-
-.. _autoconf-archive-2009.12.16.tar.bz2: http://download.savannah.nongnu.org/releases/autoconf-archive/autoconf-archive-2009.12.16.tar.bz2
-
-.. _GPL-compatible free software license: http://www.gnu.org/licenses/license-list.html
-
-.. _all-permissive license: http://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html
-
-.. _patch tracker: https://savannah.nongnu.org/patch/?func=additem&group=autoconf-archive
+.. _autoconf-archive-2010.02.14.tar.gz : http://download.savannah.nongnu.org/releases/autoconf-archive/autoconf-archive-2010.02.14.tar.gz
+.. _autoconf-archive-2010.02.14.tar.bz2: http://download.savannah.nongnu.org/releases/autoconf-archive/autoconf-archive-2010.02.14.tar.bz2
+.. _autoconf-archive-2010.02.14.tar.xz:  http://download.savannah.nongnu.org/releases/autoconf-archive/autoconf-archive-2010.02.14.tar.xz
+.. _autoconf-archive-2010.02.14.tar.gz.sig:  http://download.savannah.nongnu.org/releases/autoconf-archive/autoconf-archive-2010.02.14.tar.gz.sig
+.. _autoconf-archive-2010.02.14.tar.bz2.sig: http://download.savannah.nongnu.org/releases/autoconf-archive/autoconf-archive-2010.02.14.tar.bz2.sig
+.. _autoconf-archive-2010.02.14.tar.xz.sig:  http://download.savannah.nongnu.org/releases/autoconf-archive/autoconf-archive-2010.02.14.tar.xz.sig
