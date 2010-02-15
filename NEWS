@@ -2,7 +2,8 @@
 #+STARTUP: showall
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
-
+  AX_PTHREAD has been fixed to provide the "-pthreads" flag on 10.6 OS X
+  systems.
 
 * Noteworthy changes in release 2010.02.14 (2010-02-14) [beta]
 
