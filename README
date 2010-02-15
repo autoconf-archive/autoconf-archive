@@ -42,7 +42,7 @@ then run this command to import it::
 
   gpg --keyserver keys.gnupg.net --recv-keys 99089D72
 
-and rerun the `gpg --verify' command.
+and rerun the ``gpg --verify`` command.
 
 License
 -------
