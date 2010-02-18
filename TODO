@@ -68,3 +68,25 @@
 
   It would be desirable to have the license texts in the documentation *once*
   and to have every macro refer to the appropriate section.
+* TODO Add copyright notices to all files [0/3]
+
+  * [ ] autoconf-archive.texi should say what its own (the documentation)
+        copyright is in the @copying. Presumably GFDLv1.3+.
+
+  * [ ] small top-level files like NEWS, ChangeLog, TODO should have some kind
+        of notice, e.g., the all-permissive one.
+
+  * [ ] Makefile.am files should use the standard GPL notice, not just say
+        "Licensed under the terms ...". That leaves it unclear as to what
+        version of the GPL applies, and whether it is GPLvN-only vs.
+        GPLvN-or-later.
+
+* TODO Update infrastructure files from gnulib
+
+  Most of our infrastructure files come from the Automake versions that's used
+  to run =autoreconf -i=. However, there are newer files in gnulib that we
+  should use instead: install-sh got a minor update, ditto the INSTALL file.
+  texinfo.tex has also been updated.
+
+  Karl Berry suggested using =gnulib/config/srclist-update= to keep those files
+  synchronized.
