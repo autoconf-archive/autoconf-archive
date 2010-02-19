@@ -47,12 +47,12 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([AC_PROG_JAVA_WORKS], [AX_PROG_JAVA_WORKS])
 AC_DEFUN([AX_PROG_JAVA_WORKS], [
-AC_CHECK_PROG(uudecode, uudecode$EXEEXT, yes)
-if test x$uudecode = xyes; then
+AC_CHECK_PROG(UUDECODE, uudecode, no)
+if test x$uudecode != xno; then
 AC_CACHE_CHECK([if uudecode can decode base 64 file], ac_cv_prog_uudecode_base64, [
 dnl /**
 dnl  * Test.java: used to test if java compiler works.
@@ -78,7 +78,7 @@ AAAABQO4AAyxAAAAAQAIAAAACgACAAAACgAEAAsAAQAPABAAAQAHAAAAIQAB
 AAEAAAAFKrcAErEAAAABAAgAAAAKAAIAAAAEAAQABAABABMAAAACABQ=
 ====
 EOF
-if uudecode$EXEEXT Test.uue; then
+if $UUDECODE Test.uue; then
         ac_cv_prog_uudecode_base64=yes
 else
         echo "configure: __oline__: uudecode had trouble decoding base 64 file 'Test.uue'" >&AC_FD_CC

@@ -100,15 +100,14 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_PROG_JAVA], [AX_PROG_JAVA])
 AC_DEFUN([AX_PROG_JAVA],[
-AC_REQUIRE([AC_EXEEXT])dnl
 if test x$JAVAPREFIX = x; then
-        test x$JAVA = x && AC_CHECK_PROGS(JAVA, kaffe$EXEEXT java$EXEEXT)
+        test x$JAVA = x && AC_CHECK_PROGS(JAVA, kaffe java)
 else
-        test x$JAVA = x && AC_CHECK_PROGS(JAVA, kaffe$EXEEXT java$EXEEXT, $JAVAPREFIX)
+        test x$JAVA = x && AC_CHECK_PROGS(JAVA, kaffe java, $JAVAPREFIX)
 fi
 test x$JAVA = x && AC_MSG_ERROR([no acceptable Java virtual machine found in \$PATH])
 AX_PROG_JAVA_WORKS

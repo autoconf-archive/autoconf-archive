@@ -38,13 +38,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_PROG_JAVADOC], [AX_PROG_JAVADOC])
 AC_DEFUN([AX_PROG_JAVADOC],[
-AC_REQUIRE([AC_EXEEXT])dnl
 if test "x$JAVAPREFIX" = x; then
-        test "x$JAVADOC" = x && AC_CHECK_PROGS(JAVADOC, javadoc$EXEEXT)
+        test "x$JAVADOC" = x && AC_CHECK_PROGS(JAVADOC, javadoc)
 else
         test "x$JAVADOC" = x && AC_CHECK_PROGS(JAVADOC, javadoc, $JAVAPREFIX)
 fi

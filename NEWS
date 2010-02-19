@@ -5,6 +5,11 @@
   AX_PTHREAD has been fixed to provide the "-pthreads" flag on 10.6 OS X
   systems.
 
+  Fixed use of $EXEEXT in AX_CHECK_JAVA_HOME, AX_PROG_JAVA, AX_PROG_JAVA_WORKS,
+  AX_PROG_JAVAC, and AX_PROG_JAVADOC. Further details can be found at
+  <http://savannah.nongnu.org/patch/?6948>.
+
+
 * Noteworthy changes in release 2010.02.14 (2010-02-14) [beta]
 
   All macros have been assigned a unique serial number that corresponds to the
