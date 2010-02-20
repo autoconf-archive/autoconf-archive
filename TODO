@@ -68,9 +68,9 @@
 
   It would be desirable to have the license texts in the documentation *once*
   and to have every macro refer to the appropriate section.
-* TODO Add copyright notices to all files [0/3]
+* TODO Add copyright notices to all files [1/3]
 
-  * [ ] autoconf-archive.texi should say what its own (the documentation)
+  * [X] autoconf-archive.texi should say what its own (the documentation)
         copyright is in the @copying. Presumably GFDLv1.3+.
 
   * [ ] small top-level files like NEWS, ChangeLog, TODO should have some kind
