@@ -20,7 +20,7 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2007,2009 Bogdan Drozdowski <bogdandr # op . pl>
+#   Copyright (c) 2007,2009 Bogdan Drozdowski <bogdandr@op.pl>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU Lesser General Public License as published by
@@ -48,7 +48,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_PROG_MASM],[
 AC_CHECK_PROGS(masm,[ml masm ml32 ml64 masm32],no)

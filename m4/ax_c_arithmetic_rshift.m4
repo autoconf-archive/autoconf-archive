@@ -14,14 +14,14 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2008 YAMAMOTO Kengo <yamaken AT bp.iij4u.or.jp>
+#   Copyright (c) 2008 YAMAMOTO Kengo <yamaken@bp.iij4u.or.jp>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_C_ARITHMETIC_RSHIFT], [
   AC_CACHE_CHECK([whether right shift operation is arithmetic],
