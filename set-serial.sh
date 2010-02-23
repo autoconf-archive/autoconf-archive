@@ -19,7 +19,7 @@ for n in "$@"; do
   set-serial-number "$n" "$revision"
   # Check whether git regards the file as "modified" now. If it does,
   # the serial nmuber needs to be bumped one more time.
-  if git >/dev/null status -- "$n"; then
+  if ! git diff --quiet --exit-code -- "$n"; then
     set-serial-number "$n" "$((revision + 1))"
   fi
 done
