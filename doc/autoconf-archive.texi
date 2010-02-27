@@ -10,11 +10,11 @@
 @include version.texi
 
 @copying
-This manual is for Autoconf Archive version @value{VERSION}, a collection of
+This manual is for GNU Autoconf Archive version @value{VERSION}, a collection of
 freely re-usable Autoconf macros.
 
-Copyright @copyright{} 2010 Autoconf Archive Maintainers
-@email{autoconf-archive-maintainers@@nongnu.org}
+Copyright @copyright{} 2010 Free Software Foundation, Inc.
+@email{autoconf-archive-maintainers@@gnu.org}
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -26,13 +26,13 @@ Documentation License''.
 
 @dircategory Software development
 @direntry
-* Autoconf Archive: (autoconf-archive).     A collection of re-usable Autoconf macros.
+* Autoconf Archive: (autoconf-archive). A collection of re-usable Autoconf macros.
 @end direntry
 
 @titlepage
-@title Autoconf Archive
+@title GNU Autoconf Archive
 @subtitle Version @value{VERSION}
-@author @email{autoconf-archive-maintainers@@nongnu.org}
+@author @email{autoconf-archive-maintainers@@gnu.org}
 @page
 @vskip 0pt plus 1filll
 @insertcopying
@@ -42,7 +42,7 @@ Documentation License''.
 
 @ifnottex
 @node Top
-@top Autoconf Archive
+@top GNU Autoconf Archive
 
 @insertcopying
 @end ifnottex
@@ -60,11 +60,11 @@ Documentation License''.
 @include introduction.texi
 
 @node Downloads
-@chapter Downloading the Autoconf Archive
+@chapter Downloading the GNU Autoconf Archive
 @include downloads.texi
 
 @node How to contribute
-@chapter How to contributing to the Autoconf Archive
+@chapter How to contributing to the GNU Autoconf Archive
 @include contribute.texi
 
 @node The Macros

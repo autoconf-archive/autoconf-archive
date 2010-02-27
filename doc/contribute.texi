@@ -42,7 +42,7 @@ AU_ALIAS([OLD_NAME], [AX_NEW_NAME])
 @section Submitting Macros
 
 Please post to the
-@uref{https://savannah.nongnu.org/patch/?func=additem&group=autoconf-archive,patch
+@uref{http://savannah.gnu.org/patch/?func=additem&group=autoconf-archive,patch
 tracker} to submit a macro for inclusion in the Archive. Your submission should
 contain:
 
@@ -79,4 +79,3 @@ macro should be flexible enough to suit all of these uses.
 
 See the @uref{http://www.flameeyes.eu/autotools-mythbuster, Autotools
 Mythbuster} for suggestions on how to write well-encapsulated, portable macros.
-

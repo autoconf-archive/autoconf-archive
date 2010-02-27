@@ -1,23 +1,21 @@
-dnl configure the Autoconf Archive
+dnl Configure the GNU Autoconf Archive.
+dnl
+dnl This file is free software; as a special exception the author gives
+dnl unlimited permission to copy and/or distribute it, with or without
+dnl modifications, as long as this notice is preserved.
+dnl
+dnl This program is distributed in the hope that it will be useful, but
+dnl WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
+dnl implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-AC_INIT([autoconf-archive], m4_esyscmd([build-aux/git-version-gen .tarball-version]), [autoconf-archive-maintainers@nongnu.org])
+AC_INIT([GNU Autoconf Archive], m4_esyscmd([build-aux/git-version-gen .tarball-version]),
+	[autoconf-archive-maintainers@gnu.org], [autoconf-archive],
+	[http://www.gnu.org/software/autoconf-archive/])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([1.11 -Wall gnu dist-bzip2 dist-xz])
+AC_PREREQ([2.65])
 AC_CONFIG_SRCDIR([doc/autoconf-archive.texi])
-AC_COPYRIGHT([dnl
-Compilation Copyright 2010 Autoconf Archive Maintainers
-
-This compilation is free software: you can redistribute it and/or
-modify it under the terms of the GNU General Public License as
-published by the Free Software Foundation, either version 3 of the
-License, or (at your option) any later version.
-
-This compilation is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-General Public License for more details.])
-
-AC_MSG_NOTICE([Autoconf Archive version $VERSION])
+AC_MSG_NOTICE([$PACKAGE_STRING])
 
 M4FILES="m4_esyscmd([echo -n m4/*.m4])"
 AC_SUBST([M4FILES])

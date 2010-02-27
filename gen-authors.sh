@@ -7,6 +7,13 @@ trap 'rm -f AUTHORS-m4.tmp AUTHORS-git.tmp' 0
 sed -n -e 's/# *Copyright (c) [0-9,-]* *//p' m4/*.m4 >AUTHORS-m4.tmp
 git log | sed -n -e 's/^Author: *//p' >AUTHORS-git.tmp
 
+echo '# Copyright (c) 2010 Free Software Foundation, Inc.'
+echo '#'
+echo '# Copying and distribution of this file, with or without modification, are'
+echo '# permitted in any medium without royalty provided the copyright notice and this'
+echo '# notice are preserved. This file is offered as-is, without any warranty.'
+echo ''
+
 cat AUTHORS-m4.tmp AUTHORS-git.tmp \
   | sed -e 's/ *<.*>.*//' \
 	-e 's/^Bogdan$/Bogdan Drozdowski/' \

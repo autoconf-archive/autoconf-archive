@@ -5,14 +5,12 @@ Archive. Gitweb offers an
 @uref{http://git.savannah.gnu.org/gitweb/?p=autoconf-archive.git;a=rss,RSS
 feed} for subscription that informs about changes to the repository. The same
 information is available via e-mail, too, on the
-@uref{http://lists.nongnu.org/mailman/listinfo/autoconf-archive-commits,commits
+@uref{http://lists.gnu.org/mailman/listinfo/autoconf-archive-commits,commits
 mailing list}.
 
-For the benefit of everyone who doesn't use Git, traditional release archives
-can be downloaded from
-@uref{http://download.savannah.nongnu.org/releases/autoconf-archive/}. New
-release are always announced on the low-traffic
-@uref{http://lists.nongnu.org/mailman/listinfo/autoconf-archive-announce,announcements
+For the benefit of everyone who doesn't use Git, traditional release
+archives can be downloaded from
+@uref{ftp://ftp.gnu.org/pub/gnu/autoconf-archive/} or any other GNU
+mirror . New release are always announced on the low-traffic
+@uref{http://lists.gnu.org/mailman/listinfo/autoconf-archive-announce,announcements
 mailing list}.
-
-

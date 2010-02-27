@@ -1,14 +1,23 @@
-#+TITLE: Autoconf Archive NEWS                 -*- mode:org;fill-column:79; -*-
+#+TITLE: GNU Autoconf Archive NEWS             -*- mode:org;fill-column:79; -*-
 #+STARTUP: showall
+#
+# Copyright (c) 2010 Free Software Foundation, Inc.
+#
+# Copying and distribution of this file, with or without modification, are
+# permitted in any medium without royalty provided the copyright notice
+# and this notice are preserved. This file is offered as-is, without any
+# warranty.
+
 * Noteworthy changes in release ?.? (????-??-??) [?]
+
+  The Autoconf Archive has been declared an official GNU project.
 
   AX_PTHREAD has been fixed to provide the "-pthreads" flag on 10.6 OS X
   systems.
 
   Fixed use of $EXEEXT in AX_CHECK_JAVA_HOME, AX_PROG_JAVA, AX_PROG_JAVA_WORKS,
   AX_PROG_JAVAC, and AX_PROG_JAVADOC. Further details can be found at
-  <http://savannah.nongnu.org/patch/?6948>.
-
+  <http://savannah.gnu.org/patch/?6948>.
 
 * Noteworthy changes in release 2010.02.14 (2010-02-14) [beta]
 

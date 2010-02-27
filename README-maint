@@ -1,7 +1,7 @@
-#+TITLE: Autoconf Archive README-maint         -*- mode:org;fill-column:79; -*-
+#+TITLE: GNU Autoconf Archive Maintainer README  -*-mode:org;fill-column:79;-*-
 #+STARTUP: showall
 
-* How to set up the 'maint' branch.
+* How to build the archive from Git.
 
   Ensure that the following packages are installed in your system:
 
@@ -18,13 +18,16 @@
 
   : git clone ssh://[<login>@]git.sv.gnu.org/srv/git/autoconf-archive
   : cd autoconf-archive
-  : cvs -z3 -d:ext:[<login>@]cvs.savannah.nongnu.org:/web/autoconf-archive co -d html autoconf-archive
   : ./bootstrap.sh              # set up autotools and gnulib environment
   : ./configure                 # determine system properties
   : make maintainer-generate    # create/update all generated files that will be in a release
   : make                        # update texinfo documentation
 
 * How to update the web site.
+
+  Check out the web site from CVS:
+
+  : cvs -z3 -d:ext:[<login>@]cvs.savannah.nongnu.org:/web/autoconf-archive co -d html autoconf-archive
 
   Run the following commands:
 
