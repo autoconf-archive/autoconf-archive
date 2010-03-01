@@ -1,6 +1,6 @@
-# ===========================================================================
-#   http://www.nongnu.org/autoconf-archive/ax_cxx_header_unordered_map.html
-# ===========================================================================
+# ===============================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_cxx_header_unordered_map.html
+# ===============================================================================
 #
 # SYNOPSIS
 #
@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_CXX_HEADER_UNORDERED_MAP], [AX_CXX_HEADER_UNORDERED_MAP])
 AC_DEFUN([AX_CXX_HEADER_UNORDERED_MAP], [

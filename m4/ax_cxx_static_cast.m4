@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_cxx_static_cast.html
+#    http://www.gnu.org/software/autoconf-archive/ax_cxx_static_cast.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_CXX_STATIC_CAST], [AX_CXX_STATIC_CAST])
 AC_DEFUN([AX_CXX_STATIC_CAST],

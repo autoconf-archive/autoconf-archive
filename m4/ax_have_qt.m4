@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://www.nongnu.org/autoconf-archive/ax_have_qt.html
+#        http://www.gnu.org/software/autoconf-archive/ax_have_qt.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -88,7 +88,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 dnl Calls AX_PATH_QT_DIRECT (contained in this file) as a subroutine.
 AU_ALIAS([BNV_HAVE_QT], [AX_HAVE_QT])

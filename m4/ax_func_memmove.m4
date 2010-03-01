@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/ax_func_memmove.html
+#      http://www.gnu.org/software/autoconf-archive/ax_func_memmove.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([AC_FUNC_MEMMOVE], [AX_FUNC_MEMMOVE])
 AC_DEFUN([AX_FUNC_MEMMOVE],

@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/ax_prog_hla_opt.html
+#      http://www.gnu.org/software/autoconf-archive/ax_prog_hla_opt.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -46,7 +46,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_PROG_HLA_OPT],[
 AC_REQUIRE([AX_PROG_HLA])dnl

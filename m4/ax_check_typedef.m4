@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ax_check_typedef.html
+#     http://www.gnu.org/software/autoconf-archive/ax_check_typedef.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -47,7 +47,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 3
+#serial 4
 
 AU_ALIAS([AC_CHECK_TYPEDEF], [AX_CHECK_TYPEDEF])
 AC_DEFUN([AX_CHECK_TYPEDEF_],

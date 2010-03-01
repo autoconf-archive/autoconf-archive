@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ax_lib_oracle_oci.html
+#     http://www.gnu.org/software/autoconf-archive/ax_lib_oracle_oci.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -47,7 +47,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_LIB_ORACLE_OCI],
 [

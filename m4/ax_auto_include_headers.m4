@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.nongnu.org/autoconf-archive/ax_auto_include_headers.html
+#  http://www.gnu.org/software/autoconf-archive/ax_auto_include_headers.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -51,7 +51,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_AUTO_INCLUDE_HEADERS], [dnl
 AC_FOREACH([AX_Header], [$1], [dnl

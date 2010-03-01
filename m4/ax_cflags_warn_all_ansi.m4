@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.nongnu.org/autoconf-archive/ax_cflags_warn_all_ansi.html
+#  http://www.gnu.org/software/autoconf-archive/ax_cflags_warn_all_ansi.html
 # ===========================================================================
 #
 # OBSOLETE MACRO
@@ -57,7 +57,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_CFLAGS_WARN_ALL_ANSI],[dnl
 AS_VAR_PUSHDEF([FLAGS],[CFLAGS])dnl

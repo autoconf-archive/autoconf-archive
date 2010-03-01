@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://www.nongnu.org/autoconf-archive/ax_with_perl.html
+#       http://www.gnu.org/software/autoconf-archive/ax_with_perl.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -28,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_WITH_PERL],[
     AX_WITH_PROG(PERL,perl,$1,$2)

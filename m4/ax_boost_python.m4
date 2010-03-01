@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/ax_boost_python.html
+#      http://www.gnu.org/software/autoconf-archive/ax_boost_python.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -51,7 +51,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_BOOST_PYTHON],
 [AC_REQUIRE([AX_PYTHON])dnl

@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.nongnu.org/autoconf-archive/ax_cxx_new_for_scoping.html
+#  http://www.gnu.org/software/autoconf-archive/ax_cxx_new_for_scoping.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_CXX_NEW_FOR_SCOPING], [AX_CXX_NEW_FOR_SCOPING])
 AC_DEFUN([AX_CXX_NEW_FOR_SCOPING],

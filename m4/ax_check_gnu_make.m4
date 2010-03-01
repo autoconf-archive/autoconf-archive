@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ax_check_gnu_make.html
+#     http://www.gnu.org/software/autoconf-archive/ax_check_gnu_make.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -54,7 +54,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AC_DEFUN(
         [AX_CHECK_GNU_MAKE], [ AC_CACHE_CHECK( for GNU make,_cv_gnu_make_command,

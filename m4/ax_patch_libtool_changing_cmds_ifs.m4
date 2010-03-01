@@ -1,6 +1,6 @@
-# ================================================================================
-#  http://www.nongnu.org/autoconf-archive/ax_patch_libtool_changing_cmds_ifs.html
-# ================================================================================
+# ======================================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_patch_libtool_changing_cmds_ifs.html
+# ======================================================================================
 #
 # SYNOPSIS
 #
@@ -72,7 +72,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([PATCH_LIBTOOL_CHANGING_CMDS_IFS], [AX_PATCH_LIBTOOL_CHANGING_CMDS_IFS])
 AC_DEFUN([AX_PATCH_LIBTOOL_CHANGING_CMDS_IFS],

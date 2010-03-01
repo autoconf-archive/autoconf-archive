@@ -1,6 +1,6 @@
-# ===========================================================================
-#   http://www.nongnu.org/autoconf-archive/ax_set_default_paths_system.html
-# ===========================================================================
+# ===============================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_set_default_paths_system.html
+# ===============================================================================
 #
 # SYNOPSIS
 #
@@ -46,7 +46,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 3
+#serial 4
 
 AU_ALIAS([AC_SET_DEFAULT_PATHS_SYSTEM], [AX_SET_DEFAULT_PATHS_SYSTEM])
 AC_DEFUN([AX_SET_DEFAULT_PATHS_SYSTEM],

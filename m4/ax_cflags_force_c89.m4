@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_cflags_force_c89.html
+#    http://www.gnu.org/software/autoconf-archive/ax_cflags_force_c89.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -53,7 +53,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_CFLAGS_FORCE_C89],[dnl
 AS_VAR_PUSHDEF([FLAGS],[CFLAGS])dnl

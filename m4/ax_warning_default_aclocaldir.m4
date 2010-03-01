@@ -1,6 +1,6 @@
-# ===========================================================================
-#  http://www.nongnu.org/autoconf-archive/ax_warning_default_aclocaldir.html
-# ===========================================================================
+# =================================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_warning_default_aclocaldir.html
+# =================================================================================
 #
 # SYNOPSIS
 #
@@ -63,7 +63,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_WARNING_DEFAULT_ACLOCALDIR],[dnl
 AC_REQUIRE([AX_EXPAND_PREFIX])dnl

@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/ax_add_am_macro.html
+#      http://www.gnu.org/software/autoconf-archive/ax_add_am_macro.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_ADD_AM_MACRO],[
   AC_REQUIRE([AX_AM_MACROS])

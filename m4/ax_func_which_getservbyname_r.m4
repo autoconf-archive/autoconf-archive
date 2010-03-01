@@ -1,6 +1,6 @@
-# ===========================================================================
-#  http://www.nongnu.org/autoconf-archive/ax_func_which_getservbyname_r.html
-# ===========================================================================
+# =================================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_func_which_getservbyname_r.html
+# =================================================================================
 #
 # SYNOPSIS
 #
@@ -50,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([AC_RAF_FUNC_WHICH_GETSERVBYNAME_R], [AX_FUNC_WHICH_GETSERVBYNAME_R])
 AC_DEFUN([AX_FUNC_WHICH_GETSERVBYNAME_R],

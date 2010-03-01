@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.nongnu.org/autoconf-archive/ax_spec_package_version.html
+#  http://www.gnu.org/software/autoconf-archive/ax_spec_package_version.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -82,7 +82,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_SPEC_PACKAGE_LICENSE],[AC_REQUIRE([AX_SPEC_FILE])dnl
   AS_VAR_PUSHDEF([VAR],[PACKAGE_LICENSE])dnl

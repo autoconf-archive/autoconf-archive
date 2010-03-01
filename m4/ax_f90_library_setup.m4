@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.nongnu.org/autoconf-archive/ax_f90_library_setup.html
+#   http://www.gnu.org/software/autoconf-archive/ax_f90_library_setup.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -55,7 +55,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_F90_LIBRARY_SETUP],[
  AC_ARG_WITH([$1],[  --with-$1=path   specify search path form $1 module and library],

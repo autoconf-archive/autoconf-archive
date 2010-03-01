@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://www.nongnu.org/autoconf-archive/ax_with_guile.html
+#       http://www.gnu.org/software/autoconf-archive/ax_with_guile.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -28,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_WITH_GUILE],[
     AX_WITH_PROG(GUILE,guile,$1,$2)

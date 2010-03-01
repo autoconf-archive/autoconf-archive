@@ -1,6 +1,6 @@
-# ===========================================================================
-#  http://www.nongnu.org/autoconf-archive/ax_cflags_no_writable_strings.html
-# ===========================================================================
+# =================================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_cflags_no_writable_strings.html
+# =================================================================================
 #
 # SYNOPSIS
 #
@@ -54,7 +54,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_CFLAGS_NO_WRITABLE_STRINGS],[dnl
 AS_VAR_PUSHDEF([FLAGS],[CFLAGS])dnl

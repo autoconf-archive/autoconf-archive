@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ax_c_printf_thsep.html
+#     http://www.gnu.org/software/autoconf-archive/ax_c_printf_thsep.html
 # ===========================================================================
 #
 # OBSOLETE MACRO
@@ -28,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_C_PRINTF_THSEP], [AX_C_PRINTF_THSEP])
 AC_DEFUN([AX_C_PRINTF_THSEP],

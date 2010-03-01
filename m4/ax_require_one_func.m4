@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_require_one_func.html
+#    http://www.gnu.org/software/autoconf-archive/ax_require_one_func.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -27,7 +27,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_REQUIRE_ONE_FUNC],
 [m4_define([ax_1func_cv], [AS_TR_SH(ax_cv_func_any_$1)])

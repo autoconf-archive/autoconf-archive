@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/ax_check_define.html
+#      http://www.gnu.org/software/autoconf-archive/ax_check_define.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -44,7 +44,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AC_CHECK_DEFINED],[
 AS_VAR_PUSHDEF([ac_var],[ac_cv_defined_$1])dnl

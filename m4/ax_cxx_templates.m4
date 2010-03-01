@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ax_cxx_templates.html
+#     http://www.gnu.org/software/autoconf-archive/ax_cxx_templates.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_CXX_TEMPLATES], [AX_CXX_TEMPLATES])
 AC_DEFUN([AX_CXX_TEMPLATES],

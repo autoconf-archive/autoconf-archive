@@ -1,6 +1,6 @@
-# =================================================================================
-#  http://www.nongnu.org/autoconf-archive/ax_check_awk_user_defined_functions.html
-# =================================================================================
+# =======================================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_check_awk_user_defined_functions.html
+# =======================================================================================
 #
 # SYNOPSIS
 #
@@ -26,7 +26,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_CHECK_AWK_USER_DEFINED_FUNCTIONS],[
   AC_REQUIRE([AX_NEED_AWK])

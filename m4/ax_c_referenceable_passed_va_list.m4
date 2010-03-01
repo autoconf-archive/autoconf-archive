@@ -1,6 +1,6 @@
-# ===============================================================================
-#  http://www.nongnu.org/autoconf-archive/ax_c_referenceable_passed_va_list.html
-# ===============================================================================
+# =====================================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_c_referenceable_passed_va_list.html
+# =====================================================================================
 #
 # SYNOPSIS
 #
@@ -51,7 +51,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_C_REFERENCEABLE_PASSED_VA_LIST], [
   AC_CACHE_CHECK([whether f(va_list va){ &va; } works as expected],

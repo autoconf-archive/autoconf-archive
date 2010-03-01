@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ax_check_func_in.html
+#     http://www.gnu.org/software/autoconf-archive/ax_check_func_in.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -40,7 +40,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 3
+#serial 4
 
 dnl AX_CHECK_FUNC_IN(HEADER, FUNCTION, [ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]])
 AU_ALIAS([AC_CHECK_FUNC_IN], [AX_CHECK_FUNC_IN])

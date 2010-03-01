@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.nongnu.org/autoconf-archive/ax_check_uname_syscall.html
+#  http://www.gnu.org/software/autoconf-archive/ax_check_uname_syscall.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([AG_CHECK_UNAME_SYSCALL], [AX_CHECK_UNAME_SYSCALL])
 AC_DEFUN([AX_CHECK_UNAME_SYSCALL],[

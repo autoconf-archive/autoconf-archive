@@ -1,6 +1,6 @@
-# ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/ax_cxx_have_koenig_lookup.html
-# ===========================================================================
+# =============================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_cxx_have_koenig_lookup.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([MNI_CXX_HAVE_KOENIG_LOOKUP], [AX_CXX_HAVE_KOENIG_LOOKUP])
 AC_DEFUN([AX_CXX_HAVE_KOENIG_LOOKUP],

@@ -1,6 +1,6 @@
-# ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/ax_compute_relative_paths.html
-# ===========================================================================
+# =============================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_compute_relative_paths.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -65,7 +65,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([ADL_COMPUTE_RELATIVE_PATHS], [AX_COMPUTE_RELATIVE_PATHS])
 AC_DEFUN([AX_COMPUTE_RELATIVE_PATHS],

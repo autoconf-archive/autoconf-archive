@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://www.nongnu.org/autoconf-archive/ax_count_cpus.html
+#       http://www.gnu.org/software/autoconf-archive/ax_count_cpus.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -23,7 +23,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_COUNT_CPUS], [
     AC_REQUIRE([AC_PROG_EGREP])

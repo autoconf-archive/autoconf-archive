@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.nongnu.org/autoconf-archive/ax_c_arithmetic_rshift.html
+#  http://www.gnu.org/software/autoconf-archive/ax_c_arithmetic_rshift.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_C_ARITHMETIC_RSHIFT], [
   AC_CACHE_CHECK([whether right shift operation is arithmetic],

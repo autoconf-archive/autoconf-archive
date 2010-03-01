@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.nongnu.org/autoconf-archive/ax_cxx_reinterpret_cast.html
+#  http://www.gnu.org/software/autoconf-archive/ax_cxx_reinterpret_cast.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_CXX_REINTERPRET_CAST], [AX_CXX_REINTERPRET_CAST])
 AC_DEFUN([AX_CXX_REINTERPRET_CAST],

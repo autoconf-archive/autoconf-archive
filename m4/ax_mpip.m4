@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://www.nongnu.org/autoconf-archive/ax_mpip.html
+#          http://www.gnu.org/software/autoconf-archive/ax_mpip.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -49,7 +49,7 @@
 #   distribute a modified version of the Autoconf Macro, you may extend this
 #   special exception to the GPL to apply to your modified version as well.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_MPIP], [
 AC_PREREQ(2.60)

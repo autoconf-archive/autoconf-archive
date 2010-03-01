@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://www.nongnu.org/autoconf-archive/ax_lib_orbit2.html
+#       http://www.gnu.org/software/autoconf-archive/ax_lib_orbit2.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -28,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_LIB_ORBIT2], [
   AX_PATH_GENERIC([orbit2],[$1],'s/^ORBit2\ \+//',[$2],[$3])

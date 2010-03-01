@@ -1,6 +1,6 @@
-# ==================================================================================
-#  http://www.nongnu.org/autoconf-archive/ax_cxx_template_qualified_base_class.html
-# ==================================================================================
+# ========================================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_cxx_template_qualified_base_class.html
+# ========================================================================================
 #
 # SYNOPSIS
 #
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_CXX_TEMPLATE_QUALIFIED_BASE_CLASS], [AX_CXX_TEMPLATE_QUALIFIED_BASE_CLASS])
 AC_DEFUN([AX_CXX_TEMPLATE_QUALIFIED_BASE_CLASS],

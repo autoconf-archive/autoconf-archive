@@ -1,6 +1,6 @@
-# ===========================================================================
-#  http://www.nongnu.org/autoconf-archive/ax_check_page_aligned_malloc.html
-# ===========================================================================
+# ================================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_check_page_aligned_malloc.html
+# ================================================================================
 #
 # SYNOPSIS
 #
@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_CHECK_PAGE_ALIGNED_MALLOC],
 [AC_CACHE_CHECK([if large mallocs guarantee page-alignment],

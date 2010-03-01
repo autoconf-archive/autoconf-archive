@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_prog_java_works.html
+#    http://www.gnu.org/software/autoconf-archive/ax_prog_java_works.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -47,7 +47,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_PROG_JAVA_WORKS], [AX_PROG_JAVA_WORKS])
 AC_DEFUN([AX_PROG_JAVA_WORKS], [

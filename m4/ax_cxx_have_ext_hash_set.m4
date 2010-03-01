@@ -1,6 +1,6 @@
-# ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/ax_cxx_have_ext_hash_set.html
-# ===========================================================================
+# ============================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_cxx_have_ext_hash_set.html
+# ============================================================================
 #
 # SYNOPSIS
 #
@@ -50,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([AC_CXX_HAVE_EXT_HASH_SET], [AX_CXX_HAVE_EXT_HASH_SET])
 AC_DEFUN([AX_CXX_HAVE_EXT_HASH_SET],

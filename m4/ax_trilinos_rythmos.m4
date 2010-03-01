@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_trilinos_rythmos.html
+#    http://www.gnu.org/software/autoconf-archive/ax_trilinos_rythmos.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -23,7 +23,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_TRILINOS_RYTHMOS],[
     AC_REQUIRE([AX_TRILINOS_BASE])

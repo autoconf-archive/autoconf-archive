@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ax_check_off64_t.html
+#     http://www.gnu.org/software/autoconf-archive/ax_check_off64_t.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([RSSH_CHECK_OFF64_T], [AX_CHECK_OFF64_T])
 AC_DEFUN([AX_CHECK_OFF64_T], [

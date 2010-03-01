@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ax_try_run_javac.html
+#     http://www.gnu.org/software/autoconf-archive/ax_try_run_javac.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -29,7 +29,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AC_TRY_RUN_JAVA],[
 AC_REQUIRE([AX_PROG_JAVAC])dnl

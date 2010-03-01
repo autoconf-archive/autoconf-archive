@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://www.nongnu.org/autoconf-archive/ax_cpu_freq.html
+#        http://www.gnu.org/software/autoconf-archive/ax_cpu_freq.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_CPU_FREQ],
 [AC_REQUIRE([AC_PROG_CC])

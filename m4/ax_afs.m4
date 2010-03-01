@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://www.nongnu.org/autoconf-archive/ax_afs.html
+#          http://www.gnu.org/software/autoconf-archive/ax_afs.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -34,7 +34,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([SG_AFS], [AX_AFS])
 AC_DEFUN([AX_AFS],

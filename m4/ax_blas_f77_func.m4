@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ax_blas_f77_func.html
+#     http://www.gnu.org/software/autoconf-archive/ax_blas_f77_func.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -52,7 +52,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([ACX_BLAS_F77_FUNC], [AX_BLAS_F77_FUNC])
 AC_DEFUN([AX_BLAS_F77_FUNC], [

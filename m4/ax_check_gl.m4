@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://www.nongnu.org/autoconf-archive/ax_check_gl.html
+#        http://www.gnu.org/software/autoconf-archive/ax_check_gl.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -47,7 +47,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_CHECK_GL],
 [AC_REQUIRE([AC_CANONICAL_HOST])

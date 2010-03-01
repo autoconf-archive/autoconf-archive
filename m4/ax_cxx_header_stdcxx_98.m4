@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.nongnu.org/autoconf-archive/ax_cxx_header_stdcxx_98.html
+#  http://www.gnu.org/software/autoconf-archive/ax_cxx_header_stdcxx_98.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_CXX_HEADER_STDCXX_98], [AX_CXX_HEADER_STDCXX_98])
 AC_DEFUN([AX_CXX_HEADER_STDCXX_98], [

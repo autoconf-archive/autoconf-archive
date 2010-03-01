@@ -10,7 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
-  The Autoconf Archive has been declared an official GNU project.
+  The Autoconf Archive has been declared an official GNU project. Consequently,
+  the web site has moved from <http://www.nongnu.org/autoconf-archive/> to
+  <http://www.gnu.org/software/autoconf-archive/>. Old addresses remain valid
+  for the foreseeable future, though.
 
   AX_PTHREAD has been fixed to provide the "-pthreads" flag on 10.6 OS X
   systems.

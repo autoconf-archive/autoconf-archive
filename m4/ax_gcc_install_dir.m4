@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_gcc_install_dir.html
+#    http://www.gnu.org/software/autoconf-archive/ax_gcc_install_dir.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -44,7 +44,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_GCC_INSTALL_DIR], [
     AC_REQUIRE([AC_PROG_CC])

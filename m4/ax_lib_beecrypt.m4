@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/ax_lib_beecrypt.html
+#      http://www.gnu.org/software/autoconf-archive/ax_lib_beecrypt.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -29,7 +29,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 # AX_CHECK_BEECRYPT_ALGO([name],[function])
 AC_DEFUN([AX_CHECK_BEECRYPT_ALGO],[

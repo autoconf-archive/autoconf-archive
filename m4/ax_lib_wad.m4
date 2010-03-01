@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://www.nongnu.org/autoconf-archive/ax_lib_wad.html
+#        http://www.gnu.org/software/autoconf-archive/ax_lib_wad.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -43,7 +43,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_LIB_WAD], [AX_LIB_WAD])
 AC_DEFUN([AX_LIB_WAD],

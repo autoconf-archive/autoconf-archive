@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.nongnu.org/autoconf-archive/ax_func_posix_memalign.html
+#  http://www.gnu.org/software/autoconf-archive/ax_func_posix_memalign.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_FUNC_POSIX_MEMALIGN],
 [AC_CACHE_CHECK([for working posix_memalign],

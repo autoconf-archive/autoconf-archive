@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/ax_path_missing.html
+#      http://www.gnu.org/software/autoconf-archive/ax_path_missing.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -31,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_PATH_MISSING], [
     AC_PATH_PROG([$1],[$2],[$4])

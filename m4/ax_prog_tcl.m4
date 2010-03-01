@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://www.nongnu.org/autoconf-archive/ax_prog_tcl.html
+#        http://www.gnu.org/software/autoconf-archive/ax_prog_tcl.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -55,7 +55,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_PROG_TCL], [
 #-- check for tclsh in PATH

@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://www.nongnu.org/autoconf-archive/ax_cxx_bool.html
+#        http://www.gnu.org/software/autoconf-archive/ax_cxx_bool.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -23,7 +23,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_CXX_BOOL], [AX_CXX_BOOL])
 AC_DEFUN([AX_CXX_BOOL],

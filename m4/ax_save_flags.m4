@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://www.nongnu.org/autoconf-archive/ax_save_flags.html
+#       http://www.gnu.org/software/autoconf-archive/ax_save_flags.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_SAVE_FLAGS], [
   CPPFLAGS_save="${CPPFLAGS}"

@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://www.nongnu.org/autoconf-archive/ax_prog_jar.html
+#        http://www.gnu.org/software/autoconf-archive/ax_prog_jar.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -37,7 +37,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_PROG_JAR], [AX_PROG_JAR])
 AC_DEFUN([AX_PROG_JAR],[

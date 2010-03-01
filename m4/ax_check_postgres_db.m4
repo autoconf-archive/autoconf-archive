@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.nongnu.org/autoconf-archive/ax_check_postgres_db.html
+#   http://www.gnu.org/software/autoconf-archive/ax_check_postgres_db.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -24,7 +24,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([CT_CHECK_POSTGRES_DB], [AX_CHECK_POSTGRES_DB])
 AC_DEFUN([AX_CHECK_POSTGRES_DB], [

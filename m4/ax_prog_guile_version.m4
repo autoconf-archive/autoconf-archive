@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.nongnu.org/autoconf-archive/ax_prog_guile_version.html
+#   http://www.gnu.org/software/autoconf-archive/ax_prog_guile_version.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -35,7 +35,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_PROG_GUILE_VERSION],[
     AC_REQUIRE([AC_PROG_SED])

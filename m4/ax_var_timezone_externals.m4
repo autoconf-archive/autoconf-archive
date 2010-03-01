@@ -1,6 +1,6 @@
-# ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/ax_var_timezone_externals.html
-# ===========================================================================
+# =============================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_var_timezone_externals.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -43,7 +43,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([AC_VAR_TIMEZONE_EXTERNALS], [AX_VAR_TIMEZONE_EXTERNALS])
 AC_DEFUN([AX_VAR_TIMEZONE_EXTERNALS],

@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.nongnu.org/autoconf-archive/ax_cflags_irix_option.html
+#   http://www.gnu.org/software/autoconf-archive/ax_cflags_irix_option.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -63,7 +63,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_CFLAGS_IRIX_OPTION_OLD], [dnl
 AS_VAR_PUSHDEF([FLAGS],[CFLAGS])dnl

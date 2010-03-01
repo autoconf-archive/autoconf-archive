@@ -1,5 +1,5 @@
 # ===========================================================================
-#             http://www.nongnu.org/autoconf-archive/ax_tls.html
+#          http://www.gnu.org/software/autoconf-archive/ax_tls.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -43,7 +43,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_TLS], [
   AC_MSG_CHECKING(for thread local storage (TLS) class)

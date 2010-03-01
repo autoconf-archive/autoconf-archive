@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.nongnu.org/autoconf-archive/ax_c_bigendian_cross.html
+#   http://www.gnu.org/software/autoconf-archive/ax_c_bigendian_cross.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -48,7 +48,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 3
+#serial 4
 
 AU_ALIAS([AC_C_BIGENDIAN_CROSS], [AX_C_BIGENDIAN_CROSS])
 AC_DEFUN([AX_C_BIGENDIAN_CROSS],

@@ -1,5 +1,5 @@
 # ===========================================================================
-#           http://www.nongnu.org/autoconf-archive/ax_rpm_init.html
+#        http://www.gnu.org/software/autoconf-archive/ax_rpm_init.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -175,7 +175,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 dnl AX_RPM_INIT
 dnl Figure out how to create rpms for this system and setup for an

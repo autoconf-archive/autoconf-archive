@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_create_target_h.html
+#    http://www.gnu.org/software/autoconf-archive/ax_create_target_h.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -108,7 +108,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 3
+#serial 4
 
 AU_ALIAS([AC_CREATE_TARGET_H], [AX_CREATE_TARGET_H])
 AC_DEFUN([AX_CREATE_TARGET_H],

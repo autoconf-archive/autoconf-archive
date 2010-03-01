@@ -1,6 +1,6 @@
-# ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/ax_check_docbook_xslt_min.html
-# ===========================================================================
+# =============================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_check_docbook_xslt_min.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -50,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([AC_CHECK_DOCBOOK_XSLT_MIN], [AX_CHECK_DOCBOOK_XSLT_MIN])
 AC_DEFUN([AX_CHECK_DOCBOOK_XSLT_MIN],

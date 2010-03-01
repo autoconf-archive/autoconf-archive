@@ -1,6 +1,6 @@
-# ===========================================================================
-#   http://www.nongnu.org/autoconf-archive/ax_not_enable_frame_pointer.html
-# ===========================================================================
+# ===============================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_not_enable_frame_pointer.html
+# ===============================================================================
 #
 # SYNOPSIS
 #
@@ -43,7 +43,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_NOT_ENABLE_FRAME_POINTER],[dnl
 AS_VAR_PUSHDEF([VAR],[enable_frame_pointer])dnl

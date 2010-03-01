@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.nongnu.org/autoconf-archive/ax_cxx_have_ieee_math.html
+#   http://www.gnu.org/software/autoconf-archive/ax_cxx_have_ieee_math.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -23,7 +23,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_CXX_HAVE_IEEE_MATH], [AX_CXX_HAVE_IEEE_MATH])
 AC_DEFUN([AX_CXX_HAVE_IEEE_MATH],

@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_lang_compiler_ms.html
+#    http://www.gnu.org/software/autoconf-archive/ax_lang_compiler_ms.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_LANG_COMPILER_MS],
 [AC_CACHE_CHECK([whether we are using the Microsoft _AC_LANG compiler],

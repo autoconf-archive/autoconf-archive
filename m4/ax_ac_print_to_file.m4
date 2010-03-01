@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_ac_print_to_file.html
+#    http://www.gnu.org/software/autoconf-archive/ax_ac_print_to_file.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_AC_PRINT_TO_FILE],[
 m4_esyscmd(

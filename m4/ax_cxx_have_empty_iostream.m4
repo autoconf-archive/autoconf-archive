@@ -1,6 +1,6 @@
-# ===========================================================================
-#   http://www.nongnu.org/autoconf-archive/ax_cxx_have_empty_iostream.html
-# ===========================================================================
+# ==============================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_cxx_have_empty_iostream.html
+# ==============================================================================
 #
 # SYNOPSIS
 #
@@ -41,7 +41,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([AC_CXX_HAVE_EMPTY_IOSTREAM], [AX_CXX_HAVE_EMPTY_IOSTREAM])
 AC_DEFUN([AX_CXX_HAVE_EMPTY_IOSTREAM],

@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.nongnu.org/autoconf-archive/ax_prog_perl_modules.html
+#   http://www.gnu.org/software/autoconf-archive/ax_prog_perl_modules.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_PROG_PERL_MODULES], [AX_PROG_PERL_MODULES])
 AC_DEFUN([AX_PROG_PERL_MODULES],[dnl

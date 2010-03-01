@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/ax_python_embed.html
+#      http://www.gnu.org/software/autoconf-archive/ax_python_embed.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -120,7 +120,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 # AX_PYTHON_DEFAULT( )
 # -----------------

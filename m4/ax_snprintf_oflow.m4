@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.nongnu.org/autoconf-archive/ax_snprintf_oflow.html
+#     http://www.gnu.org/software/autoconf-archive/ax_snprintf_oflow.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([ax_snprintf_oflow],
 [AC_MSG_CHECKING(whether snprintf ignores n)

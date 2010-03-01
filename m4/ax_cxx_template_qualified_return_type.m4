@@ -1,6 +1,6 @@
-# ===================================================================================
-#  http://www.nongnu.org/autoconf-archive/ax_cxx_template_qualified_return_type.html
-# ===================================================================================
+# =========================================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_cxx_template_qualified_return_type.html
+# =========================================================================================
 #
 # SYNOPSIS
 #
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_CXX_TEMPLATE_QUALIFIED_RETURN_TYPE], [AX_CXX_TEMPLATE_QUALIFIED_RETURN_TYPE])
 AC_DEFUN([AX_CXX_TEMPLATE_QUALIFIED_RETURN_TYPE],

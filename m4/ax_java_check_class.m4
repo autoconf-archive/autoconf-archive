@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_java_check_class.html
+#    http://www.gnu.org/software/autoconf-archive/ax_java_check_class.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -49,7 +49,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([DPS_JAVA_CHECK_CLASS], [AX_JAVA_CHECK_CLASS])
 AC_DEFUN([AX_JAVA_CHECK_CLASS],[

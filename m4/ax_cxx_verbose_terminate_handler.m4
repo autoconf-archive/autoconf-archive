@@ -1,6 +1,6 @@
-# ==============================================================================
-#  http://www.nongnu.org/autoconf-archive/ax_cxx_verbose_terminate_handler.html
-# ==============================================================================
+# ====================================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_cxx_verbose_terminate_handler.html
+# ====================================================================================
 #
 # SYNOPSIS
 #
@@ -33,7 +33,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.  This file is offered as-is, without any warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_CXX_VERBOSE_TERMINATE_HANDLER],
 [AC_CACHE_CHECK([whether the terminate function prints useful information],

@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.nongnu.org/autoconf-archive/ax_check_java_home.html
+#    http://www.gnu.org/software/autoconf-archive/ax_check_java_home.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -43,7 +43,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([AC_CHECK_JAVA_HOME], [AX_CHECK_JAVA_HOME])
 AC_DEFUN([AX_CHECK_JAVA_HOME],[

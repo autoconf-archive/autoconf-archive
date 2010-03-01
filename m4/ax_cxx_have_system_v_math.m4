@@ -1,6 +1,6 @@
-# ===========================================================================
-#    http://www.nongnu.org/autoconf-archive/ax_cxx_have_system_v_math.html
-# ===========================================================================
+# =============================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_cxx_have_system_v_math.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_CXX_HAVE_SYSTEM_V_MATH], [AX_CXX_HAVE_SYSTEM_V_MATH])
 AC_DEFUN([AX_CXX_HAVE_SYSTEM_V_MATH],

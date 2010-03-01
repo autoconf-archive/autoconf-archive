@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://www.nongnu.org/autoconf-archive/ax_very_nice.html
+#       http://www.gnu.org/software/autoconf-archive/ax_very_nice.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -51,7 +51,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 3
+#serial 4
 
 AU_ALIAS([AC_VERY_NICE], [AX_VERY_NICE])
 AC_DEFUN([AX_VERY_NICE],[

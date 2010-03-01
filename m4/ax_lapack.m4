@@ -1,5 +1,5 @@
 # ===========================================================================
-#            http://www.nongnu.org/autoconf-archive/ax_lapack.html
+#         http://www.gnu.org/software/autoconf-archive/ax_lapack.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -64,7 +64,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([ACX_LAPACK], [AX_LAPACK])
 AC_DEFUN([AX_LAPACK], [

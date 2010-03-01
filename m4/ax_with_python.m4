@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.nongnu.org/autoconf-archive/ax_with_python.html
+#      http://www.gnu.org/software/autoconf-archive/ax_with_python.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -28,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AC_DEFUN([AX_WITH_PYTHON],[
     AX_WITH_PROG(PYTHON,python,$1,$2)

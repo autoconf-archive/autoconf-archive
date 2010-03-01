@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.nongnu.org/autoconf-archive/ax_check_posix_regcomp.html
+#  http://www.gnu.org/software/autoconf-archive/ax_check_posix_regcomp.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([AG_CHECK_POSIX_REGCOMP], [AX_CHECK_POSIX_REGCOMP])
 AC_DEFUN([AX_CHECK_POSIX_REGCOMP],[

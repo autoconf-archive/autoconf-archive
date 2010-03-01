@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://www.nongnu.org/autoconf-archive/ax_subst_with.html
+#       http://www.gnu.org/software/autoconf-archive/ax_subst_with.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -55,7 +55,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 dnl AX_SUBST_WITH_IF(flag,cond) - not unlike AM_CONDITIONAL
 AC_DEFUN([AX_SUBST_WITH_IF],[dnl
