@@ -105,3 +105,17 @@
 
   Karl Berry suggested using =gnulib/config/srclist-update= to keep those files
   synchronized.
+* TODO Write a script that generates copyright lines from Git
+
+  We have a bunch of administrative files, such as configure.ac or Makefile.am,
+  and those files need some sort of copyright statement. The usual approach is
+  to use "Copyright (c) 2010 Free Software Foundation, Inc.", like this file
+  currently does, but that statement is not accurate, because the rights
+  haven't been actually signed over to the FSF. Instead, it would be nice to
+  generate proper copyright lines from the Git repository, using the authors
+  and date stamps of the commits that modified the file. To some extend, that
+  script could be used to maintain copyright lines in the macros, too, but
+  unfortunately the macro history isn't all too reliable, because oftentimes
+  the "author" of git commit is not necessarily the actual author, but merely
+  the maintainer who's, well, committing it. For the administrative files,
+  however, this shouldn't be a problem.
