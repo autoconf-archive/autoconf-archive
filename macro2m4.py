@@ -57,7 +57,7 @@ for i in range(len(m.description)):
     spaces = min(map(countSpaces, para))
     if spaces > 1:
       m.description[i] = map(lambda l: '  ' + l[spaces:], para)
-url = "http://www.nongnu.org/autoconf-archive/%s.html" % m.name
+url = "http://www.gnu.org/software/autoconf-archive/%s.html" % m.name
 lineLen = max(len(url) + 2, 75)
 m.url = "# %s\n# %s\n# %s" % ('=' * lineLen, (' ' * ((lineLen - len(url)) / 2)) + url, '=' * lineLen)
 if m.__dict__.get("obsolete"):
