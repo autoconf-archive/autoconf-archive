@@ -23,7 +23,7 @@ sed -i -e 's/^sc_file_system:/disabled_sc_file_system:/' \
        -e 's/^sc_copyright_check:/disabled_sc_copyright_check:/' \
   maint.mk
 
-echo > ChangeLog '# Copyright (c) 2010 Free Software Foundation, Inc.'
+echo > ChangeLog '# Copyright (c) 2010 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
 echo >>ChangeLog '#'
 echo >>ChangeLog '# Copying and distribution of this file, with or without modification, are'
 echo >>ChangeLog '# permitted in any medium without royalty provided the copyright notice and'
