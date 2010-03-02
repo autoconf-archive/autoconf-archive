@@ -15,10 +15,8 @@ disadvantage that some authors may choose to use it, too, for proprietary
 software.
 
 This official web site of this project is located at
-@uref{http://savannah.gnu.org/projects/autoconf-archive/}.
-@c @uref{http://www.gnu.org/software/autoconf-archive/}.
-All available information concerning this project is referenced from
-there.
+@uref{http://www.gnu.org/software/autoconf-archive/}. All available information
+concerning this project is referenced from there.
 
 If you have questions, suggestions, are any other feedback that you'd like to
 share, then please don't hesitate to contact the Archive maintainers at
