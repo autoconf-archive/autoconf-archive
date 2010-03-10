@@ -22,6 +22,9 @@
   AX_PROG_JAVAC, and AX_PROG_JAVADOC. Further details can be found at
   <http://savannah.gnu.org/patch/?6948>.
 
+  AX_LIB_LIBKML, a macro to detect Google's libkml library, has been added. See
+  http://savannah.gnu.org/patch/?7109 for further details.
+
 * Noteworthy changes in release 2010.02.14 (2010-02-14) [beta]
 
   All macros have been assigned a unique serial number that corresponds to the
