@@ -119,7 +119,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_PREFIX_CONFIG_H],[dnl
 AC_BEFORE([AC_CONFIG_HEADERS],[$0])dnl
@@ -167,11 +167,11 @@ else
   if test -f $_INP ; then
     echo "s/^@%:@undef  *\\(@<:@m4_cr_LETTERS[]_@:>@\\)/@%:@undef $_UPP""_\\1/" > _script
     echo "s/^@%:@undef  *\\(@<:@m4_cr_letters@:>@\\)/@%:@undef $_LOW""_\\1/" >> _script
-    echo "s/^@%:@def[]ine  *\\(@<:@m4_cr_LETTERS[]_@:>@@<:@_symbol@:>@*\\)\\(.*\\)/@%:@ifndef $_UPP""_\\1 \\" >> _script
-    echo "@%:@def[]ine $_UPP""_\\1 \\2 \\" >> _script
+    echo "s/^@%:@def[]ine  *\\(@<:@m4_cr_LETTERS[]_@:>@@<:@_symbol@:>@*\\)\\(.*\\)/@%:@ifndef $_UPP""_\\1\\" >> _script
+    echo "@%:@def[]ine $_UPP""_\\1\\2\\" >> _script
     echo "@%:@endif/" >>_script
-    echo "s/^@%:@def[]ine  *\\(@<:@m4_cr_letters@:>@@<:@_symbol@:>@*\\)\\(.*\\)/@%:@ifndef $_LOW""_\\1 \\" >> _script
-    echo "@%:@define $_LOW""_\\1 \\2 \\" >> _script
+    echo "s/^@%:@def[]ine  *\\(@<:@m4_cr_letters@:>@@<:@_symbol@:>@*\\)\\(.*\\)/@%:@ifndef $_LOW""_\\1\\" >> _script
+    echo "@%:@define $_LOW""_\\1\\2\\" >> _script
     echo "@%:@endif/" >> _script
     # now executing _script on _DEF input to create _OUT output file
     echo "@%:@ifndef $_DEF"      >$tmp/pconfig.h

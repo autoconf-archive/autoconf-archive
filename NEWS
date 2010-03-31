@@ -25,6 +25,9 @@
   AX_LIB_LIBKML, a macro to detect Google's libkml library, has been added. See
   http://savannah.gnu.org/patch/?7109 for further details.
 
+  AX_PREFIX_CONFIG_H has been bug-fixed to avoid generating extraneous spaces
+  that would break prefixed macros.
+
 * Noteworthy changes in release 2010.02.14 (2010-02-14) [beta]
 
   All macros have been assigned a unique serial number that corresponds to the
