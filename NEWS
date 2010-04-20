@@ -28,6 +28,9 @@
   AX_PREFIX_CONFIG_H has been bug-fixed to avoid generating extraneous spaces
   that would break prefixed macros.
 
+  AX_F90_MODULE_FLAG has been bug-fixed with regard to the Compaq Alpha Fortran
+  compiler.
+
 * Noteworthy changes in release 2010.02.14 (2010-02-14) [beta]
 
   All macros have been assigned a unique serial number that corresponds to the
