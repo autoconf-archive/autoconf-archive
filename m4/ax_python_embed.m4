@@ -249,7 +249,7 @@ AC_DEFUN([AX_PYTHON_CSPEC],
 # Look for Python and set the output variable 'PYTHON'
 # to 'python' if found, empty otherwise.
 
-AC_DEFUN([AX_PYTHON_PATH],
+AC_DEFUN([AX_PYTHON_INSIST],
 [
     AC_ARG_VAR( [PYTHON], [Python Executable Path] )
     if test -z "$PYTHON"
