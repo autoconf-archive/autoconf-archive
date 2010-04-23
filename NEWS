@@ -31,6 +31,9 @@
   AX_F90_MODULE_FLAG has been bug-fixed with regard to the Compaq Alpha Fortran
   compiler.
 
+  A typo in the code of AX_PYTHON_EMBED has been fixed that resulted in the
+  function AX_PYTHON_INSIST being undefined.
+
 * Noteworthy changes in release 2010.02.14 (2010-02-14) [beta]
 
   All macros have been assigned a unique serial number that corresponds to the
