@@ -34,6 +34,8 @@
   A typo in the code of AX_PYTHON_EMBED has been fixed that resulted in the
   function AX_PYTHON_INSIST being undefined.
 
+  The new AX_LIB_HDF5 macro provides functionality to detect the HDF5 library.
+
 * Noteworthy changes in release 2010.02.14 (2010-02-14) [beta]
 
   All macros have been assigned a unique serial number that corresponds to the
