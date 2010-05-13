@@ -36,6 +36,9 @@
 
   The new AX_LIB_HDF5 macro provides functionality to detect the HDF5 library.
 
+  The version detection code in AX_PKG_SWIG has been fixed. Previous versions
+  of this macro would fail to accept SWIG 2.0 where SWIG >= 1.3.x was requested.
+
 * Noteworthy changes in release 2010.02.14 (2010-02-14) [beta]
 
   All macros have been assigned a unique serial number that corresponds to the
