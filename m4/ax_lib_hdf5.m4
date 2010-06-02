@@ -48,7 +48,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_LIB_HDF5], [
 
@@ -102,6 +102,12 @@ dnl A ideal situation would be where everything we needed was
 dnl in the AM_* variables. However most systems are not like this
 dnl and seem to have the values in the non-AM variables.
 dnl
+dnl We try the following to find the flags:
+dnl (1) Look for "NAME:" tags
+dnl (2) Look for "NAME/H5_NAME:" tags
+dnl (3) Look for "AM_NAME:" tags
+dnl
+		dnl (1)
 		dnl Look for "CFLAGS: "
 		HDF5_CFLAGS=$(eval $H5CC -showconfig | grep '\bCFLAGS:'   \
 			| awk -F: '{print $[]2}')
@@ -112,6 +118,26 @@ dnl
 		HDF5_LDFLAGS=$(eval $H5CC -showconfig | grep '\bLDFLAGS:'   \
 			| awk -F: '{print $[]2}')
 
+		dnl (2)
+		dnl CFLAGS/H5_CFLAGS: .../....
+		dnl We could use sed with something like the following
+		dnl 's/CFLAGS.*\/H5_CFLAGS.*[:]\(.*\)\/\(.*\)/\1/p'
+		if test -z "$HDF5_CFLAGS"; then
+			HDF5_CFLAGS=$(eval $H5CC -showconfig \
+				| sed -n 's/CFLAGS.*[:]\(.*\)\/\(.*\)/\1/p')
+		fi
+		dnl Look for "CPPFLAGS"
+		if test -z "$HDF5_CPPFLAGS"; then
+			HDF5_CPPFLAGS=$(eval $H5CC -showconfig \
+				| sed -n 's/CPPFLAGS.*[:]\(.*\)\/\(.*\)/\1/p')
+		fi
+		dnl Look for "LD_FLAGS"
+		if test -z "$HDF5_LDFLAGS"; then
+			HDF5_LDFLAGS=$(eval $H5CC -showconfig \
+				| sed -n 's/LDFLAGS.*[:]\(.*\)\/\(.*\)/\1/p')
+		fi
+
+		dnl (3)
 		dnl Check to see if these are not empty strings. If so
 		dnl find the AM_ versions and use them.
 		if test -z "$HDF5_CFLAGS"; then
@@ -127,12 +153,15 @@ dnl
 				| grep 'AM_LDFLAGS:' | awk -F: '{print $[]2}')
 		fi
 
+		dnl Add the library
+		HDF5_LDFLAGS="$HDF5_LDFLAGS -lhdf5"
+
 		dnl Look for and extra libraries we need to link too
 		EXTRA_LIBS=$(eval $H5CC -showconfig | grep 'Extra libraries:'\
 			| awk -F: '{print $[]2}')
 		dnl Add the EXTRA_LIBS
-		if test -z "$EXTRA_LIBS"; then
-			HDF5_LDFLAGS="$HDF5_LDFLAGS -lhdf5 $EXTRA_LIBS"
+		if test "$EXTRA_LIBS"; then
+			HDF5_LDFLAGS="$HDF5_LDFLAGS $EXTRA_LIBS"
 		fi
 
 		AC_MSG_RESULT([yes (version $[HDF5_VERSION])])
