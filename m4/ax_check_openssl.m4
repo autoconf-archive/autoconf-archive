@@ -24,15 +24,15 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2009 Zmanda Inc. <http://www.zmanda.com/>
-#   Copyright (c) 2009 Dustin J. Mitchell <dustin@zmanda.com>
+#   Copyright (c) 2009, 2010 Zmanda Inc. <http://www.zmanda.com/>
+#   Copyright (c) 2009, 2010 Dustin J. Mitchell <dustin@zmanda.com>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([CHECK_SSL], [AX_CHECK_OPENSSL])
 AC_DEFUN([AX_CHECK_OPENSSL], [
@@ -78,7 +78,7 @@ AC_DEFUN([AX_CHECK_OPENSSL], [
             AC_MSG_CHECKING([for openssl/ssl.h in $ssldir])
             if test -f "$ssldir/include/openssl/ssl.h"; then
                 OPENSSL_INCLUDES="-I$ssldir/include"
-                OPENSSL_LDFLAGS="-L $ssldir/lib"
+                OPENSSL_LDFLAGS="-L$ssldir/lib"
                 OPENSSL_LIBS="-lssl -lcrypto"
                 found=true
                 AC_MSG_RESULT([yes])
