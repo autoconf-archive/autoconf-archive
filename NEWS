@@ -15,6 +15,9 @@
   <http://www.gnu.org/software/autoconf-archive/>. Old addresses remain valid
   for the foreseeable future, though.
 
+  AX_BOOST_DATE_TIME and AX_BOOST_FILESYSTEM have been patched to function
+  correctly on systems that use "dash" as the system shell (i.e. Debian).
+
   AX_PTHREAD has been fixed to provide the "-pthreads" flag on 10.6 OS X
   systems.
 
