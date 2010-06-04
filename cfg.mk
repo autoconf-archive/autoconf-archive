@@ -2,11 +2,9 @@
 
 # settings required by the maintainer-makefile module
 
-gnu_rel_host    := dl.sv.gnu.org
-upload_dest_dir_:= /releases/autoconf-archive/
+gnu_rel_host    := ftp.gnu.org
 old_NEWS_hash   := f077b30c974bbfa37ecec88e5ce561b8
 gpg_key_ID      := 99089D72
-url_dir_list    := http://download.savannah.gnu.org/releases/autoconf-archive
 today           := $(date "+%Y-%m-%d")
 TAR_OPTIONS     += --mtime=$(today)
 manual_title    := GNU Autoconf Archive Web Site
