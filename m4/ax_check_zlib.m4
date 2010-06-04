@@ -56,7 +56,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([CHECK_ZLIB], [AX_CHECK_ZLIB])
 AC_DEFUN([AX_CHECK_ZLIB],
@@ -78,7 +78,7 @@ AC_ARG_WITH(zlib,
   fi
 else
   AC_MSG_RESULT(no)
-fi], 
+fi],
 [AC_MSG_RESULT(yes)])
 
 ZLIB_HOME=/usr/local
