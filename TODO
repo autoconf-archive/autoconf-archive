@@ -58,6 +58,7 @@
   * [ ] sc_prohibit_magic_number_exit
   * [ ] sc_copyright_check
   * [ ] sc_error_message_uppercase
+  * [ ] sc_prohibit_always-defined_macros
 
 * TODO Generate serial lines automatically
 
