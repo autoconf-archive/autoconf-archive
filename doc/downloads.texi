@@ -9,9 +9,8 @@ information is available via e-mail, too, on the
 mailing list}.
 
 For the benefit of everyone who doesn't use Git, traditional release
-archives can be downloaded from
-@c @uref{ftp://ftp.gnu.org/pub/gnu/autoconf-archive/} or any other GNU mirror.
-@uref{http://download.savannah.gnu.org/releases/autoconf-archive/}.
-New release are always announced on the low-traffic
+archives can be downloaded from any GNU mirror, i.e.
+@uref{http://ftpmirror.gnu.org/autoconf-archive/}. New release are
+always announced on the low-traffic
 @uref{http://lists.gnu.org/mailman/listinfo/autoconf-archive-announce,announcements
 mailing list}.
