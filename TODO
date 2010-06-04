@@ -57,6 +57,7 @@
   * [ ] sc_useless_cpp_parens
   * [ ] sc_prohibit_magic_number_exit
   * [ ] sc_copyright_check
+  * [ ] sc_error_message_uppercase
 
 * TODO Generate serial lines automatically
 

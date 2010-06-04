@@ -21,6 +21,7 @@ sed -i -e 's/^sc_file_system:/disabled_sc_file_system:/' \
        -e 's/^sc_useless_cpp_parens:/disabled_sc_useless_cpp_parens:/' \
        -e 's/^sc_prohibit_magic_number_exit:/disabled_sc_prohibit_magic_number_exit:/' \
        -e 's/^sc_copyright_check:/disabled_sc_copyright_check:/' \
+       -e 's/^sc_error_message_uppercase:/disabled_sc_error_message_uppercase:/' \
   maint.mk
 
 echo > ChangeLog '# Copyright (c) 2010 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
