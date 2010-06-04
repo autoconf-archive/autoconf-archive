@@ -51,14 +51,16 @@
   disable, too. We should re-enable those and fix the macro contents to comply
   with those rules:
 
-  * [ ] sc_m4_quote_check
-  * [ ] sc_prohibit_strcmp
-  * [ ] sc_space_tab
-  * [ ] sc_useless_cpp_parens
-  * [ ] sc_prohibit_magic_number_exit
   * [ ] sc_copyright_check
   * [ ] sc_error_message_uppercase
+  * [ ] sc_m4_quote_check
   * [ ] sc_prohibit_always-defined_macros
+  * [ ] sc_prohibit_always_true_header_tests
+  * [ ] sc_prohibit_magic_number_exit
+  * [ ] sc_prohibit_strcmp
+  * [ ] sc_prohibit_test_minus_ao
+  * [ ] sc_space_tab
+  * [ ] sc_useless_cpp_parens
 
 * TODO Generate serial lines automatically
 

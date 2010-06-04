@@ -23,6 +23,8 @@ sed -i -e 's/^sc_file_system:/disabled_sc_file_system:/' \
        -e 's/^sc_copyright_check:/disabled_sc_copyright_check:/' \
        -e 's/^sc_error_message_uppercase:/disabled_sc_error_message_uppercase:/' \
        -e 's/^sc_prohibit_always-defined_macros:/disabled_sc_prohibit_always-defined_macros:/' \
+       -e 's/^sc_prohibit_always_true_header_tests:/disabled_sc_prohibit_always_true_header_tests:/' \
+       -e 's/^sc_prohibit_test_minus_ao:/disabled_sc_prohibit_test_minus_ao:/' \
   maint.mk
 
 echo > ChangeLog '# Copyright (c) 2010 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
