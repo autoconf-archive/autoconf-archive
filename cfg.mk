@@ -2,12 +2,13 @@
 
 # settings required by the maintainer-makefile module
 
-gnu_rel_host    := ftp.gnu.org
-old_NEWS_hash   := f077b30c974bbfa37ecec88e5ce561b8
-gpg_key_ID      := 99089D72
-today           := $(date "+%Y-%m-%d")
-TAR_OPTIONS     += --mtime=$(today)
-manual_title    := GNU Autoconf Archive Web Site
+gnu_rel_host		:= ftp.gnu.org
+old_NEWS_hash		:= f077b30c974bbfa37ecec88e5ce561b8
+gpg_key_ID		:= 99089D72
+today			:= $(date "+%Y-%m-%d")
+TAR_OPTIONS		+= --mtime=$(today)
+manual_title		:= GNU Autoconf Archive Web Site
+news-check-lines-spec	:= 11
 
 # maintainer targets
 
@@ -19,10 +20,9 @@ M4_FILES        := $(wildcard $(M4DIR)/*.m4)
 MACROS          := $(patsubst $(M4DIR)/%.m4,%, $(M4_FILES))
 TEXI_FILES      := $(patsubst %,$(DOCDIR)/%.texi,$(MACROS))
 
-.PHONY: maintainer-generate
+.PHONY: maintainer-all
 .PRECIOUS: $(patsubst %,$(STAGEDIR)/%.m4,$(MACROS))
-ALL_RECURSIVE_TARGETS += maintainer-generate
-maintainer-generate: $(TEXI_FILES) $(DOCDIR)/all-macros.texi
+maintainer-all: $(TEXI_FILES) $(DOCDIR)/all-macros.texi
 
 $(STAGEDIR)/manifest:
 	@$(MKDIR_P) $(STAGEDIR)
