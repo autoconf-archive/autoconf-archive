@@ -20,7 +20,7 @@
   : cd autoconf-archive
   : ./bootstrap.sh              # set up autotools and gnulib environment
   : ./configure                 # determine system properties
-  : make maintainer-generate    # create/update all generated files that will be in a release
+  : make maintainer-all         # create/update all generated files that will be in a release
   : make                        # update texinfo documentation
 
 * How to update the web site.
