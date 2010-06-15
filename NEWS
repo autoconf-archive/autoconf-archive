@@ -10,6 +10,8 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Fixed compiler warning in AX_PTHREAD's test program for AC_TRY_LINK.
+
 * Noteworthy changes in release 2010.06.04 (2010-06-04) [beta]
 
   The Autoconf Archive has been declared an official GNU project. Consequently,

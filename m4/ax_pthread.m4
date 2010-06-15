@@ -75,7 +75,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([ACX_PTHREAD], [AX_PTHREAD])
 AC_DEFUN([AX_PTHREAD], [
@@ -202,10 +202,10 @@ for flag in $ax_pthread_flags; do
 	             static void routine(void* a) {a=0;}
 	             static void* start_routine(void* a) {return a;}],
                     [pthread_t th; pthread_attr_t attr;
+                     pthread_create(&th,0,start_routine,0);
                      pthread_join(th, 0);
                      pthread_attr_init(&attr);
                      pthread_cleanup_push(routine, 0);
-                     pthread_create(&th,0,start_routine,0);
                      pthread_cleanup_pop(0); ],
                     [ax_pthread_ok=yes])
 
