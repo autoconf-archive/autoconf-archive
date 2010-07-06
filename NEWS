@@ -8,7 +8,7 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
-* Noteworthy changes in release ?.? (????-??-??) [?]
+* Noteworthy changes in release 2010.07.06 (2010-07-06) [stable]
 
   Fixed compiler warning in AX_PTHREAD's test program for AC_TRY_LINK.
 
