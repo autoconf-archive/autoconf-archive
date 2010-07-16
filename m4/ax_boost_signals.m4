@@ -30,7 +30,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 AC_DEFUN([AX_BOOST_SIGNALS],
 [
@@ -77,7 +77,7 @@ AC_DEFUN([AX_BOOST_SIGNALS],
 			AC_DEFINE(HAVE_BOOST_SIGNALS,,[define if the Boost::Signals library is available])
             BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
             if test "x$ax_boost_user_signals_lib" = "x"; then
-                for libextension in `ls $BOOSTLIBDIR/libboost_signals*.{so,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^lib\(boost_signals.*\)\.so.*$;\1;' -e 's;^lib\(boost_signals.*\)\.a*$;\1;'` ; do
+                for libextension in `ls $BOOSTLIBDIR/libboost_signals*.so* $BOOSTLIBDIR/libboost_signals*.a* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^lib\(boost_signals.*\)\.so.*$;\1;' -e 's;^lib\(boost_signals.*\)\.a*$;\1;'` ; do
                      ax_lib=${libextension}
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_SIGNALS_LIB="-l$ax_lib"; AC_SUBST(BOOST_SIGNALS_LIB) link_signals="yes"; break],

@@ -30,7 +30,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_BOOST_WAVE],
 [
@@ -81,7 +81,7 @@ AC_DEFUN([AX_BOOST_WAVE],
 			AC_DEFINE(HAVE_BOOST_WAVE,,[define if the Boost::Wave library is available])
             BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
             if test "x$ax_boost_user_wave_lib" = "x"; then
-                for libextension in `ls $BOOSTLIBDIR/libboost_wave*.{so,dylib,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^lib\(boost_wave.*\)\.so.*$;\1;' -e 's;^lib\(boost_wave.*\)\.a*$;\1;' -e 's;^lib\(boost_wave.*\)\.dylib$;\1;'` ; do
+                for libextension in `ls $BOOSTLIBDIR/libboost_wave*.so* $BOOSTLIBDIR/libboost_wave*.a* $BOOSTLIBDIR/libboost_wave*.dylib* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^lib\(boost_wave.*\)\.so.*$;\1;' -e 's;^lib\(boost_wave.*\)\.a*$;\1;' -e 's;^lib\(boost_wave.*\)\.dylib$;\1;'` ; do
                      ax_lib=${libextension}
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_WAVE_LIB="-l$ax_lib"; AC_SUBST(BOOST_WAVE_LIB) link_wave="yes"; break],

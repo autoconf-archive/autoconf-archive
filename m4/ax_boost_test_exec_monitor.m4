@@ -30,7 +30,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_BOOST_TEST_EXEC_MONITOR],
 [
@@ -77,7 +77,7 @@ AC_DEFUN([AX_BOOST_TEST_EXEC_MONITOR],
             if test "x$ax_boost_user_test_exec_monitor_lib" = "x"; then
          		saved_ldflags="${LDFLAGS}"
 
-                for monitor_library in `ls $BOOSTLIBDIR/libboost_test_exec_monitor*.{so,a}* 2>/dev/null` ; do
+                for monitor_library in `ls $BOOSTLIBDIR/libboost_test_exec_monitor*.so* $BOOSTLIBDIR/libboost_test_exec_monitor*.a* 2>/dev/null` ; do
                     if test -r $monitor_library ; then
                        libextension=`echo $monitor_library | sed 's,.*/,,' | sed -e 's;^lib\(boost_test_exec_monitor.*\)\.so.*$;\1;' -e 's;^lib\(boost_test_exec_monitor.*\)\.a*$;\1;'`
                        ax_lib=${libextension}
@@ -108,7 +108,7 @@ AC_DEFUN([AX_BOOST_TEST_EXEC_MONITOR],
                    if test "x$link_test_exec_monitor" = "xyes"; then
                       break;
                    fi
-                   for monitor_library in `ls $BOOSTLIBDIR/lib${ax_lib}.{so,a}* 2>/dev/null` ; do
+                   for monitor_library in `ls $BOOSTLIBDIR/lib${ax_lib}.so* $BOOSTLIBDIR/lib${ax_lib}.a* 2>/dev/null` ; do
                    if test -r $monitor_library ; then
                        libextension=`echo $monitor_library | sed 's,.*/,,' | sed -e 's;^lib\(boost_test_exec_monitor.*\)\.so.*$;\1;' -e 's;^lib\(boost_test_exec_monitor.*\)\.a*$;\1;'`
                        ax_lib=${libextension}

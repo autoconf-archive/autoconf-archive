@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The boost macros for iostreams, regex, serialization, signals, system,
+  test_exec_monitor, unit_test_framework, wave, and wserialization have been
+  patched not to rely on being executed by a 'bash' shell.
+
 * Noteworthy changes in release 2010.07.06 (2010-07-06) [stable]
 
   Fixed compiler warning in AX_PTHREAD's test program for AC_TRY_LINK.
