@@ -15,6 +15,9 @@
   patched not to rely on being executed by a 'bash' shell. Also, an
   under-quoted shell variable has been fixed in AX_BOOST_BASE.
 
+  The documentation of AX_MPI has been improved. Further details are at
+  <http://lists.gnu.org/archive/html/autoconf-archive-maintainers/2010-08/msg00000.html>.
+
 * Noteworthy changes in release 2010.07.06 (2010-07-06) [stable]
 
   Fixed compiler warning in AX_PTHREAD's test program for AC_TRY_LINK.
