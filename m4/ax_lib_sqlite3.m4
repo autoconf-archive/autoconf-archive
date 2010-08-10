@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_LIB_SQLITE3],
 [
@@ -121,7 +121,7 @@ AC_DEFUN([AX_LIB_SQLITE3],
             ],
             [
             AC_MSG_RESULT([not found])
-            succees="no"
+            success="no"
             ]
         )
         AC_LANG_POP([C++])
