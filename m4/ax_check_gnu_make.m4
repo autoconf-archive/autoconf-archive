@@ -54,10 +54,9 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
-AC_DEFUN(
-        [AX_CHECK_GNU_MAKE], [ AC_CACHE_CHECK( for GNU make,_cv_gnu_make_command,
+AC_DEFUN([AX_CHECK_GNU_MAKE], [ AC_CACHE_CHECK( for GNU make,_cv_gnu_make_command,
                 _cv_gnu_make_command='' ;
 dnl Search all the common names for GNU make
                 for a in "$MAKE" make gmake gnumake ; do
