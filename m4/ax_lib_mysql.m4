@@ -76,7 +76,7 @@ AC_DEFUN([AX_LIB_MYSQL],
     if test "$want_mysql" = "yes"; then
 
         if test -z "$MYSQL_CONFIG" ; then
-            AC_PATH_PROG([MYSQL_CONFIG], [mysql_config], [no])
+            AC_PATH_PROGS([MYSQL_CONFIG], [mysql_config mysql_config5], [no])
         fi
 
         if test "$MYSQL_CONFIG" != "no"; then
