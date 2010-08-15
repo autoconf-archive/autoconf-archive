@@ -64,7 +64,7 @@ Documentation License''.
 @include downloads.texi
 
 @node How to contribute
-@chapter How to contributing to the GNU Autoconf Archive
+@chapter How to contribute to the GNU Autoconf Archive
 @include contribute.texi
 
 @node The Macros
