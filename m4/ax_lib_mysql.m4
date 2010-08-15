@@ -63,37 +63,31 @@ AC_DEFUN([AX_LIB_MYSQL],
         ],
         [want_mysql="yes"]
     )
+    AC_ARG_VAR([MYSQL_CONFIG], [Full path to mysql_config program])
 
     MYSQL_CFLAGS=""
     MYSQL_LDFLAGS=""
     MYSQL_VERSION=""
 
     dnl
-    dnl Check MySQL libraries (libpq)
+    dnl Check MySQL libraries
     dnl
 
     if test "$want_mysql" = "yes"; then
 
-        if test -z "$MYSQL_CONFIG" -o test; then
+        if test -z "$MYSQL_CONFIG" ; then
             AC_PATH_PROG([MYSQL_CONFIG], [mysql_config], [no])
         fi
 
         if test "$MYSQL_CONFIG" != "no"; then
-            AC_MSG_CHECKING([for MySQL libraries])
-
             MYSQL_CFLAGS="`$MYSQL_CONFIG --cflags`"
             MYSQL_LDFLAGS="`$MYSQL_CONFIG --libs`"
 
             MYSQL_VERSION=`$MYSQL_CONFIG --version`
 
-            AC_DEFINE([HAVE_MYSQL], [1],
-                [Define to 1 if MySQL libraries are available])
-
             found_mysql="yes"
-            AC_MSG_RESULT([yes])
         else
             found_mysql="no"
-            AC_MSG_RESULT([no])
         fi
     fi
 
@@ -142,6 +136,11 @@ AC_DEFUN([AX_LIB_MYSQL],
         fi
     fi
 
+    if test "$found_mysql" = "yes" ; then
+        AC_DEFINE([HAVE_MYSQL], [1],
+                  [Define to 1 if MySQL libraries are available])
+    fi
+    
     AC_SUBST([MYSQL_VERSION])
     AC_SUBST([MYSQL_CFLAGS])
     AC_SUBST([MYSQL_LDFLAGS])
