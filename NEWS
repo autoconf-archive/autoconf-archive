@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  A test logic error in AX_LIB_MYSQL has been fixed. Further details are at
+  <http://savannah.gnu.org/patch/?7285>.
+
   The boost macros for iostreams, regex, serialization, signals, system,
   test_exec_monitor, unit_test_framework, wave, and wserialization have been
   patched not to rely on being executed by a 'bash' shell. Also, an
