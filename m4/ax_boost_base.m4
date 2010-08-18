@@ -33,7 +33,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 16
+#serial 17
 
 AC_DEFUN([AX_BOOST_BASE],
 [
@@ -90,7 +90,7 @@ if test "x$want_boost" = "xyes"; then
     dnl The last entry in the list is chosen by default when no libraries
     dnl are found, e.g. when only header-only libraries are installed!
     libsubdirs="lib"
-    if test "$(uname -m)" = "x86_64"; then
+    if test `uname -m` = x86_64; then
         libsubdirs="lib64 lib lib64"
     fi
 
