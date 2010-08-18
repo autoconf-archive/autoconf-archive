@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  64-bit support in the boost macros has been improved. Further details are at:
+  <http://lists.gnu.org/archive/html/autoconf-archive-maintainers/2010-08/msg00008.html>.
+
   A test logic error in AX_LIB_MYSQL has been fixed. Further details are at
   <http://savannah.gnu.org/patch/?7285>.
 
