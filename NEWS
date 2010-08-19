@@ -8,6 +8,8 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
+* Noteworthy changes in release ?.? (????-??-??) [?]
+
 * Noteworthy changes in release 2010.08.19 (2010-08-19) [stable]
 
   64-bit support in the boost macros has been improved. Further details are at:
