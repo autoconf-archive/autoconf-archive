@@ -43,7 +43,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_LIB_MYSQL],
 [
@@ -140,7 +140,7 @@ AC_DEFUN([AX_LIB_MYSQL],
         AC_DEFINE([HAVE_MYSQL], [1],
                   [Define to 1 if MySQL libraries are available])
     fi
-    
+
     AC_SUBST([MYSQL_VERSION])
     AC_SUBST([MYSQL_CFLAGS])
     AC_SUBST([MYSQL_LDFLAGS])
