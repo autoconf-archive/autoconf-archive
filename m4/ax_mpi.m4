@@ -19,16 +19,16 @@
 #   are needed for linking MPI (e.g. -lmpi or -lfmpi, if a special
 #   MPICC/MPICXX/MPIF77/MPIFC was not found).
 #
-#   If you want to compile everything with MPI, you should use something like
-#   this for C:
+#   If you want to compile everything with MPI, you should use something
+#   like this for C:
 #
-#       if test -z "$CC" && test -n "$MPICC"; then
-#         CC="$MPICC"
-#       fi
-#       AC_PROG_CC
-#       AX_MPI
+#     if test -z "$CC" && test -n "$MPICC"; then
 #       CC="$MPICC"
-#       LIBS="$MPILIBS $LIBS"
+#     fi
+#     AC_PROG_CC
+#     AX_MPI
+#     CC="$MPICC"
+#     LIBS="$MPILIBS $LIBS"
 #
 #   and similar for C++ (change all instances of CC to CXX), Fortran 77
 #   (with F77 instead of CC) or Fortran (with FC instead of CC).
@@ -76,7 +76,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([ACX_MPI], [AX_MPI])
 AC_DEFUN([AX_MPI], [
