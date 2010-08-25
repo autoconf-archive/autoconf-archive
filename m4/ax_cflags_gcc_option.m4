@@ -8,11 +8,11 @@
 #
 # DESCRIPTION
 #
-#   AX_CFLAGS_GCC_OPTION(-fvomit-frame) would show a message as like
-#   "checking CFLAGS for gcc -fvomit-frame ... yes" and adds the optionflag
-#   to CFLAGS if it is understood. You can override the shellvar-default of
-#   CFLAGS of course. The order of arguments stems from the explicit macros
-#   like AX_CFLAGS_WARN_ALL.
+#   AX_CFLAGS_GCC_OPTION(-fomit-frame-pointer) would show a message like
+#   "checking CFLAGS for gcc -fomit-frame-pointer ... yes" and add the
+#   optionflag to CFLAGS if it is understood. You can override the
+#   shellvar-default of CFLAGS of course. The order of arguments stems from
+#   the explicit macros like AX_CFLAGS_WARN_ALL.
 #
 #   The cousin AX_CXXFLAGS_GCC_OPTION would check for an option to add to
 #   CXXFLAGS - and it uses the autoconf setup for C++ instead of C (since it
