@@ -10,6 +10,11 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Handling of indirectly named shell variables has been fixed in
+  AX_CFLAGS_GCC_OPTION. There have also been improvements to the
+  documentation. See <http://savannah.gnu.org/patch/?7291> and
+  <http://savannah.gnu.org/patch/?7292> for further details.
+
 * Noteworthy changes in release 2010.08.19 (2010-08-19) [stable]
 
   64-bit support in the boost macros has been improved. Further details are at:
