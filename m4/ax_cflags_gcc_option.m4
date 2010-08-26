@@ -72,7 +72,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_CFLAGS_GCC_OPTION_OLD], [dnl
 AS_VAR_PUSHDEF([FLAGS],[CFLAGS])dnl
@@ -93,7 +93,7 @@ done
  FLAGS="$ac_save_[]FLAGS"
  AC_LANG_RESTORE
 ])
-AS_VAR_COPY([var],[VAR])
+m4_ifdef([AS_VAR_COPY],[AS_VAR_COPY([var],[VAR])],[var=AS_VAR_GET([VAR])])
 case ".$var" in
      .ok|.ok,*) m4_ifvaln($3,$3) ;;
    .|.no|.no,*) m4_ifvaln($4,$4) ;;
@@ -130,7 +130,7 @@ done
  FLAGS="$ac_save_[]FLAGS"
  AC_LANG_RESTORE
 ])
-AS_VAR_COPY([var],[VAR])
+m4_ifdef([AS_VAR_COPY],[AS_VAR_COPY([var],[VAR])],[var=AS_VAR_GET([VAR])])
 case ".$var" in
      .ok|.ok,*) m4_ifvaln($3,$3) ;;
    .|.no|.no,*) m4_ifvaln($4,$4) ;;
@@ -166,7 +166,7 @@ done
  FLAGS="$ac_save_[]FLAGS"
  AC_LANG_RESTORE
 ])
-AS_VAR_COPY([var],[VAR])
+m4_ifdef([AS_VAR_COPY],[AS_VAR_COPY([var],[VAR])],[var=AS_VAR_GET([VAR])])
 case ".$var" in
      .ok|.ok,*) m4_ifvaln($3,$3) ;;
    .|.no|.no,*) m4_ifvaln($4,$4) ;;
@@ -203,7 +203,7 @@ done
  FLAGS="$ac_save_[]FLAGS"
  AC_LANG_RESTORE
 ])
-AS_VAR_COPY([var],[VAR])
+m4_ifdef([AS_VAR_COPY],[AS_VAR_COPY([var],[VAR])],[var=AS_VAR_GET([VAR])])
 case ".$var" in
      .ok|.ok,*) m4_ifvaln($3,$3) ;;
    .|.no|.no,*) m4_ifvaln($4,$4) ;;
