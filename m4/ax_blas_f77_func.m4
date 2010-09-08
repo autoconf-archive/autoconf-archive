@@ -52,7 +52,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([ACX_BLAS_F77_FUNC], [AX_BLAS_F77_FUNC])
 AC_DEFUN([AX_BLAS_F77_FUNC], [
@@ -166,7 +166,7 @@ c to have already failed, but just in case, we'll check.
       nn(3) = -1
       s = sdot(nn(2),a,1,b,1)
       if (s .ne. 1.0) stop 1
-       ]]),[acx_blas_integer_size_ok=yes],
+       ]]),[ax_blas_integer_size_ok=yes],
 	[ax_blas_integer_size_ok=no])
 	AC_MSG_RESULT([$ax_blas_integer_size_ok])
 
