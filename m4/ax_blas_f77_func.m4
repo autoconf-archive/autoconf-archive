@@ -52,7 +52,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([ACX_BLAS_F77_FUNC], [AX_BLAS_F77_FUNC])
 AC_DEFUN([AX_BLAS_F77_FUNC], [
@@ -142,6 +142,33 @@ elif test x"$ax_blas_ok" = xyes; then
       ]]),[ax_blas_zdotu_fcall_ok=yes],
 	[ax_blas_zdotu_fcall_ok=no])
 	AC_MSG_RESULT([$ax_blas_zdotu_fcall_ok])
+# Check for correct integer size
+# FIXME: this may fail with things like -ftrapping-math.
+        AC_MSG_CHECKING([whether the integer size is correct])
+        AC_RUN_IFELSE(AC_LANG_PROGRAM(,[[
+      integer n,nn(3)
+      real s,a(1),b(1),sdot
+      a(1) = 1.0
+      b(1) = 1.0
+c Generate -2**33 + 1, if possible
+      n = 2
+      n = -4 * (n ** 30)
+      n = n + 1
+      if (n >= 0) goto 1
+c This means we're on 64-bit integers. Check whether the BLAS is, too.
+      s = sdot(n,a,1,b,1)
+      if (s .ne. 0.0) stop 1
+    1 continue
+c We may be on 32-bit integers, and the BLAS on 64 bits. This is almost bound
+c to have already failed, but just in case, we'll check.
+      nn(1) = -1
+      nn(2) = 1
+      nn(3) = -1
+      s = sdot(nn(2),a,1,b,1)
+      if (s .ne. 1.0) stop 1
+       ]]),[acx_blas_integer_size_ok=yes],
+	[ax_blas_integer_size_ok=no])
+	AC_MSG_RESULT([$ax_blas_integer_size_ok])
 
 	AC_LANG_POP(Fortran 77)
 
@@ -150,7 +177,8 @@ elif test x"$ax_blas_ok" = xyes; then
 		-a $ax_blas_sdot_fcall_ok = yes \
 		-a $ax_blas_ddot_fcall_ok = yes \
 		-a $ax_blas_cdotu_fcall_ok = yes \
-		-a $ax_blas_zdotu_fcall_ok = yes ; then
+		-a $ax_blas_zdotu_fcall_ok = yes \
+		-a $ax_blas_integer_size_ok = yes; then
 		ax_blas_f77_func_ok=yes;
 		$1
 	else

@@ -10,6 +10,11 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The AX_BLAS_F77_FUNC macro has been improved to properly save and restore the
+  value of the $LIBS variable. Furthermore, an extra check was added to verify
+  that the integer size of Fortran (4 or 8 bytes) matches that of BLAS. See
+  <http://savannah.gnu.org/patch/?7311> for further details.
+
   AX_TLS has been updated to usual FOUND/NOT-FOUND interface.
 
   Handling of indirectly named shell variables has been fixed in
