@@ -52,7 +52,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([ACX_BLAS_F77_FUNC], [AX_BLAS_F77_FUNC])
 AC_DEFUN([AX_BLAS_F77_FUNC], [
@@ -63,6 +63,7 @@ AC_REQUIRE([AX_BLAS])
 if test "$cross_compiling" = yes ; then
 	ifelse($3, ,$1,$3)
 elif test x"$ax_blas_ok" = xyes; then
+	save_ax_blas_f77_func_LIBS="$LIBS"
 	LIBS="$BLAS_LIBS $LIBS"
 	AC_LANG_PUSH(Fortran 77)
 # LSAME check (LOGICAL return values)
@@ -94,7 +95,7 @@ elif test x"$ax_blas_ok" = xyes; then
 	[ax_blas_isamax_fcall_ok=no])
 	AC_MSG_RESULT([$ax_blas_isamax_fcall_ok])
 # SDOT check (REAL return values)
-	AC_MSG_CHECKING([whether DDOT is called correctly from Fortran])
+	AC_MSG_CHECKING([whether SDOT is called correctly from Fortran])
 	AC_RUN_IFELSE(AC_LANG_PROGRAM(,[[
       real sdot,a(1),b(1),w
       external sdot
@@ -156,6 +157,7 @@ elif test x"$ax_blas_ok" = xyes; then
 		ax_blas_f77_func_ok=no;
 		$2
 	fi
+	LIBS="$save_ax_blas_f77_func_LIBS"
 fi
 
 ])dnl AX_BLAS_F77_FUNC
