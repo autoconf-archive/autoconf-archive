@@ -10,12 +10,16 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Caching issues in AX_BLAS have been remedied. Further details are available
+  at <http://savannah.gnu.org/patch/?7320>.
+
   Plenty of Autoconf 2.68 warnings have been fixed.
 
   Added initial version of AX_CC_FOR_BUILD.
 
-  Changed AX_LUA_LIB_VERSION to AX_LUA_HEADERS_VERSION, because that is what
-  the macro is checking, really. Also added AX_LUA_READLINE.
+  AX_LUA_LIB_VERSION has been renamed to AX_LUA_HEADERS_VERSION, because that
+  is what the macro is checking, really. A new macro AX_LUA_READLINE has been
+  added.
 
   The AX_PREFIX_CONFIG_H macro has been improved to support the system shell
   "dash". See <http://savannah.gnu.org/patch/?7317> for further details.
