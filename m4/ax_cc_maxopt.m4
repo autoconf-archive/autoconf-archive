@@ -91,7 +91,7 @@ if test "$ac_test_CFLAGS" != "set"; then
            xlc_opt="-qtune=auto"
 	 fi
          AX_CHECK_COMPILER_FLAGS($xlc_opt,
-         	CFLAGS="-O3 -qansialias -w $xlc_opt",
+ 		CFLAGS="-O3 -qansialias -w $xlc_opt",
                [CFLAGS="-O3 -qansialias -w"
                 echo "******************************************************"
                 echo "*  You seem to have the IBM  C compiler.  It is      *"

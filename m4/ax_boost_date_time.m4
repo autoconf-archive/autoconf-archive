@@ -46,7 +46,7 @@ AC_DEFUN([AX_BOOST_DATE_TIME],
             ax_boost_user_date_time_lib=""
         else
 		    want_boost="yes"
-        	ax_boost_user_date_time_lib="$withval"
+		ax_boost_user_date_time_lib="$withval"
 		fi
         ],
         [want_boost="yes"]

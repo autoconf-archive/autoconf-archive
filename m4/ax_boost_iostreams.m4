@@ -45,7 +45,7 @@ AC_DEFUN([AX_BOOST_IOSTREAMS],
             ax_boost_user_iostreams_lib=""
         else
 		    want_boost="yes"
-        	ax_boost_user_iostreams_lib="$withval"
+		ax_boost_user_iostreams_lib="$withval"
 		fi
         ],
         [want_boost="yes"]

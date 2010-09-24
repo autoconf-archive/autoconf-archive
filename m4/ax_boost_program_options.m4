@@ -45,7 +45,7 @@ AC_DEFUN([AX_BOOST_PROGRAM_OPTIONS],
             ax_boost_user_program_options_lib=""
         else
 		    want_boost="yes"
-        	ax_boost_user_program_options_lib="$withval"
+		ax_boost_user_program_options_lib="$withval"
 		fi
         ],
         [want_boost="yes"]
@@ -68,7 +68,7 @@ AC_DEFUN([AX_BOOST_PROGRAM_OPTIONS],
                                   [[boost::program_options::options_description generic("Generic options");
                                    return 0;]]),
                            ax_cv_boost_program_options=yes, ax_cv_boost_program_options=no)
-			               	AC_LANG_POP([C++])
+			       		AC_LANG_POP([C++])
 		])
 		if test "$ax_cv_boost_program_options" = yes; then
 				AC_DEFINE(HAVE_BOOST_PROGRAM_OPTIONS,,[define if the Boost::PROGRAM_OPTIONS library is available])

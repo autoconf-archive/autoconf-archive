@@ -45,7 +45,7 @@ AC_DEFUN([AX_BOOST_WSERIALIZATION],
             ax_boost_user_wserialization_lib=""
         else
 		    want_boost="yes"
-        	ax_boost_user_wserialization_lib="$withval"
+		ax_boost_user_wserialization_lib="$withval"
 		fi
         ],
         [want_boost="yes"]

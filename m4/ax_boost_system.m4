@@ -47,7 +47,7 @@ AC_DEFUN([AX_BOOST_SYSTEM],
             ax_boost_user_system_lib=""
         else
 		    want_boost="yes"
-        	ax_boost_user_system_lib="$withval"
+		ax_boost_user_system_lib="$withval"
 		fi
         ],
         [want_boost="yes"]

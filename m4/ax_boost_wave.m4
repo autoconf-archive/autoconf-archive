@@ -46,7 +46,7 @@ AC_DEFUN([AX_BOOST_WAVE],
             ax_boost_user_wave_lib=""
         else
 		    want_boost="yes"
-        	ax_boost_user_wave_lib="$withval"
+		ax_boost_user_wave_lib="$withval"
 		fi
         ],
         [want_boost="yes"]
@@ -120,7 +120,7 @@ AC_DEFUN([AX_BOOST_WAVE],
 
 
 		CPPFLAGS="$CPPFLAGS_SAVED"
-           	LDFLAGS="$LDFLAGS_SAVED"
+   		LDFLAGS="$LDFLAGS_SAVED"
 		LIBS="$LIBS_SAVED"
 
 	fi

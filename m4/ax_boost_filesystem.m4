@@ -47,7 +47,7 @@ AC_DEFUN([AX_BOOST_FILESYSTEM],
             ax_boost_user_filesystem_lib=""
         else
 		    want_boost="yes"
-        	ax_boost_user_filesystem_lib="$withval"
+		ax_boost_user_filesystem_lib="$withval"
 		fi
         ],
         [want_boost="yes"]
@@ -74,7 +74,7 @@ AC_DEFUN([AX_BOOST_FILESYSTEM],
                                    [[using namespace boost::filesystem;
                                    path my_path( "foo/bar/data.txt" );
                                    return 0;]]),
-            				       ax_cv_boost_filesystem=yes, ax_cv_boost_filesystem=no)
+    					       ax_cv_boost_filesystem=yes, ax_cv_boost_filesystem=no)
          AC_LANG_POP([C++])
 		])
 		if test "x$ax_cv_boost_filesystem" = "xyes"; then
