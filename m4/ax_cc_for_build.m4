@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_cc_for_build.html
+#      http://www.gnu.org/software/autoconf-archive/ax_cc_for_build.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -41,7 +41,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 1
+#serial 2
 
 dnl Get a default for CC_FOR_BUILD to put into Makefile.
 AC_DEFUN([AX_CC_FOR_BUILD],

@@ -30,7 +30,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 13
 
 AC_DEFUN([AX_BOOST_WAVE],
 [

@@ -10,6 +10,13 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Plenty of Autoconf 2.68 warnings have been fixed.
+
+  Added initial version of AX_CC_FOR_BUILD.
+
+  Changed AX_LUA_LIB_VERSION to AX_LUA_HEADERS_VERSION, because that is what
+  the macro is checking, really. Also added AX_LUA_READLINE.
+
   The AX_PREFIX_CONFIG_H macro has been improved to support the system shell
   "dash". See <http://savannah.gnu.org/patch/?7317> for further details.
 

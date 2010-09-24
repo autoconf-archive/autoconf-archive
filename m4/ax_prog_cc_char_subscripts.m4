@@ -47,7 +47,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 6
 
 AU_ALIAS([AC_PROG_CC_CHAR_SUBSCRIPTS], [AX_PROG_CC_CHAR_SUBSCRIPTS])
 AC_DEFUN([AX_PROG_CC_CHAR_SUBSCRIPTS], [

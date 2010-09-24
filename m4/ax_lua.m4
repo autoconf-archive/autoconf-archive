@@ -25,8 +25,8 @@
 #   HAVE_LUALIB_H if found, and defines LUA_INCLUDE to the preprocessor
 #   flags needed, if any.
 #
-#   AX_LUA_HEADERS_VERSION checks that the Lua headers' version is at
-#   least MIN-VERSION, and less than TOO-BIG-VERSION, if given.
+#   AX_LUA_HEADERS_VERSION checks that the Lua headers' version is at least
+#   MIN-VERSION, and less than TOO-BIG-VERSION, if given.
 #
 #   AX_LUA_LIBS searches for Lua libraries and defines LUA_LIB if found.
 #
@@ -76,7 +76,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 dnl Helper function to declare extra options
 AC_DEFUN([_AX_LUA_OPTS],

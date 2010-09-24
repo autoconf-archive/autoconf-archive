@@ -48,7 +48,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 8
 
 AC_DEFUN([AX_SPEC_FILE],
 [ AC_MSG_CHECKING([rpm spec file])

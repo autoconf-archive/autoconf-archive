@@ -61,7 +61,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 16
+#serial 19
 
 AC_DEFUN([AX_DIST_RPM],
 [

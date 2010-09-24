@@ -24,7 +24,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([_AC_C_IFDEF], [AX_C_IFDEF])
 AC_DEFUN([AX_C_IFDEF],

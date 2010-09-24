@@ -46,7 +46,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 6
 
 AU_ALIAS([AC_SET_DEFAULT_PATHS_SYSTEM], [AX_SET_DEFAULT_PATHS_SYSTEM])
 AC_DEFUN([AX_SET_DEFAULT_PATHS_SYSTEM],
