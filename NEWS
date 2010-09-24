@@ -10,6 +10,8 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_COMPILER_VENDOR has been extended to support the Clang compiler.
+
   Caching issues in AX_BLAS have been remedied. Further details are available
   at <http://savannah.gnu.org/patch/?7320>.
 
