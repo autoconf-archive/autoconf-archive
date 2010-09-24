@@ -86,14 +86,14 @@ AC_DEFUN([AX_BOOST_WAVE],
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_WAVE_LIB="-l$ax_lib"; AC_SUBST(BOOST_WAVE_LIB) link_wave="yes"; break],
                                  [link_wave="no"])
-  				done
+				done
                 if test "x$link_wave" != "xyes"; then
                 for libextension in `ls $BOOSTLIBDIR/boost_wave*.{dll,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^\(boost_wave.*\)\.dll.*$;\1;' -e 's;^\(boost_wave.*\)\.a*$;\1;'` ; do
                      ax_lib=${libextension}
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_WAVE_LIB="-l$ax_lib"; AC_SUBST(BOOST_WAVE_LIB) link_wave="yes"; break],
                                  [link_wave="no"])
-  				done
+				done
                 fi
 
             else
@@ -120,7 +120,7 @@ AC_DEFUN([AX_BOOST_WAVE],
 
 
 		CPPFLAGS="$CPPFLAGS_SAVED"
-   		LDFLAGS="$LDFLAGS_SAVED"
+		LDFLAGS="$LDFLAGS_SAVED"
 		LIBS="$LIBS_SAVED"
 
 	fi

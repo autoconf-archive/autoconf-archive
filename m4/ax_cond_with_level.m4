@@ -88,24 +88,24 @@ if test "$WITH_VAR" != "no"; then
   case "$WITH_VAR" in
     9|9,*|ultrasome|ultrasome,*|insane)				withval=9
 		VAR_WITHVAL=9 ;  VAR_WITHDEF="-D""VAR_WITH=9" ;;
-    8|8,*|ultra|ultra,*|experimental) 				withval=8
+    8|8,*|ultra|ultra,*|experimental)				withval=8
                 VAR_WITHVAL=8 ;  VAR_WITHDEF="-D""VAR_WITH=8" ;;
     7|7,*|muchmore|somemanymore|somemanymore,*|all)		withval=7
 	        VAR_WITHVAL=7 ;  VAR_WITHDEF="-D""VAR_WITH=7" ;;
-    6|6,*|manymore|manymore,*|most) 				withval=6
+    6|6,*|manymore|manymore,*|most)				withval=6
                 VAR_WITHVAL=6 ;  VAR_WITHDEF="-D""VAR_WITH=6" ;;
-    5|5,*|somemore|somemore,*|almost) 				withval=5
+    5|5,*|somemore|somemore,*|almost)				withval=5
 	        VAR_WITHVAL=5 ;  VAR_WITHDEF="-D""VAR_WITH=5" ;;
-    4|4,*|more|more,*) 						withval=4
+    4|4,*|more|more,*)						withval=4
 		VAR_WITHVAL=4 ;  VAR_WITHDEF="-D""VAR_WITH=4" ;;
     3|3,*|much|somemany,*)					withval=3
 		VAR_WITHVAL=3 ;  VAR_WITHDEF="-D""VAR_WITH=3" ;;
-    2|2,*|many|many,*) 						withval=2
+    2|2,*|many|many,*)						withval=2
 		VAR_WITHVAL=2 ;  VAR_WITHDEF="-D""VAR_WITH=2" ;;
-    1|1,*|some|some,*) 						withval=1
+    1|1,*|some|some,*)						withval=1
 		VAR_WITHVAL=1 ;  VAR_WITHDEF="-D""VAR_WITH=1" ;;
-      *) 							withval=-
- 	       AC_MSG_ERROR([dnl
+      *)							withval=-
+	       AC_MSG_ERROR([dnl
  bad value of --with-$1 option, choose a number or some|many|more|all... ])
   esac
 else								withval=0
@@ -142,24 +142,24 @@ if test "$WITH_VAR" != "no"; then
   case "$WITH_VAR" in
     9|9,*|ultrasome|ultrasome,*|insane)				withval=9
 		VAR_WITHVAL=9 ;  VAR_WITHDEF="-D""VAR_WITH=9" ;;
-    8|8,*|ultra|ultra,*|experimental) 				withval=8
+    8|8,*|ultra|ultra,*|experimental)				withval=8
                 VAR_WITHVAL=8 ;  VAR_WITHDEF="-D""VAR_WITH=8" ;;
     7|7,*|muchmore|somemanymore|somemanymore,*|all)		withval=7
 	        VAR_WITHVAL=7 ;  VAR_WITHDEF="-D""VAR_WITH=7" ;;
-    6|6,*|manymore|manymore,*|most) 				withval=6
+    6|6,*|manymore|manymore,*|most)				withval=6
                 VAR_WITHVAL=6 ;  VAR_WITHDEF="-D""VAR_WITH=6" ;;
-    5|5,*|somemore|somemore,*|almost) 				withval=5
+    5|5,*|somemore|somemore,*|almost)				withval=5
 	        VAR_WITHVAL=5 ;  VAR_WITHDEF="-D""VAR_WITH=5" ;;
-    4|4,*|more|more,*) 						withval=4
+    4|4,*|more|more,*)						withval=4
 		VAR_WITHVAL=4 ;  VAR_WITHDEF="-D""VAR_WITH=4" ;;
     3|3,*|much|somemany,*)					withval=3
 		VAR_WITHVAL=3 ;  VAR_WITHDEF="-D""VAR_WITH=3" ;;
-    2|2,*|many|many,*) 						withval=2
+    2|2,*|many|many,*)						withval=2
 		VAR_WITHVAL=2 ;  VAR_WITHDEF="-D""VAR_WITH=2" ;;
-    1|1,*|some|some,*) 						withval=1
+    1|1,*|some|some,*)						withval=1
 		VAR_WITHVAL=1 ;  VAR_WITHDEF="-D""VAR_WITH=1" ;;
-      *) 							withval=-
- 	       AC_MSG_ERROR([dnl
+      *)							withval=-
+	       AC_MSG_ERROR([dnl
  bad value of --with-$1 option, choose a number or some|many|more|all... ])
   esac
 dnl -- the additional line is here --

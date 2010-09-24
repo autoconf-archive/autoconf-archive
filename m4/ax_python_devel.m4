@@ -119,7 +119,7 @@ to something else than an empty string.
 			ver = sys.version.split ()[[0]]; \
 			print (ver $1)"`
 		if test "$ac_supports_python_ver" = "True"; then
-	   	   AC_MSG_RESULT([yes])
+		   AC_MSG_RESULT([yes])
 		else
 			AC_MSG_RESULT([no])
 			AC_MSG_ERROR([this package requires Python $1.
@@ -152,9 +152,9 @@ $ac_distutils_result])
 	AC_MSG_CHECKING([for Python include path])
 	if test -z "$PYTHON_CPPFLAGS"; then
 		python_path=`$PYTHON -c "import distutils.sysconfig; \
-   			print (distutils.sysconfig.get_python_inc ());"`
+			print (distutils.sysconfig.get_python_inc ());"`
 		if test -n "${python_path}"; then
-		   	python_path="-I$python_path"
+			python_path="-I$python_path"
 		fi
 		PYTHON_CPPFLAGS=$python_path
 	fi

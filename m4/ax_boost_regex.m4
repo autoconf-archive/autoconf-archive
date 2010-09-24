@@ -80,14 +80,14 @@ AC_DEFUN([AX_BOOST_REGEX],
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_REGEX_LIB="-l$ax_lib"; AC_SUBST(BOOST_REGEX_LIB) link_regex="yes"; break],
                                  [link_regex="no"])
-  				done
+				done
                 if test "x$link_regex" != "xyes"; then
                 for libextension in `ls $BOOSTLIBDIR/boost_regex*.{dll,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^\(boost_regex.*\)\.dll.*$;\1;' -e 's;^\(boost_regex.*\)\.a*$;\1;'` ; do
                      ax_lib=${libextension}
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_REGEX_LIB="-l$ax_lib"; AC_SUBST(BOOST_REGEX_LIB) link_regex="yes"; break],
                                  [link_regex="no"])
-  				done
+				done
                 fi
 
             else
@@ -106,6 +106,6 @@ AC_DEFUN([AX_BOOST_REGEX],
 		fi
 
 		CPPFLAGS="$CPPFLAGS_SAVED"
-    	LDFLAGS="$LDFLAGS_SAVED"
+	LDFLAGS="$LDFLAGS_SAVED"
 	fi
 ])

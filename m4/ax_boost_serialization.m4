@@ -85,14 +85,14 @@ AC_DEFUN([AX_BOOST_SERIALIZATION],
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_SERIALIZATION_LIB="-l$ax_lib"; AC_SUBST(BOOST_SERIALIZATION_LIB) link_serialization="yes"; break],
                                  [link_serialization="no"])
-  				done
+				done
                 if test "x$link_serialization" != "xyes"; then
                 for libextension in `ls $BOOSTLIBDIR/boost_serialization*.{dll,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^\(boost_serialization.*\)\.dll.*$;\1;' -e 's;^\(boost_serialization.*\)\.a*$;\1;'` ; do
                      ax_lib=${libextension}
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_SERIALIZATION_LIB="-l$ax_lib"; AC_SUBST(BOOST_SERIALIZATION_LIB) link_serialization="yes"; break],
                                  [link_serialization="no"])
-  				done
+				done
                 fi
 
             else
@@ -112,6 +112,6 @@ AC_DEFUN([AX_BOOST_SERIALIZATION],
 		fi
 
 		CPPFLAGS="$CPPFLAGS_SAVED"
-    	LDFLAGS="$LDFLAGS_SAVED"
+	LDFLAGS="$LDFLAGS_SAVED"
 	fi
 ])

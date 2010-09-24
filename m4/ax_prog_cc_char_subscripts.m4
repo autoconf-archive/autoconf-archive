@@ -71,15 +71,15 @@ EOF
   dnl GCC
   if test "$GCC" = "yes";
   then
-      	if test -z "$hard"; then
-      	   CV="-funsigned-char -Wno-char-subscripts"
-    	else
-      	   CV="-funsigned-char -Wno-char-subscripts"
-    	fi
+	if test -z "$hard"; then
+	   CV="-funsigned-char -Wno-char-subscripts"
+	else
+	   CV="-funsigned-char -Wno-char-subscripts"
+	fi
 
-    	if test -n "`${CC-cc} -c $CV conftest.c 2>&1`" ; then
+	if test -n "`${CC-cc} -c $CV conftest.c 2>&1`" ; then
            CV="suppressed: did not work"
-    	fi
+	fi
 
   dnl Solaris C compiler
 	# Solaris sunpro has no option for unsignedchar but
@@ -96,9 +96,9 @@ EOF
 	CV="-unsigned"
 
 	rm conftest.o
-    	if test -n "`${CC-cc} -c $CV conftest.c 2>&1`" ; then
+	if test -n "`${CC-cc} -c $CV conftest.c 2>&1`" ; then
            CV="suppressed: did not work"
-    	fi
+	fi
 
   dnl C for AIX Compiler
 

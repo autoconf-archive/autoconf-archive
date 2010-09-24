@@ -101,9 +101,9 @@ fi
 AC_ARG_ENABLE(cvs-support,
 	      AS_HELP_STRING(--enable-cvs-support[=ARG],
 			     [enable cvs support.  Used by the $PACKAGE developers.
-		  	      ARG can be "yes" or "no".  If the CVSROOT is found,
+			      ARG can be "yes" or "no".  If the CVSROOT is found,
 			      then the default is yes,
-		  	      otherwise the default is no.]),
+			      otherwise the default is no.]),
 	      AX_USING_CVS=$enableval )
 
 if test "x$AX_USING_CVS" != "xno"; then
@@ -160,7 +160,7 @@ if test "x$AX_USING_CVS" != "xno"; then
     AC_MSG_CHECKING([CVSROOT])
     if test -e "$srcdir/CVS/Root"; then
         CVSROOT=`cat $srcdir/CVS/Root`;
-    	AC_MSG_RESULT([$CVSROOT])
+	AC_MSG_RESULT([$CVSROOT])
     else
 	AC_MSG_RESULT([not found])
         if test "x$AX_USING_CVS" = "x"; then

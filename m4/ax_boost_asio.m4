@@ -88,7 +88,7 @@ AC_DEFUN([AX_BOOST_ASIO],
                               $BN-mgw $BN-mgw $BN-mgw-mt $BN-mgw-mt-s $BN-mgw-s ; do
 				    AC_CHECK_LIB($ax_lib, main, [BOOST_ASIO_LIB="-l$ax_lib" AC_SUBST(BOOST_ASIO_LIB) link_thread="yes" break],
                                  [link_thread="no"])
-  				done
+				done
             else
                for ax_lib in $ax_boost_user_asio_lib $BN-$ax_boost_user_asio_lib; do
 				      AC_CHECK_LIB($ax_lib, main,
@@ -106,6 +106,6 @@ AC_DEFUN([AX_BOOST_ASIO],
 		fi
 
 		CPPFLAGS="$CPPFLAGS_SAVED"
-    	LDFLAGS="$LDFLAGS_SAVED"
+	LDFLAGS="$LDFLAGS_SAVED"
 	fi
 ])

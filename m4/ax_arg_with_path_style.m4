@@ -95,7 +95,7 @@ AC_DEFUN([AX_ARG_WITH_PATH_STYLE],
    case ",$ac_with_path_style," in
     *,unx,*|*,unix,*|*,bsd,*|*,posix,*) :
 	ac_with_path_style__unx="32" ;;
-    *) 	ac_with_path_style__unx="0" ;;
+    *)	ac_with_path_style__unx="0" ;;
    esac
    case ",$ac_with_path_style," in
     *,dos,*|*,win,*|*,windows,*) :
@@ -105,37 +105,37 @@ AC_DEFUN([AX_ARG_WITH_PATH_STYLE],
    case ",$ac_with_path_style," in
     *,web,*|*,url,*|*,www,*) :
 	ac_with_path_style__url="64" ;;
-    *) 	ac_with_path_style__url="0" ;;
+    *)	ac_with_path_style__url="0" ;;
    esac
    case ",$ac_with_path_style," in
     *,mac,*|*,macintosh,*|*,apple,*) :
 	ac_with_path_style__mac="128" ;;
-    *) 	ac_with_path_style__mac="0" ;;
+    *)	ac_with_path_style__mac="0" ;;
    esac
    case ",$ac_with_path_style," in
     *,def,*|*,define,*|*,special,*) :
 	ac_with_path_style__def="256" ;;
-    *) 	ac_with_path_style__def="0" ;;
+    *)	ac_with_path_style__def="0" ;;
    esac
    case ",$ac_with_path_style," in
     *,also,*|*,strict,*|*,accept,*|*,convert,*) :
 	ac_with_path_style__use="512" ;;
-    *) 	ac_with_path_style__use="0" ;;
+    *)	ac_with_path_style__use="0" ;;
    esac
    case ",$ac_with_path_style," in
     *,sl,*|*,slash,*|*,forwslash,*|*,slashsep,*) :
 	ac_with_path_style__slash="1024" ;;
-    *) 	ac_with_path_style__slash="0" ;;
+    *)	ac_with_path_style__slash="0" ;;
    esac
    case ",$ac_with_path_style," in
     *,sc,*|*,semi,*|*,semisep,*|*,semicolon,*|*,semicolonsep,*) :
 	ac_with_path_style__semic="2048" ;;
-    *) 	ac_with_path_style__semic="0" ;;
+    *)	ac_with_path_style__semic="0" ;;
    esac
    case ",$ac_with_path_style," in
     *,cm,*|*,comma,*|*,commasep,*) :
 	ac_with_path_style__comma="4096" ;;
-    *) 	ac_with_path_style__comma="0" ;;
+    *)	ac_with_path_style__comma="0" ;;
    esac
 
    if test "$ac_with_path_style__unx" != "0" ; then

@@ -68,7 +68,7 @@ AC_DEFUN([AX_BOOST_IOSTREAMS],
 											 @%:@include <boost/range/iterator_range.hpp>
 											]],
                                   [[std::string  input = "Hello World!";
-       								 namespace io = boost::iostreams;
+								 namespace io = boost::iostreams;
 									 io::filtering_istream  in(boost::make_iterator_range(input));
 									 return 0;
                                    ]]),
@@ -84,14 +84,14 @@ AC_DEFUN([AX_BOOST_IOSTREAMS],
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_IOSTREAMS_LIB="-l$ax_lib"; AC_SUBST(BOOST_IOSTREAMS_LIB) link_iostreams="yes"; break],
                                  [link_iostreams="no"])
-  				done
+				done
                 if test "x$link_iostreams" != "xyes"; then
                 for libextension in `ls $BOOSTLIBDIR/boost_iostreams*.{dll,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^\(boost_iostreams.*\)\.dll.*$;\1;' -e 's;^\(boost_iostreams.*\)\.a*$;\1;'` ; do
                      ax_lib=${libextension}
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_IOSTREAMS_LIB="-l$ax_lib"; AC_SUBST(BOOST_IOSTREAMS_LIB) link_iostreams="yes"; break],
                                  [link_iostreams="no"])
-  				done
+				done
                 fi
 
             else
@@ -111,6 +111,6 @@ AC_DEFUN([AX_BOOST_IOSTREAMS],
 		fi
 
 		CPPFLAGS="$CPPFLAGS_SAVED"
-    	LDFLAGS="$LDFLAGS_SAVED"
+	LDFLAGS="$LDFLAGS_SAVED"
 	fi
 ])

@@ -75,7 +75,7 @@ AC_DEFUN([AX_BOOST_TEST_EXEC_MONITOR],
             BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
 
             if test "x$ax_boost_user_test_exec_monitor_lib" = "x"; then
- 			saved_ldflags="${LDFLAGS}"
+			saved_ldflags="${LDFLAGS}"
 
                 for monitor_library in `ls $BOOSTLIBDIR/libboost_test_exec_monitor*.so* $BOOSTLIBDIR/libboost_test_exec_monitor*.a* 2>/dev/null` ; do
                     if test -r $monitor_library ; then
@@ -98,12 +98,12 @@ AC_DEFUN([AX_BOOST_TEST_EXEC_MONITOR],
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_TEST_EXEC_MONITOR_LIB="-l$ax_lib"; AC_SUBST(BOOST_TEST_EXEC_MONITOR_LIB) link_test_exec_monitor="yes"; break],
                                  [link_test_exec_monitor="no"])
-  				done
+				done
                 fi
 
             else
                 link_test_exec_monitor="no"
- 			saved_ldflags="${LDFLAGS}"
+			saved_ldflags="${LDFLAGS}"
                 for ax_lib in boost_test_exec_monitor-$ax_boost_user_test_exec_monitor_lib $ax_boost_user_test_exec_monitor_lib ; do
                    if test "x$link_test_exec_monitor" = "xyes"; then
                       break;
@@ -134,6 +134,6 @@ AC_DEFUN([AX_BOOST_TEST_EXEC_MONITOR],
 		fi
 
 		CPPFLAGS="$CPPFLAGS_SAVED"
-    	LDFLAGS="$LDFLAGS_SAVED"
+	LDFLAGS="$LDFLAGS_SAVED"
 	fi
 ])

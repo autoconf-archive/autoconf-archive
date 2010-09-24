@@ -82,14 +82,14 @@ AC_DEFUN([AX_BOOST_SIGNALS],
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_SIGNALS_LIB="-l$ax_lib"; AC_SUBST(BOOST_SIGNALS_LIB) link_signals="yes"; break],
                                  [link_signals="no"])
-  				done
+				done
                 if test "x$link_signals" != "xyes"; then
                 for libextension in `ls $BOOSTLIBDIR/boost_signals*.{dll,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^\(boost_signals.*\)\.dll.*$;\1;' -e 's;^\(boost_signals.*\)\.a*$;\1;'` ; do
                      ax_lib=${libextension}
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_SIGNALS_LIB="-l$ax_lib"; AC_SUBST(BOOST_SIGNALS_LIB) link_signals="yes"; break],
                                  [link_signals="no"])
-  				done
+				done
                 fi
 
             else
@@ -109,6 +109,6 @@ AC_DEFUN([AX_BOOST_SIGNALS],
 		fi
 
 		CPPFLAGS="$CPPFLAGS_SAVED"
-    	LDFLAGS="$LDFLAGS_SAVED"
+	LDFLAGS="$LDFLAGS_SAVED"
 	fi
 ])

@@ -77,7 +77,7 @@ AC_ARG_WITH([llvm],
 			fi
 
 			CPPFLAGS="$CPPFLAGS_SAVED"
-	    	LDFLAGS="$LDFLAGS_SAVED"
+		LDFLAGS="$LDFLAGS_SAVED"
 		else
 			succeeded=no
 		fi

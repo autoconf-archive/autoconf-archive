@@ -88,14 +88,14 @@ AC_DEFUN([AX_BOOST_SYSTEM],
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_SYSTEM_LIB="-l$ax_lib"; AC_SUBST(BOOST_SYSTEM_LIB) link_system="yes"; break],
                                  [link_system="no"])
-  				done
+				done
                 if test "x$link_system" != "xyes"; then
                 for libextension in `ls $BOOSTLIBDIR/boost_system*.{dll,a}* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^\(boost_system.*\)\.dll.*$;\1;' -e 's;^\(boost_system.*\)\.a*$;\1;'` ; do
                      ax_lib=${libextension}
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_SYSTEM_LIB="-l$ax_lib"; AC_SUBST(BOOST_SYSTEM_LIB) link_system="yes"; break],
                                  [link_system="no"])
-  				done
+				done
                 fi
 
             else
@@ -115,6 +115,6 @@ AC_DEFUN([AX_BOOST_SYSTEM],
 		fi
 
 		CPPFLAGS="$CPPFLAGS_SAVED"
-    	LDFLAGS="$LDFLAGS_SAVED"
+	LDFLAGS="$LDFLAGS_SAVED"
 	fi
 ])

@@ -67,8 +67,8 @@ ac_cv_boost_python,
  #include <boost/python/module.hpp>
  using namespace boost::python;
  BOOST_PYTHON_MODULE(test) { throw "Boost::Python test."; }]],
- 			   [[return 0;]]),
-  			   ac_cv_boost_python=yes, ac_cv_boost_python=no)
+			   [[return 0;]]),
+			   ac_cv_boost_python=yes, ac_cv_boost_python=no)
  AC_LANG_RESTORE
  CPPFLAGS=$CPPFLAGS_SAVE
 ])

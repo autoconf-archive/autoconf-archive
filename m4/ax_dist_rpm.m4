@@ -79,15 +79,15 @@ if test "x$AX_HAVE_INSTALL_FILES" = "xtrue"; then
 	AC_CONFIG_FILES([$1])
 	AC_ARG_VAR(EDITOR, [default text editor])
 	if test "x$EDITOR" = "x"; then
-   	    AC_CHECK_PROGS(EDITOR,[vim vi emacs])
+	    AC_CHECK_PROGS(EDITOR,[vim vi emacs])
 	fi
 	AC_ARG_VAR(RPM, [rpm executable to use])
 	if test "x$RPM" = "x"; then
-   	    AC_CHECK_PROGS(RPM,[rpmbuild rpm echo])
+	    AC_CHECK_PROGS(RPM,[rpmbuild rpm echo])
 	fi
 	if test "x$RPM" != "x"; then
 	    AC_ARG_VAR(PLATFORM_SUFFIX, [A short name for your platform that will be added to the name of the binary RPMs you may choose to create (by running make rpm).  e.g. rh71 for RedHat 7.1, lsb1.3 for a LSB 1.3 compliant system (SuSE 8.2 or RedHat 9), osx103 for OS X 10.3.x, etc])
-     	    AC_MSG_CHECKING([rpm platform suffix])
+	    AC_MSG_CHECKING([rpm platform suffix])
             if test "x$PLATFORM_SUFFIX" != "x"; then
 	        AC_MSG_RESULT([$PLATFORM_SUFFIX])
 	        AC_SUBST([PLATFORM_SUFFIX])
@@ -97,7 +97,7 @@ if test "x$AX_HAVE_INSTALL_FILES" = "xtrue"; then
 	        AC_MSG_WARN([rpm support disabled... PLATFORM_SUFFIX not set])
 	    fi
         else
-    	    AC_MSG_NOTICE([rpm support disabled... neither rpmbuild or rpm was found])
+	    AC_MSG_NOTICE([rpm support disabled... neither rpmbuild or rpm was found])
 	fi
     else
         AC_MSG_RESULT([not found])
@@ -122,7 +122,7 @@ AX_DIST_RPM_CLEANFILES = \$(top_builddir)/RPMChangeLog \$(AX_INSTALL_FILES_CLEAN
                     if( stop ) exit; \\
 		    split( \$${AX_DOLLAR}1, date, \"-\" ); \\
 		    \$${AX_DOLLAR}1 = strftime( \"%%a %%b %%d %%Y\", \\
-		       	            mktime( date[ 1 ] \" \" date[ 2 ] \" \" date [ 3 ] \" 00 00 00\" ) ); \\
+			            mktime( date[ 1 ] \" \" date[ 2 ] \" \" date [ 3 ] \" 00 00 00\" ) ); \\
                     print \"* \" \$${AX_DOLLAR}0; } \\
 	        /Released \$(PACKAGE)-/ { \\
 		    gsub( /\$(PACKAGE)-/, \"\", \$${AX_DOLLAR}2 ); \\
@@ -199,11 +199,11 @@ create-rpmmacros:
 	    echo \"%%_specdir       %%{_rpmtopdir}SPECS/\" >> ~/.rpmmacros; \\
 	    echo \"%%_srcrpmdir     %%{_rpmtopdir}SRPMS/\" >> ~/.rpmmacros; \\
 	    if test \"x$EDITOR\" = "x"; then \\
-	    	echo \"Error: no editor specified or found.\"; \\
-	    	echo \"Please edit ~/.rpmmacros manually\"; \\
+		echo \"Error: no editor specified or found.\"; \\
+		echo \"Please edit ~/.rpmmacros manually\"; \\
 	    else \\
-	    	$EDITOR ~/.rpmmacros; \\
-	    	exit \$\$?; \\
+		$EDITOR ~/.rpmmacros; \\
+		exit \$\$?; \\
 	    fi \\
 	fi
 

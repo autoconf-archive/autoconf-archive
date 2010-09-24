@@ -69,7 +69,7 @@ AC_DEFUN([AX_BOOST_THREAD],
 			 CXXFLAGS_SAVE=$CXXFLAGS
 
 			 if test "x$build_os" = "xsolaris" ; then
-  				 CXXFLAGS="-pthreads $CXXFLAGS"
+				 CXXFLAGS="-pthreads $CXXFLAGS"
 			 elif test "x$build_os" = "xming32" ; then
 				 CXXFLAGS="-mthreads $CXXFLAGS"
 			 else
@@ -109,14 +109,14 @@ AC_DEFUN([AX_BOOST_THREAD],
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_THREAD_LIB="-l$ax_lib"; AC_SUBST(BOOST_THREAD_LIB) link_thread="yes"; break],
                                  [link_thread="no"])
-  				done
+				done
                 if test "x$link_thread" != "xyes"; then
                 for libextension in `ls $BOOSTLIBDIR/boost_thread*.dll* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^\(boost_thread.*\)\.dll.*$;\1;'` `ls $BOOSTLIBDIR/boost_thread*.a* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^\(boost_thread.*\)\.a*$;\1;'` ; do
                      ax_lib=${libextension}
 				    AC_CHECK_LIB($ax_lib, exit,
                                  [BOOST_THREAD_LIB="-l$ax_lib"; AC_SUBST(BOOST_THREAD_LIB) link_thread="yes"; break],
                                  [link_thread="no"])
-  				done
+				done
                 fi
 
             else
@@ -144,6 +144,6 @@ AC_DEFUN([AX_BOOST_THREAD],
 		fi
 
 		CPPFLAGS="$CPPFLAGS_SAVED"
-    	LDFLAGS="$LDFLAGS_SAVED"
+	LDFLAGS="$LDFLAGS_SAVED"
 	fi
 ])
