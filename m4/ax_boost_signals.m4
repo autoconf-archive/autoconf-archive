@@ -65,11 +65,11 @@ AC_DEFUN([AX_BOOST_SIGNALS],
         AC_CACHE_CHECK(whether the Boost::Signals library is available,
 					   ax_cv_boost_signals,
         [AC_LANG_PUSH([C++])
-		 AC_COMPILE_IFELSE(AC_LANG_PROGRAM([[@%:@include <boost/signal.hpp>
+		 AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[@%:@include <boost/signal.hpp>
 											]],
                                   [[boost::signal<void ()> sig;
                                     return 0;
-                                  ]]),
+                                  ]])],
                            ax_cv_boost_signals=yes, ax_cv_boost_signals=no)
          AC_LANG_POP([C++])
 		])

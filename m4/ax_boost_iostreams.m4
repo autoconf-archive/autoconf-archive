@@ -64,14 +64,14 @@ AC_DEFUN([AX_BOOST_IOSTREAMS],
         AC_CACHE_CHECK(whether the Boost::IOStreams library is available,
 					   ax_cv_boost_iostreams,
         [AC_LANG_PUSH([C++])
-		 AC_COMPILE_IFELSE(AC_LANG_PROGRAM([[@%:@include <boost/iostreams/filtering_stream.hpp>
+		 AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[@%:@include <boost/iostreams/filtering_stream.hpp>
 											 @%:@include <boost/range/iterator_range.hpp>
 											]],
                                   [[std::string  input = "Hello World!";
 								 namespace io = boost::iostreams;
 									 io::filtering_istream  in(boost::make_iterator_range(input));
 									 return 0;
-                                   ]]),
+                                   ]])],
                              ax_cv_boost_iostreams=yes, ax_cv_boost_iostreams=no)
          AC_LANG_POP([C++])
 		])

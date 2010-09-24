@@ -65,8 +65,8 @@ AC_DEFUN([AX_BOOST_TEST_EXEC_MONITOR],
         AC_CACHE_CHECK(whether the Boost::Test_Exec_Monitor library is available,
 					   ax_cv_boost_test_exec_monitor,
         [AC_LANG_PUSH([C++])
-			 AC_COMPILE_IFELSE(AC_LANG_PROGRAM([[@%:@include <boost/test/test_tools.hpp>]],
-                                    [[int i=1 ; BOOST_REQUIRE(i==1); ; return 0;]]),
+			 AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[@%:@include <boost/test/test_tools.hpp>]],
+                                    [[int i=1 ; BOOST_REQUIRE(i==1); ; return 0;]])],
                    ax_cv_boost_test_exec_monitor=yes, ax_cv_boost_test_exec_monitor=no)
          AC_LANG_POP([C++])
 		])

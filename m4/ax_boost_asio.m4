@@ -65,7 +65,7 @@ AC_DEFUN([AX_BOOST_ASIO],
         AC_CACHE_CHECK(whether the Boost::ASIO library is available,
 					   ax_cv_boost_asio,
         [AC_LANG_PUSH([C++])
-		 AC_COMPILE_IFELSE(AC_LANG_PROGRAM([[ @%:@include <boost/asio.hpp>
+		 AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[ @%:@include <boost/asio.hpp>
 											]],
                                   [[
 
@@ -75,7 +75,7 @@ AC_DEFUN([AX_BOOST_ASIO],
                                     t.cancel();
                                     io.run_one();
 									return 0;
-                                   ]]),
+                                   ]])],
                              ax_cv_boost_asio=yes, ax_cv_boost_asio=no)
          AC_LANG_POP([C++])
 		])
