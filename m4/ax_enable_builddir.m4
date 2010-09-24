@@ -179,7 +179,7 @@ x
 :M
 s/\\(\\n\\)	/\\1 /g
 /^	/d
-/^[[ 	]]*[[\\#]]/d
+/^[[	 ]]*[[\\#]]/d
 /^VPATH *=/d
 s/^srcdir *=.*/srcdir = ./
 s/^top_srcdir *=.*/top_srcdir = ./

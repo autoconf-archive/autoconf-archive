@@ -101,16 +101,16 @@ dnl AX_SPEC_EXTRACT(shellvar [,specvar [,defaultvalue]])
 AC_DEFUN([AX_SPEC_EXTRACT],
 [
     if test ".$[]$1" = "." ; then
-    $1=`grep -i '^[[ 	]]*m4_ifval([$2],[$2],[$1])[[ 	]]*:' dnl
-  "$ax_spec_file" | sed -e 's/.*:[[ 	]]*//' dnl
-    -e 's/[[ 	]][[ 	]]*/ /g' -e 's/^ //' -e 's/ $[]//' -e 'q'`
+    $1=`grep -i '^[[	 ]]*m4_ifval([$2],[$2],[$1])[[	 ]]*:' dnl
+  "$ax_spec_file" | sed -e 's/.*:[[	 ]]*//' dnl
+    -e 's/[[	 ]][[	 ]]*/ /g' -e 's/^ //' -e 's/ $[]//' -e 'q'`
     if test ".$[]$1" = "." ; then
   for $1 in $2 $1 m4_tolower([$1]) ; do
     $1=`echo "$[]$1" | sed -e 's/^%//g'`
     $1=`sed dnl
-    -e  "/^%[[ 	]]*def[]ine[[ 	]][[ 	]]*$[]$1[[ 	]]/!d"  dnl
-    -e "s/^%[[ 	]]*def[]ine[[ 	]][[ 	]]*$[]$1[[ 	]]*//" dnl
-    -e 's/[[ 	]][[ 	]]*/ /' -e 's/ $[]//' -e 'q' $ax_spec_file`
+    -e  "/^%[[	 ]]*def[]ine[[	 ]][[	 ]]*$[]$1[[	 ]]/!d"  dnl
+    -e "s/^%[[	 ]]*def[]ine[[	 ]][[	 ]]*$[]$1[[	 ]]*//" dnl
+    -e 's/[[	 ]][[	 ]]*/ /' -e 's/ $[]//' -e 'q' $ax_spec_file`
     test ".$1" != "." && break
   done
     fi
@@ -118,15 +118,15 @@ AC_DEFUN([AX_SPEC_EXTRACT],
     .%{*)
     $1=`echo "$[]$1" | sed -e 's/%{//' -e 's/}$[]//'`
     $1=`sed dnl
-   -e  "/^%[[ 	]]*def[]ine[[ 	]][[ 	]]*$[]$1[[ 	]]/!d"  dnl
-   -e "s/^%[[ 	]]*def[]ine[[ 	]][[ 	]]*$[]$1[[ 	]]*//" dnl
-   -e 's/[[ 	]][[ 	]]*/ /' -e 's/ $[]//' -e 'q' $ax_spec_file` ;;
+   -e  "/^%[[	 ]]*def[]ine[[	 ]][[	 ]]*$[]$1[[	 ]]/!d"  dnl
+   -e "s/^%[[	 ]]*def[]ine[[	 ]][[	 ]]*$[]$1[[	 ]]*//" dnl
+   -e 's/[[	 ]][[	 ]]*/ /' -e 's/ $[]//' -e 'q' $ax_spec_file` ;;
     .%*)
     $1=`echo "$[]$1" | sed -e 's/%//'`
     $1=`sed dnl
-    -e  "/^%[[ 	]]*def[]ine[[ 	]][[ 	]]*$[]$1[[ 	]]/!d"  dnl
-    -e "s/^%[[ 	]]*def[]ine[[ 	]][[ 	]]*$[]$1[[ 	]]*//" dnl
-    -e 's/[[ 	]][[ 	]]*/ /' -e 's/ $[]//' -e 'q' $ax_spec_file` ;;
+    -e  "/^%[[	 ]]*def[]ine[[	 ]][[	 ]]*$[]$1[[	 ]]/!d"  dnl
+    -e "s/^%[[	 ]]*def[]ine[[	 ]][[	 ]]*$[]$1[[	 ]]*//" dnl
+    -e 's/[[	 ]][[	 ]]*/ /' -e 's/ $[]//' -e 'q' $ax_spec_file` ;;
   esac
   m4_ifval([$3],[test ".$[]$1" = "." && $1="$3"])
     fi # test ".$[]$1" = "."
