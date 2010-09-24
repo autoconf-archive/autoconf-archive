@@ -54,13 +54,13 @@ AX_INSTALL_FILES_CLEANFILES = \\
 	cd \"\$\$STAGING\" && find "." ! -type d -print | \\
 	\$(GAWK) ' \\
 	    /^\\.\\/usr\\/local\\/lib/ { \\
-	        sub( /\\.\\/usr\\/local\\/lib/, \"%%{_libdir}\" ); } \\
+		sub( /\\.\\/usr\\/local\\/lib/, \"%%{_libdir}\" ); } \\
 	    /^\\.\\/usr\\/local\\/bin/ { \\
-	        sub( /\\.\\/usr\\/local\\/bin/, \"%%{_bindir}\" ); } \\
+		sub( /\\.\\/usr\\/local\\/bin/, \"%%{_bindir}\" ); } \\
 	    /^\\.\\/usr\\/local\\/include/ { \\
 		sub( /\\.\\/usr\\/local\\/include/, \"%%{_includedir}\" ); } \\
 	    /^\\.\\/usr\\/local\\/share/ { \\
-	        sub( /\\.\\/usr\\/local\\/share/, \"%%{_datadir}\" ); } \\
+		sub( /\\.\\/usr\\/local\\/share/, \"%%{_datadir}\" ); } \\
 	    /^\\.\\/usr\\/local/ { \\
 		sub( /\\.\\/usr\\/local/, \"%%{_prefix}\" ); } \\
 	    /^\\./ { sub( /\\./, \"\" ); } \\

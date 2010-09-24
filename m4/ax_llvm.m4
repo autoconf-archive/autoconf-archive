@@ -64,12 +64,12 @@ AC_ARG_WITH([llvm],
 
 			AC_CACHE_CHECK(can compile with and link with llvm([$1]),
 						   ax_cv_llvm,
-	        [AC_LANG_PUSH([C++])
+		[AC_LANG_PUSH([C++])
 				 AC_LINK_IFELSE(AC_LANG_PROGRAM([[@%:@include <llvm/Module.h>
 													]],
-	                                   [[llvm::Module *M = new llvm::Module("test"); return 0;]]),
-	                   ax_cv_llvm=yes, ax_cv_llvm=no)
-	         AC_LANG_POP([C++])
+					   [[llvm::Module *M = new llvm::Module("test"); return 0;]]),
+			   ax_cv_llvm=yes, ax_cv_llvm=no)
+		 AC_LANG_POP([C++])
 			])
 
 			if test "x$ax_cv_llvm" = "xyes"; then

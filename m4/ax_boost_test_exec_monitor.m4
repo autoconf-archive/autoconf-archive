@@ -117,7 +117,7 @@ AC_DEFUN([AX_BOOST_TEST_EXEC_MONITOR],
                        link_test_exec_monitor="no"
                     fi
 
-			        if test "x$link_test_exec_monitor" = "xyes"; then
+				if test "x$link_test_exec_monitor" = "xyes"; then
                         BOOST_TEST_EXEC_MONITOR_LIB="-l$ax_lib"
                         AC_SUBST(BOOST_TEST_EXEC_MONITOR_LIB)
 					    break

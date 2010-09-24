@@ -94,7 +94,7 @@ AC_DEFUN([AX_BOOST_FILESYSTEM],
                                  [BOOST_FILESYSTEM_LIB="-l$ax_lib"; AC_SUBST(BOOST_FILESYSTEM_LIB) link_filesystem="yes"; break],
                                  [link_filesystem="no"])
 				done
-	            fi
+		    fi
             else
                for ax_lib in $ax_boost_user_filesystem_lib boost_filesystem-$ax_boost_user_filesystem_lib; do
 				      AC_CHECK_LIB($ax_lib, exit,

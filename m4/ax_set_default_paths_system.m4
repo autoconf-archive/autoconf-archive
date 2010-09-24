@@ -63,11 +63,11 @@ case "$prefix:$ac_default_prefix" in
         else
            case "$PATH" in
               *:/usr/local/cross-tools/$target_alias/bin:*)
-	          ac_default_prefix="/usr/local/cross-tools/$target_alias" ;;
+		  ac_default_prefix="/usr/local/cross-tools/$target_alias" ;;
               *:/usr/local/$target_alias/bin:*)
-	          ac_default_prefix="/usr/local/$target_alias" ;;
+		  ac_default_prefix="/usr/local/$target_alias" ;;
               *:/usr/local/$target_cpu-$target_os/bin:*)
-	          ac_default_prefix="/usr/local/$target_cpu-$target_os" ;;
+		  ac_default_prefix="/usr/local/$target_cpu-$target_os" ;;
               *)
                   ac_default_prefix="/programs" ;;
            esac
@@ -90,7 +90,7 @@ case ${result} in
      # help-files shall be set with --infodir, docprefix is datadir
      docprefix="${datadir}"
      mandir=`echo $mandir \
-	                     |sed -e 's:^..prefix./man$:${datadir}/info:'`
+			     |sed -e 's:^..prefix./man$:${datadir}/info:'`
      includedir=`echo $includedir \
                 |sed -e 's:^..prefix./include$:${datadir}/include:'`
      # other state files (but /etc) are moved to datadir

@@ -31,7 +31,7 @@ AC_DEFUN([AX_C_IFDEF],
   [AC_COMPILE_IFELSE([#ifndef $1
                       # error "Macro $1 is undefined!"
 		      /* For some compilers (eg. SGI's CC), #error is not
-		         enough...  */
+			 enough...  */
 		      please, do fail
 		      #endif],
 		     [$2], [$3])])

@@ -63,7 +63,7 @@ AC_DEFUN([AX_BOOST_PROGRAM_OPTIONS],
 		AC_CACHE_CHECK([whether the Boost::Program_Options library is available],
 					   ax_cv_boost_program_options,
 					   [AC_LANG_PUSH(C++)
-		                AC_COMPILE_IFELSE(AC_LANG_PROGRAM([[@%:@include <boost/program_options.hpp>
+				AC_COMPILE_IFELSE(AC_LANG_PROGRAM([[@%:@include <boost/program_options.hpp>
                                                           ]],
                                   [[boost::program_options::options_description generic("Generic options");
                                    return 0;]]),

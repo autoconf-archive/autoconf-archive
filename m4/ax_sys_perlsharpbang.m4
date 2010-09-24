@@ -69,9 +69,9 @@ AC_DEFUN([AX_SYS_PERLSHARPBANG],[dnl
    AC_ARG_WITH(perl-shebang,
                 AS_HELP_STRING([--with-perl-shebang],
            [override what perl thinks is the way for the kernel to start it (seldom needed)]dnl
-		           ),
+			   ),
 		[opt_perl_shebang="$withval"]dnl
-		            ,dnl
+			    ,dnl
 		[opt_perl_shebang="not_set"]dnl
     )dnl
 
@@ -79,8 +79,8 @@ AC_DEFUN([AX_SYS_PERLSHARPBANG],[dnl
 		   ax_cv_opt_perl_shebang,
 		  [ case "$opt_perl_shebang" in
 		      not_set  ) ax_cv_opt_perl_shebang=''
-		               ;;
-		         *     )
+			       ;;
+			 *     )
 	ax_cv_opt_perl_shebang=`echo "$opt_perl_shebang" | sed -e's|^#!\s*\(.*\)$|\1|'`
 		    esac
 		  ]dnl
@@ -100,17 +100,17 @@ AC_DEFUN([AX_SYS_PERLSHARPBANG],[dnl
    negclass="[[^']]"; dnl
 # must leave this comment:  m4 will remove the outer brackets for us, heheh
    AC_CACHE_CHECK([for kernel sharpbang invocation to start perl],
-	          ac_cv_sys_kernshrpbang_perl,
+		  ac_cv_sys_kernshrpbang_perl,
 	[_somian_kspb_perl=`echo "$_somian_shbangperl" | sed -ne"s|.*='\($negclass*\)';$|\1|p"`
 	if test "x$_somian_kspb_perl" == x
 	  then _somian_ksbp_warn_empty='durnit'
 	  else
 	  case "A$_somian_kspb_perl" in
-	         A#!*perl* )
+		 A#!*perl* )
            ac_cv_sys_kernshrpbang_perl=`echo "$_somian_kspb_perl" | sed -e's|#!\(.*\)$|\1|'`
 			;;
-	             A*    )  _somian_ksbp_warn_defau='trouble'
-		              ac_cv_sys_kernshrpbang_perl="$PERLINTERP"
+		     A*    )  _somian_ksbp_warn_defau='trouble'
+			      ac_cv_sys_kernshrpbang_perl="$PERLINTERP"
 	  esac
 	fi
 ])dnl Done with testing sharpbang

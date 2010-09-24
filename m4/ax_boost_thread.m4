@@ -135,7 +135,7 @@ AC_DEFUN([AX_BOOST_THREAD],
                         else
                            case "x$build_os" in
                               *bsd* )
-			        BOOST_LDFLAGS="-pthread $BOOST_LDFLAGS"
+				BOOST_LDFLAGS="-pthread $BOOST_LDFLAGS"
                               break;
                               ;;
                            esac

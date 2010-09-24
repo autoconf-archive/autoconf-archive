@@ -89,12 +89,12 @@ if test "x$AX_HAVE_INSTALL_FILES" = "xtrue"; then
 	    AC_ARG_VAR(PLATFORM_SUFFIX, [A short name for your platform that will be added to the name of the binary RPMs you may choose to create (by running make rpm).  e.g. rh71 for RedHat 7.1, lsb1.3 for a LSB 1.3 compliant system (SuSE 8.2 or RedHat 9), osx103 for OS X 10.3.x, etc])
 	    AC_MSG_CHECKING([rpm platform suffix])
             if test "x$PLATFORM_SUFFIX" != "x"; then
-	        AC_MSG_RESULT([$PLATFORM_SUFFIX])
-	        AC_SUBST([PLATFORM_SUFFIX])
+		AC_MSG_RESULT([$PLATFORM_SUFFIX])
+		AC_SUBST([PLATFORM_SUFFIX])
 		ax_dist_rpm_enabled=true
             else
-	        AC_MSG_RESULT([$PLATFORM_SUFFIX])
-	        AC_MSG_WARN([rpm support disabled... PLATFORM_SUFFIX not set])
+		AC_MSG_RESULT([$PLATFORM_SUFFIX])
+		AC_MSG_WARN([rpm support disabled... PLATFORM_SUFFIX not set])
 	    fi
         else
 	    AC_MSG_NOTICE([rpm support disabled... neither rpmbuild or rpm was found])
@@ -122,9 +122,9 @@ AX_DIST_RPM_CLEANFILES = \$(top_builddir)/RPMChangeLog \$(AX_INSTALL_FILES_CLEAN
                     if( stop ) exit; \\
 		    split( \$${AX_DOLLAR}1, date, \"-\" ); \\
 		    \$${AX_DOLLAR}1 = strftime( \"%%a %%b %%d %%Y\", \\
-			            mktime( date[ 1 ] \" \" date[ 2 ] \" \" date [ 3 ] \" 00 00 00\" ) ); \\
+				    mktime( date[ 1 ] \" \" date[ 2 ] \" \" date [ 3 ] \" 00 00 00\" ) ); \\
                     print \"* \" \$${AX_DOLLAR}0; } \\
-	        /Released \$(PACKAGE)-/ { \\
+		/Released \$(PACKAGE)-/ { \\
 		    gsub( /\$(PACKAGE)-/, \"\", \$${AX_DOLLAR}2 ); \\
 		    split( \$${AX_DOLLAR}2, ver, \".\" ); \\
 		    split( \"\$(VERSION)\", curr_ver, \".\" ); \\
@@ -239,14 +239,14 @@ srpm: \$(PACKAGE)-\$(VERSION)-0.src.rpm
 	done; \\
 	if test -d \"\$\$RPMDIR\"; then \\
 	    for dir in \`ls \"\$\$RPMDIR\"\`; do \\
-	        ls \"\$\${RPMDIR}\$\${dir}/\$(PACKAGE)-\$(VERSION)-0.\$\${dir}.rpm\" > /dev/null 2>&1; \\
+		ls \"\$\${RPMDIR}\$\${dir}/\$(PACKAGE)-\$(VERSION)-0.\$\${dir}.rpm\" > /dev/null 2>&1; \\
 		if test \"\$${AX_DOLLAR}?\" == \"0\"; then \\
 		    cp \"\$\${RPMDIR}\$\${dir}/\$(PACKAGE)-\$(VERSION)-0.\$\${dir}.rpm\" \"\$(top_builddir)/\$(PACKAGE)-\$(VERSION)-0.\$\${dir}.$PLATFORM_SUFFIX.rpm\"; \\
 		    found=true; \\
 		fi; \\
 	    done; \\
 	    if ! \$\$found; then \\
-	        echo \"RPM built but not found.\"; \\
+		echo \"RPM built but not found.\"; \\
 		echo \"Please copy it to \$(top_builddir) manually.\"; \\
 		exit 1; \\
 	    fi; \\
@@ -269,7 +269,7 @@ srpm: \$(PACKAGE)-\$(VERSION)-0.src.rpm
 	EXIT=${AX_DOLLAR}${AX_DOLLAR}?; \\
 	while test \"${AX_DOLLAR}${AX_DOLLAR}EXIT\" == \"0\"; do \\
 	    SRPMDIR=\`echo \"${AX_DOLLAR}${AX_DOLLAR}SRPMDIR\" | \$(GAWK) '/%%{.*}/ \\
-	        { match( ${AX_DOLLAR}${AX_DOLLAR}0, /%%{.*}/, macro ); \\
+		{ match( ${AX_DOLLAR}${AX_DOLLAR}0, /%%{.*}/, macro ); \\
 		  suffix = substr( ${AX_DOLLAR}${AX_DOLLAR}0, RSTART + RLENGTH ); \\
 		  gsub( /{|}/, \"\", macro[ 0 ] ); \\
 		  while( ( getline < \"rpmmacros\" ) > 0 ) \\
@@ -290,7 +290,7 @@ srpm: \$(PACKAGE)-\$(VERSION)-0.src.rpm
 		found=true; \\
 	    fi; \\
 	    if ! ${AX_DOLLAR}${AX_DOLLAR}found; then \\
-	        echo \"SRPM built but not found.\"; \\
+		echo \"SRPM built but not found.\"; \\
 		echo \"Please copy it to ${AX_DOLLAR}(top_builddir) manually.\"; \\
 		exit 1; \\
 	    fi; \\

@@ -276,7 +276,7 @@ ${AX_DOLLAR}(top_builddir)/commitlog: cvsalways
 	/^cvs diff: .* is a new entry/ { print \"\\\\t* ./\" ${AX_DOLLAR}${AX_DOLLAR}3 \" (added)\"; }\' \\
 	> \"${AX_DOLLAR}${AX_DOLLAR}CURR/commitlog.tmp\")
 	@if test -s commitlog.tmp; then \\
-	        echo \"\" >> commitlog.tmp; \\
+		echo \"\" >> commitlog.tmp; \\
 		if test -f ${AX_DOLLAR}(top_builddir)/commitlog; then \\
 			cat ${AX_DOLLAR}(top_builddir)/commitlog >> commitlog.tmp; \\
 		fi; \\
@@ -313,17 +313,17 @@ cvs-rm:
 	    NEWFILES=\"\"; \\
 	    for FILE in \$(FILES); do \\
 		if test -e \"${AX_DOLLAR}${AX_DOLLAR}FILE\"; then \\
-	            rm -i \"${AX_DOLLAR}${AX_DOLLAR}FILE\"; \\
-	        fi; \\
-	        if test ! -e \"${AX_DOLLAR}${AX_DOLLAR}FILE\"; then \\
-	            if test \"\$(srcdir)\" != \".\"; then \\
-	                FILE=\`echo \"${AX_DOLLAR}${AX_DOLLAR}FILE\" | \$(SED) -e \'s|^\$(srcdir)|.|\'\`; \\
-	            fi; \\
-	            NEWFILES=\"${AX_DOLLAR}${AX_DOLLAR}NEWFILES ${AX_DOLLAR}${AX_DOLLAR}FILE\"; \\
-	        fi; \\
+		    rm -i \"${AX_DOLLAR}${AX_DOLLAR}FILE\"; \\
+		fi; \\
+		if test ! -e \"${AX_DOLLAR}${AX_DOLLAR}FILE\"; then \\
+		    if test \"\$(srcdir)\" != \".\"; then \\
+			FILE=\`echo \"${AX_DOLLAR}${AX_DOLLAR}FILE\" | \$(SED) -e \'s|^\$(srcdir)|.|\'\`; \\
+		    fi; \\
+		    NEWFILES=\"${AX_DOLLAR}${AX_DOLLAR}NEWFILES ${AX_DOLLAR}${AX_DOLLAR}FILE\"; \\
+		fi; \\
 	    done; \\
 	    if test \"x${AX_DOLLAR}${AX_DOLLAR}NEWFILES\" != \"x\"; then \\
-	        (cd \"\$(srddir)\"; \$(CVS) remove ${AX_DOLLAR}${AX_DOLLAR}NEWFILES; ); \\
+		(cd \"\$(srddir)\"; \$(CVS) remove ${AX_DOLLAR}${AX_DOLLAR}NEWFILES; ); \\
 	    fi; \\
 	else \\
 	    echo \"You must specify the file(s) you want to remove from cvs by using\"; \\
@@ -339,14 +339,14 @@ cvs-add:
 	    NEWFILES=\"\"; \\
 	    for FILE in ${AX_DOLLAR}(FILES); do \\
 		if test -e \"${AX_DOLLAR}${AX_DOLLAR}FILE\"; then \\
-	            if test \"${AX_DOLLAR}(srcdir)\" != \".\"; then \\
-	                FILE=\`echo \"${AX_DOLLAR}${AX_DOLLAR}FILE\" | sed -e \'s|^${AX_DOLLAR}(srcdir)|.|\'\`; \\
-	            fi; \\
+		    if test \"${AX_DOLLAR}(srcdir)\" != \".\"; then \\
+			FILE=\`echo \"${AX_DOLLAR}${AX_DOLLAR}FILE\" | sed -e \'s|^${AX_DOLLAR}(srcdir)|.|\'\`; \\
+		    fi; \\
 		fi; \\
-	        NEWFILES=\"${AX_DOLLAR}${AX_DOLLAR}NEWFILES ${AX_DOLLAR}${AX_DOLLAR}FILE\"; \\
+		NEWFILES=\"${AX_DOLLAR}${AX_DOLLAR}NEWFILES ${AX_DOLLAR}${AX_DOLLAR}FILE\"; \\
 	    done; \\
 	    if test \"x${AX_DOLLAR}${AX_DOLLAR}NEWFILES\" != \"x\"; then \\
-	        cd \"${AX_DOLLAR}(srcdir)\"; \$(CVS) add ${AX_DOLLAR}${AX_DOLLAR}NEWFILES; \\
+		cd \"${AX_DOLLAR}(srcdir)\"; \$(CVS) add ${AX_DOLLAR}${AX_DOLLAR}NEWFILES; \\
 	    fi; \\
 	else \\
 	    echo \"You must specify the file(s) you want to add to cvs by using\"; \\

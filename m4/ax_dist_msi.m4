@@ -43,10 +43,10 @@ if test "x$MSI_SETUP_FILE" != "x"; then
 		  if test "x$enableval" != "x"; then
 		      if test "x$enableval" = "xyes"; then
 			  USING_DIST_MSI=true
-		          AC_MSG_NOTICE([dist-msi support enabled])
+			  AC_MSG_NOTICE([dist-msi support enabled])
 		      elif test "x$enableval" = "xno"; then
 			  USING_DIST_MSI=false
-		          AC_MSG_NOTICE([dist-msi support disabled])
+			  AC_MSG_NOTICE([dist-msi support disabled])
 		      fi
                   fi,
 		  USING_DIST_MSI=true

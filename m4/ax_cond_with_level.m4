@@ -91,11 +91,11 @@ if test "$WITH_VAR" != "no"; then
     8|8,*|ultra|ultra,*|experimental)				withval=8
                 VAR_WITHVAL=8 ;  VAR_WITHDEF="-D""VAR_WITH=8" ;;
     7|7,*|muchmore|somemanymore|somemanymore,*|all)		withval=7
-	        VAR_WITHVAL=7 ;  VAR_WITHDEF="-D""VAR_WITH=7" ;;
+		VAR_WITHVAL=7 ;  VAR_WITHDEF="-D""VAR_WITH=7" ;;
     6|6,*|manymore|manymore,*|most)				withval=6
                 VAR_WITHVAL=6 ;  VAR_WITHDEF="-D""VAR_WITH=6" ;;
     5|5,*|somemore|somemore,*|almost)				withval=5
-	        VAR_WITHVAL=5 ;  VAR_WITHDEF="-D""VAR_WITH=5" ;;
+		VAR_WITHVAL=5 ;  VAR_WITHDEF="-D""VAR_WITH=5" ;;
     4|4,*|more|more,*)						withval=4
 		VAR_WITHVAL=4 ;  VAR_WITHDEF="-D""VAR_WITH=4" ;;
     3|3,*|much|somemany,*)					withval=3
@@ -145,11 +145,11 @@ if test "$WITH_VAR" != "no"; then
     8|8,*|ultra|ultra,*|experimental)				withval=8
                 VAR_WITHVAL=8 ;  VAR_WITHDEF="-D""VAR_WITH=8" ;;
     7|7,*|muchmore|somemanymore|somemanymore,*|all)		withval=7
-	        VAR_WITHVAL=7 ;  VAR_WITHDEF="-D""VAR_WITH=7" ;;
+		VAR_WITHVAL=7 ;  VAR_WITHDEF="-D""VAR_WITH=7" ;;
     6|6,*|manymore|manymore,*|most)				withval=6
                 VAR_WITHVAL=6 ;  VAR_WITHDEF="-D""VAR_WITH=6" ;;
     5|5,*|somemore|somemore,*|almost)				withval=5
-	        VAR_WITHVAL=5 ;  VAR_WITHDEF="-D""VAR_WITH=5" ;;
+		VAR_WITHVAL=5 ;  VAR_WITHDEF="-D""VAR_WITH=5" ;;
     4|4,*|more|more,*)						withval=4
 		VAR_WITHVAL=4 ;  VAR_WITHDEF="-D""VAR_WITH=4" ;;
     3|3,*|much|somemany,*)					withval=3

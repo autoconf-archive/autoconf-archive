@@ -116,7 +116,7 @@ EOF
     AC_TRY_COMMAND(cat conftest.c 1>&AS_MESSAGE_LOG_FD)
 
     AS_IF([ AC_TRY_COMMAND($CC $2 $1 -c conftest.c 1>&AS_MESSAGE_LOG_FD) ],[
-	        AC_MSG_RESULT([yes])
+		AC_MSG_RESULT([yes])
 	$4
     ],[
 		AC_MSG_RESULT([no])
