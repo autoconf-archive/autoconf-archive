@@ -2,6 +2,10 @@
 #       http://www.gnu.org/software/autoconf-archive/ax_with_perl.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated in favor of AX_WITH_PROG.
+#
 # SYNOPSIS
 #
 #   AX_WITH_PERL([VALUE-IF-NOT-FOUND],[PATH])
@@ -28,8 +32,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
-AC_DEFUN([AX_WITH_PERL],[
+AU_DEFUN([AX_WITH_PERL],[
     AX_WITH_PROG(PERL,perl,$1,$2)
 ])

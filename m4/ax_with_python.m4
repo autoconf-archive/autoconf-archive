@@ -2,6 +2,10 @@
 #      http://www.gnu.org/software/autoconf-archive/ax_with_python.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated in favor of AX_WITH_PROG.
+#
 # SYNOPSIS
 #
 #   AX_WITH_PYTHON([VALUE-IF-NOT-FOUND],[PATH])
@@ -28,8 +32,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 14
+#serial 15
 
-AC_DEFUN([AX_WITH_PYTHON],[
+AU_DEFUN([AX_WITH_PYTHON],[
     AX_WITH_PROG(PYTHON,python,$1,$2)
 ])

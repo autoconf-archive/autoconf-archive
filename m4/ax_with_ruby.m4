@@ -2,6 +2,10 @@
 #       http://www.gnu.org/software/autoconf-archive/ax_with_ruby.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated in favor of AX_WITH_PROG.
+#
 # SYNOPSIS
 #
 #   AX_WITH_RUBY([VALUE-IF-NOT-FOUND],[PATH])
@@ -28,8 +32,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
-AC_DEFUN([AX_WITH_RUBY],[
+AU_DEFUN([AX_WITH_RUBY],[
     AX_WITH_PROG(RUBY,ruby,$1,$2)
 ])

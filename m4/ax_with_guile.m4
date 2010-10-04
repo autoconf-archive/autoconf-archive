@@ -2,6 +2,10 @@
 #       http://www.gnu.org/software/autoconf-archive/ax_with_guile.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated in favor of AX_WITH_PROG.
+#
 # SYNOPSIS
 #
 #   AX_WITH_GUILE([VALUE-IF-NOT-FOUND],[PATH])
@@ -28,8 +32,8 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
-AC_DEFUN([AX_WITH_GUILE],[
+AU_DEFUN([AX_WITH_GUILE],[
     AX_WITH_PROG(GUILE,guile,$1,$2)
 ])
