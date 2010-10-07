@@ -10,6 +10,11 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_CFLAGS_WARN_ALL has been cleaned up to avoid use of obsolete Autoconf
+  constructs. Also, a new variant of the macro, AX_FCFLAGS_WARN_ALL, has been
+  added to enable support for Fortran. Further details are available at
+  <http://savannah.gnu.org/patch/?7335>.
+
   AX_COMPILER_VENDOR has been extended to support the Clang compiler.
 
   Caching issues in AX_BLAS have been remedied. Further details are available
