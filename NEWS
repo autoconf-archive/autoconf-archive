@@ -10,6 +10,11 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_LIB_HDF5 has been extended to support requesting either a serial or a
+  parallel HDF5 installation. Furthermore, the macro can now detect whether or
+  not a Fortran-ready installation is present. Further details are available at
+  <http://savannah.gnu.org/patch/?7338>.
+
   AX_CFLAGS_WARN_ALL has been cleaned up to avoid use of obsolete Autoconf
   constructs. Also, a new variant of the macro, AX_FCFLAGS_WARN_ALL, has been
   added to enable support for Fortran. Further details are available at
