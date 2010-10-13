@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  A bug in AX_BOOST_BASE has been fixed that would cause BOOST_LDFLAGS to be
+  detected incorrectly. See <http://savannah.gnu.org/patch/?7337> for further
+  details.
+
   AX_LIB_HDF5 has been extended to support requesting either a serial or a
   parallel HDF5 installation. Furthermore, the macro can now detect whether or
   not a Fortran-ready installation is present. Further details are available at
