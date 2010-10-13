@@ -254,7 +254,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 ## ----------##
 ## Defaults. ##
@@ -262,7 +262,7 @@
 
 DX_ENV=""
 AC_DEFUN([DX_FEATURE_doc],  ON)
-AC_DEFUN([DX_FEATURE_dot],  ON)
+AC_DEFUN([DX_FEATURE_dot],  OFF)
 AC_DEFUN([DX_FEATURE_man],  OFF)
 AC_DEFUN([DX_FEATURE_html], ON)
 AC_DEFUN([DX_FEATURE_chm],  OFF)
@@ -382,6 +382,7 @@ fi
 # DX_XXX_FEATURE(DEFAULT_STATE)
 # -----------------------------
 AC_DEFUN([DX_DOXYGEN_FEATURE], [AC_DEFUN([DX_FEATURE_doc],  [$1])])
+AC_DEFUN([DX_DOT_FEATURE],     [AC_DEFUN([DX_FEATURE_dot], [$1])])
 AC_DEFUN([DX_MAN_FEATURE],     [AC_DEFUN([DX_FEATURE_man],  [$1])])
 AC_DEFUN([DX_HTML_FEATURE],    [AC_DEFUN([DX_FEATURE_html], [$1])])
 AC_DEFUN([DX_CHM_FEATURE],     [AC_DEFUN([DX_FEATURE_chm],  [$1])])

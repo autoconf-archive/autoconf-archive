@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_PROG_DOXYGEN has been extended to implement "DX_DOT_FEATURE(ON|OFF)". This
+  feature was documented, but it didn't actually exist. Further details are
+  available at <http://savannah.gnu.org/patch/?7340>.
+
   A bug in AX_BOOST_BASE has been fixed that would cause BOOST_LDFLAGS to be
   detected incorrectly. See <http://savannah.gnu.org/patch/?7337> for further
   details.
