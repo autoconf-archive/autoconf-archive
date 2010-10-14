@@ -543,3 +543,11 @@
   * [ ] vl_lib_readline.html
   * [ ] vl_prog_cc_warnings.html
   * [ ] vl_prog_fig2dev.html
+* TODO Make the contents NEWS file visible on the web
+
+  We could convert the NEWS file into texinfo and incorporate it into the
+  documentation.
+
+  Alternatively, the relevant bits for every release could be added to the news
+  tracker on Savannah as well. That wouldn't visualize the history on the main
+  Web site, though.
