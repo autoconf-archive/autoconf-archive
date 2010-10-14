@@ -10,6 +10,12 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The macros AX_WITH_GUILE, AX_WITH_PERL, AX_WITH_PYTHON, and AX_WITH_RUBY are
+  considered obsolete and will be deleted from the archive in the foreseeable
+  future. Use of obsolete macros can be identified by running autoconf(1) with
+  the flag -Wobsolete. Furthermore, the standard utility autoupdate(1) provides
+  assistance with updating existing "configure.ac" files.
+
   AX_PROG_DOXYGEN has been extended to implement "DX_DOT_FEATURE(ON|OFF)". This
   feature was documented, but it didn't actually exist. Further details are
   available at <http://savannah.gnu.org/patch/?7340>.
