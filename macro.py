@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-from __future__ import with_statement
+
 from contextlib import closing
 import re
 import os.path as path
@@ -70,7 +70,7 @@ class Macro:
     # drop initial header (if present)
     header = re.sub(r"^\n*# =+\n#[^\n]*\n# =+\n(#\n)+", '', header, 1)
     # split buffer into lines and drop initial "# " prefix in the process
-    header = map(lambda l: l[2:], header.split('\n'))
+    header = [l[2:] for l in header.split('\n')]
     # set defaults
     self.authors = []
     # parse each section in the remaining list
