@@ -8,7 +8,7 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
-* Noteworthy changes in release ?.? (????-??-??) [?]
+* Noteworthy changes in release 2010.10.26 (2010-10-26) [stable]
 
   The macros AX_WITH_GUILE, AX_WITH_PERL, AX_WITH_PYTHON, and AX_WITH_RUBY are
   considered obsolete and will be deleted from the archive in the foreseeable
