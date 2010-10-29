@@ -10,6 +10,8 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The new macro AX_CHECK_LIBRARY has been added.
+
   AX_JNI_INCLUDE_DIR has been fixed to work correctly on MacOS X 10.6.4, where
   the header <jni.h> is a symbolic link. Further details are available at
   <http://savannah.gnu.org/patch/?7360>.
