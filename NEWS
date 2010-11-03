@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_JNI_INCLUDE_DIR has been fixed to work correctly on MacOS X 10.6.4, where
+  the header <jni.h> is a symbolic link. Further details are available at
+  <http://savannah.gnu.org/patch/?7360>.
+
 * Noteworthy changes in release 2010.10.26 (2010-10-26) [stable]
 
   The macros AX_WITH_GUILE, AX_WITH_PERL, AX_WITH_PYTHON, and AX_WITH_RUBY are
