@@ -32,7 +32,7 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2010 Diego Elio Petteno <flameeyes@gmail.com>
+#   Copyright (c) 2010 Diego Elio Petteno` <flameeyes@gmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -60,7 +60,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_CHECK_LIBRARY], [
   AC_ARG_VAR($1[_CPPFLAGS], [C preprocessor flags for ]$1[ headers])
