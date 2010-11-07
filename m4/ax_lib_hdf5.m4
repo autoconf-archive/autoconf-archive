@@ -42,8 +42,8 @@
 #   If HDF5 is disabled or not found, this macros sets with_hdf5="no" and
 #   with_hdf5_fortran="no".
 #
-#   Your configuration script can test $with_hdf to take any further actions.
-#   HDF5_{C,CPP,LD}FLAGS may be used when building with C or C++.
+#   Your configuration script can test $with_hdf to take any further
+#   actions. HDF5_{C,CPP,LD}FLAGS may be used when building with C or C++.
 #   HDF5_F{FLAGS,LIBS} should be used when building Fortran applications.
 #
 #   To use the macro, one would code one of the following in "configure.ac"
@@ -72,7 +72,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_LIB_HDF5], [
 

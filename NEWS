@@ -10,6 +10,18 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The new macro AX_LIB_CGAL_CORE has been added. Further details are available
+  at <http://savannah.gnu.org/patch/?7370>.
+
+  The new macro AX_CHECK_LIBRARY has been added. Further details are available
+  at <http://savannah.gnu.org/patch/?7363>.
+
+  AX_JNI_INCLUDE_DIR has been fixed to work correctly on MacOS X 10.6.4, where
+  the header <jni.h> is a symbolic link. Further details are available at
+  <http://savannah.gnu.org/patch/?7360>.
+
+* Noteworthy changes in release 2010.10.26 (2010-10-26) [stable]
+
   The macros AX_WITH_GUILE, AX_WITH_PERL, AX_WITH_PYTHON, and AX_WITH_RUBY are
   considered obsolete and will be deleted from the archive in the foreseeable
   future. Use of obsolete macros can be identified by running autoconf(1) with

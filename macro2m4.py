@@ -54,12 +54,12 @@ m = Macro(m4File)
 for i in range(len(m.description)):
   para = m.description[i]
   if para[0][0].isspace():
-    spaces = min(map(countSpaces, para))
+    spaces = min(list(map(countSpaces, para)))
     if spaces > 1:
-      m.description[i] = map(lambda l: '  ' + l[spaces:], para)
+      m.description[i] = ['  ' + l[spaces:] for l in para]
 url = "http://www.gnu.org/software/autoconf-archive/%s.html" % m.name
 lineLen = max(len(url) + 2, 75)
-m.url = "# %s\n# %s\n# %s" % ('=' * lineLen, (' ' * ((lineLen - len(url)) / 2)) + url, '=' * lineLen)
+m.url = "# %s\n# %s\n# %s" % ('=' * lineLen, (' ' * int((lineLen - len(url)) / 2)) + url, '=' * lineLen)
 if m.__dict__.get("obsolete"):
   m.obsolete = "# OBSOLETE MACRO\n#\n" + '\n'.join(map(formatParagraph, m.obsolete)) + "\n#\n"
 else:
