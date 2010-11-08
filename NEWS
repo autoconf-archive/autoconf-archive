@@ -10,6 +10,12 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The new macro AX_ASM_INLINE has been added. It's purpose is to determine
+  whether the C compiler supports in-line assembler instructions.
+
+  The new marco AX_FORCEINLINE has been added. It's purpose is to determine
+  whether the C compiler supports forced in-lining.
+
   The new macro AX_LIB_CGAL_CORE has been added. Further details are available
   at <http://savannah.gnu.org/patch/?7370>.
 

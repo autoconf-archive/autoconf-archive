@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_asm_inline.html
+#       http://www.gnu.org/software/autoconf-archive/ax_asm_inline.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -8,9 +8,9 @@
 #
 # DESCRIPTION
 #
-#   Tests for C compiler support of inline assembly instructions.
-#   If inline assembly is supported, this macro #defines
-#   ASM_INLINE to be the appropriate keyword.
+#   Tests for C compiler support of inline assembly instructions. If inline
+#   assembly is supported, this macro #defines ASM_INLINE to be the
+#   appropriate keyword.
 #
 # LICENSE
 #
@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_ASM_INLINE], [
   AC_LANG_PUSH([C])
