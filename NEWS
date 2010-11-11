@@ -10,10 +10,14 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The macros AX_CXX_CPPFLAGS_STD_LANG, AX_CXX_CXXFLAGS_STD_LANG and
+  AX_CXX_LDFLAGS_STD_LANG have been modified to use AX_COMPILER_VENDOR
+  for compiler detection.
+
   The new macro AX_ASM_INLINE has been added. It's purpose is to determine
   whether the C compiler supports in-line assembler instructions.
 
-  The new marco AX_FORCEINLINE has been added. It's purpose is to determine
+  The new macro AX_FORCEINLINE has been added. It's purpose is to determine
   whether the C compiler supports forced in-lining.
 
   The new macro AX_LIB_CGAL_CORE has been added. Further details are available
