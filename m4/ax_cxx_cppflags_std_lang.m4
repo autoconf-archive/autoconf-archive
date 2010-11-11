@@ -22,12 +22,14 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_CXX_CPPFLAGS_STD_LANG], [AX_CXX_CPPFLAGS_STD_LANG])
 AC_DEFUN([AX_CXX_CPPFLAGS_STD_LANG],
-  [AC_REQUIRE([AX_CXX_COMPILER_VENDOR])
+  [AC_LANG_ASSERT([C++])
+   AC_REQUIRE([AX_COMPILER_VENDOR])
    case "$ax_cv_cxx_compiler_vendor" in
+     dec)
      compaq)
       # By default, Compaq CXX has an iostream classes implementation
       # that is _not_ in the `std' namespace.
