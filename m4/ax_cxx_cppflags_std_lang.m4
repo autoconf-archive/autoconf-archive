@@ -29,8 +29,7 @@ AC_DEFUN([AX_CXX_CPPFLAGS_STD_LANG],
   [AC_LANG_ASSERT([C++])
    AC_REQUIRE([AX_COMPILER_VENDOR])
    case "$ax_cv_cxx_compiler_vendor" in
-     dec)
-     compaq)
+     dec|compaq)
       # By default, Compaq CXX has an iostream classes implementation
       # that is _not_ in the `std' namespace.
       $1="$$1 -D__USE_STD_IOSTREAM=1";;
