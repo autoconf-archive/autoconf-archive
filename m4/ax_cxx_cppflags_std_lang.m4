@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 9
 
 AU_ALIAS([AC_CXX_CPPFLAGS_STD_LANG], [AX_CXX_CPPFLAGS_STD_LANG])
 AC_DEFUN([AX_CXX_CPPFLAGS_STD_LANG],
