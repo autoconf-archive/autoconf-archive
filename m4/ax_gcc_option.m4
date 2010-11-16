@@ -2,6 +2,11 @@
 #       http://www.gnu.org/software/autoconf-archive/ax_gcc_option.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated in favor of AX_C_CHECK_FLAG, AX_CXX_CHECK_FLAG,
+#   AX_CPP_CHECK_FLAG, AX_CXXCPP_CHECK_FLAG and AX_LD_CHECK_FLAG.
+#
 # SYNOPSIS
 #
 #   AX_GCC_OPTION(OPTION,EXTRA-OPTIONS,TEST-PROGRAM,ACTION-IF-SUCCESSFUL,ACTION-IF-NOT-SUCCESFUL)
@@ -11,9 +16,6 @@
 #   AX_GCC_OPTION checks wheter gcc accepts the passed OPTION. If it accepts
 #   the OPTION then ACTION-IF-SUCCESSFUL will be executed, otherwise
 #   ACTION-IF-UNSUCCESSFUL.
-#
-#   NOTE: This macro will be obsoleted by AX_C_CHECK_FLAG AX_CXX_CHECK_FLAG,
-#   AX_CPP_CHECK_FLAG, AX_CXXCPP_CHECK_FLAG and AX_LD_CHECK_FLAG.
 #
 #   A typical usage should be the following one:
 #
@@ -90,7 +92,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 12
+#serial 13
 
 AC_DEFUN([AX_GCC_OPTION], [
   AC_REQUIRE([AC_PROG_CC])
