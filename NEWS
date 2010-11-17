@@ -10,6 +10,11 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The macro AX_GCC_OPTION has been marked obsolete and will be deleted from the
+  archive in the foreseeable future. Its functionality is now provided by
+  AX_C_CHECK_FLAG, AX_CXX_CHECK_FLAG, AX_CPP_CHECK_FLAG, AX_CXXCPP_CHECK_FLAG,
+  and AX_LD_CHECK_FLAG.
+
   The license of the following macros has been updated from GPLv2 (with
   Autoconf exception) to GPLv3 (with Autoconf exception):
   AX_ARG_WITH_PATH_STYLE, AX_C_BIGENDIAN_CROSS, AX_C_DECLARE_BLOCK,
