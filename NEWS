@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_CXX_COMPILE_STDCXX_0X has been improved to support GCC 4.5.x. Please refer
+  to <http://savannah.gnu.org/patch/?7387> for further details.
+
   The macro AX_GCC_OPTION has been marked obsolete and will be deleted from the
   archive in the foreseeable future. Its functionality is now provided by
   AX_C_CHECK_FLAG, AX_CXX_CHECK_FLAG, AX_CPP_CHECK_FLAG, AX_CXXCPP_CHECK_FLAG,
