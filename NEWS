@@ -10,6 +10,11 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The new macro AX_CXX_RESTRICT_THIS has been added. It's purpose is to
+  determine whether the C++ compiler supports qualifying a member function with
+  a restricted "this" pointer. See <http://savannah.gnu.org/patch/?7397> for
+  further details.
+
   AX_CXX_COMPILE_STDCXX_0X has been improved to support GCC 4.5.x. Please refer
   to <http://savannah.gnu.org/patch/?7387> for further details.
 
