@@ -62,13 +62,6 @@
   * [ ] sc_space_tab
   * [ ] sc_useless_cpp_parens
 
-* TODO Generate serial lines automatically
-
-  The script [[file:set-serial.sh][set-serial.sh]] uses the git repository to determine an appropriate
-  serial number (i.e. the number of commits that have occurred) and patches
-  that number into the m4 file. The solution seems to work nicely, but it isn't
-  integrated into the build process yet.
-
 * TODO Don't repeat license texts in Texinfo for every macro
 
   The Texinfo documentation has a section "license" for every macro that

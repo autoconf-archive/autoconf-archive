@@ -18,7 +18,7 @@ for n in "$@"; do
   # Update the serial number in the m4 file.
   set-serial-number "$n" "$revision"
   # Check whether git regards the file as "modified" now. If it does,
-  # the serial nmuber needs to be bumped one more time.
+  # the serial number needs to be bumped one more time.
   if ! git diff --quiet --exit-code -- "$n"; then
     set-serial-number "$n" "$((revision + 1))"
   fi

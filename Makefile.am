@@ -46,4 +46,5 @@ dist-hook:
 	  $(top_srcdir)/gen-authors.sh >$(distdir)/au-t;								\
 	  rm -f $(distdir)/AUTHORS;											\
 	  mv $(distdir)/au-t $(distdir)/AUTHORS;									\
+	  $(top_srcdir)/set-serial.sh $(distdir)/m4/*.m4;								\
 	fi
