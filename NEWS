@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The robustness of AX_PROG_FLEX and AX_PROG_BISON has been improved. See
+  <http://savannah.gnu.org/patch/?7405> for further details.
+
   A bug in AX_EXT_HAVE_LIB has been fixed that prevented the macro from being
   called several times. See <http://savannah.gnu.org/patch/?7403> for further
   details.
