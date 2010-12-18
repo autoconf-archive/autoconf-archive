@@ -16,9 +16,9 @@ echo ''
 
 cat AUTHORS-m4.tmp AUTHORS-git.tmp \
   | sed -e 's/ *<.*>.*//' \
-	-e 's/^Bogdan$/Bogdan Drozdowski/' \
-	-e 's/Fabien COELHO/Fabien Coelho/' \
-	-e 's/Dustin Mitchell/Dustin J. Mitchell/' \
+        -e 's/^Bogdan$/Bogdan Drozdowski/' \
+        -e 's/Fabien COELHO/Fabien Coelho/' \
+        -e 's/Dustin Mitchell/Dustin J. Mitchell/' \
         -e 's/Alain BARBET/Alain Barbet/' \
         -e 's/Mats Kindahl of Sun Microsystems/Mats Kindahl/' \
         -e 's/Perceval ANICHINI/Perceval Anichini/' \
