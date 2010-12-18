@@ -23,6 +23,10 @@ cat AUTHORS-m4.tmp AUTHORS-git.tmp \
         -e 's/Mats Kindahl of Sun Microsystems/Mats Kindahl/' \
         -e 's/Perceval ANICHINI/Perceval Anichini/' \
         -e 's/Rafa Rzepecki/Rafal Rzepecki/' \
+        -e 's/Diego Elio Pettenò/Diego Elio Petteno`/' \
+        -e 's/Václav Haisman/Vaclav Haisman/' \
+        -e 's/Cristian Rodríguez/Cristian Rodriguez/' \
+        -e 's/Mikael Lepistö/Mikael Lepisto/' \
         -e '/Zmanda Inc./d' \
   | sort \
   | uniq
