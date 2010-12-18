@@ -43,16 +43,38 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_CHECK_JAVA_HOME], [AX_CHECK_JAVA_HOME])
-AC_DEFUN([AX_CHECK_JAVA_HOME],[
-TRY_JAVA_HOME=`ls -dr /usr/java/* 2> /dev/null | head -n 1`
-if test x$TRY_JAVA_HOME != x; then
-	PATH=$PATH:$TRY_JAVA_HOME/bin
-fi
-AC_PATH_PROG(JAVA_PATH_NAME, java)
-if test x$JAVA_PATH_NAME != x; then
-	JAVA_HOME=`echo $JAVA_PATH_NAME | sed "s/\(.*\)[[/]]bin[[/]]java.*/\1/"`
-fi;dnl
+
+AC_DEFUN([AX_CHECK_JAVA_HOME],
+[AC_MSG_CHECKING([for JAVA_HOME])
+# We used a fake loop so that we can use "break" to exit when the result
+# is found.
+while true
+do
+  # If the user defined JAVA_HOME, don't touch it.
+  test "${JAVA_HOME+set}" = set && break
+
+  # On Mac OS X 10.5 and following, run /usr/libexec/java_home to get
+  # the value of JAVA_HOME to use.
+  # (http://developer.apple.com/library/mac/#qa/qa2001/qa1170.html).
+  JAVA_HOME=`/usr/libexec/java_home 2>/dev/null`
+  test x"$JAVA_HOME" != x && break
+
+  # See if we can find the java executable, and compute from there.
+  TRY_JAVA_HOME=`ls -dr /usr/java/* 2> /dev/null | head -n 1`
+  if test x$TRY_JAVA_HOME != x; then
+    PATH=$PATH:$TRY_JAVA_HOME/bin
+  fi
+  AC_PATH_PROG([JAVA_PATH_NAME], [java])
+  if test "x$JAVA_PATH_NAME" != x; then
+    JAVA_HOME=`echo $JAVA_PATH_NAME | sed "s/\(.*\)[[/]]bin[[/]]java.*/\1/"`
+    break
+  fi
+
+  AC_MSG_NOTICE([Could not compute JAVA_HOME])
+  break
+done
+AC_MSG_RESULT([$JAVA_HOME])
 ])

@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_CHECK_JAVA_HOME has been extended to deal correctly with MacOS X. See
+  <http://savannah.gnu.org/patch/?7408> for further details.
+
   The robustness of AX_PROG_FLEX and AX_PROG_BISON has been improved. See
   <http://savannah.gnu.org/patch/?7405> for further details.
 
