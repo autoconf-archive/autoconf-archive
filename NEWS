@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  A bug in AX_EXT_HAVE_LIB has been fixed that prevented the macro from being
+  called several times. See <http://savannah.gnu.org/patch/?7403> for further
+  details.
+
   The new macro AX_CXX_RESTRICT_THIS has been added. It's purpose is to
   determine whether the C++ compiler supports qualifying a member function with
   a restricted "this" pointer. See <http://savannah.gnu.org/patch/?7397> for
