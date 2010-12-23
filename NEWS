@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_CHECK_ZLIB has been bug-fixed to honor the --with-zlib option. Further
+  details are available at <http://savannah.gnu.org/patch/?7411>.
+
   AX_CHECK_JAVA_HOME has been extended to deal correctly with MacOS X. See
   <http://savannah.gnu.org/patch/?7408> for further details.
 

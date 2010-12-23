@@ -10,9 +10,9 @@
 #
 #   This macro searches for an installed zlib library. If nothing was
 #   specified when calling configure, it searches first in /usr/local and
-#   then in /usr. If the --with-zlib=DIR is specified, it will try to find
-#   it in DIR/include/zlib.h and DIR/lib/libz.a. If --without-zlib is
-#   specified, the library is not searched at all.
+#   then in /usr, /opt/local and /sw. If the --with-zlib=DIR is specified,
+#   it will try to find it in DIR/include/zlib.h and DIR/lib/libz.a. If
+#   --without-zlib is specified, the library is not searched at all.
 #
 #   If either the header file (zlib.h) or the library (libz) is not found,
 #   the configuration exits on error, asking for a valid zlib installation
@@ -29,6 +29,7 @@
 # LICENSE
 #
 #   Copyright (c) 2008 Loic Dachary <loic@senga.org>
+#   Copyright (c) 2010 Bastien Chevreux <bach@chevreux.org>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -56,7 +57,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([CHECK_ZLIB], [AX_CHECK_ZLIB])
 AC_DEFUN([AX_CHECK_ZLIB],
@@ -69,10 +70,11 @@ AC_ARG_WITH(zlib,
                     /usr/local or /usr if not found in /usr/local]
   --without-zlib to disable zlib usage completely],
 [if test "$withval" != no ; then
+  zlib_places="/usr/local /usr /opt/local /sw"
   AC_MSG_RESULT(yes)
   if test -d "$withval"
   then
-    ZLIB_HOME="$withval"
+    zlib_places="$withval $zlib_places"
   else
     AC_MSG_WARN([Sorry, $withval does not exist, checking usual places])
   fi
@@ -81,17 +83,24 @@ else
 fi],
 [AC_MSG_RESULT(yes)])
 
-ZLIB_HOME=/usr/local
-if test ! -f "${ZLIB_HOME}/include/zlib.h"
-then
-        ZLIB_HOME=/usr
-fi
-
 #
 # Locate zlib, if wanted
 #
-if test -n "${ZLIB_HOME}"
+if test -n "${zlib_places}"
 then
+	# check the user supplied or any other more or less 'standard' place:
+	#   Most UNIX systems      : /usr/local and /usr
+	#   MacPorts / Fink on OSX : /opt/local respectively /sw
+	for ZLIB_HOME in ${zlib_places} ; do
+	  if test -f "${ZLIB_HOME}/include/zlib.h"; then break; fi
+	  ZLIB_HOME=""
+	done
+
+	# if zlib.h was nowhere to be found, give a notice and bail out
+	if test ! -n "${ZLIB_HOME}"; then
+          AC_MSG_ERROR(No zlib.h in any include directory of ${zlib_places}: either specify a valid zlib installation with --with-zlib=DIR or disable zlib usage with --without-zlib)
+	fi
+
         ZLIB_OLD_LDFLAGS=$LDFLAGS
         ZLIB_OLD_CPPFLAGS=$LDFLAGS
         LDFLAGS="$LDFLAGS -L${ZLIB_HOME}/lib"
