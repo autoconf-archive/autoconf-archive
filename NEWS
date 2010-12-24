@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_BOOST_BASE has been extended to support non-x86 64-bit architectures, such
+  as PPC64 or Sparc64, too. See <http://savannah.gnu.org/patch/?7428> for
+  further details.
+
   AX_CHECK_ZLIB has been bug-fixed to honor the --with-zlib option. Further
   details are available at <http://savannah.gnu.org/patch/?7411>.
 
