@@ -8,6 +8,8 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
+* Noteworthy changes in release ?.? (????-??-??) [?]
+
 * Noteworthy changes in release 2011.01.02 (2011-01-02) [stable]
 
   AX_BOOST_BASE has been extended to support non-x86 64-bit architectures, such
