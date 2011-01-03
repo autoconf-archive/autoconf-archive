@@ -10,6 +10,8 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Fixed a regression in AX_EXT_HAVE_LIB.
+
 * Noteworthy changes in release 2011.01.02 (2011-01-02) [stable]
 
   AX_BOOST_BASE has been extended to support non-x86 64-bit architectures, such

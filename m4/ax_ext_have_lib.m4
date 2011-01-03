@@ -38,7 +38,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_EXT_HAVE_LIB],
 [
@@ -61,7 +61,7 @@ LIBS=$ext_func_search_save_LIBS
 LDFLAGS=$ext_func_save_ldflags
 ])
 if eval `echo 'test x${'ext_cv${ext_haslib_cvdir}_haslib_$2'}' = "xyes"`; then
-new_libs="-l$2 $4"
+new_libs="-l$2"
 new_ldflags="-L${dir} ${new_ldflags}"
 ext_lib_found="yes"
 fi
