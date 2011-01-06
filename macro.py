@@ -1,11 +1,7 @@
 #! /usr/bin/env python
 
-
 from contextlib import closing
-import re
-import os.path as path
-import sys
-import textwrap
+import os, sys, subprocess, re, textwrap
 
 def loadFile(path):
   with closing( open(path) ) as fd:
@@ -60,8 +56,8 @@ def collapseText(lines, width = 72):
   return body
 
 class Macro:
-  def __init__(self, filePath):
-    self.name = path.splitext(path.basename(filePath))[0]
+  def __init__(self, filePath, computeSerialNumber=False):
+    self.name = os.path.splitext(os.path.basename(filePath))[0]
     # header and body are separated by an empty line.
     (header,body) = loadFile(filePath).split("\n\n", 1)
     self.body = body.split('\n')
@@ -110,6 +106,24 @@ class Macro:
       else:
         raise Exception("%s: unknown section %r in macro" % (filePath, key))
       self.__dict__[key] = body
+    # determine the macro's serial number
+    if computeSerialNumber:     # compute the number from git
+      logMessages = subprocess.check_output(["git", "log", "--oneline", "--", filePath], bufsize=1)
+      logLines = logMessages.rstrip(b'\n').split(b"\n")
+      self.serial = len(logLines)
+      modified = subprocess.call(["git", "diff", "--quiet", "--exit-code", "HEAD", "--", filePath])
+      if modified:
+        self.serial += 1
+    else:                       # trust the m4 file
+      assert self.body[0].startswith("#serial")
+      self.serial = int(self.body[0].split()[1])
+    # drop the original serial number from the body
+    self.body = [ l for l in self.body if not l.startswith("#serial") ]
+    # drop whitespace from begining and end of body
+    while self.body[0] == "":
+      self.body.pop(0)
+    while self.body[-1] == "":
+      self.body.pop(-1)
 
   def __repr__(self):
     return repr(self.__dict__)

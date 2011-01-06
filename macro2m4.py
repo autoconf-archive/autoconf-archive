@@ -22,7 +22,10 @@ tmpl = """\
 #
 %(license)s
 
-%(body)s"""
+#serial %(serial)d
+
+%(body)s
+"""
 
 def formatParagraph(para):
   assert para
@@ -50,7 +53,7 @@ if len(sys.argv) != 3:
   raise Exception("invalid command line syntax: %s" % ' '.join(map(repr, sys.argv)))
 (m4File,outFile) = sys.argv[1:]
 assert outFile != m4File
-m = Macro(m4File)
+m = Macro(m4File, computeSerialNumber=True)
 for i in range(len(m.description)):
   para = m.description[i]
   if para[0][0].isspace():
