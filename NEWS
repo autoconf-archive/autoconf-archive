@@ -12,6 +12,10 @@
 
   Fixed a regression in AX_EXT_HAVE_LIB.
 
+  The new macro AX_BERKELEY_DB_CXX has been added. It is a variant of
+  AX_BERKELEY_DB that has been adapted to check for C++ headers and libraries.
+  See <http://savannah.gnu.org/patch/?7446> for further details.
+
 * Noteworthy changes in release 2011.01.02 (2011-01-02) [stable]
 
   AX_BOOST_BASE has been extended to support non-x86 64-bit architectures, such
