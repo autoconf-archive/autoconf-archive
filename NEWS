@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_PROG_SPLINT has been added. The macro provides Automake support for the
+  splint utility. See <http://savannah.gnu.org/patch/?7453> for further
+  details.
+
   Fixed a regression in AX_EXT_HAVE_LIB.
 
   The new macro AX_BERKELEY_DB_CXX has been added. It is a variant of
