@@ -8,8 +8,9 @@
 #
 # DESCRIPTION
 #
-#   Check for program splint. This macro should be use together with
-#   automake.
+#   Check for program splint, the static C code checking tool. The splint
+#   URL is given by http://www.splint.org. This macro should be use together
+#   with automake.
 #
 #   Enables following environment variables:
 #
@@ -40,10 +41,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_PROG_SPLINT],
 [
+AC_REQUIRE([AX_ADD_AM_MACRO_STATIC])
 AC_ARG_VAR([SPLINT], [splint executable])
 AC_ARG_VAR([SPLINTFLAGS], [splint flags])
 if test "x$SPLINT" = "x"; then
@@ -73,11 +75,12 @@ endef
 
 SPLINT_BIN=\$(subst /,_,\$(PROGRAMS:\$(EXEEXT)=))
 SPLINT_LIB=\$(subst /,_,\$(LIBRARIES:.a=_a))
-SPLINTFILES=\$(addsuffix _splint.log,\$(SPLINT_LIB) \$(SPLINT_BIN))
+SPLINT_LTLIB=\$(subst /,_,\$(LTLIBRARIES:.la=_la))
+SPLINTFILES=\$(addsuffix _splint.log,\$(SPLINT_LIB) \$(SPLINT_BIN) \$(SPLINT_LTLIB))
 
 splint-check: all \$(SPLINTFILES)
 
-\$(foreach bin, \$(SPLINT_BIN) \$(SPLINT_LIB),\$(eval \$(call splint_rules,\$(bin))))
+\$(foreach bin, \$(SPLINT_BIN) \$(SPLINT_LIB) \$(SPLINT_LTLIB),\$(eval \$(call splint_rules,\$(bin))))
 
 
 
