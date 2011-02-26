@@ -5,6 +5,7 @@
 # SYNOPSIS
 #
 #   AX_WITH_LUA
+#   AX_PROG_LUA [(MIN-VERSION, [TOO-BIG-VERSION])]
 #   AX_LUA_VERSION (MIN-VERSION, [TOO-BIG-VERSION])
 #   AX_LUA_HEADERS
 #   AX_LUA_HEADERS_VERSION (MIN-VERSION, [TOO-BIG-VERSION])
@@ -13,10 +14,15 @@
 #
 # DESCRIPTION
 #
-#   Detect Lua interpreter, headers and libraries, optionally enforcing a
-#   particular range of versions.
+#   Detect Lua interpreter, headers and libraries, optionally
+#   enforcing a particular range of versions. If only one version is
+#   given, then exactly this version is required.
 #
-#   AX_WITH_LUA searches for Lua interpreter and defines LUA if found.
+#   AX_WITH_LUA searches for a Lua interpreter and defines LUA if found.
+#
+#   AX_PROG_LUA searches for a Lua interpreter in the given version
+#   range, if any, and defines LUA if found, or stops with an error if
+#   not.
 #
 #   AX_LUA_VERSION checks that the version of Lua is at least MIN-VERSION
 #   and less than TOO-BIG-VERSION, if given.
@@ -75,7 +81,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 11
 
 dnl Helper function to declare extra options
 AC_DEFUN([_AX_LUA_OPTS],
@@ -85,10 +91,21 @@ AC_DEFUN([_AX_LUA_OPTS],
 
 AC_DEFUN([AX_WITH_LUA],
   [_AX_LUA_OPTS
-  lua_search_path="$PATH"
   if test "x$LUA" = x; then
-    AC_PATH_PROG([LUA], [lua$with_lua_suffix], [], [$lua_search_path])
+    AC_PATH_PROG(LUA, lua$with_lua_suffix)
   fi])dnl
+
+AC_DEFUN([AX_PROG_LUA],
+  [lua_min_version=$1
+  lua_max_version=$2
+  AX_WITH_LUA
+  if test -z "$LUA"; then
+    AC_MSG_FAILURE([Lua not found])
+  fi
+  if test -n "$lua_min_version"; then
+    AX_LUA_VERSION($lua_min_version, $lua_max_version)
+  fi
+  AC_SUBST(LUA)])dnl
 
 dnl Helper function to parse minimum & maximum versions
 AC_DEFUN([_AX_LUA_VERSIONS],
@@ -98,13 +115,13 @@ AC_DEFUN([_AX_LUA_VERSIONS],
     lua_min_version=0
   fi
   if test "x$lua_max_version" = x; then
-    lua_max_version=1000
+    lua_max_version=$(($lua_min_version + 1))
   fi])
 
 AC_DEFUN([AX_LUA_VERSION],
   [_AX_LUA_OPTS
-  AC_MSG_CHECKING([Lua version is in range $1 <= v < $2])
   _AX_LUA_VERSIONS($1, $2)
+  AC_MSG_CHECKING([Lua version is in range $1 <= v < $2])
   if test "x$LUA" != x; then
     lua_text_version=$(LUA_INIT= $LUA -v 2>&1 | head -n 1 | cut -d' ' -f2)
     case $lua_text_version in
@@ -154,8 +171,8 @@ AC_DEFUN([AX_LUA_LIBS],
 
 AC_DEFUN([AX_LUA_HEADERS_VERSION],
   [_AX_LUA_OPTS
-  AC_MSG_CHECKING([lua.h version is in range $1 <= v < $2])
   _AX_LUA_VERSIONS($1, $2)
+  AC_MSG_CHECKING([lua.h version is in range $1 <= v < $2])
   LUA_OLD_LIBS="$LIBS"
   LIBS="$LIBS $LUA_LIB"
   LUA_OLD_CPPFLAGS="$CPPFLAGS"
