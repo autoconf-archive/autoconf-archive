@@ -14,15 +14,14 @@
 #
 # DESCRIPTION
 #
-#   Detect Lua interpreter, headers and libraries, optionally
-#   enforcing a particular range of versions. If only one version is
-#   given, then exactly this version is required.
+#   Detect Lua interpreter, headers and libraries, optionally enforcing a
+#   particular range of versions. If only one version is given, then exactly
+#   this version is required.
 #
 #   AX_WITH_LUA searches for a Lua interpreter and defines LUA if found.
 #
-#   AX_PROG_LUA searches for a Lua interpreter in the given version
-#   range, if any, and defines LUA if found, or stops with an error if
-#   not.
+#   AX_PROG_LUA searches for a Lua interpreter in the given version range,
+#   if any, and defines LUA if found, or stops with an error if not.
 #
 #   AX_LUA_VERSION checks that the version of Lua is at least MIN-VERSION
 #   and less than TOO-BIG-VERSION, if given.
@@ -81,7 +80,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 dnl Helper function to declare extra options
 AC_DEFUN([_AX_LUA_OPTS],
