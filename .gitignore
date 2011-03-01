@@ -2,6 +2,7 @@
 /stage/*
 
 # byte-compiled version of the python module
+/__pycache__/*
 /macro.pyc
 
 # the html tree is maintained in a separate, CVS-based repository
