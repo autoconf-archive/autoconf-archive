@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_PKG_SWIG has been extended to find SWIG v2 as installed by Ubuntu Maverick
+  and Ubuntu Natty.
+
   AX_PROG_SPLINT has been added. The macro provides Automake support for the
   splint utility. See <http://savannah.gnu.org/patch/?7453> for further
   details.
