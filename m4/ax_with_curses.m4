@@ -58,7 +58,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 9
 
 AU_ALIAS([MP_WITH_CURSES], [AX_WITH_CURSES])
 AC_DEFUN([AX_WITH_CURSES],
@@ -67,7 +67,7 @@ AC_DEFUN([AX_WITH_CURSES],
    ax_save_LIBS="$LIBS"
    AC_ARG_WITH(ncursesw, [AS_HELP_STRING([--without-ncursesw],
         [Don't use ncursesw (wide character support)])],,)
-   if test ! "$CURSES_LIB" -a "$with_ncurses" != no -a "$with_ncursesw" != "no"
+   if test ! "$CURSES_LIB" && test "$with_ncurses" != no && test "$with_ncursesw" != "no"
    then
        AC_CACHE_CHECK([for working ncursesw], ax_cv_ncursesw,
          [LIBS="$ax_save_LIBS -lncursesw"
@@ -86,7 +86,7 @@ AC_DEFUN([AX_WITH_CURSES],
          ax_cv_curses=yes
        fi
    fi
-   if test ! "$CURSES_LIB" -a "$with_ncurses" != no -a "$with_ncursesw" != yes
+   if test ! "$CURSES_LIB" && test "$with_ncurses" != no && test "$with_ncursesw" != yes
    then
      AC_CACHE_CHECK([for working ncurses], ax_cv_ncurses,
        [LIBS="$ax_save_LIBS -lncurses"
@@ -101,7 +101,7 @@ AC_DEFUN([AX_WITH_CURSES],
        ax_cv_curses=yes
      fi
    fi
-   if test "$ax_cv_curses" != yes -a "$with_ncurses" != yes -a "$with_ncursesw" != yes
+   if test "$ax_cv_curses" != yes && test "$with_ncurses" != yes && test "$with_ncursesw" != yes
    then
      if test ! "$CURSES_LIB"
      then
