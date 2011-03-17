@@ -10,6 +10,11 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_PATH_GENERIC has been extended to allow setting LIBRARY_LIBS and
+  LIBRARY_CFLAGS variables on configure command line or in the environment to
+  override the normal values returned by `library-config --libs` and `--cflags`
+  respectively. See <http://savannah.gnu.org/patch/?7490> for further details.
+
   AX_LIB_EXPAT has been modified to save the found library in EXPAT_LIBS
   instead if EXPAT_LDFLAGS. This is necessary to avoid build failures when
   linking with --as-needed. See <http://savannah.gnu.org/patch/?7489> for
