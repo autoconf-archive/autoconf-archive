@@ -14,7 +14,7 @@
 #
 #   Most simplest libraries can be checked against simply through the
 #   presence of a header file and a library to link to. This macro allows to
-#   wrap around the test s that it doesn't have to be recreated each time.
+#   wrap around the test so that it doesn't have to be recreated each time.
 #
 #   Rather than define --with-$LIBRARY arguments, it uses variables in the
 #   same way that PKG_CHECK_MODULES does. It doesn't, though, use the same
@@ -60,7 +60,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_CHECK_LIBRARY], [
   AC_ARG_VAR($1[_CPPFLAGS], [C preprocessor flags for ]$1[ headers])
