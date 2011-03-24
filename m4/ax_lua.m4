@@ -80,7 +80,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 12
+#serial 13
 
 dnl Helper function to declare extra options
 AC_DEFUN([_AX_LUA_OPTS],
@@ -140,7 +140,7 @@ AC_DEFUN([AX_LUA_VERSION],
       lua_version=-1
       ;;
     esac
-    if test $lua_version -ge "$lua_min_version" -a $lua_version -lt "$lua_max_version"; then
+    if test $lua_version -ge "$lua_min_version" && test $lua_version -lt "$lua_max_version"; then
       AC_MSG_RESULT([yes])
     else
       AC_MSG_RESULT([no])
@@ -196,6 +196,6 @@ int main()
 
 AC_DEFUN([AX_LUA_READLINE],
   [AX_LIB_READLINE
-  if test -n "$ac_cv_header_readline_readline_h" -a -n "$ac_cv_header_readline_history_h"; then
+  if test -n "$ac_cv_header_readline_readline_h" && test -n "$ac_cv_header_readline_history_h"; then
     LUA_LIBS_CFLAGS="-DLUA_USE_READLINE $LUA_LIBS_CFLAGS"
   fi])dnl
