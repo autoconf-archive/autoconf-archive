@@ -88,7 +88,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 dnl Calls AX_PATH_QT_DIRECT (contained in this file) as a subroutine.
 AU_ALIAS([BNV_HAVE_QT], [AX_HAVE_QT])
@@ -101,20 +101,24 @@ AC_DEFUN([AX_HAVE_QT],
   AC_MSG_CHECKING(for Qt)
 
   AC_ARG_WITH([Qt-dir],
-    [  --with-Qt-dir=DIR       DIR is equal to $QTDIR if you have followed the
-                          installation instructions of Trolltech. Header
-                          files are in DIR/include, binary utilities are
-                          in DIR/bin. The library is in DIR/lib, unless
-			  --with-Qt-lib-dir is also set.])
+              AS_HELP_STRING([--with-Qt-dir=DIR],
+                             [DIR is equal to $QTDIR if you have followed the
+                              installation instructions of Trolltech. Header
+                              files are in DIR/include, binary utilities are
+                              in DIR/bin. The library is in DIR/lib, unless
+                              --with-Qt-lib-dir is also set.]))
   AC_ARG_WITH([Qt-include-dir],
-    [  --with-Qt-include-dir=DIR
-                          Qt header files are in DIR])
+              AS_HELP_STRING([--with-Qt-include-dir=DIR],
+                             [Qt header files are in DIR]))
   AC_ARG_WITH([Qt-bin-dir],
-    [  --with-Qt-bin-dir=DIR   Qt utilities such as moc and uic are in DIR])
+              AS_HELP_STRING([--with-Qt-bin-dir=DIR],
+                             [Qt utilities such as moc and uic are in DIR]))
   AC_ARG_WITH([Qt-lib-dir],
-    [  --with-Qt-lib-dir=DIR   The Qt library is in DIR])
+              AS_HELP_STRING([--with-Qt-lib-dir=DIR],
+                             [The Qt library is in DIR]))
   AC_ARG_WITH([Qt-lib],
-    [  --with-Qt-lib=LIB       Use -lLIB to link with the Qt library])
+              AS_HELP_STRING([--with-Qt-lib=LIB],
+                             [Use -lLIB to link with the Qt library]))
   if test x"$with_Qt_dir" = x"no" ||
      test x"$with_Qt_include-dir" = x"no" ||
      test x"$with_Qt_bin_dir" = x"no" ||
