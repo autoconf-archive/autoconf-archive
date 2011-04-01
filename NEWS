@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Changed AX_HAVE_QT to list libraries last, not first. Other previously used
+  ordering will fail when --as-needed is in effect. See
+  <http://savannah.gnu.org/patch/?7514> for further details.
+
 * Noteworthy changes in release 2011.03.17 (2011-03-17) [stable]
 
   AX_PATH_GENERIC has been extended to allow setting LIBRARY_LIBS and

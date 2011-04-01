@@ -88,7 +88,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 dnl Calls AX_PATH_QT_DIRECT (contained in this file) as a subroutine.
 AU_ALIAS([BNV_HAVE_QT], [AX_HAVE_QT])
@@ -309,7 +309,7 @@ EOF
             echo "configure: could not compile:" >&AC_FD_CC
             cat ax_qt_main.$ac_ext >&AC_FD_CC
           else
-            ax_try_4="$CXX $QT_LIBS $LIBS -o ax_qt_main ax_qt_main.o moc_ax_qt_test.o >/dev/null 2>/dev/null"
+            ax_try_4="$CXX -o ax_qt_main ax_qt_main.o moc_ax_qt_test.o $QT_LIBS $LIBS >/dev/null 2>/dev/null"
             AC_TRY_EVAL(ax_try_4)
             if test x"$ac_status" != x0; then
               echo "$ax_err_4" >&AC_FD_CC
