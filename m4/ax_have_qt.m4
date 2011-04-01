@@ -88,7 +88,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 dnl Calls AX_PATH_QT_DIRECT (contained in this file) as a subroutine.
 AU_ALIAS([BNV_HAVE_QT], [AX_HAVE_QT])
@@ -320,7 +320,7 @@ EOF
         fi
       fi
     ])dnl AC_CACHE_VAL ax_cv_qt_test_result
-    AC_MSG_RESULT([$ax_cv_qt_test_result]);
+    AC_MSG_RESULT([$ax_cv_qt_test_result])
     if test x"$ax_cv_qt_test_result" = "xfailure"; then
       AC_MSG_ERROR([Failed to find matching components of a complete
                   Qt installation. Try using more options,
