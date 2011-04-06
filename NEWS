@@ -10,6 +10,8 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_LUA has been improved to work correctly with LuaJIT.
+
   Changed AX_HAVE_QT to list libraries last, not first. Other previously used
   ordering will fail when --as-needed is in effect. See
   <http://savannah.gnu.org/patch/?7514> for further details.
