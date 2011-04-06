@@ -88,7 +88,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 dnl Calls AX_PATH_QT_DIRECT (contained in this file) as a subroutine.
 AU_ALIAS([BNV_HAVE_QT], [AX_HAVE_QT])
@@ -498,7 +498,7 @@ AC_DEFUN([AX_PATH_QT_DIRECT],
               # We can link with no special library directory.
               ax_qt_lib_dir=
             ], [
-              # Leave ax_qt_lib_dir defined
+             : # Leave ax_qt_lib_dir defined
             ])
           ])
         ])
