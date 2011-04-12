@@ -26,21 +26,21 @@ Downloads
 
 Here are the compressed sources:
 
-* autoconf-archive-2011.03.17.tar.gz_   (836 KB)
-* autoconf-archive-2011.03.17.tar.bz2_  (615 KB)
-* autoconf-archive-2011.03.17.tar.xz_   (479 KB)
+* autoconf-archive-2011.04.12.tar.gz_   (836 KB)
+* autoconf-archive-2011.04.12.tar.bz2_  (615 KB)
+* autoconf-archive-2011.04.12.tar.xz_   (479 KB)
 
 Here are the GPG detached signatures:
 
-* autoconf-archive-2011.03.17.tar.gz.sig_
-* autoconf-archive-2011.03.17.tar.bz2.sig_
-* autoconf-archive-2011.03.17.tar.xz.sig_
+* autoconf-archive-2011.04.12.tar.gz.sig_
+* autoconf-archive-2011.04.12.tar.bz2.sig_
+* autoconf-archive-2011.04.12.tar.xz.sig_
 
 You can use either of the above signature files to verify that the corresponding
 file (without the .sig suffix) is intact. First, be sure to download both the
 .sig file and the corresponding tarball. Then, run a command like this::
 
-  gpg --verify autoconf-archive-2011.03.17.tar.gz.sig
+  gpg --verify autoconf-archive-2011.04.12.tar.gz.sig
 
 If that command fails because you don't have the required public key, then run
 this command to import it::
@@ -70,9 +70,9 @@ GNU Autoconf Archive. If not, see <http://www.gnu.org/licenses/>.
 .. References
 .. ..........
 ..
-.. _autoconf-archive-2011.03.17.tar.gz : http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2011.03.17.tar.gz
-.. _autoconf-archive-2011.03.17.tar.bz2: http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2011.03.17.tar.bz2
-.. _autoconf-archive-2011.03.17.tar.xz:  http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2011.03.17.tar.xz
-.. _autoconf-archive-2011.03.17.tar.gz.sig:  http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2011.03.17.tar.gz.sig
-.. _autoconf-archive-2011.03.17.tar.bz2.sig: http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2011.03.17.tar.bz2.sig
-.. _autoconf-archive-2011.03.17.tar.xz.sig:  http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2011.03.17.tar.xz.sig
+.. _autoconf-archive-2011.04.12.tar.gz : http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2011.04.12.tar.gz
+.. _autoconf-archive-2011.04.12.tar.bz2: http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2011.04.12.tar.bz2
+.. _autoconf-archive-2011.04.12.tar.xz:  http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2011.04.12.tar.xz
+.. _autoconf-archive-2011.04.12.tar.gz.sig:  http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2011.04.12.tar.gz.sig
+.. _autoconf-archive-2011.04.12.tar.bz2.sig: http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2011.04.12.tar.bz2.sig
+.. _autoconf-archive-2011.04.12.tar.xz.sig:  http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2011.04.12.tar.xz.sig
