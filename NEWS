@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_VAR_TIMEZONE_EXTERNALS, AX_FUNC_WHICH_GETHOSTBYNAME_R, and AX_PTHREAD have
+  been updated to conform with Autoconf 2.68
+
 * Noteworthy changes in release 2011.04.12 (2011-04-12) [stable]
 
   AX_LUA has been improved to work correctly with LuaJIT.
