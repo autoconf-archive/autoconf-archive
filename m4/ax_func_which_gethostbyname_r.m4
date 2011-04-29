@@ -16,6 +16,10 @@
 #     HAVE_FUNC_GETHOSTBYNAME_R_5
 #     HAVE_FUNC_GETHOSTBYNAME_R_3
 #
+#   as well as
+#
+#     HAVE_GETHOSTBYNAME_R
+#
 #   If used in conjunction with gethostname.c, the API demonstrated in
 #   test.c can be used regardless of which gethostbyname_r() is available.
 #   These example files can be found at
@@ -24,7 +28,7 @@
 #   based on David Arnold's autoconf suggestion in the threads faq
 #
 #   Originally named "AC_caolan_FUNC_WHICH_GETHOSTBYNAME_R". Rewritten for
-#   Autoconf 2.5x by Daniel Richard G.
+#   Autoconf 2.5x, and updated for 2.68 by Daniel Richard G.
 #
 # LICENSE
 #
@@ -57,14 +61,14 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_FUNC_WHICH_GETHOSTBYNAME_R], [
 
-    AC_LANG_PUSH(C)
+    AC_LANG_PUSH([C])
     AC_MSG_CHECKING([how many arguments gethostbyname_r() takes])
 
-    AC_CACHE_VAL(ac_cv_func_which_gethostbyname_r, [
+    AC_CACHE_VAL([ac_cv_func_which_gethostbyname_r], [
 
 ################################################################
 
@@ -79,14 +83,12 @@ ac_cv_func_which_gethostbyname_r=unknown
 # netdb.h is not declaring the function, and the compiler is thereby
 # assuming an implicit prototype. In which case, we're out of luck.
 #
-AC_COMPILE_IFELSE(
-    AC_LANG_PROGRAM(
-	[[#include <netdb.h>]],
-	[[
-	    char *name = "www.gnu.org";
-	    (void)gethostbyname_r(name) /* ; */
-	]]),
-    ac_cv_func_which_gethostbyname_r=no)
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([#include <netdb.h>],
+        [
+            char *name = "www.gnu.org";
+            (void)gethostbyname_r(name) /* ; */
+        ])],
+    [ac_cv_func_which_gethostbyname_r=no])
 
 #
 # SIX ARGUMENTS
@@ -95,18 +97,16 @@ AC_COMPILE_IFELSE(
 
 if test "$ac_cv_func_which_gethostbyname_r" = "unknown"; then
 
-AC_COMPILE_IFELSE(
-    AC_LANG_PROGRAM(
-	[[#include <netdb.h>]],
-	[[
-	    char *name = "www.gnu.org";
-	    struct hostent ret, *retp;
-	    char buf@<:@1024@:>@;
-	    int buflen = 1024;
-	    int my_h_errno;
-	    (void)gethostbyname_r(name, &ret, buf, buflen, &retp, &my_h_errno) /* ; */
-	]]),
-    ac_cv_func_which_gethostbyname_r=six)
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([#include <netdb.h>],
+        [
+            char *name = "www.gnu.org";
+            struct hostent ret, *retp;
+            char buf@<:@1024@:>@;
+            int buflen = 1024;
+            int my_h_errno;
+            (void)gethostbyname_r(name, &ret, buf, buflen, &retp, &my_h_errno) /* ; */
+        ])],
+    [ac_cv_func_which_gethostbyname_r=six])
 
 fi
 
@@ -117,18 +117,16 @@ fi
 
 if test "$ac_cv_func_which_gethostbyname_r" = "unknown"; then
 
-AC_COMPILE_IFELSE(
-    AC_LANG_PROGRAM(
-	[[#include <netdb.h>]],
-	[[
-	    char *name = "www.gnu.org";
-	    struct hostent ret;
-	    char buf@<:@1024@:>@;
-	    int buflen = 1024;
-	    int my_h_errno;
-	    (void)gethostbyname_r(name, &ret, buf, buflen, &my_h_errno) /* ; */
-	]]),
-    ac_cv_func_which_gethostbyname_r=five)
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([#include <netdb.h>],
+        [
+            char *name = "www.gnu.org";
+            struct hostent ret;
+            char buf@<:@1024@:>@;
+            int buflen = 1024;
+            int my_h_errno;
+            (void)gethostbyname_r(name, &ret, buf, buflen, &my_h_errno) /* ; */
+        ])],
+    [ac_cv_func_which_gethostbyname_r=five])
 
 fi
 
@@ -139,16 +137,14 @@ fi
 
 if test "$ac_cv_func_which_gethostbyname_r" = "unknown"; then
 
-AC_COMPILE_IFELSE(
-    AC_LANG_PROGRAM(
-	[[#include <netdb.h>]],
-	[[
-	    char *name = "www.gnu.org";
-	    struct hostent ret;
-	    struct hostent_data data;
-	    (void)gethostbyname_r(name, &ret, &data) /* ; */
-	]]),
-    ac_cv_func_which_gethostbyname_r=three)
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([#include <netdb.h>],
+        [
+            char *name = "www.gnu.org";
+            struct hostent ret;
+            struct hostent_data data;
+            (void)gethostbyname_r(name, &ret, &data) /* ; */
+        ])],
+    [ac_cv_func_which_gethostbyname_r=three])
 
 fi
 
@@ -157,19 +153,29 @@ fi
 ]) dnl end AC_CACHE_VAL
 
 case "$ac_cv_func_which_gethostbyname_r" in
+    three|five|six)
+    AC_DEFINE([HAVE_GETHOSTBYNAME_R], [1],
+              [Define to 1 if you have some form of gethostbyname_r().])
+    ;;
+esac
+
+case "$ac_cv_func_which_gethostbyname_r" in
     three)
     AC_MSG_RESULT([three])
-    AC_DEFINE(HAVE_FUNC_GETHOSTBYNAME_R_3)
+    AC_DEFINE([HAVE_FUNC_GETHOSTBYNAME_R_3], [1],
+              [Define to 1 if you have the three-argument form of gethostbyname_r().])
     ;;
 
     five)
     AC_MSG_RESULT([five])
-    AC_DEFINE(HAVE_FUNC_GETHOSTBYNAME_R_5)
+    AC_DEFINE([HAVE_FUNC_GETHOSTBYNAME_R_5], [1],
+              [Define to 1 if you have the five-argument form of gethostbyname_r().])
     ;;
 
     six)
     AC_MSG_RESULT([six])
-    AC_DEFINE(HAVE_FUNC_GETHOSTBYNAME_R_6)
+    AC_DEFINE([HAVE_FUNC_GETHOSTBYNAME_R_6], [1],
+              [Define to 1 if you have the six-argument form of gethostbyname_r().])
     ;;
 
     no)
@@ -185,6 +191,6 @@ case "$ac_cv_func_which_gethostbyname_r" in
     ;;
 esac
 
-AC_LANG_POP(C)
+AC_LANG_POP
 
 ]) dnl end AC_DEFUN
