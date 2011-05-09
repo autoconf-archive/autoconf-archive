@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_BOOST_THREAD: Two bugs have been fixed that prevented the macro from being
+  used in cross-compilation environments for Windows on Unix.
+
   AX_VAR_TIMEZONE_EXTERNALS, AX_FUNC_WHICH_GETHOSTBYNAME_R, and AX_PTHREAD have
   been updated to conform with Autoconf 2.68
 

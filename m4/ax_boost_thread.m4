@@ -30,7 +30,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 22
+#serial 23
 
 AC_DEFUN([AX_BOOST_THREAD],
 [
@@ -68,9 +68,9 @@ AC_DEFUN([AX_BOOST_THREAD],
         [AC_LANG_PUSH([C++])
 			 CXXFLAGS_SAVE=$CXXFLAGS
 
-			 if test "x$build_os" = "xsolaris" ; then
+			 if test "x$host_os" = "xsolaris" ; then
 				 CXXFLAGS="-pthreads $CXXFLAGS"
-			 elif test "x$build_os" = "xming32" ; then
+			 elif test "x$host_os" = "xmingw32" ; then
 				 CXXFLAGS="-mthreads $CXXFLAGS"
 			 else
 				CXXFLAGS="-pthread $CXXFLAGS"
@@ -83,9 +83,9 @@ AC_DEFUN([AX_BOOST_THREAD],
              AC_LANG_POP([C++])
 		])
 		if test "x$ax_cv_boost_thread" = "xyes"; then
-           if test "x$build_os" = "xsolaris" ; then
+           if test "x$host_os" = "xsolaris" ; then
 			  BOOST_CPPFLAGS="-pthreads $BOOST_CPPFLAGS"
-		   elif test "x$build_os" = "xming32" ; then
+		   elif test "x$host_os" = "xmingw32" ; then
 			  BOOST_CPPFLAGS="-mthreads $BOOST_CPPFLAGS"
 		   else
 			  BOOST_CPPFLAGS="-pthread $BOOST_CPPFLAGS"
@@ -97,7 +97,7 @@ AC_DEFUN([AX_BOOST_THREAD],
             BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
 
 			LDFLAGS_SAVE=$LDFLAGS
-                        case "x$build_os" in
+                        case "x$host_os" in
                           *bsd* )
                                LDFLAGS="-pthread $LDFLAGS"
                           break;
@@ -133,7 +133,7 @@ AC_DEFUN([AX_BOOST_THREAD],
 			if test "x$link_thread" = "xno"; then
 				AC_MSG_ERROR(Could not link against $ax_lib !)
                         else
-                           case "x$build_os" in
+                           case "x$host_os" in
                               *bsd* )
 				BOOST_LDFLAGS="-pthread $BOOST_LDFLAGS"
                               break;
