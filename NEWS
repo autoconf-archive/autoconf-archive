@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The new macro AX_CHECK_MYSQL has been added. It is geared specifically toward
+  MySQL plugin development. See <http://savannah.gnu.org/patch/?7553> for
+  further details.
+
   AX_PTHREAD has been extended to check for PTHREAD_PRIO_INHERIT. See
   <http://savannah.gnu.org/patch/?7552> for further details.
 
