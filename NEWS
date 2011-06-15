@@ -10,6 +10,12 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The new macros AX_PROG_CC_MPI, AX_PROG_CXX_MPI, AX_PROG_F77_MPI, and
+  AX_PROG_FC_MPI address several shortcomings found in AX_MPI. Further details
+  can be found at
+  <http://lists.gnu.org/archive/html/autoconf-archive-maintainers/2011-05/msg00004.html>,
+  <http://lists.gnu.org/archive/html/autoconf-archive-maintainers/2011-06/msg00003.html>.
+
   AX_BOOST_THREAD: Two bugs have been fixed that prevented the macro from being
   used in cross-compilation environments for Windows on Unix.
 
