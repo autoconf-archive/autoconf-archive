@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Several several bugs in AX_CHECK_DEFINE have been fixed. See
+  <http://savannah.gnu.org/patch/?7551> for further details.
+
   The new macros AX_PROG_CC_MPI, AX_PROG_CXX_MPI, AX_PROG_F77_MPI, and
   AX_PROG_FC_MPI address several shortcomings found in AX_MPI. Further details
   can be found at

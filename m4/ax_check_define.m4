@@ -44,32 +44,34 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
-AC_DEFUN([AC_CHECK_DEFINED],[
+AU_ALIAS([AC_CHECK_DEFINED], [AC_CHECK_DEFINE])
+AC_DEFUN([AC_CHECK_DEFINE],[
 AS_VAR_PUSHDEF([ac_var],[ac_cv_defined_$1])dnl
 AC_CACHE_CHECK([for $1 defined], ac_var,
-AC_TRY_COMPILE(,[
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]], [[
   #ifdef $1
   int ok;
   #else
   choke me
   #endif
-],AS_VAR_SET(ac_var, yes),AS_VAR_SET(ac_var, no)))
+]])],[AS_VAR_SET(ac_var, yes)],[AS_VAR_SET(ac_var, no)]))
 AS_IF([test AS_VAR_GET(ac_var) != "no"], [$2], [$3])dnl
 AS_VAR_POPDEF([ac_var])dnl
 ])
 
-AC_DEFUN([AX_CHECK_DEFINED],[
-AS_VAR_PUSHDEF([ac_var],[ac_cv_defined_$2])dnl
-AC_CACHE_CHECK([for $1 defined], ac_var,
-AC_TRY_COMPILE($1,[
-  #ifndef $2
+AU_ALIAS([AX_CHECK_DEFINED], [AX_CHECK_DEFINE])
+AC_DEFUN([AX_CHECK_DEFINE],[
+AS_VAR_PUSHDEF([ac_var],[ac_cv_defined_$2_$1])dnl
+AC_CACHE_CHECK([for $2 defined in $1], ac_var,
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <$1>]], [[
+  #ifdef $2
   int ok;
   #else
   choke me
   #endif
-],AS_VAR_SET(ac_var, yes),AS_VAR_SET(ac_var, no)))
+]])],[AS_VAR_SET(ac_var, yes)],[AS_VAR_SET(ac_var, no)]))
 AS_IF([test AS_VAR_GET(ac_var) != "no"], [$3], [$4])dnl
 AS_VAR_POPDEF([ac_var])dnl
 ])
