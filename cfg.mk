@@ -16,7 +16,7 @@ M4DIR           := $(srcdir)/m4
 STAGEDIR        := $(srcdir)/stage
 DOCDIR          := $(srcdir)/doc
 
-M4_FILES        := $(wildcard $(M4DIR)/*.m4)
+M4_FILES        := $(sort $(wildcard $(M4DIR)/*.m4))
 MACROS          := $(patsubst $(M4DIR)/%.m4,%, $(M4_FILES))
 TEXI_FILES      := $(patsubst %,$(DOCDIR)/%.texi,$(MACROS))
 
