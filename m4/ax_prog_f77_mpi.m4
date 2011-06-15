@@ -72,7 +72,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_PROG_F77_MPI], [
 AC_PREREQ(2.50)
@@ -111,8 +111,10 @@ AS_IF([test x"$_ax_prog_f77_mpi_mpi_wanted" = xno],
 
     # Check for header
     AS_IF([test x"$_ax_prog_f77_mpi_mpi_found" = xyes], [
-      AC_MSG_CHECKING([for mpi.h])
-      AC_COMPILE_IFELSE([AC_LANG_PROGRAM(,[include 'mpif.h'])],
+      AC_MSG_CHECKING([for mpif.h])
+      AC_COMPILE_IFELSE([AC_LANG_PROGRAM(,[[
+      include 'mpif.h'
+]])],
         [ AC_MSG_RESULT(yes)],
         [ AC_MSG_RESULT(no)
 	  _ax_prog_f77_mpi_mpi_found=no
