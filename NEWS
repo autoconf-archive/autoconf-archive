@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_PTHREAD has been extended to check for PTHREAD_PRIO_INHERIT. See
+  <http://savannah.gnu.org/patch/?7552> for further details.
+
   Several several bugs in AX_CHECK_DEFINE have been fixed. See
   <http://savannah.gnu.org/patch/?7551> for further details.
 
