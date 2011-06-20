@@ -16,6 +16,10 @@
 #   This code is inspired from KDE_CHECK_COMPILER_FLAG macro. Thanks to
 #   Bogdan Drozdowski <bogdandr@op.pl> for testing and bug fixes.
 #
+#   This macro is deprecated. Use
+#   AX_CHECK_COMPILE_FLAG(FLAG-TO-CHECK,[ACTION-IF-SUCCESS],[ACTION-IF-FAILURE])
+#   directly.  The PROLOGUE and BODY arguments cannot be used anymore.
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Francesco Salvestrini <salvestrini@users.sourceforge.net>
@@ -46,41 +50,15 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
-AC_DEFUN([AX_C_CHECK_FLAG],[
-  AC_PREREQ([2.61])
+AU_DEFUN([AX_C_CHECK_FLAG],[dnl
+m4_ifnblank([$2], [AC_WARNING([PROLOGUE argument ($2) dropped after converting from AX_C_CHECK_FLAG to AX_CHECK_COMPILE_FLAG.])
+])dnl
+m4_ifnblank([$3], [AC_WARNING([BODY argument ($3) dropped after converting from AX_C_CHECK_FLAG to AX_CHECK_COMPILE_FLAG.])
+])dnl
   AC_REQUIRE([AC_PROG_CC])
-  AC_REQUIRE([AC_PROG_SED])
-
-  flag=`echo "$1" | $SED 'y% .=/+-(){}<>:*,%_______________%'`
-
-  AC_CACHE_CHECK([whether the C compiler accepts the $1 flag],
-    [ax_cv_c_check_flag_$flag],[
-
-    AC_LANG_PUSH([C])
-
-    save_CFLAGS="$CFLAGS"
-    CFLAGS="$CFLAGS $1"
-    AC_COMPILE_IFELSE([
-      AC_LANG_PROGRAM([$2],[$3])
-    ],[
-      eval "ax_cv_c_check_flag_$flag=yes"
-    ],[
-      eval "ax_cv_c_check_flag_$flag=no"
-    ])
-
-    CFLAGS="$save_CFLAGS"
-
-    AC_LANG_POP
-
-  ])
-
-  AS_IF([eval "test \"`echo '$ax_cv_c_check_flag_'$flag`\" = yes"],[
-    :
-    $4
-  ],[
-    :
-    $5
-  ])
-])
+  AC_LANG_PUSH([C])
+  AX_CHECK_COMPILE_FLAG([$1], [$4], [$5])
+  AC_LANG_POP
+],[You might want to remove some superfluous AC_REQUIRE([AC_PROG_CC]) and AC_LANG_PUSH/POP macros])dnl AX_C_CHECK_FLAG
