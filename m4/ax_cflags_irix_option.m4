@@ -63,15 +63,13 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
-AC_DEFUN([AX_CFLAGS_IRIX_OPTION_PRIVATE], [dnl
-AS_VAR_PUSHDEF([FLAGS],[CFLAGS])dnl
-AS_VAR_PUSHDEF([VAR],[ax_cv_cflags_irix_option_$1])dnl
+AC_DEFUN([AX_FLAGS_IRIX_OPTION_PRIVATE], [dnl
+AS_VAR_PUSHDEF([FLAGS],[_AC_LANG_PREFIX[]FLAGS])dnl
+AS_VAR_PUSHDEF([VAR],[ax_cv_[]_AC_LANG_ABBREV[]flags_irix_option_$1])dnl
 AC_CACHE_CHECK([m4_ifval($2,$2,FLAGS) for irix/cc m4_ifval($1,$1,-option)],
 VAR,[VAR="no, unknown"
- AC_LANG_SAVE
- AC_LANG_C
  ac_save_[]FLAGS="$[]FLAGS"
 for ac_arg dnl
 in "-fullwarn -use_readonly_const % m4_ifval($1,$1,-option)"     dnl IRIX C
@@ -81,41 +79,6 @@ do FLAGS="$ac_save_[]FLAGS "`echo $ac_arg | sed -e 's,%%.*,,' -e 's,%,,'`
    [VAR=`echo $ac_arg | sed -e 's,.*% *,,'` ; break])
 done
  FLAGS="$ac_save_[]FLAGS"
- AC_LANG_RESTORE
-])
-case ".$VAR" in
-     .ok|.ok,*) m4_ifvaln($3,$3) ;;
-   .|.no|.no,*) m4_ifvaln($4,$4) ;;
-   *) m4_ifvaln($3,$3,[
-   if echo " $[]m4_ifval($2,$2,FLAGS) " | grep " $VAR " 2>&1 >/dev/null
-   then AC_RUN_LOG([: m4_ifval($2,$2,FLAGS) does contain $VAR])
-   else AC_RUN_LOG([: m4_ifval($2,$2,FLAGS)="$m4_ifval($2,$2,FLAGS) $VAR"])
-                      m4_ifval($2,$2,FLAGS)="$m4_ifval($2,$2,FLAGS) $VAR"
-   fi ]) ;;
-esac
-AS_VAR_POPDEF([VAR])dnl
-AS_VAR_POPDEF([FLAGS])dnl
-])
-
-dnl the only difference - the LANG selection... and the default FLAGS
-
-AC_DEFUN([AX_CXXFLAGS_IRIX_OPTION_PRIVATE], [dnl
-AS_VAR_PUSHDEF([FLAGS],[CXXFLAGS])dnl
-AS_VAR_PUSHDEF([VAR],[ax_cv_cxxflags_irix_option_$1])dnl
-AC_CACHE_CHECK([m4_ifval($2,$2,FLAGS) for irix/cc m4_ifval($1,$1,-option)],
-VAR,[VAR="no, unknown"
- AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- ac_save_[]FLAGS="$[]FLAGS"
-for ac_arg dnl
-in "-fullwarn -use_readonly_const % m4_ifval($1,$1,-option)"     dnl IRIX C
-   #
-do FLAGS="$ac_save_[]FLAGS "`echo $ac_arg | sed -e 's,%%.*,,' -e 's,%,,'`
-   AC_TRY_COMPILE([],[return 0;],
-   [VAR=`echo $ac_arg | sed -e 's,.*% *,,'` ; break])
-done
- FLAGS="$ac_save_[]FLAGS"
- AC_LANG_RESTORE
 ])
 case ".$VAR" in
      .ok|.ok,*) m4_ifvaln($3,$3) ;;
@@ -132,9 +95,13 @@ AS_VAR_POPDEF([FLAGS])dnl
 ])
 
 AC_DEFUN([AX_CFLAGS_IRIX_OPTION],[
-  AX_CFLAGS_IRIX_OPTION_PRIVATE(ifelse(m4_bregexp([$2],[-]),-1,[[$1],[$2]],[[$2],[$1]]),[$3],[$4])
+  AC_LANG_PUSH([C])
+  AX_FLAGS_IRIX_OPTION_PRIVATE(ifelse(m4_bregexp([$2],[-]),-1,[[$1],[$2]],[[$2],[$1]]),[$3],[$4])
+  AC_LANG_POP
 ])
 
 AC_DEFUN([AX_CXXFLAGS_IRIX_OPTION],[
-  AX_CXXFLAGS_IRIX_OPTION_PRIVATE(ifelse(m4_bregexp([$2],[-]),-1,[[$1],[$2]],[[$2],[$1]]),[$3],[$4])
+  AC_LANG_PUSH([C++])
+  AX_FLAGS_IRIX_OPTION_PRIVATE(ifelse(m4_bregexp([$2],[-]),-1,[[$1],[$2]],[[$2],[$1]]),[$3],[$4])
+  AC_LANG_POP
 ])
