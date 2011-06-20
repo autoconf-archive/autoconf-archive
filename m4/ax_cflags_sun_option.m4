@@ -66,32 +66,19 @@
 #serial 10
 
 AC_DEFUN([AX_FLAGS_SUN_OPTION_PRIVATE], [dnl
+AX_CHECK_COMPILE_FLAG([$1], [flag_ok="yes"], [flag_ok="no"], [+xstrconst -Xc])
 AS_VAR_PUSHDEF([FLAGS],[_AC_LANG_PREFIX[]FLAGS])dnl
-AS_VAR_PUSHDEF([VAR],[ax_cv_[]_AC_LANG_ABBREV[]flags_sun_option_$1])dnl
-AC_CACHE_CHECK([m4_ifval($2,$2,FLAGS) for sun/cc m4_ifval($1,$1,-option)],
-VAR,[AS_VAR_SET([VAR],["no, unknown"])
- ac_save_[]FLAGS="$[]FLAGS"
-for ac_arg dnl
-in "+xstrconst -Xc % m4_ifval($1,$1,-option)"     dnl Solaris C
-   #
-do FLAGS="$ac_save_[]FLAGS "`echo $ac_arg | sed -e 's,%%.*,,' -e 's,%,,'`
-   AC_TRY_COMPILE([],[return 0;],
-   [AS_VAR_SET([VAR],[`echo $ac_arg | sed -e 's,.*% *,,'`]); break])
-done
- FLAGS="$ac_save_[]FLAGS"
-])
-m4_ifdef([AS_VAR_COPY],[AS_VAR_COPY([var],[VAR])],[var=AS_VAR_GET([VAR])])
-case ".$var" in
+case ".$flag_ok" in
      .ok|.ok,*) m4_ifvaln($3,$3) ;;
    .|.no|.no,*) m4_ifvaln($4,$4) ;;
    *) m4_ifvaln($3,$3,[
+   var="$1"
    if echo " $[]m4_ifval($2,$2,FLAGS) " | grep " $var " 2>&1 >/dev/null
    then AC_RUN_LOG([: m4_ifval($2,$2,FLAGS) does contain $var])
    else AC_RUN_LOG([: m4_ifval($2,$2,FLAGS)="$m4_ifval($2,$2,FLAGS) $var"])
                       m4_ifval($2,$2,FLAGS)="$m4_ifval($2,$2,FLAGS) $var"
    fi ]) ;;
 esac
-AS_VAR_POPDEF([VAR])dnl
 AS_VAR_POPDEF([FLAGS])dnl
 ])
 
