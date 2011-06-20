@@ -78,19 +78,10 @@ AC_DEFUN([AX_FLAGS_GCC_OPTION_PRIVATE], [dnl
 AX_CHECK_COMPILE_FLAG([$1], [flag_ok="yes"], [flag_ok="no"], [-pedantic -Werror])
 AS_IF([test "x$flag_ok" == "xno"],
   [AX_CHECK_COMPILE_FLAG([$1], [flag_ok="no, obsolete"], [flag_ok="no"], [-pedantic])])
-AS_VAR_PUSHDEF([FLAGS],[_AC_LANG_PREFIX[]FLAGS])dnl
-case ".$flag_ok" in
-     .ok|.ok,*) m4_ifvaln($3,$3) ;;
-   .|.no|.no,*) m4_ifvaln($4,$4) ;;
-   *) m4_ifvaln($3,$3,[
-   var="$1"
-   if echo " $[]m4_ifval($2,$2,FLAGS) " | grep " $var " 2>&1 >/dev/null
-   then AC_RUN_LOG([: m4_ifval($2,$2,FLAGS) does contain $var])
-   else AC_RUN_LOG([: m4_ifval($2,$2,FLAGS)="$m4_ifval($2,$2,FLAGS) $var"])
-                      m4_ifval($2,$2,FLAGS)="$m4_ifval($2,$2,FLAGS) $var"
-   fi ]) ;;
-esac
-AS_VAR_POPDEF([FLAGS])dnl
+AS_CASE([".$flag_ok"],
+  [.ok|.ok,*], [$3],
+  [.|.no|.no,*], [$4],
+  [m4_default($3,[AX_APPEND_FLAG([$1],[$2])])])
 ])
 
 AC_DEFUN([AX_CFLAGS_GCC_OPTION],[
