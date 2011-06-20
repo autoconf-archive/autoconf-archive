@@ -15,6 +15,11 @@
 #   ACTION-SUCCESS/ACTION-FAILURE are shell commands to execute on
 #   success/failure.
 #
+#   This macro is obsolete.  Use AX_CHECK_COMPILE_FLAG from ax_check_flags.m4.
+#   The only difference is that AX_CHECK_COMPILE_FLAG checks for a FLAG in
+#   addition to the standard CFLAGS, while this macro uses FLAGS instead of
+#   CFLAGS.
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Steven G. Johnson <stevenj@alum.mit.edu>
@@ -46,31 +51,17 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 10
 
-AC_DEFUN([AX_CHECK_COMPILER_FLAGS],
+AU_DEFUN([AX_CHECK_COMPILER_FLAGS],
 [AC_PREREQ(2.59) dnl for _AC_LANG_PREFIX
-AC_MSG_CHECKING([whether _AC_LANG compiler accepts $1])
-dnl Some hackery here since AC_CACHE_VAL can't handle a non-literal varname:
-AS_LITERAL_IF([$1],
-  [AC_CACHE_VAL(AS_TR_SH(ax_cv_[]_AC_LANG_ABBREV[]_flags_[$1]), [
-      ax_save_FLAGS=$[]_AC_LANG_PREFIX[]FLAGS
-      _AC_LANG_PREFIX[]FLAGS="$1"
-      AC_COMPILE_IFELSE([AC_LANG_PROGRAM()],
-        AS_TR_SH(ax_cv_[]_AC_LANG_ABBREV[]_flags_[$1])=yes,
-        AS_TR_SH(ax_cv_[]_AC_LANG_ABBREV[]_flags_[$1])=no)
-      _AC_LANG_PREFIX[]FLAGS=$ax_save_FLAGS])],
-  [ax_save_FLAGS=$[]_AC_LANG_PREFIX[]FLAGS
-   _AC_LANG_PREFIX[]FLAGS="$1"
-   AC_COMPILE_IFELSE([AC_LANG_PROGRAM()],
-     eval AS_TR_SH(ax_cv_[]_AC_LANG_ABBREV[]_flags_[$1])=yes,
-     eval AS_TR_SH(ax_cv_[]_AC_LANG_ABBREV[]_flags_[$1])=no)
-   _AC_LANG_PREFIX[]FLAGS=$ax_save_FLAGS])
-eval ax_check_compiler_flags=$AS_TR_SH(ax_cv_[]_AC_LANG_ABBREV[]_flags_[$1])
-AC_MSG_RESULT($ax_check_compiler_flags)
-if test "x$ax_check_compiler_flags" = xyes; then
-	m4_default([$2], :)
-else
-	m4_default([$3], :)
-fi
-])dnl AX_CHECK_COMPILER_FLAGS
+# AX_CHECK_COMPILER_FLAGS start
+ax_save_FLAGS=$[]_AC_LANG_PREFIX[]FLAGS
+_AC_LANG_PREFIX[]FLAGS=
+AX_CHECK_COMPILE_FLAG([$1], [ax_check_compiler_flags=yes], [ax_check_compiler_flags=no])
+_AC_LANG_PREFIX[]FLAGS=$ax_save_FLAGS
+AS_IF([test "x$ax_check_compiler_flags" == "xyes"],
+  [m4_default([$2], :)],
+  [m4_default([$3], :)])
+# AX_CHECK_COMPILER_FLAGS end
+],[You might want to replace AX_CHECK_COMPILER_FLAGS from start to end with AX_CHECK_COMPILE_FLAG([$1], [$2], [$3])])dnl AX_CHECK_COMPILER_FLAGS

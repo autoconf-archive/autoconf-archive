@@ -16,6 +16,10 @@
 #
 #   NOTE: Based on AX_CHECK_COMPILER_FLAGS.
 #
+#   This macro is obsolete.  Use AX_CHECK_LINK_FLAG from ax_check_flags.m4.
+#   The only difference is that AX_CHECK_LINK_FLAG checks for a FLAG in addition
+#   to the standard LDFLAGS, while this macro uses FLAGS instead of LDFLAGS.
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Mike Frysinger <vapier@gentoo.org>
@@ -50,28 +54,14 @@
 
 #serial 6
 
-AC_DEFUN([AX_CHECK_LINKER_FLAGS],
-[AC_MSG_CHECKING([whether the linker accepts $1])
-dnl Some hackery here since AC_CACHE_VAL can't handle a non-literal varname:
-AS_LITERAL_IF([$1],
-  [AC_CACHE_VAL(AS_TR_SH(ax_cv_linker_flags_[$1]), [
-      ax_save_FLAGS=$LDFLAGS
-      LDFLAGS="$1"
-      AC_LINK_IFELSE([AC_LANG_PROGRAM()],
-        AS_TR_SH(ax_cv_linker_flags_[$1])=yes,
-        AS_TR_SH(ax_cv_linker_flags_[$1])=no)
-      LDFLAGS=$ax_save_FLAGS])],
-  [ax_save_FLAGS=$LDFLAGS
-   LDFLAGS="$1"
-   AC_LINK_IFELSE([AC_LANG_PROGRAM()],
-     eval AS_TR_SH(ax_cv_linker_flags_[$1])=yes,
-     eval AS_TR_SH(ax_cv_linker_flags_[$1])=no)
-   LDFLAGS=$ax_save_FLAGS])
-eval ax_check_linker_flags=$AS_TR_SH(ax_cv_linker_flags_[$1])
-AC_MSG_RESULT($ax_check_linker_flags)
-if test "x$ax_check_linker_flags" = xyes; then
-	m4_default([$2], :)
-else
-	m4_default([$3], :)
-fi
-])dnl AX_CHECK_LINKER_FLAGS
+AU_DEFUN([AX_CHECK_LINKER_FLAGS],
+[# AX_CHECK_LINKER_FLAGS start
+ax_save_FLAGS=$LDFLAGS
+LDFLAGS=
+AX_CHECK_LINK_FLAG([$1], [ax_check_linker_flags=yes], [ax_check_linker_flags=no])
+LDFLAGS=$ax_save_FLAGS
+AS_IF([test "x$ax_check_linker_flags" == "xyes"],
+  [m4_default([$2], :)],
+  [m4_default([$3], :)])
+# AX_CHECK_LINKER_FLAGS end
+],[You might want to replace AX_CHECK_LINKER_FLAGS from start to end with AX_CHECK_LINK_FLAG([$1], [$2], [$3])])dnl AX_CHECK_LINKER_FLAGS
