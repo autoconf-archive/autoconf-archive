@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The obsolete macros AX_CFLAGS_WARN_ALL_ANSI, AX_C_IFDEF, AX_C_PRINTF_THSEP,
+  AX_GCC_OPTION, AX_WITH_GUILE, AX_WITH_PERL, AX_WITH_PYTHON, and AX_WITH_RUBY
+  have been deleted.
+
   The new macro AX_CHECK_MYSQL has been added. It is geared specifically toward
   MySQL plugin development. See <http://savannah.gnu.org/patch/?7553> for
   further details.
