@@ -33,6 +33,10 @@
 #   has a nonstandard name, defines PTHREAD_CREATE_JOINABLE to that name
 #   (e.g. PTHREAD_CREATE_UNDETACHED on AIX).
 #
+#   Also HAVE_PTHREAD_PRIO_INHERIT is defined if pthread is found and the
+#   PTHREAD_PRIO_INHERIT symbol is defined when compiling with
+#   PTHREAD_CFLAGS.
+#
 #   ACTION-IF-FOUND is a list of shell commands to run if a threads library
 #   is found, and ACTION-IF-NOT-FOUND is a list of commands to run it if it
 #   is not found. If ACTION-IF-FOUND is not specified, the default action
@@ -78,7 +82,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 13
+#serial 14
 
 AU_ALIAS([ACX_PTHREAD], [AX_PTHREAD])
 AC_DEFUN([AX_PTHREAD], [
@@ -266,6 +270,8 @@ if test "x$ax_pthread_ok" = xyes; then
                     [ax_cv_PTHREAD_PRIO_INHERIT=yes],
                     [ax_cv_PTHREAD_PRIO_INHERIT=no])
             ])
+        AS_IF([test "x$ax_cv_PTHREAD_PRIO_INHERIT" = "xyes"],
+            AC_DEFINE([HAVE_PTHREAD_PRIO_INHERIT], 1, [Have PTHREAD_PRIO_INHERIT.]))
 
         LIBS="$save_LIBS"
         CFLAGS="$save_CFLAGS"
