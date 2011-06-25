@@ -71,7 +71,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_CHECK_PREPROC_FLAG],
 [AC_PREREQ(2.59) dnl for _AC_LANG_PREFIX
@@ -80,10 +80,10 @@ AC_CACHE_CHECK([whether _AC_LANG preprocessor accepts $1], CACHEVAR, [
   ax_check_save_flags=$CPPFLAGS
   CPPFLAGS="$CPPFLAGS $4 $1"
   AC_PREPROC_IFELSE([AC_LANG_PROGRAM()],
-    [AS_VAR_SET([CACHEVAR],[yes])],
-    [AS_VAR_SET([CACHEVAR],[no])])
+    [AS_VAR_SET(CACHEVAR,[yes])],
+    [AS_VAR_SET(CACHEVAR,[no])])
   CPPFLAGS=$ax_check_save_flags])
-AS_VAR_IF([CACHEVAR], "yes",
+AS_IF([test x"AS_VAR_GET(CACHEVAR)" = xyes],
   [m4_default([$2], :)],
   [m4_default([$3], :)])
 AS_VAR_POPDEF([CACHEVAR])dnl
@@ -96,10 +96,10 @@ AC_CACHE_CHECK([whether _AC_LANG compiler accepts $1], CACHEVAR, [
   ax_check_save_flags=$[]_AC_LANG_PREFIX[]FLAGS
   _AC_LANG_PREFIX[]FLAGS="$[]_AC_LANG_PREFIX[]FLAGS $4 $1"
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM()],
-    [AS_VAR_SET([CACHEVAR],[yes])],
-    [AS_VAR_SET([CACHEVAR],[no])])
+    [AS_VAR_SET(CACHEVAR,[yes])],
+    [AS_VAR_SET(CACHEVAR,[no])])
   _AC_LANG_PREFIX[]FLAGS=$ax_check_save_flags])
-AS_VAR_IF([CACHEVAR], "yes",
+AS_IF([test x"AS_VAR_GET(CACHEVAR)" = xyes],
   [m4_default([$2], :)],
   [m4_default([$3], :)])
 AS_VAR_POPDEF([CACHEVAR])dnl
@@ -111,10 +111,10 @@ AC_CACHE_CHECK([whether the linker accepts $1], CACHEVAR, [
   ax_check_save_flags=$LDFLAGS
   LDFLAGS="$LDFLAGS $4 $1"
   AC_LINK_IFELSE([AC_LANG_PROGRAM()],
-    [AS_VAR_SET([CACHEVAR],[yes])],
-    [AS_VAR_SET([CACHEVAR],[no])])
+    [AS_VAR_SET(CACHEVAR,[yes])],
+    [AS_VAR_SET(CACHEVAR,[no])])
   LDFLAGS=$ax_check_save_flags])
-AS_VAR_IF([CACHEVAR], "yes",
+AS_IF([test x"AS_VAR_GET(CACHEVAR)" = xyes],
   [m4_default([$2], :)],
   [m4_default([$3], :)])
 AS_VAR_POPDEF([CACHEVAR])dnl
@@ -123,14 +123,18 @@ AS_VAR_POPDEF([CACHEVAR])dnl
 
 AC_DEFUN([AX_APPEND_FLAG],
 [AC_PREREQ(2.59) dnl for _AC_LANG_PREFIX
-AC_REQUIRE([AC_PROG_GREP])
-AS_VAR_PUSHDEF([FLAGS], [m4_default($2,_AC_LANG_PREFIX[]FLAGS)])dnl
-AS_VAR_SET_IF([FLAGS],
-  [AS_IF([AS_ECHO(" $[]FLAGS ") | $GREP " $1 " 2>&1 >/dev/null],
-    [AC_RUN_LOG([: FLAGS already contains $1])],
-    [AC_RUN_LOG([: FLAGS="$FLAGS $1"])
-    AS_VAR_APPEND([FLAGS], [" $1"])])],
-  [AS_VAR_SET([FLAGS],[$1])])
+AS_VAR_PUSHDEF([FLAGS], [m4_default($2,_AC_LANG_PREFIX[FLAGS])])dnl
+AS_VAR_SET_IF(FLAGS,
+  [case " AS_VAR_GET(FLAGS) " in
+    *" $1 "*)
+      AC_RUN_LOG([: FLAGS already contains $1])
+      ;;
+    *)
+      AC_RUN_LOG([: FLAGS="$FLAGS $1"])
+      AS_VAR_SET(FLAGS, ["AS_VAR_GET(FLAGS) $1"])
+      ;;
+   esac],
+  [AS_VAR_SET(FLAGS,["$1"])])
 AS_VAR_POPDEF([FLAGS])dnl
 ])dnl AX_APPEND_FLAG
 
