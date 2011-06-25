@@ -17,8 +17,9 @@
 #   NOTE: Based on AX_CHECK_COMPILER_FLAGS.
 #
 #   This macro is obsolete.  Use AX_CHECK_LINK_FLAG from ax_check_flags.m4.
-#   The only difference is that AX_CHECK_LINK_FLAG checks for a FLAG in addition
-#   to the standard LDFLAGS, while this macro uses FLAGS instead of LDFLAGS.
+#   The only difference is that AX_CHECK_LINK_FLAG checks for a FLAG in
+#   addition to the standard LDFLAGS, while this macro uses FLAGS instead of
+#   LDFLAGS.
 #
 # LICENSE
 #
@@ -52,7 +53,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 8
 
 AU_DEFUN([AX_CHECK_LINKER_FLAGS],
 [# AX_CHECK_LINKER_FLAGS start

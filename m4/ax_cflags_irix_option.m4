@@ -63,7 +63,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 13
 
 AC_DEFUN([AX_FLAGS_IRIX_OPTION_PRIVATE], [dnl
 AX_CHECK_COMPILE_FLAG([$1], [flag_ok="yes"], [flag_ok="no"], [-fullwarn -use_readonly_const])

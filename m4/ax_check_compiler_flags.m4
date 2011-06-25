@@ -2,6 +2,10 @@
 #  http://www.gnu.org/software/autoconf-archive/ax_check_compiler_flags.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated in favor of AX_CHECK_COMPILE_FLAG.
+#
 # SYNOPSIS
 #
 #   AX_CHECK_COMPILER_FLAGS(FLAGS, [ACTION-SUCCESS], [ACTION-FAILURE])
@@ -15,10 +19,10 @@
 #   ACTION-SUCCESS/ACTION-FAILURE are shell commands to execute on
 #   success/failure.
 #
-#   This macro is obsolete.  Use AX_CHECK_COMPILE_FLAG from ax_check_flags.m4.
-#   The only difference is that AX_CHECK_COMPILE_FLAG checks for a FLAG in
-#   addition to the standard CFLAGS, while this macro uses FLAGS instead of
-#   CFLAGS.
+#   This macro is obsolete. Use AX_CHECK_COMPILE_FLAG from
+#   ax_check_flags.m4. The only difference is that AX_CHECK_COMPILE_FLAG
+#   checks for a FLAG in addition to the standard CFLAGS, while this macro
+#   uses FLAGS instead of CFLAGS.
 #
 # LICENSE
 #
@@ -51,7 +55,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 11
 
 AU_DEFUN([AX_CHECK_COMPILER_FLAGS],
 [AC_PREREQ(2.59) dnl for _AC_LANG_PREFIX

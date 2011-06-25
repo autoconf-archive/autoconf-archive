@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_check_flag.html
+#       http://www.gnu.org/software/autoconf-archive/ax_check_flag.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -7,9 +7,7 @@
 #   AX_CHECK_PREPROC_FLAG(FLAG, [ACTION-SUCCESS], [ACTION-FAILURE], [EXTRA-FLAGS])
 #   AX_CHECK_COMPILE_FLAG(FLAG, [ACTION-SUCCESS], [ACTION-FAILURE], [EXTRA-FLAGS])
 #   AX_CHECK_LINK_FLAG(FLAG, [ACTION-SUCCESS], [ACTION-FAILURE], [EXTRA-FLAGS])
-#
 #   AX_APPEND_FLAG(FLAG, [FLAGS-VARIABLE])
-#
 #   AX_APPEND_COMPILE_FLAGS([FLAG1 FLAG2 ...], [FLAGS-VARIABLE], [EXTRA-FLAGS])
 #   AX_APPEND_LINK_FLAGS([FLAG1 FLAG2 ...], [FLAGS-VARIABLE], [EXTRA-FLAGS])
 #
@@ -23,19 +21,20 @@
 #   success/failure.
 #
 #   If EXTRA-FLAGS is defined, it is added to the current language's default
-#   flags (e.g.  CFLAGS) when the check is done.  The check us thus made with
-#   the following flags: "CFLAGS EXTRA-FLAGS FLAG".  EXTRA-FLAGS can for example
-#   be used to force the compiler to issue an error when a bad flag is given.
+#   flags (e.g.  CFLAGS) when the check is done.  The check us thus made
+#   with the following flags: "CFLAGS EXTRA-FLAGS FLAG".  EXTRA-FLAGS can
+#   for example be used to force the compiler to issue an error when a bad
+#   flag is given.
 #
-#   AX_APPEND_FLAG appends the FLAG to the FLAG-VARIABLE shell variable or the
-#   current language's flags if not specified.  FLAG is not added to
+#   AX_APPEND_FLAG appends the FLAG to the FLAG-VARIABLE shell variable or
+#   the current language's flags if not specified.  FLAG is not added to
 #   FLAG-VARIABLE if it is already in the shell variable.
 #
 #   AX_APPEND_COMPILE_FLAGS checks for each FLAG1, FLAG2, etc. using
-#   AX_CHECK_COMPILE_FLAG and if the check is successful the flag is added to
-#   the appropriate FLAGS variable with AX_APPEND_FLAG.  The FLAGS-VARIABLE and
-#   EXTRA-FLAGS arguments are the same as in the other macros.
-#   AX_APPEND_LINK_FLAGS does the same for linker flags.
+#   AX_CHECK_COMPILE_FLAG and if the check is successful the flag is added
+#   to the appropriate FLAGS variable with AX_APPEND_FLAG.  The
+#   FLAGS-VARIABLE and EXTRA-FLAGS arguments are the same as in the other
+#   macros. AX_APPEND_LINK_FLAGS does the same for linker flags.
 #
 #   NOTE: Based on AX_CHECK_COMPILER_FLAGS and AX_CFLAGS_GCC_OPTION.
 #
@@ -72,7 +71,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_CHECK_PREPROC_FLAG],
 [AC_PREREQ(2.59) dnl for _AC_LANG_PREFIX
