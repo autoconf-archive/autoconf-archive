@@ -7,6 +7,7 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
+* TODO Mark obsolete macros as such in the texinfo documentation
 * TODO Improve submission guide lines on the web site
 ** Patch submissions should put the original authors on Cc.
 
@@ -61,7 +62,6 @@
   * [ ] sc_prohibit_test_minus_ao
   * [ ] sc_space_tab
   * [ ] sc_useless_cpp_parens
-
 
 * TODO Don't repeat license texts in Texinfo for every macro
 
