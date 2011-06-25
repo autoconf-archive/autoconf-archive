@@ -2,6 +2,10 @@
 #   http://www.gnu.org/software/autoconf-archive/ax_check_linker_flags.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated in favor of AX_CHECK_LINK_FLAG.
+#
 # SYNOPSIS
 #
 #   AX_CHECK_LINKER_FLAGS(FLAGS, [ACTION-SUCCESS], [ACTION-FAILURE])
@@ -53,7 +57,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AU_DEFUN([AX_CHECK_LINKER_FLAGS],
 [# AX_CHECK_LINKER_FLAGS start

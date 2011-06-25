@@ -2,6 +2,10 @@
 #     http://www.gnu.org/software/autoconf-archive/ax_cpp_check_flag.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated in favor of AX_CHECK_PREPROC_FLAG.
+#
 # SYNOPSIS
 #
 #   AX_CPP_CHECK_FLAG(FLAG-TO-CHECK,[PROLOGUE],[BODY],[ACTION-IF-SUCCESS],[ACTION-IF-FAILURE])
@@ -50,7 +54,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_DEFUN([AX_CPP_CHECK_FLAG],[dnl
 m4_ifnblank([$2], [AC_WARNING([PROLOGUE argument ($2) dropped after converting from AX_CPP_CHECK_FLAG to AX_CHECK_PREPROC_FLAG.])
