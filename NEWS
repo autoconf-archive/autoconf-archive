@@ -12,8 +12,8 @@
 
   Marked the following macros as obsolete: AX_C_CHECK_FLAG,
   AX_CHECK_COMPILER_FLAGS, AX_CHECK_LINKER_FLAGS, AX_CPP_CHECK_FLAG,
-  AX_CXX_CHECK_FLAG, AX_CXXCPP_CHECK_FLAG, AND AX_LD_CHECK_FLAG. These macros
-  will eventually be removed from the archive.
+  AX_CXX_CHECK_FLAG, AX_CXXCPP_CHECK_FLAG, AX_CFLAGS_GCC_OPTION, and
+  AX_LD_CHECK_FLAG. These macros will eventually be removed from the archive.
 
   The new macro AX_CHECK_FLAG has been added, which replaces AX_C_CHECK_FLAG,
   AX_CFLAGS_AIX_OPTION, AX_CFLAGS_GCC_OPTION, AX_CFLAGS_HPUX_OPTION,

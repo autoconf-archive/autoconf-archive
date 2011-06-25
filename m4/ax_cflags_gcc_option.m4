@@ -2,6 +2,10 @@
 #   http://www.gnu.org/software/autoconf-archive/ax_cflags_gcc_option.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated in favor of AX_CHECK_COMPILE_FLAG.
+#
 # SYNOPSIS
 #
 #   AX_CFLAGS_GCC_OPTION (optionflag [,[shellvar][,[A][,[NA]]])
@@ -72,7 +76,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 18
+#serial 19
 
 AC_DEFUN([AX_FLAGS_GCC_OPTION_PRIVATE], [dnl
 AX_CHECK_COMPILE_FLAG([$1], [flag_ok="yes"], [flag_ok="no"], [-pedantic -Werror])
