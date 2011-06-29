@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Several instance of under-quoted arguments have been fixed in
+  AX_CHECK_OPENSSL. See <http://savannah.gnu.org/patch/?7571> for further
+  details.
+
   The new macros AX_CHECK_PREPROC_FLAG, AX_CHECK_COMPILE_FLAG, and
   AX_CHECK_LINK_FLAG have been added. They are intended to replace
   AX_C_CHECK_FLAG, AX_CHECK_COMPILER_FLAGS, AX_CHECK_LINKER_FLAGS,
