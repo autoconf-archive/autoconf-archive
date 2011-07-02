@@ -1,36 +1,30 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_check_linker_flags.html
+#   http://www.gnu.org/software/autoconf-archive/ax_append_link_flags.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Deprecated in favor of AX_CHECK_LINK_FLAG.
 #
 # SYNOPSIS
 #
-#   AX_CHECK_LINKER_FLAGS(FLAGS, [ACTION-SUCCESS], [ACTION-FAILURE])
+#   AX_APPEND_LINK_FLAGS([FLAG1 FLAG2 ...], [FLAGS-VARIABLE], [EXTRA-FLAGS])
 #
 # DESCRIPTION
 #
-#   Check whether the given linker FLAGS work with the current language's
-#   linker, or whether they give an error.
+#   For every FLAG1, FLAG2 it is checked whether the linker works with the
+#   flag.  If it does, the flag is added FLAGS-VARIABLE
 #
-#   ACTION-SUCCESS/ACTION-FAILURE are shell commands to execute on
-#   success/failure.
+#   If FLAGS-VARIABLE is not specified, the linker's flags (LDFLAGS) is used.
+#   During the check the flag is always added to the linker's flags.
 #
-#   NOTE: Based on AX_CHECK_COMPILER_FLAGS.
+#   If EXTRA-FLAGS is defined, it is added to the linker's default flags when
+#   the check is done.  The check is thus made with the flags: "LDFLAGS
+#   EXTRA-FLAGS FLAG".  This can for example be used to force the linker to
+#   issue an error when a bad flag is given.
 #
-#   This macro is obsolete, use AX_CHECK_LINK_FLAG.  The only difference is
-#   that AX_CHECK_LINK_FLAG checks for a FLAG in addition to the standard
-#   LDFLAGS, while this macro uses FLAGS instead of LDFLAGS.  Run autoupdate
-#   with this new macro definition to change configure.ac to using
-#   AX_CHECK_LINK_FLAG directly.
+#   NOTE: This macro depends on the AX_APPEND_FLAG and AX_CHECK_LINK_FLAG.
+#   Please keep this macro in sync with AX_APPEND_COMPILE_FLAGS.
 #
 # LICENSE
 #
-#   Copyright (c) 2009 Mike Frysinger <vapier@gentoo.org>
-#   Copyright (c) 2009 Steven G. Johnson <stevenj@alum.mit.edu>
-#   Copyright (c) 2009 Matteo Frigo
+#   Copyright (c) 2011 Maarten Bosmans <mkbosmans@gmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -58,16 +52,10 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 1
 
-AU_DEFUN([AX_CHECK_LINKER_FLAGS],
-[# AX_CHECK_LINKER_FLAGS start
-ax_save_FLAGS=$LDFLAGS
-LDFLAGS=
-AX_CHECK_LINK_FLAG([$1], [ax_check_linker_flags=yes], [ax_check_linker_flags=no])
-LDFLAGS=$ax_save_FLAGS
-AS_IF([test "x$ax_check_linker_flags" == "xyes"],
-  [m4_default([$2], :)],
-  [m4_default([$3], :)])
-# AX_CHECK_LINKER_FLAGS end
-],[You might want to replace AX_CHECK_LINKER_FLAGS from start to end with AX_CHECK_LINK_FLAG([$1], [$2], [$3])])dnl AX_CHECK_LINKER_FLAGS
+AC_DEFUN([AX_APPEND_LINK_FLAGS],
+[for flag in $1; do
+  AX_CHECK_LINK_FLAG([$flag], [AX_APPEND_FLAG([$flag], [m4_default([$2], [LDFLAGS])])], [], [$3])
+done
+])dnl AX_APPEND_LINK_FLAGS

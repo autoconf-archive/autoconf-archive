@@ -1,36 +1,31 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_check_linker_flags.html
+#   http://www.gnu.org/software/autoconf-archive/ax_check_preproc_flag.html
 # ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   Deprecated in favor of AX_CHECK_LINK_FLAG.
 #
 # SYNOPSIS
 #
-#   AX_CHECK_LINKER_FLAGS(FLAGS, [ACTION-SUCCESS], [ACTION-FAILURE])
+#   AX_CHECK_PREPROC_FLAG(FLAG, [ACTION-SUCCESS], [ACTION-FAILURE], [EXTRA-FLAGS])
 #
 # DESCRIPTION
 #
-#   Check whether the given linker FLAGS work with the current language's
-#   linker, or whether they give an error.
+#   Check whether the given FLAG works with the current language's
+#   preprocessor or gives an error.  (Warnings, however, are ignored)
 #
 #   ACTION-SUCCESS/ACTION-FAILURE are shell commands to execute on
 #   success/failure.
 #
-#   NOTE: Based on AX_CHECK_COMPILER_FLAGS.
+#   If EXTRA-FLAGS is defined, it is added to the preprocessor's default flags
+#   when the check is done.  The check is thus made with the flags: "CPPFLAGS
+#   EXTRA-FLAGS FLAG".  This can for example be used to force the preprocessor
+#   to issue an error when a bad flag is given.
 #
-#   This macro is obsolete, use AX_CHECK_LINK_FLAG.  The only difference is
-#   that AX_CHECK_LINK_FLAG checks for a FLAG in addition to the standard
-#   LDFLAGS, while this macro uses FLAGS instead of LDFLAGS.  Run autoupdate
-#   with this new macro definition to change configure.ac to using
-#   AX_CHECK_LINK_FLAG directly.
+#   NOTE: Implementation based on AX_CFLAGS_GCC_OPTION.
+#   Please keep this macro in sync with AX_CHECK_{COMPILE,LINK}_FLAG.
 #
 # LICENSE
 #
-#   Copyright (c) 2009 Mike Frysinger <vapier@gentoo.org>
-#   Copyright (c) 2009 Steven G. Johnson <stevenj@alum.mit.edu>
-#   Copyright (c) 2009 Matteo Frigo
+#   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
+#   Copyright (c) 2011 Maarten Bosmans <mkbosmans@gmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -58,16 +53,20 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 1
 
-AU_DEFUN([AX_CHECK_LINKER_FLAGS],
-[# AX_CHECK_LINKER_FLAGS start
-ax_save_FLAGS=$LDFLAGS
-LDFLAGS=
-AX_CHECK_LINK_FLAG([$1], [ax_check_linker_flags=yes], [ax_check_linker_flags=no])
-LDFLAGS=$ax_save_FLAGS
-AS_IF([test "x$ax_check_linker_flags" == "xyes"],
+AC_DEFUN([AX_CHECK_PREPROC_FLAG],
+[AC_PREREQ(2.59)dnl for _AC_LANG_PREFIX
+AS_VAR_PUSHDEF([CACHEVAR],[ax_cv_check_[]_AC_LANG_ABBREV[]cppflags_$4_$1])dnl
+AC_CACHE_CHECK([whether _AC_LANG preprocessor accepts $1], CACHEVAR, [
+  ax_check_save_flags=$CPPFLAGS
+  CPPFLAGS="$CPPFLAGS $4 $1"
+  AC_PREPROC_IFELSE([AC_LANG_PROGRAM()],
+    [AS_VAR_SET(CACHEVAR,[yes])],
+    [AS_VAR_SET(CACHEVAR,[no])])
+  CPPFLAGS=$ax_check_save_flags])
+AS_IF([test x"AS_VAR_GET(CACHEVAR)" = xyes],
   [m4_default([$2], :)],
   [m4_default([$3], :)])
-# AX_CHECK_LINKER_FLAGS end
-],[You might want to replace AX_CHECK_LINKER_FLAGS from start to end with AX_CHECK_LINK_FLAG([$1], [$2], [$3])])dnl AX_CHECK_LINKER_FLAGS
+AS_VAR_POPDEF([CACHEVAR])dnl
+])dnl AX_CHECK_PREPROC_FLAGS

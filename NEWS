@@ -16,12 +16,17 @@
 
   The new macros AX_CHECK_PREPROC_FLAG, AX_CHECK_COMPILE_FLAG, and
   AX_CHECK_LINK_FLAG have been added. They are intended to replace
-  AX_C_CHECK_FLAG, AX_CHECK_COMPILER_FLAGS, AX_CHECK_LINKER_FLAGS,
-  AX_CPP_CHECK_FLAG, AX_CXX_CHECK_FLAG, AX_CXXCPP_CHECK_FLAG,
-  AX_CFLAGS_GCC_OPTION, and AX_LD_CHECK_FLAG. Consequently, the older macros
-  have been marked obsolete, and they'll be removed from the archive in the
-  foreseeable future. Further details can be found at
+  AX_CHECK_COMPILER_FLAGS, AX_CHECK_LINKER_FLAGS, AX_C_CHECK_FLAG,
+  AX_CPP_CHECK_FLAG, AX_CXX_CHECK_FLAG, AX_CXXCPP_CHECK_FLAG and
+  AX_LD_CHECK_FLAG. Consequently, the older macros have been marked obsolete,
+  and they'll be removed from the archive in the foreseeable future.
+  Further details can be found at
   <http://lists.gnu.org/archive/html/autoconf-archive-maintainers/2011-06/msg00017.html>.
+
+  The new macro AX_APPEND_FLAG, to append a flag to a FLAGS variable, has been
+  added.  The convenience wrappers AX_APPEND_COMPILE_FLAGS and
+  AX_APPEND_LINK_FLAGS have been added. Those two macros add the given flags
+  only if the compiler/linker understands them.
 
   The obsolete macros AX_CFLAGS_WARN_ALL_ANSI, AX_C_IFDEF, AX_C_PRINTF_THSEP,
   AX_GCC_OPTION, AX_WITH_GUILE, AX_WITH_PERL, AX_WITH_PYTHON, and AX_WITH_RUBY

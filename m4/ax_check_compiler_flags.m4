@@ -19,10 +19,11 @@
 #   ACTION-SUCCESS/ACTION-FAILURE are shell commands to execute on
 #   success/failure.
 #
-#   This macro is obsolete. Use AX_CHECK_COMPILE_FLAG from
-#   ax_check_flags.m4. The only difference is that AX_CHECK_COMPILE_FLAG
-#   checks for a FLAG in addition to the standard CFLAGS, while this macro
-#   uses FLAGS instead of CFLAGS.
+#   This macro is obsolete, use AX_CHECK_COMPILE_FLAG.  The only difference is
+#   that AX_CHECK_COMPILE_FLAG checks for a FLAG in addition to the standard
+#   CFLAGS, while this macro uses FLAGS instead of CFLAGS.  Run autoupdate
+#   with this new macro definition to change configure.ac to using
+#   AX_CHECK_COMPILE_FLAG directly.
 #
 # LICENSE
 #
