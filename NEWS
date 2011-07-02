@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The macros AX_CHECK_SUNPRO_C and AX_LANG_COMPILER_MS are deprecated in favor
+  of the more generic AX_COMPILER_VENDOR.
+
   Several instance of under-quoted arguments have been fixed in
   AX_CHECK_OPENSSL. See <http://savannah.gnu.org/patch/?7571> for further
   details.
