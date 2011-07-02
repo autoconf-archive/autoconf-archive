@@ -58,76 +58,19 @@
 
 #serial 8
 
-AC_DEFUN([AX_CFLAGS_STRICT_PROTOTYPES],[dnl
-AS_VAR_PUSHDEF([FLAGS],[CFLAGS])dnl
-AS_VAR_PUSHDEF([VAR],[ac_cv_cflags_strict_prototypes])dnl
+AC_DEFUN([AX_FLAGS_STRICT_PROTOTYPES],[dnl
+AS_VAR_PUSHDEF([FLAGS],[_AC_LANG_PREFIX[]FLAGS])dnl
+AS_VAR_PUSHDEF([VAR],[ac_cv_[]_AC_LANG_ABBREV[]flags_strict_prototypes])dnl
 AC_CACHE_CHECK([m4_ifval($1,$1,FLAGS) for strict prototypes],
 VAR,[VAR="no, unknown"
- AC_LANG_SAVE
- AC_LANG_C
- ac_save_[]FLAGS="$[]FLAGS"
-for ac_arg dnl
-in "-pedantic % -fstrict-prototypes -Wstrict-prototypes" dnl   GCC
-   "-pedantic % -Wstrict-prototypes" dnl try to warn atleast
-   "-pedantic % -Wmissing-prototypes" dnl or another warning
-   "-pedantic % -Werror-implicit-function-declaration" dnl
-   "-pedantic % -Wimplicit-function-declaration" dnl
-   #
-do FLAGS="$ac_save_[]FLAGS "`echo $ac_arg | sed -e 's,%%.*,,' -e 's,%,,'`
-   AC_TRY_COMPILE([],[return 0;],
-   [VAR=`echo $ac_arg | sed -e 's,.*% *,,'` ; break])
-done
-case ".$VAR" in
-   .|.no|.no,*) ;;
-   *) # sanity check with signal() from sys/signal.h
-    cp config.log config.tmp
-    AC_TRY_COMPILE([#include <signal.h>],[
-    if (signal (SIGINT, SIG_IGN) == SIG_DFL) return 1;
-    if (signal (SIGINT, SIG_IGN) != SIG_DFL) return 2;],
-    dnl the original did use test -n `$CC testprogram.c`
-    [if test `diff config.log config.tmp | grep -i warning | wc -l` != 0
-then if test `diff config.log config.tmp | grep -i warning | wc -l` != 1
-then VAR="no, suppressed, signal.h," ; fi ; fi],
-    [VAR="no, suppressed, signal.h"])
-    rm config.tmp
-  ;;
-esac
- FLAGS="$ac_save_[]FLAGS"
- AC_LANG_RESTORE
-])
-case ".$VAR" in
-     .ok|.ok,*) m4_ifvaln($3,$3) ;;
-   .|.no|.no,*) m4_ifvaln($4,$4,[m4_ifval($2,[
-        AC_RUN_LOG([: m4_ifval($1,$1,FLAGS)="$m4_ifval($1,$1,FLAGS) $2"])
-                      m4_ifval($1,$1,FLAGS)="$m4_ifval($1,$1,FLAGS) $2"])]) ;;
-   *) m4_ifvaln($3,$3,[
-   if echo " $[]m4_ifval($1,$1,FLAGS) " | grep " $VAR " 2>&1 >/dev/null
-   then AC_RUN_LOG([: m4_ifval($1,$1,FLAGS) does contain $VAR])
-   else AC_RUN_LOG([: m4_ifval($1,$1,FLAGS)="$m4_ifval($1,$1,FLAGS) $VAR"])
-                      m4_ifval($1,$1,FLAGS)="$m4_ifval($1,$1,FLAGS) $VAR"
-   fi ]) ;;
-esac
-AS_VAR_POPDEF([VAR])dnl
-AS_VAR_POPDEF([FLAGS])dnl
-])
-
-dnl the only difference - the LANG selection... and the default FLAGS
-
-AC_DEFUN([AX_CXXFLAGS_STRICT_PROTOTYPES],[dnl
-AS_VAR_PUSHDEF([FLAGS],[CXXFLAGS])dnl
-AS_VAR_PUSHDEF([VAR],[ax_cv_cxxflags_strict_prototypes])dnl
-AC_CACHE_CHECK([m4_ifval($1,$1,FLAGS) for strict prototypes],
-VAR,[VAR="no, unknown"
- AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- ac_save_[]FLAGS="$[]FLAGS"
+ac_save_[]FLAGS="$[]FLAGS"
 for ac_arg dnl
 in "-pedantic -Werror % -fstrict-prototypes -Wstrict-prototypes" dnl   GCC
    "-pedantic -Werror % -Wstrict-prototypes" dnl try to warn atleast
    "-pedantic -Werror % -Wmissing-prototypes" dnl try to warn atleast
    "-pedantic -Werror % -Werror-implicit-function-declaration" dnl
    "-pedantic -Werror % -Wimplicit-function-declaration" dnl
-   "-pedantic % -Wstrict-prototypes %% no, unsupported in C++" dnl oops
+   "-pedantic % -Wstrict-prototypes %% no, unsupported" dnl oops
    #
 do FLAGS="$ac_save_[]FLAGS "`echo $ac_arg | sed -e 's,%%.*,,' -e 's,%,,'`
    AC_TRY_COMPILE([],[return 0;],
@@ -148,8 +91,7 @@ then VAR="no, suppressed, signal.h," ; fi ; fi],
     rm config.tmp
   ;;
 esac
- FLAGS="$ac_save_[]FLAGS"
- AC_LANG_RESTORE
+FLAGS="$ac_save_[]FLAGS"
 ])
 case ".$VAR" in
      .ok|.ok,*) m4_ifvaln($3,$3) ;;
@@ -165,4 +107,16 @@ case ".$VAR" in
 esac
 AS_VAR_POPDEF([VAR])dnl
 AS_VAR_POPDEF([FLAGS])dnl
+])dnl AX_FLAGS_STRICT_PROTOTYPES
+
+AC_DEFUN([AX_CFLAGS_STRICT_PROTOTYPES],[dnl
+AC_LANG_PUSH([C])
+AX_FLAGS_STRICT_PROTOTYPES([$1], [$2], [$3], [$4])
+AC_LANG_POP([C])
+])
+
+AC_DEFUN([AX_CXXFLAGS_STRICT_PROTOTYPES],[dnl
+AC_LANG_PUSH([C++])
+AX_FLAGS_STRICT_PROTOTYPES([$1], [$2], [$3], [$4])
+AC_LANG_POP([C++])
 ])
