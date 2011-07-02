@@ -24,6 +24,8 @@
 #    - $3 action-if-found : add value to shellvariable
 #    - $4 action-if-not-found : nothing
 #
+#   NOTE: These macros depend on AX_APPEND_FLAG.
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -96,20 +98,13 @@ case ".$VAR" in
 esac
 FLAGS="$ac_save_[]FLAGS"
 ])
+AS_VAR_POPDEF([FLAGS])dnl
 case ".$VAR" in
      .ok|.ok,*) m4_ifvaln($3,$3) ;;
-   .|.no|.no,*) m4_ifvaln($4,$4,[m4_ifval($2,[
-        AC_RUN_LOG([: m4_ifval($1,$1,FLAGS)="$m4_ifval($1,$1,FLAGS) $2"])
-                      m4_ifval($1,$1,FLAGS)="$m4_ifval($1,$1,FLAGS) $2"])]) ;;
-   *) m4_ifvaln($3,$3,[
-   if echo " $[]m4_ifval($1,$1,FLAGS) " | grep " $VAR " 2>&1 >/dev/null
-   then AC_RUN_LOG([: m4_ifval($1,$1,FLAGS) does contain $VAR])
-   else AC_RUN_LOG([: m4_ifval($1,$1,FLAGS)="$m4_ifval($1,$1,FLAGS) $VAR"])
-                      m4_ifval($1,$1,FLAGS)="$m4_ifval($1,$1,FLAGS) $VAR"
-   fi ]) ;;
+   .|.no|.no,*) m4_default($4,[m4_ifval($2,[AX_APPEND_FLAG([$2], [$1])])]) ;;
+   *) m4_default($3,[AX_APPEND_FLAG([$VAR], [$1])]) ;;
 esac
 AS_VAR_POPDEF([VAR])dnl
-AS_VAR_POPDEF([FLAGS])dnl
 ])dnl AX_FLAGS_NO_WRITABLE_STRINGS
 
 AC_DEFUN([AX_CFLAGS_NO_WRITABLE_STRINGS],[dnl
