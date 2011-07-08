@@ -12,6 +12,8 @@ news-check-lines-spec	:= 11
 
 # maintainer targets
 
+PYTHON		:= python
+
 M4DIR           := $(srcdir)/m4
 STAGEDIR        := $(srcdir)/stage
 DOCDIR          := $(srcdir)/doc
@@ -30,11 +32,11 @@ $(STAGEDIR)/manifest:
 	@for n in $(basename $(notdir $(M4_FILES))); do echo "$$n" >>"$@"; done
 
 $(STAGEDIR)/%.m4 : $(M4DIR)/%.m4 $(STAGEDIR)/manifest $(srcdir)/macro.py $(srcdir)/macro2m4.py
-	$(srcdir)/macro2m4.py "$<" "$@"
+	$(PYTHON) $(srcdir)/macro2m4.py "$<" "$@"
 	@diff -u "$<" "$@" || (touch --date="1970-01-01 01:00:00" "$@"; false)
 
 $(DOCDIR)/%.texi : $(STAGEDIR)/%.m4 $(srcdir)/macro2texi.py $(srcdir)/macro.py
-	$(srcdir)/macro2texi.py "$<" "$@"
+	$(PYTHON) $(srcdir)/macro2texi.py "$<" "$@"
 
 $(DOCDIR)/all-macros.texi: $(srcdir)/configure
 	@echo generating $@
