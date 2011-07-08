@@ -11,11 +11,11 @@
 #   For every FLAG1, FLAG2 it is checked whether the linker works with the
 #   flag.  If it does, the flag is added FLAGS-VARIABLE
 #
-#   If FLAGS-VARIABLE is not specified, the linker's flags (LDFLAGS) is used.
-#   During the check the flag is always added to the linker's flags.
+#   If FLAGS-VARIABLE is not specified, the linker's flags (LDFLAGS) is
+#   used. During the check the flag is always added to the linker's flags.
 #
-#   If EXTRA-FLAGS is defined, it is added to the linker's default flags when
-#   the check is done.  The check is thus made with the flags: "LDFLAGS
+#   If EXTRA-FLAGS is defined, it is added to the linker's default flags
+#   when the check is done.  The check is thus made with the flags: "LDFLAGS
 #   EXTRA-FLAGS FLAG".  This can for example be used to force the linker to
 #   issue an error when a bad flag is given.
 #
@@ -52,7 +52,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_APPEND_LINK_FLAGS],
 [for flag in $1; do

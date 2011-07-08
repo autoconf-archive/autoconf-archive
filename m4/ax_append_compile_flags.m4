@@ -12,16 +12,17 @@
 #   flag.  If it does, the flag is added FLAGS-VARIABLE
 #
 #   If FLAGS-VARIABLE is not specified, the current language's flags (e.g.
-#   CFLAGS) is used.  During the check the flag is always added to the current
-#   language's flags.
+#   CFLAGS) is used.  During the check the flag is always added to the
+#   current language's flags.
 #
 #   If EXTRA-FLAGS is defined, it is added to the current language's default
 #   flags (e.g. CFLAGS) when the check is done.  The check is thus made with
 #   the flags: "CFLAGS EXTRA-FLAGS FLAG".  This can for example be used to
 #   force the compiler to issue an error when a bad flag is given.
 #
-#   NOTE: This macro depends on the AX_APPEND_FLAG and AX_CHECK_COMPILE_FLAG.
-#   Please keep this macro in sync with AX_APPEND_LINK_FLAGS.
+#   NOTE: This macro depends on the AX_APPEND_FLAG and
+#   AX_CHECK_COMPILE_FLAG. Please keep this macro in sync with
+#   AX_APPEND_LINK_FLAGS.
 #
 # LICENSE
 #
@@ -53,7 +54,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_APPEND_COMPILE_FLAGS],
 [for flag in $1; do

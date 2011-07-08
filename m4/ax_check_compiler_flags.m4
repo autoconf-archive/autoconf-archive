@@ -19,11 +19,11 @@
 #   ACTION-SUCCESS/ACTION-FAILURE are shell commands to execute on
 #   success/failure.
 #
-#   This macro is obsolete, use AX_CHECK_COMPILE_FLAG.  The only difference is
-#   that AX_CHECK_COMPILE_FLAG checks for a FLAG in addition to the standard
-#   CFLAGS, while this macro uses FLAGS instead of CFLAGS.  Run autoupdate
-#   with this new macro definition to change configure.ac to using
-#   AX_CHECK_COMPILE_FLAG directly.
+#   This macro is obsolete, use AX_CHECK_COMPILE_FLAG.  The only difference
+#   is that AX_CHECK_COMPILE_FLAG checks for a FLAG in addition to the
+#   standard CFLAGS, while this macro uses FLAGS instead of CFLAGS.  Run
+#   autoupdate with this new macro definition to change configure.ac to
+#   using AX_CHECK_COMPILE_FLAG directly.
 #
 # LICENSE
 #
@@ -56,7 +56,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 13
 
 AU_DEFUN([AX_CHECK_COMPILER_FLAGS],
 [AC_PREREQ(2.59) dnl for _AC_LANG_PREFIX

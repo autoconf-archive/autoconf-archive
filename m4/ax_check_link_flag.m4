@@ -14,13 +14,13 @@
 #   ACTION-SUCCESS/ACTION-FAILURE are shell commands to execute on
 #   success/failure.
 #
-#   If EXTRA-FLAGS is defined, it is added to the linker's default flags when
-#   the check is done.  The check is thus made with the flags: "LDFLAGS
+#   If EXTRA-FLAGS is defined, it is added to the linker's default flags
+#   when the check is done.  The check is thus made with the flags: "LDFLAGS
 #   EXTRA-FLAGS FLAG".  This can for example be used to force the linker to
 #   issue an error when a bad flag is given.
 #
-#   NOTE: Implementation based on AX_CFLAGS_GCC_OPTION.
-#   Please keep this macro in sync with AX_CHECK_{PREPROC,COMPILE}_FLAG.
+#   NOTE: Implementation based on AX_CFLAGS_GCC_OPTION. Please keep this
+#   macro in sync with AX_CHECK_{PREPROC,COMPILE}_FLAG.
 #
 # LICENSE
 #
@@ -53,7 +53,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_CHECK_LINK_FLAG],
 [AS_VAR_PUSHDEF([CACHEVAR],[ax_cv_check_ldflags_$4_$1])dnl

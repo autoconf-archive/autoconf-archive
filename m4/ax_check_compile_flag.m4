@@ -8,8 +8,8 @@
 #
 # DESCRIPTION
 #
-#   Check whether the given FLAG works with the current language's compiler or
-#   gives an error.  (Warnings, however, are ignored)
+#   Check whether the given FLAG works with the current language's compiler
+#   or gives an error.  (Warnings, however, are ignored)
 #
 #   ACTION-SUCCESS/ACTION-FAILURE are shell commands to execute on
 #   success/failure.
@@ -19,8 +19,8 @@
 #   the flags: "CFLAGS EXTRA-FLAGS FLAG".  This can for example be used to
 #   force the compiler to issue an error when a bad flag is given.
 #
-#   NOTE: Implementation based on AX_CFLAGS_GCC_OPTION.
-#   Please keep this macro in sync with AX_CHECK_{PREPROC,LINK}_FLAG.
+#   NOTE: Implementation based on AX_CFLAGS_GCC_OPTION. Please keep this
+#   macro in sync with AX_CHECK_{PREPROC,LINK}_FLAG.
 #
 # LICENSE
 #
@@ -53,7 +53,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_CHECK_COMPILE_FLAG],
 [AC_PREREQ(2.59)dnl for _AC_LANG_PREFIX
