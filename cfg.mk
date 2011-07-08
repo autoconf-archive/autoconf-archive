@@ -14,13 +14,13 @@ news-check-lines-spec	:= 11
 
 PYTHON		:= python
 
-M4DIR           := $(srcdir)/m4
-STAGEDIR        := $(srcdir)/stage
-DOCDIR          := $(srcdir)/doc
+M4DIR		:= $(srcdir)/m4
+STAGEDIR	:= $(srcdir)/stage
+DOCDIR		:= $(srcdir)/doc
 
-M4_FILES        := $(sort $(wildcard $(M4DIR)/*.m4))
-MACROS          := $(patsubst $(M4DIR)/%.m4,%, $(M4_FILES))
-TEXI_FILES      := $(patsubst %,$(DOCDIR)/%.texi,$(MACROS))
+M4_FILES	:= $(sort $(wildcard $(M4DIR)/*.m4))
+MACROS		:= $(patsubst $(M4DIR)/%.m4,%, $(M4_FILES))
+TEXI_FILES	:= $(patsubst %,$(DOCDIR)/%.texi,$(MACROS))
 
 .PHONY: maintainer-all
 .PRECIOUS: $(patsubst %,$(STAGEDIR)/%.m4,$(MACROS))
