@@ -8,7 +8,7 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
-* Noteworthy changes in release ?.? (????-??-??) [?]
+* Noteworthy changes in release 2011.07.17 (2011-07-17) [stable]
 
   A cut-and-paste error in AX_BOOST_FILESSYTEM has been fixed. See
   <http://savannah.gnu.org/patch/?7576> for further details.
