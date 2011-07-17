@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  A cut-and-paste error in AX_BOOST_FILESSYTEM has been fixed. See
+  <http://savannah.gnu.org/patch/?7576> for further details.
+
   The macros AX_CHECK_SUNPRO_C and AX_LANG_COMPILER_MS are deprecated in favor
   of the more generic AX_COMPILER_VENDOR.
 
