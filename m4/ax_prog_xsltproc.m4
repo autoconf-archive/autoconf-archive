@@ -52,7 +52,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([AC_PROG_XSLTPROC], [AX_PROG_XSLTPROC])
 AC_DEFUN([AX_PROG_XSLTPROC],
@@ -64,7 +64,7 @@ AC_SUBST(XSLTPROC_FLAGS)
 # proper formatting.
 AC_ARG_WITH(xsltproc,
 AS_HELP_STRING([--with-xsltproc[[[[[=PATH]]]]]],
-               [Use the xsltproc binary in in PATH.]),
+               [Use the xsltproc binary in PATH.]),
     [ ac_with_xsltproc=$withval; ],
     [ ac_with_xsltproc=maybe; ])
 

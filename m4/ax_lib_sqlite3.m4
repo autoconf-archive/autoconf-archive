@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_LIB_SQLITE3],
 [
@@ -143,7 +143,7 @@ AC_DEFUN([AX_LIB_SQLITE3],
                 if test $ac_sqlite3_version != ""; then
                     SQLITE3_VERSION=$ac_sqlite3_version
                 else
-                    AC_MSG_WARN([Can not find SQLITE_VERSION macro in sqlite3.h header to retrieve SQLite version!])
+                    AC_MSG_WARN([Cannot find SQLITE_VERSION macro in sqlite3.h header to retrieve SQLite version!])
                 fi
             fi
 

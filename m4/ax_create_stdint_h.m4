@@ -74,7 +74,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_CHECK_DATA_MODEL],[
    AC_CHECK_SIZEOF(char)
@@ -198,7 +198,7 @@ else
  AC_MSG_RESULT([$ac_cv_header_stdint (shortcircuit)])
 fi
 
-if test "_$ac_cv_header_stdint_t" = "_" ; then # can not shortcircuit..
+if test "_$ac_cv_header_stdint_t" = "_" ; then # cannot shortcircuit..
 
 dnl .....intro message done, now do a few system checks.....
 dnl btw, all old CHECK_TYPE macros do automatically "DEFINE" a type,

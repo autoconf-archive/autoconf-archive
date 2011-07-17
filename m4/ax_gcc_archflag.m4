@@ -11,7 +11,7 @@
 #   This macro tries to guess the "native" arch corresponding to the target
 #   architecture for use with gcc's -march=arch or -mtune=arch flags. If
 #   found, the cache variable $ax_cv_gcc_archflag is set to this flag and
-#   ACTION-SUCCESS is executed; otherwise $ax_cv_gcc_archflag is is set to
+#   ACTION-SUCCESS is executed; otherwise $ax_cv_gcc_archflag is set to
 #   "unknown" and ACTION-FAILURE is executed. The default ACTION-SUCCESS is
 #   to add $ax_cv_gcc_archflag to the end of $CFLAGS.
 #
@@ -63,7 +63,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_GCC_ARCHFLAG],
 [AC_REQUIRE([AC_PROG_CC])

@@ -46,7 +46,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_SET_DEFAULT_PATHS_SYSTEM], [AX_SET_DEFAULT_PATHS_SYSTEM])
 AC_DEFUN([AX_SET_DEFAULT_PATHS_SYSTEM],
@@ -116,7 +116,7 @@ case ${result} in
                      |sed -e 's:^..prefix./etc$:/etc${prefix}:'`
      sharedstatedir=`echo $sharedstatedir \
                      |sed -e 's:^..prefix./com$:/etc/default${prefix}:'`
-     # $prefix/var is going to to be /var$prefix... once again
+     # $prefix/var is going to be /var$prefix... once again
      localstatedir=`echo $localstatedir \
                      |sed -e 's:^..prefix./var$:/var${prefix}:'`
      # doc files are left at prefix

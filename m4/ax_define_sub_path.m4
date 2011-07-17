@@ -11,8 +11,8 @@
 #   Look at varname and detect the subpath that it contains relative to
 #   $prefix/$exec_prefix. If the path is indeed relative to
 #   $prefix/$exec_prefix, then a single "./" (dotslash) is prepended,
-#   otherwise it can be seen as an absolute path that can not be moved,
-#   which you possibly do for "/etc" files, or even those ending up in
+#   otherwise it can be seen as an absolute path that cannot be moved, which
+#   you possibly do for "/etc" files, or even those ending up in
 #   "/lib/modules" or "/winnt/system".
 #
 #   This macro is not very intelligent, it's just a first try in this
@@ -79,7 +79,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_DEFINE_SUB_PATH], [AX_DEFINE_SUB_PATH])
 AC_DEFUN([AX_DEFINE_SUB_PATH],

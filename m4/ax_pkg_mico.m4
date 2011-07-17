@@ -49,7 +49,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_PKG_MICO], [AX_PKG_MICO])
 AC_DEFUN([AX_PKG_MICO],
@@ -88,7 +88,7 @@ AC_ARG_WITH(mico,
     case "$withval" in
         yes) MICO_URGENCY=required;;
         no) if test x$MICO_URGENCY = xrequired; then
-                AC_MSG_ERROR("PKG_MICO was configured with the 'required' option. You can not override it from the command line")
+                AC_MSG_ERROR("PKG_MICO was configured with the 'required' option. You cannot override it from the command line")
             fi;
             ;;
         *) MICO_URGENCY=required; MICOSETUP="$withval" ;;
@@ -165,7 +165,7 @@ if test x$MICO_URGENCY = xrequired -o  x$MICO_URGENCY = xoptional; then
         #
         AC_PATH_PROG(MICO_CXX, mico-c++, , ${MICODIR}/bin:${MICOSHAREDDIR}/bin)
         if test -z "$MICO_CXX"; then
-            AC_MSG_ERROR("panic: can not locate and scan the mico script mico-c++")
+            AC_MSG_ERROR("panic: cannot locate and scan the mico script mico-c++")
         fi
 
         AC_MSG_CHECKING(if mico was compiled using ministl)
@@ -184,7 +184,7 @@ if test x$MICO_URGENCY = xrequired -o  x$MICO_URGENCY = xoptional; then
         AC_PATH_PROG(MICO_LD, mico-ld, , ${MICODIR}/bin:${MICOSHAREDDIR}/bin)
 
         if test -z "$MICO_LD"; then
-            AC_MSG_ERROR("panic: can not locate and scan the mico script mico-ld")
+            AC_MSG_ERROR("panic: cannot locate and scan the mico script mico-ld")
         fi
 
         AC_MSG_CHECKING(mico dependencies)

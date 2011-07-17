@@ -8,9 +8,9 @@
 #
 # DESCRIPTION
 #
-#   Writes the specified data to the specified file when Autoconf is is run.
-#   If you want to print to a file when configure is run use
-#   AX_PRINT_TO_FILE instead.
+#   Writes the specified data to the specified file when Autoconf is run. If
+#   you want to print to a file when configure is run use AX_PRINT_TO_FILE
+#   instead.
 #
 # LICENSE
 #
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_AC_PRINT_TO_FILE],[
 m4_esyscmd(

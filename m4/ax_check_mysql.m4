@@ -16,7 +16,7 @@
 #
 #   In detail, AX_CHECK_MYSQL will automatically look for a MySQL
 #   installation in the directories that a mysql source or binary install
-#   typically install to. AX_CHECK_MYSQL will throw an error if it can not
+#   typically install to. AX_CHECK_MYSQL will throw an error if it cannot
 #   find one, and it is required.
 #
 #   AX_CHECK_MYSQL can also check for specific variables passed regarding a
@@ -58,7 +58,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_ARG_WITH(mysql,AS_HELP_STRING([--with-mysql],[root of the MySQL installation]))
 AC_ARG_WITH(mysql_plugin,AS_HELP_STRING([--with-mysql-plugin],[path to the MySQL installation plugin directory]))
@@ -199,7 +199,7 @@ AC_DEFUN([AX_CHECK_MYSQL],[
 
     fi
 
-    # If MySQL still can not find a valid installation, an error/warning message is thrown.
+    # If MySQL still cannot find a valid installation, an error/warning message is thrown.
     AC_SUBST(MYSQL,$mysql_test)
     if test "$mysql_issue" != ""
     then
