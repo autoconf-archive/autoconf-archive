@@ -2,6 +2,11 @@
 #      http://www.gnu.org/software/autoconf-archive/ax_gxx_version.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro is non-functional, because it depends on the obsolete macro
+#   AX_GCC_OPTION, which has been removed from the archive.
+#
 # SYNOPSIS
 #
 #   AX_GXX_VERSION
@@ -41,7 +46,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_GXX_VERSION], [
   GXX_VERSION=""

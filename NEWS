@@ -14,6 +14,10 @@
   AX_WITH_CURSES_PANEL, AX_WITH_CURSES_MENU, and AX_WITH_CURSES_FORM have been
   added. See <http://savannah.gnu.org/patch/?7587> for further details.
 
+  AX_GCC_INSTALL_DIR, AX_GCC_LIBRARIES_DIR, AX_GCC_VERSION, and AX_GXX_VERSION
+  are non-functional and have been marked obsolete, because they depend on the
+  obsolete AX_GCC_OPTION macro, which has been removed from the archive.
+
 * Noteworthy changes in release 2011.07.17 (2011-07-17) [stable]
 
   A cut-and-paste error in AX_BOOST_FILESSYTEM has been fixed. See
