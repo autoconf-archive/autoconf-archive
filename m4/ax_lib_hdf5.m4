@@ -72,7 +72,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_LIB_HDF5], [
 
@@ -316,14 +316,14 @@ dnl
             with_hdf5_fortran="no"
         fi
 
+	AC_SUBST([HDF5_VERSION])
+	AC_SUBST([HDF5_CFLAGS])
+	AC_SUBST([HDF5_CPPFLAGS])
+	AC_SUBST([HDF5_LDFLAGS])
+	AC_SUBST([HDF5_FFLAGS])
+	AC_SUBST([HDF5_FLIBS])
+	AC_DEFINE([HAVE_HDF5], [1], [Defined if you have HDF5 support])
     fi
-    AC_SUBST([HDF5_VERSION])
-    AC_SUBST([HDF5_CFLAGS])
-    AC_SUBST([HDF5_CPPFLAGS])
-    AC_SUBST([HDF5_LDFLAGS])
-    AC_SUBST([HDF5_FFLAGS])
-    AC_SUBST([HDF5_FLIBS])
-    AC_DEFINE([HAVE_HDF5], [1], [Defined if you have HDF5 support])
 fi
 
 ])

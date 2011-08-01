@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_LIB_HDF5 erroneously defined HAVE_HDF5 even when the library was not
+  detected. This has been fixed.
+
   Autoconf 2.68 warnings concerning AX_PTHREAD haven been fixed.
 
   AX_WITH_CURSES has been extensively re-written, and the new variants
