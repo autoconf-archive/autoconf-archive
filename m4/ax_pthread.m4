@@ -82,7 +82,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 14
+#serial 15
 
 AU_ALIAS([ACX_PTHREAD], [AX_PTHREAD])
 AC_DEFUN([AX_PTHREAD], [
@@ -265,10 +265,10 @@ if test "x$ax_pthread_ok" = xyes; then
 
         AC_CACHE_CHECK([for PTHREAD_PRIO_INHERIT],
             ax_cv_PTHREAD_PRIO_INHERIT, [
-                AC_LINK_IFELSE(
+                AC_LINK_IFELSE([
                     AC_LANG_PROGRAM([[#include <pthread.h>]], [[int i = PTHREAD_PRIO_INHERIT;]]),
                     [ax_cv_PTHREAD_PRIO_INHERIT=yes],
-                    [ax_cv_PTHREAD_PRIO_INHERIT=no])
+                    [ax_cv_PTHREAD_PRIO_INHERIT=no]])
             ])
         AS_IF([test "x$ax_cv_PTHREAD_PRIO_INHERIT" = "xyes"],
             AC_DEFINE([HAVE_PTHREAD_PRIO_INHERIT], 1, [Have PTHREAD_PRIO_INHERIT.]))

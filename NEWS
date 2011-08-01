@@ -10,6 +10,8 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Autoconf 2.68 warnings concerning AX_PTHREAD haven been fixed.
+
   AX_WITH_CURSES has been extensively re-written, and the new variants
   AX_WITH_CURSES_PANEL, AX_WITH_CURSES_MENU, and AX_WITH_CURSES_FORM have been
   added. See <http://savannah.gnu.org/patch/?7587> for further details.
