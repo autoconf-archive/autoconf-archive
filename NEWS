@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  New additions AX_PERL_EXT and AX_RUBY_EXT can be used to fetch the linker
+  flags and C compiler flags for compiling and linking Perl/Ruby binary
+  extensions.
+
   AX_LIB_HDF5 erroneously defined HAVE_HDF5 even when the library was not
   detected. This has been fixed.
 
