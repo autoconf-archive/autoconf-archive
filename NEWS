@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_CHECK_MYSQL has been significantly re-factored to fix several bugs. See
+  <http://savannah.gnu.org/patch/?7599> for further details.
+
   New additions AX_PERL_EXT and AX_RUBY_EXT can be used to fetch the linker
   flags and C compiler flags for compiling and linking Perl/Ruby binary
   extensions.

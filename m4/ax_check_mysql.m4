@@ -26,12 +26,17 @@
 #   regarding the version of MySQL, its architecture (32 or 64 bit), and
 #   wether the version supports Plugins.
 #
+#   AX_CHECK_MYSQL_INSTALL will check a designated root directory for a
+#   command, plugin, and include directory. If a mysql binary is not found
+#   or not found, the IF-FOUND and IF-NOT-FOUND directive will be executed,
+#   respectively.
+#
 #   AX_CHECK_MYSQL adds the following flags:
 #
 #     --with-mysql, for the root of a desired MySQL installation
 #     --with-mysql-plugin, for the path to the plugin directory of the MySQL installation
 #     --with-mysql-include, for the path to the include directory of the MySQL installation
-#     --with-mysql-bin, for the path to the binary directory of the MySQL installation
+#     --with-mysql-command, for the path to the binary directory of the MySQL installation
 #     --with-mysql-source, for the path to a directory containing the source of the MySQL installation
 #
 #   AX_CHECK_MYSQL sets:
@@ -58,13 +63,54 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_ARG_WITH(mysql,AS_HELP_STRING([--with-mysql],[root of the MySQL installation]))
 AC_ARG_WITH(mysql_plugin,AS_HELP_STRING([--with-mysql-plugin],[path to the MySQL installation plugin directory]))
 AC_ARG_WITH(mysql_include,AS_HELP_STRING([--with-mysql-include],[path to the MySQL installation include directory]))
-AC_ARG_WITH(mysql_bin,AS_HELP_STRING([--with-mysql-bin],[path to the MySQL executables directory]))
+AC_ARG_WITH(mysql_command,AS_HELP_STRING([--with-mysql-command],[path to the MySQL executables directory]))
 AC_ARG_WITH(mysql_source,AS_HELP_STRING([--with-mysql-source],[path to MySQL source files]))
+
+# Used to look for MySQL installation specifically. Checks if binary exists.
+AC_DEFUN([AX_CHECK_MYSQL_COMMANDS],[
+    # Define variables passed
+    COMMAND_DIR="$1"
+
+    # Check for the binary, and set appropriate variables
+    unset ac_cv_mysql_bin_test
+    AC_CHECK_PROG(mysql_bin_test,mysql,$COMMAND_DIR,no,$COMMAND_DIR)
+    if test "$mysql_bin_test" != "no"; then
+        AC_SUBST(MYSQL_COMMANDS,$mysql_bin_test)
+        AC_SUBST(MYSQL,yes)
+    else
+        AC_SUBST(MYSQL_COMMANDS,no)
+        AC_SUBST(MYSQL,no)
+    fi
+])
+
+# Use to look for the plugins directory
+AC_DEFUN([AX_CHECK_MYSQL_PLUGINS],[
+    # Define variables passed
+    PLUGIN_DIR="$1"
+
+    AC_MSG_CHECKING([if $PLUGIN_DIR exists...])
+    if [[ -d "$PLUGIN_DIR" ]]; then
+       AC_SUBST(MYSQL_PLUGIN,yes)
+       AC_MSG_RESULT([yes])
+    else
+       AC_SUBST(MYSQL_PLUGIN,no)
+       AC_MSG_RESULT([no])
+    fi
+])
+
+# Use to look if includes are installed (determined by the existence of mysql_version.h)
+AC_DEFUN([AX_CHECK_MYSQL_INCLUDES],[
+    # Define variables passed
+    INCLUDE_DIR="$1"
+    AC_CHECK_HEADER($INCLUDE_DIR/mysql_version.h,
+        AC_SUBST(MYSQL_INCLUDES,$INCLUDE_DIR/),
+        AC_SUBST(MYSQL_INCLUDES,no))
+])
 
 AC_DEFUN([AX_CHECK_MYSQL_INSTALL],[
 
@@ -72,29 +118,29 @@ AC_DEFUN([AX_CHECK_MYSQL_INSTALL],[
     ROOT_DIR="$1"
 
     # Check for include directory
-    AC_CHECK_HEADER($ROOT_DIR/include/mysql/mysql_version.h,mysql_include_test="$ROOT_DIR/include/mysql",mysql_include_test="no")
-    if test "$mysql_include_test" == "no"
-    then
-        AC_CHECK_HEADER($ROOT_DIR/include/mysql_version.h,mysql_include_test="$ROOT_DIR/include",mysql_include_test="no")
+    AX_CHECK_MYSQL_INCLUDES([$ROOT_DIR/include/mysql/mysql_version.h])
+    if test "$MYSQL_INCLUDES" == "no" ; then
+       AX_CHECK_MYSQL_INCLUDES([$ROOT_DIR/include/mysql_version.h])
     fi
-    AC_CHECK_FILE($ROOT_DIR/lib/mysql/plugin/mypluglib.so,mysql_plugin_test="$ROOT_DIR/lib/mysql/plugin",mysql_plugin_test="no")
-    if test "$mysql_plugin_test" == "no"
-    then
-        unset mysql_plugin_test
-        AC_CHECK_FILE($ROOT_DIR/lib/plugin/mypluglib.so,mysql_plugin_test="$ROOT_DIR/lib/plugin",mysql_plugin_test="no")
+    mysql_include_test=$MYSQL_INCLUDES
+
+    # Check for plugin directory
+    AX_CHECK_MYSQL_PLUGINS([$ROOT_DIR/lib/mysql/plugin/])
+    if test "$MYSQL_PLUGIN" == "no" ; then
+       unset $MYSQL_PLUGIN
+        AX_CHECK_MYSQL_PLUGINS([$ROOT_DIR/lib/plugin/])
     fi
-    AC_CHECK_PROG(mysql_bin_test,mysql,$ROOT_DIR/bin/,no,$ROOT_DIR/bin)
-    if test "$mysql_plugin_test" != "no" && test "$mysql_bin_test" != "no"
+    mysql_plugin_test=$MYSQL_PLUGIN
+
+    # Check for binary directory
+    AX_CHECK_MYSQL_COMMANDS([$ROOT_DIR/bin/])
+
+    if test "$MYSQL" != "no"
     then
-        AC_SUBST(MYSQL_INCLUDES,$mysql_include_test)
-        AC_SUBST(MYSQL_PLUGINS,$mysql_plugin_test)
-        AC_SUBST(MYSQL_COMMANDS,$mysql_bin_test)
-        mysql_test="yes"
-        AC_SUBST(MYSQL,yes)
+        true
         $2
     else
-        mysql_test="no"
-        AC_SUBST(MYSQL,no)
+        true
         $3
     fi
 ])
@@ -107,6 +153,9 @@ AC_DEFUN([AX_CHECK_MYSQL],[
     MYSQL_REQUIRED=`echo $2 | grep -i -o "y"`
     MINIMUM_V="$3"
     INCLUDES_REQUIRED=`echo $4 | grep -i -o "y"`
+    CLASSIFIER="none"
+    mysql_issue=""
+
 
 
     # Checks for common installation locations of MySQL
@@ -124,10 +173,12 @@ AC_DEFUN([AX_CHECK_MYSQL],[
         mysql_issue="Multiple MySQL installations found. Please specify the MySQL installation directory with --with-mysql"
     else if test "$ac_cv_prog_mysqlsource" == "yes"
     then
-        AX_CHECK_MYSQL_INSTALL(/usr/local/mysql,mysql_issue="",mysql_issue="Although a source installation was detected the include or plugin directory could not be found. Please designate the root directory of the MySQl installation manually with --with-mysql")
+        AX_CHECK_MYSQL_INSTALL(/usr/local/mysql,,)
+        CLASSIFIER="source"
     else if test "$ac_cv_prog_mysqlpackage" == "yes"
     then
-        AX_CHECK_MYSQL_INSTALL(/usr/,mysql_issue="",mysql_issue="Although a package installation was detected the include or plugin directory could not be found. Please designate the root directory of the MySQL installation manually with --with-mysql")
+        AX_CHECK_MYSQL_INSTALL(/usr,,)
+        CLASSIFIER="package"
     else
         mysql_issue="No default MySQL installs detected. Please specify the MySQL installation directory with --with-mysql"
     fi
@@ -139,18 +190,19 @@ AC_DEFUN([AX_CHECK_MYSQL],[
     # will nullify any errors that would have been thrown by the above checking.
     if test "$with_mysql" != ""
     then
-        AX_CHECK_MYSQL_INSTALL($with_mysql,mysql_issue="",mysql_issue="Structure of MySQL installation folder does not match a typical install. Please designate the include plugin bin and source directories manually with --with-mysql-plugin --with-mysql-include --with-mysql-bin")
+        AX_CHECK_MYSQL_INSTALL($with_mysql,,)
+        CLASSIFIER="root"
+        mysql_issue=""
     fi
+
 
     # Checks if specific MySQL directory flags were passed (--with-mysql-plugin, --with-mysql-include, --with-mysql-bin)
     # If so then checks if these variables are proper directories. If not, returns an error. Requires that all three directories must be defined.
 
-    if test "$with_mysql_plugin" != "" || test "$with_mysql_include" != "" || test "$with_mysql_bin" != ""
+    if test "$with_mysql_plugin" != "" || test "$with_mysql_include" != "" || test "$with_mysql_command" != ""
     then
         mysql_test="yes"
-        unset ac_cv_prog_mysql_bin_test
-        unset ac_cv_prog_mysql_plugin_test
-        if test "$with_mysql_plugin" == "" || test "$with_mysql_bin" == ""
+        if test "$with_mysql_plugin" == "" || test "$with_mysql_command" == ""
         then
             mysql_test="no"
             if test "$MYSQL_REQUIRED" != ""
@@ -160,47 +212,17 @@ AC_DEFUN([AX_CHECK_MYSQL],[
                 AC_MSG_WARN([Argument is missing! When using --with-mysql-plugin --with-mysql-bin please enter arguments for each.])
             fi
         else
-
-	    AC_CHECK_FILE($with_mysql_plugin/mypluglib.so,mysql_plugin_test="$with_mysql_plugin",mysql_plugin_test="no")
-            if test "$mysql_plugin_test" == "no"
-            then
-                mysql_test="no"
-                if test "$MYSQL_REQUIRED" != ""
-                then
-                    AC_MSG_ERROR([--with-mysql-plugin argument refers to a directory that is not a plugin directory. Please reenter the proper plugin directory.])
-                else
-                    AC_MSG_WARN([--with-mysql-plugin argument refers to a directory that is not a plugin directory. Please reenter the proper plugin directory.])
-                fi
-            fi
-
-            AC_CHECK_HEADER($with_mysql_include/mysql_version.h,mysql_include_test="$with_mysql_include/",mysql_include_test="no")
-            if test "$mysql_include_test" == "no" && test "$INCLUDES_REQUIRED" != ""
-            then
-                AC_MSG_ERROR([--with-mysql-include argument refers to a directory that is not a MySQL include directory. Please reenter the proper include directory for the MySQL installation.])
-            fi
-
-            AC_CHECK_PROG(mysql_bin_test,mysql,$with_mysql_bin,no,$with_mysql_bin)
-            if test "$mysql_bin_test" == "no"
-            then
-                mysql_test="no"
-                if test "$MYSQL_REQUIRED" != ""
-                then
-                    AC_MSG_ERROR([--with-mysql-bin argument refers to a directory that is not the executable directory. Please reenter the proper directory containing the MySQL executables.])
-                else
-                    AC_MSG_WARN([--with-mysql-bin argument refers to a directory that is not the executable directory. Please reenter the proper directory containing the MySQL executables.])
-                fi
-            fi
-        fi
-
-        AC_SUBST(MYSQL_INCLUDES,$mysql_include_test)
-        AC_SUBST(MYSQL_PLUGINS,$mysql_plugin_test)
-        AC_SUBST(MYSQL_COMMANDS,$mysql_bin_test)
         mysql_issue=""
-
+        AX_CHECK_MYSQL_PLUGINS([$with_mysql_plugin])
+        AX_CHECK_MYSQL_INCLUDES([$with_mysql_include])
+        AX_CHECK_MYSQL_COMMANDS([$with_mysql_command])
+        CLASSIFIER="custom"
+        fi
     fi
+    # If the installation does not exist or satisfy requirements, send an error or warning
+    mysql_dne_message=""
+    mysql_include_dne_message=""
 
-    # If MySQL still cannot find a valid installation, an error/warning message is thrown.
-    AC_SUBST(MYSQL,$mysql_test)
     if test "$mysql_issue" != ""
     then
         if test "$MYSQL_REQUIRED" != ""
@@ -209,13 +231,84 @@ AC_DEFUN([AX_CHECK_MYSQL],[
         else
             AC_MSG_WARN([$mysql_issue])
         fi
-    else
-
-        # Test if INCLUDES-REQUIRED is yes, if so, checks for include directory and throws error if not correct
-        if test "$INCLUDES_REQUIRED" != "" && test "$MYSQL_INCLUDES" == "no"
+    fi
+    # Error message for not finding mysql executable
+    if test "$MYSQL_BIN" == "no"
+    then
+        if test "$CLASSIFIER" == "root"
         then
-            AC_MSG_ERROR([Include directory could not be found! MySQL development library may not be installed. If development library is installed please use --with-mysql-include --with-mysql-plugin --with-mysql-bin to manually assign directory locations.])
+            mysql_dne_message="Could not find directory containing MySQL includes. Please designate the command\,plugin\,and include directories manually with --with-mysql-command\, --with-mysql-plugin\, and --with-mysql-include"
         fi
+        if test "$CLASSIFIER" == "custom"
+        then
+            mysql_dne_message="Could not find mysql executable in designated command directory. Please pass the directory containing the mysql executable with --with-mysql-command"
+        fi
+    fi
+
+    # Error message for not finding mysql plugin directory
+    if test "$MYSQL_PLUGINS" == "no"
+    then
+        if test "$CLASSIFIER" == "source"
+        then
+            AC_MSG_WARN([Could not find plugin directory for detected source installation. Please pass the root directory of the MySQL installation with --with-mysql])
+        fi
+        if test "$CLASSIFIER" == "package"
+        then
+            AC_MSG_WARN([Could not find plugin directory for detected package installation. Please pass the root directory of the MySQL installation with --with-mysql])
+        fi
+        if test "$CLASSIFIER" == "root"
+        then
+            AC_MSG_WARN([Could not find directory for MySQL plugins. Please designate the command\,plugin\,and include directories manually with --with-mysql-command\, --with-mysql-plugin\, and --with-mysql-include])
+        fi
+        if test "$CLASSIFIER" == "custom"
+        then
+            AC_MSG_WARN([Could not find mysql includes in designated plugin directory. Please pass the directory containing the mysql executable with --with-mysql-plugin])
+        fi
+    fi
+
+    # Error message for not finding mysql include directory
+   if test "$MYSQL_INCLUDES" == "no"
+    then
+        if test "$CLASSIFIER" == "source"
+        then
+            mysql_include_dne_message="A source install was detected, but the include directory could not be found! MySQL development library may not be installed. If development library is installed please use --with-mysql-include --with-mysql-plugin --with-mysql-command to manually assign directory locations"
+        fi
+        if test "$CLASSIFIER" == "package"
+        then
+            mysql_include_dne_message="A package install was detected, but the include directory could not be found! MySQL development library may not be installed. If development library is installed please use --with-mysql-include --with-mysql-plugin --with-mysql-command to manually assign directory locations"
+        fi
+        if test "$CLASSIFIER" == "root"
+        then
+            mysql_include_dne_message="Could not find directory containing MySQL includes. The MySQL development library may not be installed. If development library is installed\, please designate the command\,plugin\,and include directories manually with --with-mysql-command\, --with-mysql-plugin\, and --with-mysql-include"
+        fi
+        if test "$CLASSIFIER" == "custom"
+        then
+            mysql_include_dne_message="Could not find mysql includes in designated include directory. Please pass the directory containing the mysql_version.h include file with --with-mysql-include"
+        fi
+    fi
+
+    # And execute the error messages
+    if test "$mysql_dne_message" != ""
+    then
+         if test "$MYSQL_REQUIRED" != ""
+         then
+            AC_MSG_ERROR([$mysql_dne_message])
+         else
+            AC_MSG_WARN([$mysql_dne_message])
+         fi
+    fi
+    if test "$mysql_include_dne_message" != ""
+    then
+         if test "$INCLUDES_REQUIRED" != ""
+         then
+            AC_MSG_ERROR([$mysql_include_dne_message])
+         else
+            AC_MSG_WARN([$mysql_include_dne_message])
+         fi
+    fi
+
+    if test "$MYSQL" == "yes"
+    then
         # Check MySQL version, wether it's 32 or 64 bit, and modifies the architecture variable accordingly
         AC_MSG_CHECKING([MySQL Architecture])
         MYSQL_ARCHITECTURE='file '$MYSQL_COMMANDS'/mysql'
@@ -279,9 +372,6 @@ AC_DEFUN([AX_CHECK_MYSQL],[
             fi
         fi
 
-
-
-
         # Checks whether MySQL version is 5.5 or greater, the production release with major header/include changes from before
         if test "$MYSQL_MAJOR_V" -gt 4 && test "$MYSQL_MINOR_V" -gt 4
         then
@@ -289,9 +379,7 @@ AC_DEFUN([AX_CHECK_MYSQL],[
         else
             AC_SUBST(MYSQL_55,no)
         fi
-
     fi
-
 
 ])
 
