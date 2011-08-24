@@ -6,6 +6,7 @@
 #
 #   Deprecated in favor of AX_COMPILER_VENDOR. A call to this macro can be
 #   replaced by:
+#
 #     AC_LANG_PUSH([C])
 #     AX_COMPILER_VENDOR
 #     AC_LANG_POP
@@ -30,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([RSSH_CHECK_SUNPRO_C], [AX_CHECK_SUNPRO_C])
 AC_DEFUN([AX_CHECK_SUNPRO_C],
