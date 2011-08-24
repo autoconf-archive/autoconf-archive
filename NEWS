@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_CHECK_GL, AX_CHECK_GLU, AX_CHECK_GLUT have been marked obsolete. The
+  author of these macros prefers to publish them on his own website at
+  <http://code.google.com/p/autoconf-gl-macros/>.
+
   AX_CHECK_MYSQL has been significantly re-factored to fix several bugs. See
   <http://savannah.gnu.org/patch/?7599> for further details.
 
