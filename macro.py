@@ -97,8 +97,6 @@ class Macro:
           raise Exception("%s: malformed license section" % filePath)
         body = collapseText(body)
       elif key == "obsolete macro":
-        if '' in body:
-          raise Exception("%s: malformed obsoleted section" % filePath)
         key = "obsolete"
         body = collapseText(body)
       elif key == "description":

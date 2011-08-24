@@ -64,7 +64,7 @@ url = "http://www.gnu.org/software/autoconf-archive/%s.html" % m.name
 lineLen = max(len(url) + 2, 75)
 m.url = "# %s\n# %s\n# %s" % ('=' * lineLen, (' ' * int((lineLen - len(url)) / 2)) + url, '=' * lineLen)
 if m.__dict__.get("obsolete"):
-  m.obsolete = "# OBSOLETE MACRO\n#\n" + '\n'.join(map(formatParagraph, m.obsolete)) + "\n#\n"
+  m.obsolete = "# OBSOLETE MACRO\n#\n" + '\n#\n'.join(map(formatParagraph, m.obsolete)) + "\n#\n"
 else:
   m.obsolete = ""
 m.synopsis = "\n".join([ "#   %s" % l for l in m.synopsis ])
