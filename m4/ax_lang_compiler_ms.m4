@@ -6,6 +6,7 @@
 #
 #   Deprecated in favor of AX_COMPILER_VENDOR. A call to this macro can be
 #   replaced by:
+#
 #     AX_COMPILER_VENDOR
 #     AS_IF([test $ax_cv_c_compiler_vendor = microsoft],
 #         [ax_compiler_ms=yes],[ax_compiler_ms=no])
@@ -30,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_LANG_COMPILER_MS],
 [AC_CACHE_CHECK([whether we are using the Microsoft _AC_LANG compiler],
