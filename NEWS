@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Modified AX_LIB_SQLITE3 to find the library using the C instead of the C++
+  compiler. See <http://savannah.gnu.org/patch/?7601> for further details.
+
   AX_CHECK_GL, AX_CHECK_GLU, AX_CHECK_GLUT have been marked obsolete. The
   author of these macros prefers to publish them on his own website at
   <http://code.google.com/p/autoconf-gl-macros/>.
