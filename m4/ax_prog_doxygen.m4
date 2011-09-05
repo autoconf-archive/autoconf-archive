@@ -254,7 +254,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 ## ----------##
 ## Defaults. ##
@@ -364,12 +364,11 @@ if DX_TEST_FEATURE([$1]); then
     $5
     :
 fi
+AM_CONDITIONAL(DX_COND_$1, DX_TEST_FEATURE([$1]))
 if DX_TEST_FEATURE([$1]); then
-    AM_CONDITIONAL(DX_COND_$1, :)
     $6
     :
 else
-    AM_CONDITIONAL(DX_COND_$1, false)
     $7
     :
 fi
@@ -495,11 +494,10 @@ DX_ARG_ABLE(pdf, [generate doxygen PDF documentation],
              DX_REQUIRE_PROG([DX_EGREP], egrep)])
 
 # LaTeX generation for PS and/or PDF:
+AM_CONDITIONAL(DX_COND_latex, DX_TEST_FEATURE(ps) || DX_TEST_FEATURE(pdf))
 if DX_TEST_FEATURE(ps) || DX_TEST_FEATURE(pdf); then
-    AM_CONDITIONAL(DX_COND_latex, :)
     DX_ENV_APPEND(GENERATE_LATEX, YES)
 else
-    AM_CONDITIONAL(DX_COND_latex, false)
     DX_ENV_APPEND(GENERATE_LATEX, NO)
 fi
 
