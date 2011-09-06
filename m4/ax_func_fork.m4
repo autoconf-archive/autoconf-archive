@@ -2,6 +2,10 @@
 #       http://www.gnu.org/software/autoconf-archive/ax_func_fork.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated in favor of AC_CHECK_FUNC(fork).
+#
 # SYNOPSIS
 #
 #   AX_FUNC_FORK
@@ -44,7 +48,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([ACX_FUNC_FORK], [AX_FUNC_FORK])
 AC_DEFUN([AX_FUNC_FORK],
