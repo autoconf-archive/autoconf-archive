@@ -2,6 +2,10 @@
 #     http://www.gnu.org/software/autoconf-archive/ax_snprintf_oflow.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Deprecated in favor of gnulib's snprintf module.
+#
 # SYNOPSIS
 #
 #   ax_snprintf_oflow
@@ -20,7 +24,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([ax_snprintf_oflow],
 [AC_MSG_CHECKING(whether snprintf ignores n)
