@@ -13,6 +13,9 @@
   AX_FUNC_FORK and AX_SNPRINTF_OFLOW have been marked obsolete, because there
   are superior alternatives.
 
+  AX_DEFINE_DIR has been marked obsolete because its design does not comply
+  with the GNU Coding Standards.
+
   Modified AX_LIB_SQLITE3 to find the library using the C instead of the C++
   compiler. See <http://savannah.gnu.org/patch/?7601> for further details.
 
