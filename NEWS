@@ -10,6 +10,13 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_LIB_MYSQLCPPCONN has been added, a macro that tests for the MySQL
+  Connector/C++ libraries. See <http://savannah.gnu.org/patch/index.php?7609>
+  for further details.
+
+  AX_LIB_TRACE has been added, a macro that tests for the libtrace libraries.
+  See <http://savannah.gnu.org/patch/?7608> for further details.
+
   AX_FUNC_FORK and AX_SNPRINTF_OFLOW have been marked obsolete, because there
   are superior alternatives.
 
