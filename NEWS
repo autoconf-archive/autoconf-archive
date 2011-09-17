@@ -8,6 +8,8 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
+* Noteworthy changes in release ?.? (????-??-??) [?]
+
 * Noteworthy changes in release 2011.09.17 (2011-09-17) [stable]
 
   AX_LIB_MYSQLCPPCONN has been added, a macro that tests for the MySQL
