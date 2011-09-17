@@ -4,9 +4,8 @@
 #
 # OBSOLETE MACRO
 #
-#   Deprecated because it does not comply with the GNU Coding
-#   Standards.  See the autoconf manual section "Defining Directories"
-#   for alternatives.
+#   Deprecated because it does not comply with the GNU Coding Standards. See
+#   the autoconf manual section "Defining Directories" for alternatives.
 #
 # SYNOPSIS
 #
@@ -36,7 +35,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_DEFINE_DIR], [AX_DEFINE_DIR])
 AC_DEFUN([AX_DEFINE_DIR], [
