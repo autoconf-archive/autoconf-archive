@@ -28,5 +28,6 @@ cat AUTHORS-m4.tmp AUTHORS-git.tmp \
         -e 's/Cristian Rodríguez/Cristian Rodriguez/' \
         -e 's/Mikael Lepistö/Mikael Lepisto/' \
         -e '/Zmanda Inc./d' \
+        -e 's/Daniel Richard G$/Daniel Richard G./' \
   | sort \
   | uniq
