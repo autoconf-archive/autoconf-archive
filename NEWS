@@ -10,6 +10,13 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The obsolete macros AX_C_CHECK_FLAG, AX_CFLAGS_GCC_OPTION,
+  AX_CHECK_COMPILER_FLAGS, AX_CHECK_GL, AX_CHECK_GLU, AX_CHECK_GLUT,
+  AX_CHECK_LINKER_FLAGS, AX_CHECK_SUNPRO_C, AX_CPP_CHECK_FLAG,
+  AX_CXX_CHECK_FLAG, AX_CXXCPP_CHECK_FLAG, AX_DEFINE_DIR, AX_FUNC_FORK,
+  AX_GCC_INSTALL_DIR, AX_GXX_VERSION, AX_LANG_COMPILER_MS, AX_LD_CHECK_FLAG,
+  and AX_SNPRINTF_OFLOW have been dropped from the distribution.
+
 * Noteworthy changes in release 2011.09.17 (2011-09-17) [stable]
 
   AX_LIB_MYSQLCPPCONN has been added, a macro that tests for the MySQL
