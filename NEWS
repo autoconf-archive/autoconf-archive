@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Fixed Darwin support in AX_ENABLE_BUILDDIR. Further details are available at
+  <http://savannah.gnu.org/patch/?7619>.
+
   The obsolete macros AX_C_CHECK_FLAG, AX_CFLAGS_GCC_OPTION,
   AX_CHECK_COMPILER_FLAGS, AX_CHECK_GL, AX_CHECK_GLU, AX_CHECK_GLUT,
   AX_CHECK_LINKER_FLAGS, AX_CHECK_SUNPRO_C, AX_CPP_CHECK_FLAG,
