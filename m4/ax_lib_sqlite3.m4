@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AC_DEFUN([AX_LIB_SQLITE3],
 [
@@ -108,7 +108,7 @@ AC_DEFUN([AX_LIB_SQLITE3],
             AC_LANG_PROGRAM([[@%:@include <sqlite3.h>]],
                 [[
 #if (SQLITE_VERSION_NUMBER >= $sqlite3_version_req_number)
-// Everything is okay
+/* Everything is okay */
 #else
 #  error SQLite version is too old
 #endif
