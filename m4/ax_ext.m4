@@ -19,7 +19,8 @@
 #
 #   And defines:
 #
-#     HAVE_MMX / HAVE_SSE / HAVE_SSE2 / HAVE_SSE3 / HAVE_SSSE3
+#     HAVE_MMX / HAVE_SSE / HAVE_SSE2 / HAVE_SSE3 / HAVE_SSSE3 /
+#     HAVE_SSE41 / HAVE_SSE42 / HAVE_AVX
 #
 # LICENSE
 #
@@ -30,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_EXT],
 [
@@ -80,28 +81,68 @@ AC_DEFUN([AX_EXT],
     fi
   ])
 
+ AC_CACHE_CHECK([whether sse4.1 is supported], [ax_cv_have_sse41_ext],
+  [
+    ax_cv_have_sse41_ext=no
+    if test "$((0x$ecx>>19&0x01))" = 1; then
+      ax_cv_have_sse41_ext=yes
+    fi
+  ])
+
+ AC_CACHE_CHECK([whether sse4.2 is supported], [ax_cv_have_sse42_ext],
+  [
+    ax_cv_have_sse42_ext=no
+    if test "$((0x$ecx>>20&0x01))" = 1; then
+      ax_cv_have_sse42_ext=yes
+    fi
+  ])
+
+ AC_CACHE_CHECK([whether avx is supported], [ax_cv_have_avx_ext],
+  [
+    ax_cv_have_avx_ext=no
+    if test "$((0x$ecx>>28&0x01))" = 1; then
+      ax_cv_have_avx_ext=yes
+    fi
+  ])
+
   if test "$ax_cv_have_mmx_ext" = yes; then
-    AC_DEFINE(HAVE_MMX,,[Support mmx instructions])
-    AX_CHECK_COMPILER_FLAGS(-mmmx, SIMD_FLAGS="$SIMD_FLAGS -mmmx", [])
+    AC_DEFINE(HAVE_MMX,, [Support MMX instructions])
+    AX_CHECK_COMPILE_FLAG(-mmmx, SIMD_FLAGS="$SIMD_FLAGS -mmmx", [])
   fi
 
   if test "$ax_cv_have_sse_ext" = yes; then
-    AC_DEFINE(HAVE_SSE,,[Support SSE (Streaming SIMD Extensions) instructions])
-    AX_CHECK_COMPILER_FLAGS(-msse, SIMD_FLAGS="$SIMD_FLAGS -msse", [])
+    AC_DEFINE(HAVE_SSE,, [Support SSE (Streaming SIMD Extensions) instructions])
+    AX_CHECK_COMPILE_FLAG(-msse, SIMD_FLAGS="$SIMD_FLAGS -msse", [])
   fi
 
   if test "$ax_cv_have_sse2_ext" = yes; then
-    AC_DEFINE(HAVE_SSE2,,[Support SSE2 (Streaming SIMD Extensions 2) instructions])
-    AX_CHECK_COMPILER_FLAGS(-msse2, SIMD_FLAGS="$SIMD_FLAGS -msse2", [])
+    AC_DEFINE(HAVE_SSE2,, [Support SSE2 (Streaming SIMD Extensions 2) instructions])
+    AX_CHECK_COMPILE_FLAG(-msse2, SIMD_FLAGS="$SIMD_FLAGS -msse2", [])
   fi
 
   if test "$ax_cv_have_sse3_ext" = yes; then
-    AC_DEFINE(HAVE_SSE3,,[Support SSE3 (Streaming SIMD Extensions 3) instructions])
-    AX_CHECK_COMPILER_FLAGS(-msse3, SIMD_FLAGS="$SIMD_FLAGS -msse3", [])
+    AC_DEFINE(HAVE_SSE3,, [Support SSE3 (Streaming SIMD Extensions 3) instructions])
+    AX_CHECK_COMPILE_FLAG(-msse3, SIMD_FLAGS="$SIMD_FLAGS -msse3", [])
   fi
 
   if test "$ax_cv_have_ssse3_ext" = yes; then
-    AC_DEFINE(HAVE_SSSE3,,[Support SSSE3 (Supplemental Streaming SIMD Extensions 3) instructions])
+    AC_DEFINE(HAVE_SSSE3,, [Support SSSE3 (Supplemental Streaming SIMD Extensions 3) instructions])
+    AX_CHECK_COMPILE_FLAG(-mssse3, SIMD_FLAGS="$SIMD_FLAGS -mssse3", [])
+  fi
+
+  if test "$ax_cv_have_sse41_ext" = yes; then
+    AC_DEFINE(HAVE_SSE41,, [Support SSE4.1 (Streaming SIMD Extensions 4.1) instructions])
+    AX_CHECK_COMPILE_FLAG(-msse4.1, SIMD_FLAGS="$SIMD_FLAGS -msse4.1", [])
+  fi
+
+  if test "$ax_cv_have_sse42_ext" = yes; then
+    AC_DEFINE(HAVE_SSE42, 1,[Support SSE4.2 (Streaming SIMD Extensions 4.2) instructions])
+    AX_CHECK_COMPILE_FLAG(-msse4.2, SIMD_FLAGS="$SIMD_FLAGS -msse4.2", [])
+  fi
+
+  if test "$ax_cv_have_avx_ext" = yes; then
+    AC_DEFINE(HAVE_AVX,,[Support AVX (Advanced Vector Extensions) instructions])
+    AX_CHECK_COMPILE_FLAG(-mavx, SIMD_FLAGS="$SIMD_FLAGS -mavx", [])
   fi
 
   AC_SUBST(SIMD_FLAGS)

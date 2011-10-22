@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The compiler tests in AX_EXT have been fixed, and support for detection of
+  SSE4.1, SSE4.2, AVX extensions has been added. See
+  <http://savannah.gnu.org/patch/?7633> for further details.
+
   The new macro AX_LIB_GDAL has been added which tests the availability of the
   GDAL/OGR library. Further details are available at
   <http://savannah.gnu.org/patch/?7639>.
