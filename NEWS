@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The new macro AX_LIB_GDAL has been added which tests the availability of the
+  GDAL/OGR library. Further details are available at
+  <http://savannah.gnu.org/patch/?7639>.
+
   Fixed Darwin support in AX_ENABLE_BUILDDIR. Further details are available at
   <http://savannah.gnu.org/patch/?7619>.
 
