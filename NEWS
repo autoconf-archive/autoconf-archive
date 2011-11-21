@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Solaris support in AX_PTHREAD has been improved. Further details are
+  available at <http://savannah.gnu.org/patch/?7666>.
+
   Under-quoted use of $CPPFLAGS has been fixed in AX_BOOST_PYTHON. See
   <http://savannah.gnu.org/patch/?7673> for further details.
 
