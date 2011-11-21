@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Under-quoted use of $CPPFLAGS has been fixed in AX_BOOST_PYTHON. See
+  <http://savannah.gnu.org/patch/?7673> for further details.
+
   The list of headers required by C++11 (the standard formerly known as C++0x)
   has been updated in AX_CXX_HEADER_STDCXX_0X. Further details are available at
   <http://savannah.gnu.org/patch/index.php?7664>.

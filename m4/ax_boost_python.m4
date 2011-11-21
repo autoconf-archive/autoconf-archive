@@ -51,7 +51,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_BOOST_PYTHON],
 [AC_REQUIRE([AX_PYTHON])dnl
@@ -59,9 +59,9 @@ AC_CACHE_CHECK(whether the Boost::Python library is available,
 ac_cv_boost_python,
 [AC_LANG_SAVE
  AC_LANG_CPLUSPLUS
- CPPFLAGS_SAVE=$CPPFLAGS
+ CPPFLAGS_SAVE="$CPPFLAGS"
  if test x$PYTHON_INCLUDE_DIR != x; then
-   CPPFLAGS=-I$PYTHON_INCLUDE_DIR $CPPFLAGS
+   CPPFLAGS="-I$PYTHON_INCLUDE_DIR $CPPFLAGS"
  fi
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
  #include <boost/python/module.hpp>
@@ -70,7 +70,7 @@ ac_cv_boost_python,
 			   [[return 0;]])],
 			   ac_cv_boost_python=yes, ac_cv_boost_python=no)
  AC_LANG_RESTORE
- CPPFLAGS=$CPPFLAGS_SAVE
+ CPPFLAGS="$CPPFLAGS_SAVE"
 ])
 if test "$ac_cv_boost_python" = "yes"; then
   AC_DEFINE(HAVE_BOOST_PYTHON,,[define if the Boost::Python library is available])
