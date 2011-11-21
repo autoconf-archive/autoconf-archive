@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_CXX_HEADER_STDCXX_0X], [AX_CXX_HEADER_STDCXX_0X])
 AC_DEFUN([AX_CXX_HEADER_STDCXX_0X], [
@@ -45,6 +45,7 @@ AC_DEFUN([AX_CXX_HEADER_STDCXX_0X], [
     #include <cmath>
     #include <csetjmp>
     #include <csignal>
+    #include <cstdalign>
     #include <cstdarg>
     #include <cstdbool>
     #include <cstddef>
@@ -59,12 +60,18 @@ AC_DEFUN([AX_CXX_HEADER_STDCXX_0X], [
 
     #include <algorithm>
     #include <array>
+    #include <atomic>
     #include <bitset>
+    #include <chrono>
     #include <complex>
+    #include <condition_variable>
     #include <deque>
     #include <exception>
+    #include <forward_list>
     #include <fstream>
     #include <functional>
+    #include <future>
+    #include <initializer_list>
     #include <iomanip>
     #include <ios>
     #include <iosfwd>
@@ -76,19 +83,25 @@ AC_DEFUN([AX_CXX_HEADER_STDCXX_0X], [
     #include <locale>
     #include <map>
     #include <memory>
+    #include <mutex>
     #include <new>
     #include <numeric>
     #include <ostream>
     #include <queue>
     #include <random>
+    #include <ratio>
     #include <regex>
+    #include <scoped_allocator>
     #include <set>
     #include <sstream>
     #include <stack>
     #include <stdexcept>
     #include <streambuf>
     #include <string>
+    #include <system_error>
+    #include <thread>
     #include <tuple>
+    #include <typeindex>
     #include <typeinfo>
     #include <type_traits>
     #include <unordered_map>

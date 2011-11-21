@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The list of headers required by C++11 (the standard formerly known as C++0x)
+  has been updated in AX_CXX_HEADER_STDCXX_0X. Further details are available at
+  <http://savannah.gnu.org/patch/index.php?7664>.
+
   A bug in AX_WITH_CURSES has been fixed that prevented CURSES_LIB from being
   used. See <http://savannah.gnu.org/patch/index.php?7651> for further details.
 
