@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  A bug in AX_WITH_CURSES has been fixed that prevented CURSES_LIB from being
+  used. See <http://savannah.gnu.org/patch/index.php?7651> for further details.
+
   The compiler tests in AX_EXT have been fixed, and support for detection of
   SSE4.1, SSE4.2, AVX extensions has been added. See
   <http://savannah.gnu.org/patch/?7633> for further details.

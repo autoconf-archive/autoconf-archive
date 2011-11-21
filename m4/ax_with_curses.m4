@@ -182,7 +182,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 AU_ALIAS([MP_WITH_CURSES], [AX_WITH_CURSES])
 AC_DEFUN([AX_WITH_CURSES], [
@@ -394,7 +394,7 @@ AC_DEFUN([AX_WITH_CURSES], [
     # Test for plain Curses (or if CURSES_LIB was set by user)
 
     AS_IF([test "x$with_plaincurses" != xno && test "x$ax_cv_curses_which" = xno], [
-        AS_IF([test "x$CURSES_LIB" = x], [
+        AS_IF([test "x$CURSES_LIB" != x], [
             LIBS="$ax_saved_LIBS $CURSES_LIB"
         ], [
             LIBS="$ax_saved_LIBS -lcurses"
