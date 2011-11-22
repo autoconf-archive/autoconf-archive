@@ -27,7 +27,7 @@
 #   When cross-compiling, or if $CC is not gcc, then ACTION-FAILURE is
 #   called unless the user specified --with-gcc-arch manually.
 #
-#   Requires macros: AX_CHECK_COMPILER_FLAGS, AX_GCC_X86_CPUID
+#   Requires macros: AX_CHECK_COMPILE_FLAG, AX_GCC_X86_CPUID
 #
 #   (The main emphasis here is on recent CPUs, on the principle that doing
 #   high-performance computing on old hardware is uncommon.)
@@ -63,7 +63,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_GCC_ARCHFLAG],
 [AC_REQUIRE([AC_PROG_CC])
@@ -197,7 +197,7 @@ for arch in $ax_gcc_arch; do
     flags="-march=$arch -mcpu=$arch -m$arch"
   fi
   for flag in $flags; do
-    AX_CHECK_COMPILER_FLAGS($flag, [ax_cv_gcc_archflag=$flag; break])
+    AX_CHECK_COMPILE_FLAG($flag, [ax_cv_gcc_archflag=$flag; break])
   done
   test "x$ax_cv_gcc_archflag" = xunknown || break
 done
