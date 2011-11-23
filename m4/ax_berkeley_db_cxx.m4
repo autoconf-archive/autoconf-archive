@@ -31,10 +31,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_BERKELEY_DB_CXX],
 [
+  AC_LANG_ASSERT(C++)
+
   old_LIBS="$LIBS"
 
   minversion=ifelse([$1], ,,$1)

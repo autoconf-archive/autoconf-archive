@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Error reporting in AX_BERKELEY_DB_CXX has been improved in the case the macro
+  is called without LANG=C++. See <http://savannah.gnu.org/patch/?7674> for
+  further details.
+
   Solaris support in AX_PTHREAD has been improved. Further details are
   available at <http://savannah.gnu.org/patch/?7666>.
 
