@@ -54,13 +54,7 @@
 
      : git tag v2009.07.31 -s -m 'Autoconf Archive Version 2009.07.31'
 
-  4. Run "make </dev/null alpha". Other possible release types are "beta" and
-     "major". Re-directing standard input to /dev/null ensures that the
-     procedure runs interactively. If you don't do that, you'll have to hit
-     Ctrl+d at one point to satisfy a gnulib test.
+  4. Run "make stable". Other possible release types are "beta" and "major".
 
-* Mounting upload area via FUSE+SSHFS
-
-  : sshfs dl.sv.gnu.org:/releases/autoconf-archive mnt
-  : ls -l mnt
-  : fusermount -u mnt
+  5. Use the command line call printed out by gnulib to upload the tarballs to
+     the GNU ftp server.
