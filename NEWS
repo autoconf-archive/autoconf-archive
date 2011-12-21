@@ -8,6 +8,8 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
+* Noteworthy changes in release ?.? (????-??-??) [?]
+
 * Noteworthy changes in release 2011.12.21 (2011-12-21) [stable]
 
   Error reporting in AX_BERKELEY_DB_CXX has been improved in the case the macro
