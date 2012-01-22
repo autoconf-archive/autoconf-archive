@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_GCC_ARCHFLAG has been extended to support new Intel/AMD CPUs. See
+  <http://savannah.gnu.org/patch/?7707> for further details.
+
   An endless recursion-bug in AX_COUNT_CPUS has been fixed. See
   <http://savannah.gnu.org/patch/?7697> for further details.
 
