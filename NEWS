@@ -13,6 +13,8 @@
   An endless recursion-bug in AX_COUNT_CPUS has been fixed. See
   <http://savannah.gnu.org/patch/?7697> for further details.
 
+  AX_LUA_LIBS has been fixed to work with Lua 5.2.
+
 * Noteworthy changes in release 2011.12.21 (2011-12-21) [stable]
 
   Error reporting in AX_BERKELEY_DB_CXX has been improved in the case the macro
