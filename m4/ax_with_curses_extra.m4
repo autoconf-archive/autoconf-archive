@@ -80,11 +80,11 @@
 #
 #     For AX_WITH_CURSES_PANEL:
 #
-#     #if defined(HAVE_NCURSESW_PANEL_H)
+#     #if defined HAVE_NCURSESW_PANEL_H
 #     #  include <ncursesw/panel.h>
-#     #elif defined(HAVE_NCURSES_PANEL_H)
+#     #elif defined HAVE_NCURSES_PANEL_H
 #     #  include <ncurses/panel.h>
-#     #elif defined(HAVE_PANEL_H)
+#     #elif defined HAVE_PANEL_H
 #     #  include <panel.h>
 #     #else
 #     #  error "SysV-compatible Curses Panel header file required"
@@ -92,11 +92,11 @@
 #
 #     For AX_WITH_CURSES_MENU:
 #
-#     #if defined(HAVE_NCURSESW_MENU_H)
+#     #if defined HAVE_NCURSESW_MENU_H
 #     #  include <ncursesw/menu.h>
-#     #elif defined(HAVE_NCURSES_MENU_H)
+#     #elif defined HAVE_NCURSES_MENU_H
 #     #  include <ncurses/menu.h>
-#     #elif defined(HAVE_MENU_H)
+#     #elif defined HAVE_MENU_H
 #     #  include <menu.h>
 #     #else
 #     #  error "SysV-compatible Curses Menu header file required"
@@ -104,11 +104,11 @@
 #
 #     For AX_WITH_CURSES_FORM:
 #
-#     #if defined(HAVE_NCURSESW_FORM_H)
+#     #if defined HAVE_NCURSESW_FORM_H
 #     #  include <ncursesw/form.h>
-#     #elif defined(HAVE_NCURSES_FORM_H)
+#     #elif defined HAVE_NCURSES_FORM_H
 #     #  include <ncurses/form.h>
-#     #elif defined(HAVE_FORM_H)
+#     #elif defined HAVE_FORM_H
 #     #  include <form.h>
 #     #else
 #     #  error "SysV-compatible Curses Form header file required"
@@ -144,7 +144,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([_AX_WITH_CURSES_CHECKEXTRA], [
     dnl Parameter 1 is the variable name component, using uppercase letters only
