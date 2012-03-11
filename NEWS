@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Portability of AX_CHECK_LIBRARY has been improved so that the macro can be
+  used with Autoconf versions prior to 2.64.
+
   AX_GCC_ARCHFLAG has been extended to support new Intel/AMD CPUs. See
   <http://savannah.gnu.org/patch/?7707> for further details.
 
