@@ -10,8 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
-  The macro AX_BOOST_CHRONO has been added which detects the Boost.Chrono
-  library. See <http://savannah.gnu.org/patch/?7721> for further details.
+  The macros AX_BOOST_CHRONO and AX_BOOST_LOCALE have been added which detect
+  the Boost.Chrono and Boost.Locale library respectively. Further details are
+  at <http://savannah.gnu.org/patch/?7721> and
+  <http://savannah.gnu.org/patch/?7743>.
 
   Support for automatic detection of dynamic libraries on Mac OS X (*.dylib)
   has been improved in all Boost macros. <http://savannah.gnu.org/patch/?7719>
