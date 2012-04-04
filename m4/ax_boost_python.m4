@@ -18,9 +18,9 @@
 #
 #   This macro calls AC_SUBST(BOOST_PYTHON_LIB).
 #
-#   In order to ensure that the Python headers and the Boost libraries
-#   are specified on the include path, this macro requires AX_PYTHON
-#   and AX_BOOST_BASE to be called.
+#   In order to ensure that the Python headers and the Boost libraries are
+#   specified on the include path, this macro requires AX_PYTHON and
+#   AX_BOOST_BASE to be called.
 #
 # LICENSE
 #
@@ -52,7 +52,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 14
+#serial 15
 
 AC_DEFUN([AX_BOOST_PYTHON],
 [AC_REQUIRE([AX_PYTHON])dnl
