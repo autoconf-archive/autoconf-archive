@@ -15,6 +15,10 @@
   support in the compiler. See <https://savannah.gnu.org/patch/?7735> for
   further details.
 
+  The new macro AX_CXX_DELETE_METHOD has been added which checks whether the
+  C++11 '= delete' syntax for suppressing undesired implicit methods is
+  supported. Further details are at <https://savannah.gnu.org/patch/?7735>.
+
   The macros AX_BOOST_CHRONO and AX_BOOST_LOCALE have been added which detect
   the Boost.Chrono and Boost.Locale library respectively. Further details are
   at <http://savannah.gnu.org/patch/?7721> and
