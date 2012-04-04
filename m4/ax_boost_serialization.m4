@@ -29,7 +29,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 18
+#serial 20
 
 AC_DEFUN([AX_BOOST_SERIALIZATION],
 [

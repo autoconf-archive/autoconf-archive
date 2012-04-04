@@ -30,7 +30,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 19
+#serial 21
 
 AC_DEFUN([AX_BOOST_DATE_TIME],
 [
