@@ -18,8 +18,9 @@
 #
 #   This macro calls AC_SUBST(BOOST_PYTHON_LIB).
 #
-#   In order to ensure that the Python headers are specified on the include
-#   path, this macro requires AX_PYTHON to be called.
+#   In order to ensure that the Python headers and the Boost libraries
+#   are specified on the include path, this macro requires AX_PYTHON
+#   and AX_BOOST_BASE to be called.
 #
 # LICENSE
 #
@@ -75,12 +76,13 @@ ac_cv_boost_python,
 if test "$ac_cv_boost_python" = "yes"; then
   AC_DEFINE(HAVE_BOOST_PYTHON,,[define if the Boost::Python library is available])
   ax_python_lib=boost_python
-  AC_ARG_WITH([boost-python],AS_HELP_STRING([--with-boost-python],[specify the boost python library or suffix to use]),
+  AC_ARG_WITH([boost-python],AS_HELP_STRING([--with-boost-python],[specify yes/no or the boost python library or suffix to use]),
   [if test "x$with_boost_python" != "xno"; then
      ax_python_lib=$with_boost_python
      ax_boost_python_lib=boost_python-$with_boost_python
    fi])
-  for ax_lib in $ax_python_lib $ax_boost_python_lib boost_python; do
+  BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
+  for ax_lib in `ls $BOOSTLIBDIR/libboost_python*.so* $BOOSTLIBDIR/libboost_python*.dylib* $BOOSTLIBDIR/libboost_python*.a* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^lib\(boost_python.*\)\.so.*$;\1;' -e 's;^lib\(boost_python.*\)\.dylib.*$;\1;' -e 's;^lib\(boost_python.*\)\.a.*$;\1;' ` $ax_python_lib $ax_boost_python_lib boost_python; do
     AC_CHECK_LIB($ax_lib, exit, [BOOST_PYTHON_LIB=$ax_lib break])
   done
   AC_SUBST(BOOST_PYTHON_LIB)

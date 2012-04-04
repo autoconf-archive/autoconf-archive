@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Support for automatic detection of dynamic libraries on Mac OS X (*.dylib)
+  has been improved in all Boost macros. <http://savannah.gnu.org/patch/?7719>
+  has further details.
+
   Portability of AX_CHECK_LIBRARY has been improved so that the macro can be
   used with Autoconf versions prior to 2.64.
 
