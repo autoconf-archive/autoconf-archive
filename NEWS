@@ -8,6 +8,8 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
+* Noteworthy changes in release ?.? (????-??-??) [?]
+
 * Noteworthy changes in release 2012.04.07 (2012-04-07) [stable]
 
   The macro AX_CXX_COMPILE_STDCXX_11 has been added, which determines the
