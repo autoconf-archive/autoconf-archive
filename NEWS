@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_BOOST_SERIALIZATION has been improved to support for MacOS/BSD sed.
+  Further details can be found at <http://savannah.gnu.org/patch/?7768>.
+
 * Noteworthy changes in release 2012.04.07 (2012-04-07) [stable]
 
   The macro AX_CXX_COMPILE_STDCXX_11 has been added, which determines the
