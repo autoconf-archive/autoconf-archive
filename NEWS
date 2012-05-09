@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  A bug has been fixed in the Intel MKL library test of AX_BLAS. See
+  <http://savannah.gnu.org/patch/?7770> for further details.
+
   AX_BOOST_SERIALIZATION has been improved to support for MacOS/BSD sed.
   Further details can be found at <http://savannah.gnu.org/patch/?7768>.
 
