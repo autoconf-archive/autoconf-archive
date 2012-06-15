@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The new macro AX_PRINTF_SIZE_T has been added which can be used to check for
+  the appropriate printf() format string modifier to use with a size_t
+  argument. See <http://savannah.gnu.org/patch/?7787> for further details.
+
   A bug has been fixed in the Intel MKL library test of AX_BLAS. See
   <http://savannah.gnu.org/patch/?7770> for further details.
 
