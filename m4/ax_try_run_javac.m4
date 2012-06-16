@@ -29,7 +29,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AC_TRY_RUN_JAVA],[
 AC_REQUIRE([AX_PROG_JAVAC])dnl
@@ -46,8 +46,8 @@ then
 dnl Don't remove the temporary files here, so they can be examined.
   ifelse([$3], , :, [$3])
 else
-  echo "configure: failed program was:" >&AC_FD_CC
-  cat Test.java >&AC_FD_CC
+  echo "configure: failed program was:" >&AS_MESSAGE_LOG_FD
+  cat Test.java >&AS_MESSAGE_LOG_FD
 ifelse([$4], , , [  rm -fr Test*
   $4
 ])dnl

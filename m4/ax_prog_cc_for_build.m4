@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_PROG_CC_FOR_BUILD], [AX_PROG_CC_FOR_BUILD])
 AC_DEFUN([AX_PROG_CC_FOR_BUILD], [dnl
@@ -54,8 +54,8 @@ if AC_TRY_EVAL(ac_link) && test -s conftest${ac_exeext} && (./conftest;
 exit) 2>/dev/null; then
   [$2]=yes
 else
-  echo "configure: failed program was:" >&AC_FD_CC
-  cat conftest.$ac_ext >&AC_FD_CC
+  echo "configure: failed program was:" >&AS_MESSAGE_LOG_FD
+  cat conftest.$ac_ext >&AS_MESSAGE_LOG_FD
   [$2]=no
 fi
 [$3]=no

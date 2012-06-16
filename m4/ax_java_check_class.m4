@@ -49,7 +49,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([DPS_JAVA_CHECK_CLASS], [AX_JAVA_CHECK_CLASS])
 AC_DEFUN([AX_JAVA_CHECK_CLASS],[
@@ -73,8 +73,8 @@ if AC_TRY_COMMAND($JAVAC $JAVACFLAGS $xopts $JAVA_TEST) >/dev/null 2>&1; then
   eval "${cache_var}=yes"
 else
   eval "${cache_var}=no"
-  echo "configure: failed program was:" >&AC_FD_CC
-  cat $JAVA_TEST >&AC_FD_CC
+  echo "configure: failed program was:" >&AS_MESSAGE_LOG_FD
+  cat $JAVA_TEST >&AS_MESSAGE_LOG_FD
 fi
 rm -f $JAVA_TEST $CLASS_TEST
 ])

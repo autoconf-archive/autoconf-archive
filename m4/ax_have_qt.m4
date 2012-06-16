@@ -88,7 +88,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 dnl Calls AX_PATH_QT_DIRECT (contained in this file) as a subroutine.
 AU_ALIAS([BNV_HAVE_QT], [AX_HAVE_QT])
@@ -295,28 +295,28 @@ EOF
       ax_try_1="$QT_MOC ax_qt_test.h -o moc_ax_qt_test.$ac_ext >/dev/null 2>/dev/null"
       AC_TRY_EVAL(ax_try_1)
       if test x"$ac_status" != x0; then
-        echo "$ax_err_1" >&AC_FD_CC
-        echo "configure: could not run $QT_MOC on:" >&AC_FD_CC
-        cat ax_qt_test.h >&AC_FD_CC
+        echo "$ax_err_1" >&AS_MESSAGE_LOG_FD
+        echo "configure: could not run $QT_MOC on:" >&AS_MESSAGE_LOG_FD
+        cat ax_qt_test.h >&AS_MESSAGE_LOG_FD
       else
         ax_try_2="$CXX $QT_CXXFLAGS -c $CXXFLAGS -o moc_ax_qt_test.o moc_ax_qt_test.$ac_ext >/dev/null 2>/dev/null"
         AC_TRY_EVAL(ax_try_2)
         if test x"$ac_status" != x0; then
-          echo "$ax_err_2" >&AC_FD_CC
-          echo "configure: could not compile:" >&AC_FD_CC
-          cat moc_ax_qt_test.$ac_ext >&AC_FD_CC
+          echo "$ax_err_2" >&AS_MESSAGE_LOG_FD
+          echo "configure: could not compile:" >&AS_MESSAGE_LOG_FD
+          cat moc_ax_qt_test.$ac_ext >&AS_MESSAGE_LOG_FD
         else
           ax_try_3="$CXX $QT_CXXFLAGS -c $CXXFLAGS -o ax_qt_main.o ax_qt_main.$ac_ext >/dev/null 2>/dev/null"
           AC_TRY_EVAL(ax_try_3)
           if test x"$ac_status" != x0; then
-            echo "$ax_err_3" >&AC_FD_CC
-            echo "configure: could not compile:" >&AC_FD_CC
-            cat ax_qt_main.$ac_ext >&AC_FD_CC
+            echo "$ax_err_3" >&AS_MESSAGE_LOG_FD
+            echo "configure: could not compile:" >&AS_MESSAGE_LOG_FD
+            cat ax_qt_main.$ac_ext >&AS_MESSAGE_LOG_FD
           else
             ax_try_4="$CXX -o ax_qt_main ax_qt_main.o moc_ax_qt_test.o $QT_LIBS $LIBS >/dev/null 2>/dev/null"
             AC_TRY_EVAL(ax_try_4)
             if test x"$ac_status" != x0; then
-              echo "$ax_err_4" >&AC_FD_CC
+              echo "$ax_err_4" >&AS_MESSAGE_LOG_FD
             else
               ax_cv_qt_test_result="success"
             fi
@@ -441,7 +441,7 @@ AC_DEFUN([AX_PATH_QT_DIRECT],
         ax_qt_lib_dir=
       ], [
         # That did not work. Try the multi-threaded version
-        echo "Non-critical error, please neglect the above." >&AC_FD_CC
+        echo "Non-critical error, please neglect the above." >&AS_MESSAGE_LOG_FD
         ax_qt_lib=qt-mt
         LIBS="-l$ax_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
         AC_TRY_LINK([#include <$qt_direct_test_header>],
@@ -452,7 +452,7 @@ AC_DEFUN([AX_PATH_QT_DIRECT],
           ax_qt_lib_dir=
         ], [
           # That did not work. Try the OpenGL version
-          echo "Non-critical error, please neglect the above." >&AC_FD_CC
+          echo "Non-critical error, please neglect the above." >&AS_MESSAGE_LOG_FD
           ax_qt_lib=qt-gl
           LIBS="-l$ax_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
           AC_TRY_LINK([#include <$qt_direct_test_header>],
@@ -463,7 +463,7 @@ AC_DEFUN([AX_PATH_QT_DIRECT],
             ax_qt_lib_dir=
           ], [
             # That did not work. Maybe a library version I don't know about?
-            echo "Non-critical error, please neglect the above." >&AC_FD_CC
+            echo "Non-critical error, please neglect the above." >&AS_MESSAGE_LOG_FD
             # Look for some Qt lib in a standard set of common directories.
             ax_dir_list="
               `echo $ax_qt_includes | sed ss/includess`
