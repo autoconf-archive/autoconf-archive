@@ -55,7 +55,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_CFLAGS_FORCE_C89],[dnl
 AS_VAR_PUSHDEF([FLAGS],[CFLAGS])dnl
@@ -83,6 +83,7 @@ done
  AC_LANG_RESTORE
 ])
 AS_VAR_POPDEF([FLAGS])dnl
+AC_REQUIRE([AX_APPEND_FLAG])
 case ".$VAR" in
      .ok|.ok,*) m4_ifvaln($3,$3) ;;
    .|.no|.no,*) m4_default($4,[m4_ifval($2,[AX_APPEND_FLAG([$2], [$1])])]) ;;
