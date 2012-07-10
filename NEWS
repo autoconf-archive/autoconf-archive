@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The reliability of AX_BOOST_SYSTEM and AX_BOOST_FILESYSTEM has been improved.
+  See <http://savannah.gnu.org/patch/?7816> for further details.
+
   The new entry AX_ZONEINFO has been added. Further details are available at
   <http://savannah.gnu.org/patch/index.php?7814>.
 
