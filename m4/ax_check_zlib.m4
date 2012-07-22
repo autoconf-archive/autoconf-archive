@@ -4,7 +4,7 @@
 #
 # SYNOPSIS
 #
-#   AX_CHECK_ZLIB()
+#   AX_CHECK_ZLIB([action-if-found], [action-if-not-found])
 #
 # DESCRIPTION
 #
@@ -15,12 +15,17 @@
 #   --without-zlib is specified, the library is not searched at all.
 #
 #   If either the header file (zlib.h) or the library (libz) is not found,
-#   the configuration exits on error, asking for a valid zlib installation
-#   directory or --without-zlib.
+#   shell commands 'action-if-not-found' is run. If 'action-if-not-found' is
+#   not specified, the configuration exits on error, asking for a valid zlib
+#   installation directory or --without-zlib.
 #
-#   The macro defines the symbol HAVE_LIBZ if the library is found. You
-#   should use autoheader to include a definition for this symbol in a
-#   config.h file. Sample usage in a C/C++ source is as follows:
+#   If both header file and library are found, shell commands
+#   'action-if-found' is run. If 'action-if-found' is not specified, the
+#   default action appends '-I${ZLIB_HOME}/include' to CPFLAGS, appends
+#   '-L$ZLIB_HOME}/lib' to LDFLAGS, prepends '-lz' to LIBS, and calls
+#   AC_DEFINE(HAVE_LIBZ). You should use autoheader to include a definition
+#   for this symbol in a config.h file. Sample usage in a C/C++ source is as
+#   follows:
 #
 #     #ifdef HAVE_LIBZ
 #     #include <zlib.h>
@@ -57,7 +62,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([CHECK_ZLIB], [AX_CHECK_ZLIB])
 AC_DEFUN([AX_CHECK_ZLIB],
@@ -103,7 +108,7 @@ then
 	fi
 
         ZLIB_OLD_LDFLAGS=$LDFLAGS
-        ZLIB_OLD_CPPFLAGS=$LDFLAGS
+        ZLIB_OLD_CPPFLAGS=$CPPFLAGS
         LDFLAGS="$LDFLAGS -L${ZLIB_HOME}/lib"
         CPPFLAGS="$CPPFLAGS -I${ZLIB_HOME}/include"
         AC_LANG_SAVE
@@ -114,20 +119,26 @@ then
         if test "$zlib_cv_libz" = "yes" -a "$zlib_cv_zlib_h" = "yes"
         then
                 #
-                # If both library and header were found, use them
+                # If both library and header were found, action-if-found
                 #
-                AC_CHECK_LIB(z, inflateEnd)
-                AC_MSG_CHECKING(zlib in ${ZLIB_HOME})
-                AC_MSG_RESULT(ok)
+                m4_ifblank([$1],[
+                            CPPFLAGS="$CPPFLAGS -I${ZLIB_HOME}/include"
+                            LDFLAGS="$LDFLAGS -I${ZLIB_HOME}/lib"
+                            LIBS="-lz $LIBS"
+                            AC_DEFINE([HAVE_LIBZ], [1],
+                                   [Define to 1 if you have `z' library (-lz)])
+                           ],[
+                            LDFLAGS="$ZLIB_OLD_LDFLAGS"
+                            CPPFLAGS="$ZLIB_OLD_CPPFLAGS"
+                            $1
+                           ])
         else
                 #
-                # If either header or library was not found, revert and bomb
+                # If either header or library was not found, action-if-not-found
                 #
-                AC_MSG_CHECKING(zlib in ${ZLIB_HOME})
-                LDFLAGS="$ZLIB_OLD_LDFLAGS"
-                CPPFLAGS="$ZLIB_OLD_CPPFLAGS"
-                AC_MSG_RESULT(failed)
+                m4_default([$2],[
                 AC_MSG_ERROR(either specify a valid zlib installation with --with-zlib=DIR or disable zlib usage with --without-zlib)
+                ])
         fi
 fi
 
