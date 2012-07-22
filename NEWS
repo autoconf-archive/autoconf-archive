@@ -10,6 +10,21 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_CHECK_ZLIB has been updated significantly:
+
+   - The behavior was changed so that the macro proceeds to compile and link
+     tests even if zlib.h was not found in the "usual locations".
+
+   - The macro interface has been extend to the typical ([action-if-found],
+     [action-if-not-found])-style.
+
+   - Previous versions used to search zlib in "usual locations" only if
+     --with-zlib was provided [by user]. Now, the macro performs that search in
+     default mode, too.
+
+  See <http://lists.gnu.org/archive/html/autoconf-archive-maintainers/2012-07/msg00005.html>
+  for further details.
+
   The new macro AX_PRINTF_SIZE_T has been added which can be used to check for
   the appropriate printf() format string modifier to use with a size_t
   argument. See <http://savannah.gnu.org/patch/?7787> for further details.
