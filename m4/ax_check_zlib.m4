@@ -57,7 +57,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([CHECK_ZLIB], [AX_CHECK_ZLIB])
 AC_DEFUN([AX_CHECK_ZLIB],
@@ -65,12 +65,12 @@ AC_DEFUN([AX_CHECK_ZLIB],
 # Handle user hints
 #
 [AC_MSG_CHECKING(if zlib is wanted)
+zlib_places="/usr/local /usr /opt/local /sw"
 AC_ARG_WITH(zlib,
 [  --with-zlib=DIR root directory path of zlib installation [defaults to
                     /usr/local or /usr if not found in /usr/local]
   --without-zlib to disable zlib usage completely],
 [if test "$withval" != no ; then
-  zlib_places="/usr/local /usr /opt/local /sw"
   AC_MSG_RESULT(yes)
   if test -d "$withval"
   then
@@ -79,6 +79,7 @@ AC_ARG_WITH(zlib,
     AC_MSG_WARN([Sorry, $withval does not exist, checking usual places])
   fi
 else
+  zlib_places=
   AC_MSG_RESULT(no)
 fi],
 [AC_MSG_RESULT(yes)])
