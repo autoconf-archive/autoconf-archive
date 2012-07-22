@@ -62,7 +62,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 12
+#serial 13
 
 AU_ALIAS([CHECK_ZLIB], [AX_CHECK_ZLIB])
 AC_DEFUN([AX_CHECK_ZLIB],
@@ -102,41 +102,41 @@ then
 	  ZLIB_HOME=""
 	done
 
-        ZLIB_OLD_LDFLAGS=$LDFLAGS
-        ZLIB_OLD_CPPFLAGS=$CPPFLAGS
+  ZLIB_OLD_LDFLAGS=$LDFLAGS
+  ZLIB_OLD_CPPFLAGS=$CPPFLAGS
   if test -n "${ZLIB_HOME}"; then
         LDFLAGS="$LDFLAGS -L${ZLIB_HOME}/lib"
         CPPFLAGS="$CPPFLAGS -I${ZLIB_HOME}/include"
   fi
-        AC_LANG_SAVE
-        AC_LANG_C
-        AC_CHECK_LIB(z, inflateEnd, [zlib_cv_libz=yes], [zlib_cv_libz=no])
-        AC_CHECK_HEADER(zlib.h, [zlib_cv_zlib_h=yes], [zlib_cv_zlib_h=no])
-        AC_LANG_RESTORE
-        if test "$zlib_cv_libz" = "yes" -a "$zlib_cv_zlib_h" = "yes"
-        then
-                #
-                # If both library and header were found, action-if-found
-                #
-                m4_ifblank([$1],[
-                            CPPFLAGS="$CPPFLAGS -I${ZLIB_HOME}/include"
-                            LDFLAGS="$LDFLAGS -I${ZLIB_HOME}/lib"
-                            LIBS="-lz $LIBS"
-                            AC_DEFINE([HAVE_LIBZ], [1],
-                                   [Define to 1 if you have `z' library (-lz)])
-                           ],[
-                            LDFLAGS="$ZLIB_OLD_LDFLAGS"
-                            CPPFLAGS="$ZLIB_OLD_CPPFLAGS"
-                            $1
-                           ])
-        else
-                #
-                # If either header or library was not found, action-if-not-found
-                #
-                m4_default([$2],[
-                AC_MSG_ERROR(either specify a valid zlib installation with --with-zlib=DIR or disable zlib usage with --without-zlib)
+  AC_LANG_SAVE
+  AC_LANG_C
+  AC_CHECK_LIB([z], [inflateEnd], [zlib_cv_libz=yes], [zlib_cv_libz=no])
+  AC_CHECK_HEADER([zlib.h], [zlib_cv_zlib_h=yes], [zlib_cv_zlib_h=no])
+  AC_LANG_RESTORE
+  if test "$zlib_cv_libz" = "yes" && test "$zlib_cv_zlib_h" = "yes"
+  then
+    #
+    # If both library and header were found, action-if-found
+    #
+    m4_ifblank([$1],[
+                CPPFLAGS="$CPPFLAGS -I${ZLIB_HOME}/include"
+                LDFLAGS="$LDFLAGS -I${ZLIB_HOME}/lib"
+                LIBS="-lz $LIBS"
+                AC_DEFINE([HAVE_LIBZ], [1],
+                          [Define to 1 if you have `z' library (-lz)])
+               ],[
+                # Restore variables
+                LDFLAGS="$ZLIB_OLD_LDFLAGS"
+                CPPFLAGS="$ZLIB_OLD_CPPFLAGS"
+                $1
+               ])
+  else
+    #
+    # If either header or library was not found, action-if-not-found
+    #
+    m4_default([$2],[
+                AC_MSG_ERROR([either specify a valid zlib installation with --with-zlib=DIR or disable zlib usage with --without-zlib])
                 ])
-        fi
+  fi
 fi
-
 ])
