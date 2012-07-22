@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The new entry AX_ZONEINFO has been added. Further details are available at
+  <http://savannah.gnu.org/patch/index.php?7814>.
+
   AX_CHECK_ZLIB has been updated significantly:
 
    - The behavior was changed so that the macro proceeds to compile and link
