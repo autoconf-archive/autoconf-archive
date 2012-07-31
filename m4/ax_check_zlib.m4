@@ -62,7 +62,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 13
+#serial 14
 
 AU_ALIAS([CHECK_ZLIB], [AX_CHECK_ZLIB])
 AC_DEFUN([AX_CHECK_ZLIB],
@@ -120,7 +120,7 @@ then
     #
     m4_ifblank([$1],[
                 CPPFLAGS="$CPPFLAGS -I${ZLIB_HOME}/include"
-                LDFLAGS="$LDFLAGS -I${ZLIB_HOME}/lib"
+                LDFLAGS="$LDFLAGS -L${ZLIB_HOME}/lib"
                 LIBS="-lz $LIBS"
                 AC_DEFINE([HAVE_LIBZ], [1],
                           [Define to 1 if you have `z' library (-lz)])
