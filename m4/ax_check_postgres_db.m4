@@ -30,13 +30,16 @@ AU_ALIAS([CT_CHECK_POSTGRES_DB], [AX_CHECK_POSTGRES_DB])
 AC_DEFUN([AX_CHECK_POSTGRES_DB], [
 
 AC_ARG_WITH(pgsql,
-	[  --with-pgsql=PREFIX		Prefix of your PostgreSQL installation],
+	[AS_HELP_STRING([--with-pgsql[[=PREFIX]]],
+			[Prefix of your PostgreSQL installation @<:@PREFIX@:>@])],
 	[pg_prefix=$withval], [pg_prefix=])
 AC_ARG_WITH(pgsql-inc,
-	[  --with-pgsql-inc=PATH		Path to the include directory of PostgreSQL],
+	[AS_HELP_STRING([--with-pgsql-inc=[[PATH]]],
+			[Path to the include directory of PostgreSQL @<:@INCLUDEDIR@:>@])],
 	[pg_inc=$withval], [pg_inc=])
 AC_ARG_WITH(pgsql-lib,
-	[  --with-pgsql-lib=PATH		Path to the librarys of PostgreSQL],
+	[AS_HELP_STRING([--with-pgsql-lib=[[PATH]]],
+			[Path to the libraries of PostgreSQL @<:@LIBDIR@:>@])],
 	[pg_lib=$withval], [pg_lib=])
 
 
