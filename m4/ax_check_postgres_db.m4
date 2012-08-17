@@ -70,10 +70,10 @@ AS_IF([test "$pg_prefix" != "no"],[
        AS_IF([test "$pg_inc" != ""], [PQINCPATH="-I$pg_inc $PQINCPATH"])
        AS_IF([test "$pg_lib" != ""], [PQLIBPATH="-L$pg_lib $PQLIBPATH"])
 
-       oldCFLAGS=$CFLAGS
+       oldCPPFLAGS=$CPPFLAGS
        oldLDFLAGS=$LDFLAGS
 
-       CFLAGS="$PQINCPATH $CFLAGS"
+       CPPFLAGS="$PQINCPATH $CPPFLAGS"
        LDFLAGS="$PQLIBPATH $LDFLAGS"
 
        AC_CHECK_HEADER([libpq-fe.h], [have_pqinc=yes])
@@ -85,7 +85,7 @@ AS_IF([test "$pg_prefix" != "no"],[
 
        HAVE_LIBPQ=`(test x$have_pqinc = xyes && test x$have_pqlib = xyes && echo yes) || echo no`
 
-       CFLAGS=$oldCFLAGS
+       CPPFLAGS=$oldCPPFLAGS
        LDFLAGS=$oldLDFLAGS
 
        AC_SUBST(PQINCPATH)
