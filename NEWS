@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_INCLUDE_STRCASECMP has been added. The macro detects which header file
+  defines the strcasecmp() function. See <http://savannah.gnu.org/patch/?7836>
+  for further details.
+
   AX_LIB_ORACLE_OCCI has been added. The macro detects the availability of the
   Oracle OCCI API of particular version or newer. Further details can be found
   at <http://savannah.gnu.org/patch/?7834>.
