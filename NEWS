@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_CXX_RVALUE_REFERENCES has been added. See
+  <http://savannah.gnu.org/patch/?7833> for further details.
+
   AX_BLAS has been extended to support for the (free-software, BSD-licensed)
   OpenBLAS library, a descendant of GotoBLAS
   <http://xianyi.github.com/OpenBLAS/>. See
