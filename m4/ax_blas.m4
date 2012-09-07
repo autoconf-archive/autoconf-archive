@@ -63,7 +63,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 12
+#serial 13
 
 AU_ALIAS([ACX_BLAS], [AX_BLAS])
 AC_DEFUN([AX_BLAS], [
@@ -105,6 +105,12 @@ if test $ax_blas_ok = no; then
 	AC_TRY_LINK_FUNC($sgemm, [ax_blas_ok=yes])
 	AC_MSG_RESULT($ax_blas_ok)
 	LIBS="$save_LIBS"
+fi
+
+# BLAS in OpenBLAS library? (http://xianyi.github.com/OpenBLAS/)
+if test $ax_blas_ok = no; then
+	AC_CHECK_LIB(openblas, $sgemm, [ax_blas_ok=yes
+			                BLAS_LIBS="-lopenblas"])
 fi
 
 # BLAS in ATLAS library? (http://math-atlas.sourceforge.net/)

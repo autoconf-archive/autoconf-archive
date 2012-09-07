@@ -10,6 +10,11 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_BLAS has been extended to support for the (free-software, BSD-licensed)
+  OpenBLAS library, a descendant of GotoBLAS
+  <http://xianyi.github.com/OpenBLAS/>. See
+  <http://savannah.gnu.org/patch/?7828> for further details.
+
   The reliability of AX_BOOST_SYSTEM and AX_BOOST_FILESYSTEM has been improved.
   See <http://savannah.gnu.org/patch/?7816> for further details.
 
