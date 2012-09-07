@@ -1,14 +1,14 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_try_run_javac.html
+#      http://www.gnu.org/software/autoconf-archive/ax_try_run_java.html
 # ===========================================================================
 #
 # SYNOPSIS
 #
-#   AC_TRY_RUN_JAVA
+#   AX_TRY_RUN_JAVA
 #
 # DESCRIPTION
 #
-#   AC_TRY_RUN_JAVA attempt to compile and run user given source.
+#   AX_TRY_RUN_JAVA attempt to compile and run user given source.
 #
 #   *Warning*: its success or failure can depend on a proper setting of the
 #   CLASSPATH env. variable.
@@ -29,9 +29,10 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 1
 
-AC_DEFUN([AC_TRY_RUN_JAVA],[
+AU_ALIAS([AC_TRY_RUN_JAVA], [AX_TRY_RUN_JAVA])
+AC_DEFUN([AX_TRY_RUN_JAVA],[
 AC_REQUIRE([AX_PROG_JAVAC])dnl
 AC_REQUIRE([AX_PROG_JAVA])dnl
 cat << \EOF > Test.java
