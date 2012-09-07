@@ -21,9 +21,9 @@
 #
 #   AX_TRY_COMPILE_JAVA: attempt to compile user given source.
 #
-#   AC_TRY_RUN_JAVA: attempt to compile and run user given source.
+#   AX_TRY_RUN_JAVA: attempt to compile and run user given source.
 #
-#   AC_JAVA_OPTIONS: adds Java configure options.
+#   AX_JAVA_OPTIONS: adds Java configure options.
 #
 #   AX_PROG_JAVA tests an existing Java virtual machine. It uses the
 #   environment variable JAVA then tests in sequence various common Java
@@ -100,7 +100,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_PROG_JAVA], [AX_PROG_JAVA])
 AC_DEFUN([AX_PROG_JAVA],[
