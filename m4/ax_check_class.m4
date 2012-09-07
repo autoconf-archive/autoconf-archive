@@ -51,7 +51,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_CHECK_CLASS], [AX_CHECK_CLASS])
 AC_DEFUN([AX_CHECK_CLASS],[
@@ -109,7 +109,7 @@ JAABAAcAAAAhAAEAAQAAAAUqtwAmsQAAAAEACAAAAAoAAgAAAAQABAAEAAEA
 JwAAAAIAKA==
 ====
 EOF
-                if uudecode$EXEEXT Test.uue; then
+                if $UUDECODE Test.uue; then
                         :
                 else
                         echo "configure: __oline__: uudecode had trouble decoding base 64 file 'Test.uue'" >&AS_MESSAGE_LOG_FD

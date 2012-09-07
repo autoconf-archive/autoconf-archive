@@ -10,9 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
-  Several bugs and inconsistencies in AX_TRY_RUN_JAVA, AX_PROG_JAVA_WORKS, and
-  AX_PROG_JAVA have been fixed. See <http://savannah.gnu.org/patch/?7835> for
-  further details.
+  Several bugs and inconsistencies in AX_TRY_RUN_JAVA, AX_PROG_JAVA_WORKS,
+  AX_CHECK_CLASS, and AX_PROG_JAVA have been fixed. See
+  <http://savannah.gnu.org/patch/?7835> for further details.
 
   AX_INCLUDE_STRCASECMP has been added. The macro detects which header file
   defines the strcasecmp() function. See <http://savannah.gnu.org/patch/?7836>
