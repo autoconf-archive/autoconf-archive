@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_LIB_ORACLE_OCCI has been added. The macro detects the availability of the
+  Oracle OCCI API of particular version or newer. Further details can be found
+  at <http://savannah.gnu.org/patch/?7834>.
+
   AX_CHECK_POSTGRES_DB has been substantially re-written. The default behavior
   is unchanged, but there are two new (optional) arguments ACTION-IF-FOUND and
   ACTION-IF-NOT-FOUND. See <http://savannah.gnu.org/patch/?7832> for further
