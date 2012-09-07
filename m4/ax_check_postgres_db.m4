@@ -11,20 +11,23 @@
 #   This macro tries to find the headers and libraries for the PostgreSQL
 #   database to build client applications.
 #
-#   If includes are found, the variable PQINCPATH will be set, and have_pqinc
-#   will be 'yes'. If libraries are found, the variable PQLIBPATH will be set,
-#   and have_pqlib will be 'yes'. If both PQINCPATH and PQLIBPATH are found,
-#   HAVE_LIBPQ will be set to 'yes' (and AC_DEFINEd), and -lpq will be added to
-#   the beginning of LIBS. If their respective conditions are not met,
-#   have_pqinc, have_pqlib, HAVE_LIBPQ, will be 'no'.
+#   If includes are found, the variable PQINCPATH will be set, and
+#   have_pqinc will be 'yes'. If libraries are found, the variable PQLIBPATH
+#   will be set, and have_pqlib will be 'yes'. If both PQINCPATH and
+#   PQLIBPATH are found, HAVE_LIBPQ will be set to 'yes' (and AC_DEFINEd),
+#   and -lpq will be added to the beginning of LIBS. If their respective
+#   conditions are not met, have_pqinc, have_pqlib, HAVE_LIBPQ, will be
+#   'no'.
 #
-#   This macro does fails if either the headers or the library are
-#   not found, unless ACTION-IF-NOT-FOUND is not empty. When both are found,
+#   This macro does fails if either the headers or the library are not
+#   found, unless ACTION-IF-NOT-FOUND is not empty. When both are found,
 #   ACTION-IF-FOUND, if defined, is exectued after the variables have been
 #   defined. If --with-pgsql=no (or equivalents) is given, nothing happens.
 #
 #   An automake conditional can be subsequently defined as
-#	AM_CONDITIONAL([HAVE_LIBPQ], [test x$HAVE_LIBPQ = x$yes])
+#
+#     AM_CONDITIONAL([HAVE_LIBPQ], [test x$HAVE_LIBPQ = x$yes])
+#
 #   in configure.ac.
 #
 # LICENSE
@@ -37,7 +40,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 9
 
 AU_ALIAS([CT_CHECK_POSTGRES_DB], [AX_CHECK_POSTGRES_DB])
 AC_DEFUN([AX_CHECK_POSTGRES_DB], [

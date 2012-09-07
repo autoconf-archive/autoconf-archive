@@ -10,6 +10,11 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_CHECK_POSTGRES_DB has been substantially re-written. The default behavior
+  is unchanged, but there are two new (optional) arguments ACTION-IF-FOUND and
+  ACTION-IF-NOT-FOUND. See <http://savannah.gnu.org/patch/?7832> for further
+  details.
+
   AX_CXX_RVALUE_REFERENCES has been added. See
   <http://savannah.gnu.org/patch/?7833> for further details.
 
