@@ -47,12 +47,12 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_PROG_JAVA_WORKS], [AX_PROG_JAVA_WORKS])
 AC_DEFUN([AX_PROG_JAVA_WORKS], [
-AC_CHECK_PROG(UUDECODE, uudecode, no)
-if test x$uudecode != xno; then
+AC_PATH_PROG(UUDECODE, uudecode, [no])
+if test x$UUDECODE != xno; then
 AC_CACHE_CHECK([if uudecode can decode base 64 file], ac_cv_prog_uudecode_base64, [
 dnl /**
 dnl  * Test.java: used to test if java compiler works.
