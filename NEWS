@@ -8,7 +8,7 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
-* Noteworthy changes in release ?.? (????-??-??) [?]
+* Noteworthy changes in release 2012.09.08 (2012-09-08) [stable]
 
   AX_BLAS has been extended to detect the Intel Math Kernel Library (MKL). See
   <http://savannah.gnu.org/patch/?7807> for further details.
