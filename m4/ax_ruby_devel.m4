@@ -22,7 +22,7 @@
 #   Copyright (c) 2008 Sebastian Huber <sebastian-huber@web.de>
 #   Copyright (c) 2008 Alan W. Irwin <irwin@beluga.phys.uvic.ca>
 #   Copyright (c) 2008 Rafael Laboissiere <rafael@laboissiere.net>
-#   Copyright (c) 2008 Andrew Collier <colliera@ukzn.ac.za>
+#   Copyright (c) 2008 Andrew Collier
 #   Copyright (c) 2008 Matteo Settenvini <matteo@member.fsf.org>
 #   Copyright (c) 2008 Horst Knorr <hk_classes@knoda.org>
 #
@@ -52,7 +52,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_RUBY_DEVEL],[
     AC_REQUIRE([AX_WITH_RUBY])

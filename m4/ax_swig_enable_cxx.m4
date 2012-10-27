@@ -15,7 +15,7 @@
 #   Copyright (c) 2008 Sebastian Huber <sebastian-huber@web.de>
 #   Copyright (c) 2008 Alan W. Irwin <irwin@beluga.phys.uvic.ca>
 #   Copyright (c) 2008 Rafael Laboissiere <rafael@laboissiere.net>
-#   Copyright (c) 2008 Andrew Collier <colliera@ukzn.ac.za>
+#   Copyright (c) 2008 Andrew Collier
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -43,7 +43,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([SWIG_ENABLE_CXX], [AX_SWIG_ENABLE_CXX])
 AC_DEFUN([AX_SWIG_ENABLE_CXX],[
