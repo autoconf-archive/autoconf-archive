@@ -34,7 +34,7 @@
 # LICENSE
 #
 #   Copyright (c) 2009 Sebastian Huber <sebastian-huber@web.de>
-#   Copyright (c) 2009 Alan W. Irwin <irwin@beluga.phys.uvic.ca>
+#   Copyright (c) 2009 Alan W. Irwin
 #   Copyright (c) 2009 Rafael Laboissiere <rafael@laboissiere.net>
 #   Copyright (c) 2009 Andrew Collier
 #   Copyright (c) 2009 Matteo Settenvini <matteo@member.fsf.org>

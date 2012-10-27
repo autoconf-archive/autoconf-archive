@@ -20,7 +20,7 @@
 #
 #   Copyright (c) 2008 Rafal Rzepecki <divided.mind@gmail.com>
 #   Copyright (c) 2008 Sebastian Huber <sebastian-huber@web.de>
-#   Copyright (c) 2008 Alan W. Irwin <irwin@beluga.phys.uvic.ca>
+#   Copyright (c) 2008 Alan W. Irwin
 #   Copyright (c) 2008 Rafael Laboissiere <rafael@laboissiere.net>
 #   Copyright (c) 2008 Andrew Collier
 #   Copyright (c) 2008 Matteo Settenvini <matteo@member.fsf.org>
