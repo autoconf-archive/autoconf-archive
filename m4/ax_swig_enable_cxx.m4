@@ -43,7 +43,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 9
 
 AU_ALIAS([SWIG_ENABLE_CXX], [AX_SWIG_ENABLE_CXX])
 AC_DEFUN([AX_SWIG_ENABLE_CXX],[

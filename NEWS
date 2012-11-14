@@ -8,7 +8,7 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
-* Noteworthy changes in release ?.? (????-??-??) [?]
+* Noteworthy changes in release 2012.11.14 (2012-11-14) [stable]
 
   The portability of AX_BOOST_SYSTEM and AX_BOOST_THREAD has been improved. See
   <http://lists.gnu.org/archive/html/autoconf-archive-maintainers/2012-09/msg00026.html>

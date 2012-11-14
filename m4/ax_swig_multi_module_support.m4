@@ -47,7 +47,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 10
 
 AU_ALIAS([SWIG_MULTI_MODULE_SUPPORT], [AX_SWIG_MULTI_MODULE_SUPPORT])
 AC_DEFUN([AX_SWIG_MULTI_MODULE_SUPPORT],[
