@@ -17,6 +17,9 @@
   Support for cross-compilation in AX_PROG_CC_FOR_BUILD has been improved.
   See <http://savannah.gnu.org/patch/index.php?7890> for further details.
 
+  The new macro AX_PROG_CXX_FOR_BUILD has been added. Further details are
+  available at <https://savannah.gnu.org/patch/?7891>.
+
 * Noteworthy changes in release 2012.11.14 (2012-11-14) [stable]
 
   The portability of AX_BOOST_SYSTEM and AX_BOOST_THREAD has been improved. See
