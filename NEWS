@@ -20,6 +20,9 @@
   The new macro AX_PROG_CXX_FOR_BUILD has been added. Further details are
   available at <https://savannah.gnu.org/patch/?7891>.
 
+  Mac OS X support in AX_OPENMP has been improved. Further details are
+  available at <http://savannah.gnu.org/patch/?7893>.
+
 * Noteworthy changes in release 2012.11.14 (2012-11-14) [stable]
 
   The portability of AX_BOOST_SYSTEM and AX_BOOST_THREAD has been improved. See
