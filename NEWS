@@ -18,7 +18,7 @@
   See <http://savannah.gnu.org/patch/index.php?7890> for further details.
 
   The new macro AX_PROG_CXX_FOR_BUILD has been added. Further details are
-  available at <https://savannah.gnu.org/patch/?7891>.
+  available at <http://savannah.gnu.org/patch/?7891>.
 
   Mac OS X support in AX_OPENMP has been improved. Further details are
   available at <http://savannah.gnu.org/patch/?7893>.
@@ -97,12 +97,12 @@
 
   The macro AX_CXX_COMPILE_STDCXX_11 has been added, which determines the
   compiler switches that need to be added to be passed in order to enable C++11
-  support in the compiler. See <https://savannah.gnu.org/patch/?7735> for
+  support in the compiler. See <http://savannah.gnu.org/patch/?7735> for
   further details.
 
   The new macro AX_CXX_DELETE_METHOD has been added which checks whether the
   C++11 '= delete' syntax for suppressing undesired implicit methods is
-  supported. Further details are at <https://savannah.gnu.org/patch/?7735>.
+  supported. Further details are at <http://savannah.gnu.org/patch/?7735>.
 
   The macros AX_BOOST_CHRONO and AX_BOOST_LOCALE have been added which detect
   the Boost.Chrono and Boost.Locale library respectively. Further details are
