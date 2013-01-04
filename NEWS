@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The portability of AX_PYTHON has been improved. Also, the macro now
+  recognizes more recent versions of the Python interpreter, too.
+
 * Noteworthy changes in release 2012.11.14 (2012-11-14) [stable]
 
   The portability of AX_BOOST_SYSTEM and AX_BOOST_THREAD has been improved. See
