@@ -11,7 +11,11 @@
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
   The portability of AX_PYTHON has been improved. Also, the macro now
-  recognizes more recent versions of the Python interpreter, too.
+  recognizes more recent versions of the Python interpreter, too. See
+  <http://savannah.gnu.org/patch/?7897> for further details.
+
+  Support for cross-compilation in AX_PROG_CC_FOR_BUILD has been improved.
+  See <http://savannah.gnu.org/patch/index.php?7890> for further details.
 
 * Noteworthy changes in release 2012.11.14 (2012-11-14) [stable]
 
