@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_BOOST_FILESYSTEM has been improved to work more reliable on non-GNU
+  systems. See <http://savannah.gnu.org/patch/?7921> for further details.
+
   The new macro AX_LIB_EV has been added, which checks for libev in a
   pkg-config-like manner. The purpose of the macro is to unifty behaviour
   between distros that come with libev.pc and systems (e.g. upstream) that
