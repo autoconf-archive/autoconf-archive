@@ -25,6 +25,7 @@ sed -i -e 's/^sc_file_system:/disabled_sc_file_system:/' \
        -e 's/^sc_prohibit_always-defined_macros:/disabled_sc_prohibit_always-defined_macros:/' \
        -e 's/^sc_prohibit_always_true_header_tests:/disabled_sc_prohibit_always_true_header_tests:/' \
        -e 's/^sc_prohibit_test_minus_ao:/disabled_sc_prohibit_test_minus_ao:/' \
+       -e 's/^sc_prohibit_doubled_word:/disabled_sc_prohibit_doubled_word:/' \
   maint.mk
 
 echo > ChangeLog '# Copyright (c) 2013 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
