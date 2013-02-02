@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Support for AIX has been improved in AX_PTHREAD. Further details are
+  available at <http://savannah.gnu.org/patch/index.php?7911>.
+
   AX_BOOST_FILESYSTEM has been improved to work more reliable on non-GNU
   systems. See <http://savannah.gnu.org/patch/?7921> for further details.
 
