@@ -24,7 +24,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_CHECK_EV_H], [
 dnl AX_CHECK_EV_H([ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
@@ -52,7 +52,7 @@ AC_DEFUN([AX_LIB_EV], [
 
 		PKG_CHECK_MODULES([libev], [libev ]VERSION[], [:], [:])
 
-		## CHECK_MODULES' if_found case 
+		## CHECK_MODULES' if_found case
 		AX_CHECK_EV_H([
 			ax_cv_feat_libev="yes"
 
