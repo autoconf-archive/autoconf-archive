@@ -10,6 +10,8 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  A release tarball was added that is compressed with the free lzip utility.
+
   AX_JNI_INCLUDE_DIR has been extended to support FreeBSD.
 
 * Noteworthy changes in release 2013.02.02 (2013-02-02) [stable]
