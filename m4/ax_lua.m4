@@ -26,7 +26,7 @@
 #   *** A note on compatibility with previous versions: This file has been
 #   mostly rewritten for serial 18. Most developers should be able to use
 #   these macros without needing to modify configure.ac. Care has been taken
-#   to preserve each macro's behaviour, but there are some differences:
+#   to preserve each macro's behavior, but there are some differences:
 #
 #   1) AX_WITH_LUA is deprecated; it now expands to the exact same thing as
 #   AX_PROG_LUA with no arguments.
@@ -58,7 +58,7 @@
 #   number greater or equal to MINIMUM-VERSION and less than TOO-BIG-VERSION
 #   will be accepted.
 #
-#   Version comparisions require the AX_COMPARE_VERSION macro, which is
+#   Version comparisons require the AX_COMPARE_VERSION macro, which is
 #   provided by ax_compare_version.m4 from the Autoconf Archive.
 #
 #   The Lua version number, LUA_VERSION, is found from the interpreter, and
@@ -200,10 +200,10 @@
 #
 #   This file was inspired by Andrew Dalke's and James Henstridge's python.m4
 #   and Tom Payne's, Matthieu Moy's, and Reuben Thomas's ax_lua.m4 (serial
-#   17). Basically, this file is a mashup of those two files. I like to think
-#   it combines the best of the two!
+#   17). Basically, this file is a mash-up of those two files. I like to
+#   think it combines the best of the two!
 
-#serial 18
+#serial 19
 
 
 dnl =========================================================================
@@ -226,7 +226,7 @@ AC_DEFUN([AX_PROG_LUA],
     ax_display_LUA='lua'
 
     dnl At least check if this is a Lua interpreter.
-    AC_MSG_CHECKING([if $LUA is a Lua interprester])
+    AC_MSG_CHECKING([if $LUA is a Lua interpreter])
     _AX_LUA_CHK_IS_INTRP([$LUA],
       [AC_MSG_RESULT([yes])],
       [ AC_MSG_RESULT([no])
@@ -236,7 +236,7 @@ AC_DEFUN([AX_PROG_LUA],
   [ dnl A version check is needed.
     AS_IF([test "x$LUA" != 'x'],
     [ dnl Check if this is a Lua interpreter.
-      AC_MSG_CHECKING([if $LUA is a Lua interprester])
+      AC_MSG_CHECKING([if $LUA is a Lua interpreter])
       _AX_LUA_CHK_IS_INTRP([$LUA],
         [AC_MSG_RESULT([yes])],
         [ AC_MSG_RESULT([no])
