@@ -82,7 +82,7 @@ class Macro:
         body = collapseText(body)
       elif key == "license":
         while True:
-          match = re.match(r"Copyright \(c\) ([0-9.,-]+) (.*)", body[0])
+          match = re.match(r"Copyright \([cC]\) ([0-9.,-]+) (.*)", body[0])
           if not match: break
           (year,name) = (match.group(1), match.group(2))
           match = re.match(r"(.*) <(.*)>", name)
