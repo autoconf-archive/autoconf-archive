@@ -51,7 +51,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 12
+#serial 13
 
 AC_DEFUN([AX_PYTHON],
 [AC_MSG_CHECKING(for python build information)
@@ -61,10 +61,13 @@ AC_CHECK_PROGS(PYTHON_BIN, [$python])
 ax_python_bin=$PYTHON_BIN
 if test x$ax_python_bin != x; then
    AC_CHECK_LIB($ax_python_bin, main, ax_python_lib=$ax_python_bin, ax_python_lib=no)
-   AC_CHECK_HEADER([$ax_python_bin/Python.h],
-   [[ax_python_header=`locate $ax_python_bin/Python.h | sed -e s,/Python.h,,`]],
-   ax_python_header=no)
+   if test x$ax_python_lib == xno; then
+     AC_CHECK_LIB(${ax_python_bin}m, main, ax_python_lib=${ax_python_bin}m, ax_python_lib=no)
+   fi
    if test x$ax_python_lib != xno; then
+     AC_CHECK_HEADER([$ax_python_lib/Python.h],
+     [[ax_python_header=`locate $ax_python_lib/Python.h | sed -e s,/Python.h,,`]],
+     ax_python_header=no)
      if test x$ax_python_header != xno; then
        break;
      fi
