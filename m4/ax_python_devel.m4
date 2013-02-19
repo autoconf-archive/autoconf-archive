@@ -66,7 +66,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 AU_ALIAS([AC_PYTHON_DEVEL], [AX_PYTHON_DEVEL])
 AC_DEFUN([AX_PYTHON_DEVEL],[
@@ -173,11 +173,9 @@ $ac_distutils_result])
 # join all versioning strings, on some systems
 # major/minor numbers could be in different list elements
 from distutils.sysconfig import *
-ret = ''
-for e in get_config_vars ('VERSION'):
-	if (e != None):
-		ret += e
-print (ret)
+e = get_config_var('VERSION')
+if e is not None:
+	print(e)
 EOD`
 
 		if test -z "$ac_python_version"; then
@@ -198,10 +196,9 @@ EOD`
 
 # There should be only one
 import distutils.sysconfig
-for e in distutils.sysconfig.get_config_vars ('LIBDIR'):
-	if e != None:
-		print (e)
-		break
+e = distutils.sysconfig.get_config_var('LIBDIR')
+if e is not None:
+	print (e)
 EOD`
 
 		# Before checking for libpythonX.Y, we need to know
@@ -209,15 +206,22 @@ EOD`
 		# (we take the first one, if there's more than one fix me!):
 		ac_python_soext=`$PYTHON -c \
 		  "import distutils.sysconfig; \
-		  print (distutils.sysconfig.get_config_vars('SO')[[0]])"`
+		  print (distutils.sysconfig.get_config_var('SO'))"`
 
 		# Now, for the library:
 		ac_python_soname=`$PYTHON -c \
 		  "import distutils.sysconfig; \
-		  print (distutils.sysconfig.get_config_vars('LDLIBRARY')[[0]])"`
+		  print (distutils.sysconfig.get_config_var('LDLIBRARY'))"`
 
 		# Strip away extension from the end to canonicalize its name:
 		ac_python_library=`echo "$ac_python_soname" | sed "s/${ac_python_soext}$//"`
+		# If that did not work, try to strip the ending ".so".
+		# This is needed for Arch Linux, where $ac_python_soname is
+		# "libpython3.3m.so" but $ac_python_soext is ".cpython-33m.so".
+		if test x"$ac_python_library" == x"$ac_python_soname"
+		then
+			ac_python_library=`echo "$ac_python_soname" | sed "s/\.so$//"`
+		fi
 
 		# This small piece shamelessly adapted from PostgreSQL python macro;
 		# credits goes to momjian, I think. I'd like to put the right name

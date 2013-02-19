@@ -17,6 +17,9 @@
   AX_PYTHON has been extended to support ArchLinux. See
   <http://savannah.gnu.org/patch/?7951> for further details.
 
+  AX_PYTHON_DEVEL has been extended to support ArchLinux. See
+  <http://savannah.gnu.org/patch/?7953> for further details.
+
 * Noteworthy changes in release 2013.02.02 (2013-02-02) [stable]
 
   Support for AIX has been improved in AX_PTHREAD. Further details are
