@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-set -eu
+set -u
 shopt -s nullglob
 
 cd "doc/manual/html_node"
@@ -17,6 +17,7 @@ for n in *.html; do
     -e 's|<html lang="en">|<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd"><html lang="en">|' \
     -e "s|<a name=\"${name}\"></a>||" \
     -e 's|_005f|_|g' \
-    -e 's|href="../index.html#dir">(dir)</a>|href="http://savannah.gnu.org/projects/autoconf-archive/">Home Page at Savannah</a>|g' \
+    -e 's|<a href="../dir/index.html" accesskey="u" rel="up">(dir)</a>|<a href="http://savannah.gnu.org/projects/autoconf-archive/" accesskey="u" rel="up">Home Page at Savannah</a>|' \
+    -e 's|<link href="\.\./dir/index.html" rel="up" title="(dir)">|<link href="http://savannah.gnu.org/projects/autoconf-archive/" rel="up" title="Home Page at Savannah">|' \
   | tidy >"$destdir/${out}" -q --indent yes --indent-spaces 1 -wrap 80 --tidy-mark no --hide-comments yes
 done

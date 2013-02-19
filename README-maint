@@ -14,6 +14,8 @@
     Python 2.6 is needed for textwrap.TextWrapper break_on_hypens option only.
     This is being worked on decrease python version requirements.
 
+  - texinfo (5.0 or later)
+
   Now run the following commands:
 
   : git clone ssh://[<login>@]git.sv.gnu.org/srv/git/autoconf-archive
