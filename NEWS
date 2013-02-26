@@ -20,6 +20,9 @@
   AX_PYTHON_DEVEL has been extended to support ArchLinux. See
   <http://savannah.gnu.org/patch/?7953> for further details.
 
+  A minor bug in AX_BOOST_ASIO has been fixed. Further details are at
+  <http://savannah.gnu.org/patch/index.php?7959>.
+
 * Noteworthy changes in release 2013.02.02 (2013-02-02) [stable]
 
   Support for AIX has been improved in AX_PTHREAD. Further details are
