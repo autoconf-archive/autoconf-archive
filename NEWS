@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_PYTHON_DEVEL has been extended to support ubuntu 13.04. See
+  <http://savannah.gnu.org/patch/?7965> for further details.
+
   Incorrect CPU detection in AX_GCC_ARCHFLAG has been fixed. See
   <http://savannah.gnu.org/patch/?7978> for further details.
 
