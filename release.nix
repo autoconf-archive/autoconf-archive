@@ -25,6 +25,7 @@ rec {
     '';
     distPhase = ''
       make -j$NIX_BUILD_CORES maintainer-all all
+      make web-manual && bash fix-website.sh
       make distcheck
       mkdir $out/tarballs
       mv -v autoconf-archive-*.tar* $out/tarballs/
