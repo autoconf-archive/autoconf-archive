@@ -1,13 +1,15 @@
 /* Build instructions for the continuous integration system Hydra. */
 
-{ autoconfArchiveSrc ? { outPath = ./.; }, officialRelease ? false }:
+{ autoconfArchiveSrc ? { outPath = ./.; revCount = 0; gitTag = "dirty"; }
+, officialRelease ? false
+}:
 
 let
 
   pkgs = import <nixpkgs> { };
 
   version = "2013.02.02";
-  versionSuffix = if officialRelease then "" else "-dirty";
+  versionSuffix = if officialRelease then "" else "-{toString autoconfArchiveSrc.revCount}-${autoconfArchiveSrc.gitTag}";
 
 in
 
