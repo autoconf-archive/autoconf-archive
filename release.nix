@@ -9,7 +9,7 @@ let
   pkgs = import <nixpkgs> { };
 
   version = "2013.02.02";
-  versionSuffix = if officialRelease then "" else "-{toString autoconfArchiveSrc.revCount}-${autoconfArchiveSrc.gitTag}";
+  versionSuffix = if officialRelease then "" else "-${toString autoconfArchiveSrc.revCount}-${autoconfArchiveSrc.gitTag}";
 
 in
 
