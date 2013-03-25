@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_PYTHON has been updated to use the "distutils" module to find Python's
+  header files instead of depending on the "locate" command. Further details
+  are at <http://savannah.gnu.org/patch/?7966>.
+
   AX_PYTHON_DEVEL has been extended to support ubuntu 13.04. See
   <http://savannah.gnu.org/patch/?7965> for further details.
 

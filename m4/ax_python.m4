@@ -51,7 +51,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 13
+#serial 14
 
 AC_DEFUN([AX_PYTHON],
 [AC_MSG_CHECKING(for python build information)
@@ -65,10 +65,8 @@ if test x$ax_python_bin != x; then
      AC_CHECK_LIB(${ax_python_bin}m, main, ax_python_lib=${ax_python_bin}m, ax_python_lib=no)
    fi
    if test x$ax_python_lib != xno; then
-     AC_CHECK_HEADER([$ax_python_lib/Python.h],
-     [[ax_python_header=`locate $ax_python_lib/Python.h | sed -e s,/Python.h,,`]],
-     ax_python_header=no)
-     if test x$ax_python_header != xno; then
+     ax_python_header=`$ax_python_bin -c "from distutils.sysconfig import *; print(get_config_var('CONFINCLUDEPY'))"`
+     if test x$ax_python_header != x; then
        break;
      fi
    fi
