@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Incorrect CPU detection in AX_GCC_ARCHFLAG has been fixed. See
+  <http://savannah.gnu.org/patch/?7978> for further details.
+
   AX_EXT has been extended to recognize AVX SIMD instructions.
 
   A release tarball was added that is compressed with the free lzip utility.
