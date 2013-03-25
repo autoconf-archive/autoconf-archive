@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-set -u
+set -eu
 shopt -s nullglob
 
 cd "doc/manual/html_node"
