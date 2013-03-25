@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Fixed AX_LIB_EXPAT not to overwrite $LIBS. Furthermore, linker flags are now
+  returned in $EXPAT_LDFLAGS instead of $EXPAT_LIBS. Further details are
+  available at <http://savannah.gnu.org/patch/?7968>.
+
   AX_PYTHON has been updated to use the "distutils" module to find Python's
   header files instead of depending on the "locate" command. Further details
   are at <http://savannah.gnu.org/patch/?7966>.
