@@ -9,7 +9,7 @@
 # DESCRIPTION
 #
 #   This macro checks to see if the Boost.Python library is installed. It
-#   also attempts to guess the currect library name using several attempts.
+#   also attempts to guess the correct library name using several attempts.
 #   It tries to build the library name using a user supplied name or suffix
 #   and then just the raw library.
 #
@@ -19,12 +19,13 @@
 #   This macro calls AC_SUBST(BOOST_PYTHON_LIB).
 #
 #   In order to ensure that the Python headers and the Boost libraries are
-#   specified on the include path, this macro requires AX_PYTHON and
+#   specified on the include path, this macro requires AX_PYTHON_DEVEL and
 #   AX_BOOST_BASE to be called.
 #
 # LICENSE
 #
 #   Copyright (c) 2008 Michael Tindal
+#   Copyright (c) 2013 Daniel Müllner <muellner@math.stanford.edu>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -52,24 +53,24 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 15
+#serial 16
 
 AC_DEFUN([AX_BOOST_PYTHON],
-[AC_REQUIRE([AX_PYTHON])dnl
+[AC_REQUIRE([AX_PYTHON_DEVEL])dnl
 AC_CACHE_CHECK(whether the Boost::Python library is available,
 ac_cv_boost_python,
 [AC_LANG_SAVE
  AC_LANG_CPLUSPLUS
  CPPFLAGS_SAVE="$CPPFLAGS"
- if test x$PYTHON_INCLUDE_DIR != x; then
-   CPPFLAGS="-I$PYTHON_INCLUDE_DIR $CPPFLAGS"
+ if test x$PYTHON_CPPFLAGS != x; then
+   CPPFLAGS="$PYTHON_CPPFLAGS $CPPFLAGS"
  fi
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
  #include <boost/python/module.hpp>
  using namespace boost::python;
  BOOST_PYTHON_MODULE(test) { throw "Boost::Python test."; }]],
-			   [[return 0;]])],
-			   ac_cv_boost_python=yes, ac_cv_boost_python=no)
+	[[return 0;]])],
+	ac_cv_boost_python=yes, ac_cv_boost_python=no)
  AC_LANG_RESTORE
  CPPFLAGS="$CPPFLAGS_SAVE"
 ])

@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_BOOST_PYTHON has been switched to AX_PYTHON_DEVEL. Further details are
+  available at <http://savannah.gnu.org/patch/?7979>.
+
   Fixed AX_LIB_EXPAT not to overwrite $LIBS. Furthermore, linker flags are now
   returned in $EXPAT_LDFLAGS instead of $EXPAT_LIBS. Further details are
   available at <http://savannah.gnu.org/patch/?7968>.
