@@ -5,20 +5,15 @@
 }:
 
 let
-
   pkgs = import <nixpkgs> { };
-
-  version = "2013.02.02";
-  versionSuffix = if officialRelease then "" else "-${toString autoconfArchiveSrc.revCount}-${autoconfArchiveSrc.gitTag}";
-
+  version = gitTag;
 in
-
 rec {
 
   tarball = pkgs.releaseTools.sourceTarball {
     name = "autoconf-archive-tarball";
     src = autoconfArchiveSrc;
-    inherit version versionSuffix officialRelease;
+    inherit version officialRelease;
     dontBuild = false;
     buildInputs = with pkgs; [ git perl texinfo python lzip texLive ];
     postUnpack = ''
@@ -39,7 +34,7 @@ rec {
   };
 
   build = { system ? "x86_64-linux" }: pkgs.releaseTools.nixBuild {
-    name = "autoconf-archive-${version}${versionSuffix}";
+    name = "autoconf-archive-${version}";
     src = tarball;
   };
 
