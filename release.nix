@@ -6,7 +6,7 @@
 
 let
   pkgs = import <nixpkgs> { };
-  version = gitTag;
+  version = hydraSrc.gitTag;
 in
 rec {
 
