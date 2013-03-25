@@ -34,7 +34,7 @@ echo >>ChangeLog '# Copying and distribution of this file, with or without modif
 echo >>ChangeLog '# permitted in any medium without royalty provided the copyright notice and'
 echo >>ChangeLog '# this notice are preserved. This file is offered as-is, without any warranty.'
 echo >>ChangeLog ''
-build-aux/gitlog-to-changelog >>ChangeLog -- master m4/
+build-aux/gitlog-to-changelog >>ChangeLog -- m4/
 bash gen-authors.sh >AUTHORS
 
 autoreconf --install -Wall
