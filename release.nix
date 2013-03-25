@@ -17,15 +17,19 @@ rec {
     name = "autoconf-archive-tarball";
     src = autoconfArchiveSrc;
     inherit version versionSuffix officialRelease;
+    dontBuild = false;
     buildInputs = with pkgs; [ git perl texinfo python lzip texLive ];
     postUnpack = ''
       cp -r ${pkgs.gnulib}/ gnulib/
       chmod -R u+w gnulib
       patchShebangs gnulib
+      ln -s ../gnulib $sourceRoot/gnulib
     '';
-    distPhase = ''
+    buildPhase = ''
       make -j$NIX_BUILD_CORES maintainer-all all
       make web-manual && bash fix-website.sh
+    '';
+    distPhase = ''
       make distcheck
       mkdir $out/tarballs
       mv -v autoconf-archive-*.tar* $out/tarballs/
