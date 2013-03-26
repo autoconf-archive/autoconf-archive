@@ -7,13 +7,14 @@
 let
   pkgs = import <nixpkgs> { };
   version = autoconfArchiveSrc.gitTag;
+  versionSuffix = "";
 in
 rec {
 
   tarball = pkgs.releaseTools.sourceTarball {
     name = "autoconf-archive-tarball";
     src = autoconfArchiveSrc;
-    inherit version officialRelease;
+    inherit version versionSuffix officialRelease;
     dontBuild = false;
     buildInputs = with pkgs; [ git perl texinfo5 python lzip texLive htmlTidy ];
     postUnpack = ''
@@ -34,7 +35,7 @@ rec {
   };
 
   build = { system ? "x86_64-linux" }: pkgs.releaseTools.nixBuild {
-    name = "autoconf-archive-${version}";
+    name = "autoconf-archive";
     src = tarball;
   };
 
