@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_PYTHON_DEVEL's ability to detect the proper suffix for shared libraries
+  has been improved. See <https://savannah.gnu.org/patch/?7953> for further
+  details.
+
   AX_BOOST_PYTHON has been switched to AX_PYTHON_DEVEL. Further details are
   available at <http://savannah.gnu.org/patch/?7979> and at
   <http://savannah.gnu.org/patch/?7980>.

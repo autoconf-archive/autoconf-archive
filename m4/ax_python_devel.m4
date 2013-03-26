@@ -66,7 +66,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 13
+#serial 14
 
 AU_ALIAS([AC_PYTHON_DEVEL], [AX_PYTHON_DEVEL])
 AC_DEFUN([AX_PYTHON_DEVEL],[
@@ -208,11 +208,20 @@ if e is not None:
 EOD`
 
 		# Before checking for libpythonX.Y, we need to know
-		# the extension the OS we're on uses for libraries
-		# (we take the first one, if there's more than one fix me!):
-		ac_python_soext=`$PYTHON -c \
-		  "import distutils.sysconfig; \
-		  print (distutils.sysconfig.get_config_var('SO'))"`
+		# the extension the OS we're on uses for libraries.
+		# The code snippet below is borrowed from
+		# numpy.distutils.misc_util.get_shared_lib_extension
+		# (NumPy version 1.7.0).
+		ac_python_soext=`cat<<EOD | $PYTHON -
+
+import distutils.sysconfig as ds
+so_ext = ds.get_config_var('SO') or ''
+# fix long extension for Python >=3.2, see PEP 3149.
+if 'SOABI' in ds.get_config_vars():
+	# Does nothing unless SOABI config var exists
+	so_ext = so_ext.replace('.' + ds.get_config_var('SOABI'), '', 1)
+print(so_ext)
+EOD`
 
 		# Now, for the library:
 		ac_python_soname=`$PYTHON -c \
@@ -221,13 +230,6 @@ EOD`
 
 		# Strip away extension from the end to canonicalize its name:
 		ac_python_library=`echo "$ac_python_soname" | sed "s/${ac_python_soext}$//"`
-		# If that did not work, try to strip the ending ".so".
-		# This is needed for Arch Linux, where $ac_python_soname is
-		# "libpython3.3m.so" but $ac_python_soext is ".cpython-33m.so".
-		if test x"$ac_python_library" == x"$ac_python_soname"
-		then
-			ac_python_library=`echo "$ac_python_soname" | sed "s/\.so$//"`
-		fi
 
 		# This small piece shamelessly adapted from PostgreSQL python macro;
 		# credits goes to momjian, I think. I'd like to put the right name
