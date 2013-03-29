@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The new macro AX_LIB_TABIX has been added to check for Tabix
+  <http://samtools.sourceforge.net/tabix.shtml>. Further details are available
+  at <http://savannah.gnu.org/patch/?7984>.
+
   AX_CXX_COMPILE_STDCXX_11 has been extended to test for the "auto" keyword.
   Further details can be found at <http://savannah.gnu.org/patch/?7985>.
 
