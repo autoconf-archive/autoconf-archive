@@ -26,15 +26,17 @@ Downloads
 
 Here are the compressed sources:
 
-* autoconf-archive-2013.02.02.tar.gz_   (900 KB)
-* autoconf-archive-2013.02.02.tar.bz2_  (656 KB)
-* autoconf-archive-2013.02.02.tar.xz_   (501 KB)
+* autoconf-archive-2013.02.02.tar.gz_   (915 KB)
+* autoconf-archive-2013.02.02.tar.bz2_  (663 KB)
+* autoconf-archive-2013.02.02.tar.xz_   (512 KB)
+* autoconf-archive-2013.02.02.tar.lz_   (511 KB)
 
 Here are the GPG detached signatures:
 
 * autoconf-archive-2013.02.02.tar.gz.sig_
 * autoconf-archive-2013.02.02.tar.bz2.sig_
 * autoconf-archive-2013.02.02.tar.xz.sig_
+* autoconf-archive-2013.02.02.tar.lz.sig_
 
 You can use either of the above signature files to verify that the corresponding
 file (without the .sig suffix) is intact. First, be sure to download both the
@@ -73,6 +75,8 @@ GNU Autoconf Archive. If not, see <http://www.gnu.org/licenses/>.
 .. _autoconf-archive-2013.02.02.tar.gz : http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2013.02.02.tar.gz
 .. _autoconf-archive-2013.02.02.tar.bz2: http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2013.02.02.tar.bz2
 .. _autoconf-archive-2013.02.02.tar.xz:  http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2013.02.02.tar.xz
+.. _autoconf-archive-2013.02.02.tar.lz:  http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2013.02.02.tar.lz
 .. _autoconf-archive-2013.02.02.tar.gz.sig:  http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2013.02.02.tar.gz.sig
 .. _autoconf-archive-2013.02.02.tar.bz2.sig: http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2013.02.02.tar.bz2.sig
 .. _autoconf-archive-2013.02.02.tar.xz.sig:  http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2013.02.02.tar.xz.sig
+.. _autoconf-archive-2013.02.02.tar.lz.sig:  http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2013.02.02.tar.lz.sig
