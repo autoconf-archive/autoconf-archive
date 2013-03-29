@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The new macro AX_LIB_SAMTOOLS has been added to check for Samtools
+  <http://samtools.sourceforge.net/>. See <http://savannah.gnu.org/patch/?7983>
+  for further details.
+
   The new macro AX_LIB_TABIX has been added to check for Tabix
   <http://samtools.sourceforge.net/tabix.shtml>. Further details are available
   at <http://savannah.gnu.org/patch/?7984>.
