@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_CXX_COMPILE_STDCXX_11 has been extended to test for the "auto" keyword.
+  Further details can be found at <http://savannah.gnu.org/patch/?7985>.
+
   Support for AIX has been improved in AX_PTHREAD. Further details are
   available at <http://savannah.gnu.org/patch/?7973>.
 
