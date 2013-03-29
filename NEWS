@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Support for AIX has been improved in AX_PTHREAD. Further details are
+  available at <http://savannah.gnu.org/patch/?7973>.
+
   AX_PYTHON_DEVEL's ability to detect the proper suffix for shared libraries
   has been improved. See <https://savannah.gnu.org/patch/?7953> for further
   details.
