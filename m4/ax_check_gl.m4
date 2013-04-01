@@ -70,7 +70,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 12
+#serial 14
 
 m4_define([_AX_CHECK_GL_PROGRAM],
           [AC_LANG_PROGRAM([[
