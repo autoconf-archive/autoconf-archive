@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  A substantially updated version of the formerly obsoleted AX_CHECK_GL macro
+  has been added again in <http://savannah.gnu.org/patch/?7986>.
+
   The new macro AX_LIB_SAMTOOLS has been added to check for Samtools
   <http://samtools.sourceforge.net/>. See <http://savannah.gnu.org/patch/?7983>
   for further details.
