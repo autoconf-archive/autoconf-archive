@@ -42,7 +42,7 @@
 # LICENSE
 #
 #   Copyright (c) 2009 Braden McDaniel <braden@endoframe.com>
-#   Copyright (c) 2012 Bastien Roucariès <roucaries.bastien+autoconf@gmail.com>
+#   Copyright (c) 2012 Bastien Roucaries <roucaries.bastien+autoconf@gmail.com>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
