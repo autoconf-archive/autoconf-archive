@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_PROG_CC_FOR_BUILD and AX_PROG_CXX_FOR_BUILD have been simplified to
+  require only AC_CANONICAL_HOST instead of AC_CANONICAL_SYSTEM. Further
+  details are available at <http://savannah.gnu.org/patch/?7989>.
+
   A substantially updated version of the formerly obsoleted AX_CHECK_GL macro
   has been added again in <http://savannah.gnu.org/patch/?7986>.
 

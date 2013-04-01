@@ -31,14 +31,14 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AU_ALIAS([AC_PROG_CXX_FOR_BUILD], [AX_PROG_CXX_FOR_BUILD])
 AC_DEFUN([AX_PROG_CXX_FOR_BUILD], [dnl
 AC_REQUIRE([AX_PROG_CC_FOR_BUILD])dnl
 AC_REQUIRE([AC_PROG_CXX])dnl
 AC_REQUIRE([AC_PROG_CXXCPP])dnl
-AC_REQUIRE([AC_CANONICAL_SYSTEM])dnl
+AC_REQUIRE([AC_CANONICAL_HOST])dnl
 
 dnl Use the standard macros, but make them use other variable names
 dnl
