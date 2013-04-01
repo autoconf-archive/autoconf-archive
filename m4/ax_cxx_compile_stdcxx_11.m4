@@ -4,7 +4,7 @@
 #
 # SYNOPSIS
 #
-#   AX_CXX_COMPILE_STDCXX_11([ext|noext])
+#   AX_CXX_COMPILE_STDCXX_11([ext|noext],[mandatory|optional])
 #
 # DESCRIPTION
 #
@@ -16,10 +16,10 @@
 #   -std=c++11).  If neither is specified, you get whatever works, with
 #   preference for an extended mode.
 #
-#   The second argument, if specified 'true' or if left unspecified,
+#   The second argument, if specified 'mandatory' or if left unspecified,
 #   indicates that baseline C++11 support is required and that the macro
 #   should error out if no mode with that support is found.  If specified
-#   'false', then configuration proceeds regardless, after defining
+#   'optional', then configuration proceeds regardless, after defining
 #   HAVE_CXX11 if and only if a supporting mode is found.
 #
 # LICENSE
@@ -33,7 +33,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 m4_define([_AX_CXX_COMPILE_STDCXX_11_testbody], [
   template <typename T>
@@ -54,18 +54,16 @@ m4_define([_AX_CXX_COMPILE_STDCXX_11_testbody], [
     auto d = a;
 ])
 
-AC_DEFUN([AX_CXX_COMPILE_STDCXX_11], [
+AC_DEFUN([AX_CXX_COMPILE_STDCXX_11], [dnl
   m4_if([$1], [], [],
         [$1], [ext], [],
         [$1], [noext], [],
-        [m4_fatal([invalid argument `$1' to AX_CXX_COMPILE_STDCXX_11])])
-  m4_if([$2], [], [ax_cv_cxx_compile_cxx11_required=true],
-        [$2], [true], [ax_cv_cxx_compile_cxx11_required=true],
-        [$2], [false], [ax_cv_cxx_compile_cxx11_required=false],
-        [m4_fatal([invalid second argument `$2' to AX_CXX_COMPILE_STDCXX_11])])
-
-  AC_LANG_PUSH([C++])
-
+        [m4_fatal([invalid argument `$1' to AX_CXX_COMPILE_STDCXX_11])])dnl
+  m4_if([$2], [], [ax_cxx_compile_cxx11_required=true],
+        [$2], [mandatory], [ax_cxx_compile_cxx11_required=true],
+        [$2], [optional], [ax_cxx_compile_cxx11_required=false],
+        [m4_fatal([invalid second argument `$2' to AX_CXX_COMPILE_STDCXX_11])])dnl
+  AC_LANG_PUSH([C++])dnl
   ac_success=no
   AC_CACHE_CHECK(whether $CXX supports C++11 features by default,
   ax_cv_cxx_compile_cxx11,
@@ -76,7 +74,7 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX_11], [
     ac_success=yes
   fi
 
-  m4_if([$1], [noext], [], [
+  m4_if([$1], [noext], [], [dnl
   if test x$ac_success = xno; then
     for switch in -std=gnu++11 -std=gnu++0x; do
       cachevar=AS_TR_SH([ax_cv_cxx_compile_cxx11_$switch])
@@ -96,7 +94,7 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX_11], [
     done
   fi])
 
-  m4_if([$1], [ext], [], [
+  m4_if([$1], [ext], [], [dnl
   if test x$ac_success = xno; then
     for switch in -std=c++11 -std=c++0x; do
       cachevar=AS_TR_SH([ax_cv_cxx_compile_cxx11_$switch])
@@ -115,22 +113,21 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX_11], [
       fi
     done
   fi])
-
   AC_LANG_POP([C++])
-
-  if test x$ac_success = xno; then
-    HAVE_CXX11=0
-    if test x$ax_cv_cxx_compile_cxx11_required = xno; then
+  if test x$ax_cxx_compile_cxx11_required = xtrue; then
+    if test x$ac_success = xno; then
       AC_MSG_ERROR([*** A compiler with support for C++11 language features is required.])
-    else
-      AC_MSG_NOTICE([No compiler with C++11 support was found])
     fi
   else
-    HAVE_CXX11=1
-    AC_DEFINE(HAVE_CXX11,1,
-              [define if the compiler supports basic C++11 syntax])
-  fi
+    if test x$ac_success = xno; then
+      HAVE_CXX11=0
+      AC_MSG_NOTICE([No compiler with C++11 support was found])
+    else
+      HAVE_CXX11=1
+      AC_DEFINE(HAVE_CXX11,1,
+                [define if the compiler supports basic C++11 syntax])
+    fi
 
-  AC_SUBST(HAVE_CXX11)
-  AM_CONDITIONAL(CXX11_ENABLED,test x$HAVE_CXX11 = x1)
+    AC_SUBST(HAVE_CXX11)
+  fi
 ])
