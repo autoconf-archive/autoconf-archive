@@ -34,9 +34,11 @@ rec {
     '';
   };
 
-  build = { system ? "x86_64-linux" }: pkgs.releaseTools.nixBuild {
-    name = "autoconf-archive";
-    src = tarball;
-  };
+  build = pkgs.lib.genAttrs [ "x86_64-linux" ] (system:
+    let pkgs = import <nixpkgs> { inherit system; }; in
+    pkgs.releaseTools.nixBuild {
+      name = "autoconf-archive";
+      src = tarball;
+    });
 
 }
