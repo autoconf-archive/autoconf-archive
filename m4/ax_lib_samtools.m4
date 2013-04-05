@@ -4,16 +4,17 @@
 #
 # SYNOPSIS
 #
-#   AX_LIB_SAMTOOLS([ACTION-IF-TRUE], [ACTION-IF-FALSE])
+#   AX_LIB_SAMTOOLS()
 #
 # DESCRIPTION
 #
 #   This macro searches for an installed samtools library. If nothing was
 #   specified when calling configure, it searches first in /usr/local and
-#   then in /usr. If the --with-samtools=DIR is specified, it will try to
-#   find it in DIR/include/bam/sam.h and DIR/lib/libbam.a. As a final try it
-#   will look in DIR/sam.h and DIR/libbam.a as the samtools library does not
-#   contain an install rule.
+#   then tries with ld's default library search path. If the
+#   --with-samtools=DIR is specified, it will try to find it in
+#   DIR/include/bam/sam.h and DIR/lib/libbam.a. As a final try it will look
+#   in DIR/sam.h and DIR/libbam.a as the samtools library does not contain
+#   an install rule.
 #
 #   If --without-samtools is specified, the library is not searched at all.
 #
@@ -71,46 +72,45 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 1
+#serial 2
 
-AU_ALIAS([AC_LIB_SAMTOOLS], [AX_LIB_SAMTOOLS])
 AC_DEFUN([AX_LIB_SAMTOOLS],
 #
 # Handle user hints
 #
-[AC_MSG_CHECKING(if samtools is wanted)
+[AC_MSG_CHECKING([if samtools is wanted])
 AC_ARG_WITH([samtools],
   AS_HELP_STRING([--with-samtools],
                  [search for samtools in DIR/include and DIR/lib]),
  [if test "$withval" != no ; then
-   AC_MSG_RESULT(yes)
+   AC_MSG_RESULT([yes])
    if test -d "$withval" ; then
      SAMTOOLS_HOME="$withval"
    else
      AC_MSG_WARN([Sorry, $withval does not exist, checking usual places])
    fi
  else
-   AC_MSG_RESULT(no)
+   AC_MSG_RESULT([no])
  fi],
- [AC_MSG_RESULT(yes)])
+ [AC_MSG_RESULT([yes])])
 
 if test -f "${SAMTOOLS_HOME}/include/bam/sam.h" ; then
-        SAMTOOLS_INCDIR="${SAMTOOLS_HOME}/include/bam"
-        SAMTOOLS_LIBDIR="${SAMTOOLS_HOME}/lib"
+        SAMTOOLS_INCDIR="-I${SAMTOOLS_HOME}/include/bam"
+        SAMTOOLS_LIBDIR="-L${SAMTOOLS_HOME}/lib"
 elif test -f "${SAMTOOLS_HOME}/include/sam.h" ; then
-        SAMTOOLS_INCDIR="${SAMTOOLS_HOME}/include"
-        SAMTOOLS_LIBDIR="${SAMTOOLS_HOME}/lib"
+        SAMTOOLS_INCDIR="-I${SAMTOOLS_HOME}/include"
+        SAMTOOLS_LIBDIR="-L${SAMTOOLS_HOME}/lib"
 elif test -f "${SAMTOOLS_HOME}/sam.h" ; then
-        SAMTOOLS_INCDIR="${SAMTOOLS_HOME}"
-        SAMTOOLS_LIBDIR="${SAMTOOLS_HOME}"
+        SAMTOOLS_INCDIR="-I${SAMTOOLS_HOME}"
+        SAMTOOLS_LIBDIR="-L${SAMTOOLS_HOME}"
 elif test -f "/usr/local/include/bam/sam.h" ; then
         SAMTOOLS_HOME="/usr/local"
-        SAMTOOLS_INCDIR="${SAMTOOLS_HOME}/include/bam"
-        SAMTOOLS_LIBDIR="${SAMTOOLS_HOME}/lib"
+        SAMTOOLS_INCDIR="-I${SAMTOOLS_HOME}/include/bam"
+        SAMTOOLS_LIBDIR="-L${SAMTOOLS_HOME}/lib"
 else
         SAMTOOLS_HOME="/usr"
-        SAMTOOLS_INCDIR="${SAMTOOLS_HOME}/include/bam"
-        SAMTOOLS_LIBDIR="${SAMTOOLS_HOME}/lib"
+        SAMTOOLS_INCDIR="-I${SAMTOOLS_HOME}/include/bam"
+        SAMTOOLS_LIBDIR=""
 fi
 
 #
@@ -120,19 +120,19 @@ if test -n "${SAMTOOLS_HOME}" ; then
 
         SAMTOOLS_OLD_LDFLAGS=$LDFLAGS
         SAMTOOLS_OLD_CPPFLAGS=$LDFLAGS
-        LDFLAGS="$LDFLAGS -L${SAMTOOLS_LIBDIR}"
-        CPPFLAGS="$CPPFLAGS -I${SAMTOOLS_INCDIR}"
+        LDFLAGS="$LDFLAGS ${SAMTOOLS_LIBDIR}"
+        CPPFLAGS="$CPPFLAGS ${SAMTOOLS_INCDIR}"
         AC_LANG_SAVE
         AC_LANG_C
-        AC_CHECK_HEADER(sam.h, [ac_cv_sam_h=yes], [ac_cv_sam_h=no])
-        AC_CHECK_LIB(bam, sam_open, [ac_cv_libbam=yes], [ac_cv_libbam=no])
+        AC_CHECK_HEADER([sam.h], [ac_cv_sam_h=yes], [ac_cv_sam_h=no])
+        AC_CHECK_LIB([bam], [sam_open], [ac_cv_libbam=yes], [ac_cv_libbam=no])
         AC_LANG_RESTORE
-        if test "$ac_cv_libbam" = "yes" -a "$ac_cv_sam_h" = "yes" ; then
+        if test "$ac_cv_libbam" = "yes" && test "$ac_cv_sam_h" = "yes" ; then
                 #
                 # If both library and header were found, use them
                 #
-                AC_MSG_CHECKING(samtools)
-                AC_MSG_RESULT(ok)
+                AC_MSG_CHECKING([samtools])
+                AC_MSG_RESULT([ok])
                 with_samtools=yes
         else
                 #
@@ -140,9 +140,9 @@ if test -n "${SAMTOOLS_HOME}" ; then
                 #
                 LDFLAGS="$SAMTOOLS_OLD_LDFLAGS"
                 CPPFLAGS="$SAMTOOLS_OLD_CPPFLAGS"
-                AC_MSG_CHECKING(samtools)
-                AC_MSG_RESULT(failed)
-                AC_MSG_ERROR(either specify a valid samtools installation with --with-samtools=DIR or disable samtools usage with --without-samtools)
+                AC_MSG_CHECKING([samtools])
+                AC_MSG_RESULT([failed])
+                AC_MSG_ERROR([either specify a valid samtools installation with --with-samtools=DIR or disable samtools usage with --without-samtools])
         fi
 fi
 ])
