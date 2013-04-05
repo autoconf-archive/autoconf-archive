@@ -18,7 +18,7 @@ rec {
     dontBuild = false;
     buildInputs = with pkgs; [
       git perl texinfo5 python lzip htmlTidy
-      (texLiveAggregationFun { paths = [ texLive texLiveExtra texinfo5 ]; })
+      (texLiveAggregationFun { paths = [ texLive texLiveCMSuper texinfo5 ]; })
     ];
     postUnpack = ''
       cp -r ${pkgs.gnulib}/ gnulib/
