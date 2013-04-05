@@ -16,7 +16,10 @@ rec {
     src = autoconfArchiveSrc;
     inherit version versionSuffix officialRelease;
     dontBuild = false;
-    buildInputs = with pkgs; [ git perl texinfo5 python lzip texLive htmlTidy ];
+    buildInputs = with pkgs; [
+      git perl texinfo5 python lzip htmlTidy
+      (texLiveAggregationFun { paths = [ texLive texLiveExtra texinfo5 ]; })
+    ];
     postUnpack = ''
       cp -r ${pkgs.gnulib}/ gnulib/
       chmod -R u+w gnulib
