@@ -65,7 +65,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 # exemple program
 m4_define([_AX_CHECK_GLU_PROGRAM],
@@ -198,7 +198,8 @@ m4_define([_AX_CHECK_GLU_VARARGS_TESSVB_PROGRAM],
 # compile the tesselation callback function program
 # test with c++
 AC_DEFUN([_AX_CHECK_GLU_COMPILE_VARARGS_TESSVB_PROGRAM],
-[dnl
+[AC_REQUIRE([AC_PROG_CXX])dnl
+
  AC_LANG_PUSH([C++])
  _AX_CHECK_GLU_SAVE_FLAGS()
  CFLAGS="${GLU_CFLAGS} ${CFLAGS}"
@@ -272,9 +273,7 @@ AC_DEFUN([_AX_CHECK_GLU_MANUAL_LIBS],
 
 dnl Manual way to detect GLU
 AC_DEFUN([_AX_CHECK_GLU_MANUAL],
-[AC_REQUIRE([AX_CHECK_GL])dnl
-AC_REQUIRE([AX_COMPILER_VENDOR])dnl
-AC_REQUIRE([AC_PROG_CXX])dnl
+[dnl
 
 # inherit cflags
 GLU_CFLAGS="${GLU_CFLAGS} ${GL_CFLAGS}"
