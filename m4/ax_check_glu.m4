@@ -165,7 +165,7 @@ AC_DEFUN([_AX_CHECK_GLU_LINK_CV],
 dnl Check headers manually (default case)
 AC_DEFUN([_AX_CHECK_GLU_HEADERS],
 [AC_LANG_PUSH([C])
- _AX_CHECK_GL_SAVE_FLAGS()
+ _AX_CHECK_GLU_SAVE_FLAGS()
  CFLAGS="${GLU_CFLAGS} ${CFLAGS}"
  # see comment in _AX_CHECK_GL_INCLUDES_DEFAULT
  AC_CHECK_HEADERS([windows.h],[],[],[AC_INCLUDES_DEFAULT])
@@ -174,7 +174,7 @@ AC_DEFUN([_AX_CHECK_GLU_HEADERS],
                          [ax_check_glu_have_headers_headers="no"],
 			 [_AX_CHECK_GLU_INCLUDES_DEFAULT()])
  # do not try darwin specific OpenGl/gl.h
- _AX_CHECK_GL_RESTORE_FLAGS()
+ _AX_CHECK_GLU_RESTORE_FLAGS()
  AC_LANG_POP([C])
 ])
 
