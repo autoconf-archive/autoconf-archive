@@ -70,7 +70,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 14
+#serial 15
 
 m4_define([_AX_CHECK_GL_PROGRAM],
           [AC_LANG_PROGRAM([[
@@ -354,7 +354,7 @@ AC_DEFUN([_AX_CHECK_GL_PKG_CONFIG],dnl
         # check headers
         AC_LANG_PUSH([C])
  	_AX_CHECK_GL_SAVE_FLAGS()
-        CFLAGS="${GL_FLAGS} ${CFLAGS}"
+        CFLAGS="${GL_CFLAGS} ${CFLAGS}"
         AC_CHECK_HEADERS([windows.h],[],[],[AC_INCLUDES_DEFAULT])
         AC_CHECK_HEADERS([GL/gl.h OpenGL/gl.h],
                          [ax_check_gl_have_headers="yes";break],
@@ -404,9 +404,12 @@ AC_DEFUN([_AX_CHECK_GL],[dnl
  _AX_CHECK_GL_NEED_X()
 
  # try first pkgconfig
- AS_IF([test "X${PKG_CONFIG}" != "X"],
-       [ ax_check_gl_pkg_config=no],
-       [ _AX_CHECK_GL_PKG_CONFIG()])
+ AC_MSG_CHECKING([for a working OpenGL implementation by pkg-config])
+ AS_IF([test "X${PKG_CONFIG}" = "X"],
+       [ AC_MSG_RESULT([no])
+         ax_check_gl_pkg_config=no],
+       [ AC_MSG_RESULT([yes])
+         _AX_CHECK_GL_PKG_CONFIG()])
 
  # if no pkgconfig or pkgconfig fail try manual way
  AS_IF([test "X$ax_check_gl_pkg_config" = "Xno"],
