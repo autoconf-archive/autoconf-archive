@@ -8,7 +8,7 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
-* Noteworthy changes in release ?.? (????-??-??) [?]
+* Noteworthy changes in release 2013.04.06 (2013-04-06) [stable]
 
   AX_PROG_CC_FOR_BUILD and AX_PROG_CXX_FOR_BUILD have been simplified to
   require only AC_CANONICAL_HOST instead of AC_CANONICAL_SYSTEM. Further
