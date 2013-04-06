@@ -2,11 +2,6 @@
 #       http://www.gnu.org/software/autoconf-archive/ax_check_glu.html
 # ===========================================================================
 #
-# OBSOLETE MACRO
-#
-#   This macro is no longer maintained here; the author prefers to publish
-#   it at <http://code.google.com/p/autoconf-gl-macros/>.
-#
 # SYNOPSIS
 #
 #   AX_CHECK_GLU
@@ -21,6 +16,18 @@
 #   If the header "GL/glu.h" is found, "HAVE_GL_GLU_H" is defined. If the
 #   header "OpenGL/glu.h" is found, HAVE_OPENGL_GLU_H is defined. These
 #   preprocessor definitions may not be mutually exclusive.
+#   
+#   You should use something like this in your headers:
+#   # if defined(HAVE_WINDOWS_H) && defined(_WIN32)
+#   #  include <windows.h>
+#   # endif
+#   # if defined(HAVE_GL_GLU_H)
+#   #  include <GL/glu.h>
+#   # elif defined(HAVE_OPENGL_GLU_H)
+#   #  include <OpenGL/glu.h>
+#   # else
+#   #  error no glu.h
+#   # endif
 #
 #   Some implementations (in particular, some versions of Mac OS X) are
 #   known to treat the GLU tesselator callback function type as "GLvoid
@@ -30,6 +37,7 @@
 # LICENSE
 #
 #   Copyright (c) 2009 Braden McDaniel <braden@endoframe.com>
+#   Copyright (c) 2013 Bastien Roucaries <roucaries.bastien+autoconf@gmail.com>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -57,19 +65,10 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 10
 
-AC_DEFUN([AX_CHECK_GLU],
-[AC_REQUIRE([AX_CHECK_GL])dnl
-AC_REQUIRE([AC_PROG_CXX])dnl
-GLU_CFLAGS="${GL_CFLAGS}"
-
-ax_save_CPPFLAGS="${CPPFLAGS}"
-CPPFLAGS="${GL_CFLAGS} ${CPPFLAGS}"
-AC_CHECK_HEADERS([GL/glu.h OpenGL/glu.h])
-CPPFLAGS="${ax_save_CPPFLAGS}"
-
-m4_define([AX_CHECK_GLU_PROGRAM],
+# exemple program
+m4_define([_AX_CHECK_GLU_PROGRAM],
           [AC_LANG_PROGRAM([[
 # if defined(HAVE_WINDOWS_H) && defined(_WIN32)
 #   include <windows.h>
@@ -80,8 +79,39 @@ m4_define([AX_CHECK_GLU_PROGRAM],
 #   include <OpenGL/glu.h>
 # else
 #   error no glu.h
-# endif]],
-                           [[gluBeginCurve(0)]])])
+# endif
+]],[[gluBeginCurve(0)]])])
+
+dnl local save flags
+AC_DEFUN([_AX_CHECK_GLU_SAVE_FLAGS],
+[dnl
+ax_check_glu_saved_libs="${LIBS}"
+ax_check_glu_saved_cflags="${CFLAGS}"
+ax_check_glu_saved_cppflags="${CPPFLAGS}"
+ax_check_glu_saved_ldflags="${LDFLAGS}"
+])
+
+dnl local restore flags
+AC_DEFUN([_AX_CHECK_GLU_RESTORE_FLAGS],
+[dnl
+LIBS="${ax_check_glu_saved_libs}"
+CFLAGS="${ax_check_glu_saved_cflags}"
+CPPFLAGS="${ax_check_glu_saved_cppflags}"
+LDFLAGS="${ax_check_glu_saved_ldflags}"
+])
+
+AC_DEFUN([AX_CHECK_GLU],
+[AC_REQUIRE([AX_CHECK_GL])dnl
+AC_REQUIRE([AX_COMPILER_VENDOR])dnl
+AC_REQUIRE([AC_PROG_CXX])dnl
+
+GLU_CFLAGS="${GL_CFLAGS}"
+
+_AX_CHECK_GLU_SAVE_FLAGS
+CPPFLAGS="${GL_CFLAGS} ${CPPFLAGS}"
+# TODO use real headers
+AC_CHECK_HEADERS([GL/glu.h OpenGL/glu.h])
+_AX_CHECK_GLU_RESTORE_FLAGS
 
 AC_CACHE_CHECK([for OpenGL Utility library], [ax_cv_check_glu_libglu],
 [ax_cv_check_glu_libglu="no"
@@ -104,7 +134,7 @@ AC_LANG_PUSH([C++])
 AS_IF([test X$ax_compiler_ms = Xyes],
       [AC_LANG_PUSH([C])])
 AC_LINK_IFELSE(
-[AX_CHECK_GLU_PROGRAM],
+[_AX_CHECK_GLU_PROGRAM],
 [ax_cv_check_glu_libglu=yes],
 [LIBS=""
 ax_check_libs="-lglu32 -lGLU"
@@ -113,7 +143,7 @@ for ax_lib in ${ax_check_libs}; do
         [ax_try_lib=`echo $ax_lib | sed -e 's/^-l//' -e 's/$/.lib/'`],
         [ax_try_lib="${ax_lib}"])
   LIBS="${ax_try_lib} ${GL_LIBS} ${ax_save_LIBS}"
-  AC_LINK_IFELSE([AX_CHECK_GLU_PROGRAM],
+  AC_LINK_IFELSE([_AX_CHECK_GLU_PROGRAM],
                  [ax_cv_check_glu_libglu="${ax_try_lib}"; break])
 done
 ])
