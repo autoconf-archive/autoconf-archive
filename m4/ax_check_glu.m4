@@ -16,18 +16,19 @@
 #   If the header "GL/glu.h" is found, "HAVE_GL_GLU_H" is defined. If the
 #   header "OpenGL/glu.h" is found, HAVE_OPENGL_GLU_H is defined. These
 #   preprocessor definitions may not be mutually exclusive.
-#   
+#
 #   You should use something like this in your headers:
-#   # if defined(HAVE_WINDOWS_H) && defined(_WIN32)
-#   #  include <windows.h>
-#   # endif
-#   # if defined(HAVE_GL_GLU_H)
-#   #  include <GL/glu.h>
-#   # elif defined(HAVE_OPENGL_GLU_H)
-#   #  include <OpenGL/glu.h>
-#   # else
-#   #  error no glu.h
-#   # endif
+#
+#     # if defined(HAVE_WINDOWS_H) && defined(_WIN32)
+#     #  include <windows.h>
+#     # endif
+#     # if defined(HAVE_GL_GLU_H)
+#     #  include <GL/glu.h>
+#     # elif defined(HAVE_OPENGL_GLU_H)
+#     #  include <OpenGL/glu.h>
+#     # else
+#     #  error no glu.h
+#     # endif
 #
 #   Some implementations (in particular, some versions of Mac OS X) are
 #   known to treat the GLU tesselator callback function type as "GLvoid
@@ -65,7 +66,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 12
+#serial 16
 
 # exemple program
 m4_define([_AX_CHECK_GLU_PROGRAM],
@@ -346,7 +347,7 @@ AC_DEFUN([AX_CHECK_GLU],dnl
  AC_MSG_CHECKING([for a working OpenGL Utility (GLU) implementation by pkg-config])
  # try first pkgconfig
  AS_IF([test "X${PKG_CONFIG}" = "X"],
-       [AC_MSG_RESULT([no]) 
+       [AC_MSG_RESULT([no])
         ax_check_glu_pkg_config=no],
        [AC_MSG_RESULT([yes])
         _AX_CHECK_GLU_PKG_CONFIG()])
