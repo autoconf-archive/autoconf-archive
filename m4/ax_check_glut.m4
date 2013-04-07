@@ -17,16 +17,17 @@
 #   preprocessor definitions may not be mutually exclusive.
 #
 #   You should use something like this in your headers:
-#   # if HAVE_WINDOWS_H && defined(_WIN32)
-#   #  include <windows.h>
-#   # endif
-#   # if defined(HAVE_GL_GLUT_H)
-#   #  include <GL/glut.h>
-#   # elif defined(HAVE_GLUT_GLUT_H)
-#   #  include <GLUT/glut.h>
-#   # else
-#   #  error no glut.h
-#   # endif
+#
+#     # if HAVE_WINDOWS_H && defined(_WIN32)
+#     #  include <windows.h>
+#     # endif
+#     # if defined(HAVE_GL_GLUT_H)
+#     #  include <GL/glut.h>
+#     # elif defined(HAVE_GLUT_GLUT_H)
+#     #  include <GLUT/glut.h>
+#     # else
+#     #  error no glut.h
+#     # endif
 #
 # LICENSE
 #
@@ -59,7 +60,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 13
 
 dnl local save flags
 AC_DEFUN([_AX_CHECK_GLUT_SAVE_FLAGS],
@@ -239,7 +240,7 @@ AS_IF([test "X$ax_cv_check_glut_link_opengl" = "Xyes"],
 ])
 
 
-# main entry point 
+# main entry point
 AC_DEFUN([AX_CHECK_GLUT],
 [dnl
  AC_REQUIRE([AX_CHECK_GL])dnl
