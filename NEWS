@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_PROG_FLEX has been updated to be more liberal about the name of the flex
+  executable.
+
   AX_LIB_HDF5 has been updated to support the variables HDF5_CC, HDF5_FC, and
   HDF5_LIBS. See <https://savannah.gnu.org/patch/?8026> for further details.
 
