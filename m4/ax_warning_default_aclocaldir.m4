@@ -63,7 +63,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_WARNING_DEFAULT_ACLOCALDIR],[dnl
 AC_REQUIRE([AX_EXPAND_PREFIX])dnl
@@ -121,8 +121,8 @@ AC_DEFUN([AX_ENABLE_DEFAULT_ACLOCALDIR],[dnl
 AS_VAR_PUSHDEF([BIN],[ax_warning_default_aclocal_bin])dnl
 AS_VAR_PUSHDEF([DIR],[ax_warning_default_aclocal_def])dnl
 AS_VAR_PUSHDEF([DEF],[ax_warning_default_aclocal_def])dnl
-AC_ARG_ENABLE([enable-default-aclocaldir],
-[  --enable-default-aclocaldir(=PATH)   override the datadir/aclocal default])
+AC_ARG_ENABLE([default-aclocaldir],
+  [AS_HELP_STRING([--enable-default-aclocaldir@<:@=PATH@:>@], [override the datadir/aclocal default])])
 test ".$enable_default_aclocaldir" = "." && enable_default_aclocaldir="no"
 case ".$enable_default_aclocaldir" in
   .no) DIR='m4_if([$2],,[${datadir}/aclocal],[$2])' ;;
