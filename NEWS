@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_XSDCXX has been added; a macro to find the CodeSynthesis XSD executable
+  and the corresponding headers. See <https://savannah.gnu.org/patch/?8011>
+  for further details.
+
   AX_PYTHON_DEVEL no longer overrides LOCALMODLIBS. Further details are
   available at <http://savannah.gnu.org/patch/index.php?8065>.
 
