@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_LIB_HDF5 has been updated to support the variables HDF5_CC, HDF5_FC, and
+  HDF5_LIBS. See <https://savannah.gnu.org/patch/?8026> for further details.
+
   AX_XSDCXX has been added; a macro to find the CodeSynthesis XSD executable
   and the corresponding headers. See <https://savannah.gnu.org/patch/?8011>
   for further details.
