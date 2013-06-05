@@ -38,7 +38,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_ZONEINFO_TZFILE_H], [dnl
 	dnl not totally necessary (yet), as we can simply inspect the tzfiles
@@ -164,11 +164,12 @@ AC_DEFUN([AX_ZONEINFO_TZDIR], [dnl
 	AC_PATH_PROG([TZSELECT], [tzselect])
 	if test -n "${ac_cv_path_TZSELECT}"; then
 		dnl snarf the value
-		valtmp=$(mktemp)
+		valtmp="`mktemp`"
 		strings "${ac_cv_path_TZSELECT}" | \
 			grep -F 'TZDIR=' > "${valtmp}"
 		. "${valtmp}"
 		TZDIR_cand="${TZDIR} ${TZDIR_cand}"
+		rm -f -- "${valtmp}"
 	fi
 
 	dnl lastly, append the usual suspects
@@ -226,7 +227,7 @@ ${TZDIR}/posix \
 	AC_CACHE_CHECK([for leap second file], [ax_cv_zoneinfo_utc_right], [dnl
 		ax_tmp_zoneinfo_nested="yes"
 		if test -n "${ax_cv_zoneinfo_utc}"; then
-			__utc_file="`basename \"${ax_cv_zoneinfo_utc}\"`"
+			__utc_file="`basename "${ax_cv_zoneinfo_utc}"`"
 			for c in ${TZDIR_cand}; do
 				if test -d "${c}"; then
 					c="${c}/${__utc_file}"
@@ -265,6 +266,8 @@ AC_DEFUN([AX_ZONEINFO], [
 	ifelse([$1], [right], [
 		AC_REQUIRE([AX_ZONEINFO_RIGHT])
 	])
+
+	AC_ARG_VAR([TZDIR], [Directory with compiled zoneinfo files.])
 ])dnl AX_ZONEINFO
 
 dnl ax_zoneinfo.m4 ends here
