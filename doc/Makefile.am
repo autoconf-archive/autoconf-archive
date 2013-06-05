@@ -22,5 +22,5 @@ autoconf-archive.info:  autoconf-archive.texi all-macros.texi $(TEXIFILES) $(CHA
 
 maintainer-clean-local:
 	@rm -f ax_*.texi all-macros.texi fdl-1.3.texi Makefile.in
-        @rm -f *.aux *.cp *.fn *.ky *.log *.pg *.toc *.tp *.vr
+	@rm -f *.aux *.cp *.fn *.ky *.log *.pg *.toc *.tp *.vr
 	@rm -rf manual gendocs_template
