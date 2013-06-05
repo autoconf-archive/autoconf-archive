@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_PYTHON_DEVEL no longer overrides LOCALMODLIBS. Further details are
+  available at <http://savannah.gnu.org/patch/index.php?8065>.
+
   The portability of AX_ZONEINFO has been improved. Further details can be
   found at <http://savannah.gnu.org/patch/index.php?8029>.
 
