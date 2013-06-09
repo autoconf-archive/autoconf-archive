@@ -8,16 +8,16 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
-* Noteworthy changes in release ?.? (????-??-??) [?]
+* Noteworthy changes in release 2013.06.09 (2013-06-09) [stable]
 
   AX_PROG_FLEX has been updated to be more liberal about the name of the flex
   executable.
 
   AX_LIB_HDF5 has been updated to support the variables HDF5_CC, HDF5_FC, and
-  HDF5_LIBS. See <https://savannah.gnu.org/patch/?8026> for further details.
+  HDF5_LIBS. See <http://savannah.gnu.org/patch/?8026> for further details.
 
   AX_XSDCXX has been added; a macro to find the CodeSynthesis XSD executable
-  and the corresponding headers. See <https://savannah.gnu.org/patch/?8011>
+  and the corresponding headers. See <http://savannah.gnu.org/patch/?8011>
   for further details.
 
   AX_PYTHON_DEVEL no longer overrides LOCALMODLIBS. Further details are
@@ -55,7 +55,7 @@
   available at <http://savannah.gnu.org/patch/?7973>.
 
   AX_PYTHON_DEVEL's ability to detect the proper suffix for shared libraries
-  has been improved. See <https://savannah.gnu.org/patch/?7953> for further
+  has been improved. See <http://savannah.gnu.org/patch/?7953> for further
   details.
 
   AX_BOOST_PYTHON has been switched to AX_PYTHON_DEVEL. Further details are
