@@ -8,6 +8,8 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
+* Noteworthy changes in release ?.? (????-??-??) [?]
+
 * Noteworthy changes in release 2013.06.09 (2013-06-09) [stable]
 
   AX_PROG_FLEX has been updated to be more liberal about the name of the flex
