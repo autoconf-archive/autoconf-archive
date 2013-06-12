@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  A bug in AX_LIB_HDF5 has been fixed that would result in $CC not being
+  restored properly after testing.
+
 * Noteworthy changes in release 2013.06.09 (2013-06-09) [stable]
 
   AX_PROG_FLEX has been updated to be more liberal about the name of the flex
