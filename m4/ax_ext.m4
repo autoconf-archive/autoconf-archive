@@ -30,7 +30,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_EXT],
 [
@@ -54,7 +54,7 @@ AC_DEFUN([AX_EXT],
     ;;
 
 
-    i[[3456]]86*|x86_64*)
+    i[[3456]]86*|x86_64*|amd64*)
 
       AC_REQUIRE([AX_GCC_X86_CPUID])
 
