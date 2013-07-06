@@ -10,8 +10,8 @@
 #
 #   Find supported SIMD extensions by requesting cpuid. When an SIMD
 #   extension is found, the -m"simdextensionname" is added to SIMD_FLAGS if
-#   compilator supports it. For example, if "sse2" is available, then
-#   "-msse2" is added to SIMD_FLAGS.
+#   compiler supports it. For example, if "sse2" is available, then "-msse2"
+#   is added to SIMD_FLAGS.
 #
 #   This macro calls:
 #
@@ -24,13 +24,14 @@
 # LICENSE
 #
 #   Copyright (c) 2007 Christophe Tournayre <turn3r@users.sourceforge.net>
+#   Copyright (c) 2013 Michael Petch <mpetch@capp-sysware.com>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_EXT],
 [
@@ -57,6 +58,7 @@ AC_DEFUN([AX_EXT],
     i[[3456]]86*|x86_64*|amd64*)
 
       AC_REQUIRE([AX_GCC_X86_CPUID])
+      AC_REQUIRE([AX_GCC_X86_AVX_XGETBV])
 
       AX_GCC_X86_CPUID(0x00000001)
       ecx=`echo $ax_cv_gcc_x86_cpuid_0x00000001 | cut -d ":" -f 3`
@@ -118,13 +120,36 @@ AC_DEFUN([AX_EXT],
         fi
       ])
 
-      AC_CACHE_CHECK([whether avx is supported], [ax_cv_have_avx_ext],
+      AC_CACHE_CHECK([whether avx is supported by processor], [ax_cv_have_avx_cpu_ext],
       [
-        ax_cv_have_avx_ext=no
+        ax_cv_have_avx_cpu_ext=no
         if test "$((0x$ecx>>28&0x01))" = 1; then
-          ax_cv_have_avx_ext=yes
+          ax_cv_have_avx_cpu_ext=yes
         fi
       ])
+
+      if test x"$ax_cv_have_avx_cpu_ext" = x"yes"; then
+        AX_GCC_X86_AVX_XGETBV(0x00000000)
+
+        xgetbv_eax="0"
+        if test x"$ax_cv_gcc_x86_avx_xgetbv_0x00000000" != x"unknown"; then
+          xgetbv_eax=`echo $ax_cv_gcc_x86_avx_xgetbv_0x00000000 | cut -d ":" -f 1`
+        fi
+
+        AC_CACHE_CHECK([whether avx is supported by operating system], [ax_cv_have_avx_ext],
+        [
+          ax_cv_have_avx_ext=no
+
+          if test "$((0x$ecx>>27&0x01))" = 1; then
+            if test "$((0x$xgetbv_eax&0x6))" = 6; then
+              ax_cv_have_avx_ext=yes
+            fi
+          fi
+        ])
+        if test x"$ax_cv_have_avx_ext" = x"no"; then
+          AC_MSG_WARN([Your processor supports AVX, but your operating system doesn't])
+        fi
+      fi
 
       if test "$ax_cv_have_mmx_ext" = yes; then
         AX_CHECK_COMPILE_FLAG(-mmmx, ax_cv_support_mmx_ext=yes, [])
@@ -132,7 +157,7 @@ AC_DEFUN([AX_EXT],
           SIMD_FLAGS="$SIMD_FLAGS -mmmx"
           AC_DEFINE(HAVE_MMX,,[Support mmx instructions])
         else
-          AC_MSG_WARN([Your processor support mmx instructions but not your compilor, can you try another compilor ?])
+          AC_MSG_WARN([Your processor supports mmx instructions but not your compiler, can you try another compiler?])
         fi
       fi
 
@@ -142,7 +167,7 @@ AC_DEFUN([AX_EXT],
           SIMD_FLAGS="$SIMD_FLAGS -msse"
           AC_DEFINE(HAVE_SSE,,[Support SSE (Streaming SIMD Extensions) instructions])
         else
-          AC_MSG_WARN([Your processor support sse instructions but not your compilor, can you try another compilor ?])
+          AC_MSG_WARN([Your processor supports sse instructions but not your compiler, can you try another compiler?])
         fi
       fi
 
@@ -152,7 +177,7 @@ AC_DEFUN([AX_EXT],
           SIMD_FLAGS="$SIMD_FLAGS -msse2"
           AC_DEFINE(HAVE_SSE2,,[Support SSE2 (Streaming SIMD Extensions 2) instructions])
         else
-          AC_MSG_WARN([Your processor support sse2 instructions but not your compilor, can you try another compilor ?])
+          AC_MSG_WARN([Your processor supports sse2 instructions but not your compiler, can you try another compiler?])
         fi
       fi
 
@@ -162,7 +187,7 @@ AC_DEFUN([AX_EXT],
           SIMD_FLAGS="$SIMD_FLAGS -msse3"
           AC_DEFINE(HAVE_SSE3,,[Support SSE3 (Streaming SIMD Extensions 3) instructions])
         else
-          AC_MSG_WARN([Your processor support sse3 instructions but not your compilor, can you try another compilor ?])
+          AC_MSG_WARN([Your processor supports sse3 instructions but not your compiler, can you try another compiler?])
         fi
       fi
 
@@ -172,7 +197,7 @@ AC_DEFUN([AX_EXT],
           SIMD_FLAGS="$SIMD_FLAGS -mssse3"
           AC_DEFINE(HAVE_SSSE3,,[Support SSSE3 (Supplemental Streaming SIMD Extensions 3) instructions])
         else
-          AC_MSG_WARN([Your processor support ssse3 instructions but not your compilor, can you try another compilor ?])
+          AC_MSG_WARN([Your processor supports ssse3 instructions but not your compiler, can you try another compiler?])
         fi
       fi
 
@@ -182,7 +207,7 @@ AC_DEFUN([AX_EXT],
           SIMD_FLAGS="$SIMD_FLAGS -msse4.1"
           AC_DEFINE(HAVE_SSE4_1,,[Support SSSE4.1 (Streaming SIMD Extensions 4.1) instructions])
         else
-          AC_MSG_WARN([Your processor support sse4.1 instructions but not your compilor, can you try another compilor ?])
+          AC_MSG_WARN([Your processor supports sse4.1 instructions but not your compiler, can you try another compiler?])
         fi
       fi
 
@@ -192,7 +217,7 @@ AC_DEFUN([AX_EXT],
           SIMD_FLAGS="$SIMD_FLAGS -msse4.2"
           AC_DEFINE(HAVE_SSE4_2,,[Support SSSE4.2 (Streaming SIMD Extensions 4.2) instructions])
         else
-          AC_MSG_WARN([Your processor support sse4.2 instructions but not your compilor, can you try another compilor ?])
+          AC_MSG_WARN([Your processor supports sse4.2 instructions but not your compiler, can you try another compiler?])
         fi
       fi
 
@@ -202,7 +227,7 @@ AC_DEFUN([AX_EXT],
           SIMD_FLAGS="$SIMD_FLAGS -mavx"
           AC_DEFINE(HAVE_AVX,,[Support AVX (Advanced Vector Extensions) instructions])
         else
-          AC_MSG_WARN([Your processor support avx instructions but not your compilor, can you try another compilor ?])
+          AC_MSG_WARN([Your processor supports avx instructions but not your compiler, can you try another compiler?])
         fi
       fi
 
