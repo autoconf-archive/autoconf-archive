@@ -15,14 +15,14 @@
 #
 #   Copyright (c) 2008 Todd Veldhuizen
 #   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
-#   Copyright (c) 2013 Bastien ROUCARIÈS <roucaries.bastien+autoconf@gmail.com>
+#   Copyright (c) 2013 Bastien Roucaries <roucaries.bastien+autoconf@gmail.com>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_CXX_NAMESPACES], [AX_CXX_NAMESPACES])
 AC_DEFUN([AX_CXX_NAMESPACES],
