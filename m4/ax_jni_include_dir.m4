@@ -11,9 +11,10 @@
 #   AX_JNI_INCLUDE_DIR finds include directories needed for compiling
 #   programs using the JNI interface.
 #
-#   JNI include directories are usually in the java distribution This is
-#   deduced from the value of JAVAC. When this macro completes, a list of
-#   directories is left in the variable JNI_INCLUDE_DIRS.
+#   JNI include directories are usually in the Java distribution. This is
+#   deduced from the value of $JAVA_HOME, $JAVAC, or the path to "javac", in
+#   that order. When this macro completes, a list of directories is left in
+#   the variable JNI_INCLUDE_DIRS.
 #
 #   Example usage follows:
 #
@@ -43,19 +44,27 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 10
 
 AU_ALIAS([AC_JNI_INCLUDE_DIR], [AX_JNI_INCLUDE_DIR])
 AC_DEFUN([AX_JNI_INCLUDE_DIR],[
 
 JNI_INCLUDE_DIRS=""
 
-test "x$JAVAC" = x && AC_MSG_ERROR(['\$JAVAC' undefined])
-AC_PATH_PROG([_ACJNI_JAVAC], [$JAVAC], [no])
-test "x$_ACJNI_JAVAC" = xno && AC_MSG_ERROR([$JAVAC could not be found in path])
+if test "x$JAVA_HOME" != x; then
+	_JTOPDIR="$JAVA_HOME"
+else
+	if test "x$JAVAC" = x; then
+		JAVAC=javac
+	fi
+	AC_PATH_PROG([_ACJNI_JAVAC], [$JAVAC], [no])
+	if test "x$_ACJNI_JAVAC" = xno; then
+		AC_MSG_ERROR([cannot find JDK; try setting \$JAVAC or \$JAVA_HOME])
+	fi
+	_ACJNI_FOLLOW_SYMLINKS("$_ACJNI_JAVAC")
+	_JTOPDIR=`echo "$_ACJNI_FOLLOWED" | sed -e 's://*:/:g' -e 's:/[[^/]]*$::'`
+fi
 
-_ACJNI_FOLLOW_SYMLINKS("$_ACJNI_JAVAC")
-_JTOPDIR=`echo "$_ACJNI_FOLLOWED" | sed -e 's://*:/:g' -e 's:/[[^/]]*$::'`
 case "$host_os" in
         darwin*)        _JTOPDIR=`echo "$_JTOPDIR" | sed -e 's:/[[^/]]*$::'`
                         _JINC="$_JTOPDIR/Headers";;
