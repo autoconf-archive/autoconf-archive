@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_PROG_PERL_VERSION has been extended to recognize recent versions of Perl.
+  See <http://savannah.gnu.org/patch/?8144> for further details.
+
   AX_JNI_INCLUDE_DIR now recognizes the $JAVA_HOME environment variable when
   trying to locate the Java SDK. See <http://savannah.gnu.org/patch/?8155> for
   further details.
