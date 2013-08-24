@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  New macros AX_BOOST_CONTEXT, AX_BOOST_COROUTINE, AX_BOOST_LOG, AND
+  AX_BOOST_LOG_SETUP have been added to detect Boost.Log and Boost.Coroutine.
+
   AX_PROG_PERL_VERSION has been extended to recognize recent versions of Perl.
   See <http://savannah.gnu.org/patch/?8144> for further details.
 
