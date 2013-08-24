@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_JNI_INCLUDE_DIR now recognizes the $JAVA_HOME environment variable when
+  trying to locate the Java SDK. See <http://savannah.gnu.org/patch/?8155> for
+  further details.
+
   AX_EXT has been extended to recognize cases where a CPU supports AVX, but the
   operating system does not. See <http://savannah.gnu.org/patch/?8084> for
   further details.
