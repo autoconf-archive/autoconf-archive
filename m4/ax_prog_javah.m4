@@ -21,11 +21,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_PROG_JAVAH], [AX_PROG_JAVAH])
 AC_DEFUN([AX_PROG_JAVAH],[
-AC_REQUIRE([AC_CANONICAL_SYSTEM])dnl
+AC_REQUIRE([AC_CANONICAL_BUILD])dnl
 AC_REQUIRE([AC_PROG_CPP])dnl
 AC_PATH_PROG(JAVAH,javah)
 if test x"`eval 'echo $ac_cv_path_JAVAH'`" != x ; then
