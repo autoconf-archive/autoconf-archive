@@ -2,6 +2,11 @@
 #   http://www.gnu.org/software/autoconf-archive/ax_gcc_libraries_dir.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro is obsolete because it depends on the obsolete macro
+#   AX_GCC_OPTION.
+#
 # SYNOPSIS
 #
 #   AX_GCC_LIBRARIES_DIR(VARIABLE)
@@ -44,7 +49,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_GCC_LIBRARIES_DIR], [
     AC_REQUIRE([AC_PROG_CC])
