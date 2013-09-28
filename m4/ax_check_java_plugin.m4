@@ -14,7 +14,7 @@
 #   Apply the shell variable as you see fit. If sun changes things so
 #   <jre>/lib/plugin.jar is not the magic file it will stop working.
 #
-#   This macro assumes that unzip, zipinfo or pkzipc is avialable (and can
+#   This macro assumes that unzip, zipinfo or pkzipc is available (and can
 #   list the contents of the jar archive). The first two are assumed to work
 #   similarly enough to the infozip versisonms. The pkzipc version is
 #   assumed to work if I undertstand the documentation on pkware's site but
@@ -50,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([DPS_CHECK_PLUGIN], [AX_CHECK_JAVA_PLUGIN])
 AC_DEFUN([AX_CHECK_JAVA_PLUGIN],

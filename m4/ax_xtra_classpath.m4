@@ -10,7 +10,7 @@
 #
 #   Set $1 to extra classpath components required for class $2 found in a
 #   jar file in $3. If the class is found do $4 and otherwise do $5. Uses
-#   AX_JAVA_CHECK_CLASS for testing whether a class is avialable
+#   AX_JAVA_CHECK_CLASS for testing whether a class is available
 #
 # LICENSE
 #
@@ -42,7 +42,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([DPS_XTRA_CLASSPATH], [AX_XTRA_CLASSPATH])
 AC_DEFUN([AX_XTRA_CLASSPATH],[

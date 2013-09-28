@@ -49,7 +49,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([DPS_JAVA_CHECK_CLASS], [AX_JAVA_CHECK_CLASS])
 AC_DEFUN([AX_JAVA_CHECK_CLASS],[
@@ -60,7 +60,7 @@ xopts=`echo ${CLASSPATH} | ${SED} 's/^ *://'`
 xopts="-classpath $xopts"
 else xtra=""; xopts=""; fi
 cache_var="cache_val"AS_TR_SH([_Jc_${JAVAC}_Cp_${CLASSPATH}])
-AC_CACHE_CHECK([if the $1 class is avialable$xtra], [$cache_var], [
+AC_CACHE_CHECK([if the $1 class is available$xtra], [$cache_var], [
 JAVA_TEST=Test.java
 CLASS_TEST=Test.class
 cat << \EOF > $JAVA_TEST
