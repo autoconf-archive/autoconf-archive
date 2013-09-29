@@ -47,15 +47,22 @@
 AU_ALIAS([DPS_XTRA_CLASSPATH], [AX_XTRA_CLASSPATH])
 AC_DEFUN([AX_XTRA_CLASSPATH],[
 AC_PROG_SED
-AX_JAVA_CHECK_CLASS([$2],[got="yes"],[got="no"])
-cpxtra=""; saved_cp="${CLASSPATH}";
+
+POTENTIAL_LOCATIONS="/usr/share/java"
 for jhome in `ls -dr /usr/java/* /usr/local/java/* 2> /dev/null`; do
 for jdir in lib jre/lib; do
+POTENTIAL_LOCATIONS="$POTENTIAL_LOCATIONS $jhome/$jdir"
+done; done
+
+AX_JAVA_CHECK_CLASS([$2],[got="yes"],[got="no"])
+cpxtra=""; saved_cp="${CLASSPATH}";
+for location in $POTENTIAL_LOCATIONS; do
 for jfile in $3; do
-if test "x$got" != "xyes" && test -f "$jhome/$jdir/$jfile"; then
-CLASSPATH="${saved_cp}:$jhome/$jdir/$jfile"
-AX_JAVA_CHECK_CLASS([$2],[got="yes"; cpxtra="$jhome/$jdir/$jfile:"],[got="no"])
-fi; done; done; done
+if test "x$got" != "xyes" && test -f "$location/$jfile"; then
+CLASSPATH="${saved_cp}:$location/$jfile"
+AX_JAVA_CHECK_CLASS([$2],[got="yes"; cpxtra="$location/$jfile:"],[got="no"])
+fi; done; done;
+
 if test "x${saved_cp}" != "x"; then
 CLASSPATH="${saved_cp}"
 else unset CLASSPATH; fi
