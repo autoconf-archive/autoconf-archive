@@ -88,7 +88,7 @@
 #
 #     AX_WITH_CURSES
 #     if test "x$ax_cv_ncursesw" != xyes && test "x$ax_cv_ncurses" != xyes; then
-#         AX_MSG_ERROR([requires either NcursesW or Ncurses library])
+#         AC_MSG_ERROR([requires either NcursesW or Ncurses library])
 #     fi
 #
 #   If any Curses library will do (but one must be present and must support
