@@ -49,7 +49,7 @@ AC_DEFUN([AX_LIBGCJ_JAR],
 AC_REQUIRE([AC_EXEEXT])
 AC_REQUIRE([AX_PROG_JAVAC])
 AC_REQUIRE([AC_PROG_FGREP])
-AC_CHECK_PROG(SED, sed)
+AC_PROG_SED
 if test "x$SED" = "x"; then
 AC_MSG_WARN([sed not avaiable, so libgcj.jar test skipped])
 else

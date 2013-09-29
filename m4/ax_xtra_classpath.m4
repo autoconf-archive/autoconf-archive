@@ -46,7 +46,7 @@
 
 AU_ALIAS([DPS_XTRA_CLASSPATH], [AX_XTRA_CLASSPATH])
 AC_DEFUN([AX_XTRA_CLASSPATH],[
-AC_CHECK_PROG(SED, sed)
+AC_PROG_SED
 AX_JAVA_CHECK_CLASS([$2],[got="yes"],[got="no"])
 cpxtra=""; saved_cp="${CLASSPATH}";
 for jhome in `ls -dr /usr/java/* /usr/local/java/* 2> /dev/null`; do
