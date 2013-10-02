@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The new macres AX_FIND_HAMCREST and AX_FIND_JUNIT have been added, which
+  provide support for finding the jars of JUnit and Hamcrest. Please refer to
+  <http://savannah.gnu.org/patch/index.php?8196> for further details.
+
   AX_PTHREAD has been extended to support Clang. Further details can be found
   at <http://savannah.gnu.org/patch/?8186>.
 
