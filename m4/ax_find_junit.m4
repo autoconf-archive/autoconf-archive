@@ -11,7 +11,7 @@
 #   AX_FIND_JUNIT will look for the JUnit java library. When found its path
 #   will be put in JUNIT_CPF as a classpath fragment.
 #
-#   To override the location define JUNIT_JAR to the wanted path
+#   To override the location define JUNIT_JAR to the wanted path.
 #
 # LICENSE
 #
