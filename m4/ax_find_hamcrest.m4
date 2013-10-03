@@ -11,7 +11,7 @@
 #   AX_FIND_HAMCREST will look for the Hamcrest java library. When found its
 #   path will be put in HAMCREST_CPF as a classpath fragment.
 #
-#   To override the location define HAMCREST_JAR to the wanted path
+#   To override the location define HAMCREST_JAR to the wanted path.
 #
 # LICENSE
 #
