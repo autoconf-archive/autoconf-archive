@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_PTHREAD has been extended to support Clang. Further details can be found
+  at <http://savannah.gnu.org/patch/?8186>.
+
   The macros AX_GCC_LIBRARIES_DIR and AX_GCC_VERSION have been marked obsolete
   because they depend on the obsolete AX_GCC_OPTION macro. Further details can
   be found at <http://lists.gnu.org/archive/html/autoconf-archive-maintainers/2013-09/msg00000.html>.
