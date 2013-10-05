@@ -34,16 +34,27 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 # list of flag to save
 AC_DEFUN([_AX_SAVE_FLAGS_LIST],[dnl
+[CCASFLAGS],dnl
 [CFLAGS],dnl
 [CPPFLAGS],dnl
 [CXXFLAGS],dnl
+[ERLCFLAGS],dnl
+[FCFLAGS],dnl
+[FCLIBS],dnl
+[FFLAGS],dnl
+[FLIBS],dnl
+[GCJFLAGS],dnl
+[JAVACFLAGS],dnl
 [LDFLAGS],dnl
 [LIBS],dnl
-[OBJCFLAGS]dnl
+[OBJCFLAGS],dnl
+[OBJCXXFLAGS],dnl
+[UPCFLAGS],dnl
+[VALAFLAGS]dnl
 ])
 
 # save one flag in name space
