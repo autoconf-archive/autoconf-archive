@@ -10,23 +10,23 @@
 #
 #   Restore common compilation flags from temporary variables.
 #
-#   Compilation flags includes: CPPFLAGS, CFLAGS, CXXFLAGS,
-#   LDFLAGS, LIBS, OBJCFLAGS.
+#   Compilation flags includes: CPPFLAGS, CFLAGS, CXXFLAGS, LDFLAGS, LIBS,
+#   OBJCFLAGS.
 #
-#   By default these flags are restored to a global (empty) namespace,
-#   but user could restore from specific NAMESPACE by using
+#   By default these flags are restored to a global (empty) namespace, but
+#   user could restore from specific NAMESPACE by using
 #   AX_RESTORE_FLAGS(NAMESPACE) macro.
 #
 #   Typical usage is like:
-#   AX_SAVE_FLAGS(mypackage)
-#   CPPFLAGS="-Imypackagespath ${CPPFLAGS}"
-#   dnl do some detection
-#   AX_RESTORE_FLAGS(mypackage)
+#
+#     AX_SAVE_FLAGS(mypackage)
+#     CPPFLAGS="-Imypackagespath ${CPPFLAGS}"
+#     dnl ... do some detection ...
+#     AX_RESTORE_FLAGS(mypackage)
 #
 # LICENSE
 #
 #   Copyright (c) 2009 Filippo Giunchedi <filippo@esaurito.net>
-#   Copyright (c) 2011 The Board of Trustees of the Leland Stanford Junior University
 #   Copyright (c) 2011 Russ Allbery <rra@stanford.edu>
 #   Copyright (c) 2013 Bastien ROUCARIES <roucaries.bastien+autoconf@gmail.com>
 #
@@ -35,8 +35,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
-
+#serial 5
 
 # save one flag in name space
 AC_DEFUN([_AX_RESTORE_ONE_FLAG],[dnl

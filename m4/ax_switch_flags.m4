@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_restore_flags.html
+#      http://www.gnu.org/software/autoconf-archive/ax_switch_flags.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -8,25 +8,25 @@
 #
 # DESCRIPTION
 #
-#   Switch common compilation flags from temporary variables
-#   between two compilation namespace.
+#   Switch common compilation flags from temporary variables between two
+#   compilation namespace.
 #
-#   Compilation flags includes: CPPFLAGS, CFLAGS, CXXFLAGS,
-#   LDFLAGS, LIBS, OBJCFLAGS.
+#   Compilation flags includes: CPPFLAGS, CFLAGS, CXXFLAGS, LDFLAGS, LIBS,
+#   OBJCFLAGS.
 #
-#   By default these flags are restored to a global (empty) namespace,
-#   but user could restore from specific NAMESPACE by using
+#   By default these flags are restored to a global (empty) namespace, but
+#   user could restore from specific NAMESPACE by using
 #   AX_RESTORE_FLAGS(NAMESPACE) macro.
 #
 #   Typical usage is like:
-#   AX_SAVE_FLAGS(beginprogram)
-#   CPPFLAGS="-Imypackagespath ${CPPFLAGS}"
-#   AX_SWITCH_FLAGS(mypackage,beginprogram)
+#
+#     AX_SAVE_FLAGS(beginprogram)
+#     CPPFLAGS="-Imypackagespath ${CPPFLAGS}"
+#     AX_SWITCH_FLAGS(mypackage,beginprogram)
 #
 # LICENSE
 #
 #   Copyright (c) 2009 Filippo Giunchedi <filippo@esaurito.net>
-#   Copyright (c) 2011 The Board of Trustees of the Leland Stanford Junior University
 #   Copyright (c) 2011 Russ Allbery <rra@stanford.edu>
 #   Copyright (c) 2013 Bastien ROUCARIES <roucaries.bastien+autoconf@gmail.com>
 #
@@ -35,7 +35,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_SWITCH_FLAGS], [
   AC_REQUIRE(AX_SAVE_FLAGS)
