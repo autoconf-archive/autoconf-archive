@@ -25,6 +25,7 @@
 # LICENSE
 #
 #   Copyright (c) 2009 Filippo Giunchedi <filippo@esaurito.net>
+#   Copyright (c) 2011 The Board of Trustees of the Leland Stanford Junior University
 #   Copyright (c) 2011 Russ Allbery <rra@stanford.edu>
 #   Copyright (c) 2013 Bastien ROUCARIES <roucaries.bastien+autoconf@gmail.com>
 #
@@ -33,7 +34,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 # list of flag to save
 AC_DEFUN([_AX_SAVE_FLAGS_LIST],[dnl
