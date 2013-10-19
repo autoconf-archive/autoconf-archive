@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_COMPILER_VENDOR has been extended to support detection of Fujitsu
+  compilers. See <http://savannah.gnu.org/patch/index.php?8212> for further
+  details.
+
   AX_TRY_RUN_JAVA and AX_TRY_COMPILE_JAVA has been made more picky about what
   they delete. See <http://savannah.gnu.org/patch/index.php?8211> for further
   details.
