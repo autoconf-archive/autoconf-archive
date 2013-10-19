@@ -11,7 +11,7 @@
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
   AX_TRY_RUN_JAVA and AX_TRY_COMPILE_JAVA has been made more picky about what
-  they delete. See <https://savannah.gnu.org/patch/index.php?8211> for further
+  they delete. See <http://savannah.gnu.org/patch/index.php?8211> for further
   details.
 
   The new macro AX_PROG_SCALA checks that scala is available. Further details
