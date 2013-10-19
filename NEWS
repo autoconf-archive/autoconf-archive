@@ -14,7 +14,7 @@
   are available at <http://savannah.gnu.org/patch/index.php?8198>.
 
   The new macro AX_FIND_SCALA_STDLIB add support for finding the jar containing
-  the Scala Standard Library. See <https://savannah.gnu.org/patch/?8197> for
+  the Scala Standard Library. See <http://savannah.gnu.org/patch/?8197> for
   further details.
 
   The new macro AX_PROG_SCALAC provides support for finding a Scala compiler.
