@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_PROG_CXX_MPI has been updated to recognize an MPI C++ compiler. Further
+  details are at <http://savannah.gnu.org/patch/?8218>.
+
   The new macro AX_AM_OVERRIDE_VAR allows "overriding" of user provided
   variables for Automake. See <http://savannah.gnu.org/patch/?8213> for further
   details.
