@@ -8,7 +8,7 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
-* Noteworthy changes in release ?.? (????-??-??) [?]
+* Noteworthy changes in release 2013.11.01 (2013-11-01) [stable]
 
   AX_PROG_CXX_MPI has been updated to recognize an MPI C++ compiler. Further
   details are at <http://savannah.gnu.org/patch/?8218>.
