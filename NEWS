@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Extended AX_CHECK_{PREPROC,COMPILE,LINK}_FLAG macros to accept an additional
+  "input" argument. See <http://savannah.gnu.org/patch/?8247> for further
+  details.
+
   Fix recognition of UltraSparc IIi in AX_GCC_ARCHFLAG. Further details can be
   found at <http://savannah.gnu.org/patch/?8235>.
 
