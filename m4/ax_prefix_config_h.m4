@@ -119,7 +119,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 12
+#serial 13
 
 AC_DEFUN([AX_PREFIX_CONFIG_H],[dnl
 AC_PREREQ([2.62])
@@ -192,7 +192,6 @@ else
       rm -f "$_OUT"
       mv $tmp/pconfig.h "$_OUT"
     fi
-    cp _script _configs.sed
   else
     AC_MSG_ERROR([input file $_INP does not exist - skip generating $_OUT])
   fi
