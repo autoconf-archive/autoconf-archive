@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Fix recognition of UltraSparc IIi in AX_GCC_ARCHFLAG. Further details can be
+  found at <http://savannah.gnu.org/patch/?8235>.
+
 * Noteworthy changes in release 2013.11.01 (2013-11-01) [stable]
 
   AX_PROG_CXX_MPI has been updated to recognize an MPI C++ compiler. Further
