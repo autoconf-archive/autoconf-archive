@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Fixed a cut-and-paste error in AX_CREATE_PKGCONFIG_INFO. Further details are
+  available at <http://savannah.gnu.org/patch/?8238>.
+
   Extended AX_CHECK_{PREPROC,COMPILE,LINK}_FLAG macros to accept an additional
   "input" argument. See <http://savannah.gnu.org/patch/?8247> for further
   details.
