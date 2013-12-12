@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_BOOST_BASE has been updated to recognize the new multi-arch system paths
+  on Ubuntu 13.10 x86_64. See <http://savannah.gnu.org/patch/?8254> for further
+  details.
+
   Fixed a cut-and-paste error in AX_CREATE_PKGCONFIG_INFO. Further details are
   available at <http://savannah.gnu.org/patch/?8238>.
 
