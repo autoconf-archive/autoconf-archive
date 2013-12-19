@@ -1,3 +1,6 @@
+# ===========================================================================
+#      http://www.gnu.org/software/autoconf-archive/ax_gcc_builtin.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -5,87 +8,89 @@
 #
 # DESCRIPTION
 #
-#   This macro checks if the compiler supports one of GCC's built-in functions;
-#   many other compilers also provide those same built-ins.
+#   This macro checks if the compiler supports one of GCC's built-in
+#   functions; many other compilers also provide those same built-ins.
 #
 #   The BUILTIN parameter is the name of the built-in function.
 #
 #   If BUILTIN is supported define HAVE_<BUILTIN>. Keep in mind that since
-#   builtins usually start with two underscores they will be copied over into
-#   the HAVE_<BUILTIN> definition (e.g. HAVE___BUILTIN_EXPECT for
+#   builtins usually start with two underscores they will be copied over
+#   into the HAVE_<BUILTIN> definition (e.g. HAVE___BUILTIN_EXPECT for
 #   __builtin_expect()).
 #
-#   The macro caches its result in the ax_cv_have_<BUILTIN> variable
-#   (e.g. ax_cv_have___builtin_expect).
+#   The macro caches its result in the ax_cv_have_<BUILTIN> variable (e.g.
+#   ax_cv_have___builtin_expect).
 #
 #   The macro currently supports the following built-in functions:
 #
-#   __builtin_assume_aligned
-#   __builtin_bswap32
-#   __builtin_bswap64
-#   __builtin_choose_expr
-#   __builtin___clear_cache
-#   __builtin_clrsb
-#   __builtin_clrsbl
-#   __builtin_clrsbll
-#   __builtin_clz
-#   __builtin_clzl
-#   __builtin_clzll
-#   __builtin_complex
-#   __builtin_constant_p
-#   __builtin_ctz
-#   __builtin_ctzl
-#   __builtin_ctzll
-#   __builtin_expect
-#   __builtin_ffs
-#   __builtin_ffsl
-#   __builtin_ffsll
-#   __builtin_fpclassify
-#   __builtin_huge_val
-#   __builtin_huge_valf
-#   __builtin_huge_vall
-#   __builtin_inf
-#   __builtin_infd128
-#   __builtin_infd32
-#   __builtin_infd64
-#   __builtin_inff
-#   __builtin_infl
-#   __builtin_isinf_sign
-#   __builtin_nan
-#   __builtin_nand128
-#   __builtin_nand32
-#   __builtin_nand64
-#   __builtin_nanf
-#   __builtin_nanl
-#   __builtin_nans
-#   __builtin_nansf
-#   __builtin_nansl
-#   __builtin_object_size
-#   __builtin_parity
-#   __builtin_parityl
-#   __builtin_parityll
-#   __builtin_popcount
-#   __builtin_popcountl
-#   __builtin_popcountll
-#   __builtin_powi
-#   __builtin_powif
-#   __builtin_powil
-#   __builtin_prefetch
-#   __builtin_trap
-#   __builtin_types_compatible_p
-#   __builtin_unreachable
+#    __builtin_assume_aligned
+#    __builtin_bswap32
+#    __builtin_bswap64
+#    __builtin_choose_expr
+#    __builtin___clear_cache
+#    __builtin_clrsb
+#    __builtin_clrsbl
+#    __builtin_clrsbll
+#    __builtin_clz
+#    __builtin_clzl
+#    __builtin_clzll
+#    __builtin_complex
+#    __builtin_constant_p
+#    __builtin_ctz
+#    __builtin_ctzl
+#    __builtin_ctzll
+#    __builtin_expect
+#    __builtin_ffs
+#    __builtin_ffsl
+#    __builtin_ffsll
+#    __builtin_fpclassify
+#    __builtin_huge_val
+#    __builtin_huge_valf
+#    __builtin_huge_vall
+#    __builtin_inf
+#    __builtin_infd128
+#    __builtin_infd32
+#    __builtin_infd64
+#    __builtin_inff
+#    __builtin_infl
+#    __builtin_isinf_sign
+#    __builtin_nan
+#    __builtin_nand128
+#    __builtin_nand32
+#    __builtin_nand64
+#    __builtin_nanf
+#    __builtin_nanl
+#    __builtin_nans
+#    __builtin_nansf
+#    __builtin_nansl
+#    __builtin_object_size
+#    __builtin_parity
+#    __builtin_parityl
+#    __builtin_parityll
+#    __builtin_popcount
+#    __builtin_popcountl
+#    __builtin_popcountll
+#    __builtin_powi
+#    __builtin_powif
+#    __builtin_powil
+#    __builtin_prefetch
+#    __builtin_trap
+#    __builtin_types_compatible_p
+#    __builtin_unreachable
 #
 #   Unsuppored built-ins will be tested with an empty parameter set and the
 #   result of the check might be wrong or meaningless so use with care.
 #
 # LICENSE
 #
-#   Copyright © 2013 Gabriele Svelto <gabriele.svelto@gmail.com>
+#   Copyright (c) 2013 Gabriele Svelto <gabriele.svelto@gmail.com>
 #
-#   Copying and distribution of this file, with or without modification,
-#   are permitted in any medium without royalty provided the copyright
-#   notice and this notice are preserved.  This file is offered as-is,
-#   without any warranty.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.  This file is offered as-is, without any
+#   warranty.
+
+#serial 2
 
 AC_DEFUN([AX_GCC_BUILTIN], [
     AS_VAR_PUSHDEF([ac_var], [ax_cv_have_$1])

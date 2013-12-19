@@ -10,6 +10,17 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Three new macros were submitted in <http://savannah.gnu.org/patch/?8260>:
+
+   - AX_GCC_BUILTIN is used to detect GCC-compatible built-in functions (e.g.
+     AX_GCC_BUILTIN([__builtin_expect]) to check for __builtin_expect()).
+
+   - AX_GCC_FUNC_ATTRIBUTE used to detect GCC-compatible function attributes
+     (e.g. AX_GCC_FUNC_ATTRIBUTE([pure]) to check for _attribute_((pure))).
+
+   - AX_GCC_VAR_ATTRIBUTE is used to detect GCC-compatible variable attributes
+     (e.g. AX_GCC_VAR_ATTRIBUTE([unused]) to check for _attribute_((unused))).
+
   AX_BOOST_BASE has been updated to recognize the new multi-arch system paths
   on Ubuntu 13.10 x86_64. See <http://savannah.gnu.org/patch/?8254> for further
   details.

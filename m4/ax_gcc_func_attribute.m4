@@ -1,3 +1,6 @@
+# ===========================================================================
+#   http://www.gnu.org/software/autoconf-archive/ax_gcc_func_attribute.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -5,11 +8,11 @@
 #
 # DESCRIPTION
 #
-#   This macro checks if the compiler supports one of GCC's function attributes;
-#   many other compilers also provide function attributes with the same syntax.
-#   Compiler warnings are used to detect supported attributes as unsupported
-#   ones are ignored by default so quieting warnings when using this macro will
-#   yield false positives.
+#   This macro checks if the compiler supports one of GCC's function
+#   attributes; many other compilers also provide function attributes with
+#   the same syntax. Compiler warnings are used to detect supported
+#   attributes as unsupported ones are ignored by default so quieting
+#   warnings when using this macro will yield false positives.
 #
 #   The ATTRIBUTE parameter holds the name of the attribute to be checked.
 #
@@ -20,55 +23,57 @@
 #
 #   The macro currently supports the following function attributes:
 #
-#   alias
-#   aligned
-#   alloc_size
-#   always_inline
-#   artificial
-#   cold
-#   const
-#   constructor
-#   deprecated
-#   destructor
-#   dllexport
-#   dllimport
-#   error
-#   externally_visible
-#   flatten
-#   format
-#   format_arg
-#   gnu_inline
-#   hot
-#   ifunc
-#   leaf
-#   malloc
-#   noclone
-#   noinline
-#   nonnull
-#   noreturn
-#   nothrow
-#   optimize
-#   pure
-#   unused
-#   used
-#   visibility
-#   warning
-#   warn_unused_result
-#   weak
-#   weakref
+#    alias
+#    aligned
+#    alloc_size
+#    always_inline
+#    artificial
+#    cold
+#    const
+#    constructor
+#    deprecated
+#    destructor
+#    dllexport
+#    dllimport
+#    error
+#    externally_visible
+#    flatten
+#    format
+#    format_arg
+#    gnu_inline
+#    hot
+#    ifunc
+#    leaf
+#    malloc
+#    noclone
+#    noinline
+#    nonnull
+#    noreturn
+#    nothrow
+#    optimize
+#    pure
+#    unused
+#    used
+#    visibility
+#    warning
+#    warn_unused_result
+#    weak
+#    weakref
 #
-#   Unsuppored function attributes will be tested with a prototype returning an
-#   int and not accepting any arguments and the result of the check might be
-#   wrong or meaningless so use with care.
+#   Unsuppored function attributes will be tested with a prototype returning
+#   an int and not accepting any arguments and the result of the check might
+#   be wrong or meaningless so use with care.
 #
 # LICENSE
 #
-#   Copyright © 2013 Gabriele Svelto <gabriele.svelto@gmail.com>
+#   Copyright (c) 2013 Gabriele Svelto <gabriele.svelto@gmail.com>
 #
-#   Copying and distribution of this file, with or without modification,
-#   are permitted in any medium without royalty provided the copyright
-#   notice and this notice are preserved.  This file is offered as-is,
-#   without any warranty.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.  This file is offered as-is, without any
+#   warranty.
+
+#serial 2
 
 AC_DEFUN([AX_GCC_FUNC_ATTRIBUTE], [
     AS_VAR_PUSHDEF([ac_var], [ax_cv_have_func_attribute_$1])

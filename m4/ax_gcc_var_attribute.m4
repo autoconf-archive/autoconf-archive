@@ -1,3 +1,6 @@
+# ===========================================================================
+#   http://www.gnu.org/software/autoconf-archive/ax_gcc_var_attribute.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -5,11 +8,11 @@
 #
 # DESCRIPTION
 #
-#   This macro checks if the compiler supports one of GCC's variable attributes;
-#   many other compilers also provide variable attributes with the same syntax.
-#   Compiler warnings are used to detect supported attributes as unsupported
-#   ones are ignored by default so quieting warnings when using this macro will
-#   yield false positives.
+#   This macro checks if the compiler supports one of GCC's variable
+#   attributes; many other compilers also provide variable attributes with
+#   the same syntax. Compiler warnings are used to detect supported
+#   attributes as unsupported ones are ignored by default so quieting
+#   warnings when using this macro will yield false positives.
 #
 #   The ATTRIBUTE parameter holds the name of the attribute to be checked.
 #
@@ -20,20 +23,20 @@
 #
 #   The macro currently supports the following variable attributes:
 #
-#   aligned
-#   cleanup
-#   common
-#   nocommon
-#   deprecated
-#   mode
-#   packed
-#   tls_model
-#   unused
-#   used
-#   vector_size
-#   weak
-#   dllimport
-#   dllexport
+#    aligned
+#    cleanup
+#    common
+#    nocommon
+#    deprecated
+#    mode
+#    packed
+#    tls_model
+#    unused
+#    used
+#    vector_size
+#    weak
+#    dllimport
+#    dllexport
 #
 #   Unsuppored variable attributes will be tested against a global integer
 #   variable and without any arguments given to the attribute itself; the
@@ -41,12 +44,14 @@
 #
 # LICENSE
 #
-#   Copyright © 2013 Gabriele Svelto <gabriele.svelto@gmail.com>
+#   Copyright (c) 2013 Gabriele Svelto <gabriele.svelto@gmail.com>
 #
-#   Copying and distribution of this file, with or without modification,
-#   are permitted in any medium without royalty provided the copyright
-#   notice and this notice are preserved.  This file is offered as-is,
-#   without any warranty.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.  This file is offered as-is, without any
+#   warranty.
+
+#serial 2
 
 AC_DEFUN([AX_GCC_VAR_ATTRIBUTE], [
     AS_VAR_PUSHDEF([ac_var], [ax_cv_have_var_attribute_$1])
