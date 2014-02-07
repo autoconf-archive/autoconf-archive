@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The "mandatory" option in AX_CXX_COMPILE_STDCXX_11 has been fixed, and
+  support for Gentoo's hardened GCC has been improved. Further details are at
+  <http://savannah.gnu.org/patch/index.php?8287>.
+
   Three new macros were submitted in <http://savannah.gnu.org/patch/?8260>:
 
    - AX_GCC_BUILTIN is used to detect GCC-compatible built-in functions (e.g.
