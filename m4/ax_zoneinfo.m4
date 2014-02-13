@@ -38,7 +38,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_ZONEINFO_TZFILE_H], [dnl
 	dnl not totally necessary (yet), as we can simply inspect the tzfiles
@@ -177,6 +177,7 @@ AC_DEFUN([AX_ZONEINFO_TZDIR], [dnl
 /usr/share/zoneinfo \
 /usr/lib/zoneinfo \
 /usr/local/etc/zoneinfo \
+/usr/share/lib/zoneinfo \
 "
 
 	dnl go through our candidates
