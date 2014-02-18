@@ -14,7 +14,7 @@ set_serial_number()
 for n in "$@"; do
   echo "$n ... "
   # Determine the number of revisions that have occurred to the macro.
-  revision=$(git log --oneline -- "$n" | wc -l)
+  revision=$(git log --oneline 054e8ad8c766afa7059d8cd4a81bbfa99133ef5e..HEAD -- "$n" | wc -l)
   # Check whether git regards the file as "modified" now. If it does,
   # the serial number needs to be bumped one more time.
   if ! git diff --quiet --exit-code HEAD -- "$n"; then
