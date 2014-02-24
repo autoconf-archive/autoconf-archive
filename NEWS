@@ -10,7 +10,12 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
-  The new macro AX_CXX_HAVE_REFERENCE_WRAPPER has been added.
+  The new macros AX_CXX_HAVE_BAD_FUNCTION_CALL, AX_CXX_HAVE_BIND,
+  AX_CXX_HAVE_BIT_AND, AX_CXX_HAVE_BIT_OR, AX_CXX_HAVE_BIT_XOR,
+  AX_CXX_HAVE_CREF, AX_CXX_HAVE_FUNCTION, AX_CXX_HAVE_HASH,
+  AX_CXX_HAVE_IS_BIND_EXPRESSION, AX_CXX_HAVE_IS_PLACEHOLDER,
+  AX_CXX_HAVE_MEM_FN, AX_CXX_HAVE_REF, and AX_CXX_HAVE_REFERENCE_WRAPPER have
+  been added.
 
   M4sugar and M4sh added to AX_PROG_JAR, AX_PROG_JAVA, AX_PROG_JAVAC, and
   AX_PROG_JAVADOC. Also fixed a path discrepancy with AX_JAVA_OPTIONS. See
