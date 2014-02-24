@@ -10,8 +10,11 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_ZONEINFO has improved support for AIX. Further details can be found at
+  <http://savannah.gnu.org/patch/?8313>.
+
   AX_LUA has improved support for FreeBSD. Further details can be found at
-  <https://savannah.gnu.org/patch/?8318>.
+  <http://savannah.gnu.org/patch/?8318>.
 
   The new macros AX_CXX_HAVE_BAD_FUNCTION_CALL, AX_CXX_HAVE_BIND,
   AX_CXX_HAVE_BIT_AND, AX_CXX_HAVE_BIT_OR, AX_CXX_HAVE_BIT_XOR,
