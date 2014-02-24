@@ -9,11 +9,13 @@
 # DESCRIPTION
 #
 #   Fetches the linker flags and C compiler flags for compiling and linking
-#   Perl binary extensions.  The macro substitutes PERL_EXT_INC,
-#   PERL_EXT_LIB, PERL_EXT_CPPFLAGS, PERL_EXT_LDFLAGS and PERL_EXT_DLEXT
-#   variables if Perl executable was found.  It also checks the same
-#   variables before trying to retrieve them from the Perl configuration.
+#   Perl binary extensions.  The macro substitutes PERL_EXT_PREFIX,
+#   PERL_EXT_INC, PERL_EXT_LIB, PERL_EXT_CPPFLAGS, PERL_EXT_LDFLAGS and
+#   PERL_EXT_DLEXT variables if Perl executable was found.  It also checks
+#   the same variables before trying to retrieve them from the Perl
+#   configuration.
 #
+#     PERL_EXT_PREFIX: top-level perl installation path (--prefix)
 #     PERL_EXT_INC: XS include directory
 #     PERL_EXT_LIB: Perl extensions destination directory
 #     PERL_EXT_CPPFLAGS: C preprocessor flags to compile extensions
@@ -30,19 +32,18 @@
 # LICENSE
 #
 #   Copyright (c) 2011 Stanislav Sedov <stas@FreeBSD.org>
+#   Copyright (c) 2014 Thomas Klausner <tk@giga.or.at>
 #
 #   Redistribution and use in source and binary forms, with or without
 #   modification, are permitted provided that the following conditions are
 #   met:
 #
 #   1. Redistributions of source code must retain the above copyright
-#
-#      notice, this list of conditions and the following disclaimer.
+#   notice, this list of conditions and the following disclaimer.
 #
 #   2. Redistributions in binary form must reproduce the above copyright
-#
-#      notice, this list of conditions and the following disclaimer in the
-#      documentation and/or other materials provided with the distribution.
+#   notice, this list of conditions and the following disclaimer in the
+#   documentation and/or other materials provided with the distribution.
 #
 #   THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
 #   ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -56,7 +57,7 @@
 #   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 #   THE POSSIBILITY OF SUCH DAMAGE.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_PERL_EXT],[
 
@@ -66,6 +67,17 @@ AC_DEFUN([AX_PERL_EXT],[
         AC_PATH_PROGS(PERL, ["${PERL-perl}"], [])
 
         if test -n "$PERL" ; then
+
+                #
+                # Check for Perl prefix.
+                #
+                AC_ARG_VAR(PERL_EXT_PREFIX, [Perl PREFIX])
+                AC_MSG_CHECKING([for Perl prefix])
+                if test -z "$PERL_EXT_PREFIX" ; then
+                        [PERL_EXT_PREFIX=`$PERL -MConfig -e 'print $Config{prefix};'`];
+                fi
+                AC_MSG_RESULT([$PERL_EXT_PREFIX])
+                AC_SUBST(PERL_EXT_PREFIX)
 
                 #
                 # Check for Perl extensions include path.
