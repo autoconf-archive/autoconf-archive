@@ -10,6 +10,8 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The new macro AX_CXX_HAVE_REFERENCE_WRAPPER has been added.
+
   M4sugar and M4sh added to AX_PROG_JAR, AX_PROG_JAVA, AX_PROG_JAVAC, and
   AX_PROG_JAVADOC. Also fixed a path discrepancy with AX_JAVA_OPTIONS. See
   <https://savannah.gnu.org/patch/index.php?8279> for further details.
