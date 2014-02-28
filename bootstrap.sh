@@ -28,7 +28,7 @@ sed -i -e 's/^sc_file_system:/disabled_sc_file_system:/' \
        -e 's/^sc_prohibit_doubled_word:/disabled_sc_prohibit_doubled_word:/' \
   maint.mk
 
-echo > ChangeLog '# Copyright (c) 2013 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
+echo > ChangeLog '# Copyright (c) 2014 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
 echo >>ChangeLog '#'
 echo >>ChangeLog '# Copying and distribution of this file, with or without modification, are'
 echo >>ChangeLog '# permitted in any medium without royalty provided the copyright notice and'
