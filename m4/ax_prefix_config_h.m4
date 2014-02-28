@@ -37,8 +37,9 @@
 #                                         # and also mylib/_config.h
 #
 #   If the argument to AX_PREFIX_CONFIG_H would have been omitted then the
-#   default output file would have been called simply "testpkg-config.h", but
-#   even under the name "mylib/_config.h" it contains prefix-defines like
+#   default output file would have been called simply "testpkg-config.h",
+#   but even under the name "mylib/_config.h" it contains prefix-defines
+#   like
 #
 #     #ifndef TESTPKG_VERSION
 #     #define TESTPKG_VERSION "0.1.1"
@@ -113,7 +114,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 14
+#serial 15
 
 AC_DEFUN([AX_PREFIX_CONFIG_H],[dnl
 AC_PREREQ([2.62])
