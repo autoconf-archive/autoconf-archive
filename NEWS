@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_COUNT_CPUS has been extended to support Win32 (and Win64). Further
+  details are at <http://savannah.gnu.org/patch/index.php?8381>.
+
 * Noteworthy changes in release 2014.02.28 (2014-02-28) [stable]
 
   AX_PERL_EXT has been extended to report back the installation prefix as
