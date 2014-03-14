@@ -10,6 +10,8 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_PROG_FLEX has been extended to support OpenBSD.
+
   AX_COUNT_CPUS has been extended to support Win32 (and Win64). Further
   details are at <http://savannah.gnu.org/patch/index.php?8381>.
 
