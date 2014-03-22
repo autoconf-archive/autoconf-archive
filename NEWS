@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_BERKELEY_DB(_CXX): add --with-libdb option so that this macros works on
+  OSX with home-brew installed version of BDB. Submitted in
+  <https://savannah.gnu.org/patch/index.php?8416>.
+
   AX_CXX_HAVE_PLACEHOLDERS: check if std::placeholders is defined in
   <functional>. Submitted it <https://savannah.gnu.org/patch/index.php?8414>.
 
