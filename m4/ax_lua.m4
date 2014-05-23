@@ -55,9 +55,6 @@
 #   version number greater or equal to MINIMUM-VERSION and less than
 #   TOO-BIG-VERSION will be accepted.
 #
-#   Version comparisons require the AX_COMPARE_VERSION macro, which is
-#   provided by ax_compare_version.m4 from the Autoconf Archive.
-#
 #   The Lua version number, LUA_VERSION, is found from the interpreter, and
 #   substituted. LUA_PLATFORM is also found, but not currently supported (no
 #   standard representation).
@@ -154,8 +151,8 @@
 #
 # LICENSE
 #
+#   Copyright (c) 2014 Reuben Thomas <rrt@sc3d.org>
 #   Copyright (c) 2013 Tim Perkins <tprk77@gmail.com>
-#   Copyright (c) 2013 Reuben Thomas <rrt@sc3d.org>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -183,7 +180,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 22
+#serial 23
 
 dnl =========================================================================
 dnl AX_PROG_LUA([MINIMUM-VERSION], [TOO-BIG-VERSION],
@@ -258,10 +255,7 @@ AC_DEFUN([AX_PROG_LUA],
   ],
   [ dnl Query Lua for its version number.
     AC_CACHE_CHECK([for $ax_display_LUA version], [ax_cv_lua_version],
-      [ ax_cv_lua_version=`$LUA -e "print(_VERSION)" | \
-          sed "s|^Lua \(.*\)|\1|" | \
-          grep -E -o "^@<:@0-9@:>@+\.@<:@0-9@:>@+"`
-      ])
+      [ ax_cv_lua_version=`$LUA -e 'print(_VERSION:match "(%d+%.%d+)")'` ])
     AS_IF([test "x$ax_cv_lua_version" = 'x'],
       [AC_MSG_ERROR([invalid Lua version number])])
     AC_SUBST([LUA_VERSION], [$ax_cv_lua_version])
@@ -364,16 +358,11 @@ dnl                 [ACTION-IF-TRUE], [ACTION-IF-FALSE])
 dnl =========================================================================
 AC_DEFUN([_AX_LUA_CHK_VER],
 [
-  _ax_test_ver=`$1 -e "print(_VERSION)" 2>/dev/null | \
-    sed "s|^Lua \(.*\)|\1|" | grep -E -o "^@<:@0-9@:>@+\.@<:@0-9@:>@+"`
-  AS_IF([test "x$_ax_test_ver" = 'x'],
-    [_ax_test_ver='0'])
-  AX_COMPARE_VERSION([$_ax_test_ver], [ge], [$2])
-  m4_if([$3], [], [],
-    [ AS_IF([$ax_compare_version],
-        [AX_COMPARE_VERSION([$_ax_test_ver], [lt], [$3])])
-    ])
-  AS_IF([$ax_compare_version], [$4], [$5])
+  AS_IF([$1 2>/dev/null -e '
+        function norm (v) i,j=v:match "(%d+)%.(%d+)" return 100 * i + j end
+        v=norm (_VERSION)
+        os.exit ((v >= norm ("$2") and v < norm ("$3")) and 0 or 1)'],
+    [$4], [$5])
 ])
 
 
@@ -470,7 +459,7 @@ AC_DEFUN([AX_LUA_HEADERS],
       done
     ])
 
-  AS_IF([test "x$ac_cv_header_lua_h" = 'xyes'],
+  AS_IF([test "x$ac_cv_header_lua_h" = 'xyes' && test "x$cross_compiling" != 'xyes'],
     [ dnl Make a program to print LUA_VERSION defined in the header.
       dnl TODO This probably shouldn't be a runtime test.
 
@@ -492,7 +481,7 @@ int main(int argc, char ** argv)
             ],
             [ ax_cv_lua_header_version=`./conftest$EXEEXT p | \
                 sed "s|^Lua \(.*\)|\1|" | \
-                grep -E -o "^@<:@0-9@:>@+\.@<:@0-9@:>@+"`
+                grep -o "^@<:@0-9@:>@\+\\.@<:@0-9@:>@\+"`
             ],
             [ax_cv_lua_header_version='unknown'])
           CPPFLAGS=$_ax_lua_saved_cppflags
@@ -507,6 +496,9 @@ int main(int argc, char ** argv)
         [ AC_MSG_RESULT([no])
           ax_header_version_match='no'
         ])
+    ],
+    [
+        ax_header_version_match='yes'
     ])
 
   dnl Was LUA_INCLUDE specified?
