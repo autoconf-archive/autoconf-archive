@@ -52,6 +52,9 @@
   AX_CXX_HAVE_HASH, AX_CXX_HAVE_IS_BIND_EXPRESSION, AX_CXX_HAVE_IS_PLACEHOLDER,
   AX_CXX_HAVE_MEM_FN, AX_CXX_HAVE_REF: remove dependency on AX_CXX_NAMESPACES.
 
+  AX_BOOST_BASE has been extended to recognize ppc64le as a lib64 architecture.
+  Submitted in <https://savannah.gnu.org/patch/index.php?8473>.
+
   AX_PROG_FLEX has been extended to support OpenBSD.
 
   AX_COUNT_CPUS has been extended to support Win32 (and Win64). Further
