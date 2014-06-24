@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_HAVE_QT: auto-detect Qt 5 by querying $PATH and qmake. Submitted in
+  <https://savannah.gnu.org/patch/index.php?8486>.
+
   AX_CHECK_ENABLE_DEBUG: add an --enable-debug option which defines an
   ENABLE_DEBUG cpp variable if set. Submitted in
   <https://savannah.gnu.org/patch/index.php?8452>.

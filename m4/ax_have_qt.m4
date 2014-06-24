@@ -11,15 +11,18 @@
 #
 #   Searches common directories for Qt include files, libraries and Qt
 #   binary utilities. The macro supports several different versions of the
-#   Qt framework being installed on the same machine. Without options, the
-#   macro is designed to look for the latest library, i.e., the highest
-#   definition of QT_VERSION in qglobal.h. By use of one or more options a
-#   different library may be selected. There are two different sets of
-#   options. Both sets contain the option --with-Qt-lib=LIB which can be
-#   used to force the use of a particular version of the library file when
-#   more than one are available. LIB must be in the form as it would appear
-#   behind the "-l" option to the compiler. Examples for LIB would be
-#   "qt-mt" for the multi-threaded version and "qt" for the regular version.
+#   Qt framework being installed on the same machine. However, without
+#   options the macro will only look for a working Qt5 installation in
+#   $PATH.
+#
+#   By use of one or more options a different library, such as a Qt4
+#   installation, may be selected. There are two different sets of options.
+#   Both sets contain the option --with-Qt-lib=LIB which can be used to
+#   force the use of a particular version of the library file when more than
+#   one are available. LIB must be in the form as it would appear behind the
+#   "-l" option to the compiler. Examples for LIB would be "qt-mt" for the
+#   multi-threaded version and "qt" for the regular version.
+#
 #   In addition to this, the first set consists of an option
 #   --with-Qt-dir=DIR which can be used when the installation conforms to
 #   Trolltech's standard installation, which means that header files are in
@@ -45,7 +48,7 @@
 #   which respectively contain an "-I" flag pointing to the Qt include
 #   directory (and "-DQT_THREAD_SUPPORT" when LIB is "qt-mt"), link flags
 #   necessary to link with Qt and X, the name of the meta object compiler
-#   and the user interface compiler both with full path, and finaly the
+#   and the user interface compiler both with full path, and finally the
 #   variable QTDIR as Trolltech likes to see it defined (if possible).
 #
 #   Example lines for Makefile.in:
@@ -88,7 +91,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 dnl Calls AX_PATH_QT_DIRECT (contained in this file) as a subroutine.
 AU_ALIAS([BNV_HAVE_QT], [AX_HAVE_QT])
@@ -163,75 +166,76 @@ AC_DEFUN([AX_HAVE_QT],
       fi
       ax_qt_LIBS="-L$ax_qt_lib_dir -l$ax_qt_lib $X_PRE_LIBS $X_LIBS -lX11 -lXext -lXmu -lXt -lXi $X_EXTRA_LIBS"
     else
-      # Use cached value or do search, starting with suggestions from
-      # the command line
-      AC_CACHE_VAL(ax_cv_have_qt,
-      [
-        # We are not given a solution and there is no cached value.
-        ax_qt_dir=NO
-        ax_qt_include_dir=NO
-        ax_qt_lib_dir=NO
-        if test x"$ax_qt_lib" = x; then
-          ax_qt_lib=NO
-        fi
-        AX_PATH_QT_DIRECT
-        if test "$ax_qt_dir" = NO ||
-           test "$ax_qt_include_dir" = NO ||
-           test "$ax_qt_lib_dir" = NO ||
-           test "$ax_qt_lib" = NO; then
-          # Problem with finding complete Qt.  Cache the known absence of Qt.
-          ax_cv_have_qt="have_qt=no"
-        else
-          # Record where we found Qt for the cache.
-          ax_cv_have_qt="have_qt=yes                  \
-                       ax_qt_dir=$ax_qt_dir          \
-               ax_qt_include_dir=$ax_qt_include_dir  \
-                   ax_qt_bin_dir=$ax_qt_bin_dir      \
-                      ax_qt_LIBS=\"$ax_qt_LIBS\""
-        fi
-      ])dnl
-      eval "$ax_cv_have_qt"
-    fi # all $ax_qt_* are set
-  fi   # $have_qt reflects the system status
-  if test x"$have_qt" = xyes; then
-    QT_CXXFLAGS="-I$ax_qt_include_dir"
-    if test x"$ax_qt_lib" = xqt-mt; then
-        QT_CXXFLAGS="$QT_CXXFLAGS -DQT_THREAD_SUPPORT"
-    fi
-    QT_DIR="$ax_qt_dir"
-    QT_LIBS="$ax_qt_LIBS"
-    # If ax_qt_dir is defined, utilities are expected to be in the
-    # bin subdirectory
-    if test x"$ax_qt_dir" != x; then
-        if test -x "$ax_qt_dir/bin/uic"; then
-          QT_UIC="$ax_qt_dir/bin/uic"
-        else
-          # Old versions of Qt don't have uic
-          QT_UIC=
-        fi
-      QT_MOC="$ax_qt_dir/bin/moc"
-      QT_LRELEASE="$ax_qt_dir/bin/lrelease"
-      QT_LUPDATE="$ax_qt_dir/bin/lupdate"
-    else
-      # Or maybe we are told where to look for the utilities
-      if test x"$ax_qt_bin_dir" != x; then
-        if test -x "$ax_qt_bin_dir/uic"; then
-          QT_UIC="$ax_qt_bin_dir/uic"
-        else
-          # Old versions of Qt don't have uic
-          QT_UIC=
-        fi
-        QT_MOC="$ax_qt_bin_dir/moc"
-        QT_LRELEASE="$ax_qt_bin_dir/lrelease"
-        QT_LUPDATE="$ax_qt_bin_dir/lupdate"
-      else
-      # Last possibility is that they are in $PATH
-        QT_UIC="`which uic`"
-        QT_MOC="`which moc`"
-        QT_LRELEASE="`which lrelease`"
-        QT_LUPDATE="`which lupdate`"
+      # If we have Qt5 or later in the path, we're golden
+      ver=`qmake --version | grep -o "Qt version ."`
+      if test "$ver" ">" "Qt version 4"; then
+        have_qt=yes
       fi
     fi
+  fi   # $have_qt reflects the system status
+  if test x"$have_qt" = xyes; then
+    # This pro file dumps qmake's variables, but it only works on Qt 5 or later
+    am_have_qt_pro=`mktemp`
+    am_have_qt_makefile=`mktemp`
+    # http://qt-project.org/doc/qt-5/qmake-variable-reference.html#qt
+    cat > $am_have_qt_pro << EOF
+qtHaveModule(axcontainer):       QT += axcontainer
+qtHaveModule(axserver):          QT += axserver
+qtHaveModule(concurrent):        QT += concurrent
+qtHaveModule(core):              QT += core
+qtHaveModule(dbus):              QT += dbus
+qtHaveModule(declarative):       QT += declarative
+qtHaveModule(designer):          QT += designer
+qtHaveModule(gui):               QT += gui
+qtHaveModule(help):              QT += help
+qtHaveModule(multimedia):        QT += multimedia
+qtHaveModule(multimediawidgets): QT += multimediawidgets
+qtHaveModule(network):           QT += network
+qtHaveModule(opengl):            QT += opengl
+qtHaveModule(printsupport):      QT += printsupport
+qtHaveModule(qml):               QT += qml
+qtHaveModule(qmltest):           QT += qmltest
+qtHaveModule(x11extras):         QT += x11extras
+qtHaveModule(script):            QT += script
+qtHaveModule(scripttools):       QT += scripttools
+qtHaveModule(sensors):           QT += sensors
+qtHaveModule(serialport):        QT += serialport
+qtHaveModule(sql):               QT += sql
+qtHaveModule(svg):               QT += svg
+qtHaveModule(testlib):           QT += testlib
+qtHaveModule(uitools):           QT += uitools
+qtHaveModule(webkit):            QT += webkit
+qtHaveModule(webkitwidgets):     QT += webkitwidgets
+qtHaveModule(xml):               QT += xml
+qtHaveModule(xmlpatterns):       QT += xmlpatterns
+percent.target = %
+percent.commands = @echo -n "\$(\$(@))\ "
+QMAKE_EXTRA_TARGETS += percent
+EOF
+    qmake $am_have_qt_pro -o $am_have_qt_makefile
+    QT_CXXFLAGS=`make -f $am_have_qt_makefile CXXFLAGS INCPATH`
+    QT_LIBS=`make -f $am_have_qt_makefile LIBS`
+    rm $am_have_qt_pro $am_have_qt_makefile
+
+    # Look for specific tools in $PATH
+    QT_MOC=`which moc`
+    QT_UIC=`which uic`
+    QT_LRELEASE=`which lrelease`
+    QT_LUPDATE=`which lupdate`
+
+    # Get Qt version from qmake
+    QT_DIR=`qmake --version | grep -o -E /.+`
+
+    # All variables are defined, report the result
+    AC_MSG_RESULT([$have_qt:
+    QT_CXXFLAGS=$QT_CXXFLAGS
+    QT_DIR=$QT_DIR
+    QT_LIBS=$QT_LIBS
+    QT_UIC=$QT_UIC
+    QT_MOC=$QT_MOC
+    QT_LRELEASE=$QT_LRELEASE
+    QT_LUPDATE=$QT_LUPDATE])
+
     # All variables are defined, report the result
     AC_MSG_RESULT([$have_qt:
     QT_CXXFLAGS=$QT_CXXFLAGS
