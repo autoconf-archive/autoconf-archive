@@ -180,7 +180,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 24
+#serial 25
 
 dnl =========================================================================
 dnl AX_PROG_LUA([MINIMUM-VERSION], [TOO-BIG-VERSION],
@@ -317,7 +317,7 @@ AC_DEFUN([AX_PROG_LUA],
 
         dnl Try to find a path with the prefix.
         _AX_LUA_FND_PRFX_PTH([$LUA],
-          [$ax_lua_exec_prefix], [package.cpathd])
+          [$ax_lua_exec_prefix], [package.cpath])
         AS_IF([test "x$ax_lua_prefixed_path" != 'x'],
         [ dnl Fix the prefix.
           _ax_strip_prefix=`echo "$ax_lua_exec_prefix" | sed 's|.|.|g'`
