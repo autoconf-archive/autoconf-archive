@@ -180,7 +180,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 23
+#serial 24
 
 dnl =========================================================================
 dnl AX_PROG_LUA([MINIMUM-VERSION], [TOO-BIG-VERSION],
@@ -481,7 +481,7 @@ int main(int argc, char ** argv)
             ],
             [ ax_cv_lua_header_version=`./conftest$EXEEXT p | \
                 sed "s|^Lua \(.*\)|\1|" | \
-                grep -o "^@<:@0-9@:>@\+\\.@<:@0-9@:>@\+"`
+                grep -E -o "^@<:@0-9@:>@+\.@<:@0-9@:>@+"`
             ],
             [ax_cv_lua_header_version='unknown'])
           CPPFLAGS=$_ax_lua_saved_cppflags
