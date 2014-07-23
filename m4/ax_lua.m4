@@ -180,7 +180,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 25
+#serial 26
 
 dnl =========================================================================
 dnl AX_PROG_LUA([MINIMUM-VERSION], [TOO-BIG-VERSION],
@@ -347,7 +347,7 @@ dnl =========================================================================
 AC_DEFUN([_AX_LUA_CHK_IS_INTRP],
 [
   dnl Just print _VERSION because all Lua interpreters have this global.
-  AS_IF([$1 -e "print('Hello ' .. _VERSION .. '!')" &>/dev/null],
+  AS_IF([$1 -e "print('Hello ' .. _VERSION .. '!')" >/dev/null 2>&1],
     [$2], [$3])
 ])
 
