@@ -32,17 +32,21 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_F90_LIBRARY],[
 AS_VAR_PUSHDEF([ax_ldflags],[ax_cv_f90_ldflags_$1])
 AS_VAR_PUSHDEF([ax_libs],[ax_cv_f90_libs_$1])
-AC_MSG_CHECKING([$1 fortran 90 library])
+AC_MSG_CHECKING([$1 Fortran 90 library])
 AC_LANG_PUSH(Fortran)
 AS_VAR_SET([ax_ldflags],"")
 AS_VAR_SET([ax_libs],"not found")
 if test "x$4" = x ; then
-ax_search="$prefix:$ac_default_prefix"
+  if test "x$prefix" != "xNONE" ; then
+    ax_search="$prefix:$ac_default_prefix"
+  else
+    ax_search="$ac_default_prefix"
+  fi
 for ax_base in "" `echo $LD_LIBRARY_PATH | tr ':' '\012'` ; do
   if test "x$ax_base" != x ; then
     changequote(,)dnl
@@ -69,7 +73,7 @@ for ax_base in `echo $ax_search | tr ':' '\012'` ; do
            changequote(,)dnl
            ax_lib="`echo $ax_lib | sed 's,lib\(.*\)\.[^.]*$,\1,'`"
            changequote([,])dnl
-           AS_VAR_SET([ax_ldflags],"-L $ax_dir")
+           AS_VAR_SET([ax_ldflags],"-L$ax_dir")
            AS_VAR_SET([ax_libs],"-l$ax_lib")
            ;;
          *)
@@ -94,11 +98,11 @@ AC_MSG_RESULT([AS_VAR_GET(ax_ldflags) AS_VAR_GET(ax_libs)])
 if test "AS_VAR_GET(ax_libs)" = "not found"; then
  AS_TR_SH(F90_LDFLAGS_$1)=""
  AS_TR_SH(F90_LIBS_$1)=""
- $5
+ $6
 else
  AS_TR_SH(F90_LDFLAGS_$1)=AS_VAR_GET(ax_ldflags)
  AS_TR_SH(F90_LIBS_$1)=AS_VAR_GET(ax_libs)
- $6
+ $5
 fi
 AC_SUBST(AS_TR_SH(F90_LDFLAGS_$1))
 AC_SUBST(AS_TR_SH(F90_LIBS_$1))

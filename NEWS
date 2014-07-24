@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_F90_LIBRARY: several bug fixes and improvements. Further details are at
+  <https://savannah.gnu.org/patch/?8500>.
+
   AX_LUA: fix initialization of ac_cv_header_lua_h. Further details are at
   <https://savannah.gnu.org/patch/?8505>.
 
