@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_GCC_ARCHFLAG: rewrite x86 support. <https://savannah.gnu.org/patch/?8514>
+  has many additional details.
+
   AX_GCC_VAR_ATTRIBUTE: support the init_priority attribute.
 
   AX_PERL_MODULE_VERSION: fix a misspelled variable name. Other unfixed issues
