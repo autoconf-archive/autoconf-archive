@@ -64,7 +64,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 15
+#serial 16
 
 AC_DEFUN([AX_GCC_ARCHFLAG],
 [AC_REQUIRE([AC_PROG_CC])
@@ -205,16 +205,17 @@ fi # not cross-compiling
 fi # guess arch
 
 if test "x$ax_gcc_arch" != x -a "x$ax_gcc_arch" != xno; then
-for arch in $ax_gcc_arch; do
-  if test "x[]m4_default([$1],yes)" = xyes; then # if we require portable code
-    flags="-mtune=$arch"
-    # -mcpu=$arch and m$arch generate nonportable code on every arch except
-    # x86.  And some other arches (e.g. Alpha) don't accept -mtune.  Grrr.
-    case $host_cpu in i*86|x86_64*|amd64*) flags="$flags -mcpu=$arch -m$arch";; esac
-  else
-    flags="-march=$arch -mcpu=$arch -m$arch"
-  fi
-  for flag in $flags; do
+if test "x[]m4_default([$1],yes)" = xyes; then # if we require portable code
+  flag_prefixes="-mtune="
+  # -mcpu=$arch and m$arch generate nonportable code on every arch except
+  # x86.  And some other arches (e.g. Alpha) don't accept -mtune.  Grrr.
+  case $host_cpu in i*86|x86_64*|amd64*) flag_prefixes="$flag_prefixes -mcpu= -m";; esac
+else
+  flag_prefixes="-march= -mcpu= -m"
+fi
+for flag_prefix in $flag_prefixes; do
+  for arch in $ax_gcc_arch; do
+    flag="$flag_prefix$arch"
     AX_CHECK_COMPILE_FLAG($flag, [ax_cv_gcc_archflag=$flag; break])
   done
   test "x$ax_cv_gcc_archflag" = xunknown || break
