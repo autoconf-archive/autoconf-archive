@@ -10,6 +10,8 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_GCC_VAR_ATTRIBUTE: support the init_priority attribute.
+
   AX_PERL_MODULE_VERSION: fix a misspelled variable name. Other unfixed issues
   remain. See <https://savannah.gnu.org/patch/index.php?8507>.
 

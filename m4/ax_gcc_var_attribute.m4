@@ -37,6 +37,7 @@
 #    weak
 #    dllimport
 #    dllexport
+#    init_priority
 #
 #   Unsuppored variable attributes will be tested against a global integer
 #   variable and without any arguments given to the attribute itself; the
@@ -51,7 +52,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_GCC_VAR_ATTRIBUTE], [
     AS_VAR_PUSHDEF([ac_var], [ax_cv_have_var_attribute_$1])
@@ -105,6 +106,10 @@ AC_DEFUN([AX_GCC_VAR_ATTRIBUTE], [
                 ],
                 [dllexport], [
                     int foo __attribute__(($1));
+                ],
+                [init_priority], [
+                    struct bar { bar() {} ~bar() {} };
+                    bar b __attribute__(($1(65535/2)));
                 ],
                 [
                  m4_warn([syntax], [Unsupported attribute $1, the test may fail])
