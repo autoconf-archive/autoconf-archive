@@ -64,12 +64,13 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 16
+#serial 17
 
 AC_DEFUN([AX_GCC_ARCHFLAG],
 [AC_REQUIRE([AC_PROG_CC])
 AC_REQUIRE([AC_CANONICAL_HOST])
 AC_REQUIRE([AC_PROG_SED])
+AC_REQUIRE([AX_COMPILER_VENDOR])
 
 AC_ARG_WITH(gcc-arch, [AS_HELP_STRING([--with-gcc-arch=<arch>], [use architecture <arch> for gcc -march/-mtune, instead of guessing])],
 	ax_gcc_arch=$withval, ax_gcc_arch=yes)
@@ -207,6 +208,7 @@ fi # guess arch
 if test "x$ax_gcc_arch" != x -a "x$ax_gcc_arch" != xno; then
 if test "x[]m4_default([$1],yes)" = xyes; then # if we require portable code
   flag_prefixes="-mtune="
+  if test "x$ax_cv_[]_AC_LANG_ABBREV[]_compiler_vendor" = xclang; then flag_prefixes="-march="; fi
   # -mcpu=$arch and m$arch generate nonportable code on every arch except
   # x86.  And some other arches (e.g. Alpha) don't accept -mtune.  Grrr.
   case $host_cpu in i*86|x86_64*|amd64*) flag_prefixes="$flag_prefixes -mcpu= -m";; esac
@@ -216,7 +218,11 @@ fi
 for flag_prefix in $flag_prefixes; do
   for arch in $ax_gcc_arch; do
     flag="$flag_prefix$arch"
-    AX_CHECK_COMPILE_FLAG($flag, [ax_cv_gcc_archflag=$flag; break])
+    AX_CHECK_COMPILE_FLAG($flag, [if test "x$ax_cv_[]_AC_LANG_ABBREV[]_compiler_vendor" = xclang; then
+      if test "x[]m4_default([$1],yes)" = xyes; then
+	if test "x$flag" = "x-march=$arch"; then flag=-mtune=$arch; fi
+      fi
+    fi; ax_cv_gcc_archflag=$flag; break])
   done
   test "x$ax_cv_gcc_archflag" = xunknown || break
 done
