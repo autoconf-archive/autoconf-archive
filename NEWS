@@ -10,6 +10,8 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_CXX_VAR_PRETTYFUNC: new macro to determine the function name.
+
   AX_CC_MAXOPT: default to -O2 for MSVC instead of -O3.
 
   AX_CXX_HAVE_REFERENCE_WRAPPER, AX_CXX_HAVE_BAD_FUNCTION_CALL,

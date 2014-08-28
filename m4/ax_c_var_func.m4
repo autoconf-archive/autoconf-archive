@@ -50,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_C_VAR_FUNC], [AX_C_VAR_FUNC])
 AC_DEFUN([AX_C_VAR_FUNC],
@@ -59,8 +59,9 @@ AC_CACHE_CHECK(whether $CC recognizes __func__, ac_cv_c_var_func,
 AC_TRY_COMPILE(,
 [int main() {
 char *s = __func__;
-}],
-AC_DEFINE(HAVE_FUNC,,
-[Define if the C complier supports __func__]) ac_cv_c_var_func=yes,
+}], ac_cv_c_var_func=yes,
 ac_cv_c_var_func=no) )
+if test "x$ac_cv_c_var_func" = xyes; then
+   AC_DEFINE(HAVE_FUNC,,[Define if the C complier supports __func__])
+fi
 ])dnl
