@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_BOOST_BASE: fix for x32 systems. This subject probably needs more
+  attention, though. See <https://savannah.gnu.org/patch/index.php?8433>.
+
   AX_BERKELEY_DB(_CXX): add --with-libdb option so that this macros works on
   OSX with home-brew installed version of BDB. Submitted in
   <https://savannah.gnu.org/patch/index.php?8416>.
