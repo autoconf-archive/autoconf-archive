@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_CODE_COVERAGE: new macro which contains all the necessary logic and
+  Makefile rules for instrumenting a project with code coverage using lcov.
+  Submitted in <https://savannah.gnu.org/patch/index.php?8451>.
+
   AX_LIB_HDF5: don't overwrite the CPPFLAGS variable. Submitted in
   <https://savannah.gnu.org/patch/index.php?8449>.
 
