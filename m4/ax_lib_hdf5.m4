@@ -84,7 +84,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_LIB_HDF5], [
 
@@ -248,6 +248,7 @@ HDF5 support is being disabled (equivalent to --with-hdf5=no).
         AC_HAVE_LIBRARY([hdf5_hl], [HDF5_LIBS="$HDF5_LIBS -lhdf5_hl"], [], [])
 
         CC=$ax_lib_hdf5_save_CC
+        CPPFLAGS=$ax_lib_hdf5_save_CPPFLAGS
         LIBS=$ax_lib_hdf5_save_LIBS
         LDFLAGS=$ax_lib_hdf5_save_LDFLAGS
 

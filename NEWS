@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_LIB_HDF5: don't overwrite the CPPFLAGS variable. Submitted in
+  <https://savannah.gnu.org/patch/index.php?8449>.
+
   AX_BOOST_BASE: fix for x32 systems. This subject probably needs more
   attention, though. See <https://savannah.gnu.org/patch/index.php?8433>.
 
