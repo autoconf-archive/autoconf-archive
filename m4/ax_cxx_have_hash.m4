@@ -8,13 +8,11 @@
 #
 # DESCRIPTION
 #
-#   This macros checks if std::hash, added in C++11, is defined in the
+#   This macro checks if std::hash, added in C++11, is defined in the
 #   <functional> header.
 #
 #   If it is, define the ax_cv_cxx_have_hash environment variable to "yes"
 #   and define HAVE_CXX_HASH.
-#
-#   NOTE: This macros depends on AX_CXX_NAMESPACES.
 #
 # LICENSE
 #
@@ -25,18 +23,18 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_CXX_HAVE_HASH],
   [AC_CACHE_CHECK(
     [for std::hash in functional],
     ax_cv_cxx_have_hash,
-    [AC_REQUIRE([AX_CXX_NAMESPACES])
+    [dnl
       AC_LANG_PUSH([C++])
       AC_COMPILE_IFELSE([AC_LANG_PROGRAM(
         [
-          [#include <functional>
-           #include <string>]
+          [#include <functional>]
+          [#include <string>]
           [using std::hash;]
         ],
         []
