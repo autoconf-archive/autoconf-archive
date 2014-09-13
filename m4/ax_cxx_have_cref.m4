@@ -8,13 +8,11 @@
 #
 # DESCRIPTION
 #
-#   This macros checks if std::cref, added in C++11, is defined in the
+#   This macro checks if std::cref, added in C++11, is defined in the
 #   <functional> header.
 #
 #   If it is, define the ax_cv_cxx_have_cref environment variable to "yes"
 #   and define HAVE_CXX_CREF.
-#
-#   NOTE: This macros depends on AX_CXX_NAMESPACES.
 #
 # LICENSE
 #
@@ -25,20 +23,18 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_CXX_HAVE_CREF],
   [AC_CACHE_CHECK(
     [for std::cref in functional],
     ax_cv_cxx_have_cref,
-    [AC_REQUIRE([AX_CXX_NAMESPACES])
+    [dnl
       AC_LANG_PUSH([C++])
       AC_COMPILE_IFELSE([AC_LANG_PROGRAM(
         [
-          [#include <functional>
-           #ifdef HAVE_NAMESPACES
-             using namespace std;
-           #endif]
+          [#include <functional>]
+          [using namespace std;]
         ],
         [
           [int x(1);]
