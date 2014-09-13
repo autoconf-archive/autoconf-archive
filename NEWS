@@ -13,7 +13,8 @@
   AX_CC_MAXOPT: default to -O2 for MSVC instead of -O3.
 
   AX_CXX_HAVE_REFERENCE_WRAPPER, AX_CXX_HAVE_BAD_FUNCTION_CALL,
-  AX_CXX_HAVE_BIND: remove dependency on AX_CXX_NAMESPACES.
+  AX_CXX_HAVE_BIND, AX_CXX_HAVE_BIT_AND: remove dependency on
+  AX_CXX_NAMESPACES.
 
   AX_PROG_FLEX has been extended to support OpenBSD.
 
