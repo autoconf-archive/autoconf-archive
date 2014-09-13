@@ -55,7 +55,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 13
+#serial 14
 
 AC_DEFUN([AX_CC_MAXOPT],
 [
@@ -151,6 +151,11 @@ if test "$ac_test_CFLAGS" != "set"; then
      AX_CHECK_COMPILE_FLAG(-ffast-math, CFLAGS="$CFLAGS -ffast-math")
 
      AX_GCC_ARCHFLAG($acx_maxopt_portable)
+     ;;
+
+    microsoft)
+     # default optimization flags for MSVC opt builds
+     CFLAGS="-O2"
      ;;
   esac
 

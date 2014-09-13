@@ -10,7 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
-  AX_CXX_HAVE_REFERENCE_WRAPPER: remove dependency on AX_CXX_NAMESPACES
+  AX_CC_MAXOPT: default to -O2 for MSVC instead of -O3.
+
+  AX_CXX_HAVE_REFERENCE_WRAPPER: remove dependency on AX_CXX_NAMESPACES.
 
   AX_PROG_FLEX has been extended to support OpenBSD.
 
