@@ -22,7 +22,7 @@
 #   argument if debug is disabled, defaulting to NDEBUG.  All lists of
 #   variables should be space-separated.
 #
-#   If debug is not enabled, ensure AC_PROG_* will not add debugging flags.
+#   If debug is not enabled, ensure AC_PROG_* will not add debugging flags.
 #   Should be invoked prior to any AC_PROG_* compiler checks.
 #
 # LICENSE
@@ -34,7 +34,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_CHECK_ENABLE_DEBUG],[
     AC_BEFORE([$0],[AC_PROG_CC])dnl
