@@ -227,6 +227,7 @@
 #     @DX_DOCDIR@/@PACKAGE@.tag: $(DX_CONFIG) $(pkginclude_HEADERS)
 #         rm -rf @DX_DOCDIR@
 #         $(DX_ENV) $(DX_DOXYGEN) $(srcdir)/$(DX_CONFIG)
+#         echo Timestamp >$@
 #
 #     DX_CLEANFILES = \
 #         @DX_DOCDIR@/@PACKAGE@.tag \
@@ -254,7 +255,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 ## ----------##
 ## Defaults. ##
