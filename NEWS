@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_EXECINFO: new macro to test execinfo size type. Submitted in
+  <https://savannah.gnu.org/patch/index.php?8525>.
+
   AX_CXX_VAR_PRETTYFUNC: new macro to determine the function name.
 
   AX_CC_MAXOPT: default to -O2 for MSVC instead of -O3.
