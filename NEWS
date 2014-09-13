@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_CHECK_ENABLE_DEBUG: add an --enable-debug option which defines an
+  ENABLE_DEBUG cpp variable if set. Submitted in
+  <https://savannah.gnu.org/patch/index.php?8452>.
+
   AX_CODE_COVERAGE: new macro which contains all the necessary logic and
   Makefile rules for instrumenting a project with code coverage using lcov.
   Submitted in <https://savannah.gnu.org/patch/index.php?8451>.
