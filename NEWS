@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_CXX_HAVE_PLACEHOLDERS: check if std::placeholders is defined in
+  <functional>. Submitted it <https://savannah.gnu.org/patch/index.php?8414>.
+
   AX_LIB_HDF5: add support for recognizing HDF5 built with ccache. Submitted in
   <https://savannah.gnu.org/patch/index.php?8450>.
 
