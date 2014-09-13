@@ -84,7 +84,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_LIB_HDF5], [
 
@@ -178,6 +178,9 @@ HDF5 support is being disabled (equivalent to --with-hdf5=no).
 
         dnl Get the actual compiler used
         HDF5_CC=$(eval $H5CC -show | $AWK '{print $[]1}')
+        if test "$HDF5_CC" = "ccache"; then
+            HDF5_CC=$(eval $H5CC -show | $AWK '{print $[]2}')
+        fi
 
         dnl h5cc provides both AM_ and non-AM_ options
         dnl depending on how it was compiled either one of

@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_LIB_HDF5: add support for recognizing HDF5 built with ccache. Submitted in
+  <https://savannah.gnu.org/patch/index.php?8450>.
+
   AX_CC_MAXOPT: Improve CPUID identification patterns as mentioned in
   patch #8514. Add ICC options added in version 11.0 (which deprecates older
   -xX style options). Add support for latest Intel performance processors
