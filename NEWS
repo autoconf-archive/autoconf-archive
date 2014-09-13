@@ -10,6 +10,11 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_CC_MAXOPT: Improve CPUID identification patterns as mentioned in
+  patch #8514. Add ICC options added in version 11.0 (which deprecates older
+  -xX style options). Add support for latest Intel performance processors
+  (see #8514 for details). See <https://savannah.gnu.org/patch/index.php?8522>.
+
   AX_EXECINFO: new macro to test execinfo size type. Submitted in
   <https://savannah.gnu.org/patch/index.php?8525>.
 
