@@ -10,6 +10,12 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_HAVE_QT: Only check $PATH and qmake for Qt variables. The old logic for
+  detecting Qt without $PATH or qmake was never very reliable and the last
+  change to this macro broke it entirely. If the Qt variables cannot be found
+  via $PATH and qmake, then it would be best to manually define them in the
+  makefile.
+
   AX_TLS: fix quoting problem.
 
   AX_F90_LIBRARY: several bug fixes and improvements. Further details are at
