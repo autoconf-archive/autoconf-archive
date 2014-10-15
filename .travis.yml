@@ -1,0 +1,5 @@
+language: c
+git:
+  depth: 50000
+install: sudo apt-get install --allow-unauthenticated -qq gnulib lzip texlive tidy
+script: ./bootstrap.sh && ./configure && make -j4 maintainer-all all && make distcheck && make web-manual && ./fix-website.sh
