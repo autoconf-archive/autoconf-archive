@@ -17,6 +17,8 @@ AC_PREREQ([2.65])
 AC_CONFIG_SRCDIR([doc/autoconf-archive.texi])
 AC_MSG_NOTICE([$PACKAGE_STRING])
 
+AC_PROG_SED
+
 M4FILES="m4_esyscmd([echo -n m4/*.m4])"
 AC_SUBST([M4FILES])
 
