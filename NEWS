@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_LUA: fix initialization of ac_cv_header_lua_h. Further details are at
+  <https://savannah.gnu.org/patch/?8505>.
+
   AX_AT_CHECK_PATTERN: executes a test similar to AT_CHECK(), except that
   stdout and stderr are awk regular expressions. Further details can be found
   at <https://savannah.gnu.org/patch/?8492>.
