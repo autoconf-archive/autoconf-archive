@@ -10,6 +10,16 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_AT_CHECK_PATTERN: executes a test similar to AT_CHECK(), except that
+  stdout and stderr are awk regular expressions. Further details can be found
+  at <https://savannah.gnu.org/patch/?8492>.
+
+  AX_OPENMP: prevent false negative due to -Wunused-variable.
+
+  AX_COMPILER_VENDOR: improve detection of the CRAY compiler.
+
+  AX_ENABLE_BUILDDIR: support absolute paths.
+
   AX_HAVE_QT: auto-detect Qt 5 by querying $PATH and qmake. Submitted in
   <https://savannah.gnu.org/patch/index.php?8486>.
 
