@@ -10,6 +10,14 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  A brand-new Github mirror of the Archive's Git repository is available at
+  <https://github.com/peti/autoconf-archive>. That project allows developers to
+  submit patches as Pull Requests instead of having to go through Savannah's
+  patch tracker.
+
+  The Archive no longer creates release tarballs compressed with gzip and
+  bzip2; only tarballs compressed with xz and lzip are distributed.
+
   AX_LIB_POSTGRESQL: substitute CPPFLAGS rather than CFLAGS.
 
   AX_GCC_ARCHFLAG: Rewrite x86 support <https://savannah.gnu.org/patch/?8514>
