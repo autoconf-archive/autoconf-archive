@@ -41,10 +41,15 @@ AU_ALIAS([OLD_NAME], [AX_NEW_NAME])
 
 @section Submitting Macros
 
-Please post to the
+To submit updates to the Autoconf Archive, please create an issue in
+the
 @uref{http://savannah.gnu.org/patch/?func=additem&group=autoconf-archive,patch
-tracker} to submit a macro for inclusion in the Archive. Your submission should
-contain:
+tracker} and attach a (preferably
+@code{git-format-patch(1)}-formatted) patch file. Users of
+@code{github.com} may prefer to create a pull request for the
+@uref{https://github.com/peti/autoconf-archive,Autoconf Archive
+Mirror at Github}. Please make sure your submission contains the
+following items:
 
 @itemize @bullet
 
