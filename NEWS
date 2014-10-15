@@ -10,8 +10,8 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
-  AX_GCC_ARCHFLAG: rewrite x86 support. <https://savannah.gnu.org/patch/?8514>
-  has many additional details.
+  AX_GCC_ARCHFLAG: Rewrite x86 support <https://savannah.gnu.org/patch/?8514>
+  and extend Clang support <https://savannah.gnu.org/patch/index.php?8515>.
 
   AX_GCC_VAR_ATTRIBUTE: support the init_priority attribute.
 
