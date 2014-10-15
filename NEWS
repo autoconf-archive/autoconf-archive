@@ -10,6 +10,8 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_LIB_POSTGRESQL: substitute CPPFLAGS rather than CFLAGS.
+
   AX_GCC_ARCHFLAG: Rewrite x86 support <https://savannah.gnu.org/patch/?8514>
   and extend Clang support <https://savannah.gnu.org/patch/index.php?8515>.
 
