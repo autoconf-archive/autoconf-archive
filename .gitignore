@@ -20,6 +20,7 @@
 /autoconf-archive-*.*.*/*
 /autom4te.cache/*
 /build-aux/*
+/confdefs.h
 /config.log
 /config.status
 /configure
