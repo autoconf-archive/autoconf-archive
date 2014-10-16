@@ -1,3 +1,5 @@
+dnl# autoscan output comes with a modeline for emacs:      -*- Autoconf -*-
+dnl
 dnl Configure the GNU Autoconf Archive.
 dnl
 dnl This file is free software; as a special exception the author gives
@@ -15,15 +17,35 @@ AC_PREREQ([2.69])
 AC_CONFIG_SRCDIR([doc/autoconf-archive.texi])
 AC_MSG_NOTICE([$PACKAGE_STRING])
 
+dnl# keep the macros used by this script separate from the ones we ship:
+AC_CONFIG_MACRO_DIR([build-aux]) dnl# (this is where gnulib-tool puts them)
+
+AC_PROG_CC dnl# autoscan says "wanted by: build-aux/dummy.c"
+gl_EARLY dnl# gnulib-tool says to put this right after the previous one.
+AC_PROG_LN_S dnl# autoscan says "wanted by: build-aux/gendocs.sh:341"
 AC_PROG_SED
 
-M4FILES="m4_esyscmd([echo -n m4/*.m4])"
+gl_INIT dnl# gnulib-tool says not to forget to invoke this
+
+dnl# `echo -n` is non-portable, but luckily autoconf gives us a way to deal
+dnl# with that. We have to get rid of the outer m4 system command wrapper
+dnl# to be able to do this though. Also have to use escaped quotation marks
+dnl# to ensure that a space follows each file name, which keeps them
+dnl# separated. This has to be done in a loop because otherwise the
+dnl# globbing character ('*') gets output as a literal.
+M4FILES="`for m4file in ${srcdir}/m4/*.m4; do AS_ECHO_N([\"${m4file} \"]); done`"
 AC_SUBST([M4FILES])
 
-TEXIFILES="m4_esyscmd([cd m4 && echo -n *.m4 | sed -e 's/\.m4/.texi/g'])"
+TEXIFILES="`cd ${srcdir}/m4 && for m4file in *.m4; do AS_ECHO_N([\"${m4file} \"]); done | sed -e 's/\.m4/.texi/g'`"
 AC_SUBST([TEXIFILES])
 
+dnl# Just in case the above got screwed up and the filenames still
+dnl# run together, check this:
+AC_SYS_LONG_FILE_NAMES
+
+dnl# Output:
 AC_CONFIG_FILES([Makefile doc/Makefile])
+AC_CONFIG_FILES([build-aux/Makefile]) dnl# gnulib-tool says to do this.
 AC_OUTPUT
 
 dnl Responsibility shifts to the user after this point.

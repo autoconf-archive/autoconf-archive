@@ -2,7 +2,7 @@
 
 set -eu
 
-if [ -z "$gnulibtool" ]; then
+if [ "x$gnulibtool" = "x" ]; then
   if [ -x "gnulib/gnulib-tool" ]; then
     gnulibtool=gnulib/gnulib-tool
   else
@@ -15,8 +15,10 @@ $gnulibtool --version
 
 echo ""
 echo "Re-importing gnulib stuff with gnulib-tool..."
-gnulib_modules="git-version-gen gitlog-to-changelog gnupload \
-	        maintainer-makefile announce-gen gendocs fdl-1.3"
+# Try to keep these alphabetical:
+gnulib_modules="announce-gen fdl-1.3 gendocs git-version-gen \
+				gitlog-to-changelog gnu-make gnu-web-doc-update gnupload \
+				maintainer-makefile update-copyright"
 
 $gnulibtool --m4-base build-aux --source-base build-aux --import $gnulib_modules
 
@@ -61,3 +63,7 @@ autoreconf --force --verbose --install -Wall
 
 echo ""
 echo "Done bootstrapping."
+
+# Local Variables:
+# mode: shell-script
+# End:

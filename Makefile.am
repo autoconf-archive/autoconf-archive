@@ -14,7 +14,10 @@
 # You should have received a copy of the GNU General Public License along with
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-SUBDIRS                 = doc
+## gnulib-tool says to mention this:
+ACLOCAL_AMFLAGS         = -I build-aux
+ 
+SUBDIRS                 = doc build-aux
 
 dist_pkgdata_DATA       = AUTHORS COPYING COPYING.EXCEPTION README
 aclocaldir              = $(datadir)/aclocal
