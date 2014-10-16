@@ -25,3 +25,5 @@
 /configure
 /gnulib
 /maint.mk
+/GNUmakefile
+/maint.mk

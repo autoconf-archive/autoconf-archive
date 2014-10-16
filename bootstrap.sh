@@ -2,16 +2,26 @@
 
 set -eu
 
-if [ -x "gnulib/gnulib-tool" ]; then
-  gnulibtool=gnulib/gnulib-tool
-else
-  gnulibtool=gnulib-tool
+if [ -z "$gnulibtool" ]; then
+  if [ -x "gnulib/gnulib-tool" ]; then
+    gnulibtool=gnulib/gnulib-tool
+  else
+    gnulibtool=gnulib-tool
+  fi
 fi
 
-gnulib_modules="git-version-gen gitlog-to-changelog gnupload
+echo "Here is some information about your gnulib-tool:"
+$gnulibtool --version
+
+echo ""
+echo "Re-importing gnulib stuff with gnulib-tool..."
+gnulib_modules="git-version-gen gitlog-to-changelog gnupload \
 	        maintainer-makefile announce-gen gendocs fdl-1.3"
 
 $gnulibtool --m4-base build-aux --source-base build-aux --import $gnulib_modules
+
+echo ""
+echo "Updating maint.mk..."
 
 sed -i -e 's/^sc_file_system:/disabled_sc_file_system:/' \
        -e 's/^sc_GPL_version:/disabled_sc_GPL_version:/' \
@@ -28,6 +38,8 @@ sed -i -e 's/^sc_file_system:/disabled_sc_file_system:/' \
        -e 's/^sc_prohibit_doubled_word:/disabled_sc_prohibit_doubled_word:/' \
   maint.mk
 
+echo "Updating ChangeLog..."
+
 echo > ChangeLog '# Copyright (c) 2014 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
 echo >>ChangeLog '#'
 echo >>ChangeLog '# Copying and distribution of this file, with or without modification, are'
@@ -35,6 +47,17 @@ echo >>ChangeLog '# permitted in any medium without royalty provided the copyrig
 echo >>ChangeLog '# this notice are preserved. This file is offered as-is, without any warranty.'
 echo >>ChangeLog ''
 build-aux/gitlog-to-changelog >>ChangeLog -- m4/
+
+echo "Updating AUTHORS..."
 bash gen-authors.sh >AUTHORS
 
-autoreconf --install -Wall
+echo ""
+echo "Your autoconf version is:"
+autoconf --version
+
+echo ""
+echo "autoreconf-ing..."
+autoreconf --force --verbose --install -Wall
+
+echo ""
+echo "Done bootstrapping."
