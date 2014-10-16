@@ -1,8 +1,10 @@
-#! /bin/sh
+#! /bin/bash
 
-set -eu
+# Wait until after we finish testing a possibly empty variable to do `set -u`
+# as well:
+set -e
 
-if [ "x$gnulibtool" = "x" ]; then
+if [ "x${gnulibtool}" = "x" ]; then
   if [ -x "gnulib/gnulib-tool" ]; then
     gnulibtool=gnulib/gnulib-tool
   else
@@ -10,8 +12,11 @@ if [ "x$gnulibtool" = "x" ]; then
   fi
 fi
 
+# OK, now we can do this:
+set -eu
+
 echo "Here is some information about your gnulib-tool:"
-$gnulibtool --version
+${gnulibtool} --version
 
 echo ""
 echo "Re-importing gnulib stuff with gnulib-tool..."
@@ -20,7 +25,8 @@ gnulib_modules="announce-gen fdl-1.3 gendocs git-version-gen \
 				gitlog-to-changelog gnu-make gnu-web-doc-update gnupload \
 				maintainer-makefile update-copyright"
 
-$gnulibtool --m4-base build-aux --source-base build-aux --import $gnulib_modules
+${gnulibtool} --avoid=dummy --m4-base build-aux --source-base build-aux \
+              --import "${gnulib_modules}"
 
 echo ""
 echo "Updating maint.mk..."

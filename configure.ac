@@ -13,6 +13,7 @@ dnl implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 AC_INIT([GNU Autoconf Archive],[m4_esyscmd(build-aux/git-version-gen .tarball-version)],[autoconf-archive-maintainers@gnu.org],[autoconf-archive],[http://www.gnu.org/software/autoconf-archive/])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([1.11 -Wall gnu no-dist-gzip dist-xz dist-lzip])
+AM_MAINTAINER_MODE
 AC_PREREQ([2.69])
 AC_CONFIG_SRCDIR([doc/autoconf-archive.texi])
 AC_MSG_NOTICE([$PACKAGE_STRING])
@@ -20,12 +21,13 @@ AC_MSG_NOTICE([$PACKAGE_STRING])
 dnl# keep the macros used by this script separate from the ones we ship:
 AC_CONFIG_MACRO_DIR([build-aux]) dnl# (this is where gnulib-tool puts them)
 
-AC_PROG_CC dnl# autoscan says "wanted by: build-aux/dummy.c"
-gl_EARLY dnl# gnulib-tool says to put this right after the previous one.
+dnl# gnulib-tool no longer imports the dummy.c file, so we no longer
+dnl# require checks for a C compiler.
+gl_EARLY dnl# gnulib-tool says to not to forget to invoke this.
 AC_PROG_LN_S dnl# autoscan says "wanted by: build-aux/gendocs.sh:341"
 AC_PROG_SED
 
-gl_INIT dnl# gnulib-tool says not to forget to invoke this
+gl_INIT dnl# gnulib-tool says not to forget to invoke this.
 
 dnl# `echo -n` is non-portable, but luckily autoconf gives us a way to deal
 dnl# with that. We have to get rid of the outer m4 system command wrapper
