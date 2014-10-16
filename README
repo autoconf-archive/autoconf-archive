@@ -1,0 +1,5 @@
+The actual README file is formatted in markdown, and as such, it has been
+renamed to README.md.
+
+This file (without the file extension) only exists to conform to the
+GNU standards, which automake enforces.
