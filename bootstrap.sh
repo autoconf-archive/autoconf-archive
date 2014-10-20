@@ -25,7 +25,7 @@ gnulib_modules="announce-gen fdl-1.3 gendocs git-version-gen \
 				gitlog-to-changelog gnu-make gnu-web-doc-update gnupload \
 				maintainer-makefile update-copyright"
 
-${gnulibtool} --avoid=dummy --m4-base build-aux --source-base build-aux \
+${gnulibtool} --m4-base build-aux --source-base build-aux --no-vc-files \
               --import "${gnulib_modules}"
 
 echo ""

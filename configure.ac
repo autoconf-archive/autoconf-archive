@@ -21,9 +21,8 @@ AC_MSG_NOTICE([$PACKAGE_STRING])
 dnl# keep the macros used by this script separate from the ones we ship:
 AC_CONFIG_MACRO_DIR([build-aux]) dnl# (this is where gnulib-tool puts them)
 
-dnl# gnulib-tool no longer imports the dummy.c file, so we no longer
-dnl# require checks for a C compiler.
-gl_EARLY dnl# gnulib-tool says to not to forget to invoke this.
+AC_PROG_CC dnl# autoscan says "wanted by: build-aux/dummy.c"
+gl_EARLY dnl# gnulib-tool says to put this right after the previous one.
 AC_PROG_LN_S dnl# autoscan says "wanted by: build-aux/gendocs.sh:341"
 AC_PROG_SED
 

@@ -18,14 +18,10 @@ CHAPTERS        = introduction.texi downloads.texi contribute.texi fdl-1.3.texi
 info_TEXINFOS   = autoconf-archive.texi
 EXTRA_DIST      = $(TEXIFILES) $(CHAPTERS) all-macros.texi
 
-##FIXME: the Makefile rule for all-macros.texi is actually kept in the
-## ../cfg.mk file, where it is called by the maintainer-all rule.
-## This Makefile is unaware of that though, and can fail with the following
-## message if `make maintainer-all` is not run before `make`:
-## Updating ./version.texi
-## make[1]: *** No rule to make target `all-macros.texi', needed by `autoconf-archive.info'.  Stop.
-## Not sure where this should be fixed...
-autoconf-archive.info:  autoconf-archive.texi all-macros.texi $(TEXIFILES) $(CHAPTERS)
+autoconf-archive.info: autoconf-archive.texi all-macros.texi $(TEXIFILES) $(CHAPTERS) version.texi
+##FIXME: this rule for rebuilding all-macros.texi is kind of a hack:
+all-macros.texi: @MAINT@ ../cfg.mk
+	$(am__cd) .. && make maintainer-all
 
 maintainer-clean-local:
 	@rm -f ax_*.texi all-macros.texi fdl-1.3.texi Makefile.in

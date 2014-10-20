@@ -15,23 +15,26 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 ## gnulib-tool says to mention this:
-ACLOCAL_AMFLAGS         = -I build-aux
+ACLOCAL_AMFLAGS   = -I build-aux
  
-SUBDIRS                 = doc build-aux
+SUBDIRS           = doc build-aux
 
-dist_pkgdata_DATA       = AUTHORS COPYING COPYING.EXCEPTION README
-aclocaldir              = $(datadir)/aclocal
-dist_aclocal_DATA       = $(M4FILES)
-EXTRA_DIST              = build-aux/git-version-gen build-aux/gitlog-to-changelog
+dist_pkgdata_DATA = AUTHORS COPYING COPYING.EXCEPTION README
+aclocaldir        = $(datadir)/aclocal
+dist_aclocal_DATA = $(M4FILES)
+EXTRA_DIST        = build-aux/git-version-gen build-aux/gitlog-to-changelog
 
 clean-local:
 	@rm -rf $(srcdir)/stage $(srcdir)/macro.pyc
 	@rm -f $(DIST_ARCHIVES)
 
+MAINTAINERCLEANFILES = *~ doc/*~
+
+## duplicates in here should be harmless, but weed them out anyways:
 maintainer-clean-local:
-	@rm -rf $(srcdir)/build-aux
+	@rm -rf $(srcdir)/build-aux || rmdir build-aux
 	@rm -f configure Makefile.in aclocal.m4 AUTHORS ChangeLog
-	@rm -f INSTALL config.log config.status configure maint.mk
+	@rm -f INSTALL config.log config.status maint.mk
 	@rm -f autoconf-archive-*.*.*.tar.* GNUmakefile
 
 dist-hook:

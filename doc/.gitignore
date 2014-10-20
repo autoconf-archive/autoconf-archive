@@ -22,3 +22,5 @@
 /version.texi
 /fdl-1.3.texi
 /gendocs_template
+# /fdl-1.3.texi is already mentioned above
+# /gendocs_template is already mentioned above
