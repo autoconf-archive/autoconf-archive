@@ -45,6 +45,19 @@ dnl# Just in case the above got screwed up and the filenames still
 dnl# run together, check this:
 AC_SYS_LONG_FILE_NAMES
 
+dnl# gnulib-comp.m4 does something similar with GNUMakefile:
+# Autoconf 2.61a.99 and earlier do NOT support linking a file only
+# in VPATH builds.  But since cfg.mk is for maintainer use
+# only, it does not matter if we skip the link with older autoconf.
+# Automake 1.10.1 and earlier try to remove cfg.mk in non-VPATH
+# builds, so use a shell variable to bypass this.
+export cfg_mk=cfg.mk
+m4_if(m4_version_compare([2.61a.100],
+        m4_defn([m4_PACKAGE_VERSION])),[1],[],
+      [AC_CONFIG_LINKS([${cfg_mk}:${cfg_mk}],[],
+        [cfg_mk=${cfg_mk}])])dnl
+AC_SUBST([cfg_mk])dnl
+
 dnl# Output:
 AC_CONFIG_FILES([Makefile doc/Makefile])
 AC_CONFIG_FILES([build-aux/Makefile]) dnl# gnulib-tool says to do this.
