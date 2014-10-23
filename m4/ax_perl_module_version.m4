@@ -28,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_PERL_MODULE_VERSION], [AX_PERL_MODULE_VERSION])
 AC_DEFUN([AX_PERL_MODULE_VERSION],[dnl
@@ -40,7 +40,7 @@ fi
 
 # Check the number of arguments
 args_num=`echo $ac_perl_list_modules | wc -w`
-let "check_args = $args_num % 2"
+check_args=$(( $args_num % 2 ))
 if test "$check_args" = "1" ; then
   AC_MSG_ERROR(syntax error)
 else
