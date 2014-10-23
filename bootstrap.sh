@@ -63,7 +63,7 @@ echo ""
 echo "Your autoconf version is:"
 autoconf --version
 
-echo " "
+echo ""
 echo "Your automake version is:"
 automake --version
 

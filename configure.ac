@@ -14,7 +14,7 @@ AC_INIT([GNU Autoconf Archive],[m4_esyscmd(build-aux/git-version-gen .tarball-ve
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([1.11 -Wall gnu no-dist-gzip dist-xz dist-lzip])
 AC_REQUIRE_AUX_FILE([mdate-sh])
-AM_MAINTAINER_MODE
+AM_MAINTAINER_MODE([enable])
 AC_PREREQ([2.68])
 AC_CONFIG_SRCDIR([doc/autoconf-archive.texi])
 AC_MSG_NOTICE([$PACKAGE_STRING])
