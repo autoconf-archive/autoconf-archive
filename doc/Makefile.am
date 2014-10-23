@@ -1,3 +1,4 @@
+## Automake Makefile for docs for the Autoconf Archive.
 # Build and install the GNU Autoconf Archive documentation.
 #
 # Copyright (c) 2013 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
@@ -14,16 +15,23 @@
 # You should have received a copy of the GNU General Public License along with
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-CHAPTERS        = introduction.texi downloads.texi contribute.texi fdl-1.3.texi
-info_TEXINFOS   = autoconf-archive.texi
-EXTRA_DIST      = $(TEXIFILES) $(CHAPTERS) all-macros.texi
+CHAPTERS = introduction.texi downloads.texi contribute.texi fdl-1.3.texi
+info_TEXINFOS = autoconf-archive.texi
+EXTRA_DIST = $(TEXIFILES) $(CHAPTERS) all-macros.texi
+
+## Just in case the manually-specified dependencies fail to cause these
+## to get built:
+autoconf_archive_TEXINFOS = all-macros.texi version.texi
 
 autoconf-archive.info: autoconf-archive.texi all-macros.texi $(TEXIFILES) $(CHAPTERS) version.texi
 ##FIXME: this rule for rebuilding all-macros.texi is kind of a hack:
 all-macros.texi: @MAINT@ ../cfg.mk
 	$(am__cd) .. && make maintainer-all
 
+autoconf-archive.texi: version.texi
+
 maintainer-clean-local:
 	@rm -f ax_*.texi all-macros.texi fdl-1.3.texi Makefile.in
 	@rm -f *.aux *.cp *.fn *.ky *.log *.pg *.toc *.tp *.vr
-	@rm -rf manual gendocs_template
+	@rm -rf manual || rmdir manual
+	@rm -rf gendocs_template || rmdir gendocs_template

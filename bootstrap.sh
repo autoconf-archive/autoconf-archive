@@ -63,6 +63,10 @@ echo ""
 echo "Your autoconf version is:"
 autoconf --version
 
+echo " "
+echo "Your automake version is:"
+automake --version
+
 echo ""
 echo "autoreconf-ing..."
 autoreconf --force --verbose --install -Wall
