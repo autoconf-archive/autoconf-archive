@@ -2,4 +2,4 @@ language: c
 git:
   depth: 50000
 install: sudo apt-get install --allow-unauthenticated -qq gnulib lzip texlive tidy autoconf automake remake
-script: ./bootstrap.sh && ./configure --enable-maintainer-mode && remake -j4 maintainer-all all && remake distcheck && remake web-manual && ./fix-website.sh
+script: ./bootstrap.sh && ./configure --enable-maintainer-mode && remake -j4 maintainer-all all && remake check && remake distcheck && remake web-manual && ./fix-website.sh

@@ -36,12 +36,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
-AC_DEFUN([AX_SWITCH_FLAGS], [
-  AC_REQUIRE(AX_SAVE_FLAGS)
-  AC_REQUIRE(AX_RESTORE_FLAGS)
-  AS_IF([test "X$1" = "X"], AC_MSG_ERROR(newnamespace is empty)]
+AC_DEFUN([AX_SWITCH_FLAGS],[
+  AC_REQUIRE([AX_SAVE_FLAGS])
+  AC_REQUIRE([AX_RESTORE_FLAGS])
+  AS_IF([test "X$1" = "X"],
+        [AC_MSG_ERROR([newnamespace is empty])])
   AX_SAVE_FLAGS($1[])
   AX_RESTORE_FLAGS($2[])
-])
+])dnl

@@ -63,18 +63,18 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
-AU_ALIAS([AC_ARG_WITH_PATH_STYLE], [AX_ARG_WITH_PATH_STYLE])
+AU_ALIAS([AC_ARG_WITH_PATH_STYLE],[AX_ARG_WITH_PATH_STYLE])
 AC_DEFUN([AX_ARG_WITH_PATH_STYLE],
 [
- AC_ARG_WITH(path-style,
-[  --with-path-style=[dos,unix,url,also,slash,comma],
-[ac_with_path_style="$withval"],
+ AC_ARG_WITH([path-style],
+[  --with-path-style=[dos,unix,url,also,slash,comma]],
+[ac_with_path_style="${withval}"],
 [dnl
-  case "$target_os" in
+  case "${target_os}" in
     *djgpp | *mingw32* | *emx*) ac_with_path_style="dos" ;;
-    *) case `eval echo $exec_prefix` in
+    *) case `eval echo ${exec_prefix}` in
        *:*) ac_with_path_style="url" ;;
        *) ac_with_path_style="posix" ;;
        esac

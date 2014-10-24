@@ -17,7 +17,7 @@
 ## gnulib-tool says to mention this:
 ACLOCAL_AMFLAGS   = -I build-aux
  
-SUBDIRS           = doc build-aux
+SUBDIRS           = doc build-aux test
 
 dist_pkgdata_DATA = AUTHORS COPYING COPYING.EXCEPTION README
 aclocaldir        = $(datadir)/aclocal
@@ -28,7 +28,7 @@ clean-local:
 	@rm -rf $(srcdir)/stage $(srcdir)/macro.pyc
 	@rm -f $(DIST_ARCHIVES)
 
-MAINTAINERCLEANFILES = *~ doc/*~
+MAINTAINERCLEANFILES = *~ ./.*~ doc/*~
 
 ## duplicates in here should be harmless, but weed them out anyways:
 maintainer-clean-local:

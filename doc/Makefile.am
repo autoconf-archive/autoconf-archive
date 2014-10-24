@@ -28,7 +28,7 @@ autoconf-archive.info: autoconf-archive.texi all-macros.texi $(TEXIFILES) $(CHAP
 all-macros.texi: @MAINT@ $(top_srcdir)/cfg.mk
 	$(am__cd) .. && make maintainer-all
 
-autoconf-archive.texi: version.texi
+MAINTAINERCLEANFILES = *~ ./.*~
 
 maintainer-clean-local:
 	@rm -f ax_*.texi all-macros.texi fdl-1.3.texi Makefile.in

@@ -15,7 +15,8 @@
 #   be specified seperately
 #
 #   adds the extra -Ipath to CFLAGS if needed adds extra -Lpath to LD_FLAGS
-#   if needed searches for the FUNCTION in the LIBRARY with AC_CHECK_LIBRARY
+#   If needed, it searches for the FUNCTION in the LIBRARY with the macro
+#   dnl AC_CHECK_LIBRARY                                                dnl
 #   and thus adds the lib to LIBS
 #
 #   defines HAVE_PKG_PACKAGE if it is found, (where PACKAGE in the
@@ -34,7 +35,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_caolan_CHECK_PACKAGE],
 [

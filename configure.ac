@@ -12,6 +12,7 @@ dnl implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 AC_INIT([GNU Autoconf Archive],[m4_esyscmd(build-aux/git-version-gen .tarball-version)],[autoconf-archive-maintainers@gnu.org],[autoconf-archive],[http://www.gnu.org/software/autoconf-archive/])
 AC_CONFIG_AUX_DIR([build-aux])
+AC_CONFIG_TESTDIR([test])
 AM_INIT_AUTOMAKE([1.11 -Wall gnu no-dist-gzip dist-xz dist-lzip])
 AC_REQUIRE_AUX_FILE([mdate-sh])
 AM_MAINTAINER_MODE([enable])
@@ -35,11 +36,12 @@ dnl# to be able to do this though. Also have to use escaped quotation marks
 dnl# to ensure that a space follows each file name, which keeps them
 dnl# separated. This has to be done in a loop because otherwise the
 dnl# globbing character ('*') gets output as a literal.
-M4FILES="`for m4file in ${srcdir}/m4/*.m4; do AS_ECHO_N([\"${m4file} \"]); done`"
-AC_SUBST([M4FILES])
+dnl# Also the variable has to be exported so that config.status can use it.
+export M4FILES="`for m4file in ${srcdir}/m4/*.m4; do AS_ECHO_N([\"${m4file} \"]); done`"
+AC_SUBST([M4FILES])dnl
 
-TEXIFILES="`cd ${srcdir}/m4 && for m4file in *.m4; do AS_ECHO_N([\"${m4file} \"]); done | sed -e 's/\.m4/.texi/g'`"
-AC_SUBST([TEXIFILES])
+export TEXIFILES="`cd ${srcdir}/m4 && for m4file in *.m4; do AS_ECHO_N([\"${m4file} \"]); done | sed -e 's/\.m4/.texi/g'`"
+AC_SUBST([TEXIFILES])dnl
 
 dnl# Just in case the above got screwed up and the filenames still
 dnl# run together, check this:
@@ -58,8 +60,25 @@ m4_if(m4_version_compare([2.61a.100],
         [cfg_mk=${cfg_mk}])])dnl
 AC_SUBST([cfg_mk])dnl
 
+dnl# double-m4-quote this, to allow echo-ing stuff that would normally also
+dnl# be interpreted as m4:
+AC_CONFIG_COMMANDS([test/acinclude.m4],[[
+  ## N.B.: we have to cheat and use the ac_... version because
+  ## abs_top_builddir is not yet set, sigh.
+  if test -e ${ac_abs_top_builddir}/test/acinclude.m4; then
+    rm -f ${ac_abs_top_builddir}/test/acinclude.m4 || true
+  fi
+  touch ${ac_abs_top_builddir}/test/acinclude.m4
+  for m4file in ${M4FILES}; do
+    ## still need to use quadrigraphs though, because aclocal is stupid and
+    ## ignores the m4-quotation:
+    echo "m4@&t@_@&t@in@&t@clude@{:@@<:@${ac_abs_top_builddir}/${m4file}@:>@@:}@d@&t@n@&t@l" >> ${ac_abs_top_builddir}/test/acinclude.m4
+  done
+]])dnl
+
 dnl# Output:
 AC_CONFIG_FILES([Makefile doc/Makefile])
+AC_CONFIG_FILES([test/atlocal test/configure.ac test/Makefile])
 AC_CONFIG_FILES([build-aux/Makefile]) dnl# gnulib-tool says to do this.
 AC_OUTPUT
 

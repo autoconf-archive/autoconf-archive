@@ -1,0 +1,16 @@
+dnl#                                               -*- Autoconf -*-
+dnl# After running the top-level configure script, process this file with
+dnl# autoconf to produce another configure script.
+
+AC_PREREQ([2.68])dnl
+AC_INIT([@PACKAGE_NAME@ testsuite],[@PACKAGE_VERSION@],
+        [@PACKAGE_BUGREPORT@])dnl
+
+AC_CONFIG_SRCDIR([atlocal])
+
+dnl# this file just exists to include all the macros:
+m4_include([acinclude.m4])dnl
+
+AC_MSG_NOTICE([The generated configure script was parseable.])
+
+AC_OUTPUT
