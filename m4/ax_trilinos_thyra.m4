@@ -28,7 +28,8 @@
 AC_DEFUN([AX_TRILINOS_THYRA],[
     AC_REQUIRE([AX_TRILINOS_BASE])
     ax_trilinos_thyra=yes
-    AC_HAVE_LIBRARY([thyra],[:],[ax_trilinos_thyra=no])
+    AC_CHECK_LIB([thyra],[main],[:],[ax_trilinos_thyra=no],[])ac_cv_lib_thyra=ac_cv_lib_thyra_main
+
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([thyra.macros],[ax_trilinos_thyra=no])
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([thyra],[ax_trilinos_thyra=no])
     if test "$ax_trilinos_thyra" = yes; then

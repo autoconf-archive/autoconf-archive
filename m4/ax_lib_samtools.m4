@@ -122,11 +122,13 @@ if test -n "${SAMTOOLS_HOME}" ; then
         SAMTOOLS_OLD_CPPFLAGS=$LDFLAGS
         LDFLAGS="$LDFLAGS ${SAMTOOLS_LIBDIR}"
         CPPFLAGS="$CPPFLAGS ${SAMTOOLS_INCDIR}"
-        AC_LANG_SAVE
-        AC_LANG_C
+        AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+        AC_LANG([C])
         AC_CHECK_HEADER([sam.h], [ac_cv_sam_h=yes], [ac_cv_sam_h=no])
         AC_CHECK_LIB([bam], [sam_open], [ac_cv_libbam=yes], [ac_cv_libbam=no])
-        AC_LANG_RESTORE
+        AC_LANG_POP([])
         if test "$ac_cv_libbam" = "yes" && test "$ac_cv_sam_h" = "yes" ; then
                 #
                 # If both library and header were found, use them

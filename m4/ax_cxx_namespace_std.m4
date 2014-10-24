@@ -26,12 +26,13 @@ AU_ALIAS([AC_CXX_NAMESPACE_STD], [AX_CXX_NAMESPACE_STD])
 AC_DEFUN([AX_CXX_NAMESPACE_STD], [
   AC_CACHE_CHECK(if g++ supports namespace std,
   ax_cv_cxx_have_std_namespace,
-  [AC_LANG_SAVE
-  AC_LANG_CPLUSPLUS
-  AC_TRY_COMPILE([#include <iostream>
-                  std::istream& is = std::cin;],,
-  ax_cv_cxx_have_std_namespace=yes, ax_cv_cxx_have_std_namespace=no)
-  AC_LANG_RESTORE
+  [AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+  AC_LANG([C++])
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <iostream>
+                  std::istream& is = std::cin;]], [[]])],[ax_cv_cxx_have_std_namespace=yes],[ax_cv_cxx_have_std_namespace=no])
+  AC_LANG_POP([])
   ])
   if test "$ax_cv_cxx_have_std_namespace" = yes; then
     AC_DEFINE(HAVE_NAMESPACE_STD,,[Define if g++ supports namespace std. ])

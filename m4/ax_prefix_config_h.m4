@@ -27,13 +27,20 @@
 #
 #   Example:
 #
-#     AC_INIT(config.h.in)        # config.h.in as created by "autoheader"
+#     AC_INIT
+AC_CONFIG_SRCDIR([config.h.in])        # config.h.in as created by "autoheader"
 #     AM_INIT_AUTOMAKE(testpkg, 0.1.1)    # makes #undef VERSION and PACKAGE
 #     AM_CONFIG_HEADER(config.h)          # prep config.h from config.h.in
 #     AX_PREFIX_CONFIG_H(mylib/_config.h) # prep mylib/_config.h from it..
-#     AC_MEMORY_H                         # makes "#undef NEED_MEMORY_H"
+#     AC_DIAGNOSE([obsolete],[Remove this warning and
+`AC_CHECK_HEADER(memory.h, AC_DEFINE(...))' when you adjust your code to
+use HAVE_STRING_H and HAVE_MEMORY_H, not NEED_MEMORY_H.])dnl
+AC_CHECK_HEADER([memory.h],[AC_DEFINE([NEED_MEMORY_H], 1,
+			   [Same as `HAVE_MEMORY_H', don't depend on me.])])
+AC_CHECK_HEADERS([string.h memory.h])                         # makes "#undef NEED_MEMORY_H"
 #     AC_C_CONST_H                        # makes "#undef const"
-#     AC_OUTPUT(Makefile)                 # creates the "config.h" now
+#     AC_CONFIG_FILES([Makefile])
+AC_OUTPUT                 # creates the "config.h" now
 #                                         # and also mylib/_config.h
 #
 #   If the argument to AX_PREFIX_CONFIG_H would have been omitted then the
@@ -117,7 +124,7 @@
 #serial 15
 
 AC_DEFUN([AX_PREFIX_CONFIG_H],[dnl
-AC_PREREQ([2.62])
+AC_PREREQ([2.69])
 AC_BEFORE([AC_CONFIG_HEADERS],[$0])dnl
 AC_CONFIG_COMMANDS(m4_default([$1], [$PACKAGE-config.h]),[dnl
 AS_VAR_PUSHDEF([_OUT],[ac_prefix_conf_OUT])dnl

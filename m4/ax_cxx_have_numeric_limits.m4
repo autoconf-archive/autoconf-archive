@@ -27,14 +27,15 @@ AC_DEFUN([AX_CXX_HAVE_NUMERIC_LIMITS],
 [AC_CACHE_CHECK(whether the compiler has numeric_limits<T>,
 ax_cv_cxx_have_numeric_limits,
 [AC_REQUIRE([AX_CXX_NAMESPACES])
- AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([#include <limits>
+ AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+ AC_LANG([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <limits>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif],[double e = numeric_limits<double>::epsilon(); return 0;],
- ax_cv_cxx_have_numeric_limits=yes, ax_cv_cxx_have_numeric_limits=no)
- AC_LANG_RESTORE
+#endif]], [[double e = numeric_limits<double>::epsilon(); return 0;]])],[ax_cv_cxx_have_numeric_limits=yes],[ax_cv_cxx_have_numeric_limits=no])
+ AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_have_numeric_limits" = yes; then
   AC_DEFINE(HAVE_NUMERIC_LIMITS,,[define if the compiler has numeric_limits<T>])

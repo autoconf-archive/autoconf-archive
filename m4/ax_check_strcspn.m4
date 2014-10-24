@@ -38,13 +38,13 @@ AU_ALIAS([AG_CHECK_STRCSPN], [AX_CHECK_STRCSPN])
 AC_DEFUN([AX_CHECK_STRCSPN],[
   AC_MSG_CHECKING([whether strcspn matches prototype and works])
   AC_CACHE_VAL([ax_cv_strcspn],[
-  AC_TRY_RUN([#include <string.h>
+  AC_RUN_IFELSE([AC_LANG_SOURCE([[#include <string.h>
 int main (int argc, char** argv) {
    char zRej[] = "reject";
    char zAcc[] = "a-ok-eject";
    return strcspn( zAcc, zRej ) - 5;
-}],[ax_cv_strcspn=yes],[ax_cv_strcspn=no],[ax_cv_strcspn=no]
-  ) # end of TRY_RUN]) # end of CACHE_VAL
+}]])],[ax_cv_strcspn=yes],[ax_cv_strcspn=no],[ax_cv_strcspn=no
+  ]) # end of TRY_RUN]) # end of CACHE_VAL
 
   AC_MSG_RESULT([$ax_cv_strcspn])
   if test x$ax_cv_strcspn = xyes

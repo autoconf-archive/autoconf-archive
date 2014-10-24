@@ -29,22 +29,19 @@
 
 AU_ALIAS([AC_SYS_DEV_POLL], [AX_SYS_DEV_POLL])
 AC_DEFUN([AX_SYS_DEV_POLL], [AC_CACHE_CHECK(for /dev/poll support, ac_cv_dev_poll,
-    AC_TRY_COMPILE([#include <sys/ioctl.h>
+    AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <sys/ioctl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/poll.h>
-#include <sys/devpoll.h>],
-[
+#include <sys/devpoll.h>]], [[
   struct dvpoll p;
   p.dp_timeout = 0;
   p.dp_nfds = 0;
   p.dp_fds = (struct pollfd *) 0;
   return 0;
-],
-    ac_cv_dev_poll=yes
-    [$1],
-    ac_cv_dev_poll=no
-    [$2]
-    )
+]])],[ac_cv_dev_poll=yes
+    $1],[ac_cv_dev_poll=no
+    $2
+    ])
   )
 ])

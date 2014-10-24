@@ -28,16 +28,17 @@ AC_DEFUN([AX_CXX_COMPLEX_MATH_IN_NAMESPACE_STD],
 [AC_CACHE_CHECK(whether complex math functions are in std::,
 ac_cx_cxx_complex_math_in_namespace_std,
 [AC_REQUIRE([AX_CXX_NAMESPACES])
- AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([#include <complex>
+ AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+ AC_LANG([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <complex>
 namespace S { using namespace std;
               complex<float> pow(complex<float> x, complex<float> y)
               { return std::pow(x,y); }
             };
-],[using namespace S; complex<float> x = 1.0, y = 1.0; S::pow(x,y); return 0;],
- ax_cv_cxx_complex_math_in_namespace_std=yes, ax_cv_cxx_complex_math_in_namespace_std=no)
- AC_LANG_RESTORE
+]], [[using namespace S; complex<float> x = 1.0, y = 1.0; S::pow(x,y); return 0;]])],[ax_cv_cxx_complex_math_in_namespace_std=yes],[ax_cv_cxx_complex_math_in_namespace_std=no])
+ AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_complex_math_in_namespace_std" = yes; then
   AC_DEFINE(HAVE_COMPLEX_MATH_IN_NAMESPACE_STD,,

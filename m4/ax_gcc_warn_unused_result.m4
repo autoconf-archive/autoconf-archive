@@ -47,10 +47,8 @@ AC_DEFUN([AX_GCC_WARN_UNUSED_RESULT],[dnl
 AC_CACHE_CHECK(
  [whether the compiler supports function __attribute__((__warn_unused_result__))],
  ax_cv_gcc_warn_unused_result,[
- AC_TRY_COMPILE([__attribute__((__warn_unused_result__))
- int f(int i) { return i; }],
- [],
- ax_cv_gcc_warn_unused_result=yes, ax_cv_gcc_warn_unused_result=no)])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[__attribute__((__warn_unused_result__))
+ int f(int i) { return i; }]], [[]])],[ax_cv_gcc_warn_unused_result=yes],[ax_cv_gcc_warn_unused_result=no])])
  if test "$ax_cv_gcc_warn_unused_result" = yes; then
    AC_DEFINE([GCC_WARN_UNUSED_RESULT],[__attribute__((__warn_unused_result__))],
     [most gcc compilers know a function __attribute__((__warn_unused_result__))])

@@ -46,8 +46,7 @@ AC_DEFUN([AX_LIB_GDAL],
     dnl If gdal-config path is not given in ---with-gdal option,
     dnl check if it is present in the system anyway
     AC_ARG_WITH([gdal],
-        AC_HELP_STRING([--with-gdal=@<:@ARG@:>@],
-            [Specify full path to gdal-config script]),
+        AS_HELP_STRING([--with-gdal=@<:@ARG@:>@],[Specify full path to gdal-config script]),
         [ac_gdal_config_path=$withval],
         [gdal_config_system=check])
 

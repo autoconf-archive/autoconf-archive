@@ -26,9 +26,11 @@ AU_ALIAS([AC_CXX_COMPILE_STDCXX_0X], [AX_CXX_COMPILE_STDCXX_0X])
 AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
   AC_CACHE_CHECK(if g++ supports C++0x features without additional flags,
   ax_cv_cxx_compile_cxx0x_native,
-  [AC_LANG_SAVE
-  AC_LANG_CPLUSPLUS
-  AC_TRY_COMPILE([
+  [AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+  AC_LANG([C++])
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
   template <typename T>
     struct check
     {
@@ -42,18 +44,19 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
 
     typedef check<int> check_type;
     check_type c;
-    check_type&& cr = static_cast<check_type&&>(c);],,
-  ax_cv_cxx_compile_cxx0x_native=yes, ax_cv_cxx_compile_cxx0x_native=no)
-  AC_LANG_RESTORE
+    check_type&& cr = static_cast<check_type&&>(c);]], [[]])],[ax_cv_cxx_compile_cxx0x_native=yes],[ax_cv_cxx_compile_cxx0x_native=no])
+  AC_LANG_POP([])
   ])
 
   AC_CACHE_CHECK(if g++ supports C++0x features with -std=c++0x,
   ax_cv_cxx_compile_cxx0x_cxx,
-  [AC_LANG_SAVE
-  AC_LANG_CPLUSPLUS
+  [AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+  AC_LANG([C++])
   ac_save_CXXFLAGS="$CXXFLAGS"
   CXXFLAGS="$CXXFLAGS -std=c++0x"
-  AC_TRY_COMPILE([
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
   template <typename T>
     struct check
     {
@@ -67,19 +70,20 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
 
     typedef check<int> check_type;
     check_type c;
-    check_type&& cr = static_cast<check_type&&>(c);],,
-  ax_cv_cxx_compile_cxx0x_cxx=yes, ax_cv_cxx_compile_cxx0x_cxx=no)
+    check_type&& cr = static_cast<check_type&&>(c);]], [[]])],[ax_cv_cxx_compile_cxx0x_cxx=yes],[ax_cv_cxx_compile_cxx0x_cxx=no])
   CXXFLAGS="$ac_save_CXXFLAGS"
-  AC_LANG_RESTORE
+  AC_LANG_POP([])
   ])
 
   AC_CACHE_CHECK(if g++ supports C++0x features with -std=gnu++0x,
   ax_cv_cxx_compile_cxx0x_gxx,
-  [AC_LANG_SAVE
-  AC_LANG_CPLUSPLUS
+  [AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+  AC_LANG([C++])
   ac_save_CXXFLAGS="$CXXFLAGS"
   CXXFLAGS="$CXXFLAGS -std=gnu++0x"
-  AC_TRY_COMPILE([
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
   template <typename T>
     struct check
     {
@@ -93,10 +97,9 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
 
     typedef check<int> check_type;
     check_type c;
-    check_type&& cr = static_cast<check_type&&>(c);],,
-  ax_cv_cxx_compile_cxx0x_gxx=yes, ax_cv_cxx_compile_cxx0x_gxx=no)
+    check_type&& cr = static_cast<check_type&&>(c);]], [[]])],[ax_cv_cxx_compile_cxx0x_gxx=yes],[ax_cv_cxx_compile_cxx0x_gxx=no])
   CXXFLAGS="$ac_save_CXXFLAGS"
-  AC_LANG_RESTORE
+  AC_LANG_POP([])
   ])
 
   if test "$ax_cv_cxx_compile_cxx0x_native" = yes ||

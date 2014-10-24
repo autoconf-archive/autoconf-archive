@@ -52,17 +52,13 @@ AC_DEFUN([AX_TLS], [
    [for ax_tls_keyword in __thread '__declspec(thread)' none; do
        AS_CASE([$ax_tls_keyword],
           [none], [ac_cv_tls=none ; break],
-          [AC_TRY_COMPILE(
-              [#include <stdlib.h>
+          [AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <stdlib.h>
                static void
                foo(void) {
-               static ] $ax_tls_keyword [ int bar;
+               static  $ax_tls_keyword  int bar;
                exit(1);
-               }],
-               [],
-               [ac_cv_tls=$ax_tls_keyword ; break],
-               ac_cv_tls=none
-           )])
+               }]], [[]])],[ac_cv_tls=$ax_tls_keyword ; break],[ac_cv_tls=none
+           ])])
     done
   ])
   AC_MSG_RESULT([$ac_cv_tls])

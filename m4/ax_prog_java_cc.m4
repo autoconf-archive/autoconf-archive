@@ -28,9 +28,11 @@
 #
 #   Here's an example configure.in:
 #
-#     AC_INIT(Makefile.in)
+#     AC_INIT
+AC_CONFIG_SRCDIR([Makefile.in])
 #     AX_PROG_JAVA_CC()
-#     AC_OUTPUT(Makefile)
+#     AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
 #     dnl End.
 #
 #   And here's the start of the Makefile.in:

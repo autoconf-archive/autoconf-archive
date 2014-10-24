@@ -28,15 +28,17 @@
 AC_DEFUN([AX_CXX_GCC_ABI_DEMANGLE],
 [AC_CACHE_CHECK(whether the compiler supports GCC C++ ABI name demangling,
 ax_cv_cxx_gcc_abi_demangle,
-[AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([#include <typeinfo>
+[AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+ AC_LANG([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <typeinfo>
 #include <cxxabi.h>
 #include <string>
 
 template<typename TYPE>
 class A {};
-],[A<int> instance;
+]], [[A<int> instance;
 int status = 0;
 char* c_name = 0;
 
@@ -46,9 +48,8 @@ std::string name(c_name);
 free(c_name);
 
 return name == "A<int>";
-],
- ax_cv_cxx_gcc_abi_demangle=yes, ax_cv_cxx_gcc_abi_demangle=no)
- AC_LANG_RESTORE
+]])],[ax_cv_cxx_gcc_abi_demangle=yes],[ax_cv_cxx_gcc_abi_demangle=no])
+ AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_gcc_abi_demangle" = yes; then
   AC_DEFINE(HAVE_GCC_ABI_DEMANGLE,1,

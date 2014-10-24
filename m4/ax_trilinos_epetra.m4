@@ -28,7 +28,8 @@
 AC_DEFUN([AX_TRILINOS_EPETRA],[
     AC_REQUIRE([AX_TRILINOS_BASE])
     ax_trilinos_epetra=yes
-    AC_HAVE_LIBRARY([epetra],[:],[ax_trilinos_epetra=no])
+    AC_CHECK_LIB([epetra],[main],[:],[ax_trilinos_epetra=no],[])ac_cv_lib_epetra=ac_cv_lib_epetra_main
+
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([epetra.macros],[ax_trilinos_epetra=no])
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([epetra],[ax_trilinos_epetra=no])
     if test "$ax_trilinos_epetra" = yes; then

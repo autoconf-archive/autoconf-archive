@@ -56,11 +56,9 @@ AU_ALIAS([AC_C_VAR_FUNC], [AX_C_VAR_FUNC])
 AC_DEFUN([AX_C_VAR_FUNC],
 [AC_REQUIRE([AC_PROG_CC])
 AC_CACHE_CHECK(whether $CC recognizes __func__, ac_cv_c_var_func,
-AC_TRY_COMPILE(,
-[int main() {
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]], [[int main() {
 char *s = __func__;
-}], ac_cv_c_var_func=yes,
-ac_cv_c_var_func=no) )
+}]])],[ac_cv_c_var_func=yes],[ac_cv_c_var_func=no]) )
 if test "x$ac_cv_c_var_func" = xyes; then
    AC_DEFINE(HAVE_FUNC,,[Define if the C complier supports __func__])
 fi

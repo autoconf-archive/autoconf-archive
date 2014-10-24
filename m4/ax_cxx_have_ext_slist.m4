@@ -57,14 +57,15 @@ AC_DEFUN([AX_CXX_HAVE_EXT_SLIST],
 [AC_CACHE_CHECK(whether the compiler has ext/slist,
 ax_cv_cxx_have_ext_slist,
 [AC_REQUIRE([AX_CXX_NAMESPACES])
-  AC_LANG_SAVE
-  AC_LANG_CPLUSPLUS
-  AC_TRY_COMPILE([#include <ext/slist>
+  AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+  AC_LANG([C++])
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <ext/slist>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif],[slist<int> s; return 0;],
-  ax_cv_cxx_have_ext_slist=yes, ax_cv_cxx_have_ext_slist=no)
-  AC_LANG_RESTORE
+#endif]], [[slist<int> s; return 0;]])],[ax_cv_cxx_have_ext_slist=yes],[ax_cv_cxx_have_ext_slist=no])
+  AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_have_ext_slist" = yes; then
    AC_DEFINE(HAVE_EXT_SLIST,,[define if the compiler has ext/slist])

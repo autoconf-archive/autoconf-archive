@@ -32,15 +32,11 @@ AU_ALIAS([ETR_STRUCT_SEMUN], [AX_STRUCT_SEMUN])
 AC_DEFUN([AX_STRUCT_SEMUN],
 [
 AC_CACHE_CHECK([for struct semun], ac_cv_struct_semun, [
-        AC_TRY_COMPILE(
-                [
+        AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
                         #include <sys/types.h>
                         #include <sys/ipc.h>
                         #include <sys/sem.h>
-                ],
-                [ struct semun s; ],
-                ac_cv_struct_semun=yes,
-                ac_cv_struct_semun=no)
+                ]], [[ struct semun s; ]])],[ac_cv_struct_semun=yes],[ac_cv_struct_semun=no])
 ])
 
         if test x"$ac_cv_struct_semun" = "xyes"

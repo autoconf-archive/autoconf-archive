@@ -25,13 +25,15 @@ AU_ALIAS([AC_CXX_HEADER_PRE_STDCXX], [AX_CXX_HEADER_PRE_STDCXX])
 AC_DEFUN([AX_CXX_HEADER_PRE_STDCXX], [
   AC_CACHE_CHECK(for pre-ISO C++ include files,
   ax_cv_cxx_pre_stdcxx,
-  [AC_LANG_SAVE
-  AC_LANG_CPLUSPLUS
+  [AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+  AC_LANG([C++])
   ac_save_CXXFLAGS="$CXXFLAGS"
   CXXFLAGS="$CXXFLAGS -Wno-deprecated"
 
   # Omit defalloc.h, as compilation with newer compilers is problematic.
-  AC_TRY_COMPILE([
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
   #include <new.h>
   #include <iterator.h>
   #include <alloc.h>
@@ -65,10 +67,9 @@ AC_DEFUN([AX_CXX_HEADER_PRE_STDCXX], [
   #include <algo.h>
   #include <queue.h>
   #include <streambuf.h>
-  ],,
-  ax_cv_cxx_pre_stdcxx=yes, ax_cv_cxx_pre_stdcxx=no)
+  ]], [[]])],[ax_cv_cxx_pre_stdcxx=yes],[ax_cv_cxx_pre_stdcxx=no])
   CXXFLAGS="$ac_save_CXXFLAGS"
-  AC_LANG_RESTORE
+  AC_LANG_POP([])
   ])
   if test "$ax_cv_cxx_pre_stdcxx" = yes; then
     AC_DEFINE(PRE_STDCXX_HEADERS,,[Define if pre-ISO C++ header files are present. ])

@@ -47,10 +47,8 @@ AC_DEFUN([AX_GCC_MALLOC_CALL],[dnl
 AC_CACHE_CHECK(
  [whether the compiler supports function __attribute__((__malloc__))],
  ax_cv_gcc_malloc_call,[
- AC_TRY_COMPILE([__attribute__((__malloc__))
- int f(int i) { return i; }],
- [],
- ax_cv_gcc_malloc_call=yes, ax_cv_gcc_malloc_call=no)])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[__attribute__((__malloc__))
+ int f(int i) { return i; }]], [[]])],[ax_cv_gcc_malloc_call=yes],[ax_cv_gcc_malloc_call=no])])
  if test "$ax_cv_gcc_malloc_call" = yes; then
    AC_DEFINE([GCC_MALLOC_CALL],[__attribute__((__malloc__))],
     [most gcc compilers know a function __attribute__((__malloc__))])

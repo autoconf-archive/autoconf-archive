@@ -92,8 +92,10 @@ dnl Check for Mesa first, unless we were asked not to.
       GLX_search_list="GLX MesaGLX"
     fi
 
-    AC_LANG_SAVE
-    AC_LANG_C
+    AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+    AC_LANG([C])
 
 dnl If we are running under X11 then add in the appropriate libraries.
 if test x"$no_x" != xyes; then
@@ -110,11 +112,11 @@ fi
 
 
     # Save the "AC_MSG_RESULT file descriptor" to FD 8.
-    exec 8>&AC_FD_MSG
+    exec 8>&AS_MESSAGE_FD
 
     # Temporarily turn off AC_MSG_RESULT so that the user gets pretty
     # messages.
-    exec AC_FD_MSG>/dev/null
+    exec AS_MESSAGE_FD>/dev/null
 
     AC_SEARCH_LIBS(glAccum,          $GL_search_list, have_GL=yes,   have_GL=no)
     AC_SEARCH_LIBS(gluBeginCurve,   $GLU_search_list, have_GLU=yes,  have_GLU=no)
@@ -124,7 +126,7 @@ fi
 
 
     # Restore pretty messages.
-    exec AC_FD_MSG>&8
+    exec AS_MESSAGE_FD>&8
 
     if test -n "$LIBS"; then
       ax_cv_have_OpenGL=yes
@@ -143,7 +145,7 @@ dnl and we don't want to be global namespace polluters.
     LIBS="$GL_save_LIBS"
     CPPFLAGS="$GL_save_CPPFLAGS"
 
-    AC_LANG_RESTORE
+    AC_LANG_POP([])
 
 dnl bugfix: dont forget to cache this variables, too
     ax_cv_GL_CFLAGS="$GL_CFLAGS"

@@ -57,7 +57,8 @@
 #   This is a sample configure.in Process this file with autoconf to produce
 #   a configure script.
 #
-#     AC_INIT(UnTag.java)
+#     AC_INIT
+AC_CONFIG_SRCDIR([UnTag.java])
 #
 #     dnl Checks for programs.
 #     AC_CHECK_CLASSPATH
@@ -68,7 +69,8 @@
 #     AX_CHECK_RQRD_CLASS(org.xml.sax.Parser)
 #     AX_CHECK_RQRD_CLASS(com.jclark.xml.sax.Driver)
 #
-#     AC_OUTPUT(Makefile)
+#     AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
 #
 # LICENSE
 #

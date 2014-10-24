@@ -26,7 +26,7 @@
 #
 #     AX_RUBY_EXT
 #     if test x"$RUBY" = x; then
-#        AC_ERROR(["cannot find Ruby"])
+#        AC_MSG_ERROR("cannot find Ruby")
 #     fi
 #
 # LICENSE

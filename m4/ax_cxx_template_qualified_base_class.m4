@@ -29,9 +29,11 @@ AC_DEFUN([AX_CXX_TEMPLATE_QUALIFIED_BASE_CLASS],
 ax_cv_cxx_template_qualified_base_class,
 [AC_REQUIRE([AX_CXX_TYPENAME])
  AC_REQUIRE([AX_CXX_FULL_SPECIALIZATION_SYNTAX])
- AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([
+ AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+ AC_LANG([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 #ifndef HAVE_TYPENAME
  #define typename
 #endif
@@ -47,9 +49,8 @@ template<class T> class Weird : public base_trait<T>::base
 { public :
   typedef typename base_trait<T>::base base;
   int g () const { return base::f (); }
-};],[ Weird<float> z; return z.g ();],
- ax_cv_cxx_template_qualified_base_class=yes, ax_cv_cxx_template_qualified_base_class=no)
- AC_LANG_RESTORE
+};]], [[ Weird<float> z; return z.g ();]])],[ax_cv_cxx_template_qualified_base_class=yes],[ax_cv_cxx_template_qualified_base_class=no])
+ AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_template_qualified_base_class" = yes; then
   AC_DEFINE(HAVE_TEMPLATE_QUALIFIED_BASE_CLASS,,

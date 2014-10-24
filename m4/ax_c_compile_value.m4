@@ -96,7 +96,7 @@ AC_DEFUN([AX_C_COMPILE_VALUE], [
                  ac_c_compile_value, [
     save_CFLAGS="$CFLAGS"
     CFLAGS="$CFLAGS -c -o conftest.o"
-    AC_TRY_COMPILE([$3
+    AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[$3
       #include <stddef.h>
       #include <stdint.h>
       #include <stdlib.h>
@@ -110,12 +110,9 @@ AC_DEFUN([AX_C_COMPILE_VALUE], [
         (char) HEX_DIGIT((COMPILE_VALUE / 16) % 16),
         (char) HEX_DIGIT(COMPILE_VALUE % 16),
         'Y', '3', 'p', 'M', '\n'
-      };],
-      [],
-      [ac_c_compile_value=`
+      };]], [[]])],[ac_c_compile_value=`
         typeset -i n=\`sed -ne 's/^e4VA0x\(.*\)Y3pM$/0x\1/p' < conftest.o\`;
-        echo $n`],
-      [ac_c_compile_value=0])
+        echo $n`],[ac_c_compile_value=0])
     CFLAGS="$save_CFLAGS"])
   AC_DEFINE_UNQUOTED(AC_TR_CPP_REUSE(compile_value_$2),
                      [$[]ac_c_compile_value],

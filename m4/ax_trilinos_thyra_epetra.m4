@@ -28,7 +28,8 @@ AC_DEFUN([AX_TRILINOS_THYRA_EPETRA],[
     AC_REQUIRE([AX_TRILINOS_EPETRA])
     AC_REQUIRE([AX_TRILINOS_THYRA])
     ax_trilinos_thyra_epetra=yes
-    AC_HAVE_LIBRARY([thyraepetra],[:],[ax_trilinos_thyra_epetra=no])
+    AC_CHECK_LIB([thyraepetra],[main],[:],[ax_trilinos_thyra_epetra=no],[])ac_cv_lib_thyraepetra=ac_cv_lib_thyraepetra_main
+
     if test "$ax_trilinos_thyra_epetra" = yes; then
         : # NOP
 		ifelse([$1],,,

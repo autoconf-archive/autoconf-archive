@@ -27,11 +27,12 @@ AU_ALIAS([AC_CXX_EXPLICIT_INSTANTIATIONS], [AX_CXX_EXPLICIT_INSTANTIATIONS])
 AC_DEFUN([AX_CXX_EXPLICIT_INSTANTIATIONS],
 [AC_CACHE_CHECK(whether the compiler supports explicit instantiations,
 ax_cv_cxx_explinst,
-[AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([template <class T> class A { T t; }; template class A<int>;],
- [], ax_cv_cxx_explinst=yes, ax_cv_cxx_explinst=no)
- AC_LANG_RESTORE
+[AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+ AC_LANG([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[template <class T> class A { T t; }; template class A<int>;]], [[]])],[ax_cv_cxx_explinst=yes],[ax_cv_cxx_explinst=no])
+ AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_explinst" = yes; then
   AC_DEFINE(HAVE_INSTANTIATIONS,,

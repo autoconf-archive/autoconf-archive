@@ -35,6 +35,9 @@
 /configure.scan
 /autoscan.log
 
+# other logfiles:
+*.log
+
 # these need to go last, or else gnulib-tool will keep adding them
 # at the end anyways, regardless of how many times they appear above:
 /GNUmakefile

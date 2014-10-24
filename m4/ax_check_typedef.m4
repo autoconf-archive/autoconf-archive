@@ -56,10 +56,7 @@ ac_lib_var=`echo $1['_']$2 | sed 'y%./+-%__p_%'`
 AC_CACHE_VAL(ac_cv_lib_$ac_lib_var,
 [ eval "ac_cv_type_$ac_lib_var='not-found'"
   ac_cv_check_typedef_header=`echo ifelse([$2], , stddef.h, $2)`
-  AC_TRY_COMPILE( [#include <$ac_cv_check_typedef_header>],
-	[int x = sizeof($1); x = x;],
-        eval "ac_cv_type_$ac_lib_var=yes" ,
-        eval "ac_cv_type_$ac_lib_var=no" )
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <$ac_cv_check_typedef_header>]], [[int x = sizeof($1); x = x;]])],[eval "ac_cv_type_$ac_lib_var=yes" ],[eval "ac_cv_type_$ac_lib_var=no" ])
   if test `eval echo '$ac_cv_type_'$ac_lib_var` = "no" ; then
      ifelse([$4], , :, $4)
   else

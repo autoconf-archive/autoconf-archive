@@ -58,7 +58,7 @@
 #serial 3
 
 AC_DEFUN([AX_CHECK_PREPROC_FLAG],
-[AC_PREREQ(2.59)dnl for _AC_LANG_PREFIX
+[AC_PREREQ([2.69])dnl for _AC_LANG_PREFIX
 AS_VAR_PUSHDEF([CACHEVAR],[ax_cv_check_[]_AC_LANG_ABBREV[]cppflags_$4_$1])dnl
 AC_CACHE_CHECK([whether _AC_LANG preprocessor accepts $1], CACHEVAR, [
   ax_check_save_flags=$CPPFLAGS

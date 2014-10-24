@@ -40,12 +40,12 @@ elif test "x$4" = "xno"; then
 else
   defineit="$4"
 fi
-AC_TRY_COMPILE([
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 $1
-],[
+]], [[
 struct $2 testit;
 testit.$3 $defineit;
-], eval "${ac_safe_all}=yes", eval "${ac_safe_all}=no" )
+]])],[eval "${ac_safe_all}=yes"],[eval "${ac_safe_all}=no" ])
 ])
 
 if eval "test \"x$`echo ${ac_safe_all}`\" = \"xyes\""; then

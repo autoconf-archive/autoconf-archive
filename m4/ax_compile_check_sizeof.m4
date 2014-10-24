@@ -24,7 +24,7 @@
 #
 #     switch (0) case 0: case 0:;
 #
-#   Thus, the AC_TRY_COMPILE will fail if the currently tried size does not
+#   Thus, the AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]], [[]])],[],[]) will fail if the currently tried size does not
 #   match.
 #
 #   Here is an example skeleton configure.in script, demonstrating the
@@ -97,10 +97,10 @@ changequote([, ])dnl
 AC_MSG_CHECKING(size of $1)
 AC_CACHE_VAL(AC_CV_NAME,
 [for ac_size in 4 8 1 2 16 $3 ; do # List sizes in rough order of prevalence.
-  AC_TRY_COMPILE([#include "confdefs.h"
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include "confdefs.h"
 #include <sys/types.h>
 $2
-], [switch (0) case 0: case (sizeof ($1) == $ac_size):;], AC_CV_NAME=$ac_size)
+]], [[switch (0) case 0: case (sizeof ($1) == $ac_size):;]])],[AC_CV_NAME=$ac_size],[])
   if test x$AC_CV_NAME != x ; then break; fi
 done
 ])

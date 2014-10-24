@@ -28,7 +28,8 @@
 AC_DEFUN([AX_TRILINOS_AMESOS],[
     AC_REQUIRE([AX_TRILINOS_BASE])
     ax_trilinos_amesos=yes
-    AC_HAVE_LIBRARY([amesos],[:],[ax_trilinos_amesos=no])
+    AC_CHECK_LIB([amesos],[main],[:],[ax_trilinos_amesos=no],[])ac_cv_lib_amesos=ac_cv_lib_amesos_main
+
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([amesos.macros],[ax_trilinos_amesos=no])
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([amesos],[ax_trilinos_amesos=no])
     if test "$ax_trilinos_amesos" = yes; then

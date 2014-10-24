@@ -29,15 +29,16 @@ AU_ALIAS([AC_CXX_BOOL], [AX_CXX_BOOL])
 AC_DEFUN([AX_CXX_BOOL],
 [AC_CACHE_CHECK(whether the compiler recognizes bool as a built-in type,
 ax_cv_cxx_bool,
-[AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([
+[AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+ AC_LANG([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 int f(int  x){return 1;}
 int f(char x){return 1;}
 int f(bool x){return 1;}
-],[bool b = true; return f(b);],
- ax_cv_cxx_bool=yes, ax_cv_cxx_bool=no)
- AC_LANG_RESTORE
+]], [[bool b = true; return f(b);]])],[ax_cv_cxx_bool=yes],[ax_cv_cxx_bool=no])
+ AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_bool" = yes; then
   AC_DEFINE(HAVE_BOOL,,[define if bool is a built-in type])

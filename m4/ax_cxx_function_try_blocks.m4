@@ -52,13 +52,12 @@ AC_MSG_CHECKING(whether ${CXX} supports function try blocks)
 changequote([,])dnl
 AC_CACHE_VAL(ax_cv_have_function_try_blocks,
 [
+AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
 AC_LANG_SAVE
-AC_LANG_CPLUSPLUS
-AC_TRY_COMPILE([void foo() try{} catch( ... ){}],
-[foo();],
-ax_cv_have_function_try_blocks=yes,
-ax_cv_have_function_try_blocks=no)
-AC_LANG_RESTORE
+AC_LANG([C++])
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[void foo() try{} catch( ... ){}]], [[foo();]])],[ax_cv_have_function_try_blocks=yes],[ax_cv_have_function_try_blocks=no])
+AC_LANG_POP([])
 ])
 AC_MSG_RESULT($ax_cv_have_function_try_blocks)
 if test "$ax_cv_have_function_try_blocks" = yes; then

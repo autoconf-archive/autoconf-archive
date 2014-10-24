@@ -28,7 +28,8 @@
 AC_DEFUN([AX_TRILINOS_EPETRAEXT],[
     AC_REQUIRE([AX_TRILINOS_BASE])
     ax_trilinos_epetraext=yes
-    AC_HAVE_LIBRARY([epetraext],[:],[ax_trilinos_epetraext=no])
+    AC_CHECK_LIB([epetraext],[main],[:],[ax_trilinos_epetraext=no],[])ac_cv_lib_epetraext=ac_cv_lib_epetraext_main
+
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([epetraext.macros],[ax_trilinos_epetraext=no])
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([epetraext],[ax_trilinos_epetraext=no])
     if test "$ax_trilinos_epetraext" = yes; then

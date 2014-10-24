@@ -51,17 +51,14 @@ AU_ALIAS([CF_EBCDIC], [AX_CF_EBCDIC])
 AC_DEFUN([AX_CF_EBCDIC],[
 AC_MSG_CHECKING(if character set is EBCDIC)
 AC_CACHE_VAL(cf_cv_ebcdic,[
-        AC_TRY_COMPILE([ ],
-[ /* TryCompile function for CharSet.
+        AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[ ]], [[ /* TryCompile function for CharSet.
    Treat any failure as ASCII for compatibility with existing art.
    Use compile-time rather than run-time tests for cross-compiler
    tolerance.  */
 #if '0'!=240
 make an error "Character set is not EBCDIC"
-#endif ],
-[ # TryCompile action if true
-cf_cv_ebcdic=yes ],
-[ # TryCompile action if false
+#endif ]])],[ # TryCompile action if true
+cf_cv_ebcdic=yes ],[ # TryCompile action if false
 cf_cv_ebcdic=no])
 # end of TryCompile ])
 # end of CacheVal CvEbcdic

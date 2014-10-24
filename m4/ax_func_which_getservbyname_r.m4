@@ -56,9 +56,9 @@ AU_ALIAS([AC_RAF_FUNC_WHICH_GETSERVBYNAME_R], [AX_FUNC_WHICH_GETSERVBYNAME_R])
 AC_DEFUN([AX_FUNC_WHICH_GETSERVBYNAME_R],
 [AC_CACHE_CHECK(for getservbyname_r, ax_cv_func_which_getservbyname_r, [
 AC_CHECK_FUNC(getservbyname_r, [
-        AC_TRY_COMPILE([
+        AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 #               include <netdb.h>
-        ],      [
+        ]], [[
 
         char *name;
         char *proto;
@@ -66,9 +66,8 @@ AC_CHECK_FUNC(getservbyname_r, [
         struct servent_data data;
         (void) getservbyname_r(name, proto, se, &data);
 
-                ],ax_cv_func_which_getservbyname_r=four,
-                        [
-  AC_TRY_COMPILE([
+                ]])],[ax_cv_func_which_getservbyname_r=four],[
+  _au_m4_changequote([,])AC_TRY_COMPILE([
 #   include <netdb.h>
   ], [
         char *name;
@@ -80,7 +79,7 @@ AC_CHECK_FUNC(getservbyname_r, [
   ],ax_cv_func_which_getservbyname_r=six,
 
   [
-  AC_TRY_COMPILE([
+  _au_m4_changequote([,])AC_TRY_COMPILE([
 #   include <netdb.h>
   ], [
         char *name;
@@ -94,8 +93,8 @@ AC_CHECK_FUNC(getservbyname_r, [
   ]
 
   )
-                        ]
-                )]
+                        
+                ])]
         ,ax_cv_func_which_getservbyname_r=no)])
 
 if test $ax_cv_func_which_getservbyname_r = six; then

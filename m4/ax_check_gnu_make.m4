@@ -30,7 +30,8 @@
 #   Then configure.in would normally contain:
 #
 #     AX_CHECK_GNU_MAKE()
-#     AC_OUTPUT(Makefile)
+#     AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
 #
 #   Then perhaps to cause gnu make to override any other make, we could do
 #   something like this (note that GNU make always looks for GNUmakefile

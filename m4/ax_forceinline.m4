@@ -33,17 +33,13 @@ AC_DEFUN([AX_FORCEINLINE], [
        case $ax_forceinline_keyword in
           none) ac_cv_forceinline=none ; break ;;
       *)
-             AC_TRY_COMPILE(
-                [#include <stdlib.h>
-                 ] $ax_forceinline_keyword [
+             AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <stdlib.h>
+                  $ax_forceinline_keyword 
                  static void
                  foo(void) {
                  exit(1);
-                 }],
-                 [],
-                 [ac_cv_forceinline=$ax_forceinline_keyword ; break],
-                 ac_cv_forceinline=none
-             )
+                 }]], [[]])],[ac_cv_forceinline=$ax_forceinline_keyword ; break],[ac_cv_forceinline=none
+             ])
       esac
     done
 ])

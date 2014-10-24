@@ -57,14 +57,15 @@ AC_DEFUN([AX_CXX_HAVE_EXT_HASH_SET],
 [AC_CACHE_CHECK(whether the compiler has ext/hash_set,
 ax_cv_cxx_have_ext_hash_set,
 [AC_REQUIRE([AX_CXX_NAMESPACES])
-  AC_LANG_SAVE
-  AC_LANG_CPLUSPLUS
-  AC_TRY_COMPILE([#include <ext/hash_set>
+  AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+  AC_LANG([C++])
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <ext/hash_set>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif],[hash_set<int> t; return 0;],
-  ax_cv_cxx_have_ext_hash_set=yes, ax_cv_cxx_have_ext_hash_set=no)
-  AC_LANG_RESTORE
+#endif]], [[hash_set<int> t; return 0;]])],[ax_cv_cxx_have_ext_hash_set=yes],[ax_cv_cxx_have_ext_hash_set=no])
+  AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_have_ext_hash_set" = yes; then
    AC_DEFINE(HAVE_EXT_HASH_SET,,[define if the compiler has ext/hash_set])

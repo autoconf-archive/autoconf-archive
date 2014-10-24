@@ -27,14 +27,15 @@ AU_ALIAS([AC_CXX_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION], [AX_CXX_EXPLICIT_TEM
 AC_DEFUN([AX_CXX_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION],
 [AC_CACHE_CHECK(whether the compiler supports explicit template function qualification,
 ax_cv_cxx_explicit_template_function_qualification,
-[AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([
+[AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+ AC_LANG([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 template<class Z> class A { public : A() {} };
 template<class X, class Y> A<X> to (const A<Y>&) { return A<X>(); }
-],[A<float> x; A<double> y = to<double>(x); return 0;],
- ax_cv_cxx_explicit_template_function_qualification=yes, ax_cv_cxx_explicit_template_function_qualification=no)
- AC_LANG_RESTORE
+]], [[A<float> x; A<double> y = to<double>(x); return 0;]])],[ax_cv_cxx_explicit_template_function_qualification=yes],[ax_cv_cxx_explicit_template_function_qualification=no])
+ AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_explicit_template_function_qualification" = yes; then
   AC_DEFINE(HAVE_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION,,

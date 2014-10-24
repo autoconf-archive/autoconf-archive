@@ -27,14 +27,15 @@ AC_DEFUN([AX_CXX_HAVE_VALARRAY],
 [AC_CACHE_CHECK(whether the compiler has valarray<T>,
 ax_cv_cxx_have_valarray,
 [AC_REQUIRE([AX_CXX_NAMESPACES])
- AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([#include <valarray>
+ AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+ AC_LANG([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <valarray>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif],[valarray<float> x(100); return 0;],
- ax_cv_cxx_have_valarray=yes, ax_cv_cxx_have_valarray=no)
- AC_LANG_RESTORE
+#endif]], [[valarray<float> x(100); return 0;]])],[ax_cv_cxx_have_valarray=yes],[ax_cv_cxx_have_valarray=no])
+ AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_have_valarray" = yes; then
   AC_DEFINE(HAVE_VALARRAY,,[define if the compiler has valarray<T>])

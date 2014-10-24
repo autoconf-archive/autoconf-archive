@@ -28,9 +28,11 @@ AC_DEFUN([AX_CXX_TEMPLATE_QUALIFIED_RETURN_TYPE],
 [AC_CACHE_CHECK(whether the compiler supports template-qualified return types,
 ax_cv_cxx_template_qualified_return_type,
 [AC_REQUIRE([AX_CXX_TYPENAME])
- AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([
+ AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+ AC_LANG([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 #ifndef HAVE_TYPENAME
  #define typename
 #endif
@@ -40,9 +42,8 @@ template<class T> class A { public : A () {} };
 template<class X, class Y>
 A<typename promote_trait<X,Y>::T> operator+ (const A<X>&, const A<Y>&)
 { return A<typename promote_trait<X,Y>::T>(); }
-],[A<int> x; A<float> y; A<float> z = x + y; return 0;],
- ax_cv_cxx_template_qualified_return_type=yes, ax_cv_cxx_template_qualified_return_type=no)
- AC_LANG_RESTORE
+]], [[A<int> x; A<float> y; A<float> z = x + y; return 0;]])],[ax_cv_cxx_template_qualified_return_type=yes],[ax_cv_cxx_template_qualified_return_type=no])
+ AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_template_qualified_return_type" = yes; then
   AC_DEFINE(HAVE_TEMPLATE_QUALIFIED_RETURN_TYPE,,

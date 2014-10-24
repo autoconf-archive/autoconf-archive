@@ -30,7 +30,7 @@ AC_REQUIRE([AC_PROG_CPP])dnl
 AC_PATH_PROG(JAVAH,javah)
 AS_IF([test -n "$ac_cv_path_JAVAH"],
       [
-        AC_TRY_CPP([#include <jni.h>],,[
+        AC_PREPROC_IFELSE([AC_LANG_SOURCE([[#include <jni.h>]])],[],[
         ac_save_CPPFLAGS="$CPPFLAGS"
         ax_prog_javah_bin_dir=`AS_DIRNAME([$ac_cv_path_JAVAH])`
         ac_dir="`AS_DIRNAME([$ax_prog_javah_bin])`/include"
@@ -39,7 +39,7 @@ AS_IF([test -n "$ac_cv_path_JAVAH"],
                 [ac_machdep=win32],
                 [ac_machdep=`AS_ECHO($build_os) | sed 's,[[-0-9]].*,,'`])
         CPPFLAGS="$ac_save_CPPFLAGS -I$ac_dir -I$ac_dir/$ac_machdep"
-        AC_TRY_CPP([#include <jni.h>],
+        _au_m4_changequote([,])AC_TRY_CPP([#include <jni.h>],
                    ac_save_CPPFLAGS="$CPPFLAGS",
                    AC_MSG_WARN([unable to include <jni.h>]))
         CPPFLAGS="$ac_save_CPPFLAGS"])

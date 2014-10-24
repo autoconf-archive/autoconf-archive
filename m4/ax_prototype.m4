@@ -12,7 +12,7 @@
 #   <code>. <TAG1>, <TAG2>, ... are substituted in <code> and <include> with
 #   values found in <values1>, <values2>, ... respectively. <values1>,
 #   <values2>, ... contain a list of possible values for each corresponding
-#   tag and all combinations are tested. When AC_TRY_COMPILE(include, code)
+#   tag and all combinations are tested. When AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[include]], [[code]])],[],[])
 #   is successfull for a given substitution, the macro stops and defines the
 #   following macros: FUNCTION_TAG1, FUNCTION_TAG2, ... using AC_DEFINE()
 #   with values set to the current values of <TAG1>, <TAG2>, ... If no
@@ -202,7 +202,7 @@ dnl AX_PROTOTYPE_LOOP([tag, values, [tag, values ...]], code, include, function)
 dnl
 dnl If there is a tag/values pair, call AX_PROTOTYPE_EACH with it.
 dnl If there is no tag/values pair left, tries to compile the code and include
-dnl using AC_TRY_COMPILE. If it compiles, AC_DEFINE all the tags to their
+dnl using AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]], [[]])],[],[]). If it compiles, AC_DEFINE all the tags to their
 dnl current value and exit with success.
 dnl
 AC_DEFUN([AX_PROTOTYPE_LOOP],[
@@ -219,12 +219,12 @@ dnl
      ac_save_CPPFLAGS="$CPPFLAGS"
      ifelse(AC_LANG,CPLUSPLUS,if test "$GXX" = "yes" ; then CPPFLAGS="$CPPFLAGS -Werror" ; fi)
      ifelse(AC_LANG,C,if test "$GCC" = "yes" ; then CPPFLAGS="$CPPFLAGS -Werror" ; fi)
-     AC_TRY_COMPILE($2, $1, [
+     AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[$2]], [[$1]])],[
       CPPFLAGS="$ac_save_CPPFLAGS"
       AC_MSG_RESULT(ok)
       AX_PROTOTYPE_DEFINES(tags)
       break;
-     ], [
+     ],[
       CPPFLAGS="$ac_save_CPPFLAGS"
       AC_MSG_RESULT(not ok)
      ])

@@ -173,14 +173,11 @@ AC_CACHE_VAL([ac_cv_header_stdint_t],[
 old_CXXFLAGS="$CXXFLAGS" ; CXXFLAGS=""
 old_CPPFLAGS="$CPPFLAGS" ; CPPFLAGS=""
 old_CFLAGS="$CFLAGS"     ; CFLAGS=""
-AC_TRY_COMPILE([#include <stdint.h>],[int_least32_t v = 0;],
-[ac_cv_stdint_result="(assuming C99 compatible system)"
- ac_cv_header_stdint_t="stdint.h"; ],
-[ac_cv_header_stdint_t=""])
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <stdint.h>]], [[int_least32_t v = 0;]])],[ac_cv_stdint_result="(assuming C99 compatible system)"
+ ac_cv_header_stdint_t="stdint.h"; ],[ac_cv_header_stdint_t=""])
 if test "$GCC" = "yes" && test ".$ac_cv_header_stdint_t" = "."; then
 CFLAGS="-std=c99"
-AC_TRY_COMPILE([#include <stdint.h>],[int_least32_t v = 0;],
-[AC_MSG_WARN(your GCC compiler has a defunct stdint.h for its default-mode)])
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <stdint.h>]], [[int_least32_t v = 0;]])],[AC_MSG_WARN(your GCC compiler has a defunct stdint.h for its default-mode)],[])
 fi
 CXXFLAGS="$old_CXXFLAGS"
 CPPFLAGS="$old_CPPFLAGS"

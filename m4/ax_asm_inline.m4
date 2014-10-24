@@ -33,17 +33,13 @@ AC_DEFUN([AX_ASM_INLINE], [
        case $ax_asm_inline_keyword in
           none) ac_cv_asm_inline=none ; break ;;
       *)
-             AC_TRY_COMPILE(
-                [#include <stdlib.h>
+             AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <stdlib.h>
                  static void
                  foo(void) {
-                 ] $ax_asm_inline_keyword [("");
+                  $ax_asm_inline_keyword ("");
                  exit(1);
-                 }],
-                 [],
-                 [ac_cv_asm_inline=$ax_asm_inline_keyword ; break],
-                 ac_cv_asm_inline=none
-             )
+                 }]], [[]])],[ac_cv_asm_inline=$ax_asm_inline_keyword ; break],[ac_cv_asm_inline=none
+             ])
       esac
     done
 ])

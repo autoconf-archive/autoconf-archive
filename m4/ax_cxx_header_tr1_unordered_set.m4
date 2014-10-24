@@ -26,11 +26,12 @@ AU_ALIAS([AC_CXX_HEADER_TR1_UNORDERED_SET], [AX_CXX_HEADER_TR1_UNORDERED_SET])
 AC_DEFUN([AX_CXX_HEADER_TR1_UNORDERED_SET], [
   AC_CACHE_CHECK(for tr1/unordered_set,
   ax_cv_cxx_tr1_unordered_set,
-  [AC_LANG_SAVE
-  AC_LANG_CPLUSPLUS
-  AC_TRY_COMPILE([#include <tr1/unordered_set>], [using std::tr1::unordered_set;],
-  ax_cv_cxx_tr1_unordered_set=yes, ax_cv_cxx_tr1_unordered_set=no)
-  AC_LANG_RESTORE
+  [AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+  AC_LANG([C++])
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <tr1/unordered_set>]], [[using std::tr1::unordered_set;]])],[ax_cv_cxx_tr1_unordered_set=yes],[ax_cv_cxx_tr1_unordered_set=no])
+  AC_LANG_POP([])
   ])
   if test "$ax_cv_cxx_tr1_unordered_set" = yes; then
     AC_DEFINE(HAVE_TR1_UNORDERED_SET,,[Define if tr1/unordered_set is present. ])

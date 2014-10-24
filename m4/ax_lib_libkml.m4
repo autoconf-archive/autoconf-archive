@@ -47,9 +47,8 @@
 AC_DEFUN([AX_LIB_LIBKML],
 [
     AC_ARG_WITH([libkml],
-        AC_HELP_STRING([--with-libkml=@<:@ARG@:>@],
-            [use Google libkml from given prefix (ARG=path); check standard prefixes (ARG=yes); disable (ARG=no)]
-        ),
+        AS_HELP_STRING([--with-libkml=@<:@ARG@:>@],[use Google libkml from given prefix (ARG=path); check standard prefixes (ARG=yes); disable (ARG=no)
+        ]),
         [
         if test "$withval" = "yes"; then
             if test -d /usr/local/include/kml ; then
@@ -81,16 +80,14 @@ AC_DEFUN([AX_LIB_LIBKML],
     )
 
     AC_ARG_WITH([libkml-inc],
-        AC_HELP_STRING([--with-libkml-inc=@<:@DIR@:>@],
-            [path to Google libkml headers]
-        ),
+        AS_HELP_STRING([--with-libkml-inc=@<:@DIR@:>@],[path to Google libkml headers
+        ]),
         [libkml_include_dir="$withval"],
         [libkml_include_dir=""]
     )
     AC_ARG_WITH([libkml-lib],
-        AC_HELP_STRING([--with-libkml-lib=@<:@ARG@:>@],
-            [link options for Google libkml libraries]
-        ),
+        AS_HELP_STRING([--with-libkml-lib=@<:@ARG@:>@],[link options for Google libkml libraries
+        ]),
         [libkml_lib_flags="$withval"],
         [libkml_lib_flags=""]
     )

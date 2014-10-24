@@ -122,11 +122,13 @@ if test -n "${TABIX_HOME}" ; then
         TABIX_OLD_CPPFLAGS=$LDFLAGS
         LDFLAGS="$LDFLAGS ${TABIX_LIBDIR}"
         CPPFLAGS="$CPPFLAGS ${TABIX_INCDIR}"
-        AC_LANG_SAVE
-        AC_LANG_C
+        AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+        AC_LANG([C])
         AC_CHECK_HEADER([tabix.h], [ac_cv_tabix_h=yes], [ac_cv_tabix_h=no])
         AC_CHECK_LIB([tabix],[ti_open],[ac_cv_libtabix=yes],[ac_cv_libtabix=no])
-        AC_LANG_RESTORE
+        AC_LANG_POP([])
         if test "$ac_cv_libtabix" = "yes" && \
            test "$ac_cv_tabix_h"  = "yes" ; then
                 #

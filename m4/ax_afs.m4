@@ -55,10 +55,7 @@ AC_MAX_CHECKING([whether the specified AFS dir looks valid])
 if test "x${ax_cv_afsdir_link_works:-set}" != "x$ax_cv_with_afsdir"; then
         save_LIBS="$LIBS"
         LIBS="$save_LIBS -lcmd"
-        AC_TRY_LINK([#include <afs/cmd.h>],
-                [cmd_CreateAlias((struct cmd_syndesc *)0, "foo")],
-                ax_cv_afsdir_link_works=$ax_cv_with_afsdir,
-                ax_cv_afsdir_link_works=_FAILED_)
+        AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <afs/cmd.h>]], [[cmd_CreateAlias((struct cmd_syndesc *)0, "foo")]])],[ax_cv_afsdir_link_works=$ax_cv_with_afsdir],[ax_cv_afsdir_link_works=_FAILED_])
         LIBS="$save_LIBS"
         wasCached=""
 else

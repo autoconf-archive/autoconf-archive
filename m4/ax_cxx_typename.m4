@@ -26,12 +26,12 @@ AU_ALIAS([AC_CXX_TYPENAME], [AX_CXX_TYPENAME])
 AC_DEFUN([AX_CXX_TYPENAME],
 [AC_CACHE_CHECK(whether the compiler recognizes typename,
 ax_cv_cxx_typename,
-[AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([template<typename T>class X {public:X(){}};],
-[X<float> z; return 0;],
- ax_cv_cxx_typename=yes, ax_cv_cxx_typename=no)
- AC_LANG_RESTORE
+[AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+ AC_LANG([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[template<typename T>class X {public:X(){}};]], [[X<float> z; return 0;]])],[ax_cv_cxx_typename=yes],[ax_cv_cxx_typename=no])
+ AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_typename" = yes; then
   AC_DEFINE(HAVE_TYPENAME,,[define if the compiler recognizes typename])

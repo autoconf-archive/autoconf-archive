@@ -27,9 +27,11 @@ AU_ALIAS([AC_CXX_ENUM_COMPUTATIONS_WITH_CAST], [AX_CXX_ENUM_COMPUTATIONS_WITH_CA
 AC_DEFUN([AX_CXX_ENUM_COMPUTATIONS_WITH_CAST],
 [AC_CACHE_CHECK(whether the compiler handles (int) casts in enum computations,
 ax_cv_cxx_enum_computations_with_cast,
-[AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([
+[AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+ AC_LANG([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 struct A { enum { a = 5, b = 7, c = 2 }; };
 struct B { enum { a = 1, b = 6, c = 9 }; };
 template<class T1, class T2> struct Z
@@ -37,12 +39,11 @@ template<class T1, class T2> struct Z
          b = (int)T1::b + (int)T2::b,
          c = ((int)T1::c * (int)T2::c + (int)T2::a + (int)T1::a)
        };
-};],[
+};]], [[
 return (((int)Z<A,B>::a == 5)
      && ((int)Z<A,B>::b == 13)
-     && ((int)Z<A,B>::c == 24)) ? 0 : 1;],
- ax_cv_cxx_enum_computations_with_cast=yes, ax_cv_cxx_enum_computations_with_cast=no)
- AC_LANG_RESTORE
+     && ((int)Z<A,B>::c == 24)) ? 0 : 1;]])],[ax_cv_cxx_enum_computations_with_cast=yes],[ax_cv_cxx_enum_computations_with_cast=no])
+ AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_enum_computations_with_cast" = yes; then
   AC_DEFINE(HAVE_ENUM_COMPUTATIONS_WITH_CAST,,

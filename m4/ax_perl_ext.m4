@@ -26,7 +26,7 @@
 #
 #     AX_PERL_EXT
 #     if test x"$PERL" = x; then
-#        AC_ERROR(["cannot find Perl"])
+#        AC_MSG_ERROR("cannot find Perl")
 #     fi
 #
 # LICENSE

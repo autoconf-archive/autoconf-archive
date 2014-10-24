@@ -49,23 +49,22 @@ AU_ALIAS([AC_CHECK_FUNC_IN],[AX_CHECK_FUNC_IN])
 AC_DEFUN([AX_CHECK_FUNC_IN],
 [AC_MSG_CHECKING([for $2 in $1])
 AC_CACHE_VAL([ac_cv_func_$2],
-[AC_TRY_LINK(
-dnl# Do NOT include <ctype.h> because on OSF/1 3.0 it includes <sys/types.h>
+[AC_LINK_IFELSE([AC_LANG_PROGRAM([[dnl# Do NOT include <ctype.h> because on OSF/1 3.0 it includes <sys/types.h>
 dnl# which includes <sys/select.h> which contains a prototype for
 dnl# select.  Similarly for bzero.
-[/* System header to define __stub macros and hopefully few prototypes,
+/* System header to define __stub macros and hopefully few prototypes,
   * which can conflict with char $2(); below.  */
 #include <assert.h>
 #include <$1>
 /* Override any gcc2 internal prototype to avoid an error.  */
-]ifelse([AC_LANG],[CPLUSPLUS],[#ifdef __cplusplus
+ifelse(AC_LANG,CPLUSPLUS,#ifdef __cplusplus
 extern "C"
 #endif /* __cplusplus */
-])dnl
-[/* We use char because int might match the return type of a gcc2
+)dnl
+/* We use char because int might match the return type of a gcc2
   * builtin and then its argument prototype would still apply.  */
 char $2();
-],[
+]], [[
 /* The GNU C library defines this for functions which it implements
  * to always fail with ENOSYS.  Some functions are actually named
  * something starting with __ and the normal name is an alias.  */
@@ -74,7 +73,7 @@ choke me
 #else
 $2();
 #endif
-],[eval "ac_cv_func_$2=yes"],[eval "ac_cv_func_$2=no"])])
+]])],[eval "ac_cv_func_$2=yes"],[eval "ac_cv_func_$2=no"])])
 if eval "test \"`echo '$ac_cv_func_'$2`\" = yes"; then
   AC_MSG_RESULT([yes])
   ifelse([$3],[],[:],[$3])

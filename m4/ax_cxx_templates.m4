@@ -26,13 +26,14 @@ AU_ALIAS([AC_CXX_TEMPLATES], [AX_CXX_TEMPLATES])
 AC_DEFUN([AX_CXX_TEMPLATES],
 [AC_CACHE_CHECK(whether the compiler supports basic templates,
 ax_cv_cxx_templates,
-[AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([template<class T> class A {public:A(){}};
-template<class T> void f(const A<T>& ){}],[
-A<double> d; A<int> i; f(d); f(i); return 0;],
- ax_cv_cxx_templates=yes, ax_cv_cxx_templates=no)
- AC_LANG_RESTORE
+[AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+ AC_LANG([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[template<class T> class A {public:A(){}};
+template<class T> void f(const A<T>& ){}]], [[
+A<double> d; A<int> i; f(d); f(i); return 0;]])],[ax_cv_cxx_templates=yes],[ax_cv_cxx_templates=no])
+ AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_templates" = yes; then
   AC_DEFINE(HAVE_TEMPLATES,,[define if the compiler supports basic templates])

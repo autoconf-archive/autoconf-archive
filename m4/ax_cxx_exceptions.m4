@@ -27,11 +27,12 @@ AU_ALIAS([AC_CXX_EXCEPTIONS], [AX_CXX_EXCEPTIONS])
 AC_DEFUN([AX_CXX_EXCEPTIONS],
 [AC_CACHE_CHECK(whether the compiler supports exceptions,
 ax_cv_cxx_exceptions,
-[AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE(,[try { throw  1; } catch (int i) { return i; }],
- ax_cv_cxx_exceptions=yes, ax_cv_cxx_exceptions=no)
- AC_LANG_RESTORE
+[AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+ AC_LANG([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]], [[try { throw  1; } catch (int i) { return i; }]])],[ax_cv_cxx_exceptions=yes],[ax_cv_cxx_exceptions=no])
+ AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_exceptions" = yes; then
   AC_DEFINE(HAVE_EXCEPTIONS,,[define if the compiler supports exceptions])

@@ -55,18 +55,18 @@ AC_DEFUN([AX_C_BIGENDIAN_CROSS],
 [AC_CACHE_CHECK(whether byte ordering is bigendian, ac_cv_c_bigendian,
 [ac_cv_c_bigendian=unknown
 # See if sys/param.h defines the BYTE_ORDER macro.
-AC_TRY_COMPILE([#include <sys/types.h>
-#include <sys/param.h>], [
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <sys/types.h>
+#include <sys/param.h>]], [[
 #if !BYTE_ORDER || !BIG_ENDIAN || !LITTLE_ENDIAN
  bogus endian macros
-#endif], [# It does; now see whether it defined to BIG_ENDIAN or not.
-AC_TRY_COMPILE([#include <sys/types.h>
+#endif]])],[# It does; now see whether it defined to BIG_ENDIAN or not.
+_au_m4_changequote([,])AC_TRY_COMPILE([#include <sys/types.h>
 #include <sys/param.h>], [
 #if BYTE_ORDER != BIG_ENDIAN
  not big endian
-#endif], ac_cv_c_bigendian=yes, ac_cv_c_bigendian=no)])
+#endif], ac_cv_c_bigendian=yes, ac_cv_c_bigendian=no)],[])
 if test $ac_cv_c_bigendian = unknown; then
-AC_TRY_RUN([main () {
+AC_RUN_IFELSE([AC_LANG_SOURCE([[main () {
   /* Are we little or big endian?  From Harbison&Steele.  */
   union
   {
@@ -75,8 +75,7 @@ AC_TRY_RUN([main () {
   } u;
   u.l = 1;
   exit (u.c[sizeof (long) - 1] == 1);
-}], ac_cv_c_bigendian=no, ac_cv_c_bigendian=yes,
-[ echo $ac_n "cross-compiling... " 2>&AC_FD_MSG ])
+}]])],[ac_cv_c_bigendian=no],[ac_cv_c_bigendian=yes],[ echo $ac_n "cross-compiling... " 2>&_au_m4_changequote([,])AC_FD_MSG ])
 fi])
 if test $ac_cv_c_bigendian = unknown; then
 AC_MSG_CHECKING(to probe for byte ordering)
@@ -93,18 +92,18 @@ EOF
 ] if test -f conftest.c ; then
      if ${CC-cc} -c conftest.c -o conftest.o && test -f conftest.o ; then
         if test `grep -l BIGenDianSyS conftest.o` ; then
-           echo $ac_n ' big endian probe OK, ' 1>&AC_FD_MSG
+           echo $ac_n ' big endian probe OK, ' 1>&AS_MESSAGE_FD
 	   ac_cv_c_bigendian=yes
         fi
         if test `grep -l LiTTleEnDian conftest.o` ; then
-           echo $ac_n ' little endian probe OK, ' 1>&AC_FD_MSG
+           echo $ac_n ' little endian probe OK, ' 1>&AS_MESSAGE_FD
 	   if test $ac_cv_c_bigendian = yes ; then
 	    ac_cv_c_bigendian=unknown;
            else
             ac_cv_c_bigendian=no
            fi
         fi
-	echo $ac_n 'guessing bigendian ...  ' >&AC_FD_MSG
+	echo $ac_n 'guessing bigendian ...  ' >&AS_MESSAGE_FD
      fi
   fi
 AC_MSG_RESULT($ac_cv_c_bigendian)

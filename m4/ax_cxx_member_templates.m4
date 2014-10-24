@@ -26,15 +26,16 @@ AU_ALIAS([AC_CXX_MEMBER_TEMPLATES], [AX_CXX_MEMBER_TEMPLATES])
 AC_DEFUN([AX_CXX_MEMBER_TEMPLATES],
 [AC_CACHE_CHECK(whether the compiler supports member templates,
 ax_cv_cxx_member_templates,
-[AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([
+[AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+ AC_LANG([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 template<class T, int N> class A
 { public:
   template<int N2> A<T,N> operator=(const A<T,N2>& z) { return A<T,N>(); }
-};],[A<double,4> x; A<double,7> y; x = y; return 0;],
- ax_cv_cxx_member_templates=yes, ax_cv_cxx_member_templates=no)
- AC_LANG_RESTORE
+};]], [[A<double,4> x; A<double,7> y; x = y; return 0;]])],[ax_cv_cxx_member_templates=yes],[ax_cv_cxx_member_templates=no])
+ AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_member_templates" = yes; then
   AC_DEFINE(HAVE_MEMBER_TEMPLATES,,[define if the compiler supports member templates])

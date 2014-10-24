@@ -35,7 +35,7 @@
 #serial 16
 
 AC_DEFUN([AX_WITH_PROG],[
-    AC_PREREQ([2.61])
+    AC_PREREQ([2.69])
 
     pushdef([VARIABLE],$1)
     pushdef([EXECUTABLE],$2)

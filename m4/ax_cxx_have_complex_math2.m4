@@ -28,19 +28,20 @@ AC_DEFUN([AX_CXX_HAVE_COMPLEX_MATH2],
 [AC_CACHE_CHECK(whether the compiler has more complex math functions,
 ax_cv_cxx_have_complex_math2,
 [AC_REQUIRE([AX_CXX_NAMESPACES])
- AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
+ AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+ AC_LANG([C++])
  ac_save_LIBS="$LIBS"
  LIBS="$LIBS -lm"
- AC_TRY_LINK([#include <complex>
+ AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <complex>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif],[complex<double> x(1.0, 1.0), y(1.0, 1.0);
+#endif]], [[complex<double> x(1.0, 1.0), y(1.0, 1.0);
 acos(x); asin(x); atan(x); atan2(x,y); atan2(x, double(3.0));
-atan2(double(3.0), x); log10(x); return 0;],
- ax_cv_cxx_have_complex_math2=yes, ax_cv_cxx_have_complex_math2=no)
+atan2(double(3.0), x); log10(x); return 0;]])],[ax_cv_cxx_have_complex_math2=yes],[ax_cv_cxx_have_complex_math2=no])
  LIBS="$ac_save_LIBS"
- AC_LANG_RESTORE
+ AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_have_complex_math2" = yes; then
   AC_DEFINE(HAVE_COMPLEX_MATH2,,[define if the compiler has more complex math functions])

@@ -29,9 +29,11 @@ AU_ALIAS([AC_CXX_DTOR_AFTER_ATEXIT], [AX_CXX_DTOR_AFTER_ATEXIT])
 AC_DEFUN([AX_CXX_DTOR_AFTER_ATEXIT],
 [AC_CACHE_CHECK(whether the compiler calls global destructors after functions registered through atexit,
 ax_cv_cxx_dtor_after_atexit,
-[AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_RUN([
+[AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+ AC_LANG([C++])
+ AC_RUN_IFELSE([AC_LANG_SOURCE([[
 #include <unistd.h>
 #include <stdlib.h>
 
@@ -46,10 +48,8 @@ int main (int , char **)
   atexit (f);
   return 0;
 }
-],
- ax_cv_cxx_dtor_after_atexit=yes, ax_cv_cxx_dtor_after_atexit=yes=no,
- ax_cv_cxx_dtor_after_atexit=yes)
- AC_LANG_RESTORE
+]])],[ax_cv_cxx_dtor_after_atexit=yes],[ax_cv_cxx_dtor_after_atexit=yes=no],[ax_cv_cxx_dtor_after_atexit=yes])
+ AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_dtor_after_atexit" = yes; then
   AC_DEFINE(HAVE_DTOR_AFTER_ATEXIT,,

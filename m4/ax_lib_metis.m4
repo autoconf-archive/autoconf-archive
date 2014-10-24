@@ -84,15 +84,17 @@ AC_DEFUN([AX_LIB_METIS], [
 			CFLAGS="-I$with_metis/include"
 			LDFLAGS="-L$with_metis/lib"
 
-			AC_LANG_SAVE
-			AC_LANG_C
+			AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
+you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
+AC_LANG_SAVE
+			AC_LANG([C])
 
 			AC_CHECK_LIB(metis, METIS_PartMeshDual,
 				[metis_lib=yes], [metis_lib=yes], [-lm])
 			AC_CHECK_HEADER(metis.h, [metis_h=yes],
 				[metis_h=no], [/* check */])
 
-			AC_LANG_RESTORE
+			AC_LANG_POP([])
 
 			CFLAGS=$old_CFLAGS
 			LDFLAGS=$old_LDFLAGS
