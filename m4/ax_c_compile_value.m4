@@ -31,7 +31,7 @@
 #   produce a piece of configure script that will take the time proportional
 #   to the logarithm of the sought value.
 #
-#   Example of use in configure.in:
+#   Example of use in configure.ac:
 #
 #     AX_C_COMPILE_VALUE(sizeof(int), sizeof_int)
 #     AX_C_COMPILE_VALUE([sizeof(int[[543]])], sizeof_int543)
@@ -72,7 +72,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 6
 
 ## Portability defines that help interoperate with classic and modern autoconfs
 ifdef([AC_TR_SH],[

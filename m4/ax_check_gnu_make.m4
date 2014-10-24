@@ -27,11 +27,11 @@
 #     @ifGNUmake@ include $(DEPEND)
 #     @ifGNUmake@ endif
 #
-#   Then configure.in would normally contain:
+#   Then configure.ac would normally contain:
 #
 #     AX_CHECK_GNU_MAKE()
 #     AC_CONFIG_FILES([Makefile])
-AC_OUTPUT
+#     AC_OUTPUT
 #
 #   Then perhaps to cause gnu make to override any other make, we could do
 #   something like this (note that GNU make always looks for GNUmakefile
@@ -55,7 +55,7 @@ AC_OUTPUT
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 9
 
 AC_DEFUN([AX_CHECK_GNU_MAKE], [ AC_CACHE_CHECK( for GNU make,_cv_gnu_make_command,
                 _cv_gnu_make_command='' ;

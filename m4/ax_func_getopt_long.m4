@@ -50,7 +50,7 @@
 
 AU_ALIAS([ADL_FUNC_GETOPT_LONG], [AX_FUNC_GETOPT_LONG])
 AC_DEFUN([AX_FUNC_GETOPT_LONG],
- [AC_PREREQ([2.69])dnl
+ [AC_PREREQ([2.49])dnl
   # clean out junk possibly left behind by a previous configuration
   rm -f lib/getopt.h
   # Check for getopt_long support

@@ -19,15 +19,16 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 7
 
+AN_FUNCTION([strftime],[AX_CHECK_STRFTIME])
 AU_ALIAS([AG_CHECK_STRFTIME], [AX_CHECK_STRFTIME])
 AC_DEFUN([AX_CHECK_STRFTIME],[
   AC_MSG_CHECKING([whether strftime() works])
   AC_CACHE_VAL([ax_cv_strftime],[
   AC_RUN_IFELSE([AC_LANG_SOURCE([[#include <time.h>
-char t_buf[ 64 ];
-int main() {
+char t_buf[64];
+int main(void) {
   static const char z[] = "Thursday Aug 28 240";
   struct tm tm;
   tm.tm_sec   = 36;  /* seconds after the minute [0, 61]  */
@@ -39,9 +40,9 @@ int main() {
   tm.tm_wday  =  4;  /* days since Sunday [0, 6] */
   tm.tm_yday  = 239; /* days since January 1 [0, 365] */
   tm.tm_isdst =  1;  /* flag for daylight savings time */
-  strftime( t_buf, sizeof( t_buf ), "%A %b %d %j", &tm );
-  return (strcmp( t_buf, z ) != 0); }]])],[ax_cv_strftime=yes],[ax_cv_strftime=no],[ax_cv_strftime=no
-  ]) # end of TRY_RUN]) # end of CACHE_VAL
+  strftime(t_buf, sizeof(t_buf), "%A %b %d %j", &tm);
+  return (strcmp(t_buf, z) != 0); }]])],[ax_cv_strftime=yes],[ax_cv_strftime=no],[ax_cv_strftime=no
+  ]) # end of RUN_IFELSE]) # end of CACHE_VAL
 
   AC_MSG_RESULT([$ax_cv_strftime])
   if test x$ax_cv_strftime = xyes

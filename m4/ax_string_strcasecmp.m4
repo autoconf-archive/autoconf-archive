@@ -11,7 +11,7 @@
 #   This macro tries to find strcasecmp() in string.h.
 #
 #   Use this macro in conjunction with AX_STRINGS_STRCASECMP in your
-#   configure.in like so:
+#   configure.ac like so:
 #
 #     AX_STRING_STRCASECMP
 #     if test x"$ac_cv_string_strcasecmp" = "xno" ; then

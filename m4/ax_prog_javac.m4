@@ -14,7 +14,7 @@
 #
 #   If you want to force a specific compiler:
 #
-#   - at the configure.in level, set JAVAC=yourcompiler before calling
+#   - at the configure.ac level, set JAVAC=yourcompiler before calling
 #   AX_PROG_JAVAC
 #
 #   - at the configure level, setenv JAVAC
@@ -31,7 +31,7 @@
 #   It is VERY IMPORTANT that you download the whole set, some macros depend
 #   on other. Unfortunately, the autoconf archive does not support the
 #   concept of set of macros, so I had to break it for submission. The
-#   general documentation, as well as the sample configure.in, is included
+#   general documentation, as well as the sample configure.ac, is included
 #   in the AX_PROG_JAVA macro.
 #
 # LICENSE

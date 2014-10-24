@@ -62,14 +62,14 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 14
+#serial 16
 
 AU_ALIAS([CHECK_ZLIB], [AX_CHECK_ZLIB])
 AC_DEFUN([AX_CHECK_ZLIB],
 #
 # Handle user hints
 #
-[AC_MSG_CHECKING(if zlib is wanted)
+[AC_MSG_CHECKING([if zlib is wanted])
 zlib_places="/usr/local /usr /opt/local /sw"
 AC_ARG_WITH([zlib],
 [  --with-zlib=DIR         root directory path of zlib installation @<:@defaults to
@@ -108,10 +108,7 @@ then
         LDFLAGS="$LDFLAGS -L${ZLIB_HOME}/lib"
         CPPFLAGS="$CPPFLAGS -I${ZLIB_HOME}/include"
   fi
-  AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
-  AC_LANG([C])
+  AC_LANG_PUSH([C])
   AC_CHECK_LIB([z], [inflateEnd], [zlib_cv_libz=yes], [zlib_cv_libz=no])
   AC_CHECK_HEADER([zlib.h], [zlib_cv_zlib_h=yes], [zlib_cv_zlib_h=no])
   AC_LANG_POP([])

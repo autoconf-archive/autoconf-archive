@@ -74,7 +74,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 12
 
 AC_DEFUN([AX_CHECK_DATA_MODEL],[
    AC_CHECK_SIZEOF(char)
@@ -177,7 +177,7 @@ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <stdint.h>]], [[int_least32_t v = 
  ac_cv_header_stdint_t="stdint.h"; ],[ac_cv_header_stdint_t=""])
 if test "$GCC" = "yes" && test ".$ac_cv_header_stdint_t" = "."; then
 CFLAGS="-std=c99"
-AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <stdint.h>]], [[int_least32_t v = 0;]])],[AC_MSG_WARN(your GCC compiler has a defunct stdint.h for its default-mode)],[])
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <stdint.h>]], [[int_least32_t v = 0;]])],[AC_MSG_WARN([your GCC compiler has a defunct stdint.h for its default-mode])],[])
 fi
 CXXFLAGS="$old_CXXFLAGS"
 CPPFLAGS="$old_CPPFLAGS"

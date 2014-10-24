@@ -27,7 +27,7 @@
 #
 #   If you want to force a specific compiler:
 #
-#   - at the configure.in level, set JAVAC=yourcompiler before calling
+#   - at the configure.ac level, set JAVAC=yourcompiler before calling
 #   AX_JNI_INCLUDE_DIR
 #
 #   - at the configure level, setenv JAVAC

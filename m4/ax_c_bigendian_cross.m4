@@ -48,7 +48,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 7
 
 AU_ALIAS([AC_C_BIGENDIAN_CROSS], [AX_C_BIGENDIAN_CROSS])
 AC_DEFUN([AX_C_BIGENDIAN_CROSS],
@@ -60,11 +60,11 @@ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <sys/types.h>
 #if !BYTE_ORDER || !BIG_ENDIAN || !LITTLE_ENDIAN
  bogus endian macros
 #endif]])],[# It does; now see whether it defined to BIG_ENDIAN or not.
-_au_m4_changequote([,])AC_TRY_COMPILE([#include <sys/types.h>
-#include <sys/param.h>], [
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <sys/types.h>
+#include <sys/param.h>]], [[
 #if BYTE_ORDER != BIG_ENDIAN
  not big endian
-#endif], ac_cv_c_bigendian=yes, ac_cv_c_bigendian=no)],[])
+#endif]])],[ac_cv_c_bigendian=yes],[ac_cv_c_bigendian=no])],[])
 if test $ac_cv_c_bigendian = unknown; then
 AC_RUN_IFELSE([AC_LANG_SOURCE([[main () {
   /* Are we little or big endian?  From Harbison&Steele.  */
@@ -75,7 +75,7 @@ AC_RUN_IFELSE([AC_LANG_SOURCE([[main () {
   } u;
   u.l = 1;
   exit (u.c[sizeof (long) - 1] == 1);
-}]])],[ac_cv_c_bigendian=no],[ac_cv_c_bigendian=yes],[ echo $ac_n "cross-compiling... " 2>&_au_m4_changequote([,])AC_FD_MSG ])
+}]])],[ac_cv_c_bigendian=no],[ac_cv_c_bigendian=yes],[ echo $ac_n "cross-compiling... " 2>&AS_MESSAGE_FD ])
 fi])
 if test $ac_cv_c_bigendian = unknown; then
 AC_MSG_CHECKING(to probe for byte ordering)

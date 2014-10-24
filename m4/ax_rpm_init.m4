@@ -19,7 +19,7 @@
 #
 #   Required setup:
 #
-#   In configure.in:
+#   In configure.ac:
 #
 #     dnl For my rpm.m4 macros
 #     RPM_RELEASE=1
@@ -100,7 +100,7 @@
 #
 #     %build
 #     %GNUconfigure %{configure_args}
-#     # This is why we copy the CFLAGS to the CXXFLAGS in configure.in
+#     # This is why we copy the CFLAGS to the CXXFLAGS in configure.ac
 #     # CFLAGS="%{optflags}" CXXFLAGS="%{optflags}" ./configure %{_target_platform} --prefix=%{prefix}
 #     make
 #

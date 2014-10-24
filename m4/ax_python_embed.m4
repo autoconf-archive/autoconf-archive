@@ -42,7 +42,7 @@
 #   additional LDFLAGS for linking the application/shared library.
 #
 #   The following is an example of how to set up for python usage within
-#   your application in your configure.in:
+#   your application in your configure.ac:
 #
 #     AX_PYTHON_DEFAULT( )
 #     AX_PYTHON_ENABLE( )             # Optional

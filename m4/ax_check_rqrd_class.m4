@@ -9,7 +9,7 @@
 # DESCRIPTION
 #
 #   AX_CHECK_RQRD_CLASS tests the existence of a given Java class, either in
-#   a jar or in a '.class' file and fails if it doesn't exist. Its success
+#   a jar or in a '.class' file and fails if it does NOT exist. Its success
 #   or failure can depend on a proper setting of the CLASSPATH env.
 #   variable.
 #
@@ -17,7 +17,7 @@
 #   It is VERY IMPORTANT that you download the whole set, some macros depend
 #   on other. Unfortunately, the autoconf archive does not support the
 #   concept of set of macros, so I had to break it for submission. The
-#   general documentation, as well as the sample configure.in, is included
+#   general documentation, as well as the sample configure.ac, is included
 #   in the AX_PROG_JAVA macro.
 #
 # LICENSE
@@ -50,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_CHECK_RQRD_CLASS], [AX_CHECK_RQRD_CLASS])
 AC_DEFUN([AX_CHECK_RQRD_CLASS],[
@@ -59,4 +59,4 @@ AC_CHECK_CLASS($1)
 if test "$HAVE_LAST_CLASS" = "no"; then
         AC_MSG_ERROR([Required class $1 missing, exiting.])
 fi
-])
+])dnl

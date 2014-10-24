@@ -19,24 +19,25 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
+AN_FUNCTION([ctime],[AX_CHECK_ALLOCATED_CTIME])
 AU_ALIAS([AG_CHECK_ALLOCATED_CTIME], [AX_CHECK_ALLOCATED_CTIME])
 AC_DEFUN([AX_CHECK_ALLOCATED_CTIME],[
   AC_MSG_CHECKING([whether ctime() allocates memory for its result])
   AC_CACHE_VAL([ax_cv_allocated_ctime],[
   AC_RUN_IFELSE([AC_LANG_SOURCE([[#include <time.h>
-int main (int argc, char** argv) {
-   time_t  timeVal = time( (time_t*)NULL );
-   char*   pzTime  = ctime( &timeVal );
-   free( pzTime );
+int main(int argc, char** argv) {
+   time_t  timeVal = time((time_t*)NULL);
+   char*   pzTime  = ctime(&timeVal);
+   free(pzTime);
    return 0; }]])],[ax_cv_allocated_ctime=yes],[ax_cv_allocated_ctime=no],[ax_cv_allocated_ctime=no
-  ]) # end of TRY_RUN]) # end of CACHE_VAL
+  ]) # end of RUN_IFELSE]) # end of CACHE_VAL
 
   AC_MSG_RESULT([$ax_cv_allocated_ctime])
   if test x$ax_cv_allocated_ctime = xyes
   then
-    AC_DEFINE(HAVE_ALLOCATED_CTIME, 1,
+    AC_DEFINE([HAVE_ALLOCATED_CTIME],[1],
        [Define this if ctime() allocates memory for its result])
   fi
 ]) # end of AC_DEFUN of AX_CHECK_ALLOCATED_CTIME

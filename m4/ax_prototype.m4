@@ -26,13 +26,13 @@
 #
 #   Generic usage pattern:
 #
-#   1) add a call in configure.in
+#   1) add a call in configure.ac
 #
 #    AX_PROTOTYPE(...)
 #
 #   2) call autoheader to see which symbols are not covered
 #
-#   3) add the lines in acconfig.h
+#   3) add the lines in acconfig.h (warning: acconfig.h is deprecated)
 #
 #    /* Type of Nth argument of function */
 #    #undef FUNCTION_ARGN
@@ -41,7 +41,7 @@
 #
 #   Complete example:
 #
-#   1) configure.in
+#   1) configure.ac
 #
 #    AX_PROTOTYPE(getpeername,
 #    [

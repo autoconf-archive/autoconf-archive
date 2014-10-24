@@ -6,9 +6,9 @@ check-local: atconfig atlocal configure
 	./configure
 installcheck-local: atconfig atlocal
 
-CLEANFILES = .DS_Store
+CLEANFILES = .DS_Store configure
 
-DISTCLEANFILES = acinclude.m4 atconfig config.log config.status configure
+DISTCLEANFILES = acinclude.m4 atconfig config.log config.status
 
 distclean-local:
 	@rm -rf autom4te.cache || rmdir autom4te.cache

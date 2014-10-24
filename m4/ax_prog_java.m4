@@ -32,7 +32,7 @@
 #
 #   If you want to force a specific VM:
 #
-#   - at the configure.in level, set JAVA=yourvm before calling AX_PROG_JAVA
+#   - at the configure.ac level, set JAVA=yourvm before calling AX_PROG_JAVA
 #
 #     (but after AC_INIT)
 #
@@ -54,11 +54,11 @@
 #   A Web page, with a link to the latest CVS snapshot is at
 #   <http://www.internatif.org/bortzmeyer/autoconf-Java/>.
 #
-#   This is a sample configure.in Process this file with autoconf to produce
+#   This is a sample configure.ac Process this file with autoconf to produce
 #   a configure script.
 #
 #     AC_INIT
-AC_CONFIG_SRCDIR([UnTag.java])
+#     AC_CONFIG_SRCDIR([UnTag.java])
 #
 #     dnl Checks for programs.
 #     AC_CHECK_CLASSPATH
@@ -70,7 +70,7 @@ AC_CONFIG_SRCDIR([UnTag.java])
 #     AX_CHECK_RQRD_CLASS(com.jclark.xml.sax.Driver)
 #
 #     AC_CONFIG_FILES([Makefile])
-AC_OUTPUT
+#     AC_OUTPUT
 #
 # LICENSE
 #

@@ -55,17 +55,14 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 11
 
 AC_DEFUN([AX_CFLAGS_FORCE_C89],[dnl
 AS_VAR_PUSHDEF([FLAGS],[CFLAGS])dnl
 AS_VAR_PUSHDEF([VAR],[ac_cv_cflags_force_c89])dnl
 AC_CACHE_CHECK([m4_ifval($1,$1,FLAGS) for C89 mode],
 VAR,[VAR="no, unknown"
- AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
- AC_LANG([C])
+ AC_LANG_PUSH([C])
  ac_save_[]FLAGS="$[]FLAGS"
 for ac_arg dnl
 in "-pedantic  % -ansi -pedantic"             dnl GCC

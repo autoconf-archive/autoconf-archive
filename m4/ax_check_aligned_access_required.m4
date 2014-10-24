@@ -49,7 +49,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 9
 
 AC_DEFUN([AX_CHECK_ALIGNED_ACCESS_REQUIRED],
 [AC_CACHE_CHECK([if pointers to integers require aligned access],
@@ -58,11 +58,15 @@ AC_DEFUN([AX_CHECK_ALIGNED_ACCESS_REQUIRED],
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
+int main(void)
 {
+#ifdef __cplusplus
+  char* string = (char *)malloc(40);
+#else
   char* string = malloc(40);
+#endif /* __cplusplus */
   int i;
-  for (i=0; i < 40; i++) string[[i]] = i;
+  for (i=0; i < 40; i++) string[i] = i;
   {
      void* s = string;
      int* p = s+1;

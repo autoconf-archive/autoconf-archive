@@ -75,7 +75,7 @@
 #serial 2
 
 AC_DEFUN([AX_PROG_F77_MPI], [
-AC_PREREQ([2.69])
+AC_PREREQ([2.50])
 
 # Check for compiler
 # Needs to be split off into an extra macro to ensure right expansion

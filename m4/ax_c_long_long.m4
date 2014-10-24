@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 7
 
 AU_ALIAS([AC_C_LONG_LONG], [AX_C_LONG_LONG])
 AC_DEFUN([AX_C_LONG_LONG],

@@ -63,11 +63,11 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 14
+#serial 16
 
 AU_ALIAS([ACX_BLAS], [AX_BLAS])
 AC_DEFUN([AX_BLAS], [
-AC_PREREQ([2.69])
+AC_PREREQ([2.50])
 AC_REQUIRE([AC_F77_LIBRARY_LDFLAGS])
 AC_REQUIRE([AC_CANONICAL_HOST])
 ax_blas_ok=no

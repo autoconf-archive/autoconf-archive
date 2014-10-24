@@ -22,7 +22,7 @@
 #   As usual, action-if-found is executed if SWIG is found, otherwise
 #   action-if-not-found is executed.
 #
-#   In configure.in, use as:
+#   In configure.ac, use as:
 #
 #     AX_PKG_SWIG(1.3.17, [], [ AC_MSG_ERROR([SWIG is required to build..]) ])
 #     AX_SWIG_ENABLE_CXX

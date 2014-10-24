@@ -40,7 +40,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 9
 
 dnl# usage:
 dnl# AX_CHECK_FUNC_IN(HEADER, FUNCTION, [ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]])
@@ -57,14 +57,14 @@ dnl# select.  Similarly for bzero.
 #include <assert.h>
 #include <$1>
 /* Override any gcc2 internal prototype to avoid an error.  */
-ifelse(AC_LANG,CPLUSPLUS,#ifdef __cplusplus
+]ifelse([AC_LANG],[CPLUSPLUS],[#ifdef __cplusplus
 extern "C"
 #endif /* __cplusplus */
-)dnl
-/* We use char because int might match the return type of a gcc2
+])dnl
+[/* We use char because int might match the return type of a gcc2
   * builtin and then its argument prototype would still apply.  */
 char $2();
-]], [[
+]],[[
 /* The GNU C library defines this for functions which it implements
  * to always fail with ENOSYS.  Some functions are actually named
  * something starting with __ and the normal name is an alias.  */

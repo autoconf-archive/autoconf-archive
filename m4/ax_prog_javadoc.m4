@@ -14,7 +14,7 @@
 #
 #   If you want to force a specific compiler:
 #
-#   - at the configure.in level, set JAVADOC=yourgenerator before calling
+#   - at the configure.ac level, set JAVADOC=yourgenerator before calling
 #   AX_PROG_JAVADOC
 #
 #   - at the configure level, setenv JAVADOC
@@ -27,7 +27,7 @@
 #   concept of set of macros, so I had to break it for submission.
 #
 #   The general documentation of those macros, as well as the sample
-#   configure.in, is included in the AX_PROG_JAVA macro.
+#   configure.ac, is included in the AX_PROG_JAVA macro.
 #
 # LICENSE
 #

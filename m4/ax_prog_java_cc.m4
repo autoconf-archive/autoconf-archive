@@ -26,13 +26,13 @@
 #
 #    - no other compiler has applicable options yet
 #
-#   Here's an example configure.in:
+#   Here's an example configure.ac:
 #
 #     AC_INIT
-AC_CONFIG_SRCDIR([Makefile.in])
+#     AC_CONFIG_SRCDIR([Makefile.in])
 #     AX_PROG_JAVA_CC()
 #     AC_CONFIG_FILES([Makefile])
-AC_OUTPUT
+#     AC_OUTPUT
 #     dnl End.
 #
 #   And here's the start of the Makefile.in:

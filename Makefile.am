@@ -28,7 +28,7 @@ clean-local:
 	@rm -rf $(srcdir)/stage $(srcdir)/macro.pyc
 	@rm -f $(DIST_ARCHIVES)
 
-MAINTAINERCLEANFILES = *~ ./.*~ doc/*~
+MAINTAINERCLEANFILES = *~ ./.*~ doc/*~ m4/*~
 
 ## duplicates in here should be harmless, but weed them out anyways:
 maintainer-clean-local:

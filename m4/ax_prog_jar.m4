@@ -13,7 +13,7 @@
 #
 #   If you want to force a specific compiler:
 #
-#   - at the configure.in level, set JAR=yourcompiler before calling
+#   - at the configure.ac level, set JAR=yourcompiler before calling
 #   AX_PROG_JAR
 #
 #   - at the configure level, setenv JAR
@@ -26,7 +26,7 @@
 #   concept of set of macros, so I had to break it for submission.
 #
 #   The general documentation of those macros, as well as the sample
-#   configure.in, is included in the AX_PROG_JAVA macro.
+#   configure.ac, is included in the AX_PROG_JAVA macro.
 #
 # LICENSE
 #

@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 9
 
 AC_DEFUN([AX_CHECK_PAGE_ALIGNED_MALLOC],
 [AC_CACHE_CHECK([if large mallocs guarantee page-alignment],
@@ -46,9 +46,9 @@ AC_DEFUN([AX_CHECK_PAGE_ALIGNED_MALLOC],
 #include <stdlib.h>
 #if HAVE_UNISTD_H
 # include <unistd.h>
-#endif
+#endif /* HAVE_UNISTD_H */
 
-int main()
+int main(void)
 {
   int pagesize = getpagesize();
   int i;
@@ -61,7 +61,7 @@ int main()
               ]])],[ax_cv_func_malloc_aligned=yes],[ax_cv_func_malloc_aligned=no],[ax_cv_func_malloc_aligned=no])
   ])
 if test "$ax_cv_func_malloc_aligned" = yes ; then
-  AC_DEFINE([HAVE_PAGE_ALIGNED_MALLOC], [1],
+  AC_DEFINE([HAVE_PAGE_ALIGNED_MALLOC],[1],
     [Define if `malloc'ing more than one page always returns a page-aligned address.])
 fi
 ])

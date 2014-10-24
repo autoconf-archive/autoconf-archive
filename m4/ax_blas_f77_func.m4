@@ -52,11 +52,11 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 10
 
 AU_ALIAS([ACX_BLAS_F77_FUNC], [AX_BLAS_F77_FUNC])
 AC_DEFUN([AX_BLAS_F77_FUNC], [
-AC_PREREQ([2.69])
+AC_PREREQ([2.50])
 AC_REQUIRE([AX_BLAS])
 
 # F77 call-compatibility checks
@@ -191,7 +191,7 @@ fi
 ])dnl AX_BLAS_F77_FUNC
 
 AC_DEFUN([AX_BLAS_WITH_F77_FUNC], [
-AC_PREREQ([2.69])
+AC_PREREQ([2.50])
 AX_BLAS([# disable special action], [])
 if test x$ax_blas_ok = xyes ; then
 	AX_BLAS_F77_FUNC(

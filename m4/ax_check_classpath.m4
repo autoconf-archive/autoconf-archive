@@ -15,7 +15,7 @@
 #   It is VERY IMPORTANT that you download the whole set, some macros depend
 #   on other. Unfortunately, the autoconf archive does not support the
 #   concept of set of macros, so I had to break it for submission. The
-#   general documentation, as well as the sample configure.in, is included
+#   general documentation, as well as the sample configure.ac, is included
 #   in the AX_PROG_JAVA macro.
 #
 # LICENSE
@@ -48,13 +48,13 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_CHECK_CLASSPATH], [AX_CHECK_CLASSPATH])
 AC_DEFUN([AX_CHECK_CLASSPATH],[
 if test "x$CLASSPATH" = x; then
         echo "You have no CLASSPATH, I hope it is good"
 else
-        echo "You have CLASSPATH $CLASSPATH, hope it is correct"
+        echo "You have CLASSPATH ${CLASSPATH}, hope it is correct"
 fi
-])
+])dnl

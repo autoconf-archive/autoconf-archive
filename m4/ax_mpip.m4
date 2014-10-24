@@ -52,7 +52,7 @@
 #serial 2
 
 AC_DEFUN([AX_MPIP], [
-AC_PREREQ([2.69])
+AC_PREREQ([2.60])
 AC_REQUIRE([ACX_MPI])
 AC_ARG_VAR([MPIP],[mpiP options])
 
