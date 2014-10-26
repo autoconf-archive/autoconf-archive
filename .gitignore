@@ -15,6 +15,7 @@
 /INSTALL
 /Makefile
 /Makefile.in
+/README
 /aclocal.m4
 /autoconf-archive-*.*.*.tar.*
 /autoconf-archive-*.*.*/*

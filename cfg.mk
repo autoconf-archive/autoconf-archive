@@ -24,7 +24,7 @@ TEXI_FILES	:= $(patsubst %,$(DOCDIR)/%.texi,$(MACROS))
 
 .PHONY: maintainer-all
 .PRECIOUS: $(patsubst %,$(STAGEDIR)/%.m4,$(MACROS))
-maintainer-all: $(TEXI_FILES) $(DOCDIR)/all-macros.texi
+maintainer-all: $(TEXI_FILES) $(DOCDIR)/all-macros.texi $(srcdir)/README
 
 $(STAGEDIR)/manifest:
 	@$(MKDIR_P) $(STAGEDIR)
@@ -47,3 +47,7 @@ $(DOCDIR)/all-macros.texi: $(srcdir)/configure
 	@echo '@end menu' >>"$@"
 	@echo '' >>"$@"
 	@for n in $(MACROS); do echo "@include $$n.texi" >>"$@"; done
+
+$(srcdir)/README : $(srcdir)/README.md
+	@cp -f $< $@
+	@chmod -w $@
