@@ -10,6 +10,22 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+    AX_LIB_HDF5: remove extra leading space from include path flag. That space
+    creeps into HDF5_CPPFLAGS and breaks the include path flag into two tokens,
+    e.g., "-I" and "/usr/include". While this may be legal and doesn't affect
+    the compilation, it does break some library tools (e.g., when the macro is
+    used in building a dynamic library that uses pkg-config).
+
+    AX_PERL_MODULE_VERSION: use more portable syntax for shell arithmetic.
+
+    AX_JNI_INCLUDE_DIR: support standard Oracle JDK installation layout on Mac
+    OS X.
+
+    AX_PROG_JAVAH_BIN_DIR: fix misspelled variable name and follow javah
+    symlink to find jni.h.
+
+    AX_BOOST_PYTHON: use unique names for local variables
+
 * Noteworthy changes in release 2014.10.15 (2014-10-15) [stable]
 
   A brand-new Github mirror of the Archive's Git repository is available at
