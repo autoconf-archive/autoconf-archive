@@ -84,7 +84,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_LIB_HDF5], [
 
@@ -206,7 +206,7 @@ HDF5 support is being disabled (equivalent to --with-hdf5=no).
         dnl Find the installation directory and append include/
         HDF5_tmp_inst=$(eval $H5CC -showconfig \
             | $GREP 'Installation point:' \
-            | $AWK -F: '{print $[]2}' )
+            | $AWK '{print $[]NF}' )
 
         dnl Add this to the CPPFLAGS
         HDF5_CPPFLAGS="-I${HDF5_tmp_inst}/include"
