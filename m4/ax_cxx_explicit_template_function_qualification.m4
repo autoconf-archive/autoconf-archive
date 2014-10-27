@@ -21,16 +21,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([AC_CXX_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION], [AX_CXX_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION])
 AC_DEFUN([AX_CXX_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION],
 [AC_CACHE_CHECK(whether the compiler supports explicit template function qualification,
-ax_cv_cxx_explicit_template_function_qualification,
-[AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
- AC_LANG([C++])
+[ax_cv_cxx_explicit_template_function_qualification],
+[AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 template<class Z> class A { public : A() {} };
 template<class X, class Y> A<X> to (const A<Y>&) { return A<X>(); }
@@ -38,7 +35,7 @@ template<class X, class Y> A<X> to (const A<Y>&) { return A<X>(); }
  AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_explicit_template_function_qualification" = yes; then
-  AC_DEFINE(HAVE_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION,,
-            [define if the compiler supports explicit template function qualification])
+  AC_DEFINE([HAVE_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION],[1],
+            [Define to 1 if the compiler supports explicit template function qualification])
 fi
-])
+])dnl

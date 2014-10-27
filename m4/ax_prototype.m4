@@ -12,8 +12,9 @@
 #   <code>. <TAG1>, <TAG2>, ... are substituted in <code> and <include> with
 #   values found in <values1>, <values2>, ... respectively. <values1>,
 #   <values2>, ... contain a list of possible values for each corresponding
-#   tag and all combinations are tested. When AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[include]], [[code]])],[],[])
-#   is successfull for a given substitution, the macro stops and defines the
+#   tag and all combinations are tested. When something like
+#   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[include]],[[code]])],[],[])dnl#end
+#   is successful for a given substitution, the macro stops and defines the
 #   following macros: FUNCTION_TAG1, FUNCTION_TAG2, ... using AC_DEFINE()
 #   with values set to the current values of <TAG1>, <TAG2>, ... If no
 #   combination is successfull the configure script is aborted with a
@@ -43,12 +44,11 @@
 #
 #   1) configure.ac
 #
-#    AX_PROTOTYPE(getpeername,
+#    AX_PROTOTYPE([getpeername],
 #    [
 #     #include <sys/types.h>
 #     #include <sys/socket.h>
-#    ],
-#    [
+#    ],[
 #     int a = 0;
 #     ARG2 * b = 0;
 #     ARG3 * c = 0;
@@ -114,7 +114,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 8
 
 AU_ALIAS([AC_PROTOTYPE], [AX_PROTOTYPE])
 AC_DEFUN([AX_PROTOTYPE],[
@@ -136,7 +136,7 @@ dnl
  done
  popdef([tags])
  popdef([function])
-])
+])dnl
 
 dnl
 dnl AX_PROTOTYPE_REVERSE(list)
@@ -189,13 +189,13 @@ dnl the current value.
 dnl
 AC_DEFUN([AX_PROTOTYPE_EACH],[
   ifelse($2,, [
-  ], [
+  ],[
     pushdef([$1_VAL], $2)
     AX_PROTOTYPE_LOOP(rest)
     popdef([$1_VAL])
     AX_PROTOTYPE_EACH($1, builtin([shift], builtin([shift], $@)))
-  ])
-])
+  ])dnl
+])dnl
 
 dnl
 dnl AX_PROTOTYPE_LOOP([tag, values, [tag, values ...]], code, include, function)
@@ -211,7 +211,7 @@ AC_DEFUN([AX_PROTOTYPE_LOOP],[
      pushdef([rest],[builtin([shift],builtin([shift],$@))])
      AX_PROTOTYPE_EACH($2,$1)
      popdef([rest])
-   ], [
+   ],[
      AC_MSG_CHECKING($3 AX_PROTOTYPE_STATUS(tags))
 dnl
 dnl Activate fatal warnings if possible, gives better guess
@@ -227,7 +227,6 @@ dnl
      ],[
       CPPFLAGS="$ac_save_CPPFLAGS"
       AC_MSG_RESULT(not ok)
-     ])
-   ]
- )
-])
+     ])dnl
+   ])dnl
+])dnl

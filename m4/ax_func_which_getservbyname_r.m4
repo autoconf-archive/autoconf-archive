@@ -50,60 +50,53 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 7
 
+AN_FUNCTION([getservbyname_r],[AX_FUNC_WHICH_GETSERVBYNAME_R])
 AU_ALIAS([AC_RAF_FUNC_WHICH_GETSERVBYNAME_R], [AX_FUNC_WHICH_GETSERVBYNAME_R])
 AC_DEFUN([AX_FUNC_WHICH_GETSERVBYNAME_R],
-[AC_CACHE_CHECK(for getservbyname_r, ax_cv_func_which_getservbyname_r, [
-AC_CHECK_FUNC(getservbyname_r, [
+[AC_CACHE_CHECK([for getservbyname_r],[ax_cv_func_which_getservbyname_r],[
+AC_CHECK_FUNC([getservbyname_r],[
         AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
-#               include <netdb.h>
-        ]], [[
-
+#   include <netdb.h>
+        ]],[[
         char *name;
         char *proto;
         struct servent *se;
         struct servent_data data;
-        (void) getservbyname_r(name, proto, se, &data);
-
-                ]])],[ax_cv_func_which_getservbyname_r=four],[
-  _au_m4_changequote([,])AC_TRY_COMPILE([
+        (void)getservbyname_r(name, proto, se, &data);
+        ]])],[ax_cv_func_which_getservbyname_r=four],[
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 #   include <netdb.h>
-  ], [
+  ]],[[
         char *name;
         char *proto;
         struct servent *se, *res;
         char buffer[2048];
         int buflen = 2048;
-        (void) getservbyname_r(name, proto, se, buffer, buflen, &res)
-  ],ax_cv_func_which_getservbyname_r=six,
-
-  [
-  _au_m4_changequote([,])AC_TRY_COMPILE([
+        (void)getservbyname_r(name, proto, se, buffer, buflen, &res)
+  ]])],[ax_cv_func_which_getservbyname_r=six],[
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 #   include <netdb.h>
-  ], [
+  ]],[[
         char *name;
         char *proto;
         struct servent *se;
         char buffer[2048];
         int buflen = 2048;
-        (void) getservbyname_r(name, proto, se, buffer, buflen)
-  ],ax_cv_func_which_getservbyname_r=five,ax_cv_func_which_getservbyname_r=no)
-
-  ]
-
-  )
-                        
-                ])]
-        ,ax_cv_func_which_getservbyname_r=no)])
+        (void)getservbyname_r(name, proto, se, buffer, buflen)
+  ]])],[ax_cv_func_which_getservbyname_r=five],
+       [ax_cv_func_which_getservbyname_r=no])
+  ])])],[ax_cv_func_which_getservbyname_r=no])])
 
 if test $ax_cv_func_which_getservbyname_r = six; then
-  AC_DEFINE(HAVE_FUNC_GETSERVBYNAME_R_6)
+  AC_DEFINE([HAVE_FUNC_GETSERVBYNAME_R_6],[6],
+            [Define to 6 if getservbyname_r takes six arguments.])
 elif test $ax_cv_func_which_getservbyname_r = five; then
-  AC_DEFINE(HAVE_FUNC_GETSERVBYNAME_R_5)
+  AC_DEFINE([HAVE_FUNC_GETSERVBYNAME_R_5],[5],
+            [Define to 5 if getservbyname_r takes five arguments.])
 elif test $ax_cv_func_which_getservbyname_r = four; then
-  AC_DEFINE(HAVE_FUNC_GETSERVBYNAME_R_4)
-
+  AC_DEFINE([HAVE_FUNC_GETSERVBYNAME_R_4],[4],
+            [Define to 4 if getservbyname_r takes four arguments.])
 fi
-
-])
+])dnl

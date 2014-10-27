@@ -41,16 +41,16 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 9
 
 AC_DEFUN([AX_GCC_WARN_UNUSED_RESULT],[dnl
 AC_CACHE_CHECK(
  [whether the compiler supports function __attribute__((__warn_unused_result__))],
- ax_cv_gcc_warn_unused_result,[
+ [ax_cv_gcc_warn_unused_result],[
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[__attribute__((__warn_unused_result__))
  int f(int i) { return i; }]], [[]])],[ax_cv_gcc_warn_unused_result=yes],[ax_cv_gcc_warn_unused_result=no])])
  if test "$ax_cv_gcc_warn_unused_result" = yes; then
    AC_DEFINE([GCC_WARN_UNUSED_RESULT],[__attribute__((__warn_unused_result__))],
     [most gcc compilers know a function __attribute__((__warn_unused_result__))])
  fi
-])
+])dnl

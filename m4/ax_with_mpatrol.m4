@@ -28,15 +28,15 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 7
 
 AU_ALIAS([AM_WITH_MPATROL], [AX_WITH_MPATROL])
 AC_DEFUN([AX_WITH_MPATROL], [
   # Firstly, determine if the mpatrol library should be used.
 
-  AC_MSG_CHECKING(if mpatrol should be used)
+  AC_MSG_CHECKING([if mpatrol should be used])
   AC_ARG_WITH(mpatrol,
-   [  --with-mpatrol          build with the mpatrol library],
+   [AS_HELP_STRING([--with-mpatrol],[build with the mpatrol library])],
    [case "$withval" in
      threads)
       ax_with_mpatrol=1
@@ -72,15 +72,14 @@ AC_DEFUN([AX_WITH_MPATROL], [
      AC_MSG_RESULT(no)
      AC_MSG_ERROR(invalid argument [$1])
     fi
-   ]
-  )
+  ])
 
   if test "$ax_with_mpatrol" = 1
   then
    AC_MSG_RESULT(yes)
 
    # Next, determine which support libraries are available on this
-   # system.  If we don't do this here then we can't link later with
+   # system.  If we do NOT do this here, then we cannot link later with
    # the mpatrol library to perform any further tests.
 
    ax_with_mpatrol_libs=""
@@ -125,27 +124,25 @@ AC_DEFUN([AX_WITH_MPATROL], [
 
    # If we are using the threadsafe mpatrol library then we may also need
    # to link in the threads library.  We check blindly for pthreads here
-   # even if we don't need them (in which case it doesn't matter) since
+   # even if we do NOT need them (in which case it does NOT matter) since
    # the threads libraries are linked in by default on AmigaOS, Windows
    # and Netware and it is only UNIX systems that we need to worry about.
 
    if test "$ax_with_mpatrol_threads" = 1
    then
-    AC_CHECK_LIB(pthread, pthread_mutex_init,
-                 ax_with_mpatrol_libs2="$ax_with_mpatrol_libs2 -lpthread", [
-      AC_CHECK_LIB(pthreads, pthread_mutex_init,
-                   ax_with_mpatrol_libs2="$ax_with_mpatrol_libs2 -lpthreads", [
-        AC_CHECK_LIB(thread, pthread_mutex_init,
-                     ax_with_mpatrol_libs2="$ax_with_mpatrol_libs2 -lthread")
-       ]
-      )
-     ]
-    )
+    AC_CHECK_LIB([pthread],[pthread_mutex_init],
+                 [ax_with_mpatrol_libs2="${ax_with_mpatrol_libs2} -lpthread"],[
+      AC_CHECK_LIB([pthreads],[pthread_mutex_init],
+                   [ax_with_mpatrol_libs2="${ax_with_mpatrol_libs2} -lpthreads"],[
+        AC_CHECK_LIB([thread],[pthread_mutex_init],
+                     [ax_with_mpatrol_libs2="${ax_with_mpatrol_libs2} -lthread"])
+       ])
+     ])
    fi
 
    # We now know what libraries to use in order to link with libmpatrol.
 
-   AC_DEFINE(HAVE_MPATROL, 1, [Define if using mpatrol])
+   AC_DEFINE([HAVE_MPATROL],[1],[Define if using mpatrol])
    if test "$ax_with_mpatrol_threads" = 1
    then
     LIBS="-lmpatrolmt $ax_with_mpatrol_libs2 $LIBS"
@@ -156,24 +153,22 @@ AC_DEFUN([AX_WITH_MPATROL], [
    # Finally, verify that mpatrol is correctly installed and that we can
    # link a simple program with it.
 
-   AC_CACHE_CHECK(for working mpatrol, am_cv_with_mpatrol, [
+   AC_CACHE_CHECK([for working mpatrol],[ax_cv_with_mpatrol],[
      AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <mpatrol.h>]], [[
 int main(void)
 {
     malloc(4);
     return EXIT_SUCCESS;
 }
-]])],[am_cv_with_mpatrol=yes],[am_cv_with_mpatrol=no
-     ])
-    ]
-   )
+]])],[ax_cv_with_mpatrol=yes],[ax_cv_with_mpatrol=no
+     ])dnl
+   ])dnl
 
-   if test "$am_cv_with_mpatrol" = no
+   if test "$ax_cv_with_mpatrol" = no
    then
     AC_MSG_ERROR(mpatrol not installed correctly)
    fi
   else
    AC_MSG_RESULT(no)
   fi
- ]
-)
+])dnl

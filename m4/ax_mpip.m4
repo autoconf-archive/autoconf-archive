@@ -49,15 +49,14 @@
 #   distribute a modified version of the Autoconf Macro, you may extend this
 #   special exception to the GPL to apply to your modified version as well.
 
-#serial 2
+#serial 5
 
-AC_DEFUN([AX_MPIP], [
+AC_DEFUN([AX_MPIP],[
 AC_PREREQ([2.60])
 AC_REQUIRE([ACX_MPI])
 AC_ARG_VAR([MPIP],[mpiP options])
 
-AC_ARG_WITH(
-    [mpiP],
+AC_ARG_WITH([mpiP],
     [AS_HELP_STRING([--with-mpiP@<:@=DIR@:>@],
                     [use mpiP profiler; optional install prefix])],
     [with_mpiP=$withval],
@@ -96,7 +95,7 @@ if test "${with_mpiP}" != no ; then
         ifelse([$2],,AC_MSG_ERROR([mpiP not found.  Try --with-mpiP=DIR.]),
             [$2])
     else
-        AC_DEFINE(HAVE_MPIP,1,[Define if mpiP is available])
+        AC_DEFINE([HAVE_MPIP],[1],[Define if mpiP is available])
         AC_SUBST(MPIP_LDFLAGS)
         AC_SUBST(MPIP_LIBS)
         ifelse([$1],,,[$1])

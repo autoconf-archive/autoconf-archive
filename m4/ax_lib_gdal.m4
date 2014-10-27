@@ -39,7 +39,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 3
 
 AC_DEFUN([AX_LIB_GDAL],
 [
@@ -54,8 +54,7 @@ AC_DEFUN([AX_LIB_GDAL],
     AS_IF([test "x$gdal_config_system" = xcheck],
           [AC_PATH_PROG([GDAL_CONFIG], [gdal-config])],
           [AC_PATH_PROG([GDAL_CONFIG], [gdal-config],
-              [no], [`dirname $ac_gdal_config_path 2> /dev/null`])]
-    )
+              [no],[`dirname $ac_gdal_config_path 2> /dev/null`])])
 
     if test ! -x "$GDAL_CONFIG"; then
         AC_MSG_ERROR([gdal-config does not exist or it is not an exectuable file])
@@ -144,9 +143,9 @@ AC_DEFUN([AX_LIB_GDAL],
         fi
     fi
 
-    AC_SUBST(GDAL_VERSION)
-    AC_SUBST(GDAL_CFLAGS)
-    AC_SUBST(GDAL_LDFLAGS)
-    AC_SUBST(GDAL_DEP_LDFLAGS)
-    AC_SUBST(GDAL_OGR_ENABLED)
-])
+    AC_SUBST([GDAL_VERSION])dnl
+    AC_SUBST([GDAL_CFLAGS])dnl
+    AC_SUBST([GDAL_LDFLAGS])dnl
+    AC_SUBST([GDAL_DEP_LDFLAGS])dnl
+    AC_SUBST([GDAL_OGR_ENABLED])dnl
+])dnl

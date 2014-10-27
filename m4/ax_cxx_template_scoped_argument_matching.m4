@@ -21,21 +21,18 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([AC_CXX_TEMPLATE_SCOPED_ARGUMENT_MATCHING], [AX_CXX_TEMPLATE_SCOPED_ARGUMENT_MATCHING])
 AC_DEFUN([AX_CXX_TEMPLATE_SCOPED_ARGUMENT_MATCHING],
 [AC_CACHE_CHECK(whether the compiler supports function matching with argument types which are template scope-qualified,
-ax_cv_cxx_template_scoped_argument_matching,
+[ax_cv_cxx_template_scoped_argument_matching],
 [AC_REQUIRE([AX_CXX_TYPENAME])
- AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
- AC_LANG([C++])
+ AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 #ifndef HAVE_TYPENAME
  #define typename
-#endif
+#endif /* !HAVE_TYPENAME */
 template<class X> class A { public : typedef X W; };
 template<class Y> class B {};
 template<class Y> void operator+(B<Y> d1, typename Y::W d2) {}
@@ -43,7 +40,7 @@ template<class Y> void operator+(B<Y> d1, typename Y::W d2) {}
  AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_template_scoped_argument_matching" = yes; then
-  AC_DEFINE(HAVE_TEMPLATE_SCOPED_ARGUMENT_MATCHING,,
-            [define if the compiler supports function matching with argument types which are template scope-qualified])
+  AC_DEFINE([HAVE_TEMPLATE_SCOPED_ARGUMENT_MATCHING],[1],
+            [Define to 1 if the compiler supports function matching with argument types which are template scope-qualified])
 fi
-])
+])dnl

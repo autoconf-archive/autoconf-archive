@@ -19,17 +19,14 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 9
 
 AU_ALIAS([AC_CXX_HEADER_STDCXX_0X], [AX_CXX_HEADER_STDCXX_0X])
 AC_DEFUN([AX_CXX_HEADER_STDCXX_0X], [
-  AC_CACHE_CHECK(for ISO C++ 0x include files,
-  ax_cv_cxx_stdcxx_0x,
+  AC_CACHE_CHECK([for ISO C++ 0x include files],
+  [ax_cv_cxx_stdcxx_0x],
   [AC_REQUIRE([AC_COMPILE_STDCXX_0X])
-  AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
-  AC_LANG([C++])
+  AC_LANG_PUSH([C++])
   ac_save_CXXFLAGS="$CXXFLAGS"
   CXXFLAGS="$CXXFLAGS -std=gnu++0x"
 
@@ -116,6 +113,7 @@ AC_LANG_SAVE
   CXXFLAGS="$ac_save_CXXFLAGS"
   ])
   if test "$ax_cv_cxx_stdcxx_0x" = yes; then
-    AC_DEFINE(STDCXX_0X_HEADERS,,[Define if ISO C++ 0x header files are present. ])
+    AC_DEFINE([STDCXX_0X_HEADERS],[1],
+              [Define if ISO C++ 0x header files are present.])
   fi
-])
+])dnl

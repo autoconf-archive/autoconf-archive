@@ -22,16 +22,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([AC_CXX_HAVE_SYSTEM_V_MATH], [AX_CXX_HAVE_SYSTEM_V_MATH])
 AC_DEFUN([AX_CXX_HAVE_SYSTEM_V_MATH],
-[AC_CACHE_CHECK(whether the compiler supports System V math library,
-ax_cv_cxx_have_system_v_math,
-[AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
- AC_LANG([C++])
+[AC_CACHE_CHECK([whether the compiler supports System V math library],
+[ax_cv_cxx_have_system_v_math],
+[AC_LANG_PUSH([C++])
  ac_save_LIBS="$LIBS"
  LIBS="$LIBS -lm"
  AC_LINK_IFELSE([AC_LANG_PROGRAM([[
@@ -52,6 +49,7 @@ return 0;]])],[ax_cv_cxx_have_system_v_math=yes],[ax_cv_cxx_have_system_v_math=n
  AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_have_system_v_math" = yes; then
-  AC_DEFINE(HAVE_SYSTEM_V_MATH,,[define if the compiler supports System V math library])
+  AC_DEFINE([HAVE_SYSTEM_V_MATH],[1],
+            [Define to 1 if the compiler supports System V math library])
 fi
-])
+])dnl

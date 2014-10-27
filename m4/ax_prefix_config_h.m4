@@ -35,13 +35,13 @@
 #     dnl# this used to be an obsolete macro, but autoupdate got rid of it:
 #     AC_CHECK_HEADER([memory.h],
 #                     [AC_DEFINE([NEED_MEMORY_H],[1],
-#		         [Same as `HAVE_MEMORY_H', do NOT depend on me])
+#                        [Same as `HAVE_MEMORY_H', do NOT depend on me])
 #                     ]) # makes "#undef NEED_MEMORY_H"
 #     AC_CHECK_HEADERS([string.h memory.h])
 #     AC_C_CONST_H                        # makes "#undef const"
 #     AC_CONFIG_FILES([Makefile])
 #     AC_OUTPUT                 # creates the "config.h" now
-#                                         # and also mylib/_config.h
+#                               # and also mylib/_config.h
 #
 #   If the argument to AX_PREFIX_CONFIG_H would have been omitted then the
 #   default output file would have been called simply "testpkg-config.h",
@@ -59,10 +59,9 @@
 #     #endif
 #
 #   and this "mylib/_config.h" can be installed along with other header
-#   files, which is most convenient when creating a shared library
-#   (that has some headers) whose functionality depends on features
-#   detected at compile-time. No need to invent some "mylib-confdefs.h.in"
-#   manually.
+#   files, which is convenient when creating a library (with some headers)
+#   whose functionality depends on some features detected at compile-time.
+#   No need to invent some "mylib-confdefs.h.in" manually.
 #
 #   Note that some AC_DEFINEs that end up in the config.h file are actually
 #   self-referential - e.g. AC_C_INLINE, AC_C_CONST, and the AC_TYPE_OFF_T
@@ -122,7 +121,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 15
+#serial 18
 
 AC_DEFUN([AX_PREFIX_CONFIG_H],[dnl
 AC_PREREQ([2.62])

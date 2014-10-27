@@ -49,7 +49,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([AC_PKG_MICO], [AX_PKG_MICO])
 AC_DEFUN([AX_PKG_MICO],
@@ -100,7 +100,7 @@ AC_MSG_RESULT($MICO_URGENCY)
 
 #
 # Now we know if we want mico or not, only go further if
-# it's wanted.
+# it is wanted.
 #
 if test x$MICO_URGENCY = xrequired -o  x$MICO_URGENCY = xoptional; then
     #
@@ -216,4 +216,4 @@ if test x$MICO_URGENCY = xrequired -o  x$MICO_URGENCY = xoptional; then
         AC_SUBST(MICO_USE_MINISTL)
     fi
 fi
-])
+])dnl

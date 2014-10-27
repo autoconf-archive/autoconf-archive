@@ -20,17 +20,14 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([AC_CXX_HEADER_UNORDERED_MAP], [AX_CXX_HEADER_UNORDERED_MAP])
 AC_DEFUN([AX_CXX_HEADER_UNORDERED_MAP], [
   AC_CACHE_CHECK(for unordered_map,
   ax_cv_cxx_unordered_map,
   [AC_REQUIRE([AC_COMPILE_STDCXX_0X])
-  AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
-  AC_LANG([C++])
+  AC_LANG_PUSH([C++])
   ac_save_CXXFLAGS="$CXXFLAGS"
   CXXFLAGS="$CXXFLAGS -std=gnu++0x"
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <unordered_map>]], [[using std::unordered_map;]])],[ax_cv_cxx_unordered_map=yes],[ax_cv_cxx_unordered_map=no])
@@ -38,6 +35,7 @@ AC_LANG_SAVE
   AC_LANG_POP([])
   ])
   if test "$ax_cv_cxx_unordered_map" = yes; then
-    AC_DEFINE(HAVE_UNORDERED_MAP,,[Define if unordered_map is present. ])
+    AC_DEFINE([HAVE_UNORDERED_MAP],[1],
+              [Define to 1 if unordered_map is present.])
   fi
-])
+])dnl

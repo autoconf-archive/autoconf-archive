@@ -23,16 +23,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([AC_CXX_DTOR_AFTER_ATEXIT], [AX_CXX_DTOR_AFTER_ATEXIT])
 AC_DEFUN([AX_CXX_DTOR_AFTER_ATEXIT],
 [AC_CACHE_CHECK(whether the compiler calls global destructors after functions registered through atexit,
-ax_cv_cxx_dtor_after_atexit,
-[AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
- AC_LANG([C++])
+[ax_cv_cxx_dtor_after_atexit],
+[AC_LANG_PUSH([C++])
  AC_RUN_IFELSE([AC_LANG_SOURCE([[
 #include <unistd.h>
 #include <stdlib.h>
@@ -52,7 +49,7 @@ int main (int , char **)
  AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_dtor_after_atexit" = yes; then
-  AC_DEFINE(HAVE_DTOR_AFTER_ATEXIT,,
-            [define if the compiler calls global destructors after functions registered through atexit])
+  AC_DEFINE([HAVE_DTOR_AFTER_ATEXIT],[1],
+            [Define to 1 if the compiler calls global destructors after functions registered through atexit])
 fi
-])
+])dnl

@@ -41,25 +41,20 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 6
 
 AU_ALIAS([MDL_CXX_FUNCTION_TRY_BLOCKS], [AX_CXX_FUNCTION_TRY_BLOCKS])
 AC_DEFUN([AX_CXX_FUNCTION_TRY_BLOCKS],
-[
-AC_REQUIRE([AC_PROG_CXX])
-changequote(,)dnl
-AC_MSG_CHECKING(whether ${CXX} supports function try blocks)
-changequote([,])dnl
-AC_CACHE_VAL(ax_cv_have_function_try_blocks,
-[
-AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
-AC_LANG([C++])
+[AC_REQUIRE([AC_PROG_CXX])
+AC_MSG_CHECKING([whether ${CXX} supports function try blocks])
+AC_CACHE_VAL([ax_cv_have_function_try_blocks],
+[AC_LANG_PUSH([C++])
 AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[void foo() try{} catch( ... ){}]], [[foo();]])],[ax_cv_have_function_try_blocks=yes],[ax_cv_have_function_try_blocks=no])
 AC_LANG_POP([])
 ])
-AC_MSG_RESULT($ax_cv_have_function_try_blocks)
+AC_MSG_RESULT([$ax_cv_have_function_try_blocks])
 if test "$ax_cv_have_function_try_blocks" = yes; then
-AC_DEFINE(HAVE_FUNCTION_TRY_BLOCKS)
-fi])
+  AC_DEFINE([HAVE_FUNCTION_TRY_BLOCKS],[1],
+            [Define to 1 if compiler supports C++ function try blocks])
+fi
+])dnl

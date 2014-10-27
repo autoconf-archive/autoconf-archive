@@ -52,7 +52,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 13
 
 AC_DEFUN([AX_RUBY_DEVEL],[
     AC_REQUIRE([AX_WITH_RUBY])
@@ -162,11 +162,11 @@ $ac_mkmf_result])
       RUBY_VERSION=""
     fi
     AC_LANG_POP
-    # turn back to default flags
+    # turn back to default flags:
     CPPFLAGS="$ac_save_CPPFLAGS"
     LIBS="$ac_save_LIBS"
 
     #
     # all done!
     #
-])
+])dnl

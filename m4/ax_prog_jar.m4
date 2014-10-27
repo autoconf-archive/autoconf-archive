@@ -37,7 +37,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 9
 
 AU_ALIAS([AC_PROG_JAR], [AX_PROG_JAR])
 AC_DEFUN([AX_PROG_JAR],[
@@ -46,4 +46,4 @@ AS_IF([test "x$JAVAPREFIX" = x],
       [test "x$JAR" = x && AC_CHECK_PROGS([JAR], [jar], [], [$JAVAPREFIX/bin])])
 test "x$JAR" = x && AC_MSG_ERROR([no acceptable jar program found in \$PATH])
 AC_PROVIDE([$0])dnl
-])
+])dnl

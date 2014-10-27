@@ -22,15 +22,15 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([VL_DECL_WCHAR_MAX], [AX_DECL_WCHAR_MAX])
 AC_DEFUN([AX_DECL_WCHAR_MAX], [
-  AC_CACHE_CHECK([whether WCHAR_MAX is defined], ax_cv_decl_wchar_max, [
+  AC_CACHE_CHECK([whether WCHAR_MAX is defined],[ax_cv_decl_wchar_max],[
     AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 #ifdef HAVE_WCHAR_H
-#include <wchar.h>
-#endif
+# include <wchar.h>
+#endif /* HAVE_WCHAR_H */
 ]], [[WCHAR_MAX]])],[ax_cv_decl_wchar_max="yes"],[ax_cv_decl_wchar_max="no"])])
   if test $ax_cv_decl_wchar_max = "no"; then
     AX_CHECK_SIGN([wchar_t],
@@ -39,8 +39,8 @@ AC_DEFUN([AX_DECL_WCHAR_MAX], [
       [ wc_signed="no"
         AC_DEFINE(WCHAR_T_UNSIGNED, 1, [Define if wchar_t is unsigned])], [
 #ifdef HAVE_WCHAR_H
-#include <wchar.h>
-#endif
+# include <wchar.h>
+#endif /* HAVE_WCHAR_H */
 ])
     if test "$wc_signed" = "yes"; then
       AC_DEFINE(WCHAR_MAX, [(1L << (sizeof(wchar_t) * 8 - 1) - 1)], [

@@ -21,13 +21,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 9
 
 AU_ALIAS([AC_PROG_JAVAH], [AX_PROG_JAVAH])
 AC_DEFUN([AX_PROG_JAVAH],[
 AC_REQUIRE([AC_CANONICAL_BUILD])dnl
 AC_REQUIRE([AC_PROG_CPP])dnl
-AC_PATH_PROG(JAVAH,javah)
+AC_PATH_PROG([JAVAH],[javah])
 AS_IF([test -n "$ac_cv_path_JAVAH"],
       [
         AC_PREPROC_IFELSE([AC_LANG_SOURCE([[#include <jni.h>]])],[],[
@@ -39,9 +39,9 @@ AS_IF([test -n "$ac_cv_path_JAVAH"],
                 [ac_machdep=win32],
                 [ac_machdep=`AS_ECHO($build_os) | sed 's,[[-0-9]].*,,'`])
         CPPFLAGS="$ac_save_CPPFLAGS -I$ac_dir -I$ac_dir/$ac_machdep"
-        _au_m4_changequote([,])AC_TRY_CPP([#include <jni.h>],
+        AC_TRY_CPP([#include <jni.h>],
                    ac_save_CPPFLAGS="$CPPFLAGS",
                    AC_MSG_WARN([unable to include <jni.h>]))
         CPPFLAGS="$ac_save_CPPFLAGS"])
-      ])
-])
+      ])dnl
+])dnl

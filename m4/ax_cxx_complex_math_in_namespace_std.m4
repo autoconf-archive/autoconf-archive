@@ -21,17 +21,14 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([AC_CXX_COMPLEX_MATH_IN_NAMESPACE_STD], [AX_CXX_COMPLEX_MATH_IN_NAMESPACE_STD])
 AC_DEFUN([AX_CXX_COMPLEX_MATH_IN_NAMESPACE_STD],
 [AC_CACHE_CHECK(whether complex math functions are in std::,
 ac_cx_cxx_complex_math_in_namespace_std,
 [AC_REQUIRE([AX_CXX_NAMESPACES])
- AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
- AC_LANG([C++])
+ AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <complex>
 namespace S { using namespace std;
               complex<float> pow(complex<float> x, complex<float> y)
@@ -41,7 +38,7 @@ namespace S { using namespace std;
  AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_complex_math_in_namespace_std" = yes; then
-  AC_DEFINE(HAVE_COMPLEX_MATH_IN_NAMESPACE_STD,,
-            [define if complex math functions are in std::])
+  AC_DEFINE([HAVE_COMPLEX_MATH_IN_NAMESPACE_STD],[1],
+            [Define to 1 if complex math functions are in std::])
 fi
-])
+])dnl

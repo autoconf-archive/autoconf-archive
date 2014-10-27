@@ -23,7 +23,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([ETR_SHORT_SLEEP], [AX_SHORT_SLEEP])
 AC_DEFUN([AX_SHORT_SLEEP],

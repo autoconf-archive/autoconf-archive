@@ -29,7 +29,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 10
 
 AU_ALIAS([AC_TRY_COMPILE_JAVA], [AX_TRY_COMPILE_JAVA])
 AC_DEFUN([AX_TRY_COMPILE_JAVA],[
@@ -43,7 +43,7 @@ public class Test {
 EOF
 if AC_TRY_COMMAND($JAVAC $JAVACFLAGS Test.java) && test -s Test.class
 then
-dnl Don't remove the temporary files here, so they can be examined.
+dnl Do NOT remove the temporary files here, so they can be examined.
   ifelse([$3], , :, [$3])
 else
   echo "configure: failed program was:" >&AS_MESSAGE_LOG_FD
@@ -52,4 +52,5 @@ ifelse([$4], , , [  rm -fr Test.java Test.class
   $4
 ])dnl
 fi
-rm -fr Test.java Test.class])
+rm -fr Test.java Test.class
+])dnl

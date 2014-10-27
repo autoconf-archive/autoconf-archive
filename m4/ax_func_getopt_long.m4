@@ -46,8 +46,9 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 8
 
+AN_FUNCTION([getopt_long],[AX_FUNC_GETOPT_LONG])
 AU_ALIAS([ADL_FUNC_GETOPT_LONG], [AX_FUNC_GETOPT_LONG])
 AC_DEFUN([AX_FUNC_GETOPT_LONG],
  [AC_PREREQ([2.49])dnl
@@ -55,10 +56,10 @@ AC_DEFUN([AX_FUNC_GETOPT_LONG],
   rm -f lib/getopt.h
   # Check for getopt_long support
   AC_CHECK_HEADERS([getopt.h])
-  AC_CHECK_FUNCS([getopt_long],,
+  AC_CHECK_FUNCS([getopt_long],[],
    [# FreeBSD has a gnugetopt library for this
     AC_CHECK_LIB([gnugetopt],[getopt_long],[AC_DEFINE([HAVE_GETOPT_LONG])],
-     [# use the GNU replacement
-      AC_LIBOBJ(getopt)
-      AC_LIBOBJ(getopt1)
-      AC_CONFIG_LINKS([lib/getopt.h:lib/gnugetopt.h])])])])
+     [# use the GNU replacement:
+      AC_LIBOBJ([getopt])
+      AC_LIBOBJ([getopt1])
+      AC_CONFIG_LINKS([lib/getopt.h:lib/gnugetopt.h])])])])dnl

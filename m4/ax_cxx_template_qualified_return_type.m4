@@ -21,21 +21,18 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([AC_CXX_TEMPLATE_QUALIFIED_RETURN_TYPE], [AX_CXX_TEMPLATE_QUALIFIED_RETURN_TYPE])
 AC_DEFUN([AX_CXX_TEMPLATE_QUALIFIED_RETURN_TYPE],
 [AC_CACHE_CHECK(whether the compiler supports template-qualified return types,
-ax_cv_cxx_template_qualified_return_type,
+[ax_cv_cxx_template_qualified_return_type],
 [AC_REQUIRE([AX_CXX_TYPENAME])
- AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
- AC_LANG([C++])
+ AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 #ifndef HAVE_TYPENAME
  #define typename
-#endif
+#endif /* !HAVE_TYPENAME */
 template<class X, class Y> struct promote_trait             { typedef X T; };
 template<>                 struct promote_trait<int, float> { typedef float T; };
 template<class T> class A { public : A () {} };
@@ -46,7 +43,7 @@ A<typename promote_trait<X,Y>::T> operator+ (const A<X>&, const A<Y>&)
  AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_template_qualified_return_type" = yes; then
-  AC_DEFINE(HAVE_TEMPLATE_QUALIFIED_RETURN_TYPE,,
-            [define if the compiler supports template-qualified return types])
+  AC_DEFINE([HAVE_TEMPLATE_QUALIFIED_RETURN_TYPE],[1],
+            [Define to 1 if the compiler supports template-qualified return types])
 fi
-])
+])dnl

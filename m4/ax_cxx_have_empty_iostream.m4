@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   Check if the compiler allow the empty iostream constructor. Ok before
+#   Check if the compiler allow the empty iostream constructor. OK before
 #   gcc3, not after.
 #
 # LICENSE
@@ -41,17 +41,14 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 7
 
 AU_ALIAS([AC_CXX_HAVE_EMPTY_IOSTREAM], [AX_CXX_HAVE_EMPTY_IOSTREAM])
 AC_DEFUN([AX_CXX_HAVE_EMPTY_IOSTREAM],
-[AC_CACHE_CHECK(whether the compiler allow empty iostream,
-ax_cv_cxx_have_empty_iostream,
+[AC_CACHE_CHECK([whether the compiler allows empty iostream],
+[ax_cv_cxx_have_empty_iostream],
 [AC_REQUIRE([AX_CXX_NAMESPACES])
-  AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
-  AC_LANG([C++])
+  AC_LANG_PUSH([C++])
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <iostream>
 #ifdef HAVE_NAMESPACES
 using namespace std;
@@ -59,7 +56,7 @@ using namespace std;
   AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_have_empty_iostream" = yes; then
-   AC_DEFINE(HAVE_EMPTY_IOSTREAM,,[define if the compiler allow empty
-iostream])
+   AC_DEFINE([HAVE_EMPTY_IOSTREAM],[1],
+             [Define to 1 if the compiler allows empty iostream])
 fi
-])
+])dnl

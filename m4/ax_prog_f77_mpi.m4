@@ -72,7 +72,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 2
+#serial 5
 
 AC_DEFUN([AX_PROG_F77_MPI], [
 AC_PREREQ([2.50])

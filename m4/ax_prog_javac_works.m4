@@ -47,11 +47,11 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([AC_PROG_JAVAC_WORKS], [AX_PROG_JAVAC_WORKS])
 AC_DEFUN([AX_PROG_JAVAC_WORKS],[
-AC_CACHE_CHECK([if $JAVAC works], ac_cv_prog_javac_works, [
+AC_CACHE_CHECK([if $JAVAC works],[ac_cv_prog_javac_works],[
 JAVA_TEST=Test.java
 CLASS_TEST=Test.class
 cat << \EOF > $JAVA_TEST
@@ -69,4 +69,4 @@ fi
 rm -f $JAVA_TEST $CLASS_TEST
 ])
 AC_PROVIDE([$0])dnl
-])
+])dnl

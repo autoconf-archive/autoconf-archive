@@ -42,7 +42,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 3
 
 AC_DEFUN([AX_LIB_LIBKML],
 [
@@ -66,8 +66,7 @@ AC_DEFUN([AX_LIB_LIBKML],
             libkml_prefix=""
             libkml_requested="no"
         fi
-        ],
-        [
+        ],[
         dnl Default behavior is implicit yes
         if test -d /usr/local/include/kml ; then
             libkml_prefix=/usr/local
@@ -76,21 +75,18 @@ AC_DEFUN([AX_LIB_LIBKML],
         else
             libkml_prefix=""
         fi
-        ]
-    )
+        ])
 
     AC_ARG_WITH([libkml-inc],
         AS_HELP_STRING([--with-libkml-inc=@<:@DIR@:>@],[path to Google libkml headers
         ]),
         [libkml_include_dir="$withval"],
-        [libkml_include_dir=""]
-    )
+        [libkml_include_dir=""])
     AC_ARG_WITH([libkml-lib],
         AS_HELP_STRING([--with-libkml-lib=@<:@ARG@:>@],[link options for Google libkml libraries
         ]),
         [libkml_lib_flags="$withval"],
-        [libkml_lib_flags=""]
-    )
+        [libkml_lib_flags=""])
 
     LIBKML_CFLAGS=""
     LIBKML_LDFLAGS=""
@@ -151,8 +147,7 @@ AC_DEFUN([AX_LIB_LIBKML],
             [
             libkml_header_found="no"
             AC_MSG_RESULT([not found])
-            ]
-        )
+            ])
         AC_LANG_POP([C++])
 
         dnl
@@ -176,12 +171,10 @@ kmldom::KmlFactory* factory = kmldom::KmlFactory::GetFactory();
                 LIBKML_LDFLAGS="$libkml_lib_flags"
                 libkml_lib_found="yes"
                 AC_MSG_RESULT([found])
-                ],
-                [
+                ],[
                 libkml_lib_found="no"
                 AC_MSG_RESULT([not found])
-                ]
-            )
+                ])
             AC_LANG_POP([C++])
         fi
 
@@ -271,4 +264,4 @@ kmldom::KmlFactory* factory = kmldom::KmlFactory::GetFactory();
             AC_MSG_WARN([Google libkml support requested but headers or library not found. Specify valid prefix of libkml using --with-libkml=@<:@DIR@:>@ or provide include directory and linker flags using --with-libkml-inc and --with-libkml-lib])
         fi
     fi
-])
+])dnl

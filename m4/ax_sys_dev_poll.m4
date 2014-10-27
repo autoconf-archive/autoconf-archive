@@ -25,10 +25,10 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 7
 
 AU_ALIAS([AC_SYS_DEV_POLL], [AX_SYS_DEV_POLL])
-AC_DEFUN([AX_SYS_DEV_POLL], [AC_CACHE_CHECK(for /dev/poll support, ac_cv_dev_poll,
+AC_DEFUN([AX_SYS_DEV_POLL], [AC_CACHE_CHECK([for /dev/poll support], [ac_cv_dev_poll],[
     AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <sys/ioctl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -42,6 +42,6 @@ AC_DEFUN([AX_SYS_DEV_POLL], [AC_CACHE_CHECK(for /dev/poll support, ac_cv_dev_pol
 ]])],[ac_cv_dev_poll=yes
     $1],[ac_cv_dev_poll=no
     $2
-    ])
-  )
-])
+    ])dnl
+  ])dnl
+])dnl

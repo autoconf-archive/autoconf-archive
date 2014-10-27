@@ -63,7 +63,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 13
 
 AC_DEFUN([AX_PKG_SWIG],[
         # Ubuntu has swig 2.0 as /usr/bin/swig2.0
@@ -131,5 +131,5 @@ AC_DEFUN([AX_PKG_SWIG],[
                         m4_ifval([$3],[$3],[])
                 fi
         fi
-        AC_SUBST([SWIG_LIB])
-])
+        AC_SUBST([SWIG_LIB])dnl
+])dnl

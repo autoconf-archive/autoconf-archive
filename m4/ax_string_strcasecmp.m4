@@ -31,18 +31,18 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 10
 
 AU_ALIAS([ETR_STRING_STRCASECMP], [AX_STRING_STRCASECMP])
 AC_DEFUN([AX_STRING_STRCASECMP],
 [
-AC_CACHE_CHECK([for strcasecmp() in string.h], ac_cv_string_strcasecmp, [
+AC_CACHE_CHECK([for strcasecmp() in string.h],[ac_cv_string_strcasecmp],[
         AC_LINK_IFELSE([AC_LANG_PROGRAM([[ #include <string.h> ]], [[ strcasecmp("foo", "bar"); ]])],[ac_cv_string_strcasecmp=yes],[ac_cv_string_strcasecmp=no])
 ])
 
         if test x"$ac_cv_string_strcasecmp" = "xyes"
         then
-                AC_DEFINE(HAVE_STRING_STRCASECMP, 1,
-                        [ Define if your system has strcasecmp() in string.h ])
+                AC_DEFINE([HAVE_STRING_STRCASECMP],[1],
+                          [Define if your system has strcasecmp() in string.h])
         fi
 ]) dnl AX_STRING_STRCASECMP

@@ -20,20 +20,18 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([AC_CXX_HEADER_TR1_UNORDERED_MAP], [AX_CXX_HEADER_TR1_UNORDERED_MAP])
 AC_DEFUN([AX_CXX_HEADER_TR1_UNORDERED_MAP], [
-  AC_CACHE_CHECK(for tr1/unordered_map,
-  ax_cv_cxx_tr1_unordered_map,
-  [AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
-  AC_LANG([C++])
+  AC_CACHE_CHECK([for tr1/unordered_map],
+  [ax_cv_cxx_tr1_unordered_map],
+  [AC_LANG_PUSH([C++])
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <tr1/unordered_map>]], [[using std::tr1::unordered_map;]])],[ax_cv_cxx_tr1_unordered_map=yes],[ax_cv_cxx_tr1_unordered_map=no])
   AC_LANG_POP([])
   ])
   if test "$ax_cv_cxx_tr1_unordered_map" = yes; then
-    AC_DEFINE(HAVE_TR1_UNORDERED_MAP,,[Define if tr1/unordered_map is present. ])
+    AC_DEFINE([HAVE_TR1_UNORDERED_MAP],[1],
+              [Define to 1 if tr1/unordered_map is present.])
   fi
-])
+])dnl

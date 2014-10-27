@@ -20,16 +20,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 9
 
 AU_ALIAS([AC_CXX_COMPILE_STDCXX_0X], [AX_CXX_COMPILE_STDCXX_0X])
 AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
-  AC_CACHE_CHECK(if g++ supports C++0x features without additional flags,
-  ax_cv_cxx_compile_cxx0x_native,
-  [AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
-  AC_LANG([C++])
+  AC_CACHE_CHECK([if g++ supports C++0x features without additional flags],
+  [ax_cv_cxx_compile_cxx0x_native],
+  [AC_LANG_PUSH([C++])
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
   template <typename T>
     struct check
@@ -48,12 +45,9 @@ AC_LANG_SAVE
   AC_LANG_POP([])
   ])
 
-  AC_CACHE_CHECK(if g++ supports C++0x features with -std=c++0x,
-  ax_cv_cxx_compile_cxx0x_cxx,
-  [AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
-  AC_LANG([C++])
+  AC_CACHE_CHECK([if g++ supports C++0x features with -std=c++0x],
+  [ax_cv_cxx_compile_cxx0x_cxx],
+  [AC_LANG_PUSH([C++])
   ac_save_CXXFLAGS="$CXXFLAGS"
   CXXFLAGS="$CXXFLAGS -std=c++0x"
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
@@ -75,12 +69,9 @@ AC_LANG_SAVE
   AC_LANG_POP([])
   ])
 
-  AC_CACHE_CHECK(if g++ supports C++0x features with -std=gnu++0x,
-  ax_cv_cxx_compile_cxx0x_gxx,
-  [AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
-  AC_LANG([C++])
+  AC_CACHE_CHECK([if g++ supports C++0x features with -std=gnu++0x],
+  [ax_cv_cxx_compile_cxx0x_gxx],
+  [AC_LANG_PUSH([C++])
   ac_save_CXXFLAGS="$CXXFLAGS"
   CXXFLAGS="$CXXFLAGS -std=gnu++0x"
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
@@ -105,6 +96,7 @@ AC_LANG_SAVE
   if test "$ax_cv_cxx_compile_cxx0x_native" = yes ||
      test "$ax_cv_cxx_compile_cxx0x_cxx" = yes ||
      test "$ax_cv_cxx_compile_cxx0x_gxx" = yes; then
-    AC_DEFINE(HAVE_STDCXX_0X,,[Define if g++ supports C++0x features. ])
+    AC_DEFINE([HAVE_STDCXX_0X],[1],
+              [Define to 1 if g++ supports C++0x features.])
   fi
-])
+])dnl

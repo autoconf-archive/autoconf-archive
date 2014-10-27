@@ -44,7 +44,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 13
 
 AC_DEFUN([AX_TLS], [
   AC_MSG_CHECKING([for thread local storage (TLS) class])
@@ -67,4 +67,4 @@ AC_DEFUN([AX_TLS], [
     [AC_DEFINE_UNQUOTED([TLS],[$ac_cv_tls],[If the compiler supports a TLS storage class define it to that here])
      m4_ifnblank([$1],[$1])],
     [m4_ifnblank([$2],[$2])])
-])
+])dnl

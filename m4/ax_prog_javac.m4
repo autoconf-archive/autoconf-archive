@@ -64,7 +64,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 9
 
 AU_ALIAS([AC_PROG_JAVAC], [AX_PROG_JAVAC])
 AC_DEFUN([AX_PROG_JAVAC],[
@@ -76,4 +76,4 @@ m4_undefine([m4_ax_prog_javac_list])dnl
 test "x$JAVAC" = x && AC_MSG_ERROR([no acceptable Java compiler found in \$PATH])
 AX_PROG_JAVAC_WORKS
 AC_PROVIDE([$0])dnl
-])
+])dnl

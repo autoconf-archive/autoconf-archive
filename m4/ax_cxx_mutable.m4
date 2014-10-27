@@ -22,16 +22,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([AC_CXX_MUTABLE], [AX_CXX_MUTABLE])
 AC_DEFUN([AX_CXX_MUTABLE],
-[AC_CACHE_CHECK(whether the compiler supports the mutable keyword,
-ax_cv_cxx_mutable,
-[AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
- AC_LANG([C++])
+[AC_CACHE_CHECK([whether the compiler supports the mutable keyword],
+[ax_cv_cxx_mutable],
+[AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 class A { mutable int i;
           public:
@@ -41,6 +38,7 @@ class A { mutable int i;
  AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_mutable" = yes; then
-  AC_DEFINE(HAVE_MUTABLE,,[define if the compiler supports the mutable keyword])
+  AC_DEFINE([HAVE_MUTABLE],[1],
+            [Define to 1 if the compiler supports the mutable keyword])
 fi
-])
+])dnl

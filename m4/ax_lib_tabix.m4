@@ -72,7 +72,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 2
+#serial 4
 
 AC_DEFUN([AX_LIB_TABIX],
 #
@@ -122,10 +122,7 @@ if test -n "${TABIX_HOME}" ; then
         TABIX_OLD_CPPFLAGS=$LDFLAGS
         LDFLAGS="$LDFLAGS ${TABIX_LIBDIR}"
         CPPFLAGS="$CPPFLAGS ${TABIX_INCDIR}"
-        AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
-        AC_LANG([C])
+        AC_LANG_PUSH([C])
         AC_CHECK_HEADER([tabix.h], [ac_cv_tabix_h=yes], [ac_cv_tabix_h=no])
         AC_CHECK_LIB([tabix],[ti_open],[ac_cv_libtabix=yes],[ac_cv_libtabix=no])
         AC_LANG_POP([])
@@ -148,4 +145,4 @@ AC_LANG_SAVE
                 AC_MSG_ERROR([either specify a valid tabix installation with --with-tabix=DIR or disable tabix usage with --without-tabix])
         fi
 fi
-])
+])dnl

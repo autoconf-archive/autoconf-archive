@@ -20,17 +20,14 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([AC_CXX_HEADER_UNORDERED_SET], [AX_CXX_HEADER_UNORDERED_SET])
 AC_DEFUN([AX_CXX_HEADER_UNORDERED_SET], [
-  AC_CACHE_CHECK(for unordered_set,
-  ax_cv_cxx_unordered_set,
+  AC_CACHE_CHECK([for unordered_set],
+  [ax_cv_cxx_unordered_set],
   [AC_REQUIRE([AC_COMPILE_STDCXX_0X])
-  AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
-  AC_LANG([C++])
+  AC_LANG_PUSH([C++])
   ac_save_CXXFLAGS="$CXXFLAGS"
   CXXFLAGS="$CXXFLAGS -std=gnu++0x"
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <unordered_set>]], [[using std::unordered_set;]])],[ax_cv_cxx_unordered_set=yes],[ax_cv_cxx_unordered_set=no])
@@ -38,6 +35,7 @@ AC_LANG_SAVE
   AC_LANG_POP([])
   ])
   if test "$ax_cv_cxx_unordered_set" = yes; then
-    AC_DEFINE(HAVE_UNORDERED_SET,,[Define if unordered_set is present. ])
+    AC_DEFINE([HAVE_UNORDERED_SET],[1],
+              [Define to 1 if unordered_set is present.])
   fi
-])
+])dnl

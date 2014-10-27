@@ -22,12 +22,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 4
 
 AC_DEFUN([AX_FORCEINLINE], [
   AC_LANG_PUSH([C])
-  AC_MSG_CHECKING(for forced inline keyword)
-  AC_CACHE_VAL(ac_cv_forceinline, [
+  AC_MSG_CHECKING([for forced inline keyword])
+  AC_CACHE_VAL([ac_cv_forceinline],[
     ax_forceinline_keywords="__forceinline inline none"
     for ax_forceinline_keyword in $ax_forceinline_keywords; do
        case $ax_forceinline_keyword in
@@ -45,7 +45,7 @@ AC_DEFUN([AX_FORCEINLINE], [
 ])
 
   if test "$ac_cv_forceinline" = "none"; then
-    ax_forceinline_keyword=
+    ax_forceinline_keyword=""
   else
     ax_forceinline_keyword=$ac_cv_forceinline
   fi
@@ -53,4 +53,4 @@ AC_DEFUN([AX_FORCEINLINE], [
     [The most forceful inline keyword known by the compiler])
   AC_MSG_RESULT($ac_cv_forceinline)
   AC_LANG_POP([C])
-])
+])dnl

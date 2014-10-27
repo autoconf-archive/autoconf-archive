@@ -8,7 +8,7 @@
 #   AX_PYTHON_ENABLE
 #   AX_PYTHON_WITH
 #   AX_PYTHON_PATH
-#   AX_PYTHON_VERSION_ENSURE( [2.2] )
+#   AX_PYTHON_VERSION_ENSURE([2.2])
 #   AX_PYTHON_CSPEC
 #   AX_PYTHON_LSPEC
 #
@@ -44,12 +44,12 @@
 #   The following is an example of how to set up for python usage within
 #   your application in your configure.ac:
 #
-#     AX_PYTHON_DEFAULT( )
-#     AX_PYTHON_ENABLE( )             # Optional
-#     AX_PYTHON_WITH( )               # Optional
-#     AX_PYTHON_PATH( )               # or AX_PYTHON_INSIST( )
+#     AX_PYTHON_DEFAULT()
+#     AX_PYTHON_ENABLE()             # Optional
+#     AX_PYTHON_WITH()               # Optional
+#     AX_PYTHON_PATH()               # or AX_PYTHON_INSIST()
 #     # if $PYTHON is not defined, then the following do nothing.
-#     AX_PYTHON_VERSION_ENSURE( [2.2] )
+#     AX_PYTHON_VERSION_ENSURE([2.2])
 #     AX_PYTHON_CSPEC
 #     AX_PYTHON_LSPEC
 #
@@ -120,9 +120,9 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 10
 
-# AX_PYTHON_DEFAULT( )
+# AX_PYTHON_DEFAULT()
 # -----------------
 # Sets the default to not include Python support.
 
@@ -130,11 +130,10 @@ AC_DEFUN([AX_PYTHON_DEFAULT],
 [
     ax_python_use=false
     AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
-])
+])dnl
 
 
-
-# AX_PYTHON_ENABLE( [path] )
+# AX_PYTHON_ENABLE([path])
 # -----------------------------------------------------------------
 # Handles the various --enable-python commands.
 # Input:
@@ -146,9 +145,9 @@ AC_DEFUN([AX_PYTHON_DEFAULT],
 #   is true.
 #
 # Example:
-#   AX_PYTHON_ENABLE( )
+#   AX_PYTHON_ENABLE()
 #   or
-#   AX_PYTHON_ENABLE( "/usr/bin" )
+#   AX_PYTHON_ENABLE("/usr/bin")
 
 AC_DEFUN([AX_PYTHON_ENABLE],
 [
@@ -161,20 +160,19 @@ AC_DEFUN([AX_PYTHON_ENABLE],
     then
         AC_MSG_CHECKING(for --enable-python)
         AC_ARG_ENABLE(
-            python,
-            AS_HELP_STRING([--enable-python@<:@=PYTHON@:>@],
-                [absolute path name of Python executable]
-            ),
+            [python],
+            [AS_HELP_STRING([--enable-python@<:@=PYTHON@:>@],
+                 [absolute path name of Python executable])],
             [
                 if test "$enableval" = "yes"
                 then
                     # "yes" was specified, but we don't have a path
                     # for the executable.
-                    # So, let's searth the PATH Environment Variable.
+                    # So, let us searth the PATH Environment Variable.
                     AC_MSG_RESULT(yes)
                     AC_PATH_PROG(
                         [PYTHON],
-                        python,
+                        [python],
                         [],
                         $1
                     )
@@ -184,7 +182,7 @@ AC_DEFUN([AX_PYTHON_ENABLE],
                     fi
                     ax_python_use=true
                     AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
-                    AX_PYTHON_PREFIX( )
+                    AX_PYTHON_PREFIX()
                 elif test "$enableval" = "no"
                 then
                     AC_MSG_RESULT(no)
@@ -196,23 +194,19 @@ AC_DEFUN([AX_PYTHON_ENABLE],
                     AC_MSG_RESULT($withval)
                     ax_python_use=true
                     AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
-                    AX_PYTHON_PREFIX( )
+                    AX_PYTHON_PREFIX()
                 fi
-            ],
-            [
+            ],[
                 # --with-python was not specified.
                 AC_MSG_RESULT(no)
                 ax_python_use=false
                 AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
-            ]
-        )
+            ])
     fi
-
-])
-
+])dnl
 
 
-# AX_PYTHON_CSPEC( )
+# AX_PYTHON_CSPEC()
 # -----------------
 # Set up the c compiler options to compile Python
 # embedded programs/libraries in $PYTHON_CSPEC if
@@ -220,7 +214,7 @@ AC_DEFUN([AX_PYTHON_ENABLE],
 
 AC_DEFUN([AX_PYTHON_CSPEC],
 [
-    AC_ARG_VAR( [PYTHON], [Python Executable Path] )
+    AC_ARG_VAR([PYTHON], [Python Executable Path])
     if test -n "$PYTHON"
     then
         ax_python_prefix=`${PYTHON} -c "import sys; print sys.prefix"`
@@ -240,27 +234,25 @@ AC_DEFUN([AX_PYTHON_CSPEC],
         AC_SUBST([PYTHON_CSPEC], [${ax_python_cspec}])
         AC_MSG_NOTICE([PYTHON_CSPEC=${ax_python_cspec}])
     fi
-])
+])dnl
 
 
-
-# AX_PYTHON_INSIST( )
+# AX_PYTHON_INSIST()
 # -----------------
 # Look for Python and set the output variable 'PYTHON'
 # to 'python' if found, empty otherwise.
 
 AC_DEFUN([AX_PYTHON_INSIST],
 [
-    AC_ARG_VAR( [PYTHON], [Python Executable Path] )
+    AC_ARG_VAR([PYTHON], [Python Executable Path])
     if test -z "$PYTHON"
     then
         AC_MSG_ERROR([Python Executable not found])
     fi
-])
+])dnl
 
 
-
-# AX_PYTHON_LSPEC( )
+# AX_PYTHON_LSPEC()
 # -----------------
 # Set up the linker options to link Python embedded
 # programs/libraries in $PYTHON_LSPEC if $PYTHON
@@ -268,7 +260,7 @@ AC_DEFUN([AX_PYTHON_INSIST],
 
 AC_DEFUN([AX_PYTHON_LSPEC],
 [
-    AC_ARG_VAR( [PYTHON], [Python Executable Path] )
+    AC_ARG_VAR([PYTHON], [Python Executable Path])
     if test -n "$PYTHON"
     then
         AX_PYTHON_RUN([
@@ -310,19 +302,18 @@ print strLinkSpec
         AC_SUBST([PYTHON_LSPEC], [${ax_python_output}])
         AC_MSG_NOTICE([PYTHON_LSPEC=${ax_python_output}])
     fi
-])
+])dnl
 
 
-
-# AX_PYTHON_PATH( )
+# AX_PYTHON_PATH()
 # -----------------
 # Look for Python and set the output variable 'PYTHON'
 # to 'python' if found, empty otherwise.
 
 AC_DEFUN([AX_PYTHON_PATH],
 [
-    AC_ARG_VAR( [PYTHON], [Python Executable Path] )
-    AC_PATH_PROG( PYTHON, python, [], $1 )
+    AC_ARG_VAR([PYTHON], [Python Executable Path])
+    AC_PATH_PROG([PYTHON],[python],[], $1)
     if test -z "$PYTHON"
     then
         AC_MSG_ERROR([Python Executable not found])
@@ -330,11 +321,10 @@ AC_DEFUN([AX_PYTHON_PATH],
         ax_python_use=true
     fi
     AM_CONDITIONAL(PYTHON_USE, test "$ax_python_use" = "true")
-])
+])dnl
 
 
-
-# AX_PYTHON_PREFIX( )
+# AX_PYTHON_PREFIX()
 # -------------------
 # Use the values of $prefix and $exec_prefix for the corresponding
 # values of PYTHON_PREFIX and PYTHON_EXEC_PREFIX.
@@ -349,11 +339,10 @@ AC_DEFUN([AX_PYTHON_PREFIX],
     ax_python_execprefix=`${PYTHON} -c "import sys; print sys.exec_prefix"`
     AC_SUBST([PYTHON_PREFIX], ["${ax_python_prefix}"])
     AC_SUBST([PYTHON_EXECPREFIX], ["${ax_python_execprefix}"])
-])
+])dnl
 
 
-
-# AX_PYTHON_RUN( PYTHON_PROGRAM )
+# AX_PYTHON_RUN(PYTHON_PROGRAM)
 # -----------------
 # Run a Python Test Program saving its output
 # in ax_python_output and its condition code
@@ -361,7 +350,7 @@ AC_DEFUN([AX_PYTHON_PREFIX],
 
 AC_DEFUN([AX_PYTHON_RUN],
 [
-    AC_ARG_VAR( [PYTHON], [Python Executable Path] )
+    AC_ARG_VAR([PYTHON], [Python Executable Path])
     if test -z "$PYTHON"
     then
         AC_MSG_ERROR([Python Executable not found])
@@ -377,11 +366,10 @@ _ACEOF
             rm conftest.pyc
         fi
     fi
-])
+])dnl
 
 
-
-# AX_PYTHON_VERSION_CHECK( VERSION, [ACTION-IF-TRUE], [ACTION-IF-FALSE] )
+# AX_PYTHON_VERSION_CHECK(VERSION, [ACTION-IF-TRUE], [ACTION-IF-FALSE])
 # -----------------------------------------------------------------------------
 # Run ACTION-IF-TRUE if the Python interpreter has version >= VERSION.
 # Run ACTION-IF-FALSE otherwise.
@@ -392,7 +380,7 @@ _ACEOF
 
 AC_DEFUN([AX_PYTHON_VERSION_CHECK],
  [
-    AC_ARG_VAR( [PYTHON], [Python Executable Path] )
+    AC_ARG_VAR([PYTHON], [Python Executable Path])
     if test -n "$PYTHON"
     then
         AC_MSG_CHECKING([whether $PYTHON version >= $1])
@@ -413,15 +401,13 @@ else:
             $2
         m4_ifvaln(
             [$3],
-            [else $3]
-        )
+            [else $3])
         fi
     fi
-])
+])dnl
 
 
-
-# AX_PYTHON_VERSION_ENSURE( VERSION )
+# AX_PYTHON_VERSION_ENSURE(VERSION)
 # -----------------
 # Insure that the Python Interpreter Version
 # is greater than or equal to the VERSION
@@ -432,13 +418,11 @@ AC_DEFUN([AX_PYTHON_VERSION_ENSURE],
     AX_PYTHON_VERSION_CHECK(
         [$1],
         [AC_MSG_RESULT(yes)],
-        [AC_MSG_ERROR(too old)]
-    )
-])
+        [AC_MSG_ERROR(too old)])
+])dnl
 
 
-
-# AX_PYTHON_WITH( [path] )
+# AX_PYTHON_WITH([path])
 # -----------------------------------------------------------------
 # Handles the various --with-python commands.
 # Input:
@@ -450,7 +434,7 @@ AC_DEFUN([AX_PYTHON_VERSION_ENSURE],
 #   is true.
 #
 # Example:
-#   AX_PYTHON_WITH( )
+#   AX_PYTHON_WITH()
 #   or
 #   AX_PYTHON_WITH("/usr/bin")
 
@@ -465,20 +449,19 @@ AC_DEFUN([AX_PYTHON_WITH],
     then
         AC_MSG_CHECKING(for --with-python)
         AC_ARG_WITH(
-            python,
-            AS_HELP_STRING([--with-python@<:@=PYTHON@:>@],
-                [absolute path name of Python executable]
-            ),
+            [python],
+            [AS_HELP_STRING([--with-python@<:@=PYTHON@:>@],
+                 [absolute path name of Python executable])],
             [
                 if test "$withval" = "yes"
                 then
-                    # "yes" was specified, but we don't have a path
+                    # "yes" was specified, but we do NOT have a path
                     # for the executable.
-                    # So, let's searth the PATH Environment Variable.
+                    # So, let us searth the PATH Environment Variable.
                     AC_MSG_RESULT(yes)
                     AC_PATH_PROG(
                         [PYTHON],
-                        python,
+                        [python],
                         [],
                         $1
                     )
@@ -488,7 +471,7 @@ AC_DEFUN([AX_PYTHON_WITH],
                     fi
                     ax_python_use=true
                     AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
-                    AX_PYTHON_PREFIX( )
+                    AX_PYTHON_PREFIX()
                 elif test "$withval" = "no"
                 then
                     AC_MSG_RESULT(no)
@@ -500,16 +483,13 @@ AC_DEFUN([AX_PYTHON_WITH],
                     AC_MSG_RESULT($withval)
                     ax_python_use=true
                     AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
-                    AX_PYTHON_PREFIX( )
+                    AX_PYTHON_PREFIX()
                 fi
-            ],
-            [
+            ],[
                 # --with-python was not specified.
                 AC_MSG_RESULT(no)
                 ax_python_use=false
                 AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
-            ]
-        )
+            ])
     fi
-
-])
+])dnl

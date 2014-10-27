@@ -41,16 +41,16 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 9
 
 AC_DEFUN([AX_GCC_CONST_CALL],[dnl
 AC_CACHE_CHECK(
  [whether the compiler supports function __attribute__((__const__))],
- ax_cv_gcc_const_call,[
+ [ax_cv_gcc_const_call],[
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[__attribute__((__const__))
  int f(int i) { return i; }]], [[]])],[ax_cv_gcc_const_call=yes],[ax_cv_gcc_const_call=no])])
  if test "$ax_cv_gcc_const_call" = yes; then
    AC_DEFINE([GCC_CONST_CALL],[__attribute__((__const__))],
     [most gcc compilers know a function __attribute__((__const__))])
  fi
-])
+])dnl

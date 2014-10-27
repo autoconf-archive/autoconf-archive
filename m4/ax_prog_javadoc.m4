@@ -38,7 +38,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 10
 
 AU_ALIAS([AC_PROG_JAVADOC], [AX_PROG_JAVADOC])
 AC_DEFUN([AX_PROG_JAVADOC],[
@@ -47,4 +47,4 @@ AS_IF([test "x$JAVAPREFIX" = x],
       [test "x$JAVADOC" = x && AC_CHECK_PROGS([JAVADOC], [javadoc], [], [$JAVAPREFIX/bin])])
 test "x$JAVADOC" = x && AC_MSG_ERROR([no acceptable javadoc generator found in \$PATH])
 AC_PROVIDE([$0])dnl
-])
+])dnl

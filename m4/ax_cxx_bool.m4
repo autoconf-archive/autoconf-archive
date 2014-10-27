@@ -23,7 +23,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 9
 
 AU_ALIAS([AC_CXX_BOOL], [AX_CXX_BOOL])
 AC_DEFUN([AX_CXX_BOOL],

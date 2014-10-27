@@ -23,7 +23,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 10
 
 AC_DEFUN([AX_TRILINOS_EPETRA],[
     AC_REQUIRE([AX_TRILINOS_BASE])
@@ -41,4 +41,4 @@ AC_DEFUN([AX_TRILINOS_EPETRA],[
 		ifelse([$2],,AC_MSG_ERROR([Trilinos Epetra not usable.]),
             [$2])
     fi
-])
+])dnl

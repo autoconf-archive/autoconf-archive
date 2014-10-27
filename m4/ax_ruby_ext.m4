@@ -56,10 +56,9 @@
 #   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 #   THE POSSIBILITY OF SUCH DAMAGE.
 
-#serial 2
+#serial 4
 
 AC_DEFUN([AX_RUBY_EXT],[
-
         #
         # Check if ruby executable exists.
         #
@@ -141,4 +140,4 @@ AC_DEFUN([AX_RUBY_EXT],[
                 AC_MSG_RESULT([$RUBY_EXT_DLEXT])
                 AC_SUBST(RUBY_EXT_DLEXT)
         fi
-])
+])dnl

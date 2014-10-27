@@ -41,7 +41,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 7
 
 AU_ALIAS([RLC_XERCESC], [AX_XERCESC])
 AC_DEFUN([AX_XERCESC],
@@ -496,4 +496,4 @@ AC_DEFUN([AX_XERCESC_BODY],
       LTLIBXERCES_C="${LTLIBXERCES_C}${LTLIBXERCES_C:+ }-R$found_dir"
     done
   fi
-])
+])dnl

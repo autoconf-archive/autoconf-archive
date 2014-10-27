@@ -16,7 +16,7 @@
 #     #if defined(HAVE_STL)
 #     #include <hash_set>
 #     #else
-#     # Can't find hash_set header !
+#     # error "Cannot find hash_set header!"
 #     #endif
 #     #endif
 #
@@ -50,17 +50,14 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 7
 
 AU_ALIAS([AC_CXX_HAVE_EXT_HASH_SET], [AX_CXX_HAVE_EXT_HASH_SET])
 AC_DEFUN([AX_CXX_HAVE_EXT_HASH_SET],
-[AC_CACHE_CHECK(whether the compiler has ext/hash_set,
-ax_cv_cxx_have_ext_hash_set,
+[AC_CACHE_CHECK([whether the compiler has ext/hash_set],
+[ax_cv_cxx_have_ext_hash_set],
 [AC_REQUIRE([AX_CXX_NAMESPACES])
-  AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
-  AC_LANG([C++])
+  AC_LANG_PUSH([C++])
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <ext/hash_set>
 #ifdef HAVE_NAMESPACES
 using namespace std;
@@ -68,6 +65,7 @@ using namespace std;
   AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_have_ext_hash_set" = yes; then
-   AC_DEFINE(HAVE_EXT_HASH_SET,,[define if the compiler has ext/hash_set])
+   AC_DEFINE([HAVE_EXT_HASH_SET],[1],
+             [Define to 1 if the compiler has ext/hash_set])
 fi
-])
+])dnl

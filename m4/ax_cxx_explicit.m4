@@ -22,20 +22,18 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([AC_CXX_EXPLICIT], [AX_CXX_EXPLICIT])
 AC_DEFUN([AX_CXX_EXPLICIT],
 [AC_CACHE_CHECK(whether the compiler supports the explicit keyword,
 ax_cv_cxx_explicit,
-[AC_DIAGNOSE([obsolete],[Instead of using `AC_LANG', `AC_LANG_SAVE', and `AC_LANG_RESTORE',
-you should use `AC_LANG_PUSH' and `AC_LANG_POP'.])dnl
-AC_LANG_SAVE
- AC_LANG([C++])
+[AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[class A{public:explicit A(double){}};]], [[double c = 5.0;A x(c);return 0;]])],[ax_cv_cxx_explicit=yes],[ax_cv_cxx_explicit=no])
  AC_LANG_POP([])
 ])
 if test "$ax_cv_cxx_explicit" = yes; then
-  AC_DEFINE(HAVE_EXPLICIT,,[define if the compiler supports the explicit keyword])
+  AC_DEFINE([HAVE_EXPLICIT],[1],
+            [Define to 1 if the compiler supports the explicit keyword])
 fi
-])
+])dnl
