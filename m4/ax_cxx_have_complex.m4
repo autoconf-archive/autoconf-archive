@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 9
 
 AU_ALIAS([AC_CXX_HAVE_COMPLEX], [AX_CXX_HAVE_COMPLEX])
 AC_DEFUN([AX_CXX_HAVE_COMPLEX],
@@ -34,7 +34,7 @@ using namespace std;
 #endif]], [[complex<float> a; complex<double> b; return 0;]])],[ax_cv_cxx_have_complex=yes],[ax_cv_cxx_have_complex=no])
  AC_LANG_POP([])
 ])
-if test "$ax_cv_cxx_have_complex" = yes; then
+if test "x${ax_cv_cxx_have_complex}" = "xyes"; then
   AC_DEFINE([HAVE_COMPLEX],[1],
             [Define to 1 if the compiler has complex<T>])
 fi
