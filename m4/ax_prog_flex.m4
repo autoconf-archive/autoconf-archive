@@ -42,14 +42,14 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_PROG_FLEX], [
   AC_REQUIRE([AM_PROG_LEX])
   AC_REQUIRE([AC_PROG_EGREP])
 
   AC_CACHE_CHECK([if flex is the lexer generator],[ax_cv_prog_flex],[
-    AS_IF([$LEX --version 2>/dev/null | $EGREP -qw '^flex'],
+    AS_IF([$LEX --version 2>/dev/null | $EGREP -qw '^g?flex'],
       [ax_cv_prog_flex=yes], [ax_cv_prog_flex=no])
   ])
   AS_IF([test "$ax_cv_prog_flex" = "yes"],
