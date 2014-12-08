@@ -53,7 +53,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_VALGRIND_CHECK],[
 	dnl Check for --enable-valgrind
@@ -111,6 +111,15 @@ VALGRIND_helgrind_FLAGS ?= --history-level=approx
 VALGRIND_drd_FLAGS ?=
 VALGRIND_sgcheck_FLAGS ?=
 
+# Internal use
+valgrind_tools = memcheck helgrind drd sgcheck
+valgrind_log_files = $(addprefix test-suite-,$(addsuffix .log,$(valgrind_tools)))
+
+valgrind_memcheck_flags = --tool=memcheck $(VALGRIND_memcheck_FLAGS)
+valgrind_helgrind_flags = --tool=helgrind $(VALGRIND_helgrind_FLAGS)
+valgrind_drd_flags = --tool=drd $(VALGRIND_drd_FLAGS)
+valgrind_sgcheck_flags = --tool=exp-sgcheck $(VALGRIND_sgcheck_FLAGS)
+
 valgrind_quiet = $(valgrind_quiet_$(V))
 valgrind_quiet_ = $(valgrind_quiet_$(AM_DEFAULT_VERBOSITY))
 valgrind_quiet_0 = --quiet
@@ -118,18 +127,11 @@ valgrind_quiet_0 = --quiet
 # Use recursive makes in order to ignore errors during check
 check-valgrind:
 ifeq ($(VALGRIND_ENABLED),yes)
-ifneq ($(VALGRIND_HAVE_TOOL_memcheck),)
-	-$(MAKE) $(AM_MAKEFLAGS) -k check-valgrind-tool VALGRIND_TOOL=memcheck
-endif
-ifneq ($(VALGRIND_HAVE_TOOL_helgrind),)
-	-$(MAKE) $(AM_MAKEFLAGS) -k check-valgrind-tool VALGRIND_TOOL=helgrind
-endif
-ifneq ($(VALGRIND_HAVE_TOOL_drd),)
-	-$(MAKE) $(AM_MAKEFLAGS) -k check-valgrind-tool VALGRIND_TOOL=drd
-endif
-ifneq ($(VALGRIND_HAVE_TOOL_sgcheck),)
-	-$(MAKE) $(AM_MAKEFLAGS) -k check-valgrind-tool VALGRIND_TOOL=sgcheck
-endif
+	-$(foreach tool,$(valgrind_tools), \
+		$(if $(VALGRIND_HAVE_TOOL_$(tool))$(VALGRIND_HAVE_TOOL_exp_$(tool)), \
+			$(MAKE) $(AM_MAKEFLAGS) -k check-valgrind-tool VALGRIND_TOOL=$(tool); \
+		) \
+	)
 else
 	@echo "Need to reconfigure with --enable-valgrind"
 endif
@@ -150,7 +152,7 @@ ifeq ($(VALGRIND_ENABLED),yes)
 	$(MAKE) check-TESTS \
 		TESTS_ENVIRONMENT="$(VALGRIND_TESTS_ENVIRONMENT)" \
 		LOG_COMPILER="$(VALGRIND_LOG_COMPILER)" \
-		LOG_FLAGS="--tool=$(VALGRIND_TOOL) $(VALGRIND_$(VALGRIND_TOOL)_FLAGS)" \
+		LOG_FLAGS="$(valgrind_$(VALGRIND_TOOL)_flags)" \
 		TEST_SUITE_LOG=test-suite-$(VALGRIND_TOOL).log
 else
 	@echo "Need to reconfigure with --enable-valgrind"
@@ -158,6 +160,9 @@ endif
 
 DISTCHECK_CONFIGURE_FLAGS ?=
 DISTCHECK_CONFIGURE_FLAGS += --disable-valgrind
+
+MOSTLYCLEANFILES ?=
+MOSTLYCLEANFILES += $(valgrind_log_files)
 
 .PHONY: check-valgrind check-valgrind-tool
 '
