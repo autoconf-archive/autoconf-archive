@@ -4,7 +4,7 @@
 #
 # SYNOPSIS
 #
-#   AX_PKG_CHECK_MODULES(PREFIX, PUBLIC-MODULES, PRIVATE-MODULES, [PUBLIC-VARIABLE], [PRIVATE-VARIABLE])
+#   AX_PKG_CHECK_MODULES(PREFIX, PUBLIC-MODULES, PRIVATE-MODULES, [ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND], [PUBLIC-VARIABLE], [PRIVATE-VARIABLE])
 #
 # DESCRIPTION
 #
@@ -17,7 +17,10 @@
 #   The PREFIX, PUBLIC-MODULES and PRIVATE-MODULES arguments should be
 #   specified as for PKG_CHECK_MODULES, with the concatenation of
 #   PUBLIC-MODULES and PRIVATE-MODULES equaling the LIST-OF-MODULES from
-#   PKG_CHECK_MODULES.
+#   PKG_CHECK_MODULES.  The ACTION-IF-FOUND and ACTION-IF-NOT-FOUND
+#   arguments are optional, and should also be specified as for
+#   PKG_CHECK_MODULES.  ACTION-IF-FOUND is evaluated if the full
+#   LIST-OF-MODULES is found; ACTION-IF-NOT-FOUND similarly.
 #
 #   PUBLIC-VARIABLE defaults to AX_PACKAGE_REQUIRES, and PRIVATE-VARIABLE
 #   defaults to AX_PACKAGE_REQUIRES_PRIVATE.  Both variables are AC_SUBST-ed
@@ -47,18 +50,18 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_PKG_CHECK_MODULES],[
     m4_define([ax_package_requires],
-              [m4_default_quoted([$4],[AX_PACKAGE_REQUIRES])])
+              [m4_default_quoted([$6],[AX_PACKAGE_REQUIRES])])
     m4_define([ax_package_requires_private],
-              [m4_default_quoted([$5],[AX_PACKAGE_REQUIRES_PRIVATE])])
+              [m4_default_quoted([$7],[AX_PACKAGE_REQUIRES_PRIVATE])])
 
     ax_package_requires="$[]ax_package_requires $2"
     ax_package_requires_private="$[]ax_package_requires_private $3"
 
-    PKG_CHECK_MODULES([$1],[$2 $3])
+    PKG_CHECK_MODULES([$1],[$2 $3],[$4],[$5])
 
     # Substitute output.
     AC_SUBST(ax_package_requires)
