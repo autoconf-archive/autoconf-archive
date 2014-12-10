@@ -180,7 +180,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 29
+#serial 30
 
 dnl =========================================================================
 dnl AX_PROG_LUA([MINIMUM-VERSION], [TOO-BIG-VERSION],
@@ -410,9 +410,7 @@ AC_DEFUN([AX_LUA_HEADERS],
   dnl Some default directories to search.
   LUA_SHORT_VERSION=`echo "$LUA_VERSION" | sed 's|\.||'`
   m4_define_default([_AX_LUA_INCLUDE_LIST],
-    [ [$LUA_INCLUDE] \
-      /usr/include \
-      /usr/include/lua$LUA_VERSION \
+    [ /usr/include/lua$LUA_VERSION \
       /usr/include/lua/$LUA_VERSION \
       /usr/include/lua$LUA_SHORT_VERSION \
       /usr/local/include/lua$LUA_VERSION \
@@ -422,15 +420,49 @@ AC_DEFUN([AX_LUA_HEADERS],
     ])
 
   dnl Try to find the headers.
-  AS_VAR_SET([LUA_SAVED_CPPFLAGS], [$CPPFLAGS])
+  _ax_lua_saved_cppflags=$CPPFLAGS
+  CPPFLAGS="$CPPFLAGS $LUA_INCLUDE"
+  AC_CHECK_HEADERS([lua.h lualib.h lauxlib.h luaconf.h])
+  CPPFLAGS=$_ax_lua_saved_cppflags
 
-  AS_FOR([LUA_INCLUDE], [_ax_include_path], [_AX_LUA_INCLUDE_LIST], [
-    CPPFLAGS="-I$_ax_include_path"
-    AC_CHECK_HEADERS([lua.h lualib.h lauxlib.h luaconf.h])
-    AS_IF([test x$ac_cv_header_lua_h = xyes], [
-      AC_RUN_IFELSE([
-        AC_LANG_SOURCE([[
-#include "lua.h"
+  dnl Try some other directories if LUA_INCLUDE was not set.
+  AS_IF([test "x$LUA_INCLUDE" = 'x' &&
+         test "x$ac_cv_header_lua_h" != 'xyes'],
+    [ dnl Try some common include paths.
+      for _ax_include_path in _AX_LUA_INCLUDE_LIST; do
+        test ! -d "$_ax_include_path" && continue
+
+        AC_MSG_CHECKING([for Lua headers in])
+        AC_MSG_RESULT([$_ax_include_path])
+
+        AS_UNSET([ac_cv_header_lua_h])
+        AS_UNSET([ac_cv_header_lualib_h])
+        AS_UNSET([ac_cv_header_lauxlib_h])
+        AS_UNSET([ac_cv_header_luaconf_h])
+
+        _ax_lua_saved_cppflags=$CPPFLAGS
+        CPPFLAGS="$CPPFLAGS -I$_ax_include_path"
+        AC_CHECK_HEADERS([lua.h lualib.h lauxlib.h luaconf.h])
+        CPPFLAGS=$_ax_lua_saved_cppflags
+
+        AS_IF([test "x$ac_cv_header_lua_h" = 'xyes'],
+          [ LUA_INCLUDE="-I$_ax_include_path"
+            break
+          ])
+      done
+    ])
+
+  AS_IF([test "x$ac_cv_header_lua_h" = 'xyes' && test "x$cross_compiling" != 'xyes'],
+    [ dnl Make a program to print LUA_VERSION defined in the header.
+      dnl TODO This probably shouldn't be a runtime test.
+
+      AC_CACHE_CHECK([for Lua header version],
+        [ax_cv_lua_header_version],
+        [ _ax_lua_saved_cppflags=$CPPFLAGS
+          CPPFLAGS="$CPPFLAGS $LUA_INCLUDE"
+          AC_RUN_IFELSE(
+            [ AC_LANG_SOURCE([[
+#include <lua.h>
 #include <stdlib.h>
 #include <stdio.h>
 int main(int argc, char ** argv)
@@ -439,31 +471,28 @@ int main(int argc, char ** argv)
   exit(EXIT_SUCCESS);
 }
 ]])
-        ],
-        [ LUA_HEADER_VERSION=`./conftest$EXEEXT p | \
-          sed "s|^Lua \(.*\)|\1|" | \
-          grep -E -o "^@<:@0-9@:>@+\.@<:@0-9@:>@+"`
-        ],
-        [LUA_HEADER_VERSION='unknown'])
+            ],
+            [ ax_cv_lua_header_version=`./conftest$EXEEXT p | \
+                sed "s|^Lua \(.*\)|\1|" | \
+                grep -E -o "^@<:@0-9@:>@+\.@<:@0-9@:>@+"`
+            ],
+            [ax_cv_lua_header_version='unknown'])
+          CPPFLAGS=$_ax_lua_saved_cppflags
+        ])
+
       dnl Compare this to the previously found LUA_VERSION.
-      AC_MSG_CHECKING([if Lua header version $LUA_HEADER_VERSION matches $LUA_VERSION])
-      AS_IF([test "x$LUA_HEADER_VERSION" = "x$LUA_VERSION"], [
-        AC_MSG_RESULT([yes])
+      AC_MSG_CHECKING([if Lua header version matches $LUA_VERSION])
+      AS_IF([test "x$ax_cv_lua_header_version" = "x$LUA_VERSION"],
+        [ AC_MSG_RESULT([yes])
+          ax_header_version_match='yes'
+        ],
+        [ AC_MSG_RESULT([no])
+          ax_header_version_match='no'
+        ])
+    ],
+    [
         ax_header_version_match='yes'
-        [LUA_INCLUDE="-I$_ax_include_path"]
-        [ax_cv_lua_luaincludedir="$_ax_include_path"]
-        AC_SUBST([luaincludedir], [$ax_cv_lua_luaincludedir])
-      ],
-      [ AC_MSG_RESULT([no])
-        ax_header_version_match='no'
-      ])
-   ])
-
-   AS_IF([test x$ax_header_version_match = xyes], [break])
-  ])
-
-  CPPFLAGS="$LUA_SAVED_CPPFLAGS"
-  AS_UNSET([LUA_SAVED_CPPFLAGS])
+    ])
 
   dnl Was LUA_INCLUDE specified?
   AS_IF([test "x$ax_header_version_match" != 'xyes' &&
@@ -480,6 +509,7 @@ AC_DEFUN([AX_LUA_HEADERS_VERSION],
 [
   AC_MSG_WARN([[$0 is deprecated, please use AX_LUA_HEADERS]])
 ])
+
 
 dnl =========================================================================
 dnl AX_LUA_LIBS([ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
