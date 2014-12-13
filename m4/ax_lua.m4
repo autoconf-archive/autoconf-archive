@@ -152,7 +152,7 @@
 # LICENSE
 #
 #   Copyright (c) 2014 Reuben Thomas <rrt@sc3d.org>
-#   Copyright (c) 2013 Tim Perkins <tprk77@gmail.com>
+#   Copyright (c) 2014 Tim Perkins <tprk77@gmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -180,7 +180,8 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 30
+#serial 31
+
 
 dnl =========================================================================
 dnl AX_PROG_LUA([MINIMUM-VERSION], [TOO-BIG-VERSION],
@@ -188,6 +189,10 @@ dnl             [ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
 dnl =========================================================================
 AC_DEFUN([AX_PROG_LUA],
 [
+  dnl Check for required tools.
+  AC_REQUIRE([AC_PROG_GREP])
+  AC_REQUIRE([AC_PROG_SED])
+
   dnl Make LUA a precious variable.
   AC_ARG_VAR([LUA], [The Lua interpreter, e.g. /usr/bin/lua5.1])
 
@@ -259,7 +264,7 @@ AC_DEFUN([AX_PROG_LUA],
     AS_IF([test "x$ax_cv_lua_version" = 'x'],
       [AC_MSG_ERROR([invalid Lua version number])])
     AC_SUBST([LUA_VERSION], [$ax_cv_lua_version])
-    AC_SUBST([LUA_SHORT_VERSION], [`echo "$LUA_VERSION" | sed 's|\.||'`])
+    AC_SUBST([LUA_SHORT_VERSION], [`echo "$LUA_VERSION" | $SED 's|\.||'`])
 
     dnl The following check is not supported:
     dnl At times (like when building shared libraries) you may want to know
@@ -293,9 +298,9 @@ AC_DEFUN([AX_PROG_LUA],
         _AX_LUA_FND_PRFX_PTH([$LUA], [$ax_lua_prefix], [package.path])
         AS_IF([test "x$ax_lua_prefixed_path" != 'x'],
         [ dnl Fix the prefix.
-          _ax_strip_prefix=`echo "$ax_lua_prefix" | sed 's|.|.|g'`
+          _ax_strip_prefix=`echo "$ax_lua_prefix" | $SED 's|.|.|g'`
           ax_cv_lua_luadir=`echo "$ax_lua_prefixed_path" | \
-            sed "s,^$_ax_strip_prefix,$LUA_PREFIX,"`
+            $SED "s|^$_ax_strip_prefix|$LUA_PREFIX|"`
         ])
       ])
     AC_SUBST([luadir], [$ax_cv_lua_luadir])
@@ -320,9 +325,9 @@ AC_DEFUN([AX_PROG_LUA],
           [$ax_lua_exec_prefix], [package.cpath])
         AS_IF([test "x$ax_lua_prefixed_path" != 'x'],
         [ dnl Fix the prefix.
-          _ax_strip_prefix=`echo "$ax_lua_exec_prefix" | sed 's|.|.|g'`
+          _ax_strip_prefix=`echo "$ax_lua_exec_prefix" | $SED 's|.|.|g'`
           ax_cv_lua_luaexecdir=`echo "$ax_lua_prefixed_path" | \
-            sed "s,^$_ax_strip_prefix,$LUA_EXEC_PREFIX,"`
+            $SED "s|^$_ax_strip_prefix|$LUA_EXEC_PREFIX|"`
         ])
       ])
     AC_SUBST([luaexecdir], [$ax_cv_lua_luaexecdir])
@@ -408,7 +413,7 @@ AC_DEFUN([AX_LUA_HEADERS],
   AC_ARG_VAR([LUA_INCLUDE], [The Lua includes, e.g. -I/usr/include/lua5.1])
 
   dnl Some default directories to search.
-  LUA_SHORT_VERSION=`echo "$LUA_VERSION" | sed 's|\.||'`
+  LUA_SHORT_VERSION=`echo "$LUA_VERSION" | $SED 's|\.||'`
   m4_define_default([_AX_LUA_INCLUDE_LIST],
     [ /usr/include/lua$LUA_VERSION \
       /usr/include/lua/$LUA_VERSION \
@@ -473,8 +478,7 @@ int main(int argc, char ** argv)
 ]])
             ],
             [ ax_cv_lua_header_version=`./conftest$EXEEXT p | \
-                sed "s|^Lua \(.*\)|\1|" | \
-                grep -E -o "^@<:@0-9@:>@+\.@<:@0-9@:>@+"`
+                $SED -n "s|^Lua \(@<:@0-9@:>@\{1,\}\.@<:@0-9@:>@\{1,\}\).\{0,\}|\1|p"`
             ],
             [ax_cv_lua_header_version='unknown'])
           CPPFLAGS=$_ax_lua_saved_cppflags
