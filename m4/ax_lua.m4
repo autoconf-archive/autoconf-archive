@@ -350,7 +350,7 @@ AC_DEFUN([AX_PROG_LUA],
 dnl AX_WITH_LUA is now the same thing as AX_PROG_LUA.
 AC_DEFUN([AX_WITH_LUA],
 [
-  AC_MSG_WARN([[$0 is deprecated, please use AX_PROG_LUA]])
+  AC_MSG_WARN([[$0 is deprecated, please use AX_PROG_LUA instead]])
   AX_PROG_LUA
 ])
 
@@ -570,7 +570,7 @@ int main(int argc, char ** argv)
 dnl AX_LUA_HEADERS_VERSION no longer exists, use AX_LUA_HEADERS.
 AC_DEFUN([AX_LUA_HEADERS_VERSION],
 [
-  AC_MSG_WARN([[$0 is deprecated, please use AX_LUA_HEADERS]])
+  AC_MSG_WARN([[$0 is deprecated, please use AX_LUA_HEADERS instead]])
 ])
 
 
