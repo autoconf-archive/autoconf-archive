@@ -70,7 +70,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 16
+#serial 17
 
 m4_define([_AX_CHECK_GL_PROGRAM],
           [AC_LANG_PROGRAM([[
@@ -532,6 +532,7 @@ AC_DEFUN([AX_CHECK_GL],
 
  # set flags
  no_gl="yes"
+ have_GL="no"
 
  # now do the real testing
  AS_IF([test X$ax_check_gl_want_gl != "Xno"],
@@ -539,7 +540,8 @@ AC_DEFUN([AX_CHECK_GL],
 
  AC_MSG_CHECKING([for a working OpenGL implementation])
  AS_IF([test "X$no_gl" = "Xno"],
-       [AC_MSG_RESULT([yes])
+       [have_GL="yes"
+        AC_MSG_RESULT([yes])
         AC_MSG_CHECKING([for CFLAGS needed for OpenGL])
         AC_MSG_RESULT(["${GL_CFLAGS}"])
         AC_MSG_CHECKING([for LIBS needed for OpenGL])

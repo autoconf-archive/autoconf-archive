@@ -287,6 +287,7 @@ AC_DEFUN([AX_CHECK_GLX],dnl
 
  # set flags
  no_glx="yes"
+ have_GLX="no"
 
  AC_MSG_CHECKING([for a working OpenGL Utility (GLX) implementation by pkg-config])
  # try first pkgconfig
@@ -303,7 +304,8 @@ AC_DEFUN([AX_CHECK_GLX],dnl
 
  AC_MSG_CHECKING([for a working OpenGL Utility (GLX) implementation])
  AS_IF([test "X$no_glx" = "Xno"],
-       [AC_MSG_RESULT([yes])
+       [have_GLX="yes"
+        AC_MSG_RESULT([yes])
         AC_MSG_CHECKING([for CFLAGS needed for OpenGL Utility (GLX)])
         AC_MSG_RESULT(["${GLX_CFLAGS}"])
         AC_MSG_CHECKING([for LIBS needed for OpenGL Utility (GLX)])

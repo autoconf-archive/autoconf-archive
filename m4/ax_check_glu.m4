@@ -66,7 +66,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 16
+#serial 17
 
 # exemple program
 m4_define([_AX_CHECK_GLU_PROGRAM],
@@ -343,6 +343,7 @@ AC_DEFUN([AX_CHECK_GLU],dnl
 
  # set flags
  no_glu="yes"
+ have_GLU="no"
 
  AC_MSG_CHECKING([for a working OpenGL Utility (GLU) implementation by pkg-config])
  # try first pkgconfig
@@ -363,7 +364,8 @@ AC_DEFUN([AX_CHECK_GLU],dnl
 
  AC_MSG_CHECKING([for a working OpenGL Utility (GLU) implementation])
  AS_IF([test "X$no_glu" = "Xno"],
-       [AC_MSG_RESULT([yes])
+       [have_GLU="yes"
+        AC_MSG_RESULT([yes])
         AC_MSG_CHECKING([for CFLAGS needed for OpenGL Utility (GLU)])
         AC_MSG_RESULT(["${GLU_CFLAGS}"])
         AC_MSG_CHECKING([for LIBS needed for OpenGL Utility (GLU)])

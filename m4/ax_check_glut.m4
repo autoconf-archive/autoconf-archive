@@ -60,7 +60,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 13
+#serial 14
 
 dnl local save flags
 AC_DEFUN([_AX_CHECK_GLUT_SAVE_FLAGS],
@@ -246,11 +246,18 @@ AC_DEFUN([AX_CHECK_GLUT],
  AC_REQUIRE([AX_CHECK_GL])dnl
  AC_REQUIRE([AX_CHECK_GLU])dnl
 
+ # set flags
+ no_glut="yes"
+ have_GLUT="no"
+ have_glut="no"
+
  _AX_CHECK_GLUT_MANUAL
 
  AC_MSG_CHECKING([for a working OpenGL Utility Toolkit (GLUT) implementation])
  AS_IF([test "X$no_glut" = "Xno"],
-       [AC_MSG_RESULT([yes])
+       [have_GLUT="yes"
+        have_glut="yes"
+        AC_MSG_RESULT([yes])
         AC_MSG_CHECKING([for CFLAGS needed for OpenGL Utility Toolkit (GLUT)])
         AC_MSG_RESULT(["${GLUT_CFLAGS}"])
         AC_MSG_CHECKING([for LIBS needed for OpenGL Utility Toolkit (GLUT)])
