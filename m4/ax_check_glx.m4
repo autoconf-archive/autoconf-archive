@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_check_glu.html
+#       http://www.gnu.org/software/autoconf-archive/ax_check_glx.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -29,7 +29,6 @@
 #     # else
 #     #  error no glx.h
 #     # endif
-#
 #
 # LICENSE
 #
@@ -62,7 +61,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 16
+#serial 3
 
 # exemple program
 m4_define([_AX_CHECK_GLX_PROGRAM],
