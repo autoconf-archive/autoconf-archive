@@ -70,7 +70,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 15
+#serial 16
 
 m4_define([_AX_CHECK_GL_PROGRAM],
           [AC_LANG_PROGRAM([[
@@ -115,6 +115,12 @@ LIBS="${ax_check_gl_saved_libs}"
 CFLAGS="${ax_check_gl_saved_cflags}"
 CPPFLAGS="${ax_check_gl_saved_cppflags}"
 LDFLAGS="${ax_check_gl_saved_ldflags}"
+])
+
+dnl default switch case failure
+AC_DEFUN([_AX_CHECK_MSG_FAILURE_ORDER],
+[dnl
+ AC_MSG_FAILURE([Order logic in ax_check_gl is buggy])
 ])
 
 # set the varible ax_check_gl_need_x
@@ -213,19 +219,29 @@ AC_DEFUN([_AX_CHECK_GL_MANUAL_HEADERS_DARWIN_NOX],[
 # check header for darwin
 AC_DEFUN([_AX_CHECK_GL_MANUAL_HEADERS_DARWIN],
 [AC_REQUIRE([_AX_CHECK_GL_NEED_X])dnl
- AS_CASE([$ax_check_gl_need_x],
-         # try to get X libs if possible do not use framework
-         [yes],[_AX_CHECK_GL_MANUAL_HEADERS_DEFAULT()]
-	 [no],[_AX_CHECK_GL_MANUAL_HEADERS_DARWIN_NOX()]
-	 # per default use framework that will select if possible no_x version
-	 [_AX_CHECK_GL_MANUAL_HEADERS_DARWIN_NOX()
-	  # if not found set that we need x in order to found the good library
-	  AS_IF([test "X$ax_check_gl_have_headers" = "yes"],
-	        [ax_check_gl_need_x="no"],
-		[ax_check_gl_need_x="yes"
-		 # retry with general test
-	  	 _AX_CHECK_GL_MANUAL_HEADERS_DEFAULT()])
- ])
+ AS_CASE(["$ax_check_gl_order"],
+         # try to use framework
+         ["gl"],[_AX_CHECK_GL_MANUAL_HEADERS_DARWIN_NOX()],
+	 # try to use framework then mesa (X)
+	 ["gl mesagl"],[
+	   _AX_CHECK_GL_MANUAL_HEADERS_DARWIN_NOX()
+	   AS_IF([test "X$ax_check_gl_have_headers" = "yes"],
+	         [ax_check_gl_order="gl"
+		  ax_check_gl_need_x="yes"],
+		 [ax_check_gl_order="mesagl gl"
+		  ax_check_gl_need_x="no"]
+		  # retry with general test
+		  _AX_CHECK_GL_MANUAL_HEADERS_DEFAULT()])],
+         ["mesagl gl"],[
+	   _AX_CHECK_GL_MANUAL_HEADERS_DEFAULT()
+	   AS_IF([test "X$ax_check_gl_have_headers" = "yes"],
+	         [ax_check_gl_order="mesagl gl"
+		  ax_check_gl_need_x="no"],
+		 [ax_check_gl_order="gl"
+		  ax_check_gl_need_x="yes"
+		  # retry with framework
+		  _AX_CHECK_GL_MANUAL_HEADERS_DARWIN_NOX()])],
+        [_AX_CHECK_MSG_FAILURE_ORDER()])
 ])
 
 dnl Check headers manually: subroutine must set ax_check_gl_have_headers={yes,no}
@@ -308,10 +324,18 @@ AC_DEFUN([_AX_CHECK_GL_MANUAL_LIBS],
  AS_CASE([${host}],
          [*-darwin*],[_AX_CHECK_GL_MANUAL_LIBS_DARWIN()],
          # try first cygwin version
-         [*-cygwin*],[_AX_CHECK_GL_MANUAL_LIBS_GENERIC([GL gl MesaGL opengl32])],
-         # try first native
-	 [*-mingw*],[_AX_CHECK_GL_MANUAL_LIBS_GENERIC([opengl32 GL gl MesaGL])],
-	 [_AX_CHECK_GL_MANUAL_LIBS_GENERIC([GL gl MesaGL])])
+         [*-cygwin*|*-mingw*],[
+	   AS_CASE(["$ax_check_gl_order"],
+	           ["gl"],[_AX_CHECK_GL_MANUAL_LIBS_GENERIC([opengl32])],
+		   ["gl mesagl"],[_AX_CHECK_GL_MANUAL_LIBS_GENERIC([opengl32 GL gl MesaGL])],
+		   ["mesagl gl"],[_AX_CHECK_GL_MANUAL_LIBS_GENERIC([GL gl MesaGL opengl32])],
+		   [_AX_CHECK_MSG_FAILURE_ORDER()])],
+	 [AS_CASE(["$ax_check_gl_order"],
+                  ["gl"],[_AX_CHECK_GL_MANUAL_LIBS_GENERIC([GL gl])],
+		  ["gl mesagl"],[_AX_CHECK_GL_MANUAL_LIBS_GENERIC([GL gl MesaGL])],
+		  ["mesagl gl"],[_AX_CHECK_GL_MANUAL_LIBS_GENERIC([MesaGL GL gl])],
+		  [_AX_CHECK_MSG_FAILURE_ORDER()])]
+		  )
 
  AC_CACHE_CHECK([for OpenGL libraries],[ax_cv_check_gl_lib_opengl],
                	[ax_cv_check_gl_lib_opengl="${ax_check_gl_lib_opengl}"])
@@ -349,7 +373,23 @@ AC_DEFUN([_AX_CHECK_GL_PKG_CONFIG],dnl
 [dnl
  AC_REQUIRE([PKG_PROG_PKG_CONFIG])
 
- PKG_CHECK_MODULES([GL],[gl],[ax_check_gl_pkg_config=yes],[ax_check_gl_pkg_config=no])
+ dnl First try mesagl
+ AS_CASE(["$ax_check_gl_order"],
+         ["gl"],[PKG_CHECK_MODULES([GL],[mesagl],
+	                  [ax_check_gl_pkg_config=yes],
+			  [ax_check_gl_pkg_config=no])],
+	 ["gl mesagl"],[PKG_CHECK_MODULES([GL],[gl],
+	                  [ax_check_gl_pkg_config=yes],
+			  [PKG_CHECK_MODULES([GL],[mesagl],
+	                         [ax_check_gl_pkg_config=yes],
+				 [ax_check_gl_pkg_config=no])])],
+	 ["mesagl gl"],[PKG_CHECK_MODULES([GL],[mesagl],
+	                  [ax_check_gl_pkg_config=yes],
+			  [PKG_CHECK_MODULES([GL],[gl],
+	                         [ax_check_gl_pkg_config=yes],
+				 [ax_check_gl_pkg_config=no])])],
+	 [_AX_CHECK_MSG_FAILURE_ORDER])
+
  AS_IF([test "X$ax_check_gl_pkg_config" = "Xyes"],[
         # check headers
         AC_LANG_PUSH([C])
@@ -376,7 +416,7 @@ AC_DEFUN([_AX_CHECK_GL_PKG_CONFIG],dnl
 	_AX_CHECK_GL_LINK_CV()
 	AS_IF([test "X$ax_cv_check_gl_link_opengl" = "Xno"],
               [AC_MSG_ERROR("Pkgconfig detected opengl library could not be used for linking minimal program!")])
-  ])
+  ],[ax_check_gl_pkg_config=no])
 ])
 
 # test if gl link with X
@@ -416,7 +456,6 @@ AC_DEFUN([_AX_CHECK_GL],[dnl
        [_AX_CHECK_GL_MANUAL()],
        [no_gl=no])
 
-
  # test if need to test X compatibility
  AS_IF([test $no_gl = no],
        [# test X compatibility
@@ -433,6 +472,7 @@ AC_DEFUN([_AX_CHECK_GL],[dnl
 # ax_check_gl entry point
 AC_DEFUN([AX_CHECK_GL],
 [AC_REQUIRE([AC_PATH_X])dnl
+ AC_REQUIRE([AC_CANONICAL_HOST])
 
  AC_ARG_WITH([gl],
   [AS_HELP_STRING([--with-gl@<:@=ARG@:>@],
@@ -450,10 +490,45 @@ AC_DEFUN([AX_CHECK_GL],
     ],
     [ax_check_gl_want_gl="yes"])
 
+ dnl compatibility with AX_HAVE_OPENGL
+ AC_ARG_WITH([Mesa],
+    [AS_HELP_STRING([--with-Mesa@<:@=ARG@:>@],
+    [Prefer the Mesa library over a vendors native OpenGL (ARG=yes except on mingw ARG=no),
+     @<:@ARG=yes@:>@ ])],
+    [
+    AS_CASE(["$withval"],
+            ["no"|"NO"],[ax_check_gl_want_mesa="no"],
+	    ["yes"|"YES"],[ax_check_gl_want_mesa="yes"],
+	    [AC_MSG_ERROR([--with-mesa flag is only yes no])])
+    ],
+    [ax_check_gl_want_mesa="default"])
+
  # check consistency of parameters
  AS_IF([test "X$have_x" = "Xdisabled"],
        [AS_IF([test X$ax_check_gl_want_gl = "Xx"],
               [AC_MSG_ERROR([You prefer OpenGL with X and asked for no X support])])])
+
+ AS_IF([test "X$have_x" = "Xdisabled"],
+       [AS_IF([test X$x_check_gl_want_mesa = "Xyes"],
+              [AC_MSG_WARN([You prefer mesa but you disable X. Disable mesa because mesa need X])
+	       ax_check_gl_want_mesa="no"])])
+
+ # mesa default means yes except on mingw
+ AC_MSG_CHECKING([wether we should prefer mesa for opengl implementation])
+ AS_IF([test X$ax_check_gl_want_mesa = "Xdefault"],
+       [AS_CASE([${host}],
+                [*-mingw*],[ax_check_gl_want_mesa=no],
+		[ax_check_gl_want_mesa=yes])])
+ AC_MSG_RESULT($ax_check_gl_want_mesa)
+
+ # set default guess order
+ AC_MSG_CHECKING([for a working OpenGL order detection])
+ AS_IF([test "X$no_x" = "Xyes"],
+       [ax_check_gl_order="gl"],
+       [AS_IF([test X$ax_check_gl_want_mesa = "Xyes"],
+              [ax_check_gl_order="mesagl gl"],
+	      [ax_check_gl_order="gl mesagl"])])
+ AC_MSG_RESULT($ax_check_gl_order)
 
  # set flags
  no_gl="yes"
