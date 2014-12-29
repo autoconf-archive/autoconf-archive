@@ -66,7 +66,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([MDL_HAVE_OPENGL], [AX_HAVE_OPENGL])
 AC_DEFUN([AX_HAVE_OPENGL],
@@ -76,6 +76,7 @@ AC_DEFUN([AX_HAVE_OPENGL],
   AC_REQUIRE([AX_CHECK_GLUT])
   AC_REQUIRE([AX_CHECK_GLX])
 
+  AC_OBSOLETE([$0], [;please use AX_CHECK_GL, AX_CHECK_GLU, AX_CHECK_GLUT, AX_CHECK_GLX instead])
   AC_MSG_WARN([[AX_HAVE_OPENGL is deprecated, please use AX_CHECK_GL, AX_CHECK_GLU, AX_CHECK_GLUT, AX_CHECK_GLX instead]])
 
   # override old flags: really ugly but needed for compatibility
