@@ -23,47 +23,22 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_CXX_COMPILER_VENDOR], [AX_CXX_COMPILER_VENDOR])
 AC_DEFUN([AX_CXX_COMPILER_VENDOR],
-  [AC_REQUIRE([AC_PROG_CXX])
-   AC_REQUIRE([AC_PROG_CXXCPP])
-   AC_CACHE_CHECK([the C++ compiler vendor],
-    [ax_cv_cxx_compiler_vendor],
+  [dnl
+   AC_OBSOLETE($[$0],[[;please use AX_COMPILER_VENDOR]])
+   AC_MSG_WARN([[AX_CXX_COMPILER_VENDOR is obsolete; please use AX_COMPILER_VENDOR]])
 
-    [AC_LANG_PUSH([C++])
+   AC_REQUIRE([AC_PROG_CXX])
 
-     dnl GNU C++
-     AX_C_IFDEF([__GNUG__],
-       [ax_cv_cxx_compiler_vendor=gnu],
-       [AX_C_IFDEF([__DECCXX],
-	 [ax_cv_cxx_compiler_vendor=compaq],
-	 [dnl HP's aCC
-	  AX_C_IFDEF([__HP_aCC],
-	   [ax_cv_cxx_compiler_vendor=hp],
-	   [dnl SGI CC
-	    AX_C_IFDEF([__sgi],
-	     [ax_cv_cxx_compiler_vendor=sgi],
-	     [dnl Note:  We are using the C compiler because VC++ doesn't
-	      dnl recognize `.cc'(which is used by `configure') as a C++ file
-	      dnl extension and requires `/TP' to be passed.
-	      AC_LANG_PUSH([C])
-	      AX_C_IFDEF([_MSC_VER],
-		[ax_cv_cxx_compiler_vendor=microsoft],
-		[ax_cv_cxx_compiler_vendor=unknown])
-	      AC_LANG_POP()])])])])
+   AC_LANG_PUSH([C++])
+   AX_COMPILER_VENDOR()
+   AC_LANG_POP([C++])
 
-     AC_LANG_POP()])
-   $1="$ax_cv_cxx_compiler_vendor"
-
-   dnl The compiler nickname
-   ifelse([$2], , [],
-     [case "$ax_cv_cxx_compiler_vendor" in
-	gnu)       $2=g++;;
-	compaq)    $2=cxx;;
-	hp)        $2=aCC;;
-	sgi)       $2=CC;;
-	microsoft) $2=cl;;
-	*)         $2=unknown;;
-      esac])])dnl
+   # be compatible with old ABI
+   AS_IF([test X$ax_cv_cxx_compiler = "Xdec"],
+         [$ax_cv_cxx_compiler=compact])
+  ]
+)dnl
