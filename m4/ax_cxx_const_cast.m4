@@ -20,19 +20,25 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_CXX_CONST_CAST], [AX_CXX_CONST_CAST])
 AC_DEFUN([AX_CXX_CONST_CAST],
-[AC_CACHE_CHECK(whether the compiler supports const_cast<>,
-ax_cv_cxx_const_cast,
-[AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE(,[int x = 0;const int& y = x;int& z = const_cast<int&>(y);return z;],
- ax_cv_cxx_const_cast=yes, ax_cv_cxx_const_cast=no)
- AC_LANG_RESTORE
-])
-if test "$ax_cv_cxx_const_cast" = yes; then
-  AC_DEFINE(HAVE_CONST_CAST,,[define if the compiler supports const_cast<>])
-fi
+[dnl
+  AC_CACHE_CHECK([whether the compiler supports const_cast<>],
+                 ax_cv_cxx_const_cast,
+  [dnl
+    AC_LANG_PUSH([C++])
+    AC_COMPILE_IFELSE([dnl
+      AC_LANG_PROGRAM([],
+        [int x = 0;
+         const int& y = x;
+         int& z = const_cast<int&>(y);
+         return z;])],
+      ax_cv_cxx_const_cast=yes,
+      ax_cv_cxx_const_cast=no)
+    AC_LANG_POP([C++])
+  ])
+  AS_IF([test "X$ax_cv_cxx_const_cast" = Xyes],
+    [AC_DEFINE(HAVE_CONST_CAST,,[define if the compiler supports const_cast<>])])
 ])
