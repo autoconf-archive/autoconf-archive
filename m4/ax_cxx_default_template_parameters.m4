@@ -21,22 +21,32 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_CXX_DEFAULT_TEMPLATE_PARAMETERS], [AX_CXX_DEFAULT_TEMPLATE_PARAMETERS])
 AC_DEFUN([AX_CXX_DEFAULT_TEMPLATE_PARAMETERS],
-[AC_CACHE_CHECK(whether the compiler supports default template parameters,
-ax_cv_cxx_default_template_parameters,
-[AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([
-template<class T = double, int N = 10> class A {public: int f() {return 0;}};
-],[A<float> a; return a.f();],
- ax_cv_cxx_default_template_parameters=yes, ax_cv_cxx_default_template_parameters=no)
- AC_LANG_RESTORE
-])
-if test "$ax_cv_cxx_default_template_parameters" = yes; then
-  AC_DEFINE(HAVE_DEFAULT_TEMPLATE_PARAMETERS,,
-            [define if the compiler supports default template parameters])
-fi
+[dnl
+  AC_REQUIRE([AX_CXX_TEMPLATES])
+  AC_CACHE_CHECK([whether the compiler supports default template parameters],
+  [ax_cv_cxx_default_template_parameters],
+  [dnl
+   AS_IF([test "X$ax_cv_cxx_templates" = "Xyes"],
+     [dnl
+      AC_LANG_PUSH([C++])
+      AC_COMPILE_IFELSE([dnl
+        AC_LANG_PROGRAM([
+	  template<class T = double, int N = 10> class A {
+	    public: int f() {return 0;}
+	  };
+	  ],
+	  [A<float> a; return a.f();])],
+	ax_cv_cxx_default_template_parameters=yes,
+	ax_cv_cxx_default_template_parameters=no)
+	AC_LANG_POP([C++])
+      ],
+      [ax_cv_cxx_default_template_parameters=no])
+   ])
+   AS_IF([test "X$ax_cv_cxx_default_template_parameters" = "Xyes"],
+         [AC_DEFINE(HAVE_DEFAULT_TEMPLATE_PARAMETERS,,
+	   [define if the compiler supports default template parameters])])
 ])
