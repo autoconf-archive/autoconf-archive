@@ -11,6 +11,8 @@
 #   If the C++ compiler calls global destructors after atexit functions,
 #   define HAVE_DTOR_AFTER_ATEXIT.
 #
+#   Conformant behavior is to have global destructors after atexit
+#
 #   Per Paragraph 3.6.3/1 of the C++11 Standard:
 #
 #   Destructors (12.4) for initialized objects [..] with static storage
@@ -37,36 +39,35 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_CXX_DTOR_AFTER_ATEXIT], [AX_CXX_DTOR_AFTER_ATEXIT])
 AC_DEFUN([AX_CXX_DTOR_AFTER_ATEXIT],
-[AC_CACHE_CHECK(whether the compiler calls global destructors after functions registered through atexit,
-ax_cv_cxx_dtor_after_atexit,
-[AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_RUN([
-#include <unistd.h>
-#include <stdlib.h>
+[dnl
+ AC_CACHE_CHECK(whether the compiler calls global destructors after functions registered through atexit,
+   [ax_cv_cxx_dtor_after_atexit],
+   [AC_LANG_PUSH([C++])
+    AC_RUN_IFELSE([
+      AC_LANG_PROGRAM(dnl
+	[
+          #include <unistd.h>
+          #include <cstdlib>
 
-static int dtor_called = 0;
-class A { public : ~A () { dtor_called = 1; } };
-static A a;
+          static int dtor_called = 0;
+          class A { public : ~A () { dtor_called = 1; } };
+          static A a;
 
-void f() { _exit(dtor_called); }
-
-int main (int , char **)
-{
-  atexit (f);
-  return 0;
-}
-],
- ax_cv_cxx_dtor_after_atexit=yes, ax_cv_cxx_dtor_after_atexit=yes=no,
- ax_cv_cxx_dtor_after_atexit=yes)
- AC_LANG_RESTORE
-])
-if test "$ax_cv_cxx_dtor_after_atexit" = yes; then
-  AC_DEFINE(HAVE_DTOR_AFTER_ATEXIT,,
-            [define if the compiler calls global destructors after functions registered through atexit])
-fi
+          void f() { _exit(dtor_called); }],
+	[
+	  atexit (f);
+          return 0;
+	])],
+	ax_cv_cxx_dtor_after_atexit=yes,
+	ax_cv_cxx_dtor_after_atexit=no,
+	ax_cv_cxx_dtor_after_atexit=yes)
+    AC_LANG_POP([C++])
+    ])
+  AS_IF([test "X$ax_cv_cxx_dtor_after_atexit" = Xyes],
+    [AC_DEFINE(HAVE_DTOR_AFTER_ATEXIT,,
+            [define if the compiler calls global destructors after functions registered through atexit])])
 ])
