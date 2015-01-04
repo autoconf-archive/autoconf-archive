@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_compiler_version.html
+#    http://www.gnu.org/software/autoconf-archive/ax_compiler_version.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -8,18 +8,18 @@
 #
 # DESCRIPTION
 #
-#   This macro retrieves the compiler version and returns it in the
-#   The vendor is returned in the cache variable
-#   $ax_cv_c_compiler_vendor for C and $ax_cv_cxx_compiler_vendor
+#   This macro retrieves the compiler version and returns it in the cache
+#   variable $ax_cv_c_compiler_version for C and $ax_cv_cxx_compiler_version
 #   for C++.
 #
 #   Version is returned as epoch:major.minor.patchversion
 #
-#   Epoch is used in order to have an increasing version
-#   number in case of marketing change.
+#   Epoch is used in order to have an increasing version number in case of
+#   marketing change.
 #
-#   Epoch use:
-#   * borland compiler use chronologically 0turboc for turboc era,
+#   Epoch use: * borland compiler use chronologically 0turboc for turboc
+#   era,
+#
 #     1borlanc BORLANC++ before 5, 2cppbuilder for cppbuilder era,
 #     3borlancpp for return of BORLANC++ (after version 5.5),
 #     4cppbuilder for cppbuilder with year version,
@@ -27,7 +27,6 @@
 #
 #   An empty string is returned otherwise.
 #
-# LICENSE
 # LICENSE
 #
 #   Copyright (c) 2014 Bastien ROUCARIÈS
@@ -37,7 +36,9 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-# serial 1
+#serial 2
+
+# serial 2
 
 # for intel
 AC_DEFUN([_AX_COMPILER_VERSION_INTEL],
@@ -457,9 +458,14 @@ AC_DEFUN([_AX_COMPILER_VERSION_PORTLAND],[
   ax_cv_[]_AC_LANG_ABBREV[]_compiler_version="$_ax_[]_AC_LANG_ABBREV[]_compiler_version_major.$_ax_[]_AC_LANG_ABBREV[]_compiler_version_minor.$_ax_[]_AC_LANG_ABBREV[]_compiler_version_patch"
   ])
 
+# tcc
+AC_DEFUN([_AX_COMPILER_VERSION_TCC],[
+  ax_cv_[]_AC_LANG_ABBREV[]_compiler_version=[`tcc -v | $SED 's/^[ ]*tcc[ ]\+version[ ]\+\([0-9.]\+\).*/\1/g'`]
+  ])
 # main entry point
 AC_DEFUN([AX_COMPILER_VERSION],[dnl
   AC_REQUIRE([AX_COMPILER_VENDOR])
+  AC_REQUIRE([AC_PROG_SED])
   AC_CACHE_CHECK([for _AC_LANG compiler version],
     ax_cv_[]_AC_LANG_ABBREV[]_compiler_version,
     [ dnl
@@ -482,6 +488,7 @@ AC_DEFUN([AX_COMPILER_VERSION],[dnl
 	[metrowerks],[_AX_COMPILER_VERSION_METROWERKS],
 	[watcom],[_AX_COMPILER_VERSION_WATCOM],
 	[portland],[_AX_COMPILER_VERSION_PORTLAND],
+	[tcc],[_AX_COMPILER_VERSION_TCC],
   	[ax_cv_[]_AC_LANG_ABBREV[]_compiler_version=""])
     ])
 ])
