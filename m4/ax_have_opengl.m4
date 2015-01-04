@@ -2,6 +2,11 @@
 #      http://www.gnu.org/software/autoconf-archive/ax_have_opengl.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Please use AX_CHECK_GL, AX_CHECK_GLU, AX_CHECK_GLUT, AX_CHECK_GLX
+#   instead
+#
 # SYNOPSIS
 #
 #   AX_HAVE_OPENGL
@@ -66,7 +71,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([MDL_HAVE_OPENGL], [AX_HAVE_OPENGL])
 AC_DEFUN([AX_HAVE_OPENGL],

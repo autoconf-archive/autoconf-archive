@@ -2,6 +2,10 @@
 #  http://www.gnu.org/software/autoconf-archive/ax_cxx_compiler_vendor.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   Please use AC_LANG_PUSH([C++]) AX_COMPILER_VENDOR AC_LANG_POP([C++])
+#
 # SYNOPSIS
 #
 #   AX_CXX_COMPILER_VENDOR(VENDOR-NAME, [NICKNAME])
@@ -23,7 +27,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AC_CXX_COMPILER_VENDOR], [AX_CXX_COMPILER_VENDOR])
 AC_DEFUN([AX_CXX_COMPILER_VENDOR],
