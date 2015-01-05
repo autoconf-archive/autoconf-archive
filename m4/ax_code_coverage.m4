@@ -67,7 +67,7 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_CODE_COVERAGE],[
 	dnl Check for --enable-code-coverage
@@ -156,8 +156,11 @@ CODE_COVERAGE_RULES='
 #  - CODE_COVERAGE_OUTPUT_DIRECTORY: Directory for generated code coverage
 #    reports to be created. (Default:
 #    $(PACKAGE_NAME)-$(PACKAGE_VERSION)-coverage)
+#  - CODE_COVERAGE_LCOV_OPTIONS_GCOVPATH: --gcov-tool pathtogcov
+#  - CODE_COVERAGE_LCOV_OPTIONS_DEFAULT: Extra options to pass to the lcov instance.
+#    (Default: $CODE_COVERAGE_LCOV_OPTIONS_GCOVPATH)
 #  - CODE_COVERAGE_LCOV_OPTIONS: Extra options to pass to the lcov instance.
-#    (Default: empty)
+#    (Default: $CODE_COVERAGE_LCOV_OPTIONS_DEFAULT)
 #  - CODE_COVERAGE_GENHTML_OPTIONS: Extra options to pass to the genhtml
 #    instance. (Default: empty)
 #  - CODE_COVERAGE_IGNORE_PATTERN: Extra glob pattern of files to ignore
@@ -170,7 +173,9 @@ CODE_COVERAGE_RULES='
 CODE_COVERAGE_DIRECTORY ?= $(top_builddir)
 CODE_COVERAGE_OUTPUT_FILE ?= $(PACKAGE_NAME)-$(PACKAGE_VERSION)-coverage.info
 CODE_COVERAGE_OUTPUT_DIRECTORY ?= $(PACKAGE_NAME)-$(PACKAGE_VERSION)-coverage
-CODE_COVERAGE_LCOV_OPTIONS ?=
+CODE_COVERAGE_LCOV_OPTIONS_GCOVPATH ?= --gcov-tool "$(GCOV)"
+CODE_COVERAGE_LCOV_OPTIONS_DEFAULT ?= $(CODE_COVERAGE_LCOV_OPTIONS_GCOVPATH)
+CODE_COVERAGE_LCOV_OPTIONS ?= $(CODE_COVERAGE_LCOV_OPTIONS_DEFAULT)
 CODE_COVERAGE_GENHTML_OPTIONS ?=
 CODE_COVERAGE_IGNORE_PATTERN ?=
 
