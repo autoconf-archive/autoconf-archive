@@ -17,6 +17,9 @@
 #   corresponds to the value of the --enable-code-coverage option, which
 #   defaults to being disabled.
 #
+#   Test also for gcov program and create GCOV variable that could be
+#   substituted.
+#
 #   Note that all optimisation flags in CFLAGS must be disabled when code
 #   coverage is enabled.
 #
@@ -49,6 +52,7 @@
 #   Copyright (c) 2012 Christian Persch
 #   Copyright (c) 2012 Paolo Borelli
 #   Copyright (c) 2012 Dan Winship
+#   Copyright (c) 2015 Bastien ROUCARIES
 #
 #   This library is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU Lesser General Public License as published by
@@ -63,18 +67,37 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_CODE_COVERAGE],[
 	dnl Check for --enable-code-coverage
 	AC_REQUIRE([AC_PROG_SED])
+
+	# allow to override gcov location
+	AC_ARG_WITH([gcov],
+	  [AS_HELP_STRING([--with-gcov[=GCOV]], [use given GCOV for coverage (GCOV=gcov).])],
+	  [_AX_CODE_COVERAGE_GCOV_PROG_WITH=$with_gcov],
+	  [_AX_CODE_COVERAGE_GCOV_PROG_WITH=gcov])
+
 	AC_MSG_CHECKING([whether to build with code coverage support])
-	AC_ARG_ENABLE([code-coverage], AS_HELP_STRING([--enable-code-coverage], [Whether to enable code coverage support]),, enable_code_coverage=no)
+	AC_ARG_ENABLE([code-coverage],
+	  AS_HELP_STRING([--enable-code-coverage],
+	  [Whether to enable code coverage support]),,
+	  enable_code_coverage=no)
+
 	AM_CONDITIONAL([CODE_COVERAGE_ENABLED], [test x$enable_code_coverage = xyes])
 	AC_SUBST([CODE_COVERAGE_ENABLED], [$enable_code_coverage])
 	AC_MSG_RESULT($enable_code_coverage)
 
 	AS_IF([ test "$enable_code_coverage" = "yes" ], [
+		# check for gcov
+		AC_CHECK_TOOL([GCOV],
+		  [$_AX_CODE_COVERAGE_GCOV_PROG_WITH],
+		  [:])
+		AS_IF([test "X$GCOV" = "X:"],
+		  [AC_MSG_ERROR([gcov is needed to do coverage])])
+		AC_SUBST([GCOV])
+
 		dnl Check if gcc is being used
 		AS_IF([ test "$GCC" = "no" ], [
 			AC_MSG_ERROR([not compiling with gcc, which is required for gcov code coverage])
