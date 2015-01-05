@@ -44,16 +44,18 @@
 #   sgcheck), and will output results to test-suite-$toolname.log for each.
 #   The target will succeed if there are zero errors and fail otherwise.
 #
+#   The macro supports running with and without libtool.
+#
 # LICENSE
 #
-#   Copyright (c) 2014 Philip Withnall <philip.withnall@collabora.co.uk>
+#   Copyright (c) 2014, 2015 Philip Withnall <philip.withnall@collabora.co.uk>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_VALGRIND_CHECK],[
 	dnl Check for --enable-valgrind
@@ -124,6 +126,13 @@ valgrind_quiet = $(valgrind_quiet_$(V))
 valgrind_quiet_ = $(valgrind_quiet_$(AM_DEFAULT_VERBOSITY))
 valgrind_quiet_0 = --quiet
 
+# Support running with and without libtool.
+ifneq ($(LIBTOOL),)
+valgrind_lt = $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=execute
+else
+valgrind_lt =
+endif
+
 # Use recursive makes in order to ignore errors during check
 check-valgrind:
 ifeq ($(VALGRIND_ENABLED),yes)
@@ -144,7 +153,7 @@ VALGRIND_TESTS_ENVIRONMENT = \
 	G_DEBUG=fatal-warnings,fatal-criticals,gc-friendly
 
 VALGRIND_LOG_COMPILER = \
-	$(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=execute \
+	$(valgrind_lt) \
 	$(VALGRIND) $(VALGRIND_SUPPRESSIONS) --error-exitcode=1 $(VALGRIND_FLAGS)
 
 check-valgrind-tool:
