@@ -1,6 +1,6 @@
-# ==================================================================================
+# ==============================================================================
 #  http://www.gnu.org/software/autoconf-archive/ax_cxx_erase_iterator_type.html
-# ==================================================================================
+# ==============================================================================
 #
 # SYNOPSIS
 #
@@ -11,8 +11,8 @@
 #   If the compiler supports define erase with constant iterator or with
 #   classical iterator.
 #
-#   Define autoconfigured_erase_iterator to const_iterator if supported
-#   and iterator if not supported.
+#   Define autoconfigured_erase_iterator to const_iterator if supported and
+#   iterator if not supported.
 #
 #   Define HAVE_ERASE_CONSTANT_ITERATOR if supported
 #
@@ -25,7 +25,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_CXX_ERASE_ITERATOR_TYPE],
 [dnl
