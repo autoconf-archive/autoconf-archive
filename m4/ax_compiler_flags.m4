@@ -60,7 +60,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_COMPILER_FLAGS],[
     AX_REQUIRE_DEFINED([AX_APPEND_COMPILE_FLAGS])
@@ -144,6 +144,8 @@ AC_DEFUN([AX_COMPILER_FLAGS],[
             -Wmissing-include-dirs dnl
             -Wunused-but-set-variable dnl
             -Warray-bounds dnl
+            -Wimplicit-function-declaration dnl
+            -Wreturn-type dnl
             $6 dnl
         ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
         AX_APPEND_COMPILE_FLAGS([$11],
