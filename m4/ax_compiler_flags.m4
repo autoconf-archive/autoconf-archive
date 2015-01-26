@@ -40,7 +40,11 @@
 #   EXTRA-*-CFLAGS and EXTRA-*-LDFLAGS variables.  Flags should not be
 #   disabled using these arguments, as the entire point of AX_COMPILER_FLAGS
 #   is to enforce a consistent set of useful compiler warnings on code,
-#   using warnings which have been chosen for low false positive rates.
+#   using warnings which have been chosen for low false positive rates.  If a
+#   compiler emits false positives for a warning, a #pragma should be used in
+#   the code to disable the warning locally. See:
+#
+#       https://gcc.gnu.org/onlinedocs/gcc-4.9.2/gcc/Diagnostic-Pragmas.html#Diagnostic-Pragmas
 #
 #   IS-RELEASE can be used to disable -Werror when making a release, which
 #   is useful for those hairy moments when you just want to get the release
