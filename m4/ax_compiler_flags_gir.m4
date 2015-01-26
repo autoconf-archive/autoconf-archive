@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_compiler_flags_gir.html
+#   http://www.gnu.org/software/autoconf-archive/ax_compiler_flags_gir.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -9,9 +9,9 @@
 # DESCRIPTION
 #
 #   Add warning flags for the g-ir-scanner (from GObject Introspection) to
-#   VARIABLE, which defaults to WARN_SCANNERFLAGS.  VARIABLE is AC_SUBST-ed by
-#   this macro, but must be manually added to the SCANNERFLAGS variable for
-#   each GIR target in the code base.
+#   VARIABLE, which defaults to WARN_SCANNERFLAGS.  VARIABLE is AC_SUBST-ed
+#   by this macro, but must be manually added to the SCANNERFLAGS variable
+#   for each GIR target in the code base.
 #
 #   This macro depends on the environment set up by AX_COMPILER_FLAGS.
 #   Specifically, it uses the value of $ax_enable_compile_warnings to decide
@@ -26,7 +26,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_COMPILER_FLAGS_GIR],[
     AX_REQUIRE_DEFINED([AX_APPEND_FLAG])

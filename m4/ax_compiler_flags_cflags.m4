@@ -1,6 +1,6 @@
-# ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_compiler_flags_cflags.html
-# ===========================================================================
+# ============================================================================
+#  http://www.gnu.org/software/autoconf-archive/ax_compiler_flags_cflags.html
+# ============================================================================
 #
 # SYNOPSIS
 #
@@ -9,8 +9,8 @@
 # DESCRIPTION
 #
 #   Add warning flags for the C compiler to VARIABLE, which defaults to
-#   WARN_CFLAGS.  VARIABLE is AC_SUBST-ed by this macro, but must be manually
-#   added to the CFLAGS variable for each target in the code base.
+#   WARN_CFLAGS.  VARIABLE is AC_SUBST-ed by this macro, but must be
+#   manually added to the CFLAGS variable for each target in the code base.
 #
 #   This macro depends on the environment set up by AX_COMPILER_FLAGS.
 #   Specifically, it uses the value of $ax_enable_compile_warnings to decide
@@ -25,7 +25,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
     AX_REQUIRE_DEFINED([AX_APPEND_COMPILE_FLAGS])

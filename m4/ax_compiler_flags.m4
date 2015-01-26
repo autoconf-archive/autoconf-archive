@@ -40,11 +40,11 @@
 #   EXTRA-*-CFLAGS and EXTRA-*-LDFLAGS variables.  Flags should not be
 #   disabled using these arguments, as the entire point of AX_COMPILER_FLAGS
 #   is to enforce a consistent set of useful compiler warnings on code,
-#   using warnings which have been chosen for low false positive rates.  If a
-#   compiler emits false positives for a warning, a #pragma should be used in
-#   the code to disable the warning locally. See:
+#   using warnings which have been chosen for low false positive rates.  If
+#   a compiler emits false positives for a warning, a #pragma should be used
+#   in the code to disable the warning locally. See:
 #
-#       https://gcc.gnu.org/onlinedocs/gcc-4.9.2/gcc/Diagnostic-Pragmas.html#Diagnostic-Pragmas
+#     https://gcc.gnu.org/onlinedocs/gcc-4.9.2/gcc/Diagnostic-Pragmas.html#Diagnostic-Pragmas
 #
 #   IS-RELEASE can be used to disable -Werror when making a release, which
 #   is useful for those hairy moments when you just want to get the release
@@ -55,17 +55,17 @@
 #   be manually added to the CFLAGS and LDFLAGS variables for each target in
 #   the code base.
 #
-#   Warning flags for g-ir-scanner (from GObject Introspection) are AC_SUBST-ed
-#   as WARN_SCANNERFLAGS.  This variable must be manually added to the
-#   SCANNERFLAGS variable for each GIR target in the code base.  If extra
-#   g-ir-scanner flags need to be enabled, the AX_COMPILER_FLAGS_GIR macro must
-#   be invoked manually.
+#   Warning flags for g-ir-scanner (from GObject Introspection) are
+#   AC_SUBST-ed as WARN_SCANNERFLAGS.  This variable must be manually added
+#   to the SCANNERFLAGS variable for each GIR target in the code base.  If
+#   extra g-ir-scanner flags need to be enabled, the AX_COMPILER_FLAGS_GIR
+#   macro must be invoked manually.
 #
-#   AX_COMPILER_FLAGS may add support for other tools in future, in addition to
-#   the compiler and linker.  No extra EXTRA-* variables will be added for
-#   those tools, and all extra support will still use the single
-#   --enable-compile-warnings configure option.  For finer grained control over
-#   the flags for individual tools, use AX_COMPILER_FLAGS_CFLAGS,
+#   AX_COMPILER_FLAGS may add support for other tools in future, in addition
+#   to the compiler and linker.  No extra EXTRA-* variables will be added
+#   for those tools, and all extra support will still use the single
+#   --enable-compile-warnings configure option.  For finer grained control
+#   over the flags for individual tools, use AX_COMPILER_FLAGS_CFLAGS,
 #   AX_COMPILER_FLAGS_LDFLAGS and AX_COMPILER_FLAGS_* for new tools.
 #
 # LICENSE
@@ -77,7 +77,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 6
 
 AC_DEFUN([AX_COMPILER_FLAGS],[
     AX_REQUIRE_DEFINED([AX_COMPILER_FLAGS_CFLAGS])
