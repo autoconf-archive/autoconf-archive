@@ -55,6 +55,12 @@
 #   be manually added to the CFLAGS and LDFLAGS variables for each target in
 #   the code base.
 #
+#   Warning flags for g-ir-scanner (from GObject Introspection) are AC_SUBST-ed
+#   as WARN_SCANNERFLAGS.  This variable must be manually added to the
+#   SCANNERFLAGS variable for each GIR target in the code base.  If extra
+#   g-ir-scanner flags need to be enabled, the AX_COMPILER_FLAGS_GIR macro must
+#   be invoked manually.
+#
 #   AX_COMPILER_FLAGS may add support for other tools in future, in addition to
 #   the compiler and linker.  No extra EXTRA-* variables will be added for
 #   those tools, and all extra support will still use the single
@@ -71,7 +77,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_COMPILER_FLAGS],[
     AX_REQUIRE_DEFINED([AX_COMPILER_FLAGS_CFLAGS])
@@ -89,4 +95,5 @@ AC_DEFUN([AX_COMPILER_FLAGS],[
 
     AX_COMPILER_FLAGS_CFLAGS([$1],[$3],[$4],[$5],[$6],[$7],[$8])
     AX_COMPILER_FLAGS_LDFLAGS([$2],[$3],[$9],[$10],[$11],[$12],[$13])
+    AX_COMPILER_FLAGS_GIR([WARN_SCANNERFLAGS],[$3])
 ])dnl AX_COMPILER_FLAGS
