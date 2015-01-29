@@ -25,7 +25,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
     AX_REQUIRE_DEFINED([AX_APPEND_COMPILE_FLAGS])
@@ -50,14 +50,14 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
     # Base flags
     AX_APPEND_COMPILE_FLAGS([ dnl
         -fno-strict-aliasing dnl
-        $4 dnl
+        $3 dnl
     ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
 
     AS_IF([test "$ax_enable_compile_warnings" != "no"],[
         # "minimum" flags
         AX_APPEND_COMPILE_FLAGS([ dnl
             -Wall dnl
-            $5 dnl
+            $4 dnl
         ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
     ])
     AS_IF([test "$ax_enable_compile_warnings" != "no" -a \
@@ -95,7 +95,7 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
             -Warray-bounds dnl
             -Wimplicit-function-declaration dnl
             -Wreturn-type dnl
-            $6 dnl
+            $5 dnl
         ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
     ])
     AS_IF([test "$ax_enable_compile_warnings" = "maximum" -o \
@@ -105,7 +105,7 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
             -Wswitch-enum dnl
             -Wswitch-default dnl
             -Waggregate-return dnl
-            $7 dnl
+            $6 dnl
         ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
     ])
     AS_IF([test "$ax_enable_compile_warnings" = "error"],[
@@ -118,7 +118,7 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
 
         AX_APPEND_COMPILE_FLAGS([ dnl
             -Wno-suggest-attribute=format dnl
-            $8 dnl
+            $7 dnl
         ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
     ])
 
