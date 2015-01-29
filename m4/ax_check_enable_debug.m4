@@ -4,7 +4,7 @@
 #
 # SYNOPSIS
 #
-#   AX_CHECK_ENABLE_DEBUG([enable by default=yes/info/profile/no], [ENABLE DEBUG VARIABLES ...], [DISABLE DEBUG VARIABLES NDEBUG ...])
+#   AX_CHECK_ENABLE_DEBUG([enable by default=yes/info/profile/no], [ENABLE DEBUG VARIABLES ...], [DISABLE DEBUG VARIABLES NDEBUG ...], [IS-RELEASE])
 #
 # DESCRIPTION
 #
@@ -25,16 +25,23 @@
 #   If debug is not enabled, ensure AC_PROG_* will not add debugging flags.
 #   Should be invoked prior to any AC_PROG_* compiler checks.
 #
+#   IS-RELEASE can be used to change the default to 'no' when making a
+#   release.  Set IS-RELEASE to 'yes' or 'no' as appropriate, for example by
+#   using the AX_IS_RELEASE macro:
+#
+#     AX_IS_RELEASE([git-directory])
+#     AX_CHECK_ENABLE_DEBUG(,,,[$ax_is_release])
+#
 # LICENSE
 #
 #   Copyright (c) 2011 Rhys Ulerich <rhys.ulerich@gmail.com>
-#   Copyright (c) 2014 Philip Withnall <philip@tecnocode.co.uk>
+#   Copyright (c) 2014, 2015 Philip Withnall <philip@tecnocode.co.uk>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_CHECK_ENABLE_DEBUG],[
     AC_BEFORE([$0],[AC_PROG_CC])dnl
@@ -44,13 +51,18 @@ AC_DEFUN([AX_CHECK_ENABLE_DEBUG],[
 
     AC_MSG_CHECKING(whether to enable debugging)
 
-    m4_define(ax_enable_debug_default,[m4_tolower(m4_normalize(ifelse([$1],,[no],[$1])))])
+    ax_enable_debug_default=m4_tolower(m4_normalize(ifelse([$1],,[no],[$1])))
+
+    # If this is a release, override the default.
+    AS_IF([test "$4" = "yes"],
+      [ax_enable_debug_default="no"])
+
     m4_define(ax_enable_debug_vars,[m4_normalize(ifelse([$2],,,[$2]))])
     m4_define(ax_disable_debug_vars,[m4_normalize(ifelse([$3],,[NDEBUG],[$3]))])
 
     AC_ARG_ENABLE(debug,
-	[AS_HELP_STRING([--enable-debug]@<:@=ax_enable_debug_default@:>@,[compile with debugging; one of yes/info/profile/no])],
-	[],enable_debug=ax_enable_debug_default)
+	[AS_HELP_STRING([--enable-debug=]@<:@yes/info/profile/no@:>@,[compile with debugging])],
+	[],enable_debug=$ax_enable_debug_default)
 
     # empty mean debug yes
     AS_IF([test "x$enable_debug" = "x"],
