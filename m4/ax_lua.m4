@@ -391,7 +391,7 @@ AC_DEFUN([_AX_LUA_CHK_VER],
     function verstr2num(verstr)
       local _, _, majorver, minorver = string.find(verstr, "^(%d+)%.(%d+)")
       if majorver and minorver then
-        return majorver * 100 + minorver
+        return tonumber(majorver) * 100 + tonumber(minorver)
       end
     end
     local minver = verstr2num("$2")
