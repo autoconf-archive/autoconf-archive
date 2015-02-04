@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 # for intel
 AC_DEFUN([_AX_COMPILER_VERSION_INTEL],
@@ -188,7 +188,7 @@ AC_DEFUN([_AX_COMPILER_VERSION_SUN],[
         (_AX_COMPILER_VERSION_SUN_NUMBER / 0x1000),,
         AC_MSG_FAILURE([[[$0]] unknown sun major version]))
     ])
-  ax_cv_[]_AC_LANG_ABBREV[]_compiler_version="$_ax_[]_AC_LANG_ABBREV[]_compiler_version_major.$_ax_[]_AC_LANG_ABBREV[]_compiler_version_minor.$_ax_[]_AC_LANG_ABBREV[]_compiler_version_patch"		     
+  ax_cv_[]_AC_LANG_ABBREV[]_compiler_version="$_ax_[]_AC_LANG_ABBREV[]_compiler_version_major.$_ax_[]_AC_LANG_ABBREV[]_compiler_version_minor.$_ax_[]_AC_LANG_ABBREV[]_compiler_version_patch"
 ])
 
 AC_DEFUN([_AX_COMPILER_VERSION_HP],[
@@ -219,7 +219,7 @@ AC_DEFUN([_AX_COMPILER_VERSION_HP],[
         ((_AX_COMPILER_VERSION_HP_NUMBER / 10000)%100),,
         AC_MSG_FAILURE([[[$0]] unknown hp major version]))
       ax_cv_[]_AC_LANG_ABBREV[]_compiler_version="$_ax_[]_AC_LANG_ABBREV[]_compiler_version_major.$_ax_[]_AC_LANG_ABBREV[]_compiler_version_minor.$_ax_[]_AC_LANG_ABBREV[]_compiler_version_patch"
-    ])	     
+    ])
 ])
 
 AC_DEFUN([_AX_COMPILER_VERSION_DEC],[dnl
@@ -312,7 +312,7 @@ AC_DEFUN([_AX_COMPILER_VERSION_BORLAND],[dnl
       [1344],[ax_cv_[]_AC_LANG_ABBREV[]_compiler_version="2cppbuilder:4.0"],
       dnl BORLANC++ after 5.5
       [1360],[ax_cv_[]_AC_LANG_ABBREV[]_compiler_version="3borlancpp:5.5"],
-      [1361],[ax_cv_[]_AC_LANG_ABBREV[]_compiler_version="3borlancpp:5.51"], 
+      [1361],[ax_cv_[]_AC_LANG_ABBREV[]_compiler_version="3borlancpp:5.51"],
       [1378],[ax_cv_[]_AC_LANG_ABBREV[]_compiler_version="3borlancpp:5.6.4"],
       dnl C++ Builder with year number
       [1392],[ax_cv_[]_AC_LANG_ABBREV[]_compiler_version="4cppbuilder:2006"],
@@ -403,7 +403,7 @@ AC_DEFUN([_AX_COMPILER_VERSION_MICROSOFT],[
        _MSC_FULL_VER%1000,,
        AC_MSG_FAILURE([[[$0]] unknown microsoft compiler patch version]))
     ])
-  # for version > 8  
+  # for version > 8
  AS_IF([test $_ax_[]_AC_LANG_ABBREV[]_compiler_version_major -ge 14],
     [AC_COMPUTE_INT(_ax_[]_AC_LANG_ABBREV[]_compiler_version_patch,
        _MSC_FULL_VER%10000,,
