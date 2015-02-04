@@ -8,6 +8,8 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
+* Noteworthy changes in release ?.? (????-??-??) [?]
+
 * Noteworthy changes in release 2015.02.04 (2015-02-04) [stable]
 
   AX_OPENMP: Test that we can actually #include <omp.h> successfully.
