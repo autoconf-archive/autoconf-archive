@@ -10,21 +10,53 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
-    AX_LIB_HDF5: remove extra leading space from include path flag. That space
-    creeps into HDF5_CPPFLAGS and breaks the include path flag into two tokens,
-    e.g., "-I" and "/usr/include". While this may be legal and doesn't affect
-    the compilation, it does break some library tools (e.g., when the macro is
-    used in building a dynamic library that uses pkg-config).
+  AX_OPENMP: Test that we can actually #include <omp.h> successfully.
 
-    AX_PERL_MODULE_VERSION: use more portable syntax for shell arithmetic.
+  AX_COMPILER_FLAGS was re-factored into AX_COMPILER_FLAGS_CFLAGS and
+  AX_COMPILER_FLAGS_LDFLAGS.
 
-    AX_JNI_INCLUDE_DIR: support standard Oracle JDK installation layout on Mac
-    OS X.
+  AX_CODE_COVERAGE detects gcov program.
 
-    AX_PROG_JAVAH_BIN_DIR: fix misspelled variable name and follow javah
-    symlink to find jni.h.
+  AX_VALGRIND_CHECK now supports running without libtool.
 
-    AX_BOOST_PYTHON: use unique names for local variables
+  AX_GCC_VERSION was improved.
+
+  Re-factored and modernized the macros AX_CXX_TEMPLATES, AX_CXX_CONST_CAST,
+  AX_CXX_COMPLEX_MATH_IN_NAMESPACE_STD, AX_CXX_BOOL, AX_APPEND_FLAG,
+  AX_CHECK_*_FLAG, AX_CHECK_ENABLE_DEBUG, and
+  AX_CXX_DEFAULT_TEMPLATE_PARAMETERS.
+
+  AX_CXX_COMPILER_VENDOR was deprecated in favor of AX_COMPILER_VENDOR.
+
+  AX_HAVE_OPENGL was deprecated in favor of AX_CHECK_GL, AX_CHECK_GLU,
+  AX_CHECK_GLUT, and AX_CHECK_GLX.
+
+  AX_CHECK_GL has a new parameter --with-mesa that allows choosing the order of
+  opengl lib detection.
+
+  Portability of AX_LUA was improved. Support for LUA 5.0 was added.
+
+  New macros AX_IS_RELEASE, AX_COMPILER_FLAGS_GIR, AX_CXX_ERASE_ITERATOR_TYPE,
+  AX_COMPILER_VERSION, AX_CHECK_GLX, AX_CHECK_VSCRIPT, AX_VALGRIND_CHECK,
+  AX_PKG_CHECK_MODULES, and AX_COMPILER_FLAGS were added.
+
+  AX_PROG_FLEX: Also accept gflex.
+
+  AX_LIB_HDF5: remove extra leading space from include path flag. That space
+  creeps into HDF5_CPPFLAGS and breaks the include path flag into two tokens,
+  e.g., "-I" and "/usr/include". While this may be legal and doesn't affect the
+  compilation, it does break some library tools (e.g., when the macro is used
+  in building a dynamic library that uses pkg-config).
+
+  AX_PERL_MODULE_VERSION: use more portable syntax for shell arithmetic.
+
+  AX_JNI_INCLUDE_DIR: support standard Oracle JDK installation layout on Mac OS
+  X.
+
+  AX_PROG_JAVAH_BIN_DIR: fix misspelled variable name and follow javah symlink
+  to find jni.h.
+
+  AX_BOOST_PYTHON: use unique names for local variables
 
 * Noteworthy changes in release 2014.10.15 (2014-10-15) [stable]
 
