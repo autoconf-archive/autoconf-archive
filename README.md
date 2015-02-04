@@ -28,20 +28,20 @@ Downloads
 
 Here are the compressed sources:
 
--   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2014.10.15.tar.xz>
--   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2014.10.15.tar.lz>
+-   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2015.02.04.tar.xz>
+-   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2015.02.04.tar.lz>
 
 Here are the GPG detached signatures:
 
--   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2014.10.15.tar.xz.sig>
--   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2014.10.15.tar.lz.sig>
+-   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2015.02.04.tar.xz.sig>
+-   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2015.02.04.tar.lz.sig>
 
 You can use either of the above signature files to verify that the
 corresponding file (without the .sig suffix) is intact. First, be sure
 to download both the .sig file and the corresponding tarball. Then, run
 a command like this:
 
-    gpg --verify autoconf-archive-2014.10.15.tar.xz.sig
+    gpg --verify autoconf-archive-2015.02.04.tar.xz.sig
 
 If that command fails because you don't have the required public key,
 then run this command to import it:
