@@ -1,6 +1,6 @@
-# ===================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_is_release.html
-# ===================================================================
+# ===========================================================================
+#       http://www.gnu.org/software/autoconf-archive/ax_is_release.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -8,13 +8,13 @@
 #
 # DESCRIPTION
 #
-#   Determine whether the code is being configured as a release, or from git.
-#   Set the ax_is_release variable to 'yes' or 'no'.
+#   Determine whether the code is being configured as a release, or from
+#   git. Set the ax_is_release variable to 'yes' or 'no'.
 #
-#   If building a release version, it is recommended that the configure script
-#   disable compiler errors and debug features, by conditionalising them on
-#   the ax_is_release variable.  If building from git, these features should
-#   be enabled.
+#   If building a release version, it is recommended that the configure
+#   script disable compiler errors and debug features, by conditionalising
+#   them on the ax_is_release variable.  If building from git, these
+#   features should be enabled.
 #
 #   The POLICY parameter specifies how ax_is_release is determined. It can
 #   take the following values:
@@ -36,7 +36,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_IS_RELEASE],[
     AC_BEFORE([AC_INIT],[$0])
