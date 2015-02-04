@@ -26,7 +26,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_COMPILER_FLAGS_GIR],[
     AX_REQUIRE_DEFINED([AX_APPEND_FLAG])
@@ -44,7 +44,7 @@ AC_DEFUN([AX_COMPILER_FLAGS_GIR],[
             --warn-all dnl
             $4 dnl
         ],ax_warn_scannerflags_variable)
-    ])	
+    ])
     AS_IF([test "$ax_enable_compile_warnings" != "no" -a \
                 "$ax_enable_compile_warnings" != "minimum"],[
         # "yes" flags
