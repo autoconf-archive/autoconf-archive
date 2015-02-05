@@ -25,6 +25,12 @@
   : make maintainer-all         # create/update all generated files that will be in a release
   : make                        # update texinfo documentation
 
+  If "bootstrap.sh" fails because it can't find "gnulib-tool", then you should
+  clone the "gnulib" project into the top-level directory of the autoconf-archive
+  repository by running:
+
+  : git clone git://git.savannah.gnu.org/gnulib.git
+
 * How to update the web site.
 
   Check out the web site from CVS:
