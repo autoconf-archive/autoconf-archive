@@ -55,6 +55,11 @@
 #   be manually added to the CFLAGS and LDFLAGS variables for each target in
 #   the code base.
 #
+#   Warning flags for the C++ compiler are AC_SUBST-ed as WARN_CXXFLAGS, and
+#   must be manually added to the CXXFLAGS variables for each target in the
+#   code base. EXTRA-*-CFLAGS can be used to augment the flags enabled at
+#   each level.
+#
 #   Warning flags for g-ir-scanner (from GObject Introspection) are
 #   AC_SUBST-ed as WARN_SCANNERFLAGS.  This variable must be manually added
 #   to the SCANNERFLAGS variable for each GIR target in the code base.  If
@@ -71,16 +76,18 @@
 # LICENSE
 #
 #   Copyright (c) 2014, 2015 Philip Withnall <philip@tecnocode.co.uk>
+#   Copyright (c) 2015 David King <amigadave@amigadave.com>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_COMPILER_FLAGS],[
     AX_REQUIRE_DEFINED([AX_COMPILER_FLAGS_CFLAGS])
+    AX_REQUIRE_DEFINED([AX_COMPILER_FLAGS_CXXFLAGS])
     AX_REQUIRE_DEFINED([AX_COMPILER_FLAGS_LDFLAGS])
 
     AC_ARG_ENABLE([compile-warnings],
@@ -94,6 +101,7 @@ AC_DEFUN([AX_COMPILER_FLAGS],[
     ax_enable_compile_warnings=$enable_compile_warnings
 
     AX_COMPILER_FLAGS_CFLAGS([$1],[$3],[$4],[$5],[$6],[$7],[$8])
+    AX_COMPILER_FLAGS_CXXFLAGS([WARN_CXXFLAGS],[$3],[$4],[$5],[$6],[$7],[$8])
     AX_COMPILER_FLAGS_LDFLAGS([$2],[$3],[$9],[$10],[$11],[$12],[$13])
     AX_COMPILER_FLAGS_GIR([WARN_SCANNERFLAGS],[$3])
 ])dnl AX_COMPILER_FLAGS
