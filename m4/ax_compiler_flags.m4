@@ -25,7 +25,9 @@
 #
 #   By providing a consistent --enable-compile-warnings argument across all
 #   projects using this macro, continuous integration systems can easily be
-#   configured the same for all projects.
+#   configured the same for all projects.  Automated systems or build
+#   systems aimed at beginners may want to pass the --disable-Werror
+#   argument to unconditionally prevent warnings being fatal.
 #
 #   --enable-compile-warnings can take the values:
 #
@@ -35,6 +37,8 @@
 #    * maximum: The above, plus additional warnings which enforce a particular
 #               coding style
 #    * error:   The above, plus -Werror so that all warnings are fatal.
+#               Use --disable-Werror to override this and disable fatal
+#               warnings.
 #
 #   The set of flags enabled at each level can be augmented using the
 #   EXTRA-*-CFLAGS and EXTRA-*-LDFLAGS variables.  Flags should not be
@@ -83,7 +87,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_COMPILER_FLAGS],[
     AX_REQUIRE_DEFINED([AX_COMPILER_FLAGS_CFLAGS])
@@ -96,8 +100,17 @@ AC_DEFUN([AX_COMPILER_FLAGS],[
                   [AS_IF([test "$3" = "yes"],
                          [enable_compile_warnings="yes"],
                          [enable_compile_warnings="error"])])
+    AC_ARG_ENABLE([Werror],
+                  AS_HELP_STRING([--disable-Werror],
+                                 [Unconditionally make all compiler warnings non-fatal]),,
+                  [enable_Werror=maybe])
 
     # Return the user’s chosen warning level
+    AS_IF([test "$enable_Werror" = "no" -a \
+                "$enable_compile_warnings" = "error"],[
+        enable_compile_warnings="maximum"
+    ])
+
     ax_enable_compile_warnings=$enable_compile_warnings
 
     AX_COMPILER_FLAGS_CFLAGS([$1],[$3],[$4],[$5],[$6],[$7],[$8])
