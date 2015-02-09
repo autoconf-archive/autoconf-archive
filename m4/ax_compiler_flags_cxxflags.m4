@@ -26,7 +26,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_COMPILER_FLAGS_CXXFLAGS],[
     AX_REQUIRE_DEFINED([AX_APPEND_COMPILE_FLAGS])
@@ -56,6 +56,10 @@ AC_DEFUN([AX_COMPILER_FLAGS_CXXFLAGS],[
         $3 dnl
     ],ax_warn_cxxflags_variable,[$ax_compiler_flags_test])
 
+    # In the flags below, when disabling specific flags, always add *both*
+    # -Wno-foo and -Wno-error=foo. This fixes the situation where (for example)
+    # we enable -Werror, disable a flag, and a build bot passes CFLAGS=-Wall,
+    # which effectively turns that flag back on again as an error.
     AS_IF([test "$ax_enable_compile_warnings" != "no"],[
         # "minimum" flags
         AX_APPEND_COMPILE_FLAGS([ dnl
@@ -74,7 +78,9 @@ AC_DEFUN([AX_COMPILER_FLAGS_CXXFLAGS],[
             -Wmissing-declarations dnl
             -Wredundant-decls dnl
             -Wno-unused-parameter dnl
+            -Wno-error=unused-parameter dnl
             -Wno-missing-field-initializers dnl
+            -Wno-error=missing-field-initializers dnl
             -Wformat=2 dnl
             -Wcast-align dnl
             -Wformat-nonliteral dnl
@@ -93,6 +99,7 @@ AC_DEFUN([AX_COMPILER_FLAGS_CXXFLAGS],[
             -Warray-bounds dnl
             -Wreturn-type dnl
             -Wno-overloaded-virtual dnl
+            -Wno-error=overloaded-virtual dnl
             $5 dnl
         ],ax_warn_cxxflags_variable,[$ax_compiler_flags_test])
     ])
