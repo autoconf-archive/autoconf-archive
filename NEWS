@@ -10,6 +10,8 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_APPEND_FLAG: Fix a regression introduced in the previous release.
+
 * Noteworthy changes in release 2015.02.04 (2015-02-04) [stable]
 
   AX_OPENMP: Test that we can actually #include <omp.h> successfully.
