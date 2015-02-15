@@ -35,7 +35,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 m4_define([_AX_CXX_COMPILE_STDCXX_11_testbody], [[
   template <typename T>
@@ -76,6 +76,8 @@ m4_define([_AX_CXX_COMPILE_STDCXX_11_testbody], [[
 
         template<typename T>
         void func(member<T>*) {}
+
+        void test();
 
         void test() {
             func<foo>(0);
