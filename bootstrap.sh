@@ -2,6 +2,10 @@
 
 set -eu
 
+if [ ! -d "gnulib" ] && [ $# -gt 0 ] && [ "$1" = "--copy" ]; then
+  git clone git://git.savannah.gnu.org/gnulib.git gnulib
+fi
+
 if [ -x "gnulib/gnulib-tool" ]; then
   gnulibtool=gnulib/gnulib-tool
 else
