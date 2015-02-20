@@ -25,7 +25,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
     AX_REQUIRE_DEFINED([AX_APPEND_COMPILE_FLAGS])
@@ -35,6 +35,8 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
     # Variable names
     m4_define(ax_warn_cflags_variable,
               [m4_normalize(ifelse([$1],,[WARN_CFLAGS],[$1]))])
+
+    AC_LANG_PUSH([C])
 
     # Always pass -Werror=unknown-warning-option to get Clang to fail on bad
     # flags, otherwise they are always appended to the warn_cflags variable, and
@@ -127,6 +129,8 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
             $7 dnl
         ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
     ])
+
+    AC_LANG_POP([C])
 
     # Substitute the variables
     AC_SUBST(ax_warn_cflags_variable)
