@@ -25,7 +25,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
     AX_REQUIRE_DEFINED([AX_APPEND_COMPILE_FLAGS])
@@ -55,10 +55,6 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
         $3 dnl
     ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
 
-    # In the flags below, when disabling specific flags, always add *both*
-    # -Wno-foo and -Wno-error=foo. This fixes the situation where (for example)
-    # we enable -Werror, disable a flag, and a build bot passes CFLAGS=-Wall,
-    # which effectively turns that flag back on again as an error.
     AS_IF([test "$ax_enable_compile_warnings" != "no"],[
         # "minimum" flags
         AX_APPEND_COMPILE_FLAGS([ dnl
@@ -80,9 +76,7 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
             -Wstrict-prototypes dnl
             -Wredundant-decls dnl
             -Wno-unused-parameter dnl
-            -Wno-error=unused-parameter dnl
             -Wno-missing-field-initializers dnl
-            -Wno-error=missing-field-initializers dnl
             -Wdeclaration-after-statement dnl
             -Wformat=2 dnl
             -Wold-style-definition dnl
@@ -128,6 +122,20 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
             $7 dnl
         ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
     ])
+
+    # In the flags below, when disabling specific flags, always add *both*
+    # -Wno-foo and -Wno-error=foo. This fixes the situation where (for example)
+    # we enable -Werror, disable a flag, and a build bot passes CFLAGS=-Wall,
+    # which effectively turns that flag back on again as an error.
+    for flag in $ax_warn_cflags_variable; do
+        AS_CASE([$flag],
+                [-Wno-*=*],[],
+                [-Wno-*],[
+                    AX_APPEND_COMPILE_FLAGS([-Wno-error=${flag:5}],
+                                            ax_warn_cflags_variable,
+                                            [$ax_compiler_flags_test])
+                ])
+    done
 
     AC_LANG_POP([C])
 
