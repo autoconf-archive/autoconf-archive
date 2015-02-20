@@ -50,6 +50,10 @@
 #
 #     https://gcc.gnu.org/onlinedocs/gcc-4.9.2/gcc/Diagnostic-Pragmas.html#Diagnostic-Pragmas
 #
+#   The EXTRA-* variables should only be used to supply extra warning flags,
+#   and not general purpose compiler flags, as they are controlled by
+#   configure options such as --disable-Werror.
+#
 #   IS-RELEASE can be used to disable -Werror when making a release, which
 #   is useful for those hairy moments when you just want to get the release
 #   done as quickly as possible.  Set it to "yes" to disable -Werror.
@@ -88,7 +92,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 # _AX_COMPILER_FLAGS_LANG([LANGNAME])
 m4_defun([_AX_COMPILER_FLAGS_LANG],
