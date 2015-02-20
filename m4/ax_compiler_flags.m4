@@ -59,10 +59,11 @@
 #   be manually added to the CFLAGS and LDFLAGS variables for each target in
 #   the code base.
 #
-#   Warning flags for the C++ compiler are AC_SUBST-ed as WARN_CXXFLAGS, and
-#   must be manually added to the CXXFLAGS variables for each target in the
-#   code base. EXTRA-*-CFLAGS can be used to augment the flags enabled at
-#   each level.
+#   If C++ language support is enabled with AC_PROG_CXX, which must occur
+#   before this macro in configure.ac, warning flags for the C++ compiler
+#   are AC_SUBST-ed as WARN_CXXFLAGS, and must be manually added to the
+#   CXXFLAGS variables for each target in the code base.  EXTRA-*-CFLAGS can
+#   be used to augment the flags enabled at each level.
 #
 #   Warning flags for g-ir-scanner (from GObject Introspection) are
 #   AC_SUBST-ed as WARN_SCANNERFLAGS.  This variable must be manually added
@@ -87,11 +88,25 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
+
+# _AX_COMPILER_FLAGS_LANG([LANGNAME])
+m4_defun([_AX_COMPILER_FLAGS_LANG],
+[m4_ifdef([_AX_COMPILER_FLAGS_LANG_]$1[_enabled], [],
+          [m4_define([_AX_COMPILER_FLAGS_LANG_]$1[_enabled], [])dnl
+           AX_REQUIRE_DEFINED([AX_COMPILER_FLAGS_]$1[FLAGS])])dnl
+])
 
 AC_DEFUN([AX_COMPILER_FLAGS],[
-    AX_REQUIRE_DEFINED([AX_COMPILER_FLAGS_CFLAGS])
-    AX_REQUIRE_DEFINED([AX_COMPILER_FLAGS_CXXFLAGS])
+    # C support is enabled by default.
+    _AX_COMPILER_FLAGS_LANG([C])
+    # Only enable C++ support if AC_PROG_CXX is called. The redefinition of
+    # AC_PROG_CXX is so that a fatal error is emitted if this macro is called
+    # before AC_PROG_CXX, which would otherwise cause no C++ warnings to be
+    # checked.
+    AC_PROVIDE_IFELSE([AC_PROG_CXX],
+                      [_AX_COMPILER_FLAGS_LANG([CXX])],
+                      [m4_define([AC_PROG_CXX], defn([AC_PROG_CXX])[_AX_COMPILER_FLAGS_LANG([CXX])])])
     AX_REQUIRE_DEFINED([AX_COMPILER_FLAGS_LDFLAGS])
 
     AC_ARG_ENABLE([compile-warnings],
@@ -114,7 +129,8 @@ AC_DEFUN([AX_COMPILER_FLAGS],[
     ax_enable_compile_warnings=$enable_compile_warnings
 
     AX_COMPILER_FLAGS_CFLAGS([$1],[$3],[$4],[$5],[$6],[$7],[$8])
-    AX_COMPILER_FLAGS_CXXFLAGS([WARN_CXXFLAGS],[$3],[$4],[$5],[$6],[$7],[$8])
+    m4_ifdef([_AX_COMPILER_FLAGS_LANG_CXX_enabled],
+             [AX_COMPILER_FLAGS_CXXFLAGS([WARN_CXXFLAGS],[$3],[$4],[$5],[$6],[$7],[$8])])
     AX_COMPILER_FLAGS_LDFLAGS([$2],[$3],[$9],[$10],[$11],[$12],[$13])
     AX_COMPILER_FLAGS_GIR([WARN_SCANNERFLAGS],[$3])
 ])dnl AX_COMPILER_FLAGS
