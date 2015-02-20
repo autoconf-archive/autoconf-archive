@@ -56,7 +56,13 @@
 #
 #   IS-RELEASE can be used to disable -Werror when making a release, which
 #   is useful for those hairy moments when you just want to get the release
-#   done as quickly as possible.  Set it to "yes" to disable -Werror.
+#   done as quickly as possible.  Set it to "yes" to disable -Werror. By
+#   default, it uses the value of $ax_is_release, so if you are using the
+#   AX_IS_RELEASE macro, there is no need to pass this parameter. For
+#   example:
+#
+#     AX_IS_RELEASE([git-directory])
+#     AX_COMPILER_FLAGS()
 #
 #   CFLAGS-VARIABLE defaults to WARN_CFLAGS, and LDFLAGS-VARIABLE defaults
 #   to WARN_LDFLAGS.  Both variables are AC_SUBST-ed by this macro, but must
@@ -92,7 +98,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 # _AX_COMPILER_FLAGS_LANG([LANGNAME])
 m4_defun([_AX_COMPILER_FLAGS_LANG],
@@ -113,10 +119,15 @@ AC_DEFUN([AX_COMPILER_FLAGS],[
                       [m4_define([AC_PROG_CXX], defn([AC_PROG_CXX])[_AX_COMPILER_FLAGS_LANG([CXX])])])
     AX_REQUIRE_DEFINED([AX_COMPILER_FLAGS_LDFLAGS])
 
+    # Default value for IS-RELEASE is $ax_is_release
+    ax_compiler_flags_is_release=m4_tolower(m4_normalize(ifelse([$3],,
+                                                                [$ax_is_release],
+                                                                [$3])))
+
     AC_ARG_ENABLE([compile-warnings],
                   AS_HELP_STRING([--enable-compile-warnings=@<:@no/minimum/yes/maximum/error@:>@],
                                  [Enable different levels of compiler warnings]),,
-                  [AS_IF([test "$3" = "yes"],
+                  [AS_IF([test "$ax_compiler_flags_is_release" = "yes"],
                          [enable_compile_warnings="yes"],
                          [enable_compile_warnings="error"])])
     AC_ARG_ENABLE([Werror],
@@ -132,9 +143,13 @@ AC_DEFUN([AX_COMPILER_FLAGS],[
 
     ax_enable_compile_warnings=$enable_compile_warnings
 
-    AX_COMPILER_FLAGS_CFLAGS([$1],[$3],[$4],[$5],[$6],[$7],[$8])
+    AX_COMPILER_FLAGS_CFLAGS([$1],[$ax_compiler_flags_is_release],
+                             [$4],[$5],[$6],[$7],[$8])
     m4_ifdef([_AX_COMPILER_FLAGS_LANG_CXX_enabled],
-             [AX_COMPILER_FLAGS_CXXFLAGS([WARN_CXXFLAGS],[$3],[$4],[$5],[$6],[$7],[$8])])
-    AX_COMPILER_FLAGS_LDFLAGS([$2],[$3],[$9],[$10],[$11],[$12],[$13])
-    AX_COMPILER_FLAGS_GIR([WARN_SCANNERFLAGS],[$3])
+             [AX_COMPILER_FLAGS_CXXFLAGS([WARN_CXXFLAGS],
+                                         [$ax_compiler_flags_is_release],
+                                         [$4],[$5],[$6],[$7],[$8])])
+    AX_COMPILER_FLAGS_LDFLAGS([$2],[$ax_compiler_flags_is_release],
+                              [$9],[$10],[$11],[$12],[$13])
+    AX_COMPILER_FLAGS_GIR([WARN_SCANNERFLAGS],[$ax_compiler_flags_is_release])
 ])dnl AX_COMPILER_FLAGS
