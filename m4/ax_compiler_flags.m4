@@ -4,7 +4,7 @@
 #
 # SYNOPSIS
 #
-#   AX_COMPILER_FLAGS([CFLAGS-VARIABLE], [LDFLAGS-VARIABLE], [IS-RELEASE], [EXTRA-BASE-CFLAGS], [EXTRA-MINIMUM-CFLAGS], [EXTRA-YES-CFLAGS], [EXTRA-MAXIMUM-CFLAGS], [EXTRA-ERROR-CFLAGS], [EXTRA-BASE-LDFLAGS], [EXTRA-MINIMUM-LDFLAGS], [EXTRA-YES-LDFLAGS], [EXTRA-MAXIMUM-LDFLAGS], [EXTRA-ERROR-LDFLAGS])
+#   AX_COMPILER_FLAGS([CFLAGS-VARIABLE], [LDFLAGS-VARIABLE], [IS-RELEASE], [EXTRA-BASE-CFLAGS], [EXTRA-YES-CFLAGS], [UNUSED], [UNUSED], [UNUSED], [EXTRA-BASE-LDFLAGS], [EXTRA-YES-LDFLAGS], [UNUSED], [UNUSED], [UNUSED])
 #
 # DESCRIPTION
 #
@@ -32,21 +32,20 @@
 #   --enable-compile-warnings can take the values:
 #
 #    * no:      Base compiler warnings only; not even -Wall.
-#    * minimum: The above, plus minimal extra warnings such as -Wall.
 #    * yes:     The above, plus a broad range of useful warnings.
-#    * maximum: The above, plus additional warnings which enforce a particular
-#               coding style
 #    * error:   The above, plus -Werror so that all warnings are fatal.
 #               Use --disable-Werror to override this and disable fatal
 #               warnings.
 #
-#   The set of flags enabled at each level can be augmented using the
-#   EXTRA-*-CFLAGS and EXTRA-*-LDFLAGS variables.  Flags should not be
-#   disabled using these arguments, as the entire point of AX_COMPILER_FLAGS
-#   is to enforce a consistent set of useful compiler warnings on code,
-#   using warnings which have been chosen for low false positive rates.  If
-#   a compiler emits false positives for a warning, a #pragma should be used
-#   in the code to disable the warning locally. See:
+#   The set of base and enabled flags can be augmented using the
+#   EXTRA-*-CFLAGS and EXTRA-*-LDFLAGS variables, which are tested and
+#   appended to the output variable if --enable-compile-warnings is not
+#   "no". Flags should not be disabled using these arguments, as the entire
+#   point of AX_COMPILER_FLAGS is to enforce a consistent set of useful
+#   compiler warnings on code, using warnings which have been chosen for low
+#   false positive rates.  If a compiler emits false positives for a
+#   warning, a #pragma should be used in the code to disable the warning
+#   locally. See:
 #
 #     https://gcc.gnu.org/onlinedocs/gcc-4.9.2/gcc/Diagnostic-Pragmas.html#Diagnostic-Pragmas
 #
@@ -73,7 +72,7 @@
 #   before this macro in configure.ac, warning flags for the C++ compiler
 #   are AC_SUBST-ed as WARN_CXXFLAGS, and must be manually added to the
 #   CXXFLAGS variables for each target in the code base.  EXTRA-*-CFLAGS can
-#   be used to augment the flags enabled at each level.
+#   be used to augment the base and enabled flags.
 #
 #   Warning flags for g-ir-scanner (from GObject Introspection) are
 #   AC_SUBST-ed as WARN_SCANNERFLAGS.  This variable must be manually added
@@ -88,6 +87,10 @@
 #   over the flags for individual tools, use AX_COMPILER_FLAGS_CFLAGS,
 #   AX_COMPILER_FLAGS_LDFLAGS and AX_COMPILER_FLAGS_* for new tools.
 #
+#   The UNUSED variables date from a previous version of this macro, and are
+#   automatically appended to the preceding non-UNUSED variable. They should
+#   be left empty in new uses of the macro.
+#
 # LICENSE
 #
 #   Copyright (c) 2014, 2015 Philip Withnall <philip@tecnocode.co.uk>
@@ -98,7 +101,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 # _AX_COMPILER_FLAGS_LANG([LANGNAME])
 m4_defun([_AX_COMPILER_FLAGS_LANG],
@@ -125,8 +128,8 @@ AC_DEFUN([AX_COMPILER_FLAGS],[
                                                                 [$3])))
 
     AC_ARG_ENABLE([compile-warnings],
-                  AS_HELP_STRING([--enable-compile-warnings=@<:@no/minimum/yes/maximum/error@:>@],
-                                 [Enable different levels of compiler warnings]),,
+                  AS_HELP_STRING([--enable-compile-warnings=@<:@no/yes/error@:>@],
+                                 [Enable compiler warnings and errors]),,
                   [AS_IF([test "$ax_compiler_flags_is_release" = "yes"],
                          [enable_compile_warnings="yes"],
                          [enable_compile_warnings="error"])])
@@ -138,18 +141,18 @@ AC_DEFUN([AX_COMPILER_FLAGS],[
     # Return the user’s chosen warning level
     AS_IF([test "$enable_Werror" = "no" -a \
                 "$enable_compile_warnings" = "error"],[
-        enable_compile_warnings="maximum"
+        enable_compile_warnings="yes"
     ])
 
     ax_enable_compile_warnings=$enable_compile_warnings
 
     AX_COMPILER_FLAGS_CFLAGS([$1],[$ax_compiler_flags_is_release],
-                             [$4],[$5],[$6],[$7],[$8])
+                             [$4],[$5 $6 $7 $8])
     m4_ifdef([_AX_COMPILER_FLAGS_LANG_CXX_enabled],
              [AX_COMPILER_FLAGS_CXXFLAGS([WARN_CXXFLAGS],
                                          [$ax_compiler_flags_is_release],
-                                         [$4],[$5],[$6],[$7],[$8])])
+                                         [$4],[$5 $6 $7 $8])])
     AX_COMPILER_FLAGS_LDFLAGS([$2],[$ax_compiler_flags_is_release],
-                              [$9],[$10],[$11],[$12],[$13])
+                              [$9],[$10 $11 $12 $13])
     AX_COMPILER_FLAGS_GIR([WARN_SCANNERFLAGS],[$ax_compiler_flags_is_release])
 ])dnl AX_COMPILER_FLAGS

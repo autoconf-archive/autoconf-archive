@@ -4,7 +4,7 @@
 #
 # SYNOPSIS
 #
-#   AX_COMPILER_FLAGS_CXXFLAGS([VARIABLE], [IS-RELEASE], [EXTRA-BASE-FLAGS], [EXTRA-MINIMUM-FLAGS], [EXTRA-YES-FLAGS], [EXTRA-MAXIMUM-FLAGS], [EXTRA-ERROR-FLAGS])
+#   AX_COMPILER_FLAGS_CXXFLAGS([VARIABLE], [IS-RELEASE], [EXTRA-BASE-FLAGS], [EXTRA-YES-FLAGS])
 #
 # DESCRIPTION
 #
@@ -26,7 +26,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_COMPILER_FLAGS_CXXFLAGS],[
     AX_REQUIRE_DEFINED([AX_APPEND_COMPILE_FLAGS])
@@ -57,16 +57,9 @@ AC_DEFUN([AX_COMPILER_FLAGS_CXXFLAGS],[
     ],ax_warn_cxxflags_variable,[$ax_compiler_flags_test])
 
     AS_IF([test "$ax_enable_compile_warnings" != "no"],[
-        # "minimum" flags
-        AX_APPEND_COMPILE_FLAGS([ dnl
-            -Wall dnl
-            $4 dnl
-        ],ax_warn_cxxflags_variable,[$ax_compiler_flags_test])
-    ])
-    AS_IF([test "$ax_enable_compile_warnings" != "no" -a \
-                "$ax_enable_compile_warnings" != "minimum"],[
         # "yes" flags
         AX_APPEND_COMPILE_FLAGS([ dnl
+            -Wall dnl
             -Wextra dnl
             -Wundef dnl
             -Wwrite-strings dnl
@@ -93,16 +86,12 @@ AC_DEFUN([AX_COMPILER_FLAGS_CXXFLAGS],[
             -Warray-bounds dnl
             -Wreturn-type dnl
             -Wno-overloaded-virtual dnl
-            $5 dnl
-        ],ax_warn_cxxflags_variable,[$ax_compiler_flags_test])
-    ])
-    AS_IF([test "$ax_enable_compile_warnings" = "maximum" -o \
-                "$ax_enable_compile_warnings" = "error"],[
-        # "maximum" flags
-        AX_APPEND_COMPILE_FLAGS([ dnl
             -Wswitch-enum dnl
             -Wswitch-default dnl
+            $4 dnl
+            $5 dnl
             $6 dnl
+            $7 dnl
         ],ax_warn_cxxflags_variable,[$ax_compiler_flags_test])
     ])
     AS_IF([test "$ax_enable_compile_warnings" = "error"],[
@@ -115,7 +104,6 @@ AC_DEFUN([AX_COMPILER_FLAGS_CXXFLAGS],[
 
         AX_APPEND_COMPILE_FLAGS([ dnl
             -Wno-suggest-attribute=format dnl
-            $7 dnl
         ],ax_warn_cxxflags_variable,[$ax_compiler_flags_test])
     ])
 
