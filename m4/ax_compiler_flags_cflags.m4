@@ -4,7 +4,7 @@
 #
 # SYNOPSIS
 #
-#   AX_COMPILER_FLAGS_CFLAGS([VARIABLE], [IS-RELEASE], [EXTRA-BASE-FLAGS], [EXTRA-MINIMUM-FLAGS], [EXTRA-YES-FLAGS], [EXTRA-MAXIMUM-FLAGS], [EXTRA-ERROR-FLAGS])
+#   AX_COMPILER_FLAGS_CFLAGS([VARIABLE], [IS-RELEASE], [EXTRA-BASE-FLAGS], [EXTRA-YES-FLAGS])
 #
 # DESCRIPTION
 #
@@ -25,7 +25,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 8
 
 AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
     AX_REQUIRE_DEFINED([AX_APPEND_COMPILE_FLAGS])
@@ -55,21 +55,10 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
         $3 dnl
     ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
 
-    # In the flags below, when disabling specific flags, always add *both*
-    # -Wno-foo and -Wno-error=foo. This fixes the situation where (for example)
-    # we enable -Werror, disable a flag, and a build bot passes CFLAGS=-Wall,
-    # which effectively turns that flag back on again as an error.
     AS_IF([test "$ax_enable_compile_warnings" != "no"],[
-        # "minimum" flags
-        AX_APPEND_COMPILE_FLAGS([ dnl
-            -Wall dnl
-            $4 dnl
-        ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
-    ])
-    AS_IF([test "$ax_enable_compile_warnings" != "no" -a \
-                "$ax_enable_compile_warnings" != "minimum"],[
         # "yes" flags
         AX_APPEND_COMPILE_FLAGS([ dnl
+            -Wall dnl
             -Wextra dnl
             -Wundef dnl
             -Wnested-externs dnl
@@ -80,9 +69,7 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
             -Wstrict-prototypes dnl
             -Wredundant-decls dnl
             -Wno-unused-parameter dnl
-            -Wno-error=unused-parameter dnl
             -Wno-missing-field-initializers dnl
-            -Wno-error=missing-field-initializers dnl
             -Wdeclaration-after-statement dnl
             -Wformat=2 dnl
             -Wold-style-definition dnl
@@ -103,17 +90,12 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
             -Warray-bounds dnl
             -Wimplicit-function-declaration dnl
             -Wreturn-type dnl
-            $5 dnl
-        ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
-    ])
-    AS_IF([test "$ax_enable_compile_warnings" = "maximum" -o \
-                "$ax_enable_compile_warnings" = "error"],[
-        # "maximum" flags
-        AX_APPEND_COMPILE_FLAGS([ dnl
             -Wswitch-enum dnl
             -Wswitch-default dnl
-            -Waggregate-return dnl
+            $4 dnl
+            $5 dnl
             $6 dnl
+            $7 dnl
         ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
     ])
     AS_IF([test "$ax_enable_compile_warnings" = "error"],[
@@ -126,9 +108,22 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
 
         AX_APPEND_COMPILE_FLAGS([ dnl
             -Wno-suggest-attribute=format dnl
-            $7 dnl
         ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
     ])
+
+    # In the flags below, when disabling specific flags, always add *both*
+    # -Wno-foo and -Wno-error=foo. This fixes the situation where (for example)
+    # we enable -Werror, disable a flag, and a build bot passes CFLAGS=-Wall,
+    # which effectively turns that flag back on again as an error.
+    for flag in $ax_warn_cflags_variable; do
+        AS_CASE([$flag],
+                [-Wno-*=*],[],
+                [-Wno-*],[
+                    AX_APPEND_COMPILE_FLAGS([-Wno-error=${flag:5}],
+                                            ax_warn_cflags_variable,
+                                            [$ax_compiler_flags_test])
+                ])
+    done
 
     AC_LANG_POP([C])
 

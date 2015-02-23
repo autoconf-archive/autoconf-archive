@@ -4,7 +4,7 @@
 #
 # SYNOPSIS
 #
-#   AX_COMPILER_FLAGS_GIR([VARIABLE], [IS-RELEASE], [EXTRA-BASE-FLAGS], [EXTRA-MINIMUM-FLAGS], [EXTRA-YES-FLAGS], [EXTRA-MAXIMUM-FLAGS], [EXTRA-ERROR-FLAGS])
+#   AX_COMPILER_FLAGS_GIR([VARIABLE], [IS-RELEASE], [EXTRA-BASE-FLAGS], [EXTRA-YES-FLAGS])
 #
 # DESCRIPTION
 #
@@ -26,7 +26,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_COMPILER_FLAGS_GIR],[
     AX_REQUIRE_DEFINED([AX_APPEND_FLAG])
@@ -39,27 +39,19 @@ AC_DEFUN([AX_COMPILER_FLAGS_GIR],[
     AX_APPEND_FLAG([$3],ax_warn_scannerflags_variable)
 
     AS_IF([test "$ax_enable_compile_warnings" != "no"],[
-        # "minimum" flags
+        # "yes" flags
         AX_APPEND_FLAG([ dnl
             --warn-all dnl
             $4 dnl
+            $5 dnl
+            $6 dnl
+            $7 dnl
         ],ax_warn_scannerflags_variable)
-    ])
-    AS_IF([test "$ax_enable_compile_warnings" != "no" -a \
-                "$ax_enable_compile_warnings" != "minimum"],[
-        # "yes" flags
-        AX_APPEND_FLAG([$5],ax_warn_scannerflags_variable)
-    ])
-    AS_IF([test "$ax_enable_compile_warnings" = "maximum" -o \
-                "$ax_enable_compile_warnings" = "error"],[
-        # "maximum" flags
-        AX_APPEND_FLAG([$6],ax_warn_scannerflags_variable)
     ])
     AS_IF([test "$ax_enable_compile_warnings" = "error"],[
         # "error" flags
         AX_APPEND_FLAG([ dnl
             --warn-error dnl
-            $7 dnl
         ],ax_warn_scannerflags_variable)
     ])
 
