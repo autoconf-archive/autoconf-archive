@@ -8,6 +8,8 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
+* Noteworthy changes in release ?.? (????-??-??) [?]
+
 * Noteworthy changes in release 2015.02.24 (2015-02-24) [stable]
 
   AX_CHECK_ENABLE_DEBUG now uses $ax_is_release as default for IS-RELEASE.
