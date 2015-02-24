@@ -8,7 +8,23 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
-* Noteworthy changes in release ?.? (????-??-??) [?]
+* Noteworthy changes in release 2015.02.24 (2015-02-24) [stable]
+
+  AX_CHECK_ENABLE_DEBUG now uses $ax_is_release as default for IS-RELEASE.
+
+  AX_IS_RELEASE now supports micro-version policies.
+
+  Portability of AX_CXX_COMPILE_STDCXX_0X has been improved.
+
+  AX_PROG_HAXE_VERSION is a new macro to detect the presence of Haxe
+  <http://haxe.org>.
+
+  AX_COMPILER_FLAGS has undergone extensive re-factoring.
+
+  AX_COMPILER_FLAGS_CXXFLAGS is a new macro that tests available C++ compiler
+  warnings.
+
+  AX_CXX_COMPILE_STDCXX_11 can now test for SFINAE with template aliases.
 
   AX_APPEND_FLAG: Fix a regression introduced in the previous release.
 
