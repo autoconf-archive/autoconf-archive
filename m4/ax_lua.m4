@@ -304,7 +304,7 @@ AC_DEFUN([AX_PROG_LUA],
         ax_cv_lua_luadir="$LUA_PREFIX/share/lua/$LUA_VERSION"
 
         dnl Try to find a path with the prefix.
-        _AX_LUA_FND_PRFX_PTH([$LUA], [$ax_lua_prefix], [package.path])
+        _AX_LUA_FND_PRFX_PTH([$LUA], [$ax_lua_prefix], [script])
         AS_IF([test "x$ax_lua_prefixed_path" != 'x'],
         [ dnl Fix the prefix.
           _ax_strip_prefix=`echo "$ax_lua_prefix" | $SED 's|.|.|g'`
@@ -331,7 +331,7 @@ AC_DEFUN([AX_PROG_LUA],
 
         dnl Try to find a path with the prefix.
         _AX_LUA_FND_PRFX_PTH([$LUA],
-          [$ax_lua_exec_prefix], [package.cpath])
+          [$ax_lua_exec_prefix], [module])
         AS_IF([test "x$ax_lua_prefixed_path" != 'x'],
         [ dnl Fix the prefix.
           _ax_strip_prefix=`echo "$ax_lua_exec_prefix" | $SED 's|.|.|g'`
@@ -431,7 +431,7 @@ AC_DEFUN([_AX_LUA_FND_PRFX_PTH],
       paths = (package and package.cpath) or LUA_CPATH
     end
     -- search for the prefix
-    local prefix = "$2"
+    local prefix = "'$2'"
     local minpath = ""
     local mindepth = 1e9
     string.gsub(paths, "(@<:@^;@:>@+)",
