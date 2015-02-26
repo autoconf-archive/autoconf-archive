@@ -51,7 +51,7 @@
 #
 #   If MINIMUM-VERSION is supplied, then only Lua interpreters with a
 #   version number greater or equal to MINIMUM-VERSION will be accepted. If
-#   TOO-BIG- VERSION is also supplied, then only Lua interpreters with a
+#   TOO-BIG-VERSION is also supplied, then only Lua interpreters with a
 #   version number greater or equal to MINIMUM-VERSION and less than
 #   TOO-BIG-VERSION will be accepted.
 #
@@ -151,7 +151,7 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2014 Reuben Thomas <rrt@sc3d.org>
+#   Copyright (c) 2015 Reuben Thomas <rrt@sc3d.org>
 #   Copyright (c) 2014 Tim Perkins <tprk77@gmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
@@ -180,7 +180,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 36
+#serial 37
 
 dnl =========================================================================
 dnl AX_PROG_LUA([MINIMUM-VERSION], [TOO-BIG-VERSION],
