@@ -66,12 +66,13 @@
 #     luaexecdir         Directory to install Lua modules.
 #     pkgluaexecdir      $luaexecdir/$PACKAGE
 #
-#   These paths a found based on $prefix, $exec_prefix, Lua's package.path,
-#   and package.cpath. The first path of package.path beginning with $prefix
-#   is selected as luadir. The first path of package.cpath beginning with
-#   $exec_prefix is used as luaexecdir. This should work on all reasonable
-#   Lua installations. If a path cannot be determined, a default path is
-#   used. Of course, the user can override these later when invoking make.
+#   These paths are found based on $prefix, $exec_prefix, Lua's
+#   package.path, and package.cpath. The first path of package.path
+#   beginning with $prefix is selected as luadir. The first path of
+#   package.cpath beginning with $exec_prefix is used as luaexecdir. This
+#   should work on all reasonable Lua installations. If a path cannot be
+#   determined, a default path is used. Of course, the user can override
+#   these later when invoking make.
 #
 #     luadir             Default: $prefix/share/lua/$LUA_VERSION
 #     luaexecdir         Default: $exec_prefix/lib/lua/$LUA_VERSION
@@ -180,7 +181,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 37
+#serial 38
 
 dnl =========================================================================
 dnl AX_PROG_LUA([MINIMUM-VERSION], [TOO-BIG-VERSION],
@@ -304,7 +305,7 @@ AC_DEFUN([AX_PROG_LUA],
         ax_cv_lua_luadir="$LUA_PREFIX/share/lua/$LUA_VERSION"
 
         dnl Try to find a path with the prefix.
-        _AX_LUA_FND_PRFX_PTH([$LUA], [$ax_lua_prefix], [package.path])
+        _AX_LUA_FND_PRFX_PTH([$LUA], [$ax_lua_prefix], [script])
         AS_IF([test "x$ax_lua_prefixed_path" != 'x'],
         [ dnl Fix the prefix.
           _ax_strip_prefix=`echo "$ax_lua_prefix" | $SED 's|.|.|g'`
@@ -331,7 +332,7 @@ AC_DEFUN([AX_PROG_LUA],
 
         dnl Try to find a path with the prefix.
         _AX_LUA_FND_PRFX_PTH([$LUA],
-          [$ax_lua_exec_prefix], [package.cpath])
+          [$ax_lua_exec_prefix], [module])
         AS_IF([test "x$ax_lua_prefixed_path" != 'x'],
         [ dnl Fix the prefix.
           _ax_strip_prefix=`echo "$ax_lua_exec_prefix" | $SED 's|.|.|g'`
@@ -415,7 +416,7 @@ AC_DEFUN([_AX_LUA_FND_PRFX_PTH],
 [
   dnl Get the script or module directory by querying the Lua interpreter,
   dnl filtering on the given prefix, and selecting the shallowest path. If no
-  dnl path  is found matching the prefix, the result will be an empty string.
+  dnl path is found matching the prefix, the result will be an empty string.
   dnl The third argument determines the type of search, it can be 'script' or
   dnl 'module'. Supplying 'script' will perform the search with package.path
   dnl and LUA_PATH, and supplying 'module' will search with package.cpath and
@@ -431,7 +432,7 @@ AC_DEFUN([_AX_LUA_FND_PRFX_PTH],
       paths = (package and package.cpath) or LUA_CPATH
     end
     -- search for the prefix
-    local prefix = "$2"
+    local prefix = "'$2'"
     local minpath = ""
     local mindepth = 1e9
     string.gsub(paths, "(@<:@^;@:>@+)",
