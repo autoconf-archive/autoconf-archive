@@ -34,7 +34,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 m4_define([_AX_CXX_COMPILE_STDCXX_11_testbody], [[
   template <typename T>
@@ -61,6 +61,8 @@ m4_define([_AX_CXX_COMPILE_STDCXX_11_testbody], [[
 
     auto d = a;
     auto l = [](){};
+    // Prevent Clang error: unused variable 'l' [-Werror,-Wunused-variable]
+    struct use_l { use_l() { l(); } };
 
     // http://stackoverflow.com/questions/13728184/template-aliases-and-sfinae
     // Clang 3.1 fails with headers of libstd++ 4.8.3 when using std::function because of this
