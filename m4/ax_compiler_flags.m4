@@ -101,7 +101,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 # _AX_COMPILER_FLAGS_LANG([LANGNAME])
 m4_defun([_AX_COMPILER_FLAGS_LANG],
@@ -138,7 +138,7 @@ AC_DEFUN([AX_COMPILER_FLAGS],[
                                  [Unconditionally make all compiler warnings non-fatal]),,
                   [enable_Werror=maybe])
 
-    # Return the user’s chosen warning level
+    # Return the user's chosen warning level
     AS_IF([test "$enable_Werror" = "no" -a \
                 "$enable_compile_warnings" = "error"],[
         enable_compile_warnings="yes"

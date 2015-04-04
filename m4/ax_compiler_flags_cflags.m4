@@ -25,7 +25,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
     AX_REQUIRE_DEFINED([AX_APPEND_COMPILE_FLAGS])
@@ -100,7 +100,7 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
     ])
     AS_IF([test "$ax_enable_compile_warnings" = "error"],[
         # "error" flags; -Werror has to be appended unconditionally because
-        # it’s not possible to test for
+        # it's not possible to test for
         #
         # suggest-attribute=format is disabled because it gives too many false
         # positives
