@@ -46,7 +46,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 14
 
 AC_DEFUN([AX_LIB_POSTGRESQL],
 [
