@@ -46,7 +46,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_LIB_POSTGRESQL],
 [
@@ -149,6 +149,11 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
             AC_MSG_RESULT([yes])
         else
             AC_MSG_RESULT([no])
+            AC_DEFINE([HAVE_POSTGRESQL], [0],
+                [A required version of PostgreSQL is not found])
+            POSTGRESQL_CPPFLAGS=""
+            POSTGRESQL_LDFLAGS=""
+            POSTGRESQL_LIBS=""
         fi
     fi
 
