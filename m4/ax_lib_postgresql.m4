@@ -29,6 +29,7 @@
 #
 #     AC_SUBST(POSTGRESQL_CPPFLAGS)
 #     AC_SUBST(POSTGRESQL_LDFLAGS)
+#     AC_SUBST(POSTGRESQL_LIBS)
 #     AC_SUBST(POSTGRESQL_VERSION)
 #
 #   And sets:
@@ -45,7 +46,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 12
 
 AC_DEFUN([AX_LIB_POSTGRESQL],
 [
@@ -68,6 +69,7 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
 
     POSTGRESQL_CPPFLAGS=""
     POSTGRESQL_LDFLAGS=""
+    POSTGRESQL_LIBS=""
     POSTGRESQL_VERSION=""
 
     dnl
@@ -91,7 +93,7 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
 
             POSTGRESQL_CPPFLAGS="-I`$PG_CONFIG --includedir`"
             POSTGRESQL_LDFLAGS="-L`$PG_CONFIG --libdir`"
-
+            POSTGRESQL_LIBS="-lpq"
             POSTGRESQL_VERSION=`$PG_CONFIG --version | sed -e 's#PostgreSQL ##'`
 
             AC_DEFINE([HAVE_POSTGRESQL], [1],
@@ -147,10 +149,16 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
             AC_MSG_RESULT([yes])
         else
             AC_MSG_RESULT([no])
+            AC_DEFINE([HAVE_POSTGRESQL], [0],
+                [A required version of PostgreSQL is not found])
+            POSTGRESQL_CPPFLAGS=""
+            POSTGRESQL_LDFLAGS=""
+            POSTGRESQL_LIBS=""
         fi
     fi
 
     AC_SUBST([POSTGRESQL_VERSION])
     AC_SUBST([POSTGRESQL_CPPFLAGS])
     AC_SUBST([POSTGRESQL_LDFLAGS])
+    AC_SUBST([POSTGRESQL_LIBS])
 ])
