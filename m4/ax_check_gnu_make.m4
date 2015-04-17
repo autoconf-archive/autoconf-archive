@@ -9,6 +9,7 @@
 # DESCRIPTION
 #
 #   This macro searches for a GNU version of make. If a match is found:
+#
 #     * The makefile variable `ifGNUmake' is set to the empty string, otherwise
 #       it is set to "#". This is useful for including a special features in a
 #       Makefile, which cannot be handled by other versions of make.
