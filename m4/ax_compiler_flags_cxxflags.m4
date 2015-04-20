@@ -29,6 +29,7 @@
 #serial 5
 
 AC_DEFUN([AX_COMPILER_FLAGS_CXXFLAGS],[
+    AC_REQUIRE([AC_PROG_SED])
     AX_REQUIRE_DEFINED([AX_APPEND_COMPILE_FLAGS])
     AX_REQUIRE_DEFINED([AX_APPEND_FLAG])
     AX_REQUIRE_DEFINED([AX_CHECK_COMPILE_FLAG])
@@ -115,7 +116,7 @@ AC_DEFUN([AX_COMPILER_FLAGS_CXXFLAGS],[
         AS_CASE([$flag],
                 [-Wno-*=*],[],
                 [-Wno-*],[
-                    AX_APPEND_COMPILE_FLAGS([-Wno-error=${flag:5}],
+                    AX_APPEND_COMPILE_FLAGS([-Wno-error=$(AS_ECHO([$flag]) | $SED 's/^-Wno-//')],
                                             ax_warn_cxxflags_variable,
                                             [$ax_compiler_flags_test])
                 ])
