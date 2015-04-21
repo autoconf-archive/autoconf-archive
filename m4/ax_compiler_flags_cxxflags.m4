@@ -26,7 +26,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 7
 
 AC_DEFUN([AX_COMPILER_FLAGS_CXXFLAGS],[
     AC_REQUIRE([AC_PROG_SED])
