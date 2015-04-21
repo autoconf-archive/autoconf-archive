@@ -1,5 +1,5 @@
 language: c
 git:
   depth: 50000
-install: sudo apt-get install --allow-unauthenticated -qq gnulib lzip texlive tidy
-script: ./bootstrap.sh && ./configure && make -j4 maintainer-all all && make distcheck && make web-manual && ./fix-website.sh
+install: sudo apt-get install --allow-unauthenticated -qq gnulib lzip texlive tidy python3
+script: ./bootstrap.sh && ./configure && make PYTHON=python3 -j4 maintainer-all all && make distcheck && make web-manual && ./fix-website.sh
