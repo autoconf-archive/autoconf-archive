@@ -4,13 +4,15 @@
 #
 # SYNOPSIS
 #
-#   AX_PYTHON_MODULE(modname[, fatal])
+#   AX_PYTHON_MODULE(modname[, fatal, python])
 #
 # DESCRIPTION
 #
 #   Checks for Python module.
 #
 #   If fatal is non-empty then absence of a module will trigger an error.
+#   The third parameter can either be "python" for Python 2 or "python3" for
+#   Python 3; defaults to Python 3.
 #
 # LICENSE
 #
@@ -21,13 +23,18 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_PYTHON_MODULE], [AX_PYTHON_MODULE])
 AC_DEFUN([AX_PYTHON_MODULE],[
     if test -z $PYTHON;
     then
-        PYTHON="python"
+        if test -z "$3";
+        then
+            PYTHON="python3"
+        else
+            PYTHON="$3"
+        fi
     fi
     PYTHON_NAME=`basename $PYTHON`
     AC_MSG_CHECKING($PYTHON_NAME module: $1)
