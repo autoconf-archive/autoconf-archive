@@ -4,13 +4,15 @@
 #
 # SYNOPSIS
 #
-#   AX_PYTHON_MODULE_VERSION(modname, min_version)
+#   AX_PYTHON_MODULE_VERSION(modname, min_version[, python])
 #
 # DESCRIPTION
 #
 #   Checks for Python module with at least the given version.
 #
 #   Triggers an error if module is absent or present but at a lower version.
+#   The third parameter can either be "python" for Python 2 or "python3" for
+#   Python 3; defaults to Python 3.
 #
 # LICENSE
 #
@@ -21,10 +23,10 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_PYTHON_MODULE_VERSION], [
-    AX_PYTHON_MODULE([$1], [required])
+    AX_PYTHON_MODULE([$1], [required], [$3])
     AC_MSG_CHECKING([for version $2 or higher of $1])
     $PYTHON -c "import sys, $1; from distutils.version import StrictVersion; sys.exit(StrictVersion($1.__version__) < StrictVersion('$2'))" 2> /dev/null
     AS_IF([test $? -eq 0], [], [
