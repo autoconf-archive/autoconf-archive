@@ -57,7 +57,7 @@
 # LICENSE
 #
 #   Copyright (c) 2008 Alexandre Duret-Lutz <adl@gnu.org>
-#   Copyright (c) 2014 Bastien Roucaries <roucaries.bastien+autoconf@gmail.com>
+#   Copyright (c) 2015 Bastien Roucaries <roucaries.bastien+autoconf@gmail.com>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
