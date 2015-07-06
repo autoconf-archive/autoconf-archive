@@ -59,7 +59,7 @@ AS_VAR_SET_IF(FLAGS,[
   AS_CASE([" AS_VAR_GET(FLAGS) "],
     [*" $1 "*], [AC_RUN_LOG([: FLAGS already contains $1])],
     [
-     AS_VAR_APPEND(FLAGS," $1")
+     AS_VAR_APPEND(FLAGS,[" $1"])
      AC_RUN_LOG([: FLAGS="$FLAGS"])
     ])
   ],
