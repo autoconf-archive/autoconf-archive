@@ -85,7 +85,7 @@ AC_DEFUN([AX_VALGRIND_CHECK],[
 			m4_define([ax_cv_var],[ax_cv_valgrind_tool_]vgtooln)
 			AC_CACHE_CHECK([for Valgrind tool ]vgtool,ax_cv_var,[
 				ax_cv_var=
-				AS_IF([`$VALGRIND --tool=vgtool --help 2&>/dev/null`],[
+				AS_IF([`$VALGRIND --tool=vgtool --help >/dev/null 2>&1`],[
 					ax_cv_var="vgtool"
 				])
 			])
