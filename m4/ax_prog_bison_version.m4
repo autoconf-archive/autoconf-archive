@@ -8,19 +8,20 @@
 #
 # DESCRIPTION
 #
-#   Makes sure that bison version is greater or equal to the version indicated.
-#   If true the shell commands in ACTION-IF-TRUE are executed. If not the shell
-#   commands in commands in ACTION-IF-TRUE are executed. If not the shell
-#   commands in ACTION-IF-FALSE are run. Note if $BISON is not set (for example
-#   by running AC_CHECK_PROG or AC_PATH_PROG) the macro will fail.
+#   Makes sure that bison version is greater or equal to the version
+#   indicated. If true the shell commands in ACTION-IF-TRUE are executed. If
+#   not the shell commands in commands in ACTION-IF-TRUE are executed. If
+#   not the shell commands in ACTION-IF-FALSE are run. Note if $BISON is not
+#   set (for example by running AC_CHECK_PROG or AC_PATH_PROG) the macro
+#   will fail.
 #
 #   Example:
 #
 #     AC_PATH_PROG([BISON],[bison])
 #     AX_PROG_BISON_VERSION([3.0.2],[ ... ],[ ... ])
 #
-#   This will check to make sure that the bison you have is at least
-#   version 3.0.2 or greater.
+#   This will check to make sure that the bison you have is at least version
+#   3.0.2 or greater.
 #
 #   NOTE: This macro uses the $BISON variable to perform the check.
 #
@@ -33,7 +34,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_PROG_BISON_VERSION],[
     AC_REQUIRE([AC_PROG_SED])
