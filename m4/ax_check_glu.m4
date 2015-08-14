@@ -66,7 +66,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 17
+#serial 18
 
 # exemple program
 m4_define([_AX_CHECK_GLU_PROGRAM],
@@ -316,7 +316,7 @@ AC_DEFUN([_AX_CHECK_GLU_PKG_CONFIG],
                          [ax_check_glu_have_headers="yes";break],
                          [ax_check_glu_have_headers_headers="no"],
 			 [_AX_CHECK_GLU_INCLUDES_DEFAULT()])
-        _AX_CHECK_GL_RESTORE_FLAGS()
+        _AX_CHECK_GLU_RESTORE_FLAGS()
 	AC_LANG_POP([C])
 	AC_CACHE_CHECK([for OpenGL Utility (GLU) headers],[ax_cv_check_glu_have_headers],
                	       [ax_cv_check_glu_have_headers="${ax_check_glu_have_headers}"])
