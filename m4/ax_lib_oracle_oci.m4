@@ -41,14 +41,14 @@
 # LICENSE
 #
 #   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
-#   Copyright (c) 2015 Joost van Baal-Ilić <joostvb+autoconf@uvt.nl>
+#   Copyright (c) 2015 Joost van Baal-Ilic <joostvb+autoconf@uvt.nl>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_LIB_ORACLE_OCI],
 [
