@@ -120,7 +120,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 # AX_PYTHON_DEFAULT( )
 # -----------------
@@ -223,19 +223,19 @@ AC_DEFUN([AX_PYTHON_CSPEC],
     AC_ARG_VAR( [PYTHON], [Python Executable Path] )
     if test -n "$PYTHON"
     then
-        ax_python_prefix=`${PYTHON} -c "import sys; print sys.prefix"`
+        ax_python_prefix=`${PYTHON} -c "import sys; print(sys.prefix)"`
         if test -z "$ax_python_prefix"
         then
             AC_MSG_ERROR([Python Prefix is not known])
         fi
-        ax_python_execprefix=`${PYTHON} -c "import sys; print sys.exec_prefix"`
-        ax_python_version=`$PYTHON -c "import sys; print sys.version[[:3]]"`
+        ax_python_execprefix=`${PYTHON} -c "import sys; print(sys.exec_prefix)"`
+        ax_python_version=`$PYTHON -c "import sys; print(sys.version[[:3]])"`
         ax_python_includespec="-I${ax_python_prefix}/include/python${ax_python_version}"
         if test x"$python_prefix" != x"$python_execprefix"; then
             ax_python_execspec="-I${ax_python_execprefix}/include/python${ax_python_version}"
             ax_python_includespec="${ax_python_includespec} $ax_python_execspec"
         fi
-        ax_python_ccshared=`${PYTHON} -c "import distutils.sysconfig; print distutils.sysconfig.get_config_var('CFLAGSFORSHARED')"`
+        ax_python_ccshared=`${PYTHON} -c "import distutils.sysconfig; print(distutils.sysconfig.get_config_var('CFLAGSFORSHARED'))"`
         ax_python_cspec="${ax_python_ccshared} ${ax_python_includespec}"
         AC_SUBST([PYTHON_CSPEC], [${ax_python_cspec}])
         AC_MSG_NOTICE([PYTHON_CSPEC=${ax_python_cspec}])
@@ -305,7 +305,7 @@ else:
     if strLibFW and (strLibFW != ""):
         strLinkSpec += " -F%s" % (strLibFW)
 strLinkSpec += " %s" % (dictConfig.get('LINKFORSHARED'))
-print strLinkSpec
+print(strLinkSpec)
         ])
         AC_SUBST([PYTHON_LSPEC], [${ax_python_output}])
         AC_MSG_NOTICE([PYTHON_LSPEC=${ax_python_output}])
@@ -345,8 +345,8 @@ AC_DEFUN([AX_PYTHON_PREFIX],
     then
         AC_MSG_ERROR([Python Executable Path is not known])
     fi
-    ax_python_prefix=`${PYTHON} -c "import sys; print sys.prefix"`
-    ax_python_execprefix=`${PYTHON} -c "import sys; print sys.exec_prefix"`
+    ax_python_prefix=`${PYTHON} -c "import sys; print(sys.prefix)"`
+    ax_python_execprefix=`${PYTHON} -c "import sys; print(sys.exec_prefix)"`
     AC_SUBST([PYTHON_PREFIX], ["${ax_python_prefix}"])
     AC_SUBST([PYTHON_EXECPREFIX], ["${ax_python_execprefix}"])
 ])
@@ -397,12 +397,15 @@ AC_DEFUN([AX_PYTHON_VERSION_CHECK],
     then
         AC_MSG_CHECKING([whether $PYTHON version >= $1])
         AX_PYTHON_RUN([
-import sys, string
+import sys
 # split strings by '.' and convert to numeric.  Append some zeros
 # because we need at least 4 digits for the hex conversion.
-minver = map(int, string.split('$1', '.')) + [[0, 0, 0]]
+# It accepts a string like "X[.Y[.Z]]" with X,Y,Z=digits
+# and [] means optional.
+minver = list(map(int, '$1'.split('.'))) + [0, 0, 0]
+minver[3] = 255
 minverhex = 0
-for i in xrange(0, 4): minverhex = (minverhex << 8) + minver[[i]]
+for i in range(0, 4): minverhex = (minverhex << 8) + minver[i]
 if sys.hexversion >= minverhex:
     sys.exit( 0 )
 else:
