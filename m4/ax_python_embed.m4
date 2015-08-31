@@ -120,7 +120,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 # AX_PYTHON_DEFAULT( )
 # -----------------
@@ -402,10 +402,10 @@ import sys
 # because we need at least 4 digits for the hex conversion.
 # It accepts a string like "X[.Y[.Z]]" with X,Y,Z=digits
 # and [] means optional.
-minver = list(map(int, '$1'.split('.'))) + [0, 0, 0]
+minver = list(map(int, '$1'.split('.'))) + [[0, 0, 0]]
 minver[3] = 255
 minverhex = 0
-for i in range(0, 4): minverhex = (minverhex << 8) + minver[i]
+for i in range(0, 4): minverhex = (minverhex << 8) + minver[[i]]
 if sys.hexversion >= minverhex:
     sys.exit( 0 )
 else:
