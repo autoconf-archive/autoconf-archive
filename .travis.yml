@@ -2,17 +2,26 @@
 
 language: c
 
+sudo: false
+
 git:
   depth: 50000
 
-install:
-  - travis_retry sudo apt-key update
-  - travis_retry sudo apt-get update
-  - travis_retry sudo apt-get install -qq gnulib lzip texlive tidy python3
+addons:
+  apt:
+    packages:
+      # - gnulib
+      - python3
+      - texlive
+      - texinfo
+      - tidy
+
+before_install:
+  - git clone --depth=1 git://git.savannah.gnu.org/gnulib.git
 
 script:
   - ./bootstrap.sh
   - ./configure
-  - make PYTHON=python3 -j4 maintainer-all all
+  - make PYTHON=python3 -j$(nproc) maintainer-all all
   - make distcheck
   - make web-manual && ./fix-website.sh
