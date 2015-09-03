@@ -29,12 +29,10 @@ Downloads
 Here are the compressed sources:
 
 -   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2015.02.24.tar.xz>
--   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2015.02.24.tar.lz>
 
 Here are the GPG detached signatures:
 
 -   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2015.02.24.tar.xz.sig>
--   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2015.02.24.tar.lz.sig>
 
 You can use either of the above signature files to verify that the
 corresponding file (without the .sig suffix) is intact. First, be sure
