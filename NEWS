@@ -8,6 +8,8 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
+* Noteworthy changes in release ?.? (????-??-??) [?]
+
 * Noteworthy changes in release 2015.09.25 (2015-09-25) [stable]
 
   The Archive no longer releases an "lzip"-compressed tarball. The only
