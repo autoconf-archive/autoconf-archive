@@ -22,7 +22,7 @@ dist_aclocal_DATA       = $(M4FILES)
 EXTRA_DIST              = build-aux/git-version-gen build-aux/gitlog-to-changelog
 
 clean-local:
-	@rm -rf $(srcdir)/stage $(srcdir)/macro.pyc
+	@rm -rf $(srcdir)/stage $(srcdir)/macro.pyc __pycache__
 	@rm -f $(DIST_ARCHIVES)
 
 maintainer-clean-local:
