@@ -11,6 +11,9 @@
 #   Check for baseline language coverage in the compiler for the C++0x
 #   standard.
 #
+#   This macro is deprecated and has been superseded by the
+#   AX_CXX_COMPILE_STDCXX_11 macro which should be used instead.
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Benjamin Kosnik <bkoz@redhat.com>
@@ -20,10 +23,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AC_CXX_COMPILE_STDCXX_0X], [AX_CXX_COMPILE_STDCXX_0X])
 AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
+  AC_OBSOLETE([$0], [; use AX_CXX_COMPILE_STDCXX_11 instead])
   AC_CACHE_CHECK(if g++ supports C++0x features without additional flags,
   ax_cv_cxx_compile_cxx0x_native,
   [AC_LANG_SAVE
