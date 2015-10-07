@@ -50,9 +50,9 @@
 #
 #   Automake Support
 #
-#   The following is a template aminclude.am file for use with Automake.
-#   Make targets and variables values are controlled by the various
-#   DX_COND_* conditionals set by autoconf.
+#   The DX_RULES substitution can be used to add all needed rules to the
+#   Makefile. Note that this is a substitution without being a variable:
+#   only the @DX_RULES@ syntax will work.
 #
 #   The provided targets are:
 #
@@ -84,178 +84,17 @@
 #
 #   Then add this variable to MOSTLYCLEANFILES.
 #
-#     ----- begin aminclude.am -------------------------------------
-#
-#     ## --------------------------------- ##
-#     ## Format-independent Doxygen rules. ##
-#     ## --------------------------------- ##
-#
-#     if DX_COND_doc
-#
-#     ## ------------------------------- ##
-#     ## Rules specific for HTML output. ##
-#     ## ------------------------------- ##
-#
-#     if DX_COND_html
-#
-#     DX_CLEAN_HTML = @DX_DOCDIR@/html
-#
-#     endif DX_COND_html
-#
-#     ## ------------------------------ ##
-#     ## Rules specific for CHM output. ##
-#     ## ------------------------------ ##
-#
-#     if DX_COND_chm
-#
-#     DX_CLEAN_CHM = @DX_DOCDIR@/chm
-#
-#     if DX_COND_chi
-#
-#     DX_CLEAN_CHI = @DX_DOCDIR@/@PACKAGE@.chi
-#
-#     endif DX_COND_chi
-#
-#     endif DX_COND_chm
-#
-#     ## ------------------------------ ##
-#     ## Rules specific for MAN output. ##
-#     ## ------------------------------ ##
-#
-#     if DX_COND_man
-#
-#     DX_CLEAN_MAN = @DX_DOCDIR@/man
-#
-#     endif DX_COND_man
-#
-#     ## ------------------------------ ##
-#     ## Rules specific for RTF output. ##
-#     ## ------------------------------ ##
-#
-#     if DX_COND_rtf
-#
-#     DX_CLEAN_RTF = @DX_DOCDIR@/rtf
-#
-#     endif DX_COND_rtf
-#
-#     ## ------------------------------ ##
-#     ## Rules specific for XML output. ##
-#     ## ------------------------------ ##
-#
-#     if DX_COND_xml
-#
-#     DX_CLEAN_XML = @DX_DOCDIR@/xml
-#
-#     endif DX_COND_xml
-#
-#     ## ----------------------------- ##
-#     ## Rules specific for PS output. ##
-#     ## ----------------------------- ##
-#
-#     if DX_COND_ps
-#
-#     DX_CLEAN_PS = @DX_DOCDIR@/@PACKAGE@.ps
-#
-#     DX_PS_GOAL = doxygen-ps
-#
-#     doxygen-ps: @DX_DOCDIR@/@PACKAGE@.ps
-#
-#     @DX_DOCDIR@/@PACKAGE@.ps: @DX_DOCDIR@/@PACKAGE@.tag
-#         cd @DX_DOCDIR@/latex; \
-#         rm -f *.aux *.toc *.idx *.ind *.ilg *.log *.out; \
-#         $(DX_LATEX) refman.tex; \
-#         $(MAKEINDEX_PATH) refman.idx; \
-#         $(DX_LATEX) refman.tex; \
-#         countdown=5; \
-#         while $(DX_EGREP) 'Rerun (LaTeX|to get cross-references right)' \
-#                           refman.log > /dev/null 2>&1 \
-#            && test $$countdown -gt 0; do \
-#             $(DX_LATEX) refman.tex; \
-#             countdown=`expr $$countdown - 1`; \
-#         done; \
-#         $(DX_DVIPS) -o ../@PACKAGE@.ps refman.dvi
-#
-#     endif DX_COND_ps
-#
-#     ## ------------------------------ ##
-#     ## Rules specific for PDF output. ##
-#     ## ------------------------------ ##
-#
-#     if DX_COND_pdf
-#
-#     DX_CLEAN_PDF = @DX_DOCDIR@/@PACKAGE@.pdf
-#
-#     DX_PDF_GOAL = doxygen-pdf
-#
-#     doxygen-pdf: @DX_DOCDIR@/@PACKAGE@.pdf
-#
-#     @DX_DOCDIR@/@PACKAGE@.pdf: @DX_DOCDIR@/@PACKAGE@.tag
-#         cd @DX_DOCDIR@/latex; \
-#         rm -f *.aux *.toc *.idx *.ind *.ilg *.log *.out; \
-#         $(DX_PDFLATEX) refman.tex; \
-#         $(DX_MAKEINDEX) refman.idx; \
-#         $(DX_PDFLATEX) refman.tex; \
-#         countdown=5; \
-#         while $(DX_EGREP) 'Rerun (LaTeX|to get cross-references right)' \
-#                           refman.log > /dev/null 2>&1 \
-#            && test $$countdown -gt 0; do \
-#             $(DX_PDFLATEX) refman.tex; \
-#             countdown=`expr $$countdown - 1`; \
-#         done; \
-#         mv refman.pdf ../@PACKAGE@.pdf
-#
-#     endif DX_COND_pdf
-#
-#     ## ------------------------------------------------- ##
-#     ## Rules specific for LaTeX (shared for PS and PDF). ##
-#     ## ------------------------------------------------- ##
-#
-#     if DX_COND_latex
-#
-#     DX_CLEAN_LATEX = @DX_DOCDIR@/latex
-#
-#     endif DX_COND_latex
-#
-#     .PHONY: doxygen-run doxygen-doc $(DX_PS_GOAL) $(DX_PDF_GOAL)
-#
-#     .INTERMEDIATE: doxygen-run $(DX_PS_GOAL) $(DX_PDF_GOAL)
-#
-#     doxygen-run: @DX_DOCDIR@/@PACKAGE@.tag
-#
-#     doxygen-doc: doxygen-run $(DX_PS_GOAL) $(DX_PDF_GOAL)
-#
-#     @DX_DOCDIR@/@PACKAGE@.tag: $(DX_CONFIG) $(pkginclude_HEADERS)
-#         rm -rf @DX_DOCDIR@
-#         $(DX_ENV) $(DX_DOXYGEN) $(srcdir)/$(DX_CONFIG)
-#         echo Timestamp >$@
-#
-#     DX_CLEANFILES = \
-#         @DX_DOCDIR@/@PACKAGE@.tag \
-#         -r \
-#         $(DX_CLEAN_HTML) \
-#         $(DX_CLEAN_CHM) \
-#         $(DX_CLEAN_CHI) \
-#         $(DX_CLEAN_MAN) \
-#         $(DX_CLEAN_RTF) \
-#         $(DX_CLEAN_XML) \
-#         $(DX_CLEAN_PS) \
-#         $(DX_CLEAN_PDF) \
-#         $(DX_CLEAN_LATEX)
-#
-#     endif DX_COND_doc
-#
-#     ----- end aminclude.am ---------------------------------------
-#
 # LICENSE
 #
 #   Copyright (c) 2009 Oren Ben-Kiki <oren@ben-kiki.org>
+#   Copyright (c) 2015 Olaf Mandel <olaf@mandel.name>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 ## ----------##
 ## Defaults. ##
@@ -365,7 +204,6 @@ if DX_TEST_FEATURE([$1]); then
     $5
     :
 fi
-AM_CONDITIONAL(DX_COND_$1, DX_TEST_FEATURE([$1]))
 if DX_TEST_FEATURE([$1]); then
     $6
     :
@@ -495,7 +333,6 @@ DX_ARG_ABLE(pdf, [generate doxygen PDF documentation],
              DX_REQUIRE_PROG([DX_EGREP], egrep)])
 
 # LaTeX generation for PS and/or PDF:
-AM_CONDITIONAL(DX_COND_latex, DX_TEST_FEATURE(ps) || DX_TEST_FEATURE(pdf))
 if DX_TEST_FEATURE(ps) || DX_TEST_FEATURE(pdf); then
     DX_ENV_APPEND(GENERATE_LATEX, YES)
 else
@@ -517,6 +354,186 @@ a4wide|a4|letter|legal|executive)
     AC_MSG_ERROR([unknown DOXYGEN_PAPER_SIZE='$DOXYGEN_PAPER_SIZE'])
 ;;
 esac
+
+# Rules:
+if test $DX_FLAG_html -eq 1; then
+    DX_SNIPPET_html="## ------------------------------- ##
+## Rules specific for HTML output. ##
+## ------------------------------- ##
+
+DX_CLEAN_HTML = \$(DX_DOCDIR)/html
+
+"
+else
+    DX_SNIPPET_html=""
+fi
+if test $DX_FLAG_chi -eq 1; then
+    DX_SNIPPET_chi="
+DX_CLEAN_CHI = \$(DX_DOCDIR)/\$(PACKAGE).chi"
+else
+    DX_SNIPPET_chi=""
+fi
+if test $DX_FLAG_chm -eq 1; then
+    DX_SNIPPET_chm="## ------------------------------ ##
+## Rules specific for CHM output. ##
+## ------------------------------ ##
+
+DX_CLEAN_CHM = \$(DX_DOCDIR)/chm\
+${DX_SNIPPET_chi}
+
+"
+else
+    DX_SNIPPET_chm=""
+fi
+if test $DX_FLAG_man -eq 1; then
+    DX_SNIPPET_man="## ------------------------------ ##
+## Rules specific for MAN output. ##
+## ------------------------------ ##
+
+DX_CLEAN_MAN = \$(DX_DOCDIR)/man
+
+"
+else
+    DX_SNIPPET_man=""
+fi
+if test $DX_FLAG_rtf -eq 1; then
+    DX_SNIPPET_rtf="## ------------------------------ ##
+## Rules specific for RTF output. ##
+## ------------------------------ ##
+
+DX_CLEAN_RTF = \$(DX_DOCDIR)/rtf
+
+"
+else
+    DX_SNIPPET_rtf=""
+fi
+if test $DX_FLAG_xml -eq 1; then
+    DX_SNIPPET_xml="## ------------------------------ ##
+## Rules specific for XML output. ##
+## ------------------------------ ##
+
+DX_CLEAN_XML = \$(DX_DOCDIR)/xml
+
+"
+else
+    DX_SNIPPET_xml=""
+fi
+if test $DX_FLAG_ps -eq 1; then
+    DX_SNIPPET_ps="## ----------------------------- ##
+## Rules specific for PS output. ##
+## ----------------------------- ##
+
+DX_CLEAN_PS = \$(DX_DOCDIR)/\$(PACKAGE).ps
+
+DX_PS_GOAL = doxygen-ps
+
+doxygen-ps: \$(DX_DOCDIR)/\$(PACKAGE).ps
+
+\$(DX_DOCDIR)/\$(PACKAGE).ps: \$(DX_DOCDIR)/\$(PACKAGE).tag
+	cd \$(DX_DOCDIR)/latex; \\
+	rm -f *.aux *.toc *.idx *.ind *.ilg *.log *.out; \\
+	\$(DX_LATEX) refman.tex; \\
+	\$(MAKEINDEX_PATH) refman.idx; \\
+	\$(DX_LATEX) refman.tex; \\
+	countdown=5; \\
+	while \$(DX_EGREP) 'Rerun (LaTeX|to get cross-references right)' \\
+	                  refman.log > /dev/null 2>&1 \\
+	   && test \$\$countdown -gt 0; do \\
+	    \$(DX_LATEX) refman.tex; \\
+            countdown=\`expr \$\$countdown - 1\`; \\
+	done; \\
+	\$(DX_DVIPS) -o ../\$(PACKAGE).ps refman.dvi
+
+"
+else
+    DX_SNIPPET_ps=""
+fi
+if test $DX_FLAG_pdf -eq 1; then
+    DX_SNIPPET_pdf="## ------------------------------ ##
+## Rules specific for PDF output. ##
+## ------------------------------ ##
+
+DX_CLEAN_PDF = \$(DX_DOCDIR)/\$(PACKAGE).pdf
+
+DX_PDF_GOAL = doxygen-pdf
+
+doxygen-pdf: \$(DX_DOCDIR)/\$(PACKAGE).pdf
+
+\$(DX_DOCDIR)/\$(PACKAGE).pdf: \$(DX_DOCDIR)/\$(PACKAGE).tag
+	cd \$(DX_DOCDIR)/latex; \\
+	rm -f *.aux *.toc *.idx *.ind *.ilg *.log *.out; \\
+	\$(DX_PDFLATEX) refman.tex; \\
+	\$(DX_MAKEINDEX) refman.idx; \\
+	\$(DX_PDFLATEX) refman.tex; \\
+	countdown=5; \\
+	while \$(DX_EGREP) 'Rerun (LaTeX|to get cross-references right)' \\
+	                  refman.log > /dev/null 2>&1 \\
+	   && test \$\$countdown -gt 0; do \\
+	    \$(DX_PDFLATEX) refman.tex; \\
+	    countdown=\`expr \$\$countdown - 1\`; \\
+	done; \\
+	mv refman.pdf ../\$(PACKAGE).pdf
+
+"
+else
+    DX_SNIPPET_pdf=""
+fi
+if test $DX_FLAG_ps -eq 1 -o $DX_FLAG_pdf -eq 1; then
+    DX_SNIPPET_latex="## ------------------------------------------------- ##
+## Rules specific for LaTeX (shared for PS and PDF). ##
+## ------------------------------------------------- ##
+
+DX_CLEAN_LATEX = \$(DX_DOCDIR)/latex
+
+"
+else
+    DX_SNIPPET_latex=""
+fi
+
+if test $DX_FLAG_doc -eq 1; then
+    DX_SNIPPET_doc="## --------------------------------- ##
+## Format-independent Doxygen rules. ##
+## --------------------------------- ##
+
+${DX_SNIPPET_html}\
+${DX_SNIPPET_chm}\
+${DX_SNIPPET_man}\
+${DX_SNIPPET_rtf}\
+${DX_SNIPPET_xml}\
+${DX_SNIPPET_ps}\
+${DX_SNIPPET_pdf}\
+${DX_SNIPPET_latex}\
+.PHONY: doxygen-run doxygen-doc \$(DX_PS_GOAL) \$(DX_PDF_GOAL)
+
+.INTERMEDIATE: doxygen-run \$(DX_PS_GOAL) \$(DX_PDF_GOAL)
+
+doxygen-run: \$(DX_DOCDIR)/\$(PACKAGE).tag
+
+doxygen-doc: doxygen-run \$(DX_PS_GOAL) \$(DX_PDF_GOAL)
+
+\$(DX_DOCDIR)/\$(PACKAGE).tag: \$(DX_CONFIG) \$(pkginclude_HEADERS)
+	rm -rf \$(DX_DOCDIR)
+	\$(DX_ENV) \$(DX_DOXYGEN) \$(srcdir)/\$(DX_CONFIG)
+	echo Timestamp >\$[]][[]@
+
+DX_CLEANFILES = \\
+	\$(DX_DOCDIR)/\$(PACKAGE).tag \\
+	-r \\
+	\$(DX_CLEAN_HTML) \\
+	\$(DX_CLEAN_CHM) \\
+	\$(DX_CLEAN_CHI) \\
+	\$(DX_CLEAN_MAN) \\
+	\$(DX_CLEAN_RTF) \\
+	\$(DX_CLEAN_XML) \\
+	\$(DX_CLEAN_PS) \\
+	\$(DX_CLEAN_PDF) \\
+	\$(DX_CLEAN_LATEX)"
+else
+    DX_SNIPPET_doc=""
+fi
+AC_SUBST([DX_RULES],
+["${DX_SNIPPET_doc}"])dnl
+AM_SUBST_NOTMAKE([DX_RULES])
 
 #For debugging:
 #echo DX_FLAG_doc=$DX_FLAG_doc
