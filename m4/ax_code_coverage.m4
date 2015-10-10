@@ -67,7 +67,7 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_CODE_COVERAGE],[
 	dnl Check for --enable-code-coverage
@@ -179,6 +179,17 @@ CODE_COVERAGE_LCOV_OPTIONS ?= $(CODE_COVERAGE_LCOV_OPTIONS_DEFAULT)
 CODE_COVERAGE_GENHTML_OPTIONS ?=
 CODE_COVERAGE_IGNORE_PATTERN ?=
 
+code_coverage_v_lcov_cap = $(code_coverage_v_lcov_cap_$(V))
+code_coverage_v_lcov_cap_ = $(code_coverage_v_lcov_cap_$(AM_DEFAULT_VERBOSITY))
+code_coverage_v_lcov_cap_0 = @echo "  LCOV   --capture"\
+ $(CODE_COVERAGE_OUTPUT_FILE);
+code_coverage_v_lcov_ign = $(code_coverage_v_lcov_ign_$(V))
+code_coverage_v_lcov_ign_ = $(code_coverage_v_lcov_ign_$(AM_DEFAULT_VERBOSITY))
+code_coverage_v_lcov_ign_0 = @echo "  LCOV   --remove /tmp/*"\
+ $(CODE_COVERAGE_IGNORE_PATTERN);
+code_coverage_v_genhtml = $(code_coverage_v_genhtml_$(V))
+code_coverage_v_genhtml_ = $(code_coverage_v_genhtml_$(AM_DEFAULT_VERBOSITY))
+code_coverage_v_genhtml_0 = @echo "  GEN   " $(CODE_COVERAGE_OUTPUT_DIRECTORY);
 code_coverage_quiet = $(code_coverage_quiet_$(V))
 code_coverage_quiet_ = $(code_coverage_quiet_$(AM_DEFAULT_VERBOSITY))
 code_coverage_quiet_0 = --quiet
@@ -186,8 +197,8 @@ code_coverage_quiet_0 = --quiet
 # Use recursive makes in order to ignore errors during check
 check-code-coverage:
 ifeq ($(CODE_COVERAGE_ENABLED),yes)
-	-$(MAKE) $(AM_MAKEFLAGS) -k check
-	$(MAKE) $(AM_MAKEFLAGS) code-coverage-capture
+	-$(A''M_V_at)$(MAKE) $(AM_MAKEFLAGS) -k check
+	$(A''M_V_at)$(MAKE) $(AM_MAKEFLAGS) code-coverage-capture
 else
 	@echo "Need to reconfigure with --enable-code-coverage"
 endif
@@ -195,10 +206,10 @@ endif
 # Capture code coverage data
 code-coverage-capture: code-coverage-capture-hook
 ifeq ($(CODE_COVERAGE_ENABLED),yes)
-	$(LCOV) $(code_coverage_quiet) --directory $(CODE_COVERAGE_DIRECTORY) --capture --output-file "$(CODE_COVERAGE_OUTPUT_FILE).tmp" --test-name "$(PACKAGE_NAME)-$(PACKAGE_VERSION)" --no-checksum --compat-libtool $(CODE_COVERAGE_LCOV_OPTIONS)
-	$(LCOV) $(code_coverage_quiet) --directory $(CODE_COVERAGE_DIRECTORY) --remove "$(CODE_COVERAGE_OUTPUT_FILE).tmp" "/tmp/*" $(CODE_COVERAGE_IGNORE_PATTERN) --output-file "$(CODE_COVERAGE_OUTPUT_FILE)"
+	$(code_coverage_v_lcov_cap)$(LCOV) $(code_coverage_quiet) --directory $(CODE_COVERAGE_DIRECTORY) --capture --output-file "$(CODE_COVERAGE_OUTPUT_FILE).tmp" --test-name "$(PACKAGE_NAME)-$(PACKAGE_VERSION)" --no-checksum --compat-libtool $(CODE_COVERAGE_LCOV_OPTIONS)
+	$(code_coverage_v_lcov_ign)$(LCOV) $(code_coverage_quiet) --directory $(CODE_COVERAGE_DIRECTORY) --remove "$(CODE_COVERAGE_OUTPUT_FILE).tmp" "/tmp/*" $(CODE_COVERAGE_IGNORE_PATTERN) --output-file "$(CODE_COVERAGE_OUTPUT_FILE)"
 	-@rm -f $(CODE_COVERAGE_OUTPUT_FILE).tmp
-	LANG=C $(GENHTML) $(code_coverage_quiet) --prefix $(CODE_COVERAGE_DIRECTORY) --output-directory "$(CODE_COVERAGE_OUTPUT_DIRECTORY)" --title "$(PACKAGE_NAME)-$(PACKAGE_VERSION) Code Coverage" --legend --show-details "$(CODE_COVERAGE_OUTPUT_FILE)" $(CODE_COVERAGE_GENHTML_OPTIONS)
+	$(code_coverage_v_genhtml)LANG=C $(GENHTML) $(code_coverage_quiet) --prefix $(CODE_COVERAGE_DIRECTORY) --output-directory "$(CODE_COVERAGE_OUTPUT_DIRECTORY)" --title "$(PACKAGE_NAME)-$(PACKAGE_VERSION) Code Coverage" --legend --show-details "$(CODE_COVERAGE_OUTPUT_FILE)" $(CODE_COVERAGE_GENHTML_OPTIONS)
 	@echo "file://$(abs_builddir)/$(CODE_COVERAGE_OUTPUT_DIRECTORY)/index.html"
 else
 	@echo "Need to reconfigure with --enable-code-coverage"
