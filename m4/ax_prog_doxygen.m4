@@ -430,7 +430,7 @@ DX_PS_GOAL = doxygen-ps
 doxygen-ps: \$(DX_DOCDIR)/\$(PACKAGE).ps
 
 \$(DX_DOCDIR)/\$(PACKAGE).ps: \$(DX_DOCDIR)/\$(PACKAGE).tag
-	cd \$(DX_DOCDIR)/latex; \\
+	\$(DX_V_LATEX)cd \$(DX_DOCDIR)/latex; \\
 	rm -f *.aux *.toc *.idx *.ind *.ilg *.log *.out; \\
 	\$(DX_LATEX) refman.tex; \\
 	\$(MAKEINDEX_PATH) refman.idx; \\
@@ -460,7 +460,7 @@ DX_PDF_GOAL = doxygen-pdf
 doxygen-pdf: \$(DX_DOCDIR)/\$(PACKAGE).pdf
 
 \$(DX_DOCDIR)/\$(PACKAGE).pdf: \$(DX_DOCDIR)/\$(PACKAGE).tag
-	cd \$(DX_DOCDIR)/latex; \\
+	\$(DX_V_LATEX)cd \$(DX_DOCDIR)/latex; \\
 	rm -f *.aux *.toc *.idx *.ind *.ilg *.log *.out; \\
 	\$(DX_PDFLATEX) refman.tex; \\
 	\$(DX_MAKEINDEX) refman.idx; \\
@@ -483,6 +483,10 @@ if test $DX_FLAG_ps -eq 1 -o $DX_FLAG_pdf -eq 1; then
 ## Rules specific for LaTeX (shared for PS and PDF). ##
 ## ------------------------------------------------- ##
 
+DX_V_LATEX = \$(_DX_v_LATEX_\$(V))
+_DX_v_LATEX_ = \$(_DX_v_LATEX_\$(AM_DEFAULT_VERBOSITY))
+_DX_v_LATEX_0 = @echo \"  LATEX \" \$[]][[]@;
+
 DX_CLEAN_LATEX = \$(DX_DOCDIR)/latex
 
 "
@@ -503,6 +507,10 @@ ${DX_SNIPPET_xml}\
 ${DX_SNIPPET_ps}\
 ${DX_SNIPPET_pdf}\
 ${DX_SNIPPET_latex}\
+DX_V_DXGEN = \$(_DX_v_DXGEN_\$(V))
+_DX_v_DXGEN_ = \$(_DX_v_DXGEN_\$(AM_DEFAULT_VERBOSITY))
+_DX_v_DXGEN_0 = @echo \"  DXGEN \" \$<;
+
 .PHONY: doxygen-run doxygen-doc \$(DX_PS_GOAL) \$(DX_PDF_GOAL)
 
 .INTERMEDIATE: doxygen-run \$(DX_PS_GOAL) \$(DX_PDF_GOAL)
@@ -512,9 +520,9 @@ doxygen-run: \$(DX_DOCDIR)/\$(PACKAGE).tag
 doxygen-doc: doxygen-run \$(DX_PS_GOAL) \$(DX_PDF_GOAL)
 
 \$(DX_DOCDIR)/\$(PACKAGE).tag: \$(DX_CONFIG) \$(pkginclude_HEADERS)
-	rm -rf \$(DX_DOCDIR)
-	\$(DX_ENV) \$(DX_DOXYGEN) \$(srcdir)/\$(DX_CONFIG)
-	echo Timestamp >\$[]][[]@
+	\$(A""M_V_at)rm -rf \$(DX_DOCDIR)
+	\$(DX_V_DXGEN)\$(DX_ENV) \$(DX_DOXYGEN) \$(srcdir)/\$(DX_CONFIG)
+	\$(A""M_V_at)echo Timestamp >\$[]][[]@
 
 DX_CLEANFILES = \\
 	\$(DX_DOCDIR)/\$(PACKAGE).tag \\
