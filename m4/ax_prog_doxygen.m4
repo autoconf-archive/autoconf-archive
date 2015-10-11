@@ -433,7 +433,7 @@ doxygen-ps: \$(DX_DOCDIR)/\$(PACKAGE).ps
 	\$(DX_V_LATEX)cd \$(DX_DOCDIR)/latex; \\
 	rm -f *.aux *.toc *.idx *.ind *.ilg *.log *.out; \\
 	\$(DX_LATEX) refman.tex; \\
-	\$(MAKEINDEX_PATH) refman.idx; \\
+	\$(DX_MAKEINDEX) refman.idx; \\
 	\$(DX_LATEX) refman.tex; \\
 	countdown=5; \\
 	while \$(DX_EGREP) 'Rerun (LaTeX|to get cross-references right)' \\
