@@ -8,9 +8,10 @@
 #
 # DESCRIPTION
 #
-#   Defines CODE_COVERAGE_CFLAGS and CODE_COVERAGE_LDFLAGS which should be
-#   included in the CFLAGS and LIBS/LDFLAGS variables of every build target
-#   (program or library) which should be built with code coverage support.
+#   Defines CODE_COVERAGE_CPPFLAGS, CODE_COVERAGE_CFLAGS and
+#   CODE_COVERAGE_LDFLAGS which should be included in the CPPFLAGS, CFLAGS
+#   and LIBS/LDFLAGS variables of every build target (program or library)
+#   which should be built with code coverage support.
 #   Also defines CODE_COVERAGE_RULES which should be substituted in your
 #   Makefile; and $enable_code_coverage which can be used in subsequent
 #   configure output. CODE_COVERAGE_ENABLED is defined and substituted, and
@@ -33,6 +34,7 @@
 #
 #     @CODE_COVERAGE_RULES@
 #     my_program_LIBS = ... $(CODE_COVERAGE_LDFLAGS) ...
+#     my_program_CPPFLAGS = ... $(CODE_COVERAGE_CPPFLAGS) ...
 #     my_program_CFLAGS = ... $(CODE_COVERAGE_CFLAGS) ...
 #
 #   This results in a "check-code-coverage" rule being added to any
@@ -137,9 +139,11 @@ AC_DEFUN([AX_CODE_COVERAGE],[
 		])
 
 		dnl Build the code coverage flags
+		CODE_COVERAGE_CPPFLAGS="-DNDEBUG"
 		CODE_COVERAGE_CFLAGS="-O0 -g -fprofile-arcs -ftest-coverage"
 		CODE_COVERAGE_LDFLAGS="-lgcov"
 
+		AC_SUBST([CODE_COVERAGE_CPPFLAGS])
 		AC_SUBST([CODE_COVERAGE_CFLAGS])
 		AC_SUBST([CODE_COVERAGE_LDFLAGS])
 	])
