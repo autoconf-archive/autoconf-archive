@@ -4,7 +4,7 @@
 #
 # SYNOPSIS
 #
-#   DX_INIT_DOXYGEN(PROJECT-NAME, DOXYFILE-PATH, [OUTPUT-DIR])
+#   DX_INIT_DOXYGEN(PROJECT-NAME, [DOXYFILE-PATH], [OUTPUT-DIR], ...)
 #   DX_DOXYGEN_FEATURE(ON|OFF)
 #   DX_DOT_FEATURE(ON|OFF)
 #   DX_HTML_FEATURE(ON|OFF)
@@ -46,7 +46,11 @@
 #   with the following parameters: a one-word name for the project for use
 #   as a filename base etc., an optional configuration file name (the
 #   default is 'Doxyfile', the same as Doxygen's default), and an optional
-#   output directory name (the default is 'doxygen-doc').
+#   output directory name (the default is 'doxygen-doc'). To run doxygen
+#   multiple times for different configuration files and output directories
+#   provide more parameters: the second, forth, sixth, etc parameter are
+#   configuration file names and the third, fifth, seventh, etc parameter
+#   are output directories. No checking is done to catch duplicates.
 #
 #   Automake Support
 #
@@ -61,9 +65,7 @@
 #     doxygen-run: Run doxygen, which will generate some of the
 #                  documentation (HTML, CHM, CHI, MAN, RTF, XML)
 #                  but will not do the post processing required
-#                  for the rest of it (PS, PDF, and some MAN).
-#
-#     doxygen-man: Rename some doxygen generated man pages.
+#                  for the rest of it (PS, PDF).
 #
 #     doxygen-ps:  Generate doxygen PostScript documentation.
 #
@@ -231,21 +233,33 @@ AC_DEFUN([DX_XML_FEATURE],     [AC_DEFUN([DX_FEATURE_xml],  [$1])])
 AC_DEFUN([DX_PDF_FEATURE],     [AC_DEFUN([DX_FEATURE_pdf],  [$1])])
 AC_DEFUN([DX_PS_FEATURE],      [AC_DEFUN([DX_FEATURE_ps],   [$1])])
 
-# DX_INIT_DOXYGEN(PROJECT, [CONFIG-FILE], [OUTPUT-DOC-DIR])
-# ---------------------------------------------------------
+# DX_INIT_DOXYGEN(PROJECT, [CONFIG-FILE], [OUTPUT-DOC-DIR], ...)
+# --------------------------------------------------------------
 # PROJECT also serves as the base name for the documentation files.
 # The default CONFIG-FILE is "Doxyfile" and OUTPUT-DOC-DIR is "doxygen-doc".
+# More arguments are interpreted as interleaved CONFIG-FILE and
+# OUTPUT-DOC-DIR values.
 AC_DEFUN([DX_INIT_DOXYGEN], [
 
 # Files:
 AC_SUBST([DX_PROJECT], [$1])
 AC_SUBST([DX_CONFIG], [ifelse([$2], [], Doxyfile, [$2])])
 AC_SUBST([DX_DOCDIR], [ifelse([$3], [], doxygen-doc, [$3])])
+m4_if(m4_eval(3 < m4_count($@)), 1, [m4_for([DX_i], 4, m4_count($@), 2,
+      [AC_SUBST([DX_CONFIG]m4_eval(DX_i[/2]),
+                m4_default_nblank_quoted(m4_argn(DX_i, $@),
+                                         [Doxyfile]))])])dnl
+m4_if(m4_eval(3 < m4_count($@)), 1, [m4_for([DX_i], 5, m4_count($@,), 2,
+      [AC_SUBST([DX_DOCDIR]m4_eval([(]DX_i[-1)/2]),
+                m4_default_nblank_quoted(m4_argn(DX_i, $@),
+                                         [doxygen-doc]))])])dnl
+m4_define([DX_loop], m4_dquote(m4_if(m4_eval(3 < m4_count($@)), 1,
+          [m4_for([DX_i], 4, m4_count($@), 2, [, m4_eval(DX_i[/2])])],
+          [])))dnl
 
 # Environment variables used inside doxygen.cfg:
 DX_ENV_APPEND(SRCDIR, $srcdir)
 DX_ENV_APPEND(PROJECT, $DX_PROJECT)
-DX_ENV_APPEND(DOCDIR, $DX_DOCDIR)
 DX_ENV_APPEND(VERSION, $PACKAGE_VERSION)
 
 # Doxygen itself:
@@ -361,7 +375,9 @@ if test $DX_FLAG_html -eq 1; then
 ## Rules specific for HTML output. ##
 ## ------------------------------- ##
 
-DX_CLEAN_HTML = \$(DX_DOCDIR)/html
+DX_CLEAN_HTML = \$(DX_DOCDIR)/html[]dnl
+m4_foreach([DX_i], [m4_shift(DX_loop)], [[\\
+                \$(DX_DOCDIR]DX_i[)/html]])
 
 "
 else
@@ -369,7 +385,9 @@ else
 fi
 if test $DX_FLAG_chi -eq 1; then
     DX_SNIPPET_chi="
-DX_CLEAN_CHI = \$(DX_DOCDIR)/\$(PACKAGE).chi"
+DX_CLEAN_CHI = \$(DX_DOCDIR)/\$(PACKAGE).chi[]dnl
+m4_foreach([DX_i], [m4_shift(DX_loop)], [[\\
+               \$(DX_DOCDIR]DX_i[)/\$(PACKAGE).chi]])"
 else
     DX_SNIPPET_chi=""
 fi
@@ -378,7 +396,9 @@ if test $DX_FLAG_chm -eq 1; then
 ## Rules specific for CHM output. ##
 ## ------------------------------ ##
 
-DX_CLEAN_CHM = \$(DX_DOCDIR)/chm\
+DX_CLEAN_CHM = \$(DX_DOCDIR)/chm[]dnl
+m4_foreach([DX_i], [m4_shift(DX_loop)], [[\\
+               \$(DX_DOCDIR]DX_i[)/chm]])\
 ${DX_SNIPPET_chi}
 
 "
@@ -390,7 +410,9 @@ if test $DX_FLAG_man -eq 1; then
 ## Rules specific for MAN output. ##
 ## ------------------------------ ##
 
-DX_CLEAN_MAN = \$(DX_DOCDIR)/man
+DX_CLEAN_MAN = \$(DX_DOCDIR)/man[]dnl
+m4_foreach([DX_i], [m4_shift(DX_loop)], [[\\
+               \$(DX_DOCDIR]DX_i[)/man]])
 
 "
 else
@@ -401,7 +423,9 @@ if test $DX_FLAG_rtf -eq 1; then
 ## Rules specific for RTF output. ##
 ## ------------------------------ ##
 
-DX_CLEAN_RTF = \$(DX_DOCDIR)/rtf
+DX_CLEAN_RTF = \$(DX_DOCDIR)/rtf[]dnl
+m4_foreach([DX_i], [m4_shift(DX_loop)], [[\\
+               \$(DX_DOCDIR]DX_i[)/rtf]])
 
 "
 else
@@ -412,7 +436,9 @@ if test $DX_FLAG_xml -eq 1; then
 ## Rules specific for XML output. ##
 ## ------------------------------ ##
 
-DX_CLEAN_XML = \$(DX_DOCDIR)/xml
+DX_CLEAN_XML = \$(DX_DOCDIR)/xml[]dnl
+m4_foreach([DX_i], [m4_shift(DX_loop)], [[\\
+               \$(DX_DOCDIR]DX_i[)/xml]])
 
 "
 else
@@ -423,14 +449,17 @@ if test $DX_FLAG_ps -eq 1; then
 ## Rules specific for PS output. ##
 ## ----------------------------- ##
 
-DX_CLEAN_PS = \$(DX_DOCDIR)/\$(PACKAGE).ps
+DX_CLEAN_PS = \$(DX_DOCDIR)/\$(PACKAGE).ps[]dnl
+m4_foreach([DX_i], [m4_shift(DX_loop)], [[\\
+              \$(DX_DOCDIR]DX_i[)/\$(PACKAGE).ps]])
 
 DX_PS_GOAL = doxygen-ps
 
-doxygen-ps: \$(DX_DOCDIR)/\$(PACKAGE).ps
+doxygen-ps: \$(DX_CLEAN_PS)
 
-\$(DX_DOCDIR)/\$(PACKAGE).ps: \$(DX_DOCDIR)/\$(PACKAGE).tag
-	\$(DX_V_LATEX)cd \$(DX_DOCDIR)/latex; \\
+m4_foreach([DX_i], [DX_loop],
+[[\$(DX_DOCDIR]DX_i[)/\$(PACKAGE).ps: \$(DX_DOCDIR]DX_i[)/\$(PACKAGE).tag
+	\$(DX_V_LATEX)cd \$(DX_DOCDIR]DX_i[)/latex; \\
 	rm -f *.aux *.toc *.idx *.ind *.ilg *.log *.out; \\
 	\$(DX_LATEX) refman.tex; \\
 	\$(DX_MAKEINDEX) refman.idx; \\
@@ -444,6 +473,7 @@ doxygen-ps: \$(DX_DOCDIR)/\$(PACKAGE).ps
 	done; \\
 	\$(DX_DVIPS) -o ../\$(PACKAGE).ps refman.dvi
 
+]])dnl
 "
 else
     DX_SNIPPET_ps=""
@@ -453,14 +483,17 @@ if test $DX_FLAG_pdf -eq 1; then
 ## Rules specific for PDF output. ##
 ## ------------------------------ ##
 
-DX_CLEAN_PDF = \$(DX_DOCDIR)/\$(PACKAGE).pdf
+DX_CLEAN_PDF = \$(DX_DOCDIR)/\$(PACKAGE).pdf[]dnl
+m4_foreach([DX_i], [m4_shift(DX_loop)], [[\\
+               \$(DX_DOCDIR]DX_i[)/\$(PACKAGE).pdf]])
 
 DX_PDF_GOAL = doxygen-pdf
 
-doxygen-pdf: \$(DX_DOCDIR)/\$(PACKAGE).pdf
+doxygen-pdf: \$(DX_CLEAN_PDF)
 
-\$(DX_DOCDIR)/\$(PACKAGE).pdf: \$(DX_DOCDIR)/\$(PACKAGE).tag
-	\$(DX_V_LATEX)cd \$(DX_DOCDIR)/latex; \\
+m4_foreach([DX_i], [DX_loop],
+[[\$(DX_DOCDIR]DX_i[)/\$(PACKAGE).pdf: \$(DX_DOCDIR]DX_i[)/\$(PACKAGE).tag
+	\$(DX_V_LATEX)cd \$(DX_DOCDIR]DX_i[)/latex; \\
 	rm -f *.aux *.toc *.idx *.ind *.ilg *.log *.out; \\
 	\$(DX_PDFLATEX) refman.tex; \\
 	\$(DX_MAKEINDEX) refman.idx; \\
@@ -474,6 +507,7 @@ doxygen-pdf: \$(DX_DOCDIR)/\$(PACKAGE).pdf
 	done; \\
 	mv refman.pdf ../\$(PACKAGE).pdf
 
+]])dnl
 "
 else
     DX_SNIPPET_pdf=""
@@ -487,7 +521,9 @@ DX_V_LATEX = \$(_DX_v_LATEX_\$(V))
 _DX_v_LATEX_ = \$(_DX_v_LATEX_\$(AM_DEFAULT_VERBOSITY))
 _DX_v_LATEX_0 = @echo \"  LATEX \" \$[]][[]@;
 
-DX_CLEAN_LATEX = \$(DX_DOCDIR)/latex
+DX_CLEAN_LATEX = \$(DX_DOCDIR)/latex[]dnl
+m4_foreach([DX_i], [m4_shift(DX_loop)], [[\\
+                 \$(DX_DOCDIR]DX_i[)/latex]])
 
 "
 else
@@ -515,17 +551,22 @@ _DX_v_DXGEN_0 = @echo \"  DXGEN \" \$<;
 
 .INTERMEDIATE: doxygen-run \$(DX_PS_GOAL) \$(DX_PDF_GOAL)
 
-doxygen-run: \$(DX_DOCDIR)/\$(PACKAGE).tag
+doxygen-run:[]m4_foreach([DX_i], [DX_loop],
+                         [[ \$(DX_DOCDIR]DX_i[)/\$(PACKAGE).tag]])
 
 doxygen-doc: doxygen-run \$(DX_PS_GOAL) \$(DX_PDF_GOAL)
 
-\$(DX_DOCDIR)/\$(PACKAGE).tag: \$(DX_CONFIG) \$(pkginclude_HEADERS)
-	\$(A""M_V_at)rm -rf \$(DX_DOCDIR)
-	\$(DX_V_DXGEN)\$(DX_ENV) \$(DX_DOXYGEN) \$(srcdir)/\$(DX_CONFIG)
-	\$(A""M_V_at)echo Timestamp >\$[]][[]@
+m4_foreach([DX_i], [DX_loop],
+[[\$(DX_DOCDIR]DX_i[)/\$(PACKAGE).tag: \$(DX_CONFIG]DX_i[) \$(pkginclude_HEADERS)
+	\$(A""M_V_at)rm -rf \$(DX_DOCDIR]DX_i[)
+	\$(DX_V_DXGEN)\$(DX_ENV) DOCDIR=\$(DX_DOCDIR]DX_i[) \$(DX_DOXYGEN) \$(srcdir)/\$(DX_CONFIG]DX_i[)
+	\$(A""M_V_at)echo Timestamp >\$][@
 
+]])dnl
 DX_CLEANFILES = \\
-	\$(DX_DOCDIR)/\$(PACKAGE).tag \\
+m4_foreach([DX_i], [DX_loop],
+[[	\$(DX_DOCDIR]DX_i[)/\$(PACKAGE).tag \\
+]])dnl
 	-r \\
 	\$(DX_CLEAN_HTML) \\
 	\$(DX_CLEAN_CHM) \\
