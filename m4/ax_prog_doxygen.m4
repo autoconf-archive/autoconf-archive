@@ -45,12 +45,13 @@
 #   Once all the feature defaults have been specified, call DX_INIT_DOXYGEN
 #   with the following parameters: a one-word name for the project for use
 #   as a filename base etc., an optional configuration file name (the
-#   default is 'Doxyfile', the same as Doxygen's default), and an optional
-#   output directory name (the default is 'doxygen-doc'). To run doxygen
-#   multiple times for different configuration files and output directories
-#   provide more parameters: the second, forth, sixth, etc parameter are
-#   configuration file names and the third, fifth, seventh, etc parameter
-#   are output directories. No checking is done to catch duplicates.
+#   default is '$(srcdir)/Doxyfile', the same as Doxygen's default), and an
+#   optional output directory name (the default is 'doxygen-doc'). To run
+#   doxygen multiple times for different configuration files and output
+#   directories provide more parameters: the second, forth, sixth, etc
+#   parameter are configuration file names and the third, fifth, seventh,
+#   etc parameter are output directories. No checking is done to catch
+#   duplicates.
 #
 #   Automake Support
 #
@@ -120,8 +121,14 @@ AC_DEFUN([DX_FEATURE_ps],   ON)
 
 # DX_ENV_APPEND(VARIABLE, VALUE)
 # ------------------------------
-# Append VARIABLE="VALUE" to DX_ENV for invoking doxygen.
-AC_DEFUN([DX_ENV_APPEND], [AC_SUBST([DX_ENV], ["$DX_ENV $1='$2'"])])
+# Append VARIABLE="VALUE" to DX_ENV for invoking doxygen and add it
+# as a substitution (but not a Makefile variable). The substitution
+# is skipped if the variable name is VERSION.
+AC_DEFUN([DX_ENV_APPEND],
+[AC_SUBST([DX_ENV], ["$DX_ENV $1='$2'"])dnl
+m4_if([$1], [VERSION], [], [AC_SUBST([$1], [$2])dnl
+AM_SUBST_NOTMAKE([$1])])dnl
+])
 
 # DX_DIRNAME_EXPR
 # ---------------
@@ -236,23 +243,24 @@ AC_DEFUN([DX_PS_FEATURE],      [AC_DEFUN([DX_FEATURE_ps],   [$1])])
 # DX_INIT_DOXYGEN(PROJECT, [CONFIG-FILE], [OUTPUT-DOC-DIR], ...)
 # --------------------------------------------------------------
 # PROJECT also serves as the base name for the documentation files.
-# The default CONFIG-FILE is "Doxyfile" and OUTPUT-DOC-DIR is "doxygen-doc".
+# The default CONFIG-FILE is "$(srcdir)/Doxyfile" and OUTPUT-DOC-DIR is
+# "doxygen-doc".
 # More arguments are interpreted as interleaved CONFIG-FILE and
 # OUTPUT-DOC-DIR values.
 AC_DEFUN([DX_INIT_DOXYGEN], [
 
 # Files:
 AC_SUBST([DX_PROJECT], [$1])
-AC_SUBST([DX_CONFIG], [ifelse([$2], [], Doxyfile, [$2])])
-AC_SUBST([DX_DOCDIR], [ifelse([$3], [], doxygen-doc, [$3])])
+AC_SUBST([DX_CONFIG], ['ifelse([$2], [], [$(srcdir)/Doxyfile], [$2])'])
+AC_SUBST([DX_DOCDIR], ['ifelse([$3], [], [doxygen-doc], [$3])'])
 m4_if(m4_eval(3 < m4_count($@)), 1, [m4_for([DX_i], 4, m4_count($@), 2,
       [AC_SUBST([DX_CONFIG]m4_eval(DX_i[/2]),
-                m4_default_nblank_quoted(m4_argn(DX_i, $@),
-                                         [Doxyfile]))])])dnl
+                'm4_default_nblank_quoted(m4_argn(DX_i, $@),
+                                          [$(srcdir)/Doxyfile])')])])dnl
 m4_if(m4_eval(3 < m4_count($@)), 1, [m4_for([DX_i], 5, m4_count($@,), 2,
       [AC_SUBST([DX_DOCDIR]m4_eval([(]DX_i[-1)/2]),
-                m4_default_nblank_quoted(m4_argn(DX_i, $@),
-                                         [doxygen-doc]))])])dnl
+                'm4_default_nblank_quoted(m4_argn(DX_i, $@),
+                                          [doxygen-doc])')])])dnl
 m4_define([DX_loop], m4_dquote(m4_if(m4_eval(3 < m4_count($@)), 1,
           [m4_for([DX_i], 4, m4_count($@), 2, [, m4_eval(DX_i[/2])])],
           [])))dnl
@@ -559,7 +567,7 @@ doxygen-doc: doxygen-run \$(DX_PS_GOAL) \$(DX_PDF_GOAL)
 m4_foreach([DX_i], [DX_loop],
 [[\$(DX_DOCDIR]DX_i[)/\$(PACKAGE).tag: \$(DX_CONFIG]DX_i[) \$(pkginclude_HEADERS)
 	\$(A""M_V_at)rm -rf \$(DX_DOCDIR]DX_i[)
-	\$(DX_V_DXGEN)\$(DX_ENV) DOCDIR=\$(DX_DOCDIR]DX_i[) \$(DX_DOXYGEN) \$(srcdir)/\$(DX_CONFIG]DX_i[)
+	\$(DX_V_DXGEN)\$(DX_ENV) DOCDIR=\$(DX_DOCDIR]DX_i[) \$(DX_DOXYGEN) \$(DX_CONFIG]DX_i[)
 	\$(A""M_V_at)echo Timestamp >\$][@
 
 ]])dnl
