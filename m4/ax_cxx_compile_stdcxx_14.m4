@@ -9,7 +9,7 @@
 # DESCRIPTION
 #
 #   Check for baseline language coverage in the compiler for the C++14
-#   standard; if necessary, add switches to CXXFLAGS to enable support.
+#   standard; if necessary, add switches to CXX to enable support.
 #
 #   This macro is a convenience alias for calling the AX_CXX_COMPILE_STDCXX
 #   macro with the version set to C++14.  The two optional arguments are
@@ -27,7 +27,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 include([ax_cxx_compile_stdcxx.m4])
 

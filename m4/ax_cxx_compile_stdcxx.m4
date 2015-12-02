@@ -9,7 +9,7 @@
 # DESCRIPTION
 #
 #   Check for baseline language coverage in the compiler for the specified
-#   version of the C++ standard.  If necessary, add switches to CXXFLAGS to
+#   version of the C++ standard.  If necessary, add switches to CXX to
 #   enable support.  VERSION may be '11' (for the C++11 standard) or '14'
 #   (for the C++14 standard).
 #
@@ -39,7 +39,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 dnl  This macro is based on the code from the AX_CXX_COMPILE_STDCXX_11 macro
 dnl  (serial version number 13).
@@ -74,14 +74,14 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX], [dnl
       cachevar=AS_TR_SH([ax_cv_cxx_compile_cxx$1_$switch])
       AC_CACHE_CHECK(whether $CXX supports C++$1 features with $switch,
                      $cachevar,
-        [ac_save_CXXFLAGS="$CXXFLAGS"
-         CXXFLAGS="$CXXFLAGS $switch"
+        [ac_save_CXX="$CXX"
+         CXX="$CXX $switch"
          AC_COMPILE_IFELSE([AC_LANG_SOURCE([_AX_CXX_COMPILE_STDCXX_testbody_$1])],
           [eval $cachevar=yes],
           [eval $cachevar=no])
-         CXXFLAGS="$ac_save_CXXFLAGS"])
+         CXX="$ac_save_CXX"])
       if eval test x\$$cachevar = xyes; then
-        CXXFLAGS="$CXXFLAGS $switch"
+        CXX="$CXX $switch"
         ac_success=yes
         break
       fi
@@ -97,14 +97,14 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX], [dnl
       cachevar=AS_TR_SH([ax_cv_cxx_compile_cxx$1_$switch])
       AC_CACHE_CHECK(whether $CXX supports C++$1 features with $switch,
                      $cachevar,
-        [ac_save_CXXFLAGS="$CXXFLAGS"
-         CXXFLAGS="$CXXFLAGS $switch"
+        [ac_save_CXX="$CXX"
+         CXX="$CXX $switch"
          AC_COMPILE_IFELSE([AC_LANG_SOURCE([_AX_CXX_COMPILE_STDCXX_testbody_$1])],
           [eval $cachevar=yes],
           [eval $cachevar=no])
-         CXXFLAGS="$ac_save_CXXFLAGS"])
+         CXX="$ac_save_CXX"])
       if eval test x\$$cachevar = xyes; then
-        CXXFLAGS="$CXXFLAGS $switch"
+        CXX="$CXX $switch"
         ac_success=yes
         break
       fi

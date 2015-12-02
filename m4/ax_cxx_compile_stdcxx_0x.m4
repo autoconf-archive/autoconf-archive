@@ -23,7 +23,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([AC_CXX_COMPILE_STDCXX_0X], [AX_CXX_COMPILE_STDCXX_0X])
 AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
@@ -55,8 +55,8 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
   ax_cv_cxx_compile_cxx0x_cxx,
   [AC_LANG_SAVE
   AC_LANG_CPLUSPLUS
-  ac_save_CXXFLAGS="$CXXFLAGS"
-  CXXFLAGS="$CXXFLAGS -std=c++0x"
+  ac_save_CXX="$CXX"
+  CXX="$CXX -std=c++0x"
   AC_TRY_COMPILE([
   template <typename T>
     struct check
@@ -73,7 +73,7 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
     check_type c;
     check_type&& cr = static_cast<check_type&&>(c);],,
   ax_cv_cxx_compile_cxx0x_cxx=yes, ax_cv_cxx_compile_cxx0x_cxx=no)
-  CXXFLAGS="$ac_save_CXXFLAGS"
+  CXX="$ac_save_CXX"
   AC_LANG_RESTORE
   ])
 
@@ -81,8 +81,8 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
   ax_cv_cxx_compile_cxx0x_gxx,
   [AC_LANG_SAVE
   AC_LANG_CPLUSPLUS
-  ac_save_CXXFLAGS="$CXXFLAGS"
-  CXXFLAGS="$CXXFLAGS -std=gnu++0x"
+  ac_save_CXX="$CXX"
+  CXX="$CXX -std=gnu++0x"
   AC_TRY_COMPILE([
   template <typename T>
     struct check
@@ -99,7 +99,7 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
     check_type c;
     check_type&& cr = static_cast<check_type&&>(c);],,
   ax_cv_cxx_compile_cxx0x_gxx=yes, ax_cv_cxx_compile_cxx0x_gxx=no)
-  CXXFLAGS="$ac_save_CXXFLAGS"
+  CXX="$ac_save_CXX"
   AC_LANG_RESTORE
   ])
 
