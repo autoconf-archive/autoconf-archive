@@ -205,14 +205,10 @@ AC_DEFUN([_AX_CHECK_GL_MANUAL_HEADERS_DEFAULT],
 AC_DEFUN([_AX_CHECK_GL_MANUAL_HEADERS_DARWIN_NOX],[
  AC_LANG_PUSH([C])
  _AX_CHECK_GL_SAVE_FLAGS()
- # FIXME: use -framework opengl as an extra cflags
- dnl CFLAGS="-framework OpenGL ${GL_CFLAGS} ${CFLAGS}"
  AC_CHECK_HEADERS([OpenGL/gl.h],[ax_check_gl_have_headers="yes"],
                                 [ax_check_gl_have_headers="no"],
 			        [_AX_CHECK_GL_INCLUDES_DEFAULT()])
- AS_IF([test "X$ax_check_gl_have_headers" = "Xyes"],
-       [GL_CFLAGS="-framework OpenGL ${GL_CFLAGS}"])
- _AX_CHECK_GL_SAVE_FLAGS()
+ _AX_CHECK_GL_RESTORE_FLAGS()
  AC_LANG_POP([C])
 ])
 

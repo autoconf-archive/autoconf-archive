@@ -133,8 +133,6 @@ AC_DEFUN([_AX_CHECK_GLUT_HEADERS_DARWIN],
                   [ax_check_glut_have_headers="yes"],
                   [ax_check_glut_have_headers="no"],
                   [_AX_CHECK_GLUT_INCLUDES_DEFAULT()])
- AS_IF([test "X$ax_check_glut_have_headers" = "Xyes"],
-       [GLUT_CFLAGS="-framework GLUT ${GLUT_CFLAGS}"])
  _AX_CHECK_GLUT_RESTORE_FLAGS()
  AC_LANG_POP([C])
 ])
