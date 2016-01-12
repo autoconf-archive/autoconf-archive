@@ -206,35 +206,35 @@ AC_DEFUN([_AX_CHECK_GL_MANUAL_HEADERS_DARWIN_NOX],[
  AC_LANG_PUSH([C])
  _AX_CHECK_GL_SAVE_FLAGS()
  # FIXME: use -framework opengl as an extra cflags
- CFLAGS="-framework opengl ${GL_CFLAGS} ${CFLAGS}"
+ dnl CFLAGS="-framework OpenGL ${GL_CFLAGS} ${CFLAGS}"
  AC_CHECK_HEADERS([OpenGL/gl.h],[ax_check_gl_have_headers="yes"],
-                                [ax_check_gl_have_headers_headers="no"],
+                                [ax_check_gl_have_headers="no"],
 			        [_AX_CHECK_GL_INCLUDES_DEFAULT()])
- AS_IF([test "X$ax_check_gl_have_headers" = "yes"],
-       [GL_CFLAGS="-framework opengl ${GL_CFLAGS}"])
+ AS_IF([test "X$ax_check_gl_have_headers" = "Xyes"],
+       [GL_CFLAGS="-framework OpenGL ${GL_CFLAGS}"])
  _AX_CHECK_GL_SAVE_FLAGS()
  AC_LANG_POP([C])
 ])
 
 # check header for darwin
 AC_DEFUN([_AX_CHECK_GL_MANUAL_HEADERS_DARWIN],
-[AC_REQUIRE([_AX_CHECK_GL_NEED_X])dnl
+[AC_REQUIRE([_AX_CHECK_GL_NEED_X])
  AS_CASE(["$ax_check_gl_order"],
          # try to use framework
          ["gl"],[_AX_CHECK_GL_MANUAL_HEADERS_DARWIN_NOX()],
 	 # try to use framework then mesa (X)
 	 ["gl mesagl"],[
 	   _AX_CHECK_GL_MANUAL_HEADERS_DARWIN_NOX()
-	   AS_IF([test "X$ax_check_gl_have_headers" = "yes"],
+	   AS_IF([test "X$ax_check_gl_have_headers" = "Xyes"],
 	         [ax_check_gl_order="gl"
 		  ax_check_gl_need_x="yes"],
 		 [ax_check_gl_order="mesagl gl"
 		  ax_check_gl_need_x="no"]
 		  # retry with general test
-		  _AX_CHECK_GL_MANUAL_HEADERS_DEFAULT()])],
+		  _AX_CHECK_GL_MANUAL_HEADERS_DEFAULT())],
          ["mesagl gl"],[
 	   _AX_CHECK_GL_MANUAL_HEADERS_DEFAULT()
-	   AS_IF([test "X$ax_check_gl_have_headers" = "yes"],
+	   AS_IF([test "X$ax_check_gl_have_headers" = "Xyes"],
 	         [ax_check_gl_order="mesagl gl"
 		  ax_check_gl_need_x="no"],
 		 [ax_check_gl_order="gl"
@@ -248,7 +248,7 @@ dnl Check headers manually: subroutine must set ax_check_gl_have_headers={yes,no
 AC_DEFUN([_AX_CHECK_GL_MANUAL_HEADERS],
 [AC_REQUIRE([AC_CANONICAL_HOST])
  AS_CASE([${host}],
-         [*-darwin*],[_AX_CHECK_GL_MANUAL_HEADERS_DARWIN],
+         [*-darwin*],[_AX_CHECK_GL_MANUAL_HEADERS_DARWIN()],
 	 [_AX_CHECK_GL_MANUAL_HEADERS_DEFAULT()])
  AC_CACHE_CHECK([for OpenGL headers],[ax_cv_check_gl_have_headers],
                	[ax_cv_check_gl_have_headers="${ax_check_gl_have_headers}"])
@@ -281,40 +281,56 @@ AC_DEFUN([_AX_CHECK_GL_MANUAL_LIBS_GENERIC],
 # darwin opengl hack
 # see http://web.archive.org/web/20090410052741/http://developer.apple.com/qa/qa2007/qa1567.html
 # and http://web.eecs.umich.edu/~sugih/courses/eecs487/glut-howto/
+dnl need to rewrite this whole thing
 AC_DEFUN([_AX_CHECK_GL_MANUAL_LIBS_DARWIN],
 [# ldhack list
- ldhack1 = "-Wl,-framework,OpenGL"
- ldhack2 = "-Wl,-dylib_file,/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib"
- ldhack3 = "$ldhack1,$ldhack2"
+ AC_CHECK_FILE([/System/Library/Frameworks/OpenGL.framework],
+               [ax_check_gl_lib_opengl="yes"
+                GL_LDFLAGS="-framework OpenGL ${GL_LDFLAGS}"],
+               [ax_check_gl_lib_opengl="no"])
 
- # select hack
- AS_IF([test "X$ax_check_gl_need_x" = "Xyes"],
-       [# libs already set by -framework cflag
-        darwinlibs=""
-        ldhacks="$ldhack1 $ldhack2 $ldhack3"],
-       [# do not use framework ldflags in case of x version
-        darwinlibs="GL gl MesaGL"
-        ldhack="$ldhack2"])
+ dnl ldhack1="-Wl,-framework,OpenGL"
+ dnl ldhack2="-Wl,-dylib_file,/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib"
+ dnl ldhack3="$ldhack1,$ldhack2"
 
- ax_check_gl_link_opengl="no"
- for extralibs in " " $darwinlibs; do
-   for extraldflags in " " ldhacks; do
-       AC_LANG_PUSH([C])
-        _AX_CHECK_GL_SAVE_FLAGS()
-       CFLAGS="${GL_CFLAGS} ${CFLAGS}"
-       LIBS="$extralibs ${GL_LIBS} ${LIBS}"
-       LDFLAGS="$extraldflags ${GL_LDFLAGS} ${LDFLAGS}"
-       AC_LINK_IFELSE([_AX_CHECK_GL_PROGRAM],
-                      [ax_check_gl_link_opengl="yes"],
-                      [ax_check_gl_link_opengl="no"])
-       _AX_CHECK_GL_RESTORE_FLAGS()
-       AC_LANG_POP([C])
-       AS_IF([test "X$ax_check_gl_link_opengl" = "Xyes"],[break])
-   done;
-   AS_IF([test "X$ax_check_gl_link_opengl" = "Xyes"],[break])
- done;
- GL_LIBS="$extralibs ${GL_LIBS}"
- GL_LDFLAGS="$extraldflags ${GL_LDFLAGS}"
+ dnl # select hack
+ dnl AS_IF([test "X$ax_check_gl_need_x" = "Xno"],
+ dnl       [# libs already set by -framework cflag
+ dnl        darwinlibs=""
+ dnl        ldhacks="$ldhack1 $ldhack2 $ldhack3"],
+ dnl       [# do not use framework ldflags in case of x version
+ dnl        darwinlibs="GL gl MesaGL"
+ dnl        ldhacks="$ldhack2"])
+
+ dnl ax_check_gl_link_opengl="no"
+ dnl for extralibs in " " $darwinlibs; do
+ dnl   for extraldflags in " " $ldhacks; do
+ dnl       AC_LANG_PUSH([C])
+ dnl        _AX_CHECK_GL_SAVE_FLAGS()
+ dnl       CFLAGS="${GL_CFLAGS} ${CFLAGS}"
+ dnl       LIBS="$extralibs ${GL_LIBS} ${LIBS}"
+ dnl       LDFLAGS="$extraldflags ${GL_LDFLAGS} ${LDFLAGS}"
+ dnl       AC_MSG_CHECKING([CFLAGS])
+ dnl       AC_MSG_RESULT(["${CFLAGS}"])
+ dnl       AC_MSG_CHECKING([LIBS])
+ dnl       AC_MSG_RESULT(["${LIBS}"])
+ dnl       AC_MSG_CHECKING([LDFLAGS])
+ dnl       AC_MSG_RESULT(["${LDFLAGS}"])
+ dnl       AC_LINK_IFELSE([_AX_CHECK_GL_PROGRAM],
+ dnl                      [ax_check_gl_link_opengl="yes"
+ dnl                       ax_check_gl_lib_opengl="yes"]
+ dnl                      [ax_check_gl_link_opengl="no"
+ dnl                       ax_check_gl_lib_opengl="no"])
+ dnl       _AX_CHECK_GL_RESTORE_FLAGS()
+ dnl       AC_LANG_POP([C])
+ dnl       AS_IF([test "X$ax_check_gl_link_opengl" = "Xyes"],[
+ dnl       AC_MSG_NOTICE([found linked gl])
+ dnl       break])
+ dnl   done;
+ dnl   AS_IF([test "X$ax_check_gl_link_opengl" = "Xyes"],[break])
+ dnl done;
+ dnl GL_LIBS="$extralibs ${GL_LIBS}"
+ dnl GL_LDFLAGS="$extraldflags ${GL_LDFLAGS}"
 ])
 
 dnl Check library manually: subroutine must set

@@ -33,6 +33,7 @@
 #
 #   Copyright (c) 2009 Braden McDaniel <braden@endoframe.com>
 #   Copyright (c) 2013 Bastien Roucaries <roucaries.bastien+autoconf@gmail.com>
+#   Copyright (c) 2016 Felix Chern <idryman@gmail.com>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -110,7 +111,7 @@ m4_define([_AX_CHECK_GLUT_PROGRAM],
 
 
 dnl Check headers manually (default case)
-AC_DEFUN([_AX_CHECK_GLUT_HEADERS],
+AC_DEFUN([_AX_CHECK_GLUT_HEADERS_GENERIC],
 [AC_LANG_PUSH([C])
  _AX_CHECK_GLUT_SAVE_FLAGS()
  CFLAGS="${GLUT_CFLAGS} ${CFLAGS}"
@@ -118,12 +119,40 @@ AC_DEFUN([_AX_CHECK_GLUT_HEADERS],
  AC_CHECK_HEADERS([windows.h],[],[],[AC_INCLUDES_DEFAULT])
  AC_CHECK_HEADERS([GL/glut.h OpenGL/glut.h],
                          [ax_check_glut_have_headers="yes";break],
-                         [ax_check_glut_have_headers_headers="no"],
-			 [_AX_CHECK_GLUT_INCLUDES_DEFAULT()])
- # do not try darwin specific OpenGl/gl.h
+                         [ax_check_glut_have_headers="no"],
+                         [_AX_CHECK_GLUT_INCLUDES_DEFAULT()])
  _AX_CHECK_GLUT_RESTORE_FLAGS()
  AC_LANG_POP([C])
 ])
+
+AC_DEFUN([_AX_CHECK_GLUT_HEADERS_DARWIN],
+[AC_LANG_PUSH([C])
+ _AX_CHECK_GLUT_SAVE_FLAGS()
+ dnl FIXME: may need to set CFLAGS before header check
+ AC_CHECK_HEADERS([GLUT/glut.h],
+                  [ax_check_glut_have_headers="yes"],
+                  [ax_check_glut_have_headers="no"],
+                  [_AX_CHECK_GLUT_INCLUDES_DEFAULT()])
+ AS_IF([test "X$ax_check_glut_have_headers" = "Xyes"],
+       [GLUT_CFLAGS="-framework GLUT ${GLUT_CFLAGS}"])
+ _AX_CHECK_GLUT_RESTORE_FLAGS()
+ AC_LANG_POP([C])
+])
+
+AC_DEFUN([_AX_CHECK_GLUT_HEADERS],
+[AC_REQUIRE([AC_CANONICAL_HOST])
+ AS_CASE([${host}],
+         [*-darwin*],[_AX_CHECK_GLUT_HEADERS_DARWIN()],
+         [_AX_CHECK_GLUT_HEADERS_GENERIC()])
+])
+
+dnl AC_DEFUN([_AX_CHECK_GLUT_HEADERS_CV],
+dnl [AC_CACHE_CHECK([for OpenGL Utility TOolkit (GLUT) headers],
+dnl                 [ax_cv_check_glut_header],
+dnl                 [_AX_CHECK_GLUT_HEADERS()
+dnl                  ax_cv_check_glut_header="${ax_check_glut_have_headers}"])
+dnl  ax_check_glut_have_headers="${ax_cv_check_glut_header}"
+dnl ])
 
 # dnl try to found library (generic case)
 # dnl $1 is set to the library to found
@@ -142,12 +171,17 @@ AC_DEFUN([_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC],
                 [ax_check_glut_lib_opengl="no"])
  AS_CASE([$ac_cv_search_glutMainLoop],
          ["none required"],[],
- 	 [no],[],
- 	 [GLUT_LIBS="${ac_cv_search_glutMainLoop} ${GLU_LIBS}"])
+         [no],[],
+         [GLUT_LIBS="${ac_cv_search_glutMainLoop} ${GLU_LIBS}"])
   _AX_CHECK_GLUT_RESTORE_FLAGS()
-  AC_LANG_PUSH([C])
+  AC_LANG_POP([C])
 ])
 
+AC_DEFUN([_AX_CHECK_GLUT_MANUAL_LIBS_DARWIN],[
+  GLUT_LDFLAGS="-framework GLUT ${GLUT_LDFLAGS}"
+  ax_check_glut_lib_opengl="yes"
+  dnl use AC_CHECK_FILE for real checking
+])
 
 dnl Check library manually: subroutine must set
 dnl $ax_check_glut_lib_opengl={yes,no}
@@ -158,14 +192,15 @@ AC_DEFUN([_AX_CHECK_GLUT_MANUAL_LIBS],
 [AC_REQUIRE([AC_CANONICAL_HOST])
  GLUT_LIBS="${GLUT_LIBS} ${GLU_LIBS}"
  AS_CASE([${host}],
+         [*-darwin*],[_AX_CHECK_GLUT_MANUAL_LIBS_DARWIN()],
          # try first cygwin version
          [*-cygwin*],[_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC([GLUT glut MesaGLUT freeglut freeglut32 glut32])],
          # try first native
-	 [*-mingw*],[_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC([glut32 GLUT glut MesaGLUT freeglut freeglut32])],
-	 [_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC([GLUT glut freeglut MesaGLUT])])
+         [*-mingw*],[_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC([glut32 GLUT glut MesaGLUT freeglut freeglut32])],
+         [_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC([GLUT glut freeglut MesaGLUT])])
 
  AC_CACHE_CHECK([for OpenGL Utility Toolkit (GLUT) libraries],[ax_cv_check_glut_lib_opengl],
-               	[ax_cv_check_glut_lib_opengl="${ax_check_glut_lib_opengl}"])
+                [ax_cv_check_glut_lib_opengl="${ax_check_glut_lib_opengl}"])
  ax_check_glut_lib_opengl="${ax_cv_check_glut_lib_opengl}"
 ])
 
