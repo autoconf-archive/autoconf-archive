@@ -215,6 +215,10 @@ AC_DEFUN([_AX_CHECK_GL_MANUAL_HEADERS_DARWIN_NOX],[
 # check header for darwin
 AC_DEFUN([_AX_CHECK_GL_MANUAL_HEADERS_DARWIN],
 [AC_REQUIRE([_AX_CHECK_GL_NEED_X])
+dnl Can use AC_CHECK_LIB([X11], [XOpenDisplay], [],[
+dnl          echo "X11 library is required for this program"
+dnl          exit -1])
+dnl          Giving a hint: On OSX try adding -I/opt/x11/include and -L/opt/x11/lib
  AS_CASE(["$ax_check_gl_order"],
          # try to use framework
          ["gl"],[_AX_CHECK_GL_MANUAL_HEADERS_DARWIN_NOX()],
