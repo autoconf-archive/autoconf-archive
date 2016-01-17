@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AC_PROG_JAVAH], [AX_PROG_JAVAH])
 AC_DEFUN([AX_PROG_JAVAH],[
@@ -36,7 +36,7 @@ AS_IF([test -n "$ac_cv_path_JAVAH"],
         ax_prog_javah_bin_dir=`AS_DIRNAME([$_ACJAVAH_FOLLOWED])`
         ac_dir="`AS_DIRNAME([$ax_prog_javah_bin_dir])`/include"
         AS_CASE([$build_os],
-                [cygwin*],
+                [cygwin*|mingw*],
                 [ac_machdep=win32],
                 [ac_machdep=`AS_ECHO($build_os) | sed 's,[[-0-9]].*,,'`])
         CPPFLAGS="$ac_save_CPPFLAGS -I$ac_dir -I$ac_dir/$ac_machdep"
