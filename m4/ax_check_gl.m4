@@ -103,6 +103,7 @@ AC_DEFUN([_AX_CHECK_GL_INCLUDES_DEFAULT],dnl
 dnl local save flags
 AC_DEFUN([_AX_CHECK_GL_SAVE_FLAGS],
 [dnl
+AC_LANG_PUSH([C])
 ax_check_gl_saved_libs="${LIBS}"
 ax_check_gl_saved_cflags="${CFLAGS}"
 ])
@@ -112,18 +113,17 @@ AC_DEFUN([_AX_CHECK_GL_RESTORE_FLAGS],
 [dnl
 LIBS="${ax_check_gl_saved_libs}"
 CFLAGS="${ax_check_gl_saved_cflags}"
+AC_LANG_POP([C])
 ])
 
 AC_DEFUN([_AX_CHECK_GL_COMPILE],
 [dnl
- AC_LANG_PUSH([C])
  _AX_CHECK_GL_SAVE_FLAGS()
  CFLAGS="${GL_CFLAGS} ${CFLAGS}"
  AC_COMPILE_IFELSE([_AX_CHECK_GL_PROGRAM],
                    [ax_check_gl_compile_opengl="yes"],
                    [ax_check_gl_compile_opengl="no"])
  _AX_CHECK_GL_RESTORE_FLAGS()
- AC_LANG_POP([C])
 ])
 
 # compile the example program (cache)
@@ -138,7 +138,6 @@ AC_DEFUN([_AX_CHECK_GL_COMPILE_CV],
 # link the example program
 AC_DEFUN([_AX_CHECK_GL_LINK],
 [dnl
- AC_LANG_PUSH([C])
  _AX_CHECK_GL_SAVE_FLAGS()
  CFLAGS="${GL_CFLAGS} ${CFLAGS}"
  LIBS="${GL_LIBS} ${LIBS}"
@@ -146,7 +145,6 @@ AC_DEFUN([_AX_CHECK_GL_LINK],
                 [ax_check_gl_link_opengl="yes"],
                 [ax_check_gl_link_opengl="no"])
  _AX_CHECK_GL_RESTORE_FLAGS()
- AC_LANG_POP([C])
 ])
 
 # link the example program (cache)
@@ -166,7 +164,6 @@ AC_DEFUN([_AX_CHECK_GL_MANUAL_LIBS_GENERIC], [
     AS_IF([test "X$ax_check_gl_manual_libs_generic_extra_libs" = "X"],
           [AC_MSG_ERROR([AX_CHECK_GL_MANUAL_LIBS_GENERIC argument must no be empty])])
 
-    AC_LANG_PUSH([C])
     _AX_CHECK_GL_SAVE_FLAGS()
     CFLAGS="${GL_CFLAGS} ${CFLAGS}"
     AC_SEARCH_LIBS([glBegin],[$ax_check_gl_manual_libs_generic_extra_libs],
@@ -174,7 +171,6 @@ AC_DEFUN([_AX_CHECK_GL_MANUAL_LIBS_GENERIC], [
     AS_IF([test "X$ax_check_gl_lib_opengl"="Xyes"],
           [GL_LIBS="${ac_cv_search_glBegin}"])
     _AX_CHECK_GL_RESTORE_FLAGS()
-    AC_LANG_PUSH([C])
  ])
 ])
 
@@ -234,13 +230,11 @@ AC_DEFUN([AX_CHECK_GL],
           [_AX_CHECK_GL_MANUAL_LIBS_GENERIC([GL gl])])
          ]) dnl host specific checks
 
- AC_LANG_PUSH([C])
  _AX_CHECK_GL_SAVE_FLAGS()
  CFLAGS="${GL_CFLAGS} ${CFLAGS}"
  AC_CHECK_HEADERS([GL/gl.h OpenGL/gl.h],
    [ax_check_gl_have_headers="yes";break])
  _AX_CHECK_GL_RESTORE_FLAGS()
- AC_LANG_POP([C])
 
  AS_IF([test "X$ax_check_gl_have_headers" = "Xyes"],
        [_AX_CHECK_GL_COMPILE_CV()],

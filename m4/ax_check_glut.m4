@@ -65,6 +65,7 @@
 
 dnl local save flags
 AC_DEFUN([_AX_CHECK_GLUT_SAVE_FLAGS], [
+  AC_LANG_PUSH([C])
   ax_check_glut_saved_libs="${LIBS}"
   ax_check_glut_saved_cflags="${CFLAGS}"
 ])
@@ -74,6 +75,7 @@ dnl local restore flags
 AC_DEFUN([_AX_CHECK_GLUT_RESTORE_FLAGS], [
   LIBS="${ax_check_glut_saved_libs}"
   CFLAGS="${ax_check_glut_saved_cflags}"
+  AC_LANG_POP([C])
 ])
 
 dnl Default include : add windows.h
@@ -112,7 +114,6 @@ AC_DEFUN([_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC],
  AS_IF([test "X$ax_check_glut_manual_libs_generic_extra_libs" = "X"],
        [AC_MSG_ERROR([AX_CHECK_GLUT_MANUAL_LIBS_GENERIC argument must no be empty])])
 
- AC_LANG_PUSH([C])
  _AX_CHECK_GLUT_SAVE_FLAGS()
  CFLAGS="${GLUT_CFLAGS} ${CFLAGS}"
  LIBS="${GLUT_LIBS} ${LIBS}"
@@ -121,20 +122,17 @@ AC_DEFUN([_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC],
  AS_IF([test "X$ax_check_glut_lib_glut" = "Xyes"],
        [GLUT_LIBS="$ac_cv_search_glutMainLoop"])
  _AX_CHECK_GLUT_RESTORE_FLAGS()
- AC_LANG_POP([C])
 ])
 
 # compile the example program
 AC_DEFUN([_AX_CHECK_GLUT_COMPILE],
 [dnl
- AC_LANG_PUSH([C])
  _AX_CHECK_GLUT_SAVE_FLAGS()
  CFLAGS="${GLUT_CFLAGS} ${CFLAGS}"
  AC_COMPILE_IFELSE([_AX_CHECK_GLUT_PROGRAM],
                    [ax_check_glut_compile_glut="yes"],
                    [ax_check_glut_compile_glut="no"])
  _AX_CHECK_GLUT_RESTORE_FLAGS()
- AC_LANG_POP([C])
 ])
 
 # compile the example program (cache)
@@ -149,7 +147,6 @@ AC_DEFUN([_AX_CHECK_GLUT_COMPILE_CV],
 # link the example program
 AC_DEFUN([_AX_CHECK_GLUT_LINK],
 [dnl
- AC_LANG_PUSH([C])
  _AX_CHECK_GLUT_SAVE_FLAGS()
  CFLAGS="${GLUT_CFLAGS} ${CFLAGS}"
  LIBS="${GLUT_LIBS} ${LIBS}"
@@ -157,7 +154,6 @@ AC_DEFUN([_AX_CHECK_GLUT_LINK],
                 [ax_check_glut_link_glut="yes"],
                 [ax_check_glut_link_glut="no"])
  _AX_CHECK_GLUT_RESTORE_FLAGS()
- AC_LANG_POP([C])
 ])
 
 # link the example program (cache)
