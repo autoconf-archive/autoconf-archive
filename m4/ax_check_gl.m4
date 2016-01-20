@@ -212,7 +212,7 @@ AC_DEFUN([_AX_CHECK_DARWIN_GL],
 #
 # if ACTION-IF-FOUND is not provided, it will set CFLAGS and
 # LIBS
-AC_DEFUN([AX_CHECK_GL_LIB],
+AC_DEFUN([AX_CHECK_GL],
 [AC_REQUIRE([AC_CANONICAL_HOST])
  AC_REQUIRE([PKG_PROG_PKG_CONFIG])
  AC_ARG_VAR([GL_CFLAGS],[C compiler flags for GL, overriding system check])
@@ -224,7 +224,10 @@ AC_DEFUN([AX_CHECK_GL_LIB],
          [*-darwin*],[_AX_CHECK_DARWIN_GL],
          dnl some windows may support X11 opengl, and should be able to linked
          dnl by -lGL. However I have no machine to test it.
-         [*-cygwin*|*-mingw*],[_AX_GL_SETVAR([GL_LIBS],[-lopengl32])],
+         [*-cygwin*|*-mingw*],[
+          _AX_GL_SETVAR([GL_LIBS],[-lopengl32])
+          AC_CHECK_HEADERS([windows.h])
+          ],
          [PKG_PROG_PKG_CONFIG
           PKG_CHECK_MODULES([GL],[gl],
           [],
@@ -235,9 +238,7 @@ AC_DEFUN([AX_CHECK_GL_LIB],
  _AX_CHECK_GL_SAVE_FLAGS()
  CFLAGS="${GL_CFLAGS} ${CFLAGS}"
  AC_CHECK_HEADERS([GL/gl.h OpenGL/gl.h],
-   [ax_check_gl_have_headers="yes";break],
-   [],
-   [_AX_CHECK_GL_INCLUDES_DEFAULT()])
+   [ax_check_gl_have_headers="yes";break])
  _AX_CHECK_GL_RESTORE_FLAGS()
  AC_LANG_POP([C])
 

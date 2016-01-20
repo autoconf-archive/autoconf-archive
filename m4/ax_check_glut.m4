@@ -64,22 +64,16 @@
 #serial 14
 
 dnl local save flags
-AC_DEFUN([_AX_CHECK_GLUT_SAVE_FLAGS],
-[dnl
-ax_check_glut_saved_libs="${LIBS}"
-ax_check_glut_saved_cflags="${CFLAGS}"
-ax_check_glut_saved_cppflags="${CPPFLAGS}"
-ax_check_glut_saved_ldflags="${LDFLAGS}"
+AC_DEFUN([_AX_CHECK_GLUT_SAVE_FLAGS], [
+  ax_check_glut_saved_libs="${LIBS}"
+  ax_check_glut_saved_cflags="${CFLAGS}"
 ])
 
 
 dnl local restore flags
-AC_DEFUN([_AX_CHECK_GLUT_RESTORE_FLAGS],
-[dnl
-LIBS="${ax_check_glut_saved_libs}"
-CFLAGS="${ax_check_glut_saved_cflags}"
-CPPFLAGS="${ax_check_glut_saved_cppflags}"
-LDFLAGS="${ax_check_glut_saved_ldflags}"
+AC_DEFUN([_AX_CHECK_GLUT_RESTORE_FLAGS], [
+  LIBS="${ax_check_glut_saved_libs}"
+  CFLAGS="${ax_check_glut_saved_cflags}"
 ])
 
 dnl Default include : add windows.h
@@ -110,48 +104,6 @@ m4_define([_AX_CHECK_GLUT_PROGRAM],
 [[glutMainLoop()]])])
 
 
-dnl Check headers manually (default case)
-AC_DEFUN([_AX_CHECK_GLUT_HEADERS_GENERIC],
-[AC_LANG_PUSH([C])
- _AX_CHECK_GLUT_SAVE_FLAGS()
- CFLAGS="${GLUT_CFLAGS} ${CFLAGS}"
- # see comment in _AX_CHECK_GL_INCLUDES_DEFAULT
- AC_CHECK_HEADERS([windows.h],[],[],[AC_INCLUDES_DEFAULT])
- AC_CHECK_HEADERS([GL/glut.h OpenGL/glut.h],
-                         [ax_check_glut_have_headers="yes";break],
-                         [ax_check_glut_have_headers="no"],
-                         [_AX_CHECK_GLUT_INCLUDES_DEFAULT()])
- _AX_CHECK_GLUT_RESTORE_FLAGS()
- AC_LANG_POP([C])
-])
-
-AC_DEFUN([_AX_CHECK_GLUT_HEADERS_DARWIN],
-[AC_LANG_PUSH([C])
- _AX_CHECK_GLUT_SAVE_FLAGS()
- dnl FIXME: may need to set CFLAGS before header check
- AC_CHECK_HEADERS([GLUT/glut.h],
-                  [ax_check_glut_have_headers="yes"],
-                  [ax_check_glut_have_headers="no"],
-                  [_AX_CHECK_GLUT_INCLUDES_DEFAULT()])
- _AX_CHECK_GLUT_RESTORE_FLAGS()
- AC_LANG_POP([C])
-])
-
-AC_DEFUN([_AX_CHECK_GLUT_HEADERS],
-[AC_REQUIRE([AC_CANONICAL_HOST])
- AS_CASE([${host}],
-         [*-darwin*],[_AX_CHECK_GLUT_HEADERS_DARWIN()],
-         [_AX_CHECK_GLUT_HEADERS_GENERIC()])
-])
-
-dnl AC_DEFUN([_AX_CHECK_GLUT_HEADERS_CV],
-dnl [AC_CACHE_CHECK([for OpenGL Utility TOolkit (GLUT) headers],
-dnl                 [ax_cv_check_glut_header],
-dnl                 [_AX_CHECK_GLUT_HEADERS()
-dnl                  ax_cv_check_glut_header="${ax_check_glut_have_headers}"])
-dnl  ax_check_glut_have_headers="${ax_cv_check_glut_header}"
-dnl ])
-
 # dnl try to found library (generic case)
 # dnl $1 is set to the library to found
 AC_DEFUN([_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC],
@@ -165,41 +117,11 @@ AC_DEFUN([_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC],
  CFLAGS="${GLUT_CFLAGS} ${CFLAGS}"
  LIBS="${GLUT_LIBS} ${LIBS}"
  AC_SEARCH_LIBS([glutMainLoop],[$ax_check_glut_manual_libs_generic_extra_libs],
-                [ax_check_glut_lib_opengl="yes"],
-                [ax_check_glut_lib_opengl="no"])
- AS_CASE([$ac_cv_search_glutMainLoop],
-         ["none required"],[],
-         [no],[],
-         [GLUT_LIBS="${ac_cv_search_glutMainLoop} ${GLU_LIBS}"])
-  _AX_CHECK_GLUT_RESTORE_FLAGS()
-  AC_LANG_POP([C])
-])
-
-AC_DEFUN([_AX_CHECK_GLUT_MANUAL_LIBS_DARWIN],[
-  GLUT_LDFLAGS="-framework GLUT ${GLUT_LDFLAGS}"
-  ax_check_glut_lib_opengl="yes"
-  dnl use AC_CHECK_FILE for real checking
-])
-
-dnl Check library manually: subroutine must set
-dnl $ax_check_glut_lib_opengl={yes,no}
-dnl for windows part see
-dnl   - http://www.transmissionzero.co.uk/computing/using-glut-with-mingw/
-dnl   - http://user.xmission.com/~nate/glut.html
-AC_DEFUN([_AX_CHECK_GLUT_MANUAL_LIBS],
-[AC_REQUIRE([AC_CANONICAL_HOST])
- GLUT_LIBS="${GLUT_LIBS} ${GLU_LIBS}"
- AS_CASE([${host}],
-         [*-darwin*],[_AX_CHECK_GLUT_MANUAL_LIBS_DARWIN()],
-         # try first cygwin version
-         [*-cygwin*],[_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC([GLUT glut MesaGLUT freeglut freeglut32 glut32])],
-         # try first native
-         [*-mingw*],[_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC([glut32 GLUT glut MesaGLUT freeglut freeglut32])],
-         [_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC([GLUT glut freeglut MesaGLUT])])
-
- AC_CACHE_CHECK([for OpenGL Utility Toolkit (GLUT) libraries],[ax_cv_check_glut_lib_opengl],
-                [ax_cv_check_glut_lib_opengl="${ax_check_glut_lib_opengl}"])
- ax_check_glut_lib_opengl="${ax_cv_check_glut_lib_opengl}"
+                [ax_check_glut_lib_glut="yes"])
+ AS_IF([test "X$ax_check_glut_lib_glut" = "Xyes"],
+       [GLUT_LIBS="$ac_cv_search_glutMainLoop"])
+ _AX_CHECK_GLUT_RESTORE_FLAGS()
+ AC_LANG_POP([C])
 ])
 
 # compile the example program
@@ -209,8 +131,8 @@ AC_DEFUN([_AX_CHECK_GLUT_COMPILE],
  _AX_CHECK_GLUT_SAVE_FLAGS()
  CFLAGS="${GLUT_CFLAGS} ${CFLAGS}"
  AC_COMPILE_IFELSE([_AX_CHECK_GLUT_PROGRAM],
-                   [ax_check_glut_compile_opengl="yes"],
-                   [ax_check_glut_compile_opengl="no"])
+                   [ax_check_glut_compile_glut="yes"],
+                   [ax_check_glut_compile_glut="no"])
  _AX_CHECK_GLUT_RESTORE_FLAGS()
  AC_LANG_POP([C])
 ])
@@ -218,10 +140,10 @@ AC_DEFUN([_AX_CHECK_GLUT_COMPILE],
 # compile the example program (cache)
 AC_DEFUN([_AX_CHECK_GLUT_COMPILE_CV],
 [dnl
- AC_CACHE_CHECK([for compiling a minimal OpenGL Utility Toolkit (GLUT) program],[ax_cv_check_glut_compile_opengl],
+ AC_CACHE_CHECK([for compiling a minimal GLUT program],[ax_cv_check_glut_compile_glut],
                 [_AX_CHECK_GLUT_COMPILE()
-                 ax_cv_check_glut_compile_opengl="${ax_check_glut_compile_opengl}"])
- ax_check_glut_compile_opengl="${ax_cv_check_glut_compile_opengl}"
+                 ax_cv_check_glut_compile_glut="${ax_check_glut_compile_glut}"])
+ ax_check_glut_compile_glut="${ax_cv_check_glut_compile_glut}"
 ])
 
 # link the example program
@@ -231,10 +153,9 @@ AC_DEFUN([_AX_CHECK_GLUT_LINK],
  _AX_CHECK_GLUT_SAVE_FLAGS()
  CFLAGS="${GLUT_CFLAGS} ${CFLAGS}"
  LIBS="${GLUT_LIBS} ${LIBS}"
- LDFLAGS="${GLUT_LDFLAGS} ${LDFLAGS}"
  AC_LINK_IFELSE([_AX_CHECK_GLUT_PROGRAM],
-                [ax_check_glut_link_opengl="yes"],
-                [ax_check_glut_link_opengl="no"])
+                [ax_check_glut_link_glut="yes"],
+                [ax_check_glut_link_glut="no"])
  _AX_CHECK_GLUT_RESTORE_FLAGS()
  AC_LANG_POP([C])
 ])
@@ -242,67 +163,99 @@ AC_DEFUN([_AX_CHECK_GLUT_LINK],
 # link the example program (cache)
 AC_DEFUN([_AX_CHECK_GLUT_LINK_CV],
 [dnl
- AC_CACHE_CHECK([for linking a minimal OpenGL Utility Toolkit (GLUT) program],[ax_cv_check_glut_link_opengl],
+ AC_CACHE_CHECK([for linking a minimal GLUT program],[ax_cv_check_glut_link_glut],
                 [_AX_CHECK_GLUT_LINK()
-                 ax_cv_check_glut_link_opengl="${ax_check_glut_link_opengl}"])
- ax_check_glut_link_opengl="${ax_cv_check_glut_link_opengl}"
+                 ax_cv_check_glut_link_glut="${ax_check_glut_link_glut}"])
+ ax_check_glut_link_glut="${ax_cv_check_glut_link_glut}"
+])
+
+# setvar only when variable is unset
+AC_DEFUN([_AX_GLUT_SETVAR], [
+ AS_IF([test -n "$$1"], [], [$1=$2])])
+
+AC_DEFUN([_AX_CHECK_DARWIN_GLUT],
+[AC_ARG_WITH([xquartz],
+ [AS_HELP_STRING([--with-xquartz@<:@=ARG@:>@],
+                 [On Mac OSX, use glut provided by X11 instead of built-in framework. @<:@ARG=no@:>@])],
+ [],
+ [with_xquartz=no]) dnl with-xquartz
+ AS_IF([test "x$with_xquartz" != "xno"],
+       [_AX_GLUT_SETVAR([XQUARTZ_DIR],[/opt/X11])
+        AC_MSG_CHECKING([OSX X11 path])
+        AS_IF([test -e "$XQUARTZ_DIR"],
+              dnl then
+              [AC_MSG_RESULT(["$XQUARTZ_DIR"])
+               _AX_GLUT_SETVAR([GLUT_CFLAGS],["-I$XQUARTZ_DIR/include"])
+               _AX_GLUT_SETVAR([GLUT_LIBS],["-L$XQUARTZ_DIR/lib -lGLUT"])
+              ],
+              dnl else
+              [AC_MSG_RESULT([no])
+               AC_MSG_WARN([--with-xquartz was given, but test for X11 failed. Fallback to system framework])
+              ]
+             ) dnl XQUARTZ_DIR
+       ]) dnl test xquartz
+ _AX_GLUT_SETVAR([GLUT_LIBS],["-framework GLUT"])
+ AC_MSG_CHECKING([GLUT_LIBS])
+ AC_MSG_RESULT(["$GLUT_LIBS"])
+])
+
+AC_DEFUN([_AX_CHECK_GLUT_HEADER],[
+  AC_LANG_PUSH([C])
+  _AX_CHECK_GLUT_SAVE_FLAGS()
+  CFLAGS="${GLUT_CFLAGS} ${CFLAGS}"
+  AC_CHECK_HEADERS([$1],
+                   [ax_check_glut_have_headers=yes])
+  _AX_CHECK_GLUT_RESTORE_FLAGS()
+  AC_LANG_POP([C])
 ])
 
 
-# manually check GLUT
-AC_DEFUN([_AX_CHECK_GLUT_MANUAL],dnl
-[
-GLUT_CFLAGS="${GLUT_CFLAGS} ${GLU_CFLAGS}"
-_AX_CHECK_GLUT_HEADERS
-
-AS_IF([test "X$ax_check_glut_have_headers" = "Xyes"],
-      [_AX_CHECK_GLUT_MANUAL_LIBS],
-      [ax_check_glut_lib="no"])
-
-AS_IF([test "X$ax_check_glut_lib_opengl" = "Xyes"],
-      [_AX_CHECK_GLUT_COMPILE_CV()],
-      [ax_cv_check_glut_compile_opengl="no"])
-
-AS_IF([test "X$ax_cv_check_glut_compile_opengl" = "Xyes"],
-      [_AX_CHECK_GLUT_LINK_CV()],
-      [ax_cv_check_glut_link_opengl="no"])
-
-AS_IF([test "X$ax_cv_check_glut_link_opengl" = "Xyes"],
-       [no_glut="no"],
-       [no_glut="yes"])
+AC_DEFUN([_AX_CHECK_GLUT_HEADER_GENERIC],[
+  AC_REQUIRE([AC_CANONICAL_HOST])
+  AS_CASE([${host}],
+    [*-darwin*],[AS_IF([test "x$with_xquartz" = "xno"],
+                       [_AX_CHECK_GLUT_HEADER([GLUT/glut.h])],
+                       [_AX_CHECK_GLUT_HEADER([GL/glut.h])])],
+    [_AX_CHECK_GLUT_HEADER([GL/glut.h])])
 ])
 
 
-# main entry point
+# AX_CHECK_GLUT_LIB([ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
+# ---------------------------------------------------------
+#
+# if ACTION-IF-FOUND is not provided, it will set CFLAGS and
+# LIBS
 AC_DEFUN([AX_CHECK_GLUT],
-[dnl
- AC_REQUIRE([AX_CHECK_GL])dnl
- AC_REQUIRE([AX_CHECK_GLU])dnl
+[AC_REQUIRE([AC_CANONICAL_HOST])
+ AC_REQUIRE([PKG_PROG_PKG_CONFIG])
+ AC_ARG_VAR([GLUT_CFLAGS],[C compiler flags for GLUT, overriding system check])
+ AC_ARG_VAR([GLUT_LIBS],[linker flags for GLUT, overriding system check])
+ AC_ARG_VAR([XQUARTZ_DIR],[XQuartz (X11) root on OSX @<:@/opt/X11@:>@])
+ 
+ dnl --with-gl or not can be implemented outside of check-gl
+ AS_CASE([${host}],
+         [*-darwin*],[_AX_CHECK_DARWIN_GLUT],
+         [*-cygwin*|*-mingw*],[
+          _AX_GLUT_SETVAR([GLUT_LIBS],[-lglut32])
+          AC_CHECK_HEADERS([windows.h])
+          ],
+         [_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC([glut])
+         ]) dnl host specific checks
 
- # set flags
- no_glut="yes"
- have_GLUT="no"
- have_glut="no"
+ _AX_CHECK_GLUT_HEADER_GENERIC()
 
- _AX_CHECK_GLUT_MANUAL
+ AS_IF([test "X$ax_check_glut_have_headers" = "Xyes"],
+       [_AX_CHECK_GLUT_COMPILE_CV()],
+       [no_glut=yes])
+ AS_IF([test "X$ax_check_glut_compile_glut" = "Xyes"],
+       [_AX_CHECK_GLUT_LINK_CV()],
+       [no_glut=yes])
+ AS_IF([test "X$no_glut" = "X"],
+   [m4_ifval([$1], 
+     [$1],
+     [CFLAGS="$GLUT_CFLAGS $CFLAGS"
+      LIBS="$GLUT_LIBS $LIBS"])
+   ],
+   [$2])
 
- AC_MSG_CHECKING([for a working OpenGL Utility Toolkit (GLUT) implementation])
- AS_IF([test "X$no_glut" = "Xno"],
-       [have_GLUT="yes"
-        have_glut="yes"
-        AC_MSG_RESULT([yes])
-        AC_MSG_CHECKING([for CFLAGS needed for OpenGL Utility Toolkit (GLUT)])
-        AC_MSG_RESULT(["${GLUT_CFLAGS}"])
-        AC_MSG_CHECKING([for LIBS needed for OpenGL Utility Toolkit (GLUT)])
-        AC_MSG_RESULT(["${GLUT_LIBS}"])
-        AC_MSG_CHECKING([for LDFLAGS needed for OpenGL Utility Toolkit (GLUT)])
-        AC_MSG_RESULT(["${GLUT_LDFLAGS}"])],
-       [AC_MSG_RESULT([no])
-        GLUT_CFLAGS=""
-        GLUT_LIBS=""
-        GLUT_LDFLAGS=""])
-
- AC_SUBST([GLUT_CFLAGS])
- AC_SUBST([GLUT_LIBS])
- AC_SUBST([GLUT_LDFLAGS])
 ])
