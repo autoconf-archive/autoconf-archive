@@ -49,7 +49,7 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2012 Philip Withnall
+#   Copyright (c) 2012, 2016 Philip Withnall
 #   Copyright (c) 2012 Xan Lopez
 #   Copyright (c) 2012 Christian Persch
 #   Copyright (c) 2012 Paolo Borelli
@@ -69,7 +69,7 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_CODE_COVERAGE],[
 	dnl Check for --enable-code-coverage
@@ -233,8 +233,8 @@ endif
 GITIGNOREFILES ?=
 GITIGNOREFILES += $(CODE_COVERAGE_OUTPUT_FILE) $(CODE_COVERAGE_OUTPUT_DIRECTORY)
 
-DISTCHECK_CONFIGURE_FLAGS ?=
-DISTCHECK_CONFIGURE_FLAGS += --disable-code-coverage
+A''M_DISTCHECK_CONFIGURE_FLAGS ?=
+A''M_DISTCHECK_CONFIGURE_FLAGS += --disable-code-coverage
 
 .PHONY: check-code-coverage code-coverage-capture code-coverage-capture-hook code-coverage-clean
 '
