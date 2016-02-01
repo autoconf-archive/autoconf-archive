@@ -193,11 +193,6 @@ AC_DEFUN_ONCE([_WITH_XQUARTZ_GL],[
 ])
 
 AC_DEFUN([_AX_CHECK_DARWIN_GL], [ 
-dnl TODO I think I can switch back to with-x
-dnl opengl -> GL_CFLAGS += X_CFLAGS 
-dnl           GL_LIBS += X_LIBS
-dnl glut   -> use header GL/glut.h
-dnl        -> use search lib -lglut
  AC_REQUIRE([_WITH_XQUARTZ_GL])
  AS_IF([test "x$with_xquartz" != "xno"],
        [_AX_GL_SETVAR([XQUARTZ_DIR],[/opt/X11])
