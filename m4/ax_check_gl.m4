@@ -100,30 +100,37 @@ AC_DEFUN([_AX_CHECK_GL_INCLUDES_DEFAULT],dnl
   ]
 ])
 
-dnl local save flags
-AC_DEFUN([_AX_CHECK_GL_SAVE_FLAGS],
-[dnl
-AC_LANG_PUSH([C])
-ax_check_gl_saved_libs="${LIBS}"
-ax_check_gl_saved_cflags="${CFLAGS}"
+m4_define([push_flag_with_prefix],[
+m4_ifval([$2], [
+_ax_[]m4_tolower($1)_saved_flag_[]m4_tolower(m4_car($2))="$m4_car($2)"
+m4_car($2)="$$1_[]m4_car($2) $m4_car($2)"
+$0($1, m4_cdr($2))
+])])
+
+m4_define([pop_flag_with_prefix],[
+m4_ifval([$2], [
+m4_car($2)="$_ax_[]m4_tolower($1)_saved_flag_[]m4_tolower(m4_car($2))"
+$0($1, m4_cdr($2))])
 ])
 
-dnl local restore flags
-AC_DEFUN([_AX_CHECK_GL_RESTORE_FLAGS],
-[dnl
-LIBS="${ax_check_gl_saved_libs}"
-CFLAGS="${ax_check_gl_saved_cflags}"
-AC_LANG_POP([C])
+
+AC_DEFUN([_AX_CHECK_GL_FLAGS_PUSH], [
+ push_flag_with_prefix([GL],[$1])
+ AC_LANG_PUSH([C])
+])
+
+AC_DEFUN([_AX_CHECK_GL_FLAGS_POP], [
+ pop_flag_with_prefix([GL],[$1])
+ AC_LANG_POP([C])
 ])
 
 AC_DEFUN([_AX_CHECK_GL_COMPILE],
 [dnl
- _AX_CHECK_GL_SAVE_FLAGS()
- CFLAGS="${GL_CFLAGS} ${CFLAGS}"
+ _AX_CHECK_GL_FLAGS_PUSH([CFLAGS])
  AC_COMPILE_IFELSE([_AX_CHECK_GL_PROGRAM],
                    [ax_check_gl_compile_opengl="yes"],
                    [ax_check_gl_compile_opengl="no"])
- _AX_CHECK_GL_RESTORE_FLAGS()
+ _AX_CHECK_GL_FLAGS_POP([CFLAGS])
 ])
 
 # compile the example program (cache)
@@ -138,13 +145,11 @@ AC_DEFUN([_AX_CHECK_GL_COMPILE_CV],
 # link the example program
 AC_DEFUN([_AX_CHECK_GL_LINK],
 [dnl
- _AX_CHECK_GL_SAVE_FLAGS()
- CFLAGS="${GL_CFLAGS} ${CFLAGS}"
- LIBS="${GL_LIBS} ${LIBS}"
+ _AX_CHECK_GL_FLAGS_PUSH([[CFLAGS],[LIBS]])
  AC_LINK_IFELSE([_AX_CHECK_GL_PROGRAM],
                 [ax_check_gl_link_opengl="yes"],
                 [ax_check_gl_link_opengl="no"])
- _AX_CHECK_GL_RESTORE_FLAGS()
+ _AX_CHECK_GL_FLAGS_POP([[CFLAGS],[LIBS]])
 ])
 
 # link the example program (cache)
@@ -164,13 +169,14 @@ AC_DEFUN([_AX_CHECK_GL_MANUAL_LIBS_GENERIC], [
     AS_IF([test "X$ax_check_gl_manual_libs_generic_extra_libs" = "X"],
           [AC_MSG_ERROR([AX_CHECK_GL_MANUAL_LIBS_GENERIC argument must no be empty])])
 
-    _AX_CHECK_GL_SAVE_FLAGS()
-    CFLAGS="${GL_CFLAGS} ${CFLAGS}"
-    AC_SEARCH_LIBS([glBegin],[$ax_check_gl_manual_libs_generic_extra_libs],
-                   [ax_check_gl_lib_opengl="yes"])
+    _AX_CHECK_GL_FLAGS_PUSH([CFLAGS])
+    AC_SEARCH_LIBS([glBegin],[$ax_check_gl_manual_libs_generic_extra_libs], [
+                   ax_check_gl_lib_opengl="yes"
+                   break
+                   ])
     AS_IF([test "X$ax_check_gl_lib_opengl"="Xyes"],
           [GL_LIBS="${ac_cv_search_glBegin}"])
-    _AX_CHECK_GL_RESTORE_FLAGS()
+    _AX_CHECK_GL_FLAGS_POP([CFLAGS])
  ])
 ])
 
@@ -178,12 +184,21 @@ AC_DEFUN([_AX_CHECK_GL_MANUAL_LIBS_GENERIC], [
 AC_DEFUN([_AX_GL_SETVAR], [
  AS_IF([test -n "$$1"], [], [$1=$2])])
 
-AC_DEFUN([_AX_CHECK_DARWIN_GL],
-[AC_ARG_WITH([xquartz],
- [AS_HELP_STRING([--with-xquartz@<:@=ARG@:>@],
-                 [On Mac OSX, use opengl provided by X11 instead of built-in framework. @<:@ARG=no@:>@])],
- [],
- [with_xquartz=no]) dnl with-xquartz
+AC_DEFUN_ONCE([_WITH_XQUARTZ_GL],[
+  AC_ARG_WITH([xquartz],
+   [AS_HELP_STRING([--with-xquartz@<:@=ARG@:>@],
+                   [On Mac OSX, use opengl provided by X11 instead of built-in framework. @<:@ARG=no@:>@])],
+   [],
+   [with_xquartz=no]) dnl with-xquartz
+])
+
+AC_DEFUN([_AX_CHECK_DARWIN_GL], [ 
+dnl TODO I think I can switch back to with-x
+dnl opengl -> GL_CFLAGS += X_CFLAGS 
+dnl           GL_LIBS += X_LIBS
+dnl glut   -> use header GL/glut.h
+dnl        -> use search lib -lglut
+ AC_REQUIRE([_WITH_XQUARTZ_GL])
  AS_IF([test "x$with_xquartz" != "xno"],
        [_AX_GL_SETVAR([XQUARTZ_DIR],[/opt/X11])
         AC_MSG_CHECKING([OSX X11 path])
@@ -221,7 +236,7 @@ AC_DEFUN([AX_CHECK_GL],
          dnl some windows may support X11 opengl, and should be able to linked
          dnl by -lGL. However I have no machine to test it.
          [*-cygwin*|*-mingw*],[
-          _AX_GL_SETVAR([GL_LIBS],[-lopengl32])
+          _AX_CHECK_GL_MANUAL_LIBS_GENERIC([opengl32 GL gl])
           AC_CHECK_HEADERS([windows.h])
           ],
          [PKG_PROG_PKG_CONFIG
@@ -230,11 +245,11 @@ AC_DEFUN([AX_CHECK_GL],
           [_AX_CHECK_GL_MANUAL_LIBS_GENERIC([GL gl])])
          ]) dnl host specific checks
 
- _AX_CHECK_GL_SAVE_FLAGS()
- CFLAGS="${GL_CFLAGS} ${CFLAGS}"
+ dnl this was cache
+ _AX_CHECK_GL_FLAGS_PUSH([CFLAGS])
  AC_CHECK_HEADERS([GL/gl.h OpenGL/gl.h],
    [ax_check_gl_have_headers="yes";break])
- _AX_CHECK_GL_RESTORE_FLAGS()
+ _AX_CHECK_GL_FLAGS_POP([CFLAGS])
 
  AS_IF([test "X$ax_check_gl_have_headers" = "Xyes"],
        [_AX_CHECK_GL_COMPILE_CV()],
