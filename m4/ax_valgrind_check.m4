@@ -48,14 +48,14 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2014, 2015 Philip Withnall <philip.withnall@collabora.co.uk>
+#   Copyright (c) 2014, 2015, 2016 Philip Withnall <philip.withnall@collabora.co.uk>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_VALGRIND_CHECK],[
 	dnl Check for --enable-valgrind
@@ -167,8 +167,8 @@ else
 	@echo "Need to reconfigure with --enable-valgrind"
 endif
 
-DISTCHECK_CONFIGURE_FLAGS ?=
-DISTCHECK_CONFIGURE_FLAGS += --disable-valgrind
+A''M_DISTCHECK_CONFIGURE_FLAGS ?=
+A''M_DISTCHECK_CONFIGURE_FLAGS += --disable-valgrind
 
 MOSTLYCLEANFILES ?=
 MOSTLYCLEANFILES += $(valgrind_log_files)
