@@ -39,7 +39,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 dnl  This macro is based on the code from the AX_CXX_COMPILE_STDCXX_11 macro
 dnl  (serial version number 13).
@@ -115,18 +115,16 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX], [dnl
     if test x$ac_success = xno; then
       AC_MSG_ERROR([*** A compiler with support for C++$1 language features is required.])
     fi
-  else
-    if test x$ac_success = xno; then
-      HAVE_CXX$1=0
-      AC_MSG_NOTICE([No compiler with C++$1 support was found])
-    else
-      HAVE_CXX$1=1
-      AC_DEFINE(HAVE_CXX$1,1,
-                [define if the compiler supports basic C++$1 syntax])
-    fi
-
-    AC_SUBST(HAVE_CXX$1)
   fi
+  if test x$ac_success = xno; then
+    HAVE_CXX$1=0
+    AC_MSG_NOTICE([No compiler with C++$1 support was found])
+  else
+    HAVE_CXX$1=1
+    AC_DEFINE(HAVE_CXX$1,1,
+              [define if the compiler supports basic C++$1 syntax])
+  fi
+  AC_SUBST(HAVE_CXX$1)
 ])
 
 
