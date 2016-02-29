@@ -39,7 +39,7 @@
 #    dllexport
 #    init_priority
 #
-#   Unsuppored variable attributes will be tested against a global integer
+#   Unsupported variable attributes will be tested against a global integer
 #   variable and without any arguments given to the attribute itself; the
 #   result of this check might be wrong or meaningless so use with care.
 #
@@ -52,7 +52,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_GCC_VAR_ATTRIBUTE], [
     AS_VAR_PUSHDEF([ac_var], [ax_cv_have_var_attribute_$1])
