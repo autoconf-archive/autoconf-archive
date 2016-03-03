@@ -55,7 +55,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_VALGRIND_CHECK],[
 	dnl Check for --enable-valgrind
@@ -63,13 +63,19 @@ AC_DEFUN([AX_VALGRIND_CHECK],[
 	              [AS_HELP_STRING([--enable-valgrind], [Whether to enable Valgrind on the unit tests])],
 	              [enable_valgrind=$enableval],[enable_valgrind=])
 
-	# Check for Valgrind.
-	AC_CHECK_PROG([VALGRIND],[valgrind],[valgrind])
-
-	AS_IF([test "$enable_valgrind" = "yes" -a "$VALGRIND" = ""],[
-		AC_MSG_ERROR([Could not find valgrind; either install it or reconfigure with --disable-valgrind])
+	AS_IF([test "$enable_valgrind" != "no"],[
+		# Check for Valgrind.
+		AC_CHECK_PROG([VALGRIND],[valgrind],[valgrind])
+		AS_IF([test "$VALGRIND" = ""],[
+			AS_IF([test "$enable_valgrind" = "yes"],[
+				AC_MSG_ERROR([Could not find valgrind; either install it or reconfigure with --disable-valgrind])
+			],[
+				enable_valgrind=no
+			])
+		],[
+			enable_valgrind=yes
+		])
 	])
-	AS_IF([test "$enable_valgrind" != "no"],[enable_valgrind=yes])
 
 	AM_CONDITIONAL([VALGRIND_ENABLED],[test "$enable_valgrind" = "yes"])
 	AC_SUBST([VALGRIND_ENABLED],[$enable_valgrind])
