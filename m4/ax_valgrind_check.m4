@@ -55,7 +55,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_VALGRIND_CHECK],[
 	dnl Check for --enable-valgrind
@@ -98,7 +98,7 @@ AC_DEFUN([AX_VALGRIND_CHECK],[
 		])
 	])
 
-VALGRIND_CHECK_RULES='
+[VALGRIND_CHECK_RULES='
 # Valgrind check
 #
 # Optional:
@@ -178,7 +178,7 @@ MOSTLYCLEANFILES ?=
 MOSTLYCLEANFILES += $(valgrind_log_files)
 
 .PHONY: check-valgrind check-valgrind-tool
-'
+']
 
 	AC_SUBST([VALGRIND_CHECK_RULES])
 	m4_ifdef([_AM_SUBST_NOTMAKE], [_AM_SUBST_NOTMAKE([VALGRIND_CHECK_RULES])])
