@@ -69,7 +69,7 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-#serial 13
+#serial 14
 
 AC_DEFUN([AX_CODE_COVERAGE],[
 	dnl Check for --enable-code-coverage
@@ -148,7 +148,7 @@ AC_DEFUN([AX_CODE_COVERAGE],[
 		AC_SUBST([CODE_COVERAGE_LDFLAGS])
 	])
 
-CODE_COVERAGE_RULES='
+[CODE_COVERAGE_RULES='
 # Code coverage
 #
 # Optional:
@@ -263,7 +263,7 @@ A''M_DISTCHECK_CONFIGURE_FLAGS ?=
 A''M_DISTCHECK_CONFIGURE_FLAGS += --disable-code-coverage
 
 .PHONY: check-code-coverage code-coverage-capture code-coverage-capture-hook code-coverage-clean
-'
+']
 
 	AC_SUBST([CODE_COVERAGE_RULES])
 	m4_ifdef([_AM_SUBST_NOTMAKE], [_AM_SUBST_NOTMAKE([CODE_COVERAGE_RULES])])
