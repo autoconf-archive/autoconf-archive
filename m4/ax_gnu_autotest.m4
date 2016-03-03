@@ -249,7 +249,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 # _AX_GNU_AUTOTEST_remove_parent(filename)
 # ----------------------------------------
@@ -422,21 +422,21 @@ m4_set_add([_AX_GNU_AUTOTEST_dist], [$1/]m4_argn(2, $2))dnl
 # shared2 is used in the DEFAULT substitution
 m4_define([_AX_GNU_AUTOTEST_acsubst_shared],
 [AC_SUBST([_AX_GNU_AUTOTEST_shared1],
-['AX_GNU_AUTOTEST_V_RUN = $(_AX_GNU_AUTOTEST_v_RUN_$(V))
+[['AX_GNU_AUTOTEST_V_RUN = $(_AX_GNU_AUTOTEST_v_RUN_$(V))
 _AX_GNU_AUTOTEST_v_RUN_ = $(_AX_GNU_AUTOTEST_v_RUN_$(AM_DEFAULT_VERBOSITY))
 _AX_GNU_AUTOTEST_v_RUN_0 = @echo "  RUN   " $<;
 AX_GNU_AUTOTEST_V_quiet_flag = $(_AX_GNU_AUTOTEST_v_quiet_flag_$(V))
 _AX_GNU_AUTOTEST_v_quiet_flag_ = ]dnl
 [$(_AX_GNU_AUTOTEST_v_quiet_flag_$(AM_DEFAULT_VERBOSITY))
-_AX_GNU_AUTOTEST_v_quiet_flag_0 = -q # <- Note: trailing whitespace'])dnl
+_AX_GNU_AUTOTEST_v_quiet_flag_0 = -q # <- Note: trailing whitespace']])dnl
 AM_SUBST_NOTMAKE([_AX_GNU_AUTOTEST_shared1])dnl
 AC_SUBST([_AX_GNU_AUTOTEST_shared2],
-['check: check-autotest
+[['check: check-autotest
 installcheck: installcheck-autotest
 clean: clean-autotest
 distclean: distclean-autotest
 .PHONY: distclean-autotest
-distclean-autotest: clean-autotest'])dnl
+distclean-autotest: clean-autotest']])dnl
 AM_SUBST_NOTMAKE([_AX_GNU_AUTOTEST_shared2])dnl
 ])# _AX_GNU_AUTOTEST_acsubst_shared
 
@@ -707,12 +707,12 @@ m4_ifblank([$2], [m4_define([testdirs], m4_dquote([],
                             _AX_GNU_AUTOTEST_filter_listc([$2/]dnl
 m4_set_listc([_AX_GNU_AUTOTEST_testdirs]))))])dnl
 AC_SUBST([$1],
-["${_AX_GNU_AUTOTEST_shared1}"'
-]m4_map_args([m4_curry([_AX_GNU_AUTOTEST_acsubst_rules_suite],
+[["${_AX_GNU_AUTOTEST_shared1}"'
+]]m4_map_args([m4_curry([_AX_GNU_AUTOTEST_acsubst_rules_suite],
                        [$2])]suites)dnl
 m4_map_args([m4_curry([_AX_GNU_AUTOTEST_acsubst_rules_dir], [$2])]testdirs)dnl
-[.PHONY:]m4_map_args_sep([_AX_GNU_AUTOTEST_acsubst_rules_phony(], [)], [\
-]testdirs[]suites)['])dnl
+[[.PHONY:]]m4_map_args_sep([_AX_GNU_AUTOTEST_acsubst_rules_phony(], [)], [\
+]testdirs[]suites)[[']])dnl
 AM_SUBST_NOTMAKE([$1])dnl
 m4_popdef([suites], [testdirs])dnl
 ])# _AX_GNU_AUTOTEST_acsubst_rules_one
@@ -736,8 +736,8 @@ _AX_GNU_AUTOTEST_acsubst_rules(m4_bpatsubsts([[$1]], [^\(..\)[^/]*\(..\)$],
 # ----------------------------------------------
 # AC_SUBSTs the name variable to contain all arg1, ...
 m4_define([_AX_GNU_AUTOTEST_acsubst_list],
-[AC_SUBST([$1], [']m4_dquote(m4_mapall_sep([m4_quote], [[\
- ]], m4_dquote(m4_dquote_elt(m4_unquote(m4_cdr($@))))))['])dnl
+[AC_SUBST([$1], [[']]m4_dquote(m4_mapall_sep([m4_quote], [[\
+ ]], m4_dquote(m4_dquote_elt(m4_unquote(m4_cdr($@))))))[[']])dnl
 AM_SUBST_NOTMAKE([$1])dnl
 ])# _AX_GNU_AUTOTEST_acsubst_list
 
@@ -791,10 +791,10 @@ m4_define([_AX_GNU_AUTOTEST_acsubst_default],
 m4_bmatch([$1], [^\.?$], [],
           [m4_define([name], [_]_AX_GNU_AUTOTEST_cleanname([_], [$1]))])dnl
 AC_SUBST([AX_GNU_AUTOTEST_DEFAULT]m4_defn([name]),
-["${AX_GNU_AUTOTEST_RULES]m4_defn([name])[}
+[["${AX_GNU_AUTOTEST_RULES]m4_defn([name])[}
 ${_AX_GNU_AUTOTEST_shared2}"'
 	-rm -f '"${AX_GNU_AUTOTEST_DCLEAN]m4_defn([name])[}"'
-EXTRA_DIST += '"${AX_GNU_AUTOTEST_DIST]m4_defn([name])[}"])dnl
+EXTRA_DIST += '"${AX_GNU_AUTOTEST_DIST]m4_defn([name])[}"]])dnl
 AM_SUBST_NOTMAKE([AX_GNU_AUTOTEST_DEFAULT]m4_defn([name]))dnl
 m4_popdef([name])dnl
 m4_bmatch([$1], [^\.?$], [],
