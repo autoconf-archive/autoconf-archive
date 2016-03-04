@@ -55,26 +55,30 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 8
 
 AC_DEFUN([AX_VALGRIND_CHECK],[
 	dnl Check for --enable-valgrind
-	AC_MSG_CHECKING([whether to enable Valgrind on the unit tests])
 	AC_ARG_ENABLE([valgrind],
 	              [AS_HELP_STRING([--enable-valgrind], [Whether to enable Valgrind on the unit tests])],
 	              [enable_valgrind=$enableval],[enable_valgrind=])
 
-	# Check for Valgrind.
-	AC_CHECK_PROG([VALGRIND],[valgrind],[valgrind])
-
-	AS_IF([test "$enable_valgrind" = "yes" -a "$VALGRIND" = ""],[
-		AC_MSG_ERROR([Could not find valgrind; either install it or reconfigure with --disable-valgrind])
+	AS_IF([test "$enable_valgrind" != "no"],[
+		# Check for Valgrind.
+		AC_CHECK_PROG([VALGRIND],[valgrind],[valgrind])
+		AS_IF([test "$VALGRIND" = ""],[
+			AS_IF([test "$enable_valgrind" = "yes"],[
+				AC_MSG_ERROR([Could not find valgrind; either install it or reconfigure with --disable-valgrind])
+			],[
+				enable_valgrind=no
+			])
+		],[
+			enable_valgrind=yes
+		])
 	])
-	AS_IF([test "$enable_valgrind" != "no"],[enable_valgrind=yes])
 
 	AM_CONDITIONAL([VALGRIND_ENABLED],[test "$enable_valgrind" = "yes"])
 	AC_SUBST([VALGRIND_ENABLED],[$enable_valgrind])
-	AC_MSG_RESULT([$enable_valgrind])
 
 	# Check for Valgrind tools we care about.
 	m4_define([valgrind_tool_list],[[memcheck], [helgrind], [drd], [exp-sgcheck]])
@@ -94,7 +98,7 @@ AC_DEFUN([AX_VALGRIND_CHECK],[
 		])
 	])
 
-VALGRIND_CHECK_RULES='
+[VALGRIND_CHECK_RULES='
 # Valgrind check
 #
 # Optional:
@@ -174,7 +178,7 @@ MOSTLYCLEANFILES ?=
 MOSTLYCLEANFILES += $(valgrind_log_files)
 
 .PHONY: check-valgrind check-valgrind-tool
-'
+']
 
 	AC_SUBST([VALGRIND_CHECK_RULES])
 	m4_ifdef([_AM_SUBST_NOTMAKE], [_AM_SUBST_NOTMAKE([VALGRIND_CHECK_RULES])])
