@@ -8,15 +8,15 @@
 #
 # DESCRIPTION
 #
-#   Defines CODE_COVERAGE_CPPFLAGS, CODE_COVERAGE_CFLAGS and
-#   CODE_COVERAGE_LDFLAGS which should be included in the CPPFLAGS, CFLAGS
-#   and LIBS/LDFLAGS variables of every build target (program or library)
-#   which should be built with code coverage support. Also defines
-#   CODE_COVERAGE_RULES which should be substituted in your Makefile; and
-#   $enable_code_coverage which can be used in subsequent configure output.
-#   CODE_COVERAGE_ENABLED is defined and substituted, and corresponds to the
-#   value of the --enable-code-coverage option, which defaults to being
-#   disabled.
+#   Defines CODE_COVERAGE_CPPFLAGS, CODE_COVERAGE_CFLAGS,
+#   CODE_COVERAGE_CXXFLAGS and CODE_COVERAGE_LDFLAGS which should be
+#   included in the CPPFLAGS, CFLAGS CXXFLAGS and LIBS/LDFLAGS variables of
+#   every build target (program or library) which should be built with code
+#   coverage support. Also defines CODE_COVERAGE_RULES which should be
+#   substituted in your Makefile; and $enable_code_coverage which can be
+#   used in subsequent configure output. CODE_COVERAGE_ENABLED is defined
+#   and substituted, and corresponds to the value of the
+#   --enable-code-coverage option, which defaults to being disabled.
 #
 #   Test also for gcov program and create GCOV variable that could be
 #   substituted.
@@ -36,6 +36,7 @@
 #     my_program_LIBS = ... $(CODE_COVERAGE_LDFLAGS) ...
 #     my_program_CPPFLAGS = ... $(CODE_COVERAGE_CPPFLAGS) ...
 #     my_program_CFLAGS = ... $(CODE_COVERAGE_CFLAGS) ...
+#     my_program_CXXFLAGS = ... $(CODE_COVERAGE_CXXFLAGS) ...
 #
 #   This results in a "check-code-coverage" rule being added to any
 #   Makefile.am which includes "@CODE_COVERAGE_RULES@" (assuming the module
@@ -69,7 +70,7 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-#serial 14
+#serial 15
 
 AC_DEFUN([AX_CODE_COVERAGE],[
 	dnl Check for --enable-code-coverage
@@ -141,10 +142,12 @@ AC_DEFUN([AX_CODE_COVERAGE],[
 		dnl Build the code coverage flags
 		CODE_COVERAGE_CPPFLAGS="-DNDEBUG"
 		CODE_COVERAGE_CFLAGS="-O0 -g -fprofile-arcs -ftest-coverage"
+		CODE_COVERAGE_CXXFLAGS="-O0 -g -fprofile-arcs -ftest-coverage"
 		CODE_COVERAGE_LDFLAGS="-lgcov"
 
 		AC_SUBST([CODE_COVERAGE_CPPFLAGS])
 		AC_SUBST([CODE_COVERAGE_CFLAGS])
+		AC_SUBST([CODE_COVERAGE_CXXFLAGS])
 		AC_SUBST([CODE_COVERAGE_LDFLAGS])
 	])
 
