@@ -382,3 +382,44 @@ AC_DEFUN([AX_CHECK_GLU],dnl
  AC_SUBST([GLU_LDFLAGS])
 
 ])
+
+AC_DEFUN([_AX_CHECK_DARWIN_GLU], [ 
+ AC_REQUIRE([_WITH_XQUARTZ_GL])
+ AS_IF([test "x$with_xquartz" != "xno"],
+       [XQUARTZ_DIR="${XQUARTZ_DIR:-/opt/X11}"
+        AC_MSG_CHECKING([OSX X11 path])
+        AS_IF([test -e "$XQUARTZ_DIR"], dnl then
+              [AC_MSG_RESULT(["$XQUARTZ_DIR"])
+               GLU_CFLAGS="${GLU_CFLAGS:--I$XQUARTZ_DIR/include}"
+               GLU_LIBS="${GLU_LIBS:--L$XQUARTZ_DIR/lib -lGLU}"
+              ], dnl else
+              [AC_MSG_RESULT([no])
+               AC_MSG_WARN([--with-xquartz was given, but test for X11 failed. Fallback to system framework])
+              ]
+             ) dnl XQUARTZ_DIR
+       ]) dnl test xquartz
+dnl if check_GL already add -framework OpenGL, do we still want to add it?
+ GLU_LIBS="${GLU_LIBS=--framework OpenGL}"
+])
+
+AC_DEFUN([_AX_CHECK_GLU],[dnl
+ AC_REQUIRE([AC_CANONICAL_HOST])
+ AC_REQUIRE([PKG_PROG_PKG_CONFIG])
+ AC_ARG_VAR([GLU_CFLAGS],[C compiler flags for GLU, overriding system check])
+ AC_ARG_VAR([GLU_LIBS],[linker flags for GLU, overriding system check])
+ AC_ARG_VAR([XQUARTZ_DIR],[XQuartz (X11) root on OSX @<:@/opt/X11@:>@])
+
+ AS_CASE([${host}],
+         [*-darwin*],[_AX_CHECK_DARWIN_GLU],
+         dnl header same as GLUT, need to handle saparately
+         [*-cygwin*|*-mingw*],[
+          _AX_CHECK_GL_MANUAL_LIBS_GENERIC([opengl32 GL gl])
+          AC_CHECK_HEADERS([windows.h])
+          ],
+         [PKG_PROG_PKG_CONFIG
+          PKG_CHECK_MODULES([GLU],[glu],
+          [],
+          [_AX_CHECK_GL_MANUAL_LIBS_GENERIC([GLU glu])])
+         ]) dnl host specific checks
+])
+

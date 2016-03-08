@@ -64,12 +64,12 @@
 #serial 14
 
 AC_DEFUN([_AX_CHECK_GLUT_FLAGS_PUSH], [
- push_flag_with_prefix([GLUT],[$1]) dnl defined in ax_check_gl
+ AX_SAVE_FLAGS_WITH_PREFIX([GLUT],[$1]) dnl defined in ax_check_gl
  AC_LANG_PUSH([C])
 ])
 
 AC_DEFUN([_AX_CHECK_GLUT_FLAGS_POP], [
- pop_flag_with_prefix([GLUT],[$1]) dnl defined in ax_check_gl
+ AX_RESTORE_FLAGS_WITH_PREFIX([GLUT],[$1]) dnl defined in ax_check_gl
  AC_LANG_POP([C])
 ])
 
@@ -161,30 +161,23 @@ AC_DEFUN([_AX_CHECK_GLUT_LINK_CV],
  ax_check_glut_link_glut="${ax_cv_check_glut_link_glut}"
 ])
 
-# setvar only when variable is unset
-AC_DEFUN([_AX_GLUT_SETVAR], [
- AS_IF([test -n "$$1"], [], [$1=$2])])
 
 AC_DEFUN([_AX_CHECK_DARWIN_GLUT],
 [AC_REQUIRE([_WITH_XQUARTZ_GL])
  AS_IF([test "x$with_xquartz" != "xno"],
-       [_AX_GLUT_SETVAR([XQUARTZ_DIR],[/opt/X11])
+       [XQUARTZ_DIR="${XQUARTZ_DIR:-/opt/X11}"
         AC_MSG_CHECKING([OSX X11 path])
-        AS_IF([test -e "$XQUARTZ_DIR"],
-              dnl then
+        AS_IF([test -e "$XQUARTZ_DIR"], dnl then
               [AC_MSG_RESULT(["$XQUARTZ_DIR"])
-               _AX_GLUT_SETVAR([GLUT_CFLAGS],["-I$XQUARTZ_DIR/include"])
-               _AX_GLUT_SETVAR([GLUT_LIBS],["-L$XQUARTZ_DIR/lib -lGLUT"])
-              ],
-              dnl else
+               GLUT_CFLAGS="${GLUT_CFLAGS:--I$XQUARTZ_DIR/include}"
+               GLUT_LIBS="${GLUT_LIBS:--L$XQUARTZ_DIR/lib -lGLUT}"
+              ], dnl else
               [AC_MSG_RESULT([no])
                AC_MSG_WARN([--with-xquartz was given, but test for X11 failed. Fallback to system framework])
               ]
              ) dnl XQUARTZ_DIR
        ]) dnl test xquartz
- _AX_GLUT_SETVAR([GLUT_LIBS],["-framework GLUT"])
- AC_MSG_CHECKING([GLUT_LIBS])
- AC_MSG_RESULT(["$GLUT_LIBS"])
+ GLUT_LIBS="${GLUT_LIBS=--framework GLUT}"
 ])
 
 AC_DEFUN([_AX_CHECK_GLUT_HEADER],[
@@ -221,7 +214,7 @@ AC_DEFUN([AX_CHECK_GLUT],
  AS_CASE([${host}],
          [*-darwin*],[_AX_CHECK_DARWIN_GLUT],
          [*-cygwin*|*-mingw*],[
-          _AX_GLUT_SETVAR([GLUT_LIBS],[-lglut32])
+          GLUT_LIBS="${GLUT_LIBS:--lglut32}"
           AC_CHECK_HEADERS([windows.h])
           ],
          [_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC([glut])
