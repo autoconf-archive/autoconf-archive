@@ -8,10 +8,10 @@
 #
 # DESCRIPTION
 #
-#   Check for an OpenGL implementation. If a valid OpenGL implementation is
+#   Checks for an OpenGL implementation. If a valid OpenGL implementation is
 #   found, this macro would set C preprocessor symbol HAVE_GL to 1.
 #
-#   If either a valid OpenGL header or library was found, by default the
+#   If either a valid OpenGL header or library was not found, by default the
 #   configuration would exits on error. This behavior can be overwritten by
 #   providing a custom "ACTION-IF-NOT-FOUND" hook.
 #
@@ -99,6 +99,8 @@
 # expands to
 # gl_saved_flag_cflags="$CFLAGS"
 # gl_saved_flag_libs="$LIBS"
+# CFLAGS="$GL_CFLAGS $CFLAGS"
+# LIBS="$GL_LIBS $LIBS"
 m4_define([AX_SAVE_FLAGS_WITH_PREFIX],[
 m4_ifval([$2], [
 _ax_[]m4_tolower($1)_saved_flag_[]m4_tolower(m4_car($2))="$m4_car($2)"
@@ -157,6 +159,8 @@ AC_DEFUN([_AX_CHECK_GL_INCLUDES_DEFAULT],dnl
 # Example: _AX_CHECK_GL_SAVE_FLAGS([[CFLAGS],[LIBS]]) expands to
 # gl_saved_flag_cflags=$CFLAGS
 # gl_saved_flag_libs=$LIBS
+# CFLAGS="$GL_CFLAGS $CFLAGS"
+# LIBS="$GL_LIBS $LIBS"
 AC_DEFUN([_AX_CHECK_GL_SAVE_FLAGS], [
  AX_SAVE_FLAGS_WITH_PREFIX([GL],[$1])
  AC_LANG_PUSH([C])
@@ -247,22 +251,25 @@ AC_DEFUN_ONCE([_WITH_XQUARTZ_GL],[
    [AS_IF([test "X$with_xquartz_gl"="Xyes"],
           [with_xquartz_gl="/opt/X11"])],
    [with_xquartz_gl=no])
+  AS_IF([test "X$with_xquartz_gl" != "Xno"],
+        [AC_MSG_CHECKING([OSX X11 path])
+         AS_IF([test -e "$with_xquartz_gl"],
+               [AC_MSG_RESULT(["$with_xquartz_gl"])
+                CFLAGS="-I$with_xquartz_gl/include $CFLAGS"
+                LIBS="-L$with_xquartz_gl/lib $LIBS"
+               ],
+               [with_xquartz_gl=no
+                AC_MSG_RESULT([no])
+                AC_MSG_WARN([--with-xquartz-gl was given, but test for X11 failed. Fallback to system framework])
+               ])
+        ])
 ])
 
 # OSX specific setup for OpenGL check
 AC_DEFUN([_AX_CHECK_DARWIN_GL], [ 
  AC_REQUIRE([_WITH_XQUARTZ_GL])
  AS_IF([test "x$with_xquartz_gl" != "xno"],
-       [AC_MSG_CHECKING([OSX X11 path])
-        AS_IF([test -e "$with_xquartz_gl"],
-              [AC_MSG_RESULT(["$with_xquartz_gl"])
-               GL_CFLAGS="${GL_CFLAGS:--I$with_xquartz_gl/include}"
-               GL_LIBS="${GL_LIBS:--L$with_xquartz_gl/lib -lGL}"
-              ],
-              [AC_MSG_RESULT([no])
-               AC_MSG_WARN([--with-xquartz-gl was given, but test for X11 failed. Fallback to system framework])
-              ])
-       ],
+       [GL_LIBS="${GL_LIBS:--lGL}"],
        [GL_LIBS="${GL_LIBS:--framework OpenGL}"])
 ])
 
