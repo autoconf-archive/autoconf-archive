@@ -281,7 +281,7 @@ AC_DEFUN([AX_CHECK_GLU],[
          m4_ifval([$1],
                   [$1],
                   [CFLAGS="$GLU_CFLAGS $CFLAGS"
-                   LIBS="GLU_LIBS $LIBS"])],
+                   LIBS="$GLU_LIBS $LIBS"])],
         [m4_ifval([$2],
                   [$2],
                   [AC_MSG_ERROR([Could not find a valid GLU implementation])])

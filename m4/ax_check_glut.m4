@@ -126,63 +126,13 @@ m4_define([_AX_CHECK_GLUT_PROGRAM],
 # Searches libraries provided in $1, and export variable
 # $ax_check_glut_lib_glut
 AC_DEFUN([_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC],
-[dnl
- ax_check_glut_manual_libs_generic_extra_libs="$1"
- AS_IF([test "X$ax_check_glut_manual_libs_generic_extra_libs" = "X"],
-       [AC_MSG_ERROR([AX_CHECK_GLUT_MANUAL_LIBS_GENERIC argument must no be empty])])
-
- _AX_CHECK_GLUT_SAVE_FLAGS([[CFLAGS],[LIBS]])
+[
+ _AX_CHECK_GLUT_SAVE_FLAGS([CFLAGS])
  AC_SEARCH_LIBS([glutMainLoop],[$ax_check_glut_manual_libs_generic_extra_libs],
                 [ax_check_glut_lib_glut="yes"])
  AS_IF([test "X$ax_check_glut_lib_glut" = "Xyes"],
-       [GLUT_LIBS="$ac_cv_search_glutMainLoop"])
- _AX_CHECK_GLUT_RESTORE_FLAGS([[CFLAGS],[LIBS]])
-])
-
-# compile the example program
-AC_DEFUN([_AX_CHECK_GLUT_COMPILE],
-[dnl
- _AX_CHECK_GLUT_SAVE_FLAGS([CFLAGS])
- AC_COMPILE_IFELSE([_AX_CHECK_GLUT_PROGRAM],
-                   [ax_check_glut_compile_glut="yes"],
-                   [ax_check_glut_compile_glut="no"])
+       [GLUT_LIBS="$GLUT_LIBS:-$ac_cv_search_glutMainLoop"])
  _AX_CHECK_GLUT_RESTORE_FLAGS([CFLAGS])
-])
-
-# compile the example program (cache)
-AC_DEFUN([_AX_CHECK_GLUT_COMPILE_CV],
-[dnl
- AC_CACHE_CHECK([for compiling a minimal GLUT program],[ax_cv_check_glut_compile_glut],
-                [_AX_CHECK_GLUT_COMPILE()
-                 ax_cv_check_glut_compile_glut="${ax_check_glut_compile_glut}"])
- ax_check_glut_compile_glut="${ax_cv_check_glut_compile_glut}"
-])
-
-# link the example program
-AC_DEFUN([_AX_CHECK_GLUT_LINK],
-[dnl
- _AX_CHECK_GLUT_SAVE_FLAGS([[CFLAGS],[LIBS]])
- AC_LINK_IFELSE([_AX_CHECK_GLUT_PROGRAM],
-                [ax_check_glut_link_glut="yes"],
-                [ax_check_glut_link_glut="no"])
- _AX_CHECK_GLUT_RESTORE_FLAGS([[CFLAGS],[LIBS]])
-])
-
-# link the example program (cache)
-AC_DEFUN([_AX_CHECK_GLUT_LINK_CV],
-[dnl
- AC_CACHE_CHECK([for linking a minimal GLUT program],[ax_cv_check_glut_link_glut],
-                [_AX_CHECK_GLUT_LINK()
-                 ax_cv_check_glut_link_glut="${ax_check_glut_link_glut}"])
- ax_check_glut_link_glut="${ax_cv_check_glut_link_glut}"
-])
-
-
-AC_DEFUN([_AX_CHECK_DARWIN_GLUT],
-[AC_REQUIRE([_WITH_XQUARTZ_GL])
- AS_IF([test "x$with_xquartz_gl" != "xno"],
-       [GLUT_LIBS="${GLUT_LIBS:--lGLUT}"],
-       [GLUT_LIBS="${GLUT_LIBS=--framework GLUT}"])
 ])
 
 # Wrapper macro to check GLUT header
@@ -200,35 +150,56 @@ AC_DEFUN([_AX_CHECK_GLUT_HEADER],[
 # Checks GLUT headers and library and provides hooks for success and failures.
 AC_DEFUN([AX_CHECK_GLUT],
 [AC_REQUIRE([AC_CANONICAL_HOST])
- AC_REQUIRE([PKG_PROG_PKG_CONFIG])
+ AC_REQUIRE([_WITH_XQUARTZ_GL])
  AC_ARG_VAR([GLUT_CFLAGS],[C compiler flags for GLUT, overriding configure script defaults])
  AC_ARG_VAR([GLUT_LIBS],[Linker flags for GLUT, overriding configure script defaults])
  
  dnl --with-gl or not can be implemented outside of check-gl
  AS_CASE([${host}],
-         [*-darwin*],[_AX_CHECK_DARWIN_GLUT],
+         [*-darwin*],[AS_IF([test "x$with_xquartz_gl" != "xno"],
+                            [GLUT_LIBS="${GLUT_LIBS:--lGLUT}"],
+                            [GLUT_LIBS="${GLUT_LIBS:--framework GLUT}"])],
          [*-cygwin*|*-mingw*],[
-          GLUT_LIBS="${GLUT_LIBS:--lglut32}"
-          AC_CHECK_HEADERS([windows.h])
+            _AX_CHECK_GLUT_MANUAL_LIBS_GENERIC([glut32 glut])
+            AC_CHECK_HEADERS([windows.h])
           ],
          [_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC([glut])
          ]) dnl host specific checks
 
  dnl checks header
  AS_CASE([${host}],
-   [*-darwin*],[AS_IF([test "x$with_xquartz_gl" != "xno"],
-                      [_AX_CHECK_GLUT_HEADER([GL/glut.h])],
-                      [_AX_CHECK_GLUT_HEADER([GLUT/glut.h])]
-               )],
+   [*-darwin*],[AS_IF([test "x$with_xquartz_gl" = "xno"],
+                      [_AX_CHECK_GLUT_HEADER([GLUT/glut.h])],
+                      [_AX_CHECK_GLUT_HEADER([GL/glut.h])]
+                      )],
    [_AX_CHECK_GLUT_HEADER([GL/glut.h])])
 
+ dnl compile
  AS_IF([test "X$ax_check_glut_have_headers" = "Xyes"],
-       [_AX_CHECK_GLUT_COMPILE_CV()],
-       [no_glut=yes])
- AS_IF([test "X$ax_check_glut_compile_glut" = "Xyes"],
-       [_AX_CHECK_GLUT_LINK_CV()],
-       [no_glut=yes])
- AS_IF([test "X$no_glut" = "X"],
+       [AC_CACHE_CHECK([for compiling a minimal GLUT program],
+                       [ax_cv_check_glut_compile],
+                       [_AX_CHECK_GLUT_SAVE_FLAGS([CFLAGS])
+                        AC_COMPILE_IFELSE([_AX_CHECK_GLUT_PROGRAM],
+                                          [ax_cv_check_glut_compile="yes"],
+                                          [ax_cv_check_glut_compile="no"])
+                        _AX_CHECK_GLUT_RESTORE_FLAGS([CFLAGS])
+                       ])
+      ])
+
+ dnl link
+ AS_IF([test "X$ax_cv_check_glut_compile" = "Xyes"],
+       [AC_CACHE_CHECK([for linking a minimal GLUT program],
+                       [ax_cv_check_glut_link],
+                       [_AX_CHECK_GLUT_SAVE_FLAGS([[CFLAGS],[LIBS]])
+                        AC_LINK_IFELSE([_AX_CHECK_GLUT_PROGRAM],
+                                       [ax_cv_check_glut_link="yes"],
+                                       [ax_cv_check_glut_link="no"])
+                        _AX_CHECK_GLUT_RESTORE_FLAGS([[CFLAGS],[LIBS]])
+                       ])
+       ])
+
+ dnl hook
+ AS_IF([test "X$ax_cv_check_glut_link" = "Xyes"],
    [AC_DEFINE([HAVE_GLUT], [1], [Defined if a valid GLUT implementation is found])
     m4_ifval([$1], 
      [$1],
