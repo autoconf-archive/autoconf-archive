@@ -127,12 +127,10 @@ m4_define([_AX_CHECK_GLUT_PROGRAM],
 # $ax_check_glut_lib_glut
 AC_DEFUN([_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC],
 [
- _AX_CHECK_GLUT_SAVE_FLAGS([CFLAGS])
+ _AX_CHECK_GLUT_SAVE_FLAGS([[CFLAGS],[LIBS]])
  AC_SEARCH_LIBS([glutMainLoop],[$1],
-                [ax_check_glut_lib_glut="yes"])
- AS_IF([test "X$ax_check_glut_lib_glut" = "Xyes"],
-       [GLUT_LIBS="$GLUT_LIBS:-$ac_cv_search_glutMainLoop"])
- _AX_CHECK_GLUT_RESTORE_FLAGS([CFLAGS])
+                [GLUT_LIBS="${GLUT_LIBS:-$ac_cv_search_glutMainLoop}"])
+ _AX_CHECK_GLUT_RESTORE_FLAGS([[CFLAGS],[LIBS]])
 ])
 
 # Wrapper macro to check GLUT header
@@ -144,7 +142,6 @@ AC_DEFUN([_AX_CHECK_GLUT_HEADER],[
 ])
 
 
-
 # AX_CHECK_GLUT_LIB([ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
 # ---------------------------------------------------------
 # Checks GLUT headers and library and provides hooks for success and failures.
@@ -154,7 +151,6 @@ AC_DEFUN([AX_CHECK_GLUT],
  AC_ARG_VAR([GLUT_CFLAGS],[C compiler flags for GLUT, overriding configure script defaults])
  AC_ARG_VAR([GLUT_LIBS],[Linker flags for GLUT, overriding configure script defaults])
  
- dnl --with-gl or not can be implemented outside of check-gl
  AS_CASE([${host}],
          [*-darwin*],[AS_IF([test "x$with_xquartz_gl" != "xno"],
                             [GLUT_LIBS="${GLUT_LIBS:--lGLUT}"],

@@ -185,15 +185,8 @@ AC_DEFUN([_AX_CHECK_GLU_HEADERS], [
 # GLU_LIBS respectively
 AC_DEFUN([_AX_CHECK_GLU_SEARCH_LIBS], [
  _AX_CHECK_GLU_SAVE_FLAGS([[CFLAGS],[LIBS]])
- CFLAGS="${GLU_CFLAGS} ${CFLAGS}"
- LIBS="${GLU_LIBS} ${LIBS}"
  AC_SEARCH_LIBS([gluBeginCurve],[$1],
-                [ax_check_glu_lib_opengl="yes"],
-                [ax_check_glu_lib_opengl="no"])
- AS_CASE([$ac_cv_search_gluBeginCurve],
-         ["none required"],[],
- 	 [no],[],
- 	 [GLU_LIBS="${GLU_LIBS:-$ac_cv_search_gluBeginCurve}"])
+ 	        [GLU_LIBS="${GLU_LIBS:-$ac_cv_search_gluBeginCurve}"])
   _AX_CHECK_GLU_RESTORE_FLAGS([[CFLAGS],[LIBS]])
 ])
 
