@@ -57,9 +57,9 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 1
+#serial 2
 
-m4_define([AX_RESTORE_FLAGS_WITH_PREFIX],[
+AC_DEFUN([AX_RESTORE_FLAGS_WITH_PREFIX],[
 m4_ifval([$2], [
 m4_car($2)="$_ax_[]m4_tolower($1)_saved_flag_[]m4_tolower(m4_car($2))"
 $0($1, m4_cdr($2))])
