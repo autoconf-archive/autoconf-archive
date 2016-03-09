@@ -128,7 +128,7 @@ m4_define([_AX_CHECK_GLUT_PROGRAM],
 AC_DEFUN([_AX_CHECK_GLUT_MANUAL_LIBS_GENERIC],
 [
  _AX_CHECK_GLUT_SAVE_FLAGS([CFLAGS])
- AC_SEARCH_LIBS([glutMainLoop],[$ax_check_glut_manual_libs_generic_extra_libs],
+ AC_SEARCH_LIBS([glutMainLoop],[$1],
                 [ax_check_glut_lib_glut="yes"])
  AS_IF([test "X$ax_check_glut_lib_glut" = "Xyes"],
        [GLUT_LIBS="$GLUT_LIBS:-$ac_cv_search_glutMainLoop"])
