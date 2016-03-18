@@ -10,6 +10,33 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The following new macros have been added: AX_CHECK_GIRS_GJS,
+  AX_CHECK_GIR_SYMBOLS_GJS, AX_CXX_COMPILE_STDCXX, AX_CXX_COMPILE_STDCXX_14,
+  AX_CZMQ, AX_FC_CHECK_DEFINE, AX_LIB_NETCDF4, AX_PROG_GJS,
+  AX_RESTORE_FLAGS_WITH_PREFIX, AX_SAVE_FLAGS_WITH_PREFIX, AX_VAR_POP,
+  AX_VAR_PUSH, and AX_ZMQ.
+
+  Various improvements to the opengl macros. Main features added:
+    - Support action-if-found and not-found hook
+    - Export HAVE_GL, HAVE_GLU, and HAVE_GLUT preprocessor symbol
+    - Add necessary flags to CFLAGS/LIBS by default, but can be disabled by
+      overwritting action-if-found hook.
+    - Fail the configure script if lib not found. This feature can be disabled
+      by overwritting action-if-not-found hook
+    - Fix problems on Mac OSX. Been tested on Linux (Ubuntu) and OSX
+    - Use --with-xquartz-gl instead of --with-gl=x for using X11 on OSX
+
+  Many new features were added to AX_CODE_COVERAGE and AX_PROG_DOXYGEN.
+
+  AX_CXX_COMPILE_STDCXX now modifies $(CXX) rather than $(CXXFLAGS).
+
+  AX_PTHREAD has been updated significantly. See
+  https://savannah.gnu.org/patch/?8186 for further details.
+
+  AX_PYTHON_DEVEL now provides PYTHON_LIBS instead of PYTHON_FLAGS.
+
+  The macros related to C++11 and C++14 were extensively re-factored.
+
 * Noteworthy changes in release 2015.09.25 (2015-09-25) [stable]
 
   The Archive no longer releases an "lzip"-compressed tarball. The only
