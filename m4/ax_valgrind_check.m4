@@ -44,6 +44,10 @@
 #   sgcheck), and will output results to test-suite-$toolname.log for each.
 #   The target will succeed if there are zero errors and fail otherwise.
 #
+#   Alternatively, a "check-valgrind-$TOOL" rule will be added, for $TOOL in
+#   memcheck, helgrind, drd and sgcheck. These are useful because often only
+#   some of those tools can be ran cleanly on a codebase.
+#
 #   The macro supports running with and without libtool.
 #
 # LICENSE
@@ -55,7 +59,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_VALGRIND_CHECK],[
 	dnl Check for --enable-valgrind
@@ -167,6 +171,50 @@ ifeq ($(VALGRIND_ENABLED),yes)
 		LOG_COMPILER="$(VALGRIND_LOG_COMPILER)" \
 		LOG_FLAGS="$(valgrind_$(VALGRIND_TOOL)_flags)" \
 		TEST_SUITE_LOG=test-suite-$(VALGRIND_TOOL).log
+else
+	@echo "Need to reconfigure with --enable-valgrind"
+endif
+
+check-valgrind-memcheck:
+ifeq ($(VALGRIND_ENABLED),yes)
+	$(MAKE) check-TESTS \
+		TESTS_ENVIRONMENT="$(VALGRIND_TESTS_ENVIRONMENT)" \
+		LOG_COMPILER="$(VALGRIND_LOG_COMPILER)" \
+		LOG_FLAGS="$(valgrind_memcheck_flags)" \
+		TEST_SUITE_LOG=test-suite-memcheck.log
+else
+	@echo "Need to reconfigure with --enable-valgrind"
+endif
+
+check-valgrind-helgrind:
+ifeq ($(VALGRIND_ENABLED),yes)
+	$(MAKE) check-TESTS \
+		TESTS_ENVIRONMENT="$(VALGRIND_TESTS_ENVIRONMENT)" \
+		LOG_COMPILER="$(VALGRIND_LOG_COMPILER)" \
+		LOG_FLAGS="$(valgrind_helgrind_flags)" \
+		TEST_SUITE_LOG=test-suite-helgrind.log
+else
+	@echo "Need to reconfigure with --enable-valgrind"
+endif
+
+check-valgrind-drd:
+ifeq ($(VALGRIND_ENABLED),yes)
+	$(MAKE) check-TESTS \
+		TESTS_ENVIRONMENT="$(VALGRIND_TESTS_ENVIRONMENT)" \
+		LOG_COMPILER="$(VALGRIND_LOG_COMPILER)" \
+		LOG_FLAGS="$(valgrind_drd_flags)" \
+		TEST_SUITE_LOG=test-suite-drd.log
+else
+	@echo "Need to reconfigure with --enable-valgrind"
+endif
+
+check-valgrind-sgcheck:
+ifeq ($(VALGRIND_ENABLED),yes)
+	$(MAKE) check-TESTS \
+		TESTS_ENVIRONMENT="$(VALGRIND_TESTS_ENVIRONMENT)" \
+		LOG_COMPILER="$(VALGRIND_LOG_COMPILER)" \
+		LOG_FLAGS="$(valgrind_sgcheck_flags)" \
+		TEST_SUITE_LOG=test-suite-sgcheck.log
 else
 	@echo "Need to reconfigure with --enable-valgrind"
 endif
