@@ -8,6 +8,8 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
+* Noteworthy changes in release ?.? (????-??-??) [?]
+
 * Noteworthy changes in release 2016.03.20 (2016-03-20) [stable]
 
   The following new macros have been added: AX_CHECK_GIRS_GJS,
