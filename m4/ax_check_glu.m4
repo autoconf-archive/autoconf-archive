@@ -85,7 +85,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 19
+#serial 20
 
 # exemple program
 m4_define([_AX_CHECK_GLU_PROGRAM],
@@ -153,7 +153,7 @@ AC_DEFUN([_AX_CHECK_GLU_SAVE_FLAGS], [
 ])
 
 # _AX_CHECK_GLU_RESTORE_FLAGS(LIST-OF-FLAGS)
-# Use this marcro to restore the flags you saved using 
+# Use this marcro to restore the flags you saved using
 # _AX_CHECK_GLU_SAVE_FLAGS
 #
 # Example: _AX_CHECK_GLU_RESTORE_FLAGS([[CFLAGS],[LIBS]]) expands to
@@ -207,7 +207,7 @@ AC_DEFUN([AX_CHECK_GLU],[
   AC_REQUIRE([PKG_PROG_PKG_CONFIG])
   AC_ARG_VAR([GLU_CFLAGS],[C compiler flags for GLU, overriding system check])
   AC_ARG_VAR([GLU_LIBS],[Linker flags for GLU, overriding system check])
- 
+
   dnl Setup GLU_CFLAGS and GLU_LIBS
   AS_CASE([${host}],
           [*-darwin*],[_AX_CHECK_DARWIN_GLU],
@@ -223,13 +223,13 @@ AC_DEFUN([AX_CHECK_GLU],[
           ])
 
   AS_CASE([$host],
-          [*-darwin*], 
+          [*-darwin*],
             [AS_IF([test "X$with_xquartz_gl" = "Xno"],
                    [_AX_CHECK_GLU_HEADERS([OpenGL/glu.h])],
                    [_AX_CHECK_GLU_HEADERS([GL/glu.h])]
                    )],
           [_AX_CHECK_GLU_HEADERS([GL/glu.h])])
-  
+
   dnl compile test
   AS_IF([test "X$ax_check_glu_have_headers" = "Xyes"],
         [AC_CACHE_CHECK([for compiling a minimal OpenGL Utility (GLU) program],
@@ -251,7 +251,7 @@ AC_DEFUN([AX_CHECK_GLU],[
                                         [ax_cv_check_glu_link="no"])
                          _AX_CHECK_GLU_RESTORE_FLAGS([[CFLAGS],[LIBS]])])
         ])
-  
+
 #
 # Some versions of Mac OS X include a broken interpretation of the GLU
 # tesselation callback function signature.
@@ -267,7 +267,7 @@ AC_DEFUN([AX_CHECK_GLU],[
               [AC_DEFINE([HAVE_VARARGS_GLU_TESSCB], [1],
                          [Use nonstandard varargs form for the GLU tesselator callback])])
         ])
-  
+
   dnl hook
   AS_IF([test "X$ax_cv_check_glu_link" = "Xyes"],
         [AC_DEFINE([HAVE_GLU],[1],[Defined if a valid GLU implementation is found.])

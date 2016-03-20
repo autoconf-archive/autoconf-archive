@@ -80,7 +80,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 15
+#serial 16
 
 AC_DEFUN([_AX_CHECK_GLUT_SAVE_FLAGS], [
  AX_SAVE_FLAGS_WITH_PREFIX([GLUT],[$1]) dnl defined in ax_check_gl
@@ -149,7 +149,7 @@ AC_DEFUN([AX_CHECK_GLUT],
  AC_REQUIRE([_WITH_XQUARTZ_GL])
  AC_ARG_VAR([GLUT_CFLAGS],[C compiler flags for GLUT, overriding configure script defaults])
  AC_ARG_VAR([GLUT_LIBS],[Linker flags for GLUT, overriding configure script defaults])
- 
+
  AS_CASE([${host}],
          [*-darwin*],[AS_IF([test "x$with_xquartz_gl" != "xno"],
                             [GLUT_LIBS="${GLUT_LIBS:--lGLUT}"],
@@ -196,7 +196,7 @@ AC_DEFUN([AX_CHECK_GLUT],
  dnl hook
  AS_IF([test "X$ax_cv_check_glut_link" = "Xyes"],
    [AC_DEFINE([HAVE_GLUT], [1], [Defined if a valid GLUT implementation is found])
-    m4_ifval([$1], 
+    m4_ifval([$1],
      [$1],
      [CFLAGS="$GLUT_CFLAGS $CFLAGS"
       LIBS="$GLUT_LIBS $LIBS"])

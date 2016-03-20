@@ -85,7 +85,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 18
+#serial 19
 
 # example gl program
 m4_define([_AX_CHECK_GL_PROGRAM],
@@ -131,7 +131,7 @@ AC_DEFUN([_AX_CHECK_GL_SAVE_FLAGS], [
 ])
 
 # _AX_CHECK_GL_RESTORE_FLAGS(LIST-OF-FLAGS)
-# Use this marcro to restore the flags you saved using 
+# Use this marcro to restore the flags you saved using
 # _AX_CHECK_GL_SAVE_FLAGS
 #
 # Example: _AX_CHECK_GL_RESTORE_FLAGS([[CFLAGS],[LIBS]]) expands to
@@ -209,7 +209,7 @@ AC_DEFUN([_AX_CHECK_GL_MANUAL_LIBS_GENERIC], [
 AC_DEFUN_ONCE([_WITH_XQUARTZ_GL],[
   AC_ARG_WITH([xquartz-gl],
    [AS_HELP_STRING([--with-xquartz-gl@<:@=DIR@:>@],
-                   [On Mac OSX, use opengl provided by X11/XQuartz instead of the built-in framework. 
+                   [On Mac OSX, use opengl provided by X11/XQuartz instead of the built-in framework.
                     If enabled, the default location is @<:@DIR=/opt/X11@:>@.
                     This option is default to false.])],
    [AS_IF([test "X$with_xquartz_gl"="Xyes"],
@@ -230,7 +230,7 @@ AC_DEFUN_ONCE([_WITH_XQUARTZ_GL],[
 ])
 
 # OSX specific setup for OpenGL check
-AC_DEFUN([_AX_CHECK_DARWIN_GL], [ 
+AC_DEFUN([_AX_CHECK_DARWIN_GL], [
  AC_REQUIRE([_WITH_XQUARTZ_GL])
  AS_IF([test "x$with_xquartz_gl" != "xno"],
        [GL_LIBS="${GL_LIBS:--lGL}"],
@@ -256,7 +256,7 @@ AC_DEFUN([AX_CHECK_GL],
  AC_REQUIRE([PKG_PROG_PKG_CONFIG])
  AC_ARG_VAR([GL_CFLAGS],[C compiler flags for GL, overriding configure script defaults])
  AC_ARG_VAR([GL_LIBS],[Linker flags for GL, overriding configure script defaults])
- 
+
  dnl --with-gl or not can be implemented outside of check-gl
  AS_CASE([${host}],
          [*-darwin*],[_AX_CHECK_DARWIN_GL],
@@ -286,7 +286,7 @@ AC_DEFUN([AX_CHECK_GL],
        [no_gl=yes])
  AS_IF([test "X$no_gl" = "X"],
    [AC_DEFINE([HAVE_GL], [1], [Defined if a valid OpenGL implementation is found.])
-    m4_ifval([$1], 
+    m4_ifval([$1],
       [$1],
       [CFLAGS="$GL_CFLAGS $CFLAGS"
        LIBS="$GL_LIBS $LIBS"])
