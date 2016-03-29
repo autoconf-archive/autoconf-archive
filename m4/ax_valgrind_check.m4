@@ -16,7 +16,9 @@
 #   Makefile; and $enable_valgrind which can be used in subsequent configure
 #   output. VALGRIND_ENABLED is defined and substituted, and corresponds to
 #   the value of the --enable-valgrind option, which defaults to being
-#   enabled if Valgrind is installed and disabled otherwise.
+#   enabled if Valgrind is installed and disabled otherwise. Individual
+#   Valgrind tools can be disabled via --disable-valgrind-<tool>, default is
+#   to use all supported tools.
 #
 #   If unit tests are written using a shell script and automake's
 #   LOG_COMPILER system, the $(VALGRIND) variable can be used within the
@@ -59,7 +61,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_VALGRIND_CHECK],[
 	dnl Check for --enable-valgrind
@@ -85,22 +87,45 @@ AC_DEFUN([AX_VALGRIND_CHECK],[
 	AC_SUBST([VALGRIND_ENABLED],[$enable_valgrind])
 
 	# Check for Valgrind tools we care about.
-	m4_define([valgrind_tool_list],[[memcheck], [helgrind], [drd], [exp-sgcheck]])
+	m4_define([valgrind_tool_list], [[memcheck], [helgrind], [drd], [sgcheck]])
+	m4_set_add_all([valgrind_exp_tool_set], [sgcheck])
 
-	AS_IF([test "$VALGRIND" != ""],[
-		m4_foreach([vgtool],[valgrind_tool_list],[
-			m4_define([vgtooln],AS_TR_SH(vgtool))
-			m4_define([ax_cv_var],[ax_cv_valgrind_tool_]vgtooln)
-			AC_CACHE_CHECK([for Valgrind tool ]vgtool,ax_cv_var,[
-				ax_cv_var=
-				AS_IF([`$VALGRIND --tool=vgtool --help >/dev/null 2>&1`],[
-					ax_cv_var="vgtool"
+	[valgrind_enabled_tools=]
+	m4_foreach([vgtool],[valgrind_tool_list],[
+		AC_ARG_ENABLE([valgrind-]vgtool,
+		              AS_HELP_STRING([--disable-valgrind-]vgtool, [Whether to skip ]vgtool[ during the Valgrind tests]),
+		              [enable_valgrind_]vgtool[=$enableval],
+		              [enable_valgrind_]vgtool[=])
+		AS_IF([test "$enable_valgrind" = "no"],[
+			enable_valgrind_]vgtool[=no],
+		      [test "$enable_valgrind_]vgtool[" != "no"],[
+			AC_CACHE_CHECK([for Valgrind tool ]vgtool,
+			               [ax_cv_valgrind_tool_]vgtool,[
+				ax_cv_valgrind_tool_]vgtool[=no
+				m4_set_contains([valgrind_exp_tool_set],vgtool,
+				    [m4_define([vgtoolx],[exp-]vgtool)],
+				    [m4_define([vgtoolx],vgtool)])
+				AS_IF([`$VALGRIND --tool=]vgtoolx[ --help >/dev/null 2>&1`],[
+					ax_cv_valgrind_tool_]vgtool[=yes
 				])
 			])
-
-			AC_SUBST([VALGRIND_HAVE_TOOL_]vgtooln,[$ax_cv_var])
+			AS_IF([test "$ax_cv_valgrind_tool_]vgtool[" = "no"],[
+				AS_IF([test "$enable_valgrind_]vgtool[" = "yes"],[
+					AC_MSG_ERROR([Valgrind does not support ]vgtool[; reconfigure with --disable-valgrind-]vgtool)
+				],[
+					enable_valgrind_]vgtool[=no
+				])
+			],[
+				enable_valgrind_]vgtool[=yes
+			])
 		])
+		AS_IF([test "$enable_valgrind_]vgtool[" = "yes"],[
+			valgrind_enabled_tools="$valgrind_enabled_tools ]m4_bpatsubst(vgtool,[^exp-])["
+		])
+		AC_SUBST([ENABLE_VALGRIND_]vgtool,[$enable_valgrind_]vgtool)
 	])
+	AC_SUBST([valgrind_tools],["]m4_join([ ], valgrind_tool_list)["])
+	AC_SUBST([valgrind_enabled_tools],[$valgrind_enabled_tools])
 
 [VALGRIND_CHECK_RULES='
 # Valgrind check
@@ -122,7 +147,6 @@ VALGRIND_drd_FLAGS ?=
 VALGRIND_sgcheck_FLAGS ?=
 
 # Internal use
-valgrind_tools = memcheck helgrind drd sgcheck
 valgrind_log_files = $(addprefix test-suite-,$(addsuffix .log,$(valgrind_tools)))
 
 valgrind_memcheck_flags = --tool=memcheck $(VALGRIND_memcheck_FLAGS)
@@ -147,10 +171,8 @@ endif
 # Use recursive makes in order to ignore errors during check
 check-valgrind:
 ifeq ($(VALGRIND_ENABLED),yes)
-	-$(A''M_V_at)$(foreach tool,$(valgrind_tools), \
-		$(if $(VALGRIND_HAVE_TOOL_$(tool))$(VALGRIND_HAVE_TOOL_exp_$(tool)), \
-			$(MAKE) $(AM_MAKEFLAGS) -k check-valgrind-$(tool); \
-		) \
+	-$(A''M_V_at)$(foreach tool,$(valgrind_enabled_tools), \
+		$(MAKE) $(AM_MAKEFLAGS) -k check-valgrind-$(tool); \
 	)
 else
 	@echo "Need to reconfigure with --enable-valgrind"
@@ -169,12 +191,14 @@ VALGRIND_LOG_COMPILER = \
 
 define valgrind_tool_rule =
 check-valgrind-$(1):
-ifeq ($(VALGRIND_ENABLED),yes)
+ifeq ($$(VALGRIND_ENABLED)-$$(ENABLE_VALGRIND_$(1)),yes-yes)
 	$$(valgrind_v_use)$$(MAKE) check-TESTS \
 		TESTS_ENVIRONMENT="$$(VALGRIND_TESTS_ENVIRONMENT)" \
 		LOG_COMPILER="$$(VALGRIND_LOG_COMPILER)" \
 		LOG_FLAGS="$$(valgrind_$(1)_flags)" \
 		TEST_SUITE_LOG=test-suite-$(1).log
+else ifeq ($$(VALGRIND_ENABLED),yes)
+	@echo "Need to reconfigure with --enable-valgrind-$(1)"
 else
 	@echo "Need to reconfigure with --enable-valgrind"
 endif
