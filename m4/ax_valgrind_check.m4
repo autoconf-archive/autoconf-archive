@@ -59,7 +59,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_VALGRIND_CHECK],[
 	dnl Check for --enable-valgrind
@@ -133,6 +133,9 @@ valgrind_sgcheck_flags = --tool=exp-sgcheck $(VALGRIND_sgcheck_FLAGS)
 valgrind_quiet = $(valgrind_quiet_$(V))
 valgrind_quiet_ = $(valgrind_quiet_$(AM_DEFAULT_VERBOSITY))
 valgrind_quiet_0 = --quiet
+valgrind_v_use   = $(valgrind_v_use_$(V))
+valgrind_v_use_  = $(valgrind_v_use_$(AM_DEFAULT_VERBOSITY))
+valgrind_v_use_0 = @echo "  USE   " $(patsubst check-valgrind-%,%,$''@):;
 
 # Support running with and without libtool.
 ifneq ($(LIBTOOL),)
@@ -144,7 +147,7 @@ endif
 # Use recursive makes in order to ignore errors during check
 check-valgrind:
 ifeq ($(VALGRIND_ENABLED),yes)
-	-$(foreach tool,$(valgrind_tools), \
+	-$(A''M_V_at)$(foreach tool,$(valgrind_tools), \
 		$(if $(VALGRIND_HAVE_TOOL_$(tool))$(VALGRIND_HAVE_TOOL_exp_$(tool)), \
 			$(MAKE) $(AM_MAKEFLAGS) -k check-valgrind-$(tool); \
 		) \
@@ -164,21 +167,18 @@ VALGRIND_LOG_COMPILER = \
 	$(valgrind_lt) \
 	$(VALGRIND) $(VALGRIND_SUPPRESSIONS) --error-exitcode=1 $(VALGRIND_FLAGS)
 
-ifeq ($(VALGRIND_ENABLED),yes)
 define valgrind_tool_rule =
 check-valgrind-$(1):
-	$$(MAKE) check-TESTS \
+ifeq ($(VALGRIND_ENABLED),yes)
+	$$(valgrind_v_use)$$(MAKE) check-TESTS \
 		TESTS_ENVIRONMENT="$$(VALGRIND_TESTS_ENVIRONMENT)" \
 		LOG_COMPILER="$$(VALGRIND_LOG_COMPILER)" \
 		LOG_FLAGS="$$(valgrind_$(1)_flags)" \
 		TEST_SUITE_LOG=test-suite-$(1).log
-endef
 else
-define valgrind_tool_rule =
-check-valgrind-$(1):
 	@echo "Need to reconfigure with --enable-valgrind"
-endef
 endif
+endef
 
 $(foreach tool,$(valgrind_tools),$(eval $(call valgrind_tool_rule,$(tool))))
 
