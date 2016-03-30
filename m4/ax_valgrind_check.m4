@@ -4,21 +4,24 @@
 #
 # SYNOPSIS
 #
+#   AX_VALGRIND_DFLT(memcheck|helgrind|drd|sgcheck, on|off)
 #   AX_VALGRIND_CHECK()
 #
 # DESCRIPTION
 #
-#   Checks whether Valgrind is present and, if so, allows running `make
-#   check` under a variety of Valgrind tools to check for memory and
-#   threading errors.
+#   AX_VALGRIND_CHECK checks whether Valgrind is present and, if so, allows
+#   running `make check` under a variety of Valgrind tools to check for
+#   memory and threading errors.
 #
 #   Defines VALGRIND_CHECK_RULES which should be substituted in your
 #   Makefile; and $enable_valgrind which can be used in subsequent configure
 #   output. VALGRIND_ENABLED is defined and substituted, and corresponds to
 #   the value of the --enable-valgrind option, which defaults to being
 #   enabled if Valgrind is installed and disabled otherwise. Individual
-#   Valgrind tools can be disabled via --disable-valgrind-<tool>, default is
-#   to use all supported tools.
+#   Valgrind tools can be disabled via --disable-valgrind-<tool>, the
+#   default is configurable via the AX_VALGRIND_DFLT command or is to use
+#   all commands not disabled via AX_VALGRIND_DFLT. All AX_VALGRIND_DFLT
+#   calls must be made before the call to AX_VALGRIND_CHECK.
 #
 #   If unit tests are written using a shell script and automake's
 #   LOG_COMPILER system, the $(VALGRIND) variable can be used within the
@@ -30,6 +33,7 @@
 #
 #   configure.ac:
 #
+#     AX_VALGRIND_DFLT([sgcheck], [off])
 #     AX_VALGRIND_CHECK
 #
 #   Makefile.am:
@@ -42,9 +46,11 @@
 #   which includes "@VALGRIND_CHECK_RULES@" (assuming the module has been
 #   configured with --enable-valgrind). Running `make check-valgrind` in
 #   that directory will run the module's test suite (`make check`) once for
-#   each of the available Valgrind tools (out of memcheck, helgrind, drd and
-#   sgcheck), and will output results to test-suite-$toolname.log for each.
-#   The target will succeed if there are zero errors and fail otherwise.
+#   each of the available Valgrind tools (out of memcheck, helgrind and drd)
+#   while the sgcheck will be skipped unless enabled again on the
+#   commandline with --enable-valgrind-sgcheck. The results for each check
+#   will be output to test-suite-$toolname.log. The target will succeed if
+#   there are zero errors and fail otherwise.
 #
 #   Alternatively, a "check-valgrind-$TOOL" rule will be added, for $TOOL in
 #   memcheck, helgrind, drd and sgcheck. These are useful because often only
@@ -61,7 +67,17 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
+
+dnl Configured tools
+m4_define([valgrind_tool_list], [[memcheck], [helgrind], [drd], [sgcheck]])
+m4_set_add_all([valgrind_exp_tool_set], [sgcheck])
+m4_foreach([vgtool], [valgrind_tool_list],
+           [m4_define([en_dflt_valgrind_]vgtool, [on])])
+
+AC_DEFUN([AX_VALGRIND_DFLT],[
+	m4_define([en_dflt_valgrind_$1], [$2])
+])dnl
 
 AC_DEFUN([AX_VALGRIND_CHECK],[
 	dnl Check for --enable-valgrind
@@ -87,18 +103,18 @@ AC_DEFUN([AX_VALGRIND_CHECK],[
 	AC_SUBST([VALGRIND_ENABLED],[$enable_valgrind])
 
 	# Check for Valgrind tools we care about.
-	m4_define([valgrind_tool_list], [[memcheck], [helgrind], [drd], [sgcheck]])
-	m4_set_add_all([valgrind_exp_tool_set], [sgcheck])
-
 	[valgrind_enabled_tools=]
 	m4_foreach([vgtool],[valgrind_tool_list],[
 		AC_ARG_ENABLE([valgrind-]vgtool,
-		              AS_HELP_STRING([--disable-valgrind-]vgtool, [Whether to skip ]vgtool[ during the Valgrind tests]),
+		    m4_if(m4_defn([en_dflt_valgrind_]vgtool),[off],dnl
+[AS_HELP_STRING([--enable-valgrind-]vgtool, [Whether to use ]vgtool[ during the Valgrind tests])],dnl
+[AS_HELP_STRING([--disable-valgrind-]vgtool, [Whether to skip ]vgtool[ during the Valgrind tests])]),
 		              [enable_valgrind_]vgtool[=$enableval],
 		              [enable_valgrind_]vgtool[=])
 		AS_IF([test "$enable_valgrind" = "no"],[
 			enable_valgrind_]vgtool[=no],
-		      [test "$enable_valgrind_]vgtool[" != "no"],[
+		      [test "$enable_valgrind_]vgtool[" ]dnl
+m4_if(m4_defn([en_dflt_valgrind_]vgtool), [off], [= "yes"], [!= "no"]),[
 			AC_CACHE_CHECK([for Valgrind tool ]vgtool,
 			               [ax_cv_valgrind_tool_]vgtool,[
 				ax_cv_valgrind_tool_]vgtool[=no
