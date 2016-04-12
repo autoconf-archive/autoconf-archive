@@ -40,7 +40,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([_AX_CHECK_GIR_GJS], [
   AC_MSG_CHECKING([for version $2 of $1])
@@ -51,8 +51,8 @@ AC_DEFUN([_AX_CHECK_GIR_GJS], [
     [AC_MSG_RESULT([yes])],
     [
       AC_MSG_RESULT([no])
-      AC_MSG_ERROR([You do not have at least API version $2 of
-the GObject Introspection bindings for the $1 library.
+      AC_MSG_ERROR([You do not have API version $2 of the GObject
+Introspection bindings for the $1 library.
 Build a version from source, or find out what package to
 install with one of these commands, depending on your system:
   apt-file search $1-$2.typelib
