@@ -58,16 +58,17 @@
           ])
         ])
 
-      AS_IF([test "x$CPU_COUNT" = "x0"],[dnl
-        m4_ifvaln([$2],[dnl
+      AS_IF([[test "x$CPU_COUNT" != "x0" && test "$CPU_COUNT" -gt 0 2>/dev/null]],[dnl
+          AC_MSG_RESULT([[$CPU_COUNT]])
+          m4_ifvaln([$1],[$1],)dnl
+        ],[dnl
+          m4_ifval([$2],[dnl
+            AS_UNSET([[CPU_COUNT]])
             AC_MSG_RESULT([[unable to detect]])
             $2
           ], [dnl
             CPU_COUNT="1"
             AC_MSG_RESULT([[unable to detect (assuming 1)]])
           ])dnl
-        ],[dnl
-          AC_MSG_RESULT([[$CPU_COUNT]])
-          m4_ifvaln([$1],[$1],)dnl
         ])dnl
       ])dnl
