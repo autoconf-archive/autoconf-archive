@@ -49,8 +49,9 @@
             ])
           ])],[
         *mingw*],[
-        AS_IF([test -n "$NUMBER_OF_PROCESSORS"],[
-          CPU_COUNT="$NUMBER_OF_PROCESSORS"
+        CPU_COUNT=`reg query HKLM\\\\Hardware\\\\Description\\\\System\\\\CentralProcessor 2>/dev/null | $EGREP -c '@<:@0-9@:>@+' -c` || CPU_COUNT="0"
+        AS_IF([[test "$CPU_COUNT" -eq "0" && test "$NUMBER_OF_PROCESSORS" -gt "0" 2>/dev/null]],[dnl
+          CPU_COUNT="$NUMBER_OF_PROCESSORS" # Fallback to simple method
           ])],[
         *cygwin*],[
         AS_IF([test -n "$NUMBER_OF_PROCESSORS"],[
