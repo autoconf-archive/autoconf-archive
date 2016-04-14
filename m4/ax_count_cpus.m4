@@ -4,18 +4,19 @@
 #
 # SYNOPSIS
 #
-#   AX_COUNT_CPUS
+#   AX_COUNT_CPUS([ACTION-IF-DETECTED],[ACTION-IF-NOT-DETECTED])
 #
 # DESCRIPTION
 #
-#   Attempt to count the number of processors present on the machine. If the
-#   detection fails, then a value of 1 is assumed.
-#
-#   The value is placed in the CPU_COUNT variable.
+#   Attempt to count the number of processors present on the machine and
+#   place detected value in CPU_COUNT variable. On successful detection,
+#   ACTION-IF-DETECTED is executed if present. If the detection fails, then
+#   ACTION-IF-NOT-DETECTED is triggered. The default ACTION-IF-NOT-DETECTED
+#   is to set CPU_COUNT to 1.
 #
 # LICENSE
 #
-#   Copyright (c) 2014 Karlson2k (Evgeny Grin) <k2k@narod.ru>
+#   Copyright (c) 2014,2016 Karlson2k (Evgeny Grin) <k2k@narod.ru>
 #   Copyright (c) 2012 Brian Aker <brian@tangent.org>
 #   Copyright (c) 2008 Michael Paul Bailey <jinxidoru@byu.net>
 #   Copyright (c) 2008 Christophe Tournayre <turn3r@users.sourceforge.net>
@@ -25,7 +26,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
   AC_DEFUN([AX_COUNT_CPUS],[
       AC_REQUIRE([AC_CANONICAL_HOST])
@@ -57,10 +58,16 @@
           ])
         ])
 
-      AS_IF([test "x$CPU_COUNT" = "x0"],[
-        CPU_COUNT="1"
-        AC_MSG_RESULT( [unable to detect (assuming 1)] )
-        ],[
-        AC_MSG_RESULT( $CPU_COUNT )
-        ])
-      ])
+      AS_IF([test "x$CPU_COUNT" = "x0"],[dnl
+        m4_ifvaln([$2],[dnl
+            AC_MSG_RESULT([[unable to detect]])
+            $2
+          ], [dnl
+            CPU_COUNT="1"
+            AC_MSG_RESULT([[unable to detect (assuming 1)]])
+          ])dnl
+        ],[dnl
+          AC_MSG_RESULT([[$CPU_COUNT]])
+          m4_ifvaln([$1],[$1],)dnl
+        ])dnl
+      ])dnl
