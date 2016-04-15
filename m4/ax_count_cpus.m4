@@ -28,20 +28,43 @@
 
 #serial 12
 
-  AC_DEFUN([AX_COUNT_CPUS],[
-      AC_REQUIRE([AC_CANONICAL_HOST])
-      AC_REQUIRE([AC_PROG_EGREP])
+  AC_DEFUN([AX_COUNT_CPUS],[dnl
+      AC_REQUIRE([AC_CANONICAL_HOST])dnl
+      AC_REQUIRE([AC_PROG_EGREP])dnl
       AC_MSG_CHECKING([the number of available CPUs])
       CPU_COUNT="0"
 
+      # Try generic methods
+
+      # 'getconf' is POSIX utility, '_SC_NPROCESSORS_ONLN' is optional
+      CPU_COUNT=`getconf _NPROCESSORS_ONLN 2>/dev/null | $EGREP -e '^@<:@0-9@:>@+'` || CPU_COUNT="0"
+      AS_IF([[test "$CPU_COUNT" -gt "0" 2>/dev/null]],[[# empty]],[dnl
+        # 'nproc' is part of GNU Coreutils and is widely available
+        CPU_COUNT=`OMP_NUM_THREADS='' nproc 2>/dev/null` || CPU_COUNT=`nproc 2>/dev/null` || CPU_COUNT="0"
+      ])dnl
+
+      AS_IF([[test "$CPU_COUNT" -gt "0" 2>/dev/null]],[[# empty]],[dnl
+        # Try platform-specific preferred methods
+        AS_CASE([[$host_os]],dnl
+          [[*linux*]],[[CPU_COUNT=`lscpu -p 2>/dev/null | $EGREP -e '^@<:@0-9@:>@+,' -c` || CPU_COUNT="0"]],dnl
+          [[*darwin*]],[[CPU_COUNT=`sysctl -n hw.logicalcpu 2>/dev/null` || CPU_COUNT="0"]],dnl
+          [[freebsd*]],[[CPU_COUNT=`sysctl -n kern.smp.cpus 2>/dev/null` || CPU_COUNT="0"]],dnl
+          [[solaris*]],[[CPU_COUNT=`psrinfo 2>/dev/null | $EGREP -e '^@<:@0-9@:>@.*on-line' -c 2>/dev/null` || CPU_COUNT="0"]],dnl
+          [[mingw*]],[[CPU_COUNT=`ls -qpU1 /proc/registry/HKEY_LOCAL_MACHINE/HARDWARE/DESCRIPTION/System/CentralProcessor/ 2>/dev/null | $EGREP -e '^@<:@0-9@:>@+/' -c` || CPU_COUNT="0"]],dnl
+          [[msys*]],[[CPU_COUNT=`ls -qpU1 /proc/registry/HKEY_LOCAL_MACHINE/HARDWARE/DESCRIPTION/System/CentralProcessor/ 2>/dev/null | $EGREP -e '^@<:@0-9@:>@+/' -c` || CPU_COUNT="0"]],dnl
+          [[cygwin*]],[[CPU_COUNT=`ls -qpU1 /proc/registry/HKEY_LOCAL_MACHINE/HARDWARE/DESCRIPTION/System/CentralProcessor/ 2>/dev/null | $EGREP -e '^@<:@0-9@:>@+/' -c` || CPU_COUNT="0"]]dnl
+        )dnl
+      ])dnl
+
+      AS_IF([[test "$CPU_COUNT" -gt "0" 2>/dev/null]],[[# empty]],[dnl
+        # Try less preferred generic method
+        # 'hw.ncpu' exist on many platforms, but not on GNU/Linux
+        CPU_COUNT=`sysctl -n hw.ncpu 2>/dev/null` || CPU_COUNT="0"
+      ])dnl
+
+      AS_IF([[test "$CPU_COUNT" -gt "0" 2>/dev/null]],[[# empty]],[dnl
+      # Try platform-specific fallback methods
       AS_CASE([$host_os],[
-        *darwin*],[
-        AS_IF([test -x /usr/sbin/sysctl],[
-          sysctl_a=`/usr/sbin/sysctl -a 2>/dev/null| grep -c hw.cpu`
-          AS_IF([test sysctl_a],[
-            CPU_COUNT=`/usr/sbin/sysctl -n hw.ncpu`
-            ])
-          ])],[
         *linux*],[
         AS_IF([test "x$CPU_COUNT" = "x0" -a -e /proc/cpuinfo],[
           AS_IF([test "x$CPU_COUNT" = "x0" -a -e /proc/cpuinfo],[
@@ -58,6 +81,7 @@
           CPU_COUNT="$NUMBER_OF_PROCESSORS"
           ])
         ])
+      ])dnl
 
       AS_IF([[test "x$CPU_COUNT" != "x0" && test "$CPU_COUNT" -gt 0 2>/dev/null]],[dnl
           AC_MSG_RESULT([[$CPU_COUNT]])
