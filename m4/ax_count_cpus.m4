@@ -26,7 +26,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
   AC_DEFUN([AX_COUNT_CPUS],[dnl
       AC_REQUIRE([AC_CANONICAL_HOST])dnl
@@ -64,23 +64,18 @@
 
       AS_IF([[test "$CPU_COUNT" -gt "0" 2>/dev/null]],[[# empty]],[dnl
       # Try platform-specific fallback methods
-      AS_CASE([$host_os],[
-        *linux*],[
-        AS_IF([test "x$CPU_COUNT" = "x0" -a -e /proc/cpuinfo],[
-          AS_IF([test "x$CPU_COUNT" = "x0" -a -e /proc/cpuinfo],[
-            CPU_COUNT=`$EGREP -c '^processor' /proc/cpuinfo`
-            ])
-          ])],[
-        *mingw*],[
-        CPU_COUNT=`reg query HKLM\\\\Hardware\\\\Description\\\\System\\\\CentralProcessor 2>/dev/null | $EGREP -c '@<:@0-9@:>@+' -c` || CPU_COUNT="0"
-        AS_IF([[test "$CPU_COUNT" -eq "0" && test "$NUMBER_OF_PROCESSORS" -gt "0" 2>/dev/null]],[dnl
-          CPU_COUNT="$NUMBER_OF_PROCESSORS" # Fallback to simple method
-          ])],[
-        *cygwin*],[
-        AS_IF([test -n "$NUMBER_OF_PROCESSORS"],[
-          CPU_COUNT="$NUMBER_OF_PROCESSORS"
-          ])
-        ])
+      # They can be less accurate and slower then preferred methods
+        AS_CASE([[$host_os]],dnl
+          [[*linux*]],[[CPU_COUNT=`$EGREP -e '^processor' -c /proc/cpuinfo 2>/dev/null` || CPU_COUNT="0"]],dnl
+          [[*darwin*]],[[CPU_COUNT=`system_profiler SPHardwareDataType 2>/dev/null | $EGREP -i -e 'number of cores:'|cut -d : -f 2 -s|tr -d ' '` || CPU_COUNT="0"]],dnl
+          [[freebsd*]],[[CPU_COUNT=`dmesg 2>/dev/null| $EGREP -e '^cpu@<:@0-9@:>@+: '|sort -u|$EGREP -e '^' -c` || CPU_COUNT="0"]],dnl
+          [[solaris*]],[[CPU_COUNT=`kstat -m cpu_info -s state -p 2>/dev/null | $EGREP -c -e 'on-line'` || \
+                           CPU_COUNT=`kstat -m cpu_info 2>/dev/null | $EGREP -c -e 'module: cpu_info'` || CPU_COUNT="0"]],dnl
+          [[mingw*]],[AS_IF([[CPU_COUNT=`reg query 'HKLM\\Hardware\\Description\\System\\CentralProcessor' 2>/dev/null | $EGREP -e '\\\\@<:@0-9@:>@+$' -c`]],dnl
+                        [[# empty]],[[test "$NUMBER_OF_PROCESSORS" -gt "0" 2>/dev/null && CPU_COUNT="$NUMBER_OF_PROCESSORS"]])],dnl
+          [[msys*]],[[test "$NUMBER_OF_PROCESSORS" -gt "0" 2>/dev/null && CPU_COUNT="$NUMBER_OF_PROCESSORS"]],dnl
+          [[cygwin*]],[[test "$NUMBER_OF_PROCESSORS" -gt "0" 2>/dev/null && CPU_COUNT="$NUMBER_OF_PROCESSORS"]]dnl
+        )dnl
       ])dnl
 
       AS_IF([[test "x$CPU_COUNT" != "x0" && test "$CPU_COUNT" -gt 0 2>/dev/null]],[dnl
