@@ -8,11 +8,13 @@
 #
 # DESCRIPTION
 #
-#   Attempt to count the number of processors present on the machine and
-#   place detected value in CPU_COUNT variable. On successful detection,
-#   ACTION-IF-DETECTED is executed if present. If the detection fails, then
-#   ACTION-IF-NOT-DETECTED is triggered. The default ACTION-IF-NOT-DETECTED
-#   is to set CPU_COUNT to 1.
+#   Attempt to count the number of logical processor cores (including
+#   virtual and HT cores) currently available to use on the machine and
+#   place detected value in CPU_COUNT variable.
+#
+#   On successful detection, ACTION-IF-DETECTED is executed if present. If
+#   the detection fails, then ACTION-IF-NOT-DETECTED is triggered. The
+#   default ACTION-IF-NOT-DETECTED is to set CPU_COUNT to 1.
 #
 # LICENSE
 #
@@ -26,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 17
 
   AC_DEFUN([AX_COUNT_CPUS],[dnl
       AC_REQUIRE([AC_CANONICAL_HOST])dnl
