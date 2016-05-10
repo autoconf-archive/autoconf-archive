@@ -10,6 +10,26 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_WITH_CURSES and AX_WITH_CURSES_* macros have been modernized, in line
+  with PKG_CHECK_MODULES's style. This change breaks the interface, but
+  makes AX_WITH_CURSES compatible and even completely replaceable with the
+  interface of PKG_CHECK_MODULES. Ultimately, these macros should be
+  replaced in the future by calls to PKG_CHECK_MODULES. Variables in
+  AX_WITH_CURSES have been renamed
+
+    CURSES_LIB -> CURSES_LIBS
+    CURSES_CPPFLAGS -> CURSES_CFLAGS
+
+  and for the AX_WITH_CURSES_* macros
+
+    PANEL_LIB -> PANEL_LIBS
+    MENU_LIB -> MENU_LIBS
+    FORM_LIB -> FORM_LIBS
+
+  such that once the variables have been renamed in configure.ac and Makefile.am,
+  the calls AX_WITH_CURSES and PKG_CHECK_MODULES([CURSES], [ncurses]) are
+  completely interchangeable.
+
 * Noteworthy changes in release 2016.03.20 (2016-03-20) [stable]
 
   The following new macros have been added: AX_CHECK_GIRS_GJS,
