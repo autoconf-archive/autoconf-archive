@@ -24,4 +24,6 @@ script:
   - ./configure
   - make PYTHON=python3 -j$(nproc) maintainer-all all
   - make distcheck
-  - make web-manual && ./fix-website.sh
+  # makeinfo is too old for those steps. :-(
+  # - make web-manual
+  # - ./fix-website.sh
