@@ -28,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 17
+#serial 18
 
   AC_DEFUN([AX_COUNT_CPUS],[dnl
       AC_REQUIRE([AC_CANONICAL_HOST])dnl
@@ -40,12 +40,12 @@
 
       # 'getconf' is POSIX utility, '_SC_NPROCESSORS_ONLN' is optional
       CPU_COUNT=`getconf _NPROCESSORS_ONLN 2>/dev/null | $EGREP -e '^@<:@0-9@:>@+'` || CPU_COUNT="0"
-      AS_IF([[test "$CPU_COUNT" -gt "0" 2>/dev/null]],[[# empty]],[dnl
+      AS_IF([[test "$CPU_COUNT" -gt "0" 2>/dev/null]],[[: # empty]],[dnl
         # 'nproc' is part of GNU Coreutils and is widely available
         CPU_COUNT=`OMP_NUM_THREADS='' nproc 2>/dev/null` || CPU_COUNT=`nproc 2>/dev/null` || CPU_COUNT="0"
       ])dnl
 
-      AS_IF([[test "$CPU_COUNT" -gt "0" 2>/dev/null]],[[# empty]],[dnl
+      AS_IF([[test "$CPU_COUNT" -gt "0" 2>/dev/null]],[[: # empty]],[dnl
         # Try platform-specific preferred methods
         AS_CASE([[$host_os]],dnl
           [[*linux*]],[[CPU_COUNT=`lscpu -p 2>/dev/null | $EGREP -e '^@<:@0-9@:>@+,' -c` || CPU_COUNT="0"]],dnl
@@ -58,13 +58,13 @@
         )dnl
       ])dnl
 
-      AS_IF([[test "$CPU_COUNT" -gt "0" 2>/dev/null]],[[# empty]],[dnl
+      AS_IF([[test "$CPU_COUNT" -gt "0" 2>/dev/null]],[[: # empty]],[dnl
         # Try less preferred generic method
         # 'hw.ncpu' exist on many platforms, but not on GNU/Linux
         CPU_COUNT=`sysctl -n hw.ncpu 2>/dev/null` || CPU_COUNT="0"
       ])dnl
 
-      AS_IF([[test "$CPU_COUNT" -gt "0" 2>/dev/null]],[[# empty]],[dnl
+      AS_IF([[test "$CPU_COUNT" -gt "0" 2>/dev/null]],[[: # empty]],[dnl
       # Try platform-specific fallback methods
       # They can be less accurate and slower then preferred methods
         AS_CASE([[$host_os]],dnl
@@ -74,7 +74,7 @@
           [[solaris*]],[[CPU_COUNT=`kstat -m cpu_info -s state -p 2>/dev/null | $EGREP -c -e 'on-line'` || \
                            CPU_COUNT=`kstat -m cpu_info 2>/dev/null | $EGREP -c -e 'module: cpu_info'` || CPU_COUNT="0"]],dnl
           [[mingw*]],[AS_IF([[CPU_COUNT=`reg query 'HKLM\\Hardware\\Description\\System\\CentralProcessor' 2>/dev/null | $EGREP -e '\\\\@<:@0-9@:>@+$' -c`]],dnl
-                        [[# empty]],[[test "$NUMBER_OF_PROCESSORS" -gt "0" 2>/dev/null && CPU_COUNT="$NUMBER_OF_PROCESSORS"]])],dnl
+                        [[: # empty]],[[test "$NUMBER_OF_PROCESSORS" -gt "0" 2>/dev/null && CPU_COUNT="$NUMBER_OF_PROCESSORS"]])],dnl
           [[msys*]],[[test "$NUMBER_OF_PROCESSORS" -gt "0" 2>/dev/null && CPU_COUNT="$NUMBER_OF_PROCESSORS"]],dnl
           [[cygwin*]],[[test "$NUMBER_OF_PROCESSORS" -gt "0" 2>/dev/null && CPU_COUNT="$NUMBER_OF_PROCESSORS"]]dnl
         )dnl
