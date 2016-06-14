@@ -28,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 19
+#serial 20
 
   AC_DEFUN([AX_COUNT_CPUS],[dnl
       AC_REQUIRE([AC_CANONICAL_HOST])dnl
@@ -38,9 +38,10 @@
 
       # Try generic methods
 
-      # 'getconf' is POSIX utility, '_SC_NPROCESSORS_ONLN' is optional
+      # 'getconf' is POSIX utility, but '_NPROCESSORS_ONLN' and
+      # 'NPROCESSORS_ONLN' are platform-specific
       command -v getconf >/dev/null 2>&1 && \
-        CPU_COUNT=`getconf _NPROCESSORS_ONLN 2>/dev/null | $EGREP -e '^@<:@0-9@:>@+'` || CPU_COUNT="0"
+        CPU_COUNT=`getconf _NPROCESSORS_ONLN 2>/dev/null || getconf NPROCESSORS_ONLN 2>/dev/null` || CPU_COUNT="0"
       AS_IF([[test "$CPU_COUNT" -gt "0" 2>/dev/null || ! command -v nproc >/dev/null 2>&1]],[[: # empty]],[dnl
         # 'nproc' is part of GNU Coreutils and is widely available
         CPU_COUNT=`OMP_NUM_THREADS='' nproc 2>/dev/null` || CPU_COUNT=`nproc 2>/dev/null` || CPU_COUNT="0"
