@@ -158,9 +158,9 @@ if test "$with_hdf5" = "yes"; then
         AC_MSG_CHECKING([Using provided HDF5 C wrapper])
         AC_MSG_RESULT([$H5CC])
     fi
-    if test "$H5CC$" = "h5cc"; then
+    if test "$H5CC" = "h5cc"; then
         HDF5_TYPE="serial"
-    else
+    elif test "$H5CC" = "h5pcc"; then
         HDF5_TYPE="parallel"
     fi
     AC_MSG_CHECKING([for HDF5 libraries])
