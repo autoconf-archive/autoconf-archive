@@ -33,6 +33,7 @@
 #     AC_SUBST(HDF5_FC)
 #     AC_SUBST(HDF5_FFLAGS)
 #     AC_SUBST(HDF5_FLIBS)
+#     AC_SUBST(HDF5_TYPE)
 #     AC_DEFINE(HAVE_HDF5)
 #
 #   and sets with_hdf5="yes".  Additionally, the macro sets
@@ -73,6 +74,9 @@
 #     else
 #             AC_MSG_ERROR([Unable to find HDF5, we need parallel HDF5.])
 #     fi
+#
+#   The HDF5_TYPE environment variable returns "parallel" or "serial",
+#   depending on which type of library is found.
 #
 # LICENSE
 #
@@ -137,6 +141,7 @@ HDF5_LIBS=""
 HDF5_FC=""
 HDF5_FFLAGS=""
 HDF5_FLIBS=""
+HDF5_TYPE=""
 
 dnl Try and find hdf5 compiler tools and options.
 if test "$with_hdf5" = "yes"; then
@@ -152,6 +157,11 @@ if test "$with_hdf5" = "yes"; then
     else
         AC_MSG_CHECKING([Using provided HDF5 C wrapper])
         AC_MSG_RESULT([$H5CC])
+    fi
+    if test "$H5CC$" = "h5cc"; then
+        HDF5_TYPE="serial"
+    else
+        HDF5_TYPE="parallel"
     fi
     AC_MSG_CHECKING([for HDF5 libraries])
     if test ! -f "$H5CC" || test ! -x "$H5CC"; then
@@ -305,6 +315,7 @@ HDF5 support is being disabled (equivalent to --with-hdf5=no).
 	AC_SUBST([HDF5_FC])
 	AC_SUBST([HDF5_FFLAGS])
 	AC_SUBST([HDF5_FLIBS])
+	AC_SUBST([HDF5_TYPE])
 	AC_DEFINE([HAVE_HDF5], [1], [Defined if you have HDF5 support])
     fi
 fi
