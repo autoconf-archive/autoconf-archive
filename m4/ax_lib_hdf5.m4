@@ -88,7 +88,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 15
 
 AC_DEFUN([AX_LIB_HDF5], [
 
@@ -158,11 +158,12 @@ if test "$with_hdf5" = "yes"; then
         AC_MSG_CHECKING([Using provided HDF5 C wrapper])
         AC_MSG_RESULT([$H5CC])
     fi
-    if test "$H5CC" = "h5cc"; then
-        HDF5_TYPE="serial"
-    elif test "$H5CC" = "h5pcc"; then
-        HDF5_TYPE="parallel"
-    fi
+    AC_MSG_CHECKING([for HDF5 type])
+    AS_CASE([$H5CC],
+        [*h5pcc], [HDF5_TYPE=parallel],
+        [*h5cc], [HDF5_TYPE=serial],
+        [HDF5_TYPE=neither])
+    AC_MSG_RESULT([$HDF5_TYPE])
     AC_MSG_CHECKING([for HDF5 libraries])
     if test ! -f "$H5CC" || test ! -x "$H5CC"; then
         AC_MSG_RESULT([no])
