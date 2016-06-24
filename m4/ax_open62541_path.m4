@@ -27,7 +27,13 @@
 #
 #   This macro provides the configure options --with-open62541=dir and
 #   --with-open62541-build=dir to set the two directories. This macro will
-#   append to CPPFLAGS and LDFLAGS if a dir is supplied.
+#   append to CPPFLAGS and LDFLAGS if a dir is supplied. It will also export
+#   LD_LIBRARY_PATH with the absolute path of the build dir for the rest of
+#   the configure script to use and define a Makefile variable
+#   OPEN62541_LDPATH, which contains
+#   LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<abs_path_to_build> : this is intended
+#   to be used for all commands that need to execute a program using the
+#   library (e.g. make check).
 #
 #   For --with-open62541, the dir is optional: if either the values "no"
 #   (from --without-open62541) or "yes" (for no argument) are specified,
@@ -51,7 +57,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 # AX_OPEN62541_PATH()
 # -------------------
@@ -83,5 +89,12 @@ AS_IF([test x${with_open62541:+set} == xset -a "x$with_open62541" != xno]dnl
       [CPPFLAGS="$CPPFLAGS${CPPFLAGS:+ }-I$with_open62541/include]dnl
 [ -I$with_open62541/plugins -I$with_open62541_build/src_generated]dnl
 [ -I$with_open62541_build"
-LDFLAGS="$LDFLAGS${LDFLAGS:+ }-L$with_open62541_build"])
+LDFLAGS="$LDFLAGS${LDFLAGS:+ }-L$with_open62541_build"
+with_open62541_build_abs=`(
+    cd "$with_open62541_build"
+    pwd)`
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH${LD_LIBRARY_PATH:+:}]dnl
+[$with_open62541_build_abs"
+AC_SUBST([OPEN62541_LDPATH], ["LD_LIBRARY_PATH=\$\$LD_LIBRARY_PATH]dnl
+[\$\${LD_LIBRARY_PATH:+:}$with_open62541_build_abs"])])
 ])# AX_OPEN62541_PATH
