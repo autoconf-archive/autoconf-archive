@@ -33,7 +33,8 @@
 #   OPEN62541_LDPATH, which contains
 #   LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<abs_path_to_build> : this is intended
 #   to be used for all commands that need to execute a program using the
-#   library (e.g. make check).
+#   library (e.g. make check). If paths are set, they are forwarded to
+#   distcheck.
 #
 #   For --with-open62541, the dir is optional: if either the values "no"
 #   (from --without-open62541) or "yes" (for no argument) are specified,
@@ -57,7 +58,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 # AX_OPEN62541_PATH()
 # -------------------
@@ -90,11 +91,21 @@ AS_IF([test x${with_open62541:+set} == xset -a "x$with_open62541" != xno]dnl
 [ -I$with_open62541/plugins -I$with_open62541_build/src_generated]dnl
 [ -I$with_open62541_build"
 LDFLAGS="$LDFLAGS${LDFLAGS:+ }-L$with_open62541_build"
+with_open62541_abs=`(
+    cd "$with_open62541"
+    pwd)`
 with_open62541_build_abs=`(
     cd "$with_open62541_build"
     pwd)`
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH${LD_LIBRARY_PATH:+:}]dnl
 [$with_open62541_build_abs"
 AC_SUBST([OPEN62541_LDPATH], ["LD_LIBRARY_PATH=\$\$LD_LIBRARY_PATH]dnl
-[\$\${LD_LIBRARY_PATH:+:}$with_open62541_build_abs"])])
+[\$\${LD_LIBRARY_PATH:+:}$with_open62541_build_abs"])
+AC_SUBST([AM_DISTCHECK_CONFIGURE_FLAGS], ["$AM_DISTCHECK_CONFIGURE_FLAGS]dnl
+[${AM_DISTCHECK_CONFIGURE_FLAGS:+ }--with-open62541=$with_open62541_abs"])
+AS_IF([test x$with_open62541/build != xwith_open62541_build],
+      [AC_SUBST([AM_DISTCHECK_CONFIGURE_FLAGS],
+                ["$AM_DISTCHECK_CONFIGURE_FLAGS]dnl
+[ --with-open62541-build=$with_open62541_build_abs"])])
+])
 ])# AX_OPEN62541_PATH
