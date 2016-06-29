@@ -78,8 +78,8 @@ in "-warn all  % -warn all"   dnl Intel
    "-h conform % -h msglevel 2" dnl Cray C (Unicos)
    #
 do FLAGS="$ac_save_[]FLAGS "`echo $ac_arg | sed -e 's,%%.*,,' -e 's,%,,'`
-   AC_COMPILE_IFELSE([AC_LANG_PROGRAM],
-                     [VAR=`echo $ac_arg | sed -e 's,.*% *,,'` ; break])
+   AC_LINK_IFELSE([AC_LANG_PROGRAM],
+                  [VAR=`echo $ac_arg | sed -e 's,.*% *,,'` ; break])
 done
 FLAGS="$ac_save_[]FLAGS"
 ])
