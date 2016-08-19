@@ -9,9 +9,9 @@
 # DESCRIPTION
 #
 #   Defines CODE_COVERAGE_CPPFLAGS, CODE_COVERAGE_CFLAGS,
-#   CODE_COVERAGE_CXXFLAGS and CODE_COVERAGE_LDFLAGS which should be
-#   included in the CPPFLAGS, CFLAGS CXXFLAGS and LIBS/LDFLAGS variables of
-#   every build target (program or library) which should be built with code
+#   CODE_COVERAGE_CXXFLAGS and CODE_COVERAGE_LIBS which should be included
+#   in the CPPFLAGS, CFLAGS CXXFLAGS and LIBS/LIBADD variables of every
+#   build target (program or library) which should be built with code
 #   coverage support. Also defines CODE_COVERAGE_RULES which should be
 #   substituted in your Makefile; and $enable_code_coverage which can be
 #   used in subsequent configure output. CODE_COVERAGE_ENABLED is defined
@@ -33,7 +33,7 @@
 #   Makefile.am:
 #
 #     @CODE_COVERAGE_RULES@
-#     my_program_LIBS = ... $(CODE_COVERAGE_LDFLAGS) ...
+#     my_program_LIBS = ... $(CODE_COVERAGE_LIBS) ...
 #     my_program_CPPFLAGS = ... $(CODE_COVERAGE_CPPFLAGS) ...
 #     my_program_CFLAGS = ... $(CODE_COVERAGE_CFLAGS) ...
 #     my_program_CXXFLAGS = ... $(CODE_COVERAGE_CXXFLAGS) ...
@@ -44,6 +44,11 @@
 #   check-code-coverage` in that directory will run the module's test suite
 #   (`make check`) and build a code coverage report detailing the code which
 #   was touched, then print the URI for the report.
+#
+#   In earlier versions of this macro, CODE_COVERAGE_LDFLAGS was defined
+#   instead of CODE_COVERAGE_LIBS. They are both still defined, but use of
+#   CODE_COVERAGE_LIBS is preferred for clarity; CODE_COVERAGE_LDFLAGS is
+#   deprecated. They have the same value.
 #
 #   This code was derived from Makefile.decl in GLib, originally licenced
 #   under LGPLv2.1+.
@@ -70,7 +75,7 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-#serial 16
+#serial 17
 
 AC_DEFUN([AX_CODE_COVERAGE],[
 	dnl Check for --enable-code-coverage
@@ -140,14 +145,17 @@ AC_DEFUN([AX_CODE_COVERAGE],[
 		])
 
 		dnl Build the code coverage flags
+		dnl Define CODE_COVERAGE_LDFLAGS for backwards compatibility
 		CODE_COVERAGE_CPPFLAGS="-DNDEBUG"
 		CODE_COVERAGE_CFLAGS="-O0 -g -fprofile-arcs -ftest-coverage"
 		CODE_COVERAGE_CXXFLAGS="-O0 -g -fprofile-arcs -ftest-coverage"
 		CODE_COVERAGE_LDFLAGS="-lgcov"
+		CODE_COVERAGE_LDFLAGS="$CODE_COVERAGE_LIBS"
 
 		AC_SUBST([CODE_COVERAGE_CPPFLAGS])
 		AC_SUBST([CODE_COVERAGE_CFLAGS])
 		AC_SUBST([CODE_COVERAGE_CXXFLAGS])
+		AC_SUBST([CODE_COVERAGE_LIBS])
 		AC_SUBST([CODE_COVERAGE_LDFLAGS])
 	])
 
