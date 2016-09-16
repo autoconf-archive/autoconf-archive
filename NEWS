@@ -8,7 +8,23 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
-* Noteworthy changes in release ?.? (????-??-??) [?]
+* Noteworthy changes in release 2016.09.16 (2016-09-16) [stable]
+
+  The following macros were added: AX_BUILD_DATE_EPOCH, AX_CHECK_X86_FEATURES,
+  AX_GCC_X86_CPU_SUPPORTS, AX_OPEN62541_CHECK_H, AX_OPEN62541_CHECK_LIB, and
+  AX_LUAROCKS_ROCK.
+
+  While updating AX_CODE_COVERAGE, the variable CODE_COVERAGE_LDFLAGS was
+  renamed to CODE_COVERAGE_LIBS.
+
+  AX_VALGRIND_CHECK has been extended considerably. In this process. the
+  undocumented internal rule check-valgrind-tool was removed.
+
+  It checks if the host cpu supports various instruction set: mmx, sse, popcnt,
+  avx, avx2, etc. If the instruction were supported, it would export
+  HAVE_XXX_INSTRUCTIONS C preprocessor macros and add the instruction set flag to
+  X86_FEATURES_CFLAGS variable. By default it would also set CFLAGS, but this can
+  be disabled by the ACTION-IF-FOUND hook.
 
   AX_WITH_CURSES and AX_WITH_CURSES_* macros have been modernized, in line
   with PKG_CHECK_MODULES's style. This change breaks the interface, but
