@@ -75,7 +75,7 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-#serial 17
+#serial 18
 
 AC_DEFUN([AX_CODE_COVERAGE],[
 	dnl Check for --enable-code-coverage
@@ -149,7 +149,7 @@ AC_DEFUN([AX_CODE_COVERAGE],[
 		CODE_COVERAGE_CPPFLAGS="-DNDEBUG"
 		CODE_COVERAGE_CFLAGS="-O0 -g -fprofile-arcs -ftest-coverage"
 		CODE_COVERAGE_CXXFLAGS="-O0 -g -fprofile-arcs -ftest-coverage"
-		CODE_COVERAGE_LDFLAGS="-lgcov"
+		CODE_COVERAGE_LIBS="-lgcov"
 		CODE_COVERAGE_LDFLAGS="$CODE_COVERAGE_LIBS"
 
 		AC_SUBST([CODE_COVERAGE_CPPFLAGS])
