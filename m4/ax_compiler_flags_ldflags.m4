@@ -25,7 +25,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_COMPILER_FLAGS_LDFLAGS],[
     AX_REQUIRE_DEFINED([AX_APPEND_LINK_FLAGS])
@@ -33,7 +33,7 @@ AC_DEFUN([AX_COMPILER_FLAGS_LDFLAGS],[
     AX_REQUIRE_DEFINED([AX_CHECK_COMPILE_FLAG])
 
     # Variable names
-    m4_define(ax_warn_ldflags_variable,
+    m4_define([ax_warn_ldflags_variable],
               [m4_normalize(ifelse([$1],,[WARN_LDFLAGS],[$1]))])
 
     # Always pass -Werror=unknown-warning-option to get Clang to fail on bad
