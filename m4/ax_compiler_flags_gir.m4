@@ -26,13 +26,13 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_COMPILER_FLAGS_GIR],[
     AX_REQUIRE_DEFINED([AX_APPEND_FLAG])
 
     # Variable names
-    m4_define(ax_warn_scannerflags_variable,
+    m4_define([ax_warn_scannerflags_variable],
               [m4_normalize(ifelse([$1],,[WARN_SCANNERFLAGS],[$1]))])
 
     # Base flags

@@ -26,7 +26,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_COMPILER_FLAGS_CXXFLAGS],[
     AC_REQUIRE([AC_PROG_SED])
@@ -35,7 +35,7 @@ AC_DEFUN([AX_COMPILER_FLAGS_CXXFLAGS],[
     AX_REQUIRE_DEFINED([AX_CHECK_COMPILE_FLAG])
 
     # Variable names
-    m4_define(ax_warn_cxxflags_variable,
+    m4_define([ax_warn_cxxflags_variable],
               [m4_normalize(ifelse([$1],,[WARN_CXXFLAGS],[$1]))])
 
     AC_LANG_PUSH([C++])
