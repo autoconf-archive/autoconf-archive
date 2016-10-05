@@ -2,6 +2,11 @@
 #    http://www.gnu.org/software/autoconf-archive/ax_define_sub_path.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro is obsolete because its been completely broken for several
+#   years without anybody noticing, so apparently it's not used very much.
+#
 # SYNOPSIS
 #
 #   AX_DEFINE_SUB_PATH(DEFNAME, varname, description)
@@ -79,7 +84,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([AC_DEFINE_SUB_PATH], [AX_DEFINE_SUB_PATH])
 AC_DEFUN([AX_DEFINE_SUB_PATH],
