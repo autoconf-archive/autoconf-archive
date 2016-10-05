@@ -79,7 +79,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AC_DEFINE_SUB_PATH], [AX_DEFINE_SUB_PATH])
 AC_DEFUN([AX_DEFINE_SUB_PATH],
@@ -87,7 +87,7 @@ AC_DEFUN([AX_DEFINE_SUB_PATH],
   test "_$prefix" = _NONE && prefix="$ac_default_prefix"
   test "_$exec_prefix" = _NONE && exec_prefix='${prefix}'
   P=`echo ifelse( $2, , [$]$1, [$]$2) | sed -e 's:^\${[a-z_]*prefix}:.:'`
-  ifelse ($3, ,
+  ifelse($3, ,
     AC_DEFINE($1, $P, [sub path $2]),
     AC_DEFINE($1, $P, $3))
 ])
