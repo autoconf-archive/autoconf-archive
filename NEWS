@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  Obsolete macros AX_CXX_COMPILER_VENDOR, AX_GCC_LIBRARIES_DIR, AX_GCC_VERSION,
+  and AX_HAVE_OPENGL have been removed from the archive.
+
   AX_DEFINE_SUB_PATH has been marked obsolete as suggested in
   https://github.com/peti/autoconf-archive/pull/97.
 
