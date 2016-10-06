@@ -52,7 +52,7 @@
 #   the following code to configure.ac:
 #
 #     AX_ENABLE_BUILDDIR
-#     dnl …
+#     dnl ...
 #     AX_EXTEND_SRCDIR
 #
 #   Then also add this bit to Makefile.am (if you wish to use
@@ -69,7 +69,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_EXTEND_SRCDIR],
 [dnl
