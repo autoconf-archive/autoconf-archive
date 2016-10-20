@@ -40,16 +40,16 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 dnl  This macro is based on the code from the AX_CXX_COMPILE_STDCXX_11 macro
 dnl  (serial version number 13).
 
 AX_REQUIRE_DEFINED([AC_MSG_WARN])
 AC_DEFUN([AX_CXX_COMPILE_STDCXX], [dnl
-  m4_if([$1], [11], [],
-        [$1], [14], [],
-        [$1], [17], [],
+  m4_if([$1], [11], [ax_cxx_compile_alternatives="11 0x"],
+        [$1], [14], [ax_cxx_compile_alternatives="14 1y"],
+        [$1], [17], [ax_cxx_compile_alternatives="17 1z"],
         [m4_fatal([invalid first argument `$1' to AX_CXX_COMPILE_STDCXX])])dnl
   m4_if([$2], [], [],
         [$2], [ext], [],
@@ -72,7 +72,8 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX], [dnl
 
   m4_if([$2], [noext], [], [dnl
   if test x$ac_success = xno; then
-    for switch in -std=gnu++$1 -std=gnu++0x; do
+    for alternative in ${ax_cxx_compile_alternatives}; do
+      switch="-std=gnu++${alternative}"
       cachevar=AS_TR_SH([ax_cv_cxx_compile_cxx$1_$switch])
       AC_CACHE_CHECK(whether $CXX supports C++$1 features with $switch,
                      $cachevar,
@@ -98,22 +99,27 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX], [dnl
     dnl HP's aCC needs +std=c++11 according to:
     dnl http://h21007.www2.hp.com/portal/download/files/unprot/aCxx/PDF_Release_Notes/769149-001.pdf
     dnl Cray's crayCC needs "-h std=c++11"
-    for switch in -std=c++$1 -std=c++0x +std=c++$1 "-h std=c++$1"; do
-      cachevar=AS_TR_SH([ax_cv_cxx_compile_cxx$1_$switch])
-      AC_CACHE_CHECK(whether $CXX supports C++$1 features with $switch,
-                     $cachevar,
-        [ac_save_CXX="$CXX"
-         CXX="$CXX $switch"
-         AC_COMPILE_IFELSE([AC_LANG_SOURCE([_AX_CXX_COMPILE_STDCXX_testbody_$1])],
-          [eval $cachevar=yes],
-          [eval $cachevar=no])
-         CXX="$ac_save_CXX"])
-      if eval test x\$$cachevar = xyes; then
-        CXX="$CXX $switch"
-        if test -n "$CXXCPP" ; then
-          CXXCPP="$CXXCPP $switch"
+    for alternative in ${ax_cxx_compile_alternatives}; do
+      for switch in -std=c++${alternative} +std=c++${alternative} "-h std=c++${alternative}"; do
+        cachevar=AS_TR_SH([ax_cv_cxx_compile_cxx$1_$switch])
+        AC_CACHE_CHECK(whether $CXX supports C++$1 features with $switch,
+                       $cachevar,
+          [ac_save_CXX="$CXX"
+           CXX="$CXX $switch"
+           AC_COMPILE_IFELSE([AC_LANG_SOURCE([_AX_CXX_COMPILE_STDCXX_testbody_$1])],
+            [eval $cachevar=yes],
+            [eval $cachevar=no])
+           CXX="$ac_save_CXX"])
+        if eval test x\$$cachevar = xyes; then
+          CXX="$CXX $switch"
+          if test -n "$CXXCPP" ; then
+            CXXCPP="$CXXCPP $switch"
+          fi
+          ac_success=yes
+          break
         fi
-        ac_success=yes
+      done
+      if test x$ac_success = xyes; then
         break
       fi
     done
