@@ -25,12 +25,13 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_COMPILER_FLAGS_LDFLAGS],[
     AX_REQUIRE_DEFINED([AX_APPEND_LINK_FLAGS])
     AX_REQUIRE_DEFINED([AX_APPEND_FLAG])
     AX_REQUIRE_DEFINED([AX_CHECK_COMPILE_FLAG])
+    AX_REQUIRE_DEFINED([AX_CHECK_LINK_FLAG])
 
     # Variable names
     m4_define([ax_warn_ldflags_variable],
@@ -47,9 +48,25 @@ AC_DEFUN([AX_COMPILER_FLAGS_LDFLAGS],[
         ax_compiler_flags_test=""
     ])
 
+    # macOS linker does not have --as-needed
+    AX_CHECK_LINK_FLAG([-Wl,--no-as-needed], [
+        ax_compiler_flags_as_needed_option="-Wl,--no-as-needed"
+    ], [
+        ax_compiler_flags_as_needed_option=""
+    ])
+
+    # macOS linker speaks with a different accent
+    ax_compiler_flags_fatal_warnings_option=""
+    AX_CHECK_LINK_FLAG([-Wl,--fatal-warnings], [
+        ax_compiler_flags_fatal_warnings_option="-Wl,--fatal-warnings"
+    ])
+    AX_CHECK_LINK_FLAG([-Wl,-fatal_warnings], [
+        ax_compiler_flags_fatal_warnings_option="-Wl,-fatal_warnings"
+    ])
+
     # Base flags
     AX_APPEND_LINK_FLAGS([ dnl
-        -Wl,--no-as-needed dnl
+        $ax_compiler_flags_as_needed_option dnl
         $3 dnl
     ],ax_warn_ldflags_variable,[$ax_compiler_flags_test])
 
@@ -66,7 +83,7 @@ AC_DEFUN([AX_COMPILER_FLAGS_LDFLAGS],[
         # suggest-attribute=format is disabled because it gives too many false
         # positives
         AX_APPEND_LINK_FLAGS([ dnl
-            -Wl,--fatal-warnings dnl
+            $ax_compiler_flags_fatal_warnings_option dnl
         ],ax_warn_ldflags_variable,[$ax_compiler_flags_test])
     ])
 
