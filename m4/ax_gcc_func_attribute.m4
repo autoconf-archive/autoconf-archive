@@ -175,6 +175,9 @@ AC_DEFUN([AX_GCC_FUNC_ATTRIBUTE], [
                 [pure], [
                     int foo( void ) __attribute__(($1));
                 ],
+                [returns_nonnull], [
+                    void *foo( void ) __attribute__(($1));
+                ],
                 [unused], [
                     int foo( void ) __attribute__(($1));
                 ],
