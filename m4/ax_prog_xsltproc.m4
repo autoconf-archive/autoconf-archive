@@ -52,7 +52,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 8
 
 AU_ALIAS([AC_PROG_XSLTPROC], [AX_PROG_XSLTPROC])
 AC_DEFUN([AX_PROG_XSLTPROC],
@@ -72,13 +72,13 @@ AC_ARG_WITH(xsltproc-flags,
 AS_HELP_STRING([  --with-xsltproc-flags=FLAGS],
                [Flags to pass to xsltproc (default $1)]),
     [ if test "x$withval" = "xno"; then
-	XSLTPROC_FLAGS=''
+        XSLTPROC_FLAGS=''
     else
-	if test "x$withval" != "xyes"; then
-	    XSLTPROC_FLAGS="$withval"
-	fi
+        if test "x$withval" != "xyes"; then
+            XSLTPROC_FLAGS="$withval"
+        fi
     fi
-	])
+        ])
 
 # search for xsltproc if it wasn't specified
 if test "$ac_with_xsltproc" = "yes" -o "$ac_with_xsltproc" = "maybe"; then
