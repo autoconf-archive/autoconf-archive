@@ -44,12 +44,12 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_TLS], [
   AC_MSG_CHECKING([for thread local storage (TLS) class])
   AC_CACHE_VAL([ac_cv_tls],
-   [for ax_tls_keyword in __thread '__declspec(thread)' none; do
+   [for ax_tls_keyword in _Thread_local __thread '__declspec(thread)' none; do
        AS_CASE([$ax_tls_keyword],
           [none], [ac_cv_tls=none ; break],
           [AC_TRY_COMPILE(
