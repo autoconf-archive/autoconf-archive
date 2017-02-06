@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_boost_serialization.html
+#  https://www.gnu.org/software/autoconf-archive/ax_boost_serialization.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -29,7 +29,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 21
+#serial 22
 
 AC_DEFUN([AX_BOOST_SERIALIZATION],
 [

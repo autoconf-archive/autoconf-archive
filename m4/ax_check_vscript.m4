@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_check_vscript.html
+#     https://www.gnu.org/software/autoconf-archive/ax_check_vscript.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -57,7 +57,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 # _AX_CHECK_VSCRIPT(flag, global-sym, action-if-link-succeeds, [junk-file=no])
 AC_DEFUN([_AX_CHECK_VSCRIPT], [

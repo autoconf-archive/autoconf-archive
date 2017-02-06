@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_c99_inline.html
+#      https://www.gnu.org/software/autoconf-archive/ax_c99_inline.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_C99_INLINE], [
 	AC_MSG_CHECKING([whether the compiler supports C99 inline functions])

@@ -1,6 +1,6 @@
-# ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_gcc_abi_demangle.html
-# ===========================================================================
+# ============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_gcc_abi_demangle.html
+# ============================================================================
 #
 # SYNOPSIS
 #
@@ -23,7 +23,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_CXX_GCC_ABI_DEMANGLE],
 [AC_CACHE_CHECK(whether the compiler supports GCC C++ ABI name demangling,

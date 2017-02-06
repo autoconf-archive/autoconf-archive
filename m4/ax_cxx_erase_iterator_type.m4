@@ -1,6 +1,6 @@
-# ==============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_erase_iterator_type.html
-# ==============================================================================
+# ===============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_erase_iterator_type.html
+# ===============================================================================
 #
 # SYNOPSIS
 #
@@ -25,7 +25,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_CXX_ERASE_ITERATOR_TYPE],
 [dnl

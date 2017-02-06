@@ -946,7 +946,7 @@
 
   The Autoconf Archive has been declared an official GNU project. Consequently,
   the web site has moved from <http://www.nongnu.org/autoconf-archive/> to
-  <http://www.gnu.org/software/autoconf-archive/>. Old addresses remain valid
+  <https://www.gnu.org/software/autoconf-archive/>. Old addresses remain valid
   for the foreseeable future, though.
 
   AX_BOOST_DATE_TIME and AX_BOOST_FILESYSTEM have been patched to function
@@ -980,11 +980,11 @@
 
   All macros have been assigned a unique serial number that corresponds to the
   number of commits that have modified the macro in the Archive's Git
-  repository. Refer to the [[http://www.gnu.org/software/libtool//manual/automake/Serials.html][Automake documentation on serial numbers]] for further
+  repository. Refer to the [[https://www.gnu.org/software/libtool//manual/automake/Serials.html][Automake documentation on serial numbers]] for further
   details about why these numbers are useful.
 
   The text of the all-permissive license has been augmented by an express
-  warranty disclaimer as [[http://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html][suggested by the Free Software Foundation]].
+  warranty disclaimer as [[https://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html][suggested by the Free Software Foundation]].
 
   AX_CXX_VERBOSE_TERMINATE_HANDLER has been generalized to support
   architectures other than GNU libstdc++.

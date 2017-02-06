@@ -1,6 +1,6 @@
-# ================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_have_string_push_back.html
-# ================================================================================
+# =================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_have_string_push_back.html
+# =================================================================================
 #
 # SYNOPSIS
 #
@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_CXX_HAVE_STRING_PUSH_BACK], [AX_CXX_HAVE_STRING_PUSH_BACK])
 AC_DEFUN([AX_CXX_HAVE_STRING_PUSH_BACK],

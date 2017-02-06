@@ -1,6 +1,6 @@
-# ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_check_gir_symbols_gjs.html
-# ============================================================================
+# =============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_check_gir_symbols_gjs.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -40,7 +40,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_CHECK_GIR_SYMBOLS_GJS], [
   AC_REQUIRE([AX_PROG_GJS])

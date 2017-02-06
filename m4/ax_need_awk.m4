@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_need_awk.html
+#       https://www.gnu.org/software/autoconf-archive/ax_need_awk.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -25,7 +25,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_NEED_AWK],[
   AC_REQUIRE([AC_PROG_AWK])

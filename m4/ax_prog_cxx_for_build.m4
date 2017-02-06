@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_prog_cxx_for_build.html
+#  https://www.gnu.org/software/autoconf-archive/ax_prog_cxx_for_build.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -31,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AU_ALIAS([AC_PROG_CXX_FOR_BUILD], [AX_PROG_CXX_FOR_BUILD])
 AC_DEFUN([AX_PROG_CXX_FOR_BUILD], [dnl

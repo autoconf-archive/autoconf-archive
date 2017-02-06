@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_count_cpus.html
+#      https://www.gnu.org/software/autoconf-archive/ax_count_cpus.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -28,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 21
+#serial 22
 
   AC_DEFUN([AX_COUNT_CPUS],[dnl
       AC_REQUIRE([AC_CANONICAL_HOST])dnl

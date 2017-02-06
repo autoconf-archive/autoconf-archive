@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_check_girs_gjs.html
+#    https://www.gnu.org/software/autoconf-archive/ax_check_girs_gjs.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -40,7 +40,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([_AX_CHECK_GIR_GJS], [
   AC_MSG_CHECKING([for version $2 of $1])

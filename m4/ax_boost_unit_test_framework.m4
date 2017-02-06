@@ -1,6 +1,6 @@
-# ================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_boost_unit_test_framework.html
-# ================================================================================
+# =================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_boost_unit_test_framework.html
+# =================================================================================
 #
 # SYNOPSIS
 #
@@ -29,7 +29,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 19
+#serial 20
 
 AC_DEFUN([AX_BOOST_UNIT_TEST_FRAMEWORK],
 [

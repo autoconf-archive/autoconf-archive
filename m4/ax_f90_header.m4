@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_f90_header.html
+#      https://www.gnu.org/software/autoconf-archive/ax_f90_header.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -31,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_F90_HEADER],[
  AX_F90_INTERNAL_HEADMOD([$1 fortran 90 header],[$2],-I,

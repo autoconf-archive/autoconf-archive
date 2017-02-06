@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_compiler_flags.html
+#    https://www.gnu.org/software/autoconf-archive/ax_compiler_flags.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -101,7 +101,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 # _AX_COMPILER_FLAGS_LANG([LANGNAME])
 m4_defun([_AX_COMPILER_FLAGS_LANG],

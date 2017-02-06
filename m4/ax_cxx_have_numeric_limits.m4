@@ -1,6 +1,6 @@
-# ==============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_have_numeric_limits.html
-# ==============================================================================
+# ===============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_have_numeric_limits.html
+# ===============================================================================
 #
 # SYNOPSIS
 #
@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_CXX_HAVE_NUMERIC_LIMITS], [AX_CXX_HAVE_NUMERIC_LIMITS])
 AC_DEFUN([AX_CXX_HAVE_NUMERIC_LIMITS],

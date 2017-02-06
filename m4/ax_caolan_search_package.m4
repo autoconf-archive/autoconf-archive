@@ -1,6 +1,6 @@
-# ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_caolan_search_package.html
-# ============================================================================
+# =============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_caolan_search_package.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -34,7 +34,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_caolan_SEARCH_PACKAGE],
 [

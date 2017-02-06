@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_prog_gjs.html
+#       https://www.gnu.org/software/autoconf-archive/ax_prog_gjs.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -23,7 +23,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN_ONCE([AX_PROG_GJS], [
   AC_REQUIRE([PKG_PROG_PKG_CONFIG])

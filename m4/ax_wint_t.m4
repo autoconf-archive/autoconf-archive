@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.gnu.org/software/autoconf-archive/ax_wint_t.html
+#        https://www.gnu.org/software/autoconf-archive/ax_wint_t.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -25,7 +25,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_WINT_T],[
  AC_CHECK_HEADERS([runetype.h wchar.h])

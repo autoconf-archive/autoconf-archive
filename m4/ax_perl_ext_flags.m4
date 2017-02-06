@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_perl_ext_flags.html
+#    https://www.gnu.org/software/autoconf-archive/ax_perl_ext_flags.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -56,7 +56,7 @@
 #   ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 #   POSSIBILITY OF SUCH DAMAGE.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_PERL_EXT_CFLAGS],
 [AC_CHECK_PROG(PERL,perl,perl)

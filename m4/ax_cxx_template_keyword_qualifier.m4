@@ -1,6 +1,6 @@
-# =====================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_template_keyword_qualifier.html
-# =====================================================================================
+# ======================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_template_keyword_qualifier.html
+# ======================================================================================
 #
 # SYNOPSIS
 #
@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_CXX_TEMPLATE_KEYWORD_QUALIFIER], [AX_CXX_TEMPLATE_KEYWORD_QUALIFIER])
 AC_DEFUN([AX_CXX_TEMPLATE_KEYWORD_QUALIFIER],

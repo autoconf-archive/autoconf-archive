@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_compiler_flags_gir.html
+#  https://www.gnu.org/software/autoconf-archive/ax_compiler_flags_gir.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -26,7 +26,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_COMPILER_FLAGS_GIR],[
     AX_REQUIRE_DEFINED([AX_APPEND_FLAG])

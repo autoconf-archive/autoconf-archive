@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_find_scala_stdlib.html
+#   https://www.gnu.org/software/autoconf-archive/ax_find_scala_stdlib.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -22,7 +22,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_ARG_VAR(SCALA_STDLIB, [path to the Scala Standard Library])
 

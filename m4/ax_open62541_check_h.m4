@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_open62541_check_h.html
+#   https://www.gnu.org/software/autoconf-archive/ax_open62541_check_h.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -64,7 +64,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 # AX_OPEN62541_CHECK_H([HEADERS], [ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
 # -------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_check_icu.html
+#       https://www.gnu.org/software/autoconf-archive/ax_check_icu.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_CHECK_ICU], [AX_CHECK_ICU])
 AC_DEFUN([AX_CHECK_ICU], [

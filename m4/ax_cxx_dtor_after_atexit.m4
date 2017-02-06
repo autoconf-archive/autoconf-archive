@@ -1,6 +1,6 @@
-# ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_dtor_after_atexit.html
-# ============================================================================
+# =============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_dtor_after_atexit.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -39,7 +39,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AC_CXX_DTOR_AFTER_ATEXIT], [AX_CXX_DTOR_AFTER_ATEXIT])
 AC_DEFUN([AX_CXX_DTOR_AFTER_ATEXIT],

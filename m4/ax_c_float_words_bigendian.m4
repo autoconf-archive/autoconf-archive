@@ -1,6 +1,6 @@
-# ==============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_c_float_words_bigendian.html
-# ==============================================================================
+# ===============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_c_float_words_bigendian.html
+# ===============================================================================
 #
 # SYNOPSIS
 #
@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_C_FLOAT_WORDS_BIGENDIAN],
   [AC_CACHE_CHECK(whether float word ordering is bigendian,

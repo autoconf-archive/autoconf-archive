@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_check_strcspn.html
+#     https://www.gnu.org/software/autoconf-archive/ax_check_strcspn.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AG_CHECK_STRCSPN], [AX_CHECK_STRCSPN])
 AC_DEFUN([AX_CHECK_STRCSPN],[

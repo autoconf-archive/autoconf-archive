@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_open62541_check_lib.html
+#  https://www.gnu.org/software/autoconf-archive/ax_open62541_check_lib.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -41,7 +41,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 # _AX_OPEN62541_CHECK_LIB_arg(THIS, OTHER)
 # ----------------------------------------

@@ -1,6 +1,6 @@
-# ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_f90_internal_headmod.html
-# ===========================================================================
+# ============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_f90_internal_headmod.html
+# ============================================================================
 #
 # SYNOPSIS
 #
@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_F90_INTERNAL_HEADMOD],[
 AS_VAR_PUSHDEF([ax_include],[ax_cv_f90_headmod_$2])

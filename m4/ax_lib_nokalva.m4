@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_lib_nokalva.html
+#      https://www.gnu.org/software/autoconf-archive/ax_lib_nokalva.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_LIB_NOKALVA], [
   AH_TEMPLATE([HAVE_NOKALVA], [Define if Nokalva is available])

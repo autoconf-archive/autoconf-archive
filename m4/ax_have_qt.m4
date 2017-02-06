@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_have_qt.html
+#        https://www.gnu.org/software/autoconf-archive/ax_have_qt.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -53,7 +53,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AU_ALIAS([BNV_HAVE_QT], [AX_HAVE_QT])
 AC_DEFUN([AX_HAVE_QT],

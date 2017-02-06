@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_lib_id3.html
+#        https://www.gnu.org/software/autoconf-archive/ax_lib_id3.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AC_LIB_ID3], [AX_LIB_ID3])
 AC_DEFUN([AX_LIB_ID3], [

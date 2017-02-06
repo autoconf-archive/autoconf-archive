@@ -1,6 +1,6 @@
-# ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_trilinos_thyra_epetra.html
-# ============================================================================
+# =============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_trilinos_thyra_epetra.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_TRILINOS_THYRA_EPETRA],[
     AC_REQUIRE([AX_TRILINOS_BASE])

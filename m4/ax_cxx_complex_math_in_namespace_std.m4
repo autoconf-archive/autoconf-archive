@@ -1,6 +1,6 @@
-# ========================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_complex_math_in_namespace_std.html
-# ========================================================================================
+# =========================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_complex_math_in_namespace_std.html
+# =========================================================================================
 #
 # SYNOPSIS
 #
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_CXX_COMPLEX_MATH_IN_NAMESPACE_STD], [AX_CXX_COMPLEX_MATH_IN_NAMESPACE_STD])
 AC_DEFUN([AX_CXX_COMPLEX_MATH_IN_NAMESPACE_STD],

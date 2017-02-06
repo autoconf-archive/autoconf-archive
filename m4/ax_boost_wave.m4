@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_boost_wave.html
+#      https://www.gnu.org/software/autoconf-archive/ax_boost_wave.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -30,7 +30,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 15
+#serial 16
 
 AC_DEFUN([AX_BOOST_WAVE],
 [

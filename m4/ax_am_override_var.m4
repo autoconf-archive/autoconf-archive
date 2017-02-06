@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_am_override_var.html
+#    https://www.gnu.org/software/autoconf-archive/ax_am_override_var.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -105,7 +105,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([_AX_AM_OVERRIDE_INITIALIZE],
 [

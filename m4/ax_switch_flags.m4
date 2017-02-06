@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_switch_flags.html
+#     https://www.gnu.org/software/autoconf-archive/ax_switch_flags.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_SWITCH_FLAGS], [
   AC_REQUIRE(AX_SAVE_FLAGS)

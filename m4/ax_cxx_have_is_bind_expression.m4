@@ -1,6 +1,6 @@
-# ==================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_have_is_bind_expression.html
-# ==================================================================================
+# ===================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_have_is_bind_expression.html
+# ===================================================================================
 #
 # SYNOPSIS
 #
@@ -23,7 +23,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_CXX_HAVE_IS_BIND_EXPRESSION],
   [AC_CACHE_CHECK(

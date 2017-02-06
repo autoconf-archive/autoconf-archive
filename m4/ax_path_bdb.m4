@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_path_bdb.html
+#       https://www.gnu.org/software/autoconf-archive/ax_path_bdb.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -73,7 +73,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 dnl #########################################################################
 AC_DEFUN([AX_PATH_BDB], [

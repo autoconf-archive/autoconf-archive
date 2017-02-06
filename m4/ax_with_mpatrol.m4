@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_with_mpatrol.html
+#     https://www.gnu.org/software/autoconf-archive/ax_with_mpatrol.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -28,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AM_WITH_MPATROL], [AX_WITH_MPATROL])
 AC_DEFUN([AX_WITH_MPATROL], [

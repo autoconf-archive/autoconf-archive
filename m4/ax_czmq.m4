@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://www.gnu.org/software/autoconf-archive/ax_czmq.html
+#         https://www.gnu.org/software/autoconf-archive/ax_czmq.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -31,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_CZMQ], [
     AC_ARG_WITH([czmq], [AS_HELP_STRING([--with-czmq=<prefix>],[CZMQ prefix directory])], [

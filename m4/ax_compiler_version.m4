@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_compiler_version.html
+#   https://www.gnu.org/software/autoconf-archive/ax_compiler_version.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 # for intel
 AC_DEFUN([_AX_COMPILER_VERSION_INTEL],

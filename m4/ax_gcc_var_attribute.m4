@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_gcc_var_attribute.html
+#   https://www.gnu.org/software/autoconf-archive/ax_gcc_var_attribute.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -52,7 +52,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_GCC_VAR_ATTRIBUTE], [
     AS_VAR_PUSHDEF([ac_var], [ax_cv_have_var_attribute_$1])

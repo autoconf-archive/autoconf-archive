@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.gnu.org/software/autoconf-archive/ax_lib_ev.html
+#        https://www.gnu.org/software/autoconf-archive/ax_lib_ev.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -24,7 +24,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_CHECK_EV_H], [
 dnl AX_CHECK_EV_H([ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])

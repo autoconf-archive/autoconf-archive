@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_open62541_path.html
+#    https://www.gnu.org/software/autoconf-archive/ax_open62541_path.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -58,7 +58,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 # AX_OPEN62541_PATH()
 # -------------------

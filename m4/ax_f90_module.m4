@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_f90_module.html
+#      https://www.gnu.org/software/autoconf-archive/ax_f90_module.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_F90_MODULE],[
  AC_REQUIRE([AX_F90_MODULE_FLAG])

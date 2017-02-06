@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_lib_gcrypt.html
+#      https://www.gnu.org/software/autoconf-archive/ax_lib_gcrypt.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -31,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 # AX_CHECK_GCRYPT_ALGO([algo])
 # generate convenient defines for each algorithm

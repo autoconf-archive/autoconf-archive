@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_absolute_header.html
+#    https://www.gnu.org/software/autoconf-archive/ax_absolute_header.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -27,7 +27,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 dnl Copyright (C) 2006, 2007 Free Software Foundation, Inc.
 dnl This file is free software; the Free Software Foundation

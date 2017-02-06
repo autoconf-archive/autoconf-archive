@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_find_hamcrest.html
+#     https://www.gnu.org/software/autoconf-archive/ax_find_hamcrest.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -22,7 +22,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_ARG_VAR(HAMCREST_JAR,
   [the location of the Hamcrest Matcher java library])

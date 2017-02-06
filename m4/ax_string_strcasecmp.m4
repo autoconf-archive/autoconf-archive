@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_string_strcasecmp.html
+#   https://www.gnu.org/software/autoconf-archive/ax_string_strcasecmp.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -31,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([ETR_STRING_STRCASECMP], [AX_STRING_STRCASECMP])
 AC_DEFUN([AX_STRING_STRCASECMP],

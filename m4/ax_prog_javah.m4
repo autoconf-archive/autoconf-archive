@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_prog_javah.html
+#      https://www.gnu.org/software/autoconf-archive/ax_prog_javah.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([AC_PROG_JAVAH], [AX_PROG_JAVAH])
 AC_DEFUN([AX_PROG_JAVAH],[

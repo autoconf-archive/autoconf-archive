@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_valgrind_check.html
+#    https://www.gnu.org/software/autoconf-archive/ax_valgrind_check.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -67,7 +67,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 dnl Configured tools
 m4_define([valgrind_tool_list], [[memcheck], [helgrind], [drd], [sgcheck]])

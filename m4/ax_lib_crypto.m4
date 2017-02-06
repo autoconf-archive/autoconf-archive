@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_lib_crypto.html
+#      https://www.gnu.org/software/autoconf-archive/ax_lib_crypto.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -30,7 +30,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 # AX_CHECK_CRYPTO_LIB([algo-name],[function])
 AC_DEFUN([AX_CHECK_CRYPTO_LIB],[

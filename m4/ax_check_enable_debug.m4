@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_check_enable_debug.html
+#  https://www.gnu.org/software/autoconf-archive/ax_check_enable_debug.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -42,7 +42,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_CHECK_ENABLE_DEBUG],[
     AC_BEFORE([$0],[AC_PROG_CC])dnl

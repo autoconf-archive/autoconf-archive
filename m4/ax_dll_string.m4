@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_dll_string.html
+#      https://www.gnu.org/software/autoconf-archive/ax_dll_string.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -23,7 +23,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 dnl Plan: compile conftest-dll.cc, conftest-exe.cc.  It has a 'crash' param
 dnl that can be passed.  Verify the compile worked and we can run it normally

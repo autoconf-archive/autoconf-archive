@@ -1,6 +1,6 @@
-# ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_header_pre_stdcxx.html
-# ============================================================================
+# =============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_header_pre_stdcxx.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_CXX_HEADER_PRE_STDCXX], [AX_CXX_HEADER_PRE_STDCXX])
 AC_DEFUN([AX_CXX_HEADER_PRE_STDCXX], [

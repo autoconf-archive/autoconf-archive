@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_add_fortify_source.html
+#  https://www.gnu.org/software/autoconf-archive/ax_add_fortify_source.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -29,7 +29,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_ADD_FORTIFY_SOURCE],[
     AC_MSG_CHECKING([whether to add -D_FORTIFY_SOURCE=2 to CPPFLAGS])

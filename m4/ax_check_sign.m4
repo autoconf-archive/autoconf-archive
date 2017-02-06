@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_check_sign.html
+#      https://www.gnu.org/software/autoconf-archive/ax_check_sign.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -35,7 +35,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([VL_CHECK_SIGN], [AX_CHECK_SIGN])
 AC_DEFUN([AX_CHECK_SIGN], [

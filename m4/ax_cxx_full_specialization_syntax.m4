@@ -1,6 +1,6 @@
-# =====================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_full_specialization_syntax.html
-# =====================================================================================
+# ======================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_full_specialization_syntax.html
+# ======================================================================================
 #
 # SYNOPSIS
 #
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_CXX_FULL_SPECIALIZATION_SYNTAX], [AX_CXX_FULL_SPECIALIZATION_SYNTAX])
 AC_DEFUN([AX_CXX_FULL_SPECIALIZATION_SYNTAX],

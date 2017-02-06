@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_check_glu.html
+#       https://www.gnu.org/software/autoconf-archive/ax_check_glu.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -70,7 +70,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -85,7 +85,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 20
+#serial 21
 
 # exemple program
 m4_define([_AX_CHECK_GLU_PROGRAM],

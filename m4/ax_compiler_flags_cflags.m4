@@ -1,6 +1,6 @@
-# ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_compiler_flags_cflags.html
-# ============================================================================
+# =============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_compiler_flags_cflags.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -25,7 +25,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
     AC_REQUIRE([AC_PROG_SED])

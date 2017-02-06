@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_is_release.html
+#      https://www.gnu.org/software/autoconf-archive/ax_is_release.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -44,7 +44,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_IS_RELEASE],[
     AC_BEFORE([AC_INIT],[$0])

@@ -1,6 +1,6 @@
-# ===============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_set_default_paths_system.html
-# ===============================================================================
+# ================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_set_default_paths_system.html
+# ================================================================================
 #
 # SYNOPSIS
 #
@@ -31,7 +31,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -46,7 +46,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AC_SET_DEFAULT_PATHS_SYSTEM], [AX_SET_DEFAULT_PATHS_SYSTEM])
 AC_DEFUN([AX_SET_DEFAULT_PATHS_SYSTEM],

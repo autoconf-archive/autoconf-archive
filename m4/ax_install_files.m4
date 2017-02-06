@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_install_files.html
+#     https://www.gnu.org/software/autoconf-archive/ax_install_files.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AC_DEFUN([AX_INSTALL_FILES],
 [

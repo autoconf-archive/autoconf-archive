@@ -1,6 +1,6 @@
-# ====================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_add_recursive_am_macro_static.html
-# ====================================================================================
+# =====================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_add_recursive_am_macro_static.html
+# =====================================================================================
 #
 # SYNOPSIS
 #
@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_ADD_RECURSIVE_AM_MACRO_STATIC],[
   AX_ADD_AM_MACRO_STATIC([

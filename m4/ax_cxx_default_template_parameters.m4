@@ -1,6 +1,6 @@
-# ======================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_default_template_parameters.html
-# ======================================================================================
+# =======================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_default_template_parameters.html
+# =======================================================================================
 #
 # SYNOPSIS
 #
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_CXX_DEFAULT_TEMPLATE_PARAMETERS], [AX_CXX_DEFAULT_TEMPLATE_PARAMETERS])
 AC_DEFUN([AX_CXX_DEFAULT_TEMPLATE_PARAMETERS],

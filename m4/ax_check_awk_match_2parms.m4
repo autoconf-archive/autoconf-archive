@@ -1,6 +1,6 @@
-# =============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_check_awk_match_2parms.html
-# =============================================================================
+# ==============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_check_awk_match_2parms.html
+# ==============================================================================
 #
 # SYNOPSIS
 #
@@ -26,7 +26,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_CHECK_AWK_MATCH_2PARMS], [
   AX_TRY_AWK_EXPOUT([match() with 2 parameters],

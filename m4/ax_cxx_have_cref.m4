@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_cxx_have_cref.html
+#     https://www.gnu.org/software/autoconf-archive/ax_cxx_have_cref.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -23,7 +23,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_CXX_HAVE_CREF],
   [AC_CACHE_CHECK(

@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_sip_devel.html
+#       https://www.gnu.org/software/autoconf-archive/ax_sip_devel.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -37,7 +37,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([MERK_SIP_DEVEL], [AX_SIP_DEVEL])
 AC_DEFUN([AX_SIP_DEVEL],[

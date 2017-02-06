@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_check_strftime.html
+#    https://www.gnu.org/software/autoconf-archive/ax_check_strftime.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([AG_CHECK_STRFTIME], [AX_CHECK_STRFTIME])
 AC_DEFUN([AX_CHECK_STRFTIME],[

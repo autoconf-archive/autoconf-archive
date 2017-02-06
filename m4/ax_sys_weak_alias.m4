@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_sys_weak_alias.html
+#    https://www.gnu.org/software/autoconf-archive/ax_sys_weak_alias.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -110,7 +110,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([KLM_SYS_WEAK_ALIAS], [AX_SYS_WEAK_ALIAS])
 AC_DEFUN([AX_SYS_WEAK_ALIAS], [

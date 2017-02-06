@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_ruby_ext.html
+#       https://www.gnu.org/software/autoconf-archive/ax_ruby_ext.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -56,7 +56,7 @@
 #   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 #   THE POSSIBILITY OF SUCH DAMAGE.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_RUBY_EXT],[
 

@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_cxx_have_vector_at.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_have_vector_at.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_CXX_HAVE_VECTOR_AT], [AX_CXX_HAVE_VECTOR_AT])
 AC_DEFUN([AX_CXX_HAVE_VECTOR_AT],
