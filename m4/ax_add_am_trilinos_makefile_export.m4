@@ -1,5 +1,5 @@
 # ======================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_add_am_trilinos_makefile_export.html
+#  https://www.gnu.org/software/autoconf-archive/ax_add_am_trilinos_makefile_export.html
 # ======================================================================================
 #
 # SYNOPSIS

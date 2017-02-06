@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_try_awk_expout.html
+#     https://www.gnu.org/software/autoconf-archive/ax_try_awk_expout.html
 # ===========================================================================
 #
 # SYNOPSIS

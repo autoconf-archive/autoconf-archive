@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_find_scala_stdlib.html
+#   https://www.gnu.org/software/autoconf-archive/ax_find_scala_stdlib.html
 # ===========================================================================
 #
 # SYNOPSIS

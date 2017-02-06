@@ -1,5 +1,5 @@
 # ================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_check_page_aligned_malloc.html
+#  https://www.gnu.org/software/autoconf-archive/ax_check_page_aligned_malloc.html
 # ================================================================================
 #
 # SYNOPSIS

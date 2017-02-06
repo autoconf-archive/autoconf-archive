@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_python_embed.html
+#      https://www.gnu.org/software/autoconf-archive/ax_python_embed.html
 # ===========================================================================
 #
 # SYNOPSIS

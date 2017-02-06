@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_lib_taglib.html
+#       https://www.gnu.org/software/autoconf-archive/ax_lib_taglib.html
 # ===========================================================================
 #
 # SYNOPSIS

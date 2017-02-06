@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_have_epoll.html
+#       https://www.gnu.org/software/autoconf-archive/ax_have_epoll.html
 # ===========================================================================
 #
 # SYNOPSIS

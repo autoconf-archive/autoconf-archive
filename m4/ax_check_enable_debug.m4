@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_check_enable_debug.html
+#   https://www.gnu.org/software/autoconf-archive/ax_check_enable_debug.html
 # ===========================================================================
 #
 # SYNOPSIS

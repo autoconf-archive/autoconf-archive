@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_compiler_flags_gir.html
+#   https://www.gnu.org/software/autoconf-archive/ax_compiler_flags_gir.html
 # ===========================================================================
 #
 # SYNOPSIS

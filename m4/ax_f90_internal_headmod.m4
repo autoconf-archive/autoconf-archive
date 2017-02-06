@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_f90_internal_headmod.html
+#  https://www.gnu.org/software/autoconf-archive/ax_f90_internal_headmod.html
 # ===========================================================================
 #
 # SYNOPSIS

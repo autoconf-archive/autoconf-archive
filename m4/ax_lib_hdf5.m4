@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_lib_hdf5.html
+#        https://www.gnu.org/software/autoconf-archive/ax_lib_hdf5.html
 # ===========================================================================
 #
 # SYNOPSIS

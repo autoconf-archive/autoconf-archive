@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.gnu.org/software/autoconf-archive/ax_wint_t.html
+#         https://www.gnu.org/software/autoconf-archive/ax_wint_t.html
 # ===========================================================================
 #
 # SYNOPSIS

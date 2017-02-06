@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_lib_orbit2.html
+#       https://www.gnu.org/software/autoconf-archive/ax_lib_orbit2.html
 # ===========================================================================
 #
 # SYNOPSIS

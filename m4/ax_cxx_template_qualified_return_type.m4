@@ -1,5 +1,5 @@
 # =========================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_template_qualified_return_type.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_template_qualified_return_type.html
 # =========================================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_cxx_gnucxx_hashmap.html
+#   https://www.gnu.org/software/autoconf-archive/ax_cxx_gnucxx_hashmap.html
 # ===========================================================================
 #
 # SYNOPSIS

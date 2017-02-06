@@ -1,5 +1,5 @@
 # =================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_partial_specialization.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_partial_specialization.html
 # =================================================================================
 #
 # SYNOPSIS

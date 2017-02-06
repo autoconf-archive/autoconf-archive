@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_check_awk_argind.html
+#    https://www.gnu.org/software/autoconf-archive/ax_check_awk_argind.html
 # ===========================================================================
 #
 # SYNOPSIS

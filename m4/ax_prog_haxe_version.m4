@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_prog_haxe_version.html
+#   https://www.gnu.org/software/autoconf-archive/ax_prog_haxe_version.html
 # ===========================================================================
 #
 # SYNOPSIS

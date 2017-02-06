@@ -1,5 +1,5 @@
 # ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_dtor_after_atexit.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_dtor_after_atexit.html
 # ============================================================================
 #
 # SYNOPSIS

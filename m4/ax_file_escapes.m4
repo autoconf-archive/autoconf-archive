@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_file_escapes.html
+#      https://www.gnu.org/software/autoconf-archive/ax_file_escapes.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_am_macros.html
+#       https://www.gnu.org/software/autoconf-archive/ax_am_macros.html
 # ===========================================================================
 #
 # SYNOPSIS

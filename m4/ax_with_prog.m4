@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_with_prog.html
+#       https://www.gnu.org/software/autoconf-archive/ax_with_prog.html
 # ===========================================================================
 #
 # SYNOPSIS

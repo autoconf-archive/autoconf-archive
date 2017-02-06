@@ -1,5 +1,5 @@
 The GNU Autoconf Archive is a collection of more than 500 macros for
-@uref{http://www.gnu.org/software/autoconf,GNU Autoconf} that have been
+@uref{https://www.gnu.org/software/autoconf,GNU Autoconf} that have been
 contributed as free software by friendly supporters of the cause from all over
 the Internet. Every single one of those macros can be re-used without imposing
 any restrictions whatsoever on the licensing of the generated @file{configure}
@@ -15,7 +15,7 @@ disadvantage that some authors may choose to use it, too, for proprietary
 software.
 
 This official web site of this project is located at
-@uref{http://www.gnu.org/software/autoconf-archive/}. All available information
+@uref{https://www.gnu.org/software/autoconf-archive/}. All available information
 concerning this project is referenced from there.
 
 If you have questions, suggestions, are any other feedback that you'd like to

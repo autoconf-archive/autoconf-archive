@@ -1,5 +1,5 @@
 # ==============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_trilinos_epetraext_hdf5.html
+#  https://www.gnu.org/software/autoconf-archive/ax_trilinos_epetraext_hdf5.html
 # ==============================================================================
 #
 # SYNOPSIS

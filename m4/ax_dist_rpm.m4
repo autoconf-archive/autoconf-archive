@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_dist_rpm.html
+#        https://www.gnu.org/software/autoconf-archive/ax_dist_rpm.html
 # ===========================================================================
 #
 # SYNOPSIS

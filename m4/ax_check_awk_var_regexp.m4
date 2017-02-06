@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_check_awk_var_regexp.html
+#  https://www.gnu.org/software/autoconf-archive/ax_check_awk_var_regexp.html
 # ===========================================================================
 #
 # SYNOPSIS

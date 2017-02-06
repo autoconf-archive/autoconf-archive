@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_berkeley_db_cxx.html
+#    https://www.gnu.org/software/autoconf-archive/ax_berkeley_db_cxx.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_prog_javah.html
+#       https://www.gnu.org/software/autoconf-archive/ax_prog_javah.html
 # ===========================================================================
 #
 # SYNOPSIS

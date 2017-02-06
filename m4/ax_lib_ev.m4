@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.gnu.org/software/autoconf-archive/ax_lib_ev.html
+#         https://www.gnu.org/software/autoconf-archive/ax_lib_ev.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_header_stdcxx_98.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_header_stdcxx_98.html
 # ===========================================================================
 #
 # SYNOPSIS

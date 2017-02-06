@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_check_awk__x_escapes.html
+#  https://www.gnu.org/software/autoconf-archive/ax_check_awk__x_escapes.html
 # ===========================================================================
 #
 # SYNOPSIS

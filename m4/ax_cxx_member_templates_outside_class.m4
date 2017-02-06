@@ -1,5 +1,5 @@
 # =========================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_member_templates_outside_class.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_member_templates_outside_class.html
 # =========================================================================================
 #
 # SYNOPSIS

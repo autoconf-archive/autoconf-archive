@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_install_files.html
+#     https://www.gnu.org/software/autoconf-archive/ax_install_files.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_lib_mysqlcppconn.html
+#    https://www.gnu.org/software/autoconf-archive/ax_lib_mysqlcppconn.html
 # ===========================================================================
 #
 # SYNOPSIS

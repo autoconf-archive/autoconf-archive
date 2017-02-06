@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_java_options.html
+#      https://www.gnu.org/software/autoconf-archive/ax_java_options.html
 # ===========================================================================
 #
 # SYNOPSIS

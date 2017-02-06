@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_fc_check_define.html
+#    https://www.gnu.org/software/autoconf-archive/ax_fc_check_define.html
 # ===========================================================================
 #
 # SYNOPSIS

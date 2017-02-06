@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_cxx_have_ref.html
+#      https://www.gnu.org/software/autoconf-archive/ax_cxx_have_ref.html
 # ===========================================================================
 #
 # SYNOPSIS

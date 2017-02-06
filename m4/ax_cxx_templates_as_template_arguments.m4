@@ -1,5 +1,5 @@
 # ==========================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_templates_as_template_arguments.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_templates_as_template_arguments.html
 # ==========================================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_ldflags_std_lang.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_ldflags_std_lang.html
 # ===========================================================================
 #
 # SYNOPSIS

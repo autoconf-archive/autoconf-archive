@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_old_for_scoping.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_old_for_scoping.html
 # ===========================================================================
 #
 # SYNOPSIS

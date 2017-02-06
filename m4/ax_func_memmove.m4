@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_func_memmove.html
+#      https://www.gnu.org/software/autoconf-archive/ax_func_memmove.html
 # ===========================================================================
 #
 # SYNOPSIS

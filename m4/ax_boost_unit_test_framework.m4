@@ -1,5 +1,5 @@
 # ================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_boost_unit_test_framework.html
+#  https://www.gnu.org/software/autoconf-archive/ax_boost_unit_test_framework.html
 # ================================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_luarocks_rock.html
+#     https://www.gnu.org/software/autoconf-archive/ax_luarocks_rock.html
 # ===========================================================================
 #
 # SYNOPSIS

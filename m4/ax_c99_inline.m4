@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_c99_inline.html
+#       https://www.gnu.org/software/autoconf-archive/ax_c99_inline.html
 # ===========================================================================
 #
 # SYNOPSIS

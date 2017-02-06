@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_member_constants.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_member_constants.html
 # ===========================================================================
 #
 # SYNOPSIS

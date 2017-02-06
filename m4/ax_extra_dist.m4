@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_extra_dist.html
+#       https://www.gnu.org/software/autoconf-archive/ax_extra_dist.html
 # ===========================================================================
 #
 # SYNOPSIS

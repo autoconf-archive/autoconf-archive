@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_print_to_file.html
+#     https://www.gnu.org/software/autoconf-archive/ax_print_to_file.html
 # ===========================================================================
 #
 # SYNOPSIS

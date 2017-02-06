@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_check_uname_syscall.html
+#  https://www.gnu.org/software/autoconf-archive/ax_check_uname_syscall.html
 # ===========================================================================
 #
 # SYNOPSIS

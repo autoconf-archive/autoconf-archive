@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_try_awk_anyout.html
+#     https://www.gnu.org/software/autoconf-archive/ax_try_awk_anyout.html
 # ===========================================================================
 #
 # SYNOPSIS

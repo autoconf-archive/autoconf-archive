@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_dll_string.html
+#       https://www.gnu.org/software/autoconf-archive/ax_dll_string.html
 # ===========================================================================
 #
 # SYNOPSIS

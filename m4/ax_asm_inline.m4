@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_asm_inline.html
+#       https://www.gnu.org/software/autoconf-archive/ax_asm_inline.html
 # ===========================================================================
 #
 # SYNOPSIS

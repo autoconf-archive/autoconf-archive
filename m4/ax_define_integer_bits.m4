@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_define_integer_bits.html
+#  https://www.gnu.org/software/autoconf-archive/ax_define_integer_bits.html
 # ===========================================================================
 #
 # SYNOPSIS

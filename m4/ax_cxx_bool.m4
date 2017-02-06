@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_cxx_bool.html
+#        https://www.gnu.org/software/autoconf-archive/ax_cxx_bool.html
 # ===========================================================================
 #
 # SYNOPSIS

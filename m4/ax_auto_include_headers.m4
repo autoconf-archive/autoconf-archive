@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_auto_include_headers.html
+#  https://www.gnu.org/software/autoconf-archive/ax_auto_include_headers.html
 # ===========================================================================
 #
 # SYNOPSIS

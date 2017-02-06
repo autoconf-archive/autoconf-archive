@@ -1,5 +1,5 @@
 # ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_check_gir_symbols_gjs.html
+#  https://www.gnu.org/software/autoconf-archive/ax_check_gir_symbols_gjs.html
 # ============================================================================
 #
 # SYNOPSIS

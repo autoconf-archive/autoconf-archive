@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_cxx_explicit.html
+#      https://www.gnu.org/software/autoconf-archive/ax_cxx_explicit.html
 # ===========================================================================
 #
 # SYNOPSIS

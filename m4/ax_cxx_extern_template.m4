@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_extern_template.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_extern_template.html
 # ===========================================================================
 #
 # SYNOPSIS

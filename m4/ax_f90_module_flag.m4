@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_f90_module_flag.html
+#    https://www.gnu.org/software/autoconf-archive/ax_f90_module_flag.html
 # ===========================================================================
 #
 # SYNOPSIS

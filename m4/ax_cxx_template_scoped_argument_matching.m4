@@ -1,5 +1,5 @@
 # ============================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_template_scoped_argument_matching.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_template_scoped_argument_matching.html
 # ============================================================================================
 #
 # SYNOPSIS

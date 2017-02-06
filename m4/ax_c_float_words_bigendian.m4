@@ -1,5 +1,5 @@
 # ==============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_c_float_words_bigendian.html
+#  https://www.gnu.org/software/autoconf-archive/ax_c_float_words_bigendian.html
 # ==============================================================================
 #
 # SYNOPSIS

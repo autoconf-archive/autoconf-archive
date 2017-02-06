@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_prog_splint.html
+#      https://www.gnu.org/software/autoconf-archive/ax_prog_splint.html
 # ===========================================================================
 #
 # SYNOPSIS

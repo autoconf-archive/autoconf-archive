@@ -1,5 +1,5 @@
 # ===================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_header_tr1_unordered_map.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_header_tr1_unordered_map.html
 # ===================================================================================
 #
 # SYNOPSIS

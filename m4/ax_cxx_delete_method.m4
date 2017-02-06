@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_cxx_delete_method.html
+#   https://www.gnu.org/software/autoconf-archive/ax_cxx_delete_method.html
 # ===========================================================================
 #
 # SYNOPSIS

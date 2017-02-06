@@ -1,5 +1,5 @@
 # ===================================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_explicit_template_function_qualification.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_explicit_template_function_qualification.html
 # ===================================================================================================
 #
 # SYNOPSIS

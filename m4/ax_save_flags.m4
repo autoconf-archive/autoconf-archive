@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_save_flags.html
+#       https://www.gnu.org/software/autoconf-archive/ax_save_flags.html
 # ===========================================================================
 #
 # SYNOPSIS

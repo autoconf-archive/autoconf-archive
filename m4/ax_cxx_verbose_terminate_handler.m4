@@ -1,5 +1,5 @@
 # ====================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_verbose_terminate_handler.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_verbose_terminate_handler.html
 # ====================================================================================
 #
 # SYNOPSIS

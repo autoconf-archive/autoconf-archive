@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_boost_serialization.html
+#  https://www.gnu.org/software/autoconf-archive/ax_boost_serialization.html
 # ===========================================================================
 #
 # SYNOPSIS

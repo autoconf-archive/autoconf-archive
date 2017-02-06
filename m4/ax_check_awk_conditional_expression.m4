@@ -1,5 +1,5 @@
 # =======================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_check_awk_conditional_expression.html
+#  https://www.gnu.org/software/autoconf-archive/ax_check_awk_conditional_expression.html
 # =======================================================================================
 #
 # SYNOPSIS

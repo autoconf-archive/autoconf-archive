@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_pkg_mico.html
+#        https://www.gnu.org/software/autoconf-archive/ax_pkg_mico.html
 # ===========================================================================
 #
 # SYNOPSIS

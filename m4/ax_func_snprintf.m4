@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_func_snprintf.html
+#     https://www.gnu.org/software/autoconf-archive/ax_func_snprintf.html
 # ===========================================================================
 #
 # SYNOPSIS

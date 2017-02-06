@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_check_awk_index.html
+#    https://www.gnu.org/software/autoconf-archive/ax_check_awk_index.html
 # ===========================================================================
 #
 # SYNOPSIS

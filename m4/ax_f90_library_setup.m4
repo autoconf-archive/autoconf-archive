@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_f90_library_setup.html
+#   https://www.gnu.org/software/autoconf-archive/ax_f90_library_setup.html
 # ===========================================================================
 #
 # SYNOPSIS

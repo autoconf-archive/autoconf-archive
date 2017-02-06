@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_lib_xml_security.html
+#    https://www.gnu.org/software/autoconf-archive/ax_lib_xml_security.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_short_sleep.html
+#      https://www.gnu.org/software/autoconf-archive/ax_short_sleep.html
 # ===========================================================================
 #
 # SYNOPSIS

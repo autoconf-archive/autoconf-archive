@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_cxx_dynamic_cast.html
+#    https://www.gnu.org/software/autoconf-archive/ax_cxx_dynamic_cast.html
 # ===========================================================================
 #
 # SYNOPSIS

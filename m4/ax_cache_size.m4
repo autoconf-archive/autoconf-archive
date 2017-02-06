@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_cache_size.html
+#       https://www.gnu.org/software/autoconf-archive/ax_cache_size.html
 # ===========================================================================
 #
 # SYNOPSIS

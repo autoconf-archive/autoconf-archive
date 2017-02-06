@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_split_version.html
+#     https://www.gnu.org/software/autoconf-archive/ax_split_version.html
 # ===========================================================================
 #
 # SYNOPSIS

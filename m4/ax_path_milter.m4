@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_path_milter.html
+#      https://www.gnu.org/software/autoconf-archive/ax_path_milter.html
 # ===========================================================================
 #
 # SYNOPSIS

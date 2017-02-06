@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_code_coverage.html
+#     https://www.gnu.org/software/autoconf-archive/ax_code_coverage.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -73,7 +73,7 @@
 #   General Public License for more details.
 #
 #   You should have received a copy of the GNU Lesser General Public License
-#   along with this program. If not, see <http://www.gnu.org/licenses/>.
+#   along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 #serial 20
 

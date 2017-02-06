@@ -1,5 +1,5 @@
 # ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_caolan_search_package.html
+#  https://www.gnu.org/software/autoconf-archive/ax_caolan_search_package.html
 # ============================================================================
 #
 # SYNOPSIS

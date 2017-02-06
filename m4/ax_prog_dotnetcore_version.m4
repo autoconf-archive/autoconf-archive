@@ -1,5 +1,5 @@
 # ==============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_prog_dotnetcore_version.html
+#  https://www.gnu.org/software/autoconf-archive/ax_prog_dotnetcore_version.html
 # ==============================================================================
 #
 # SYNOPSIS

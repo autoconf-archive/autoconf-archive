@@ -1,5 +1,5 @@
 # =======================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_check_awk_user_defined_functions.html
+#  https://www.gnu.org/software/autoconf-archive/ax_check_awk_user_defined_functions.html
 # =======================================================================================
 #
 # SYNOPSIS

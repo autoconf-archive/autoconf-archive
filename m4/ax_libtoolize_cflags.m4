@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_libtoolize_cflags.html
+#   https://www.gnu.org/software/autoconf-archive/ax_libtoolize_cflags.html
 # ===========================================================================
 #
 # SYNOPSIS

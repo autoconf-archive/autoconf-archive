@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_pkg_check_modules.html
+#   https://www.gnu.org/software/autoconf-archive/ax_pkg_check_modules.html
 # ===========================================================================
 #
 # SYNOPSIS

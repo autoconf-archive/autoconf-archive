@@ -1,5 +1,5 @@
 # =====================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_c_referenceable_passed_va_list.html
+#  https://www.gnu.org/software/autoconf-archive/ax_c_referenceable_passed_va_list.html
 # =====================================================================================
 #
 # SYNOPSIS
@@ -17,7 +17,7 @@
 #   &va; } produces broken pointer on some environments such as gcc on
 #   x86_64, although { va_list va; &va; } works as expected. See the
 #   detection code of this file and any of pages
-#   http://www.gnu.org/software/autoconf/manual/html_node/Function-Portability.html,
+#   https://www.gnu.org/software/autoconf/manual/html_node/Function-Portability.html,
 #   http://gcc.gnu.org/bugzilla/show_bug.cgi?id=14557, and
 #   http://gcc.gnu.org/bugzilla/show_bug.cgi?id=20951 for further
 #   information.

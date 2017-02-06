@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_at_check_pattern.html
+#    https://www.gnu.org/software/autoconf-archive/ax_at_check_pattern.html
 # ===========================================================================
 #
 # SYNOPSIS

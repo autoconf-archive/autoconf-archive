@@ -1,5 +1,5 @@
 # ==============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_have_numeric_limits.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_have_numeric_limits.html
 # ==============================================================================
 #
 # SYNOPSIS

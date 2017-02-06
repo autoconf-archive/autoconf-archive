@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_prog_fig2dev.html
+#      https://www.gnu.org/software/autoconf-archive/ax_prog_fig2dev.html
 # ===========================================================================
 #
 # SYNOPSIS

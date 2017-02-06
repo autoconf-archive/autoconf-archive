@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_generate_changelog.html
+#   https://www.gnu.org/software/autoconf-archive/ax_generate_changelog.html
 # ===========================================================================
 #
 # SYNOPSIS

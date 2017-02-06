@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_cxx_have_hash.html
+#     https://www.gnu.org/software/autoconf-archive/ax_cxx_have_hash.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_sys_perlsharpbang.html
+#   https://www.gnu.org/software/autoconf-archive/ax_sys_perlsharpbang.html
 # ===========================================================================
 #
 # SYNOPSIS

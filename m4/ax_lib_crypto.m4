@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_lib_crypto.html
+#       https://www.gnu.org/software/autoconf-archive/ax_lib_crypto.html
 # ===========================================================================
 #
 # SYNOPSIS

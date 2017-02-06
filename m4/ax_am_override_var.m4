@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_am_override_var.html
+#    https://www.gnu.org/software/autoconf-archive/ax_am_override_var.html
 # ===========================================================================
 #
 # SYNOPSIS

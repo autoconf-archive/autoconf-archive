@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_open62541_check_lib.html
+#  https://www.gnu.org/software/autoconf-archive/ax_open62541_check_lib.html
 # ===========================================================================
 #
 # SYNOPSIS

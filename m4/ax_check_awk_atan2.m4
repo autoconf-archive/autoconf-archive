@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_check_awk_atan2.html
+#    https://www.gnu.org/software/autoconf-archive/ax_check_awk_atan2.html
 # ===========================================================================
 #
 # SYNOPSIS

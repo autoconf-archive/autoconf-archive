@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_ext_have_lib.html
+#      https://www.gnu.org/software/autoconf-archive/ax_ext_have_lib.html
 # ===========================================================================
 #
 # SYNOPSIS

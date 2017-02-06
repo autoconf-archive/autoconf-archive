@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_with_build_path.html
+#    https://www.gnu.org/software/autoconf-archive/ax_with_build_path.html
 # ===========================================================================
 #
 # SYNOPSIS

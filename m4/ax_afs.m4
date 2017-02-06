@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://www.gnu.org/software/autoconf-archive/ax_afs.html
+#          https://www.gnu.org/software/autoconf-archive/ax_afs.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_trilinos_teuchos.html
+#    https://www.gnu.org/software/autoconf-archive/ax_trilinos_teuchos.html
 # ===========================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_check_awk_sub.html
+#     https://www.gnu.org/software/autoconf-archive/ax_check_awk_sub.html
 # ===========================================================================
 #
 # SYNOPSIS

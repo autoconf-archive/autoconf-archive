@@ -1,5 +1,5 @@
 # ========================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_complex_math_in_namespace_std.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_complex_math_in_namespace_std.html
 # ========================================================================================
 #
 # SYNOPSIS

@@ -1,5 +1,5 @@
 # ===========================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_check_awk_operator_multiply_multiply.html
+#  https://www.gnu.org/software/autoconf-archive/ax_check_awk_operator_multiply_multiply.html
 # ===========================================================================================
 #
 # SYNOPSIS

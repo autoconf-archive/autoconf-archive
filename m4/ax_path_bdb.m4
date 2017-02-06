@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_path_bdb.html
+#        https://www.gnu.org/software/autoconf-archive/ax_path_bdb.html
 # ===========================================================================
 #
 # SYNOPSIS

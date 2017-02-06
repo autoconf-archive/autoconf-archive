@@ -1,5 +1,5 @@
 # ===================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_header_tr1_unordered_set.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_header_tr1_unordered_set.html
 # ===================================================================================
 #
 # SYNOPSIS
