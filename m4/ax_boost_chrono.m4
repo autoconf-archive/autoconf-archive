@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   Test for System library from the Boost C++ libraries. The macro requires
+#   Test for Chrono library from the Boost C++ libraries. The macro requires
 #   a preceding call to AX_BOOST_BASE. Further documentation is available at
 #   <http://randspringer.de/boost/index.html>.
 #
@@ -29,7 +29,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_BOOST_CHRONO],
 [
