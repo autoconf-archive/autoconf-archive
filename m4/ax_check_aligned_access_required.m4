@@ -23,8 +23,8 @@
 #   the address. If that happens or if the test binary crashes, aligned
 #   access is required.
 #
-#   If cross-compiling, assume that aligned access is needed to be safe.
-#   Set ax_cv_have_aligned_access_required=no to override that assumption.
+#   If cross-compiling, assume that aligned access is needed to be safe. Set
+#   ax_cv_have_aligned_access_required=no to override that assumption.
 #
 # LICENSE
 #
@@ -56,7 +56,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_CHECK_ALIGNED_ACCESS_REQUIRED],
 [AC_CACHE_CHECK([if pointers to integers require aligned access],
