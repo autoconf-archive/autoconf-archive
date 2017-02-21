@@ -136,8 +136,8 @@ push_IFS(["'"])
  for x in ${ac_configure_args}; do
     # try to figure out if quoting was required for the $x
     AS_IF([test "$x" == " "],,[
-    AS_IF([test "$x" != "${x%=*}"],
-          [AS_VAR_SET([x],[${x%=*}"=\""${x#*=}"\""])],
+    AS_IF([test "$x" != "${x%%=*}"],
+	  [AS_VAR_SET([x],[${x%%=*}"=\""${x#*=}"\""])],
           [AS_IF([test "$x" != "${x%\[\[:space:\]\]*}"],
                  [AS_VAR_SET([x],["\""$x"\""])],
                  [AS_VAR_SET([x],["$x"])])
