@@ -44,7 +44,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_IS_RELEASE],[
     AC_BEFORE([AC_INIT],[$0])
@@ -52,7 +52,7 @@ AC_DEFUN([AX_IS_RELEASE],[
     m4_case([$1],
       [git-directory],[
         # $is_release = (.git directory does not exist)
-        AS_IF([test -d ${top_srcdir}/.git],[ax_is_release=no],[ax_is_release=yes])
+        AS_IF([test -d ${srcdir}/.git],[ax_is_release=no],[ax_is_release=yes])
       ],
       [minor-version],[
         # $is_release = ($minor_version is even)
