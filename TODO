@@ -109,7 +109,6 @@
   - [ ] [[file:m4/ax_blas.m4][ax_blas.m4]]
   - [ ] [[file:m4/ax_boost_python.m4][ax_boost_python.m4]]
   - [ ] [[file:m4/ax_c___attribute__.m4][ax_c___attribute__.m4]]
-  - [ ] [[file:m4/ax_c_bigendian_cross.m4][ax_c_bigendian_cross.m4]]
   - [ ] [[file:m4/ax_cc_for_build.m4][ax_cc_for_build.m4]]
   - [ ] [[file:m4/ax_c_check_flag.m4][ax_c_check_flag.m4]]
   - [ ] [[file:m4/ax_cc_maxopt.m4][ax_cc_maxopt.m4]]
