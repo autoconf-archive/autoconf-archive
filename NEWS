@@ -8,6 +8,8 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
+* Noteworthy changes in release ?.? (????-??-??) [?]
+
 * Noteworthy changes in release 2017.03.21 (2017-03-21) [stable]
 
   Obsolete macros AX_CXX_COMPILER_VENDOR, AX_GCC_LIBRARIES_DIR, AX_GCC_VERSION,
