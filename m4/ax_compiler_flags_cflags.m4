@@ -25,7 +25,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
     AC_REQUIRE([AC_PROG_SED])
@@ -48,6 +48,13 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
         ax_compiler_flags_test="-Werror=unknown-warning-option"
     ],[
         ax_compiler_flags_test=""
+    ])
+
+    # Check that -Wno-suggest-attribute=format is supported
+    AX_CHECK_COMPILE_FLAG([-Wno-suggest-attribute=format],[
+        ax_compiler_no_suggest_attribute_flags="-Wno-suggest-attribute=format"
+    ],[
+        ax_compiler_no_suggest_attribute_flags=""
     ])
 
     # Base flags
@@ -108,7 +115,7 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
         AX_APPEND_FLAG([-Werror],ax_warn_cflags_variable)
 
         AX_APPEND_COMPILE_FLAGS([ dnl
-            -Wno-suggest-attribute=format dnl
+            [$ax_compiler_no_suggest_attribute_flags] dnl
         ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
     ])
 
