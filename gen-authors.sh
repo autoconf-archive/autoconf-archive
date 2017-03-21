@@ -7,7 +7,7 @@ trap 'rm -f AUTHORS-m4.tmp AUTHORS-git.tmp' 0
 sed -n -e 's/# *Copyright (c) [0-9,-]* *//p' m4/*.m4 >AUTHORS-m4.tmp
 git log | sed -n -e 's/^Author: *//p' >AUTHORS-git.tmp
 
-echo '# Copyright (c) 2016 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
+echo '# Copyright (c) 2017 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
 echo '#'
 echo '# Copying and distribution of this file, with or without modification, are'
 echo '# permitted in any medium without royalty provided the copyright notice and this'
