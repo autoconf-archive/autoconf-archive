@@ -14,7 +14,7 @@
 #   code.
 #
 #   You can search for some particular version of Ruby by passing a
-#   parameter to this macro, for example "1.8.6".
+#   parameter to this macro, for example "2.2.1".
 #
 # LICENSE
 #
@@ -56,7 +56,11 @@
 
 AC_DEFUN([AX_RUBY_DEVEL],[
     AX_WITH_PROG(RUBY,ruby)
-    AS_IF([test -n "$1"], [AX_PROG_RUBY_VERSION([$1])])
+    AS_IF([test -n "$1"], [
+      AX_PROG_RUBY_VERSION([$1],[],[
+        AC_MSG_ERROR([this package requires Ruby $1])
+      ])
+    ])
 
     #
     # Check if you have rbconfig, else fail
