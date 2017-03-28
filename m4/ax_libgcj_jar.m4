@@ -51,7 +51,7 @@ AC_REQUIRE([AX_PROG_JAVAC])
 AC_REQUIRE([AC_PROG_FGREP])
 AC_PROG_SED
 if test "x$SED" = "x"; then
-AC_MSG_WARN([sed not avaiable, so libgcj.jar test skipped])
+AC_MSG_WARN([sed not available, so libgcj.jar test skipped])
 else
 AC_MSG_CHECKING([if $JAVAC is gcj]);
 jc=`eval "[echo x$JAVAC | $SED 's/^x.*\\/\\([^/]*\\)\$/x\\1/;s/^ *\\([^ ]*\\) .*$/\\1/;s/"$EXEEXT"$//']"`
