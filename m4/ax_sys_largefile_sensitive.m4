@@ -14,7 +14,7 @@
 #   is.
 #
 #   This macro builds on top of AC_SYS_LARGEFILE to detect whether special
-#   options are neede to make the code use 64bit off_t - in many setups this
+#   options are needed to make the code use 64bit off_t - in many setups this
 #   will also make the code use 64bit off_t immediatly.
 #
 #   The common use of a LARGEFILE_SENSITIVE config.h-define is to rename
