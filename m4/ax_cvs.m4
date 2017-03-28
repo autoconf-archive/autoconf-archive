@@ -67,7 +67,7 @@
 #     performs a cvs update, followed by a distcheck, then
 #     creates a release for the current version, increaments
 #     the point release number and checks out the release
-#     into a new direcory
+#     into a new directory
 #
 #   make quick-release
 #
@@ -465,7 +465,7 @@ inc_rel:
 tag: do_tag inc_rel
 
 # creates a release for the current version, increaments the point
-# release number and checkout the release into a new direcory
+# release number and checkout the release into a new directory
 release: update distcheck add_rel tag
 
 # same as release, but distcheck is not performed before releasing
