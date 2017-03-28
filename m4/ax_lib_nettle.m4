@@ -72,7 +72,7 @@ AC_DEFUN([AX_LIB_NETTLE],[
         AX_CHECK_NETTLE_ALGO([SHA256],[sha256_digest])
       ])
     ])
-    # complain only if explicitely required
+    # complain only if explicitly required
     if test "$ax_with_nettle" = "yes" -a "x$HAVE_NETTLE" = "x" ; then
         AC_MSG_ERROR([cannot configure required nettle library])
     fi

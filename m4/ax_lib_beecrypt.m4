@@ -67,7 +67,7 @@ AC_DEFUN([AX_LIB_BEECRYPT],[
         AX_CHECK_BEECRYPT_ALGO([SHA512],[sha512Digest])
       ])
     ])
-    # complain only if explicitely required
+    # complain only if explicitly required
     if test "$ac_with_beecrypt" = "yes" -a "x$HAVE_BEECRYPT" = "x" ; then
         AC_MSG_ERROR([cannot configure required beecrypt library])
     fi

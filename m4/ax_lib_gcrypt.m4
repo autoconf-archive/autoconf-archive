@@ -99,7 +99,7 @@ AC_DEFUN([AX_LIB_GCRYPT],[
       AC_SUBST(GCRYPT_CFLAGS)
       AC_SUBST(GCRYPT_LIBS)
     ],[
-      # complain only if explicitely required
+      # complain only if explicitly required
       if test "$ac_with_gcrypt" = "yes" ; then
 	AC_MSG_ERROR([cannot configure required gcrypt library])
       fi

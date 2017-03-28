@@ -77,7 +77,7 @@ AC_DEFUN([AX_LIB_CRYPTO],[
 	AX_CHECK_CRYPTO_LIB([DH],[DH_set_method])
       ])
     ])
-    # complain only if crypto as *explicitely* required
+    # complain only if crypto as *explicitly* required
     if test "$ac_with_crypto" = "yes" -a "x$HAVE_CRYPTO" = "x" ; then
       AC_MSG_ERROR([cannot configure required openssl crypto library])
     fi
