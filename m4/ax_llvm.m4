@@ -13,7 +13,7 @@
 #
 #     llvm --libs <llvm-libs>
 #
-#   llvm-config will also include any libraries that are depended apon.
+#   llvm-config will also include any libraries that are depended upon.
 #
 # LICENSE
 #
