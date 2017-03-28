@@ -251,7 +251,7 @@ AC_CHECK_TYPE(int_least32_t,,,[#include <$ac_cv_header_stdint>])
 AC_CHECK_TYPE(int_fast32_t,,,[#include<$ac_cv_header_stdint>])
 AC_CHECK_TYPE(intmax_t,,,[#include <$ac_cv_header_stdint>])
 
-fi # shortcircut to system "stdint.h"
+fi # shortcircuit to system "stdint.h"
 # ------------------ PREPARE VARIABLES ------------------------------
 if test "$GCC" = "yes" ; then
 ac_cv_stdint_message="using gnu compiler "`$CC --version | head -1`
