@@ -60,7 +60,7 @@
 #serial 10
 
 AC_DEFUN([AX_CONFIGURE_ARGS],[
-   # [$]@ is unsable in 2.60+ but earlier autoconf had no ac_configure_args
+   # [$]@ is unusable in 2.60+ but earlier autoconf had no ac_configure_args
    if test "${ac_configure_args+set}" != "set" ; then
       ac_configure_args=
       for ac_arg in ${1+"[$]@"}; do
