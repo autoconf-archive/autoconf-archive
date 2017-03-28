@@ -21,7 +21,7 @@
 #   It's best to avoid using valloc in favor of posix_memalign, memalign, or
 #   an aligned malloc as detected by AX_CHECK_PAGE_ALIGNED_MALLOC.
 #
-#   Caveat: AX_CHECK_PAGE_ALIGNED_MALLOC takes a probabalistic approach. If
+#   Caveat: AX_CHECK_PAGE_ALIGNED_MALLOC takes a probabilistic approach. If
 #   100 calls to malloc all return page-aligned addresses, it assumes that
 #   all calls will behave likewise. It is therefore possible -- albeit
 #   extremely unlikely -- that AX_CHECK_PAGE_ALIGNED_MALLOC can return a
