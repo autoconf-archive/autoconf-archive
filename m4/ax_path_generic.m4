@@ -14,7 +14,7 @@
 #   The script must support `--cflags' and `--libs' args. If MINIMUM-VERSION
 #   is specified, the script must also support the `--version' arg. If the
 #   `--with-library-[exec-]prefix' arguments to ./configure are given, it
-#   must also support `--prefix' and `--exec-prefix'. Prefereable use
+#   must also support `--prefix' and `--exec-prefix'. Preferably use
 #   CONFIG-SCRIPTS as config script, CFLAGS-ARG instead of `--cflags` and
 #   LIBS-ARG instead of `--libs`, if given.
 #
