@@ -63,7 +63,7 @@
 
 #serial 5
 
-# exemple program
+# example program
 m4_define([_AX_CHECK_GLX_PROGRAM],
           [AC_LANG_PROGRAM([[
 # if defined(HAVE_WINDOWS_H) && defined(_WIN32)
