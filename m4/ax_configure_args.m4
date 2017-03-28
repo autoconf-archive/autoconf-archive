@@ -15,7 +15,7 @@
 #   to rely on eval'ing $ac_configure_args however some old autoconf
 #   versions do not provide that. To ensure maximum portability of autoconf
 #   extension macros this helper can be AC_REQUIRE'd so that
-#   $ac_configure_args will alsways be present.
+#   $ac_configure_args will always be present.
 #
 #   Sadly, the traditional "exec $SHELL" of the enable_builddir macros is
 #   spoiled now and must be replaced by "eval + exit $?".
