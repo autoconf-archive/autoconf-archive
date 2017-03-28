@@ -72,7 +72,7 @@ else
         ifelse([$3], , :, [$3])
 fi
 ])
-dnl for some reason the above statment didn't fall though here?
+dnl for some reason the above statement didn't fall though here?
 dnl do scripts have variable scoping?
 eval "ac_var_val=$`eval echo ac_cv_class_$ac_var_name`"
 AC_MSG_RESULT($ac_var_val)
