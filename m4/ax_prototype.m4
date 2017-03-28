@@ -13,10 +13,10 @@
 #   values found in <values1>, <values2>, ... respectively. <values1>,
 #   <values2>, ... contain a list of possible values for each corresponding
 #   tag and all combinations are tested. When AC_TRY_COMPILE(include, code)
-#   is successfull for a given substitution, the macro stops and defines the
+#   is successful for a given substitution, the macro stops and defines the
 #   following macros: FUNCTION_TAG1, FUNCTION_TAG2, ... using AC_DEFINE()
 #   with values set to the current values of <TAG1>, <TAG2>, ... If no
-#   combination is successfull the configure script is aborted with a
+#   combination is successful the configure script is aborted with a
 #   message.
 #
 #   Intended purpose is to find which combination of argument types is

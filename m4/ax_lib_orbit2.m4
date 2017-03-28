@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   Checks for minimum Orbit2 library version VERSION. If successfull
+#   Checks for minimum Orbit2 library version VERSION. If successful
 #   executes ACTION-IF-SUCCESS otherwise ACTION-IF-FAILURE.
 #
 #   Defines ORBIT2_LIBS and ORBIT2_CFLAGS.

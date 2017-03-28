@@ -202,7 +202,7 @@ AX_PATH_BDB_STUFF DB_VERSION_MAJOR,DB_VERSION_MINOR,DB_VERSION_PATCH
         # Check that we can link with the library.
         AC_SEARCH_LIBS([db_version],
           [db db-$MAJ.$MIN db$MAJ.$MIN db$MAJ$MIN db-$MAJ db$MAJ],[
-            # Sucessfully found library.
+            # Successfully found library.
             ax_path_bdb_no_options_ok=yes
             BDB_VERSION=$HEADER_VERSION
 
