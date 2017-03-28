@@ -24,7 +24,7 @@
 #
 #   You will find this macro most useful in conjunction with
 #   ax_spec_defaults that can read good initializers from the .spec file. In
-#   consequencd, most of the generatable installable stuff can be made from
+#   consequence, most of the generatable installable stuff can be made from
 #   information being updated in a single place for the whole project.
 #
 # LICENSE
