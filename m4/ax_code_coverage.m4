@@ -21,7 +21,7 @@
 #   Test also for gcov program and create GCOV variable that could be
 #   substituted.
 #
-#   Note that all optimisation flags in CFLAGS must be disabled when code
+#   Note that all optimization flags in CFLAGS must be disabled when code
 #   coverage is enabled.
 #
 #   Usage example:
