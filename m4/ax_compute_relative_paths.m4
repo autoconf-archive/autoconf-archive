@@ -135,7 +135,7 @@ done])
 
 dnl AX_COMPUTE_SUFFIX_PATH(PATH, SUBPATH, RESULT)
 dnl ==============================================
-dnl Substrack $SUBPATH from $PATH, and set the resulting suffix
+dnl Subtract $SUBPATH from $PATH, and set the resulting suffix
 dnl (or the empty string if $SUBPATH is not a subpath of $PATH)
 dnl to $RESULT.
 dnl
