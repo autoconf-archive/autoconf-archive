@@ -80,7 +80,7 @@
 #       as errors and abort (for "no") or whether to ignore any such errors
 #       (for "yes"). If empty, defaults to "no".
 #
-#   All filesnames above must be relative. The testdir name is interpreted
+#   All filenames above must be relative. The testdir name is interpreted
 #   relative to top_srcdir. All other names are interpreted relative to the
 #   testdir. The boolean values are interpreted as "yes" for any non-empty
 #   value except "0", "n", "no" and their mixed-case variants.
