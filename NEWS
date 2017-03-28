@@ -68,9 +68,9 @@
     - Support action-if-found and not-found hook
     - Export HAVE_GL, HAVE_GLU, and HAVE_GLUT preprocessor symbol
     - Add necessary flags to CFLAGS/LIBS by default, but can be disabled by
-      overwritting action-if-found hook.
+      overwriting action-if-found hook.
     - Fail the configure script if lib not found. This feature can be disabled
-      by overwritting action-if-not-found hook
+      by overwriting action-if-not-found hook
     - Fix problems on Mac OSX. Been tested on Linux (Ubuntu) and OSX
     - Use --with-xquartz-gl instead of --with-gl=x for using X11 on OSX
 
