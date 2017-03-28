@@ -18,7 +18,7 @@
 #   CONFIG-SCRIPTS as config script, CFLAGS-ARG instead of `--cflags` and
 #   LIBS-ARG instead of `--libs`, if given.
 #
-#   The SED-EXPR-EXTRACTOR parameter representes the expression used in sed
+#   The SED-EXPR-EXTRACTOR parameter represents the expression used in sed
 #   to extract the version number. Use it if your 'foo-config --version'
 #   dumps something like 'Foo library v1.0.0 (alfa)' instead of '1.0.0'.
 #
