@@ -717,7 +717,7 @@
 
 * Noteworthy changes in release 2011.07.17 (2011-07-17) [stable]
 
-  A cut-and-paste error in AX_BOOST_FILESSYTEM has been fixed. See
+  A cut-and-paste error in AX_BOOST_FILESYSTEM has been fixed. See
   <http://savannah.gnu.org/patch/?7576> for further details.
 
   The macros AX_CHECK_SUNPRO_C and AX_LANG_COMPILER_MS are deprecated in favor
