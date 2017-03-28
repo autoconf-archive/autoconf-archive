@@ -34,7 +34,7 @@
 #        mandir (only for autoconf < 2.59c)
 #        lispdir (only for autoconf < 2.59c)
 #        sysconfdir
-#        sharestatedir
+#        sharedstatedir
 #        localstatedir
 #           runstatedir (only for autoconf >= 2.70)
 #        includedir
@@ -120,7 +120,7 @@ m4_version_prereq([2.59c],[TRIPLET(datarootdir,infodir)],[TRIPLET(prefix,infodir
 m4_version_prereq([2.59c],[TRIPLET(datarootdir,mandir)],[TRIPLET(prefix,mandir)]) dnl
 m4_version_prereq([2.59c],[TRIPLET(datarootdir,lispdir)],[TRIPLET(prefix,lispdir)]) dnl
 TRIPLET(prefix, sysconfdir) dnl
-TRIPLET(prefix, sharestatedir) dnl
+TRIPLET(prefix, sharedstatedir) dnl
 TRIPLET(prefix, localstatedir) dnl
   dnl only available for >=2.70
   m4_version_prereq([2.70],[TRIPLET(localstatedir,runstatedir)],[[]]) dnl
