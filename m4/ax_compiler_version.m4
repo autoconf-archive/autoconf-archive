@@ -389,7 +389,7 @@ AC_DEFUN([_AX_COMPILER_VERSION_MICROSOFT],[
   AC_COMPUTE_INT(_ax_[]_AC_LANG_ABBREV[]_compiler_version_major,
     (_MSC_VER/100)%100,,
     AC_MSG_FAILURE([[[$0]] unknown microsoft compiler major version]))
-  dnl could be overriden
+  dnl could be overridden
   _ax_[]_AC_LANG_ABBREV[]_compiler_version_patch=0
   _ax_[]_AC_LANG_ABBREV[]_compiler_version_build=0
   # special case for version 6
