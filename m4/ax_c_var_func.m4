@@ -9,7 +9,7 @@
 # DESCRIPTION
 #
 #   This macro tests if the C complier supports the C9X standard __func__
-#   indentifier.
+#   identifier.
 #
 #   The new C9X standard for the C language stipulates that the identifier
 #   __func__ shall be implictly declared by the compiler as if, immediately
