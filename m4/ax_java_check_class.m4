@@ -15,7 +15,7 @@
 #
 #   The macro tries to compile a minimal program importing <class>. Some
 #   newer compilers moan about the failure to use this but fail or produce a
-#   class file anyway. All moaing is sunk to /dev/null since I only wanted
+#   class file anyway. All moaning is sunk to /dev/null since I only wanted
 #   to know if the class could be imported. This is a recommended followup
 #   to AX_CHECK_JAVA_PLUGIN with classpath appropriately adjusted.
 #
