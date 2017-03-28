@@ -170,7 +170,7 @@ AC_DEFUN([AX_PYTHON_ENABLE],
                 then
                     # "yes" was specified, but we don't have a path
                     # for the executable.
-                    # So, let's searth the PATH Environment Variable.
+                    # So, let's search the PATH Environment Variable.
                     AC_MSG_RESULT(yes)
                     AC_PATH_PROG(
                         [PYTHON],
@@ -477,7 +477,7 @@ AC_DEFUN([AX_PYTHON_WITH],
                 then
                     # "yes" was specified, but we don't have a path
                     # for the executable.
-                    # So, let's searth the PATH Environment Variable.
+                    # So, let's search the PATH Environment Variable.
                     AC_MSG_RESULT(yes)
                     AC_PATH_PROG(
                         [PYTHON],
