@@ -39,7 +39,7 @@
 #
 #   Remember, if the system already had a valid <stdint.h>, the generated
 #   file will include it directly. No need for fuzzy HAVE_STDINT_H things...
-#   (oops, GCC 4.2.x has deliberatly disabled its stdint.h for non-c99
+#   (oops, GCC 4.2.x has deliberately disabled its stdint.h for non-c99
 #   compilation and the c99-mode is not the default. Therefore this macro
 #   will not use the compiler's stdint.h - please complain to the GCC
 #   developers).
