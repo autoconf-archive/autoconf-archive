@@ -28,7 +28,7 @@
 #    9 = insane
 #
 #   this macro is most handily it making Makefile.in/Makefile.am that have a
-#   set of with-level declarations, espcially optimization-levels
+#   set of with-level declarations, especially optimization-levels
 #
 #   the $withval shell-variable is set for further examination (it carries
 #   the numeric value of the various mnemonics above)
