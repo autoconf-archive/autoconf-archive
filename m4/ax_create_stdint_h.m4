@@ -655,7 +655,7 @@ typedef           long   intptr_t;
 #endif
 #endif
 
-/* These limits are merily those of a two complement byte-oriented system */
+/* These limits are merrily those of a two complement byte-oriented system */
 
 /* Minimum of signed integral types.  */
 # define INT8_MIN               (-128)
