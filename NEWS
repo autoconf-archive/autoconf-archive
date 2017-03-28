@@ -230,7 +230,7 @@
   AX_PERL_MODULE_VERSION: fix a misspelled variable name. Other unfixed issues
   remain. See <https://savannah.gnu.org/patch/index.php?8507>.
 
-  AX_BOOST_PYTHON: several issue have beeen fixed. Further details can be found
+  AX_BOOST_PYTHON: several issue have been fixed. Further details can be found
   at <https://savannah.gnu.org/patch/index.php?8540>.
 
   AX_HAVE_QT: Only check $PATH and qmake for Qt variables. The old logic for
