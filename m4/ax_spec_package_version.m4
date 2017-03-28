@@ -33,7 +33,7 @@
 #   the value is set to `date +0.%y.%W%w`.
 #
 #   the version value itself is sanitized somewhat with making it to always
-#   carry atleast three digits (1.2.3) and clensing superflous "0" chars
+#   carry at least three digits (1.2.3) and clensing superflous "0" chars
 #   around from generating numbers elsewhere.
 #
 #   additional macros are provided that extract a specific value from the

@@ -17,7 +17,7 @@
 #   remember - setting exec_prefix='${prefix}' needs you interpolate
 #   directories multiple times, it is not sufficient to just say
 #   MYVAR="${datadir}/putter" but you do have to run `eval` a few times,
-#   sth. like MYVAR=`eval "echo \"$MYVAR\""` done atleast two times.
+#   sth. like MYVAR=`eval "echo \"$MYVAR\""` done at least two times.
 #
 #   The implementation of this macro simply picks up the lines that would be
 #   run at the start of AC_OUTPUT anyway to set the prefix/exec_prefix

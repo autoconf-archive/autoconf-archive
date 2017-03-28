@@ -68,8 +68,8 @@ VAR,[VAR="no, unknown"
 ac_save_[]FLAGS="$[]FLAGS"
 for ac_arg dnl
 in "-pedantic -Werror % -fstrict-prototypes -Wstrict-prototypes" dnl   GCC
-   "-pedantic -Werror % -Wstrict-prototypes" dnl try to warn atleast
-   "-pedantic -Werror % -Wmissing-prototypes" dnl try to warn atleast
+   "-pedantic -Werror % -Wstrict-prototypes" dnl try to warn at least
+   "-pedantic -Werror % -Wmissing-prototypes" dnl try to warn at least
    "-pedantic -Werror % -Werror-implicit-function-declaration" dnl
    "-pedantic -Werror % -Wimplicit-function-declaration" dnl
    "-pedantic % -Wstrict-prototypes %% no, unsupported" dnl oops

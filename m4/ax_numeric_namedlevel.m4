@@ -38,7 +38,7 @@
 #     1| some   |some|plus
 #
 #   note that a level can be construcct of (some|plus) = bit-0, (many|much)
-#   = bit-1, (more) = bit-2, (ultra|experimental) = bit-3 atleast in a
+#   = bit-1, (more) = bit-2, (ultra|experimental) = bit-3 at least in a
 #   left-to-right order, ie. plusmanymore=7
 #
 #   Example usage:
