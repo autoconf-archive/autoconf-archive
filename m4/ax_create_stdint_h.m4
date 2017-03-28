@@ -12,7 +12,7 @@
 #   existence of an include file <stdint.h> that defines a set of typedefs,
 #   especially uint8_t,int32_t,uintptr_t. Many older installations will not
 #   provide this file, but some will have the very same definitions in
-#   <inttypes.h>. In other enviroments we can use the inet-types in
+#   <inttypes.h>. In other environments we can use the inet-types in
 #   <sys/types.h> which would define the typedefs int8_t and u_int8_t
 #   respectivly.
 #

@@ -181,7 +181,7 @@ if test "x$AX_USING_CVS" != "xno"; then
         if test "x$AX_USING_CVS" = "x"; then
 	    AX_USING_CVS=no
 	else
-            AC_MSG_ERROR([CVS support cannot be enabled: USERNAME enviorment variable not set])
+            AC_MSG_ERROR([CVS support cannot be enabled: USERNAME environment variable not set])
 	fi
     fi
     AC_SUBST([USERNAME])
@@ -196,7 +196,7 @@ if test "x$AX_USING_CVS" != "xno"; then
         if test "x$AX_USING_CVS" = "x"; then
 	    AX_USING_CVS=no
 	else
-            AC_MSG_ERROR([CVS support cannot be enabled: USEREMAIL enviorment variable not set])
+            AC_MSG_ERROR([CVS support cannot be enabled: USEREMAIL environment variable not set])
 	fi
     fi
     AC_SUBST([USEREMAIL])
