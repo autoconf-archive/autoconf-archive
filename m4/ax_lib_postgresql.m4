@@ -83,7 +83,7 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
         fi
 
         if test ! -x "$PG_CONFIG"; then
-            AC_MSG_ERROR([$PG_CONFIG does not exist or it is not an exectuable file])
+            AC_MSG_ERROR([$PG_CONFIG does not exist or it is not an executable file])
             PG_CONFIG="no"
             found_postgresql="no"
         fi
