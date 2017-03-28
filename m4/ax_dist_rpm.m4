@@ -11,7 +11,7 @@
 #   Adds support for a rpm dist target.
 #
 #   You will need to create a spec template with everything except the files
-#   and the Changlog. Use @PACKAGE@ and @VERSION@ to refer to the package
+#   and the Changelog. Use @PACKAGE@ and @VERSION@ to refer to the package
 #   name and version respectively.  The files and ChangeLog will be filled
 #   in automatically. For instance:
 #
