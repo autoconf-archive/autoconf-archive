@@ -24,7 +24,7 @@
 #
 #   make commitlog
 #
-#     Generates a ChangeLog template with the modifed, added
+#     Generates a ChangeLog template with the modified, added
 #     and removed files and opens it up for editing. This is
 #     not normally used directly, but is instead called by
 #     commit. It is usefull however if you want to document
