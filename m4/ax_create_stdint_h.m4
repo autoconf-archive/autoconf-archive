@@ -14,7 +14,7 @@
 #   provide this file, but some will have the very same definitions in
 #   <inttypes.h>. In other environments we can use the inet-types in
 #   <sys/types.h> which would define the typedefs int8_t and u_int8_t
-#   respectivly.
+#   respectively.
 #
 #   This macros will create a local "_stdint.h" or the headerfile given as
 #   an argument. In many cases that file will just "#include <stdint.h>" or
