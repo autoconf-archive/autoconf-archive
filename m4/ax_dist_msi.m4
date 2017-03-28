@@ -83,7 +83,7 @@ else
 
 msi_up_to_date_notice:
 	@if test -f \"\$(top_builddir)/\$(MSI_SETUP_FILE)\"; then \\
-	    echo \"Warning: Depedancy tracking cannot be enabled\"; \\
+	    echo \"Warning: Dependency tracking cannot be enabled\"; \\
 	    echo \"Warning: the msi file (\$(MSI_SETUP_FILE))\"; \\
 	    echo \"Warning: Please make sure it is up to date.\"; \\
 	    exit -1; \\

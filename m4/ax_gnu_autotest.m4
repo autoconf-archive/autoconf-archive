@@ -629,7 +629,7 @@ m4_popdef([deps], [sdir], [suite])dnl
 
 # _AX_GNU_AUTOTEST_acsubst_rules_dir(base, dir)
 # ---------------------------------------------
-# Generates the depencency rules for one directory relative to base, output
+# Generates the dependency rules for one directory relative to base, output
 # as string
 # For the m4_bpatsubst, the string starts and ends with [ ]
 # Global variables used:
