@@ -24,7 +24,7 @@
 #   toplevel builddir Makefile. It just copies the variables and
 #   rule-targets, each extended with a default rule-execution that recurses
 #   into the build directory of the current "HOST". You can override the
-#   auto-dection through `config.guess` and build-time of course, as in
+#   auto-detection through `config.guess` and build-time of course, as in
 #
 #     make HOST=i386-mingw-cross
 #
