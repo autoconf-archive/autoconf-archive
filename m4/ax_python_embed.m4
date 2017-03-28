@@ -139,7 +139,7 @@ AC_DEFUN([AX_PYTHON_DEFAULT],
 # Handles the various --enable-python commands.
 # Input:
 #   $1 is the optional search path for the python executable if needed
-# Ouput:
+# Output:
 #   PYTHON_USE (AM_CONDITIONAL) is true if python executable found
 #   and --enable-python was requested; otherwise false.
 #   $PYTHON contains the full executable path to python if PYTHON_ENABLE_USE
@@ -446,7 +446,7 @@ AC_DEFUN([AX_PYTHON_VERSION_ENSURE],
 # Handles the various --with-python commands.
 # Input:
 #   $1 is the optional search path for the python executable if needed
-# Ouput:
+# Output:
 #   PYTHON_USE (AM_CONDITIONAL) is true if python executable found
 #   and --with-python was requested; otherwise false.
 #   $PYTHON contains the full executable path to python if PYTHON_USE
