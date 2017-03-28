@@ -26,7 +26,7 @@
 #   for this macro.
 #
 #   the mnemonic "strict" or "also" is used to instruct the code that
-#   additional seperators shall be accepted but converted to the seperator
+#   additional separators shall be accepted but converted to the separator
 #   of the underlying pathstyle system. (or-512)
 #
 #    example: --with-path-style=win,slash
