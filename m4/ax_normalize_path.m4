@@ -106,7 +106,7 @@ AC_DEFUN([AX_NORMALIZE_PATH],
   :*[[\\/]]:) $1=`echo "[$]$1" | sed 's,[[\\/]]*[$],,'` ;;
   :*:) ;;
 esac
-# squeze repeated slashes
+# squeeze repeated slashes
 case ifelse($2,,"[$]$1",$2) in
 # if the path contains any backslashes, turn slashes into backslashes
  *\\*) $1=`echo "[$]$1" | sed 's,\(.\)[[\\/]][[\\/]]*,\1\\\\,g'` ;;
