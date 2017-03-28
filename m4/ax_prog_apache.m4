@@ -29,7 +29,7 @@
 #   It defines the symbol APACHE_MODULES if a directory containing mod_env.*
 #   is found in the default server root directory (obtained with httpd -V).
 #
-#   The httpd.conf file listing modules to be loaded dynamicaly can use
+#   The httpd.conf file listing modules to be loaded dynamically can use
 #   @APACHE_MODULES@ to grab them in the appropriate sub directory. For
 #   instance:
 #
