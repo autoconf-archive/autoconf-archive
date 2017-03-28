@@ -91,7 +91,7 @@ AC_DEFUN([AX_PERL_EXT_FLAGS],
 
 dnl _AX_PERL_EXT_MODULE_CHECK(MODULE-NAME, ACTION-IF-FOUND, ACTION-IF-NOT-FOUND)
 dnl
-dnl Check for the existance of the perl module given by MODULE-NAME.
+dnl Check for the existence of the perl module given by MODULE-NAME.
 dnl
 AC_DEFUN([_AX_PERL_EXT_MODULE_CHECK],
 [AC_MSG_CHECKING([for perl module $1])

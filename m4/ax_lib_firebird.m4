@@ -11,7 +11,7 @@
 #   Test for the Firebird client library of a particular version (or newer).
 #   This macro takes only one optional argument, the required version of
 #   Firebird library. If required version is not passed, then 1.5.0 is used
-#   in test of existance of Firebird client library.
+#   in test of existence of Firebird client library.
 #
 #   For more information about Firebird API versioning check: API Identifies
 #   Client Version http://www.firebirdsql.org/rlsnotes20/rnfbtwo-apiods.html

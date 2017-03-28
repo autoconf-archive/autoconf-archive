@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   Test for the existance of llvm, and make sure that it can be linked with
+#   Test for the existence of llvm, and make sure that it can be linked with
 #   the llvm-libs argument that is passed on to llvm-config i.e.:
 #
 #     llvm --libs <llvm-libs>
