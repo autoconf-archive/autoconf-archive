@@ -36,7 +36,7 @@
 #     AX_C_COMPILE_VALUE(sizeof(int), sizeof_int)
 #     AX_C_COMPILE_VALUE([sizeof(int[[543]])], sizeof_int543)
 #
-#   As a result of runnfing the generated configure script, the following
+#   As a result of running the generated configure script, the following
 #   definition will appear in config.h:
 #
 #     #define COMPILE_VALUE_SIZEOF_INT 4
