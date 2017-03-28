@@ -57,7 +57,7 @@ AU_ALIAS([AC_CHECK_CLASS], [AX_CHECK_CLASS])
 AC_DEFUN([AX_CHECK_CLASS],[
 AC_REQUIRE([AX_PROG_JAVA])
 ac_var_name=`echo $1 | sed 's/\./_/g'`
-dnl Normaly I'd use a AC_CACHE_CHECK here but since the variable name is
+dnl Normally I'd use a AC_CACHE_CHECK here but since the variable name is
 dnl dynamic I need an extra level of extraction
 AC_MSG_CHECKING([for $1 class])
 AC_CACHE_VAL(ax_cv_class_$ac_var_name, [
