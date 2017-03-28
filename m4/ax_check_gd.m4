@@ -13,7 +13,7 @@
 #   contain the compiler flags, linker flags and libraries necessary to use
 #   gd; otherwise, those variables will be empty. In addition, the symbol
 #   HAVE_GD is defined if the library is found, and the symbols HAVE_GD_GIF,
-#   HAVE_GD_JPEG and HAVE_GD_PNG are defined if the lirbary supports
+#   HAVE_GD_JPEG and HAVE_GD_PNG are defined if the library supports
 #   creating images in gif, jpeg and png formats, respectively.
 #
 #   The user may use --with-gd=no or --without-gd to skip checking for the
