@@ -13,7 +13,7 @@
 #   word ordering can be different from the byte ordering. In a multi-word
 #   float context, "big-endian" implies that the word containing the sign
 #   bit is found in the memory location with the lowest address. This
-#   implemenation was inspired by the AC_C_BIGENDIAN macro in autoconf.
+#   implementation was inspired by the AC_C_BIGENDIAN macro in autoconf.
 #
 #   The endianess is detected by first compiling C code that contains a
 #   special double float value, then grepping the resulting object file for
