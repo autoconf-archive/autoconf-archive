@@ -385,7 +385,7 @@ _ACEOF
 # -----------------------------------------------------------------------------
 # Run ACTION-IF-TRUE if the Python interpreter has version >= VERSION.
 # Run ACTION-IF-FALSE otherwise.
-# This test uses sys.hexversion instead of the string equivalant (first
+# This test uses sys.hexversion instead of the string equivalent (first
 # word of sys.version), in order to cope with versions such as 2.2c1.
 # hexversion has been introduced in Python 1.5.2; it's probably not
 # worth to support older versions (1.5.1 was released on October 31, 1998).
