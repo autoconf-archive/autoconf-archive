@@ -300,7 +300,7 @@ AC_DEFUN([AX_PATH_BDB_PATH_FIND_HIGHEST], [
 
   ax_path_bdb_path_find_highest_DIR=''
 
-  # find highest verison in default install directory for Berkeley DB
+  # find highest version in default install directory for Berkeley DB
   AS_VAR_PUSHDEF([CURDIR],[ax_path_bdb_path_find_highest_CURDIR])dnl
   AS_VAR_PUSHDEF([CUR_VERSION],[ax_path_bdb_path_get_version_VERSION])dnl
 
