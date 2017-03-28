@@ -16,7 +16,7 @@
 #   For more information about Firebird API versioning check: API Identifies
 #   Client Version http://www.firebirdsql.org/rlsnotes20/rnfbtwo-apiods.html
 #
-#   If no intallation prefix to the installed Firebird library is given the
+#   If no installation prefix to the installed Firebird library is given the
 #   macro searches under /usr, /usr/local, and /opt.
 #
 #   This macro calls:
