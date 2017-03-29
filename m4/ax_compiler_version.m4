@@ -325,7 +325,7 @@ AC_DEFUN([_AX_COMPILER_VERSION_BORLAND],[dnl
       [1616],[ax_cv_[]_AC_LANG_ABBREV[]_compiler_version="5xe:3"],
       [1632],[ax_cv_[]_AC_LANG_ABBREV[]_compiler_version="5xe:4"],
       [
-      AC_MSG_WARN([[[$0]] Unknow borlandc compiler version $_ax_[]_AC_LANG_ABBREV[]_compiler_version_borlandc_raw please report bug])
+      AC_MSG_WARN([[[$0]] Unknown borlandc compiler version $_ax_[]_AC_LANG_ABBREV[]_compiler_version_borlandc_raw please report bug])
       ])
     ])
   ])
