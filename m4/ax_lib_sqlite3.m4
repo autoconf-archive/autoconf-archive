@@ -12,9 +12,9 @@
 #
 #   This macro takes only one optional argument, required version of SQLite
 #   3 library. If required version is not passed, 3.0.0 is used in the test
-#   of existance of SQLite 3.
+#   of existence of SQLite 3.
 #
-#   If no intallation prefix to the installed SQLite library is given the
+#   If no installation prefix to the installed SQLite library is given the
 #   macro searches under /usr, /usr/local, and /opt.
 #
 #   This macro calls:

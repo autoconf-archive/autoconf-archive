@@ -368,7 +368,7 @@ AC_DEFUN([AX_CHECK_MYSQL],[
                         AC_MSG_RESULT([yes])
                     fi
             else
-                    AC_MSG_ERROR([MINIMUM-VERSION varable in AX_CHEC_MYSQL is not formatted properly. Please use X.X or X.X.XX])
+                    AC_MSG_ERROR([MINIMUM-VERSION variable in AX_CHEC_MYSQL is not formatted properly. Please use X.X or X.X.XX])
             fi
         fi
 

@@ -9,7 +9,7 @@
 # DESCRIPTION
 #
 #   Creates a generic PACKAGE-config file that has all the things that you
-#   want, hmm, well, atleast it has --cflags, --version, --libs. Ahhm, did
+#   want, hmm, well, at least it has --cflags, --version, --libs. Ahhm, did
 #   you see ax_path_generic in the autoconf-archive? ;-)
 #
 #   this macros saves you all the typing for a pkg-config.in script, you

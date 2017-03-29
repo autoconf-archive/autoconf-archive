@@ -87,7 +87,7 @@
 
 #serial 21
 
-# exemple program
+# example program
 m4_define([_AX_CHECK_GLU_PROGRAM],
           [AC_LANG_PROGRAM([[
 # if defined(HAVE_WINDOWS_H) && defined(_WIN32)

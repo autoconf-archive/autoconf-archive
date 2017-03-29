@@ -139,7 +139,7 @@ AC_DEFUN([AX_PYTHON_DEFAULT],
 # Handles the various --enable-python commands.
 # Input:
 #   $1 is the optional search path for the python executable if needed
-# Ouput:
+# Output:
 #   PYTHON_USE (AM_CONDITIONAL) is true if python executable found
 #   and --enable-python was requested; otherwise false.
 #   $PYTHON contains the full executable path to python if PYTHON_ENABLE_USE
@@ -170,7 +170,7 @@ AC_DEFUN([AX_PYTHON_ENABLE],
                 then
                     # "yes" was specified, but we don't have a path
                     # for the executable.
-                    # So, let's searth the PATH Environment Variable.
+                    # So, let's search the PATH Environment Variable.
                     AC_MSG_RESULT(yes)
                     AC_PATH_PROG(
                         [PYTHON],
@@ -385,7 +385,7 @@ _ACEOF
 # -----------------------------------------------------------------------------
 # Run ACTION-IF-TRUE if the Python interpreter has version >= VERSION.
 # Run ACTION-IF-FALSE otherwise.
-# This test uses sys.hexversion instead of the string equivalant (first
+# This test uses sys.hexversion instead of the string equivalent (first
 # word of sys.version), in order to cope with versions such as 2.2c1.
 # hexversion has been introduced in Python 1.5.2; it's probably not
 # worth to support older versions (1.5.1 was released on October 31, 1998).
@@ -446,7 +446,7 @@ AC_DEFUN([AX_PYTHON_VERSION_ENSURE],
 # Handles the various --with-python commands.
 # Input:
 #   $1 is the optional search path for the python executable if needed
-# Ouput:
+# Output:
 #   PYTHON_USE (AM_CONDITIONAL) is true if python executable found
 #   and --with-python was requested; otherwise false.
 #   $PYTHON contains the full executable path to python if PYTHON_USE
@@ -477,7 +477,7 @@ AC_DEFUN([AX_PYTHON_WITH],
                 then
                     # "yes" was specified, but we don't have a path
                     # for the executable.
-                    # So, let's searth the PATH Environment Variable.
+                    # So, let's search the PATH Environment Variable.
                     AC_MSG_RESULT(yes)
                     AC_PATH_PROG(
                         [PYTHON],

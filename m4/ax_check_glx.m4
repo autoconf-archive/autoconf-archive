@@ -63,7 +63,7 @@
 
 #serial 5
 
-# exemple program
+# example program
 m4_define([_AX_CHECK_GLX_PROGRAM],
           [AC_LANG_PROGRAM([[
 # if defined(HAVE_WINDOWS_H) && defined(_WIN32)
@@ -264,7 +264,7 @@ AC_DEFUN([_AX_CHECK_GLX_PKG_CONFIG],
 	AC_CACHE_CHECK([for OpenGL Utility (GLX) headers],[ax_cv_check_glx_have_headers],
 		       [ax_cv_check_glx_have_headers="${ax_check_glx_have_headers}"])
 
-        # pkgconfig library are suposed to work ...
+        # pkgconfig library are supposed to work ...
         AS_IF([test "X$ax_cv_check_glx_have_headers" = "Xno"],
               [AC_MSG_ERROR("Pkgconfig detected OpenGL Utility (GLX) library has no headers!")])
 

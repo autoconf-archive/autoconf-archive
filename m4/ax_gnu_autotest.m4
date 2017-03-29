@@ -80,7 +80,7 @@
 #       as errors and abort (for "no") or whether to ignore any such errors
 #       (for "yes"). If empty, defaults to "no".
 #
-#   All filesnames above must be relative. The testdir name is interpreted
+#   All filenames above must be relative. The testdir name is interpreted
 #   relative to top_srcdir. All other names are interpreted relative to the
 #   testdir. The boolean values are interpreted as "yes" for any non-empty
 #   value except "0", "n", "no" and their mixed-case variants.
@@ -629,7 +629,7 @@ m4_popdef([deps], [sdir], [suite])dnl
 
 # _AX_GNU_AUTOTEST_acsubst_rules_dir(base, dir)
 # ---------------------------------------------
-# Generates the depencency rules for one directory relative to base, output
+# Generates the dependency rules for one directory relative to base, output
 # as string
 # For the m4_bpatsubst, the string starts and ends with [ ]
 # Global variables used:

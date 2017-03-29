@@ -16,8 +16,8 @@
 #
 #   This macro assumes that unzip, zipinfo or pkzipc is available (and can
 #   list the contents of the jar archive). The first two are assumed to work
-#   similarly enough to the infozip versisonms. The pkzipc version is
-#   assumed to work if I undertstand the documentation on pkware's site but
+#   similarly enough to the infozip versions. The pkzipc version is
+#   assumed to work if I understand the documentation on pkware's site but
 #   YMMV. I do not have access to pwkware's version to test it.
 #
 # LICENSE

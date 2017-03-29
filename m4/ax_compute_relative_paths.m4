@@ -95,7 +95,7 @@ dnl ===========================================
 dnl Compute the relative path to go from $FROM to $TO and set the value
 dnl of $RESULT to that value.  This function work on raw filenames
 dnl (for instead it will considerate /usr//local and /usr/local as
-dnl two distinct paths), you should really use AX_COMPUTE_REALTIVE_PATHS
+dnl two distinct paths), you should really use AX_COMPUTE_RELATIVE_PATHS
 dnl instead to have the paths sanitized automatically.
 dnl
 dnl For instance:
@@ -135,11 +135,11 @@ done])
 
 dnl AX_COMPUTE_SUFFIX_PATH(PATH, SUBPATH, RESULT)
 dnl ==============================================
-dnl Substrack $SUBPATH from $PATH, and set the resulting suffix
+dnl Subtract $SUBPATH from $PATH, and set the resulting suffix
 dnl (or the empty string if $SUBPATH is not a subpath of $PATH)
 dnl to $RESULT.
 dnl
-dnl For instace:
+dnl For instance:
 dnl    first_path=/somewhere/on/my/disk/bin
 dnl    second_path=/somewhere/on
 dnl    AX_COMPUTE_SUFFIX_PATH(first_path, second_path, common_path)

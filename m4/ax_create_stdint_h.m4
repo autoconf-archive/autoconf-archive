@@ -12,9 +12,9 @@
 #   existence of an include file <stdint.h> that defines a set of typedefs,
 #   especially uint8_t,int32_t,uintptr_t. Many older installations will not
 #   provide this file, but some will have the very same definitions in
-#   <inttypes.h>. In other enviroments we can use the inet-types in
+#   <inttypes.h>. In other environments we can use the inet-types in
 #   <sys/types.h> which would define the typedefs int8_t and u_int8_t
-#   respectivly.
+#   respectively.
 #
 #   This macros will create a local "_stdint.h" or the headerfile given as
 #   an argument. In many cases that file will just "#include <stdint.h>" or
@@ -39,7 +39,7 @@
 #
 #   Remember, if the system already had a valid <stdint.h>, the generated
 #   file will include it directly. No need for fuzzy HAVE_STDINT_H things...
-#   (oops, GCC 4.2.x has deliberatly disabled its stdint.h for non-c99
+#   (oops, GCC 4.2.x has deliberately disabled its stdint.h for non-c99
 #   compilation and the c99-mode is not the default. Therefore this macro
 #   will not use the compiler's stdint.h - please complain to the GCC
 #   developers).
@@ -251,7 +251,7 @@ AC_CHECK_TYPE(int_least32_t,,,[#include <$ac_cv_header_stdint>])
 AC_CHECK_TYPE(int_fast32_t,,,[#include<$ac_cv_header_stdint>])
 AC_CHECK_TYPE(intmax_t,,,[#include <$ac_cv_header_stdint>])
 
-fi # shortcircut to system "stdint.h"
+fi # shortcircuit to system "stdint.h"
 # ------------------ PREPARE VARIABLES ------------------------------
 if test "$GCC" = "yes" ; then
 ac_cv_stdint_message="using gnu compiler "`$CC --version | head -1`
@@ -370,7 +370,7 @@ echo "" >>$ac_stdint
   cat >>$ac_stdint <<STDINT_EOF
 /* .................... detections part ............................ */
 
-/* whether we need to define bitspecific types from compiler base types */
+/* whether we need to define bit specific types from compiler base types */
 #ifndef _STDINT_HEADER_INTPTR
 #ifndef _STDINT_HEADER_UINT32
 #ifndef _STDINT_HEADER_U_INT32
@@ -467,7 +467,7 @@ typedef u_int32_t uint32_t;
 #endif
 
 #ifdef _STDINT_NEED_INT_MODEL_T
-/* we must guess all the basic types. Apart from byte-adressable system, */
+/* we must guess all the basic types. Apart from byte-addressable system, */
 /* there a few 32-bit-only dsp-systems that we guard with BYTE_MODEL 8-} */
 /* (btw, those nibble-addressable systems are way off, or so we assume) */
 
@@ -655,7 +655,7 @@ typedef           long   intptr_t;
 #endif
 #endif
 
-/* These limits are merily those of a two complement byte-oriented system */
+/* These limits are merrily those of a two complement byte-oriented system */
 
 /* Minimum of signed integral types.  */
 # define INT8_MIN               (-128)

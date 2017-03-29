@@ -59,7 +59,7 @@ AC_DEFUN([AX_LIB_GDAL],
     )
 
     if test ! -x "$GDAL_CONFIG"; then
-        AC_MSG_ERROR([gdal-config does not exist or it is not an exectuable file])
+        AC_MSG_ERROR([gdal-config does not exist or it is not an executable file])
             GDAL_CONFIG="no"
             found_gdal="no"
     fi

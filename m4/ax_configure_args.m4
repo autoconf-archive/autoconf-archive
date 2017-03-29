@@ -15,7 +15,7 @@
 #   to rely on eval'ing $ac_configure_args however some old autoconf
 #   versions do not provide that. To ensure maximum portability of autoconf
 #   extension macros this helper can be AC_REQUIRE'd so that
-#   $ac_configure_args will alsways be present.
+#   $ac_configure_args will always be present.
 #
 #   Sadly, the traditional "exec $SHELL" of the enable_builddir macros is
 #   spoiled now and must be replaced by "eval + exit $?".
@@ -60,7 +60,7 @@
 #serial 10
 
 AC_DEFUN([AX_CONFIGURE_ARGS],[
-   # [$]@ is unsable in 2.60+ but earlier autoconf had no ac_configure_args
+   # [$]@ is unusable in 2.60+ but earlier autoconf had no ac_configure_args
    if test "${ac_configure_args+set}" != "set" ; then
       ac_configure_args=
       for ac_arg in ${1+"[$]@"}; do

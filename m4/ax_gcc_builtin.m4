@@ -79,7 +79,7 @@
 #    __builtin_types_compatible_p
 #    __builtin_unreachable
 #
-#   Unsuppored built-ins will be tested with an empty parameter set and the
+#   Unsupported built-ins will be tested with an empty parameter set and the
 #   result of the check might be wrong or meaningless so use with care.
 #
 # LICENSE

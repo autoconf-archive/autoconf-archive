@@ -15,7 +15,7 @@
 #   quite a time already.
 #
 #   #define DECLARE_BLOCK_NEEDED says they need to be at the beginning of of
-#   a statement block. Additionlly two defines DECLARE_BLOCK { and
+#   a statement block. Additionally two defines DECLARE_BLOCK { and
 #   DECLARE_END } are being set. That makes it possible to do the following
 #   in your source code (which this macro is really made up for):
 #

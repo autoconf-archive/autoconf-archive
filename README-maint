@@ -11,7 +11,7 @@
 
   - Python (2.6 or later)
 
-    Python 2.6 is needed for textwrap.TextWrapper break_on_hypens option only.
+    Python 2.6 is needed for textwrap.TextWrapper break_on_hyphens option only.
     This is being worked on decrease python version requirements.
 
   - texinfo (5.0 or later)

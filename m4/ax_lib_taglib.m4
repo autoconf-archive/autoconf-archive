@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   Checks for minimum taglib library version VERSION. If successfull
+#   Checks for minimum taglib library version VERSION. If successful
 #   executes ACTION-IF-SUCCESS otherwise ACTION-IF-FAILURE.
 #
 #   Defines TAGLIB_LIBS and TAGLIB_CFLAGS.

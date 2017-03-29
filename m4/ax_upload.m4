@@ -25,7 +25,7 @@
 #
 #     make upload-src
 #
-#   all the binaru distribution files by running:
+#   all the binary distribution files by running:
 #
 #     make upload-bin
 #

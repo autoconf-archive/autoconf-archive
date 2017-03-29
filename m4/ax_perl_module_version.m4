@@ -8,9 +8,9 @@
 #
 # DESCRIPTION
 #
-#   Checks to see if the list of 'Module Version' are avaiable in the
-#   system. If all the modules in the list are avaiable ACTION-IF-TRUE is
-#   executed. Case one module is not avaiable ACTION-IF-FALSE is executed
+#   Checks to see if the list of 'Module Version' are available in the
+#   system. If all the modules in the list are available ACTION-IF-TRUE is
+#   executed. Case one module is not available ACTION-IF-FALSE is executed
 #   and the macro execution is aborted. NOTE: Perl is needed.
 #
 #   Example:

@@ -24,7 +24,7 @@
 #   not enforce using mico, if it is not found on the system. If MICO
 #   existence is critical for the building of your package, then you
 #   probably want to specify something like "AX_PKG_MICO(2.2.6 required)".
-#   Then, even if the --with-mico was not spcefied on the command line of
+#   Then, even if the --with-mico was not specified on the command line of
 #   the configure script, an error will be raised if mico was not found.
 #
 #   If the mico package is not found, abort configuration with error

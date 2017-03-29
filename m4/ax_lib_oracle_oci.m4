@@ -26,7 +26,7 @@
 #   NOTE: These options described above do not take yes|no values. If 'yes'
 #   value is passed, then WARNING message will be displayed, 'no' value, as
 #   well as the --without-oci-* variations will cause the macro to not check
-#   enything.
+#   anything.
 #
 #   This macro calls:
 #

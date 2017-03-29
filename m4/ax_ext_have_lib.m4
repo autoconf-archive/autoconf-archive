@@ -23,7 +23,7 @@
 #
 #    AX_EXT_HAVE_LIB(/lib /usr/lib /usr/local/lib /usr/lib/mysql /usr/local/mysql/lib, mysqlclient, mysql_init, [-lz])
 #
-#   which finds the mysql client library if succeds system when it tries
+#   which finds the mysql client library if succeeds system when it tries
 #   with -L/usr/lib/mysql then it adds -lmysqlclient to LIBS and
 #   -L/usr/lib/mysql to LDFLAGS.
 #

@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   If the C++ compiler supports explicit instanciations syntax, define
+#   If the C++ compiler supports explicit instantiations syntax, define
 #   HAVE_INSTANTIATIONS.
 #
 # LICENSE

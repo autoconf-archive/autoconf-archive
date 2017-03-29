@@ -21,7 +21,7 @@
 #
 #   This macro does fails if either the headers or the library are not
 #   found, unless ACTION-IF-NOT-FOUND is not empty. When both are found,
-#   ACTION-IF-FOUND, if defined, is exectued after the variables have been
+#   ACTION-IF-FOUND, if defined, is executed after the variables have been
 #   defined. If --with-pgsql=no (or equivalents) is given, nothing happens.
 #
 #   An automake conditional can be subsequently defined as

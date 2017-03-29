@@ -9,10 +9,10 @@
 # DESCRIPTION
 #
 #   This macro tests if the C complier supports the C9X standard __func__
-#   indentifier.
+#   identifier.
 #
 #   The new C9X standard for the C language stipulates that the identifier
-#   __func__ shall be implictly declared by the compiler as if, immediately
+#   __func__ shall be implicitly declared by the compiler as if, immediately
 #   following the opening brace of each function definition, the declaration
 #
 #     static const char __func__[] = "function-name";
