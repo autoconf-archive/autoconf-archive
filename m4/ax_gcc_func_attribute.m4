@@ -61,9 +61,9 @@
 #    weak
 #    weakref
 #
-#   Unsupported function attributes will be tested with a prototype returning
-#   an int and not accepting any arguments and the result of the check might
-#   be wrong or meaningless so use with care.
+#   Unsupported function attributes will be tested with a prototype
+#   returning an int and not accepting any arguments and the result of the
+#   check might be wrong or meaningless so use with care.
 #
 # LICENSE
 #
@@ -74,7 +74,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 7
 
 AC_DEFUN([AX_GCC_FUNC_ATTRIBUTE], [
     AS_VAR_PUSHDEF([ac_var], [ax_cv_have_func_attribute_$1])

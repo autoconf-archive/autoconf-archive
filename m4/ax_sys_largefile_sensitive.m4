@@ -14,8 +14,8 @@
 #   is.
 #
 #   This macro builds on top of AC_SYS_LARGEFILE to detect whether special
-#   options are needed to make the code use 64bit off_t - in many setups this
-#   will also make the code use 64bit off_t immediatly.
+#   options are needed to make the code use 64bit off_t - in many setups
+#   this will also make the code use 64bit off_t immediatly.
 #
 #   The common use of a LARGEFILE_SENSITIVE config.h-define is to rename
 #   exported functions, usually adding a 64 to the original function name.
@@ -63,7 +63,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 9
 
 AU_ALIAS([AC_SYS_LARGEFILE_SENSITIVE], [AX_SYS_LARGEFILE_SENSITIVE])
 AC_DEFUN([AX_SYS_LARGEFILE_SENSITIVE],[dnl

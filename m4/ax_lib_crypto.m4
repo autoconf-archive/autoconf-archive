@@ -30,7 +30,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 10
 
 # AX_CHECK_CRYPTO_LIB([algo-name],[function])
 AC_DEFUN([AX_CHECK_CRYPTO_LIB],[

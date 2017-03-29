@@ -57,7 +57,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 13
 
 AC_DEFUN([AX_CONFIGURE_ARGS],[
    # [$]@ is unusable in 2.60+ but earlier autoconf had no ac_configure_args

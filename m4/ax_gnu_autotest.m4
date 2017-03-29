@@ -249,7 +249,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 6
 
 # _AX_GNU_AUTOTEST_remove_parent(filename)
 # ----------------------------------------

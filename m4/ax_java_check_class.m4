@@ -49,7 +49,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 12
 
 AU_ALIAS([DPS_JAVA_CHECK_CLASS], [AX_JAVA_CHECK_CLASS])
 AC_DEFUN([AX_JAVA_CHECK_CLASS],[

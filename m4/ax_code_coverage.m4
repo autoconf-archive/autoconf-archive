@@ -75,7 +75,7 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 21
+#serial 23
 
 AC_DEFUN([AX_CODE_COVERAGE],[
 	dnl Check for --enable-code-coverage

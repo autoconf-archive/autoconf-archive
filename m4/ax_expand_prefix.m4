@@ -56,7 +56,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 10
 
 AC_DEFUN([AX_EXPAND_PREFIX],[dnl
   # The prefix default can be set in configure.ac (otherwise it is /usr/local)

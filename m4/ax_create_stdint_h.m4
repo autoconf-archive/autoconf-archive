@@ -74,7 +74,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 19
 
 AC_DEFUN([AX_CHECK_DATA_MODEL],[
    AC_CHECK_SIZEOF(char)

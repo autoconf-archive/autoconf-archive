@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 13
 
 AC_DEFUN([AX_F90_LIBRARY],[
 AS_VAR_PUSHDEF([ax_ldflags],[ax_cv_f90_ldflags_$1])

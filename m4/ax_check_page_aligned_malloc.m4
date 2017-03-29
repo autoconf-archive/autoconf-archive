@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 10
 
 AC_DEFUN([AX_CHECK_PAGE_ALIGNED_MALLOC],
 [AC_CACHE_CHECK([if large mallocs guarantee page-alignment],

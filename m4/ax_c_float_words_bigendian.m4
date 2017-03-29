@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 10
 
 AC_DEFUN([AX_C_FLOAT_WORDS_BIGENDIAN],
   [AC_CACHE_CHECK(whether float word ordering is bigendian,

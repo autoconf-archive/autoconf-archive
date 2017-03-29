@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 9
 
 # for intel
 AC_DEFUN([_AX_COMPILER_VERSION_INTEL],

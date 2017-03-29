@@ -31,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 12
 
 # AX_CHECK_GCRYPT_ALGO([algo])
 # generate convenient defines for each algorithm

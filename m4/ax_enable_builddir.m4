@@ -79,7 +79,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 26
+#serial 30
 
 AC_DEFUN([AX_ENABLE_BUILDDIR],[
 AC_REQUIRE([AC_CANONICAL_HOST])[]dnl

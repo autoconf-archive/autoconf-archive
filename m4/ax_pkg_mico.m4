@@ -49,7 +49,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 9
 
 AU_ALIAS([AC_PKG_MICO], [AX_PKG_MICO])
 AC_DEFUN([AX_PKG_MICO],

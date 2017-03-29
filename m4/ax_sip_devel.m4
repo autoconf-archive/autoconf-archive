@@ -37,7 +37,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 10
 
 AU_ALIAS([MERK_SIP_DEVEL], [AX_SIP_DEVEL])
 AC_DEFUN([AX_SIP_DEVEL],[

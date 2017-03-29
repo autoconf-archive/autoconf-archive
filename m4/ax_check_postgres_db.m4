@@ -40,7 +40,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 12
 
 AU_ALIAS([CT_CHECK_POSTGRES_DB], [AX_CHECK_POSTGRES_DB])
 AC_DEFUN([AX_CHECK_POSTGRES_DB], [

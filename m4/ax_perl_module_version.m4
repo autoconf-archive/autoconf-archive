@@ -28,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 10
 
 AU_ALIAS([AC_PERL_MODULE_VERSION], [AX_PERL_MODULE_VERSION])
 AC_DEFUN([AX_PERL_MODULE_VERSION],[dnl

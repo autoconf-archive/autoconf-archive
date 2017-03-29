@@ -72,7 +72,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 7
 
 ## Portability defines that help interoperate with classic and modern autoconfs
 ifdef([AC_TR_SH],[

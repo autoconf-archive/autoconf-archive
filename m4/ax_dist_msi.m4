@@ -24,7 +24,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 15
 
 AC_DEFUN([AX_DIST_MSI],
 [

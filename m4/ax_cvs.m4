@@ -82,7 +82,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 14
+#serial 21
 
 AC_DEFUN([AX_CVS],
 [

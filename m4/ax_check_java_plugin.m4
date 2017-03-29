@@ -16,9 +16,9 @@
 #
 #   This macro assumes that unzip, zipinfo or pkzipc is available (and can
 #   list the contents of the jar archive). The first two are assumed to work
-#   similarly enough to the infozip versions. The pkzipc version is
-#   assumed to work if I understand the documentation on pkware's site but
-#   YMMV. I do not have access to pwkware's version to test it.
+#   similarly enough to the infozip versions. The pkzipc version is assumed
+#   to work if I understand the documentation on pkware's site but YMMV. I
+#   do not have access to pwkware's version to test it.
 #
 # LICENSE
 #
@@ -50,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 11
 
 AU_ALIAS([DPS_CHECK_PLUGIN], [AX_CHECK_JAVA_PLUGIN])
 AC_DEFUN([AX_CHECK_JAVA_PLUGIN],
