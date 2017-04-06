@@ -95,10 +95,10 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_ELISP_CONFIG_FILE],[dnl
-dnl 1 -- relative filename (from ‘top_srcdir’)
+dnl 1 -- relative filename (from 'top_srcdir')
 m4_define([AX_ELISP__CONFIG_FILENAME],[$1])dnl
 ])dnl
 
@@ -134,7 +134,7 @@ AS_VAR_POPDEF([CV])dnl
 AC_DEFUN([AX_ELISP_CHECK_FEATURE],[dnl
 dnl 1 -- Emacs Lisp symbol (a feature name)
 AC_REQUIRE([AX_ELISP__PREP])dnl
-AX_ELISP_CHECK([featurep-$1],[if $EMACS supports feature ‘$1’],[dnl
+AX_ELISP_CHECK([featurep-$1],[if $EMACS supports feature '$1'],[dnl
 (require (quote $1))
 ],[dnl
 (featurep (quote $1))
@@ -143,8 +143,8 @@ AX_ELISP_CHECK([featurep-$1],[if $EMACS supports feature ‘$1’],[dnl
 
 AC_DEFUN([AX_ELISP_CHECK_FBOUNDP],[dnl
 dnl 1 -- Emacs Lisp symbol
-dnl 2 -- (optional) space-separated list of features to ‘require’
-AX_ELISP_CHECK([$1],[if ‘$1’ is defined],[dnl
+dnl 2 -- (optional) space-separated list of features to 'require'
+AX_ELISP_CHECK([$1],[if '$1' is defined],[dnl
 m4_foreach([FEATURE],m4_split(m4_normalize($2)),[dnl
 (require 'FEATURE)
 ])],[(fboundp '$1)])])dnl
@@ -152,8 +152,8 @@ m4_foreach([FEATURE],m4_split(m4_normalize($2)),[dnl
 
 AC_DEFUN([AX_ELISP_CHECK_BOUNDP],[dnl
 dnl 1 -- Emacs Lisp symbol
-dnl 2 -- (optional) space-separated list of features to ‘require’
-AX_ELISP_CHECK([$1],[if ‘$1’ is defined],[dnl
+dnl 2 -- (optional) space-separated list of features to 'require'
+AX_ELISP_CHECK([$1],[if '$1' is defined],[dnl
 m4_foreach([FEATURE],m4_split(m4_normalize($2)),[dnl
 (require 'FEATURE)
 ])],[(boundp '$1)])])dnl
