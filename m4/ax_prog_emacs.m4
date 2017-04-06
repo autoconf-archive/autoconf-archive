@@ -54,13 +54,13 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_PROG_EMACS],[dnl
 AC_ARG_VAR([EMACS],[Use this Emacs to byte-compile the Emacs Lisp files.])
-dnl Allow env override but do not get fooled by ‘EMACS=t’.
+dnl Allow env override but do not get fooled by 'EMACS=t'.
 test t = "$EMACS" && unset EMACS
-dnl The next line does nothing if var ‘EMACS’ is already set.
+dnl The next line does nothing if var 'EMACS' is already set.
 AC_CHECK_PROG([EMACS], [emacs], [emacs])
 AS_IF([test "x$EMACS" = x],[AC_MSG_ERROR([Emacs not found; required!])])
 ])dnl
