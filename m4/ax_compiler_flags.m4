@@ -121,6 +121,7 @@ AC_DEFUN([AX_COMPILER_FLAGS],[
                       [_AX_COMPILER_FLAGS_LANG([CXX])],
                       [m4_define([AC_PROG_CXX], defn([AC_PROG_CXX])[_AX_COMPILER_FLAGS_LANG([CXX])])])
     AX_REQUIRE_DEFINED([AX_COMPILER_FLAGS_LDFLAGS])
+    AX_REQUIRE_DEFINED([AX_COMPILER_FLAGS_GIR])
 
     # Default value for IS-RELEASE is $ax_is_release
     ax_compiler_flags_is_release=m4_tolower(m4_normalize(ifelse([$3],,
