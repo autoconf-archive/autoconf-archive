@@ -1,45 +1,41 @@
-# NAME
-#
-#   AX_SUBDIRS_CONFIGURE - AC_CONFIG_SUBDIRS with customizable options
+# ===========================================================================
+#   https://www.gnu.org/software/autoconf-archive/ax_subdirs_configure.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
-#   AX_SUBDIRS_CONFIGURE(
-#       [subdirs],
-#       [mandatory arguments],
-#       [possibly merged arguments],
-#       [replacement arguments],
-#       [forbidden arguments])
+#   AX_SUBDIRS_CONFIGURE( [subdirs], [mandatory arguments], [possibly merged arguments], [replacement arguments], [forbidden arguments])
 #
-# SUMMARY
+# DESCRIPTION
 #
 #   AX_SUBDIRS_CONFIGURE attempts to be the equivalent of AC_CONFIG_SUBDIRS
 #   with customizable options for configure scripts.
 #
-# DESCRIPTION
+#   Run the configure script for each directory from the comma-separated m4
+#   list 'subdirs'. This macro can be used multiple times. All arguments of
+#   this macro must be comma-separated lists.
 #
-#   Run the configure script for each directory from the comma-separated m4 list
-#   'subdirs'. This macro can be used multiple times. All arguments of this
-#   macro must be comma-separated lists.
-#
-#   All command line arguments from the parent configure script will be given
-#   to the subdirectory configure script after the following modifications (in
-#   that order):
+#   All command line arguments from the parent configure script will be
+#   given to the subdirectory configure script after the following
+#   modifications (in that order):
 #
 #   1. The arguments from the 'mandatory arguments' list shall always be
-#      appended to the argument list.
-#   2. The arguments from the 'possibly merged arguments' list shall be added
-#      if not present in the arguments of the parent configure script or
-#      merged with the existing argument otherwise.
-#   3. The arguments from the 'replacement arguments' list shall be added
-#      if not present in the arguments of the parent configure script or
-#      replace the existing argument otherwise.
-#   4. The arguments from the 'forbidden arguments' list shall always be removed
-#      from the argument list.
+#   appended to the argument list.
 #
-#   The lists 'mandatory arguments' and 'forbidden arguments' can hold any kind
-#   of argument. The 'possibly merged arguments' and 'replacement arguments'
-#   expect their arguments to be of the form --option-name=value.
+#   2. The arguments from the 'possibly merged arguments' list shall be
+#   added if not present in the arguments of the parent configure script or
+#   merged with the existing argument otherwise.
+#
+#   3. The arguments from the 'replacement arguments' list shall be added if
+#   not present in the arguments of the parent configure script or replace
+#   the existing argument otherwise.
+#
+#   4. The arguments from the 'forbidden arguments' list shall always be
+#   removed from the argument list.
+#
+#   The lists 'mandatory arguments' and 'forbidden arguments' can hold any
+#   kind of argument. The 'possibly merged arguments' and 'replacement
+#   arguments' expect their arguments to be of the form --option-name=value.
 #
 #   This macro aims to remain as close as possible to the AC_CONFIG_SUBDIRS
 #   macro. It corrects the paths for '--cache-file' and '--srcdir' and adds
@@ -49,55 +45,66 @@
 #   directories recorded with AX_SUBDIRS_CONFIGURE. This variable can be
 #   used in Makefile rules or substituted in configured files.
 #
-# NOTES
-#
 #   This macro shall do nothing more than managing the arguments of the
 #   configure script. Just like when using AC_CONFIG_SUBDIRS, it is up to
 #   the user to check any requirements or define and substitute any required
 #   variable for the remainder of the project.
 #
-#   Configure scripts recorded with AX_SUBDIRS_CONFIGURE may be executed before
-#   configure scripts recorded with AC_CONFIG_SUBDIRS.
+#   Configure scripts recorded with AX_SUBDIRS_CONFIGURE may be executed
+#   before configure scripts recorded with AC_CONFIG_SUBDIRS.
 #
-#   Without additional arguments, the behaviour of AX_SUBDIRS_CONFIGURE should
-#   be identical to the behaviour of AC_CONFIG_SUBDIRS, apart from the contents
-#   of the variables subdirs and subdirs_extra (except that AX_SUBDIRS_CONFIGURE
-#   expects a comma-separated m4 list):
+#   Without additional arguments, the behaviour of AX_SUBDIRS_CONFIGURE
+#   should be identical to the behaviour of AC_CONFIG_SUBDIRS, apart from
+#   the contents of the variables subdirs and subdirs_extra (except that
+#   AX_SUBDIRS_CONFIGURE expects a comma-separated m4 list):
 #
-#       AC_CONFIG_SUBDIRS([something])
-#       AX_SUBDIRS_CONFIGURE([something])
+#     AC_CONFIG_SUBDIRS([something])
+#     AX_SUBDIRS_CONFIGURE([something])
 #
 #   This macro may be called multiple times.
 #
-# EXAMPLE
+#   Usage example:
 #
 #   Let us assume our project has 4 dependencies, namely A, B, C and D. Here
 #   are some characteristics of our project and its dependencies:
+#
 #   - A does not require any special option.
+#
 #   - we want to build B with an optional feature which can be enabled with
-#     its configure script's option '--enable-special-feature'.
-#   - B's configure script is strange and has an option '--with-B=build'. After
-#     close inspection of its documentation, we don't want B to receive this
-#     option.
+#   its configure script's option '--enable-special-feature'.
+#
+#   - B's configure script is strange and has an option '--with-B=build'.
+#   After close inspection of its documentation, we don't want B to receive
+#   this option.
+#
 #   - C and D both need B.
+#
 #   - Just like our project, C and D can build B themselves with the option
-#     '--with-B=build'.
-#   - We want C and D to use the B we build instead of building it themselves.
+#   '--with-B=build'.
+#
+#   - We want C and D to use the B we build instead of building it
+#   themselves.
+#
 #   Our top-level configure script will be called as follows:
 #
 #     $ <path/to/configure> --with-A=build --with-B=build --with-C=build \
 #       --with-D=build --some-option
 #
 #   Thus we have to make sure that:
+#
 #   - neither B, C or D receive the option '--with-B=build'
+#
 #   - C and D know where to find the headers and libraries of B.
-#   Under those conditions, we can use the AC_CONFIG_SUBDIRS macro for A, but
-#   need to use AX_SUBDIRS_CONFIGURE for B, C and D:
+#
+#   Under those conditions, we can use the AC_CONFIG_SUBDIRS macro for A,
+#   but need to use AX_SUBDIRS_CONFIGURE for B, C and D:
+#
 #   - B must receive '--enable-special-feature' but cannot receive
-#     '--with-B=build'
-#   - C and D cannot receive '--with-B=build' (or else it would be built thrice)
-#     and need to be told where to find B (since we are building it, it would
-#     probably not be available in standard paths).
+#   '--with-B=build'
+#
+#   - C and D cannot receive '--with-B=build' (or else it would be built
+#   thrice) and need to be told where to find B (since we are building it,
+#   it would probably not be available in standard paths).
 #
 #   Here is a configure.ac snippet that solves our problem:
 #
@@ -121,8 +128,7 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2017 Harenome Ranaivoarivony-Razanajato
-#                      <ranaivoarivony-razanajato@hareno.me>
+#   Copyright (c) 2017 Harenome Ranaivoarivony-Razanajato <ranaivoarivony-razanajato@hareno.me>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -134,12 +140,14 @@
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
 #   Public License for more details.
 #
-#   Under Section 7 of GPL version 3, you are granted additional
-#   permissions described in the Autoconf Configure Script Exception,
-#   version 3.0, as published by the Free Software Foundation.
+#   Under Section 7 of GPL version 3, you are granted additional permissions
+#   described in the Autoconf Configure Script Exception, version 3.0, as
+#   published by the Free Software Foundation.
 #
 #   You should have received a copy of the GNU General Public License along
 #   with this program. If not, see <https://www.gnu.org/licenses/>.
+
+#serial 2
 
 AC_DEFUN([AX_SUBDIRS_CONFIGURE],
 [
