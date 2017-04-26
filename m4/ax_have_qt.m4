@@ -70,6 +70,7 @@ AC_DEFUN([AX_HAVE_QT],
     # This pro file dumps qmake's variables, but it only works on Qt 5 or later
     am_have_qt_pro=`mktemp`
     am_have_qt_makefile=`mktemp`
+    am_have_qt_makefile_dir=`dirname $am_have_qt_makefile`
     # http://qt-project.org/doc/qt-5/qmake-variable-reference.html#qt
     cat > $am_have_qt_pro << EOF
 qtHaveModule(axcontainer):       QT += axcontainer
@@ -106,8 +107,8 @@ percent.commands = @echo -n "\$(\$(@))\ "
 QMAKE_EXTRA_TARGETS += percent
 EOF
     qmake $am_have_qt_pro -o $am_have_qt_makefile
-    QT_CXXFLAGS=`make -s -f $am_have_qt_makefile CXXFLAGS INCPATH`
-    QT_LIBS=`make -s -f $am_have_qt_makefile LIBS`
+    QT_CXXFLAGS=`cd $am_have_qt_makefile_dir && make -s -f $am_have_qt_makefile CXXFLAGS INCPATH`
+    QT_LIBS=`cd $am_have_qt_makefile_dir && make -s -f $am_have_qt_makefile LIBS`
     rm $am_have_qt_pro $am_have_qt_makefile
 
     # Look for specific tools in $PATH
