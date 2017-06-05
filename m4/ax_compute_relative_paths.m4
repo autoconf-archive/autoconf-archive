@@ -33,7 +33,7 @@
 #   relocatable. Instead of hardcoding $datadir into your programs just
 #   encode $bin_to_data and try to determine $bindir at run-time.
 #
-#   This macro requires AX_NORMALIZE_PATH.
+#   This macro requires AX_NORMALIZE_PATH and AX_RECURSIVE_EVAL.
 #
 # LICENSE
 #
@@ -65,7 +65,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 AU_ALIAS([ADL_COMPUTE_RELATIVE_PATHS], [AX_COMPUTE_RELATIVE_PATHS])
 AC_DEFUN([AX_COMPUTE_RELATIVE_PATHS],
@@ -171,20 +171,3 @@ while test "[$]_lcl_tmp" != ''; do
      $3="../[$]$3"
   fi
 done])
-
-
-dnl AX_RECURSIVE_EVAL(VALUE, RESULT)
-dnl =================================
-dnl Interpolate the VALUE in loop until it doesn't change,
-dnl and set the result to $RESULT.
-dnl WARNING: It's easy to get an infinite loop with some unsane input.
-AC_DEFUN([AX_RECURSIVE_EVAL],
-[_lcl_receval="$1"
-$2=`(test "x$prefix" = xNONE && prefix="$ac_default_prefix"
-     test "x$exec_prefix" = xNONE && exec_prefix="${prefix}"
-     _lcl_receval_old=''
-     while test "[$]_lcl_receval_old" != "[$]_lcl_receval"; do
-       _lcl_receval_old="[$]_lcl_receval"
-       eval _lcl_receval="\"[$]_lcl_receval\""
-     done
-     echo "[$]_lcl_receval")`])
