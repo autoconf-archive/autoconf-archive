@@ -75,7 +75,7 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 24
+#serial 25
 
 AC_DEFUN([AX_CODE_COVERAGE],[
 	dnl Check for --enable-code-coverage
@@ -221,6 +221,9 @@ $(if $(CODE_COVERAGE_BRANCH_COVERAGE),\
 CODE_COVERAGE_GENHTML_OPTIONS ?= $(CODE_COVERAGE_GENHTML_OPTIONS_DEFAULT)
 CODE_COVERAGE_IGNORE_PATTERN ?=
 
+GITIGNOREFILES ?=
+GITIGNOREFILES += $(CODE_COVERAGE_OUTPUT_FILE) $(CODE_COVERAGE_OUTPUT_DIRECTORY)
+
 code_coverage_v_lcov_cap = $(code_coverage_v_lcov_cap_$(V))
 code_coverage_v_lcov_cap_ = $(code_coverage_v_lcov_cap_$(AM_DEFAULT_VERBOSITY))
 code_coverage_v_lcov_cap_0 = @echo "  LCOV   --capture"\
@@ -249,9 +252,6 @@ code-coverage-capture: code-coverage-capture-hook'"$CODE_COVERAGE_RULES_CAPTURE"
 code-coverage-capture-hook:
 
 '"$CODE_COVERAGE_RULES_CLEAN"'
-
-GITIGNOREFILES ?=
-GITIGNOREFILES += $(CODE_COVERAGE_OUTPUT_FILE) $(CODE_COVERAGE_OUTPUT_DIRECTORY)
 
 A''M_DISTCHECK_CONFIGURE_FLAGS ?=
 A''M_DISTCHECK_CONFIGURE_FLAGS += --disable-code-coverage
