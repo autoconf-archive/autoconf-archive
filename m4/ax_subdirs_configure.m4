@@ -147,7 +147,7 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_SUBDIRS_CONFIGURE],
 [
@@ -222,33 +222,37 @@ AC_DEFUN([AX_SUBDIRS_CONFIGURE],
       # different subdirs can have different --enable and --with options.
       ax_args="--disable-option-checking $ax_args"
       # Options that must be added as they are provided.
-      m4_foreach(opt, [$2], [AS_VAR_APPEND(ax_args, " 'opt'")
-      ])
+      m4_ifnblank([$2], [m4_foreach(opt, [$2], [AS_VAR_APPEND(ax_args, " 'opt'")
+      ])])
       # New options that may need to be merged with existing options.
-      m4_foreach(opt, [$3],
+      m4_ifnblank([$3], [m4_foreach(opt, [$3],
           [ax_candidate="opt"
            ax_candidate_flag="${ax_candidate%%=*}"
            ax_candidate_content="${ax_candidate#*=}"
-           if echo "$ax_args" | grep -- "${ax_candidate_flag}=" >/dev/null 2>&1; then
-             [ax_args=$(echo $ax_args | sed "s,\(${ax_candidate_flag}=[^']*\),\1 ${ax_candidate_content},")]
-           else
-             AS_VAR_APPEND(ax_args, " 'opt'")
+           if test "x$ax_candidate" != "x" -a "x$ax_candidate_flag" != "x"; then
+             if echo "$ax_args" | grep -- "${ax_candidate_flag}=" >/dev/null 2>&1; then
+               [ax_args=$(echo $ax_args | sed "s,\(${ax_candidate_flag}=[^']*\),\1 ${ax_candidate_content},")]
+             else
+               AS_VAR_APPEND(ax_args, " 'opt'")
+             fi
            fi
-      ])
+      ])])
       # New options that must replace existing options.
-      m4_foreach(opt, [$4],
+      m4_ifnblank([$4], [m4_foreach(opt, [$4],
           [ax_candidate="opt"
            ax_candidate_flag="${ax_candidate%%=*}"
            ax_candidate_content="${ax_candidate#*=}"
-           if echo "$ax_args" | grep -- "${ax_candidate_flag}=" >/dev/null 2>&1; then
-             [ax_args=$(echo $ax_args | sed "s,${ax_candidate_flag}=[^']*,${ax_candidate},")]
-           else
-             AS_VAR_APPEND(ax_args, " 'opt'")
+           if test "x$ax_candidate" != "x" -a "x$ax_candidate_flag" != "x"; then
+             if echo "$ax_args" | grep -- "${ax_candidate_flag}=" >/dev/null 2>&1; then
+               [ax_args=$(echo $ax_args | sed "s,${ax_candidate_flag}=[^']*,${ax_candidate},")]
+             else
+               AS_VAR_APPEND(ax_args, " 'opt'")
+             fi
            fi
-      ])
+      ])])
       # Options that must be removed.
-      m4_foreach(opt, [$5], [ax_args=$(echo $ax_args | sed "s,'opt',,")
-      ])
+      m4_ifnblank([$5], [m4_foreach(opt, [$5], [ax_args=$(echo $ax_args | sed "s,'opt',,")
+      ])])
       AS_VAR_APPEND([ax_args], [" '--srcdir=$ac_srcdir'"])
 
       # Add the subdirectory to the list of target subdirectories.
