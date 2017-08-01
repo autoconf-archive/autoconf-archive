@@ -33,7 +33,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 29
+#serial 30
 
 AC_DEFUN([AX_BOOST_BASE],
 [
@@ -196,6 +196,14 @@ if test "x$want_boost" = "xyes"; then
                     if test -d "$ac_boost_path/boost" && test -r "$ac_boost_path/boost"; then
                         BOOST_CPPFLAGS="-I$ac_boost_path"
                     fi
+                fi
+                dnl if we found something and BOOST_LDFLAGS was unset before
+                dnl (because "$ac_boost_lib_path" = ""), set it here.
+                if test -n "$BOOST_CPPFLAGS" && test -z "$BOOST_LDFLAGS"; then
+                    for libsubdir in $libsubdirs ; do
+                        if ls "$ac_boost_path/$libsubdir/libboost_"* >/dev/null 2>&1 ; then break; fi
+                    done
+                    BOOST_LDFLAGS="-L$ac_boost_path/$libsubdir"
                 fi
             fi
         else
