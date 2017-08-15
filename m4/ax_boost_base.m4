@@ -63,10 +63,17 @@ AC_ARG_WITH([boost-libdir],
          [ac_boost_lib_path="$withval"],
 	 [AC_MSG_ERROR([--with-boost-libdir expected directory name])])
   ],
-  [ac_boost_lib_path=""]
-)
+  [ac_boost_lib_path=""])
 
-if test "x$want_boost" = "xyes" ; then
+  AS_IF([test "x$want_boost" = "xyes"],
+        [_AX_BOOST_BASE_RUNDETECT],
+	[BOOST_CPPFLAGS="";BOOST_LDFLAGS=""])
+  AC_SUBST(BOOST_CPPFLAGS)
+  AC_SUBST(BOOST_LDFLAGS)
+])
+
+dnl Run the detection of boost should be run only if $want_boost
+AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
     AS_IF([test "x$1" = "x"],[boost_lib_version_req="1.20.0"],[boost_lib_version_req="$1"])
     boost_lib_version_req_shorten=`expr $boost_lib_version_req : '\([[0-9]]*\.[[0-9]]*\)'`
     boost_lib_version_req_major=`expr $boost_lib_version_req : '\([[0-9]]*\)'`
@@ -83,16 +90,13 @@ if test "x$want_boost" = "xyes" ; then
     dnl this (as it rises problems for generic multi-arch support).
     dnl The last entry in the list is chosen by default when no libraries
     dnl are found, e.g. when only header-only libraries are installed!
-    libsubdirs="lib"
+    
     ax_arch=`uname -m`
-    case $ax_arch in
-      x86_64)
-        libsubdirs="lib64 libx32 lib lib64"
-        ;;
-      ppc64|s390x|sparc64|aarch64|ppc64le)
-        libsubdirs="lib64 lib lib64"
-        ;;
-    esac
+    AS_CASE([$ax_arch],
+      [x86_64],[libsubdirs="lib64 libx32 lib lib64"],
+      [ppc64|s390x|sparc64|aarch64|ppc64le],[libsubdirs="lib64 lib lib64"],
+      [libsubdirs="lib"],
+    )
 
     dnl allow for real multi-arch paths e.g. /usr/lib/x86_64-linux-gnu. Give
     dnl them priority over the other paths since, if libs are found there, they
@@ -277,8 +281,6 @@ if test "x$want_boost" = "xyes" ; then
         # execute ACTION-IF-NOT-FOUND (if present):
         ifelse([$3], , :, [$3])
     else
-        AC_SUBST(BOOST_CPPFLAGS)
-        AC_SUBST(BOOST_LDFLAGS)
         AC_DEFINE(HAVE_BOOST,,[define if the Boost library is available])
         # execute ACTION-IF-FOUND (if present):
         ifelse([$2], , :, [$2])
@@ -286,6 +288,5 @@ if test "x$want_boost" = "xyes" ; then
 
     CPPFLAGS="$CPPFLAGS_SAVED"
     LDFLAGS="$LDFLAGS_SAVED"
-fi
 
 ])
