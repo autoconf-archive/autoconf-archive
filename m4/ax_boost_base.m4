@@ -65,9 +65,10 @@ AC_ARG_WITH([boost-libdir],
   ],
   [_AX_BOOST_BASE_boost_lib_path=""])
 
+  BOOST_LDFLAGS=""
+  BOOST_CPPFLAGS=""
   AS_IF([test "x$want_boost" = "xyes"],
-        [_AX_BOOST_BASE_RUNDETECT],
-	[BOOST_CPPFLAGS="";BOOST_LDFLAGS=""])
+        [_AX_BOOST_BASE_RUNDETECT])
   AC_SUBST(BOOST_CPPFLAGS)
   AC_SUBST(BOOST_LDFLAGS)
 ])
@@ -85,14 +86,14 @@ AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
     AC_MSG_CHECKING([for boostlib >= $boost_lib_version_req ($WANT_BOOST_VERSION)])
     succeeded=no
 
+
+    AC_REQUIRE([AC_CANONICAL_HOST])
     dnl On 64-bit systems check for system libraries in both lib64 and lib.
     dnl The former is specified by FHS, but e.g. Debian does not adhere to
     dnl this (as it rises problems for generic multi-arch support).
     dnl The last entry in the list is chosen by default when no libraries
     dnl are found, e.g. when only header-only libraries are installed!
-    
-    ax_arch=`uname -m`
-    AS_CASE([$ax_arch],
+    AS_CASE([${host_cpu}],
       [x86_64],[libsubdirs="lib64 libx32 lib lib64"],
       [ppc64|s390x|sparc64|aarch64|ppc64le],[libsubdirs="lib64 lib lib64"],
       [libsubdirs="lib"],
@@ -101,7 +102,6 @@ AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
     dnl allow for real multi-arch paths e.g. /usr/lib/x86_64-linux-gnu. Give
     dnl them priority over the other paths since, if libs are found there, they
     dnl are almost assuredly the ones desired.
-    AC_REQUIRE([AC_CANONICAL_HOST])
     AS_CASE([${host_cpu}],
       [i?86],[multiarch_libsubdir="lib/i386-${host_os}"],
       [multiarch_libsubdir="lib/${host_cpu}-${host_os}"]
