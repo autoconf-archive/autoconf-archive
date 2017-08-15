@@ -33,7 +33,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 32
+#serial 33
 
 AC_DEFUN([AX_BOOST_BASE],
 [
@@ -44,43 +44,38 @@ AC_ARG_WITH([boost],
      or disable it (ARG=no)
      @<:@ARG=yes@:>@ ])],
     [
-    if test "x$withval" = "xno"; then
-        want_boost="no"
-    elif test "x$withval" = "xyes"; then
-        want_boost="yes"
-        ac_boost_path=""
-    else
-        want_boost="yes"
-        ac_boost_path="$withval"
-    fi
+     AS_CASE([$withval],
+       [no],[want_boost="no";ac_boost_path=""],
+       [yes],[want_boost="yes";ac_boost_path=""],
+       [want_boost="yes";ac_boost_path="$withval"])
     ],
     [want_boost="yes"])
 
 
 AC_ARG_WITH([boost-libdir],
-        AS_HELP_STRING([--with-boost-libdir=LIB_DIR],
-        [Force given directory for boost libraries. Note that this will override library path detection, so use this parameter only if default library detection fails and you know exactly where your boost libraries are located.]),
-        [
-        if test -d "$withval" ; then
-                ac_boost_lib_path="$withval"
-        else
-                AC_MSG_ERROR(--with-boost-libdir expected directory name)
-        fi
-        ],
-        [ac_boost_lib_path=""]
+  [AS_HELP_STRING([--with-boost-libdir=LIB_DIR],
+    [Force given directory for boost libraries.
+     Note that this will override library path detection,
+     so use this parameter only if default library detection fails
+     and you know exactly where your boost libraries are located.])],
+  [
+   AS_IF([test -d "$withval"],
+         [ac_boost_lib_path="$withval"],
+	 [AC_MSG_ERROR([--with-boost-libdir expected directory name])])
+  ],
+  [ac_boost_lib_path=""]
 )
 
 if test "x$want_boost" = "xyes" ; then
-    boost_lib_version_req=ifelse([$1], ,1.20.0,$1)
+    AS_IF([test "x$1" = "x"],[boost_lib_version_req="1.20.0"],[boost_lib_version_req="$1"])
     boost_lib_version_req_shorten=`expr $boost_lib_version_req : '\([[0-9]]*\.[[0-9]]*\)'`
     boost_lib_version_req_major=`expr $boost_lib_version_req : '\([[0-9]]*\)'`
     boost_lib_version_req_minor=`expr $boost_lib_version_req : '[[0-9]]*\.\([[0-9]]*\)'`
     boost_lib_version_req_sub_minor=`expr $boost_lib_version_req : '[[0-9]]*\.[[0-9]]*\.\([[0-9]]*\)'`
-    if test -z "$boost_lib_version_req_sub_minor" ; then
-        boost_lib_version_req_sub_minor="0"
-    fi
+    AS_IF([test "X$boost_lib_version_req_sub_minor" = "X"],
+          [boost_lib_version_req_sub_minor="0"])
     WANT_BOOST_VERSION=`expr $boost_lib_version_req_major \* 100000 \+  $boost_lib_version_req_minor \* 100 \+ $boost_lib_version_req_sub_minor`
-    AC_MSG_CHECKING(for boostlib >= $boost_lib_version_req)
+    AC_MSG_CHECKING([for boostlib >= $boost_lib_version_req ($WANT_BOOST_VERSION)])
     succeeded=no
 
     dnl On 64-bit systems check for system libraries in both lib64 and lib.
@@ -103,13 +98,10 @@ if test "x$want_boost" = "xyes" ; then
     dnl them priority over the other paths since, if libs are found there, they
     dnl are almost assuredly the ones desired.
     AC_REQUIRE([AC_CANONICAL_HOST])
-    multiarch_libsubdir="lib/${host_cpu}-${host_os}"
-
-    case ${host_cpu} in
-      i?86)
-        multiarch_libsubdir="lib/i386-${host_os}"
-        ;;
-    esac
+    AS_CASE([${host_cpu}],
+      [i?86],[multiarch_libsubdir="lib/i386-${host_os}"],
+      [multiarch_libsubdir="lib/${host_cpu}-${host_os}"]
+    )
 
     dnl first we check the system location for boost libraries
     dnl this location ist chosen if boost libraries are installed with the --layout=system option
