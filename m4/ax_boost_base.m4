@@ -60,10 +60,10 @@ AC_ARG_WITH([boost-libdir],
      and you know exactly where your boost libraries are located.])],
   [
    AS_IF([test -d "$withval"],
-         [ac_boost_lib_path="$withval"],
+         [_AX_BOOST_BASE_boost_lib_path="$withval"],
 	 [AC_MSG_ERROR([--with-boost-libdir expected directory name])])
   ],
-  [ac_boost_lib_path=""])
+  [_AX_BOOST_BASE_boost_lib_path=""])
 
   AS_IF([test "x$want_boost" = "xyes"],
         [_AX_BOOST_BASE_RUNDETECT],
@@ -138,8 +138,8 @@ AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
 
     dnl overwrite ld flags if we have required special directory with
     dnl --with-boost-libdir parameter
-    if test -n "$ac_boost_lib_path" ; then
-       BOOST_LDFLAGS="-L$ac_boost_lib_path"
+    if test -n "$_AX_BOOST_BASE_boost_lib_path" ; then
+       BOOST_LDFLAGS="-L$_AX_BOOST_BASE_boost_lib_path"
     fi
 
     CPPFLAGS_SAVED="$CPPFLAGS"
@@ -176,7 +176,7 @@ AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
         CPPFLAGS="$CPPFLAGS_SAVED"
         LDFLAGS="$LDFLAGS_SAVED"
         BOOST_CPPFLAGS=
-        if test -z "$ac_boost_lib_path" ; then
+        if test -z "$_AX_BOOST_BASE_boost_lib_path" ; then
             BOOST_LDFLAGS=
         fi
         _version=0
@@ -198,7 +198,7 @@ AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
                     fi
                 fi
                 dnl if we found something and BOOST_LDFLAGS was unset before
-                dnl (because "$ac_boost_lib_path" = ""), set it here.
+                dnl (because "$_AX_BOOST_BASE_boost_lib_path" = ""), set it here.
                 if test -n "$BOOST_CPPFLAGS" && test -z "$BOOST_LDFLAGS"; then
                     for libsubdir in $libsubdirs ; do
                         if ls "$_AX_BOOST_BASE_boost_path/$libsubdir/libboost_"* >/dev/null 2>&1 ; then break; fi
@@ -223,7 +223,7 @@ AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
 
                 VERSION_UNDERSCORE=`echo $_version | sed 's/\./_/'`
                 BOOST_CPPFLAGS="-I$best_path/include/boost-$VERSION_UNDERSCORE"
-                if test -z "$ac_boost_lib_path" ; then
+                if test -z "$_AX_BOOST_BASE_boost_lib_path" ; then
                     for libsubdir in $libsubdirs ; do
                         if ls "$best_path/$libsubdir/libboost_"* >/dev/null 2>&1 ; then break; fi
                     done
@@ -240,7 +240,7 @@ AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
                     stage_version=`echo $version_dir | sed 's/boost_//' | sed 's/_/./g'`
                         stage_version_shorten=`expr $stage_version : '\([[0-9]]*\.[[0-9]]*\)'`
                     V_CHECK=`expr $stage_version_shorten \>\= $_version`
-                    if test "x$V_CHECK" = "x1" && test -z "$ac_boost_lib_path" ; then
+                    if test "x$V_CHECK" = "x1" && test -z "$_AX_BOOST_BASE_boost_lib_path" ; then
                         AC_MSG_NOTICE(We will use a staged boost library from $BOOST_ROOT)
                         BOOST_CPPFLAGS="-I$BOOST_ROOT"
                         BOOST_LDFLAGS="-L$BOOST_ROOT/stage/$libsubdir"
