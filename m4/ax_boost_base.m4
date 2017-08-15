@@ -69,7 +69,7 @@ AC_ARG_WITH([boost-libdir],
   [
    AS_IF([test -d "$withval"],
          [_AX_BOOST_BASE_boost_lib_path="$withval"],
-	 [AC_MSG_ERROR([--with-boost-libdir expected directory name])])
+    [AC_MSG_ERROR([--with-boost-libdir expected directory name])])
   ],
   [_AX_BOOST_BASE_boost_lib_path=""])
 
@@ -102,7 +102,6 @@ AC_DEFUN([_AX_BOOST_BASE_TONUMERICVERSION],[
 dnl Run the detection of boost should be run only if $want_boost
 AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
     _AX_BOOST_BASE_TONUMERICVERSION(WANT_BOOST_VERSION,[$1])
-    AC_MSG_CHECKING([for boostlib >= $1 ($WANT_BOOST_VERSION)])
     succeeded=no
 
 
@@ -129,15 +128,22 @@ AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
     dnl first we check the system location for boost libraries
     dnl this location ist chosen if boost libraries are installed with the --layout=system option
     dnl or if you install boost with RPM
-    if test -n "$_AX_BOOST_BASE_boost_path" ; then
-        BOOST_CPPFLAGS="-I$_AX_BOOST_BASE_boost_path/include"
-        for _AX_BOOST_BASE_boost_path_tmp in $multiarch_libsubdir $libsubdirs; do
-                if test -d "$_AX_BOOST_BASE_boost_path"/"$_AX_BOOST_BASE_boost_path_tmp" ; then
-                        BOOST_LDFLAGS="-L$_AX_BOOST_BASE_boost_path/$_AX_BOOST_BASE_boost_path_tmp"
-                        break
-                fi
-        done
-    else
+    AS_IF([test "x$_AX_BOOST_BASE_boost_path" != "x"],[
+        AC_MSG_CHECKING([for boostlib >= $1 ($WANT_BOOST_VERSION) includes in "$_AX_BOOST_BASE_boost_path/include"])
+         AS_IF([test -d "$_AX_BOOST_BASE_boost_path/include" && test -r "$_AX_BOOST_BASE_boost_path/include"],[
+           AC_MSG_RESULT([yes])
+           BOOST_CPPFLAGS="-I$_AX_BOOST_BASE_boost_path/include"
+           for _AX_BOOST_BASE_boost_path_tmp in $multiarch_libsubdir $libsubdirs; do
+                AC_MSG_CHECKING([for boostlib >= $1 ($WANT_BOOST_VERSION) lib path in "$_AX_BOOST_BASE_boost_path/$_AX_BOOST_BASE_boost_path_tmp"])
+                AS_IF([test -d "$_AX_BOOST_BASE_boost_path/$_AX_BOOST_BASE_boost_path_tmp" && test -r "$_AX_BOOST_BASE_boost_path/$_AX_BOOST_BASE_boost_path_tmp" ],[
+                        AC_MSG_RESULT([yes])
+                        BOOST_LDFLAGS="-L$_AX_BOOST_BASE_boost_path/$_AX_BOOST_BASE_boost_path_tmp";
+                        break;
+                ],
+      [AC_MSG_RESULT([no])])
+           done],[
+      AC_MSG_RESULT([no])])
+    ],[
         if test X"$cross_compiling" = Xyes; then
             search_libsubdirs=$multiarch_libsubdir
         else
@@ -153,13 +159,14 @@ AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
                 break;
             fi
         done
-    fi
+    ])
 
     dnl overwrite ld flags if we have required special directory with
     dnl --with-boost-libdir parameter
     AS_IF([test "x$_AX_BOOST_BASE_boost_lib_path" != "x"],
           [BOOST_LDFLAGS="-L$_AX_BOOST_BASE_boost_lib_path"])
 
+    AC_MSG_CHECKING([for boostlib >= $1 ($WANT_BOOST_VERSION)])
     CPPFLAGS_SAVED="$CPPFLAGS"
     CPPFLAGS="$CPPFLAGS $BOOST_CPPFLAGS"
     export CPPFLAGS
