@@ -73,12 +73,12 @@ AC_ARG_WITH([boost-libdir],
   ],
   [_AX_BOOST_BASE_boost_lib_path=""])
 
-  BOOST_LDFLAGS=""
-  BOOST_CPPFLAGS=""
-  AS_IF([test "x$want_boost" = "xyes"],
-        [_AX_BOOST_BASE_RUNDETECT([$1],[$2],[$3])])
-  AC_SUBST(BOOST_CPPFLAGS)
-  AC_SUBST(BOOST_LDFLAGS)
+BOOST_LDFLAGS=""
+BOOST_CPPFLAGS=""
+AS_IF([test "x$want_boost" = "xyes"],
+      [_AX_BOOST_BASE_RUNDETECT([$1],[$2],[$3])])
+AC_SUBST(BOOST_CPPFLAGS)
+AC_SUBST(BOOST_LDFLAGS)
 ])
 
 
@@ -157,9 +157,8 @@ AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
 
     dnl overwrite ld flags if we have required special directory with
     dnl --with-boost-libdir parameter
-    if test -n "$_AX_BOOST_BASE_boost_lib_path" ; then
-       BOOST_LDFLAGS="-L$_AX_BOOST_BASE_boost_lib_path"
-    fi
+    AS_IF([test "x$_AX_BOOST_BASE_boost_lib_path" != "x"],
+          [BOOST_LDFLAGS="-L$_AX_BOOST_BASE_boost_lib_path"])
 
     CPPFLAGS_SAVED="$CPPFLAGS"
     CPPFLAGS="$CPPFLAGS $BOOST_CPPFLAGS"
