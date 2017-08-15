@@ -33,7 +33,15 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 33
+#serial 34
+
+# example boost program (need to pass version)
+m4_define([_AX_BOOST_BASE_PROGRAM],
+          [AC_LANG_PROGRAM([[
+#include <boost/version.hpp>
+]],[[
+(void) ((void)sizeof(char[1 - 2*!!((BOOST_VERSION) < ($1))]));
+]])])
 
 AC_DEFUN([AX_BOOST_BASE],
 [
@@ -68,7 +76,7 @@ AC_ARG_WITH([boost-libdir],
   BOOST_LDFLAGS=""
   BOOST_CPPFLAGS=""
   AS_IF([test "x$want_boost" = "xyes"],
-        [_AX_BOOST_BASE_RUNDETECT])
+        [_AX_BOOST_BASE_RUNDETECT([$1],[$2],[$3])])
   AC_SUBST(BOOST_CPPFLAGS)
   AC_SUBST(BOOST_LDFLAGS)
 ])
@@ -150,17 +158,10 @@ AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
     LDFLAGS="$LDFLAGS $BOOST_LDFLAGS"
     export LDFLAGS
 
+    echo $WANT_BOOST_VERSION;
     AC_REQUIRE([AC_PROG_CXX])
     AC_LANG_PUSH(C++)
-        AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
-    @%:@include <boost/version.hpp>
-    ]], [[
-    #if BOOST_VERSION >= $WANT_BOOST_VERSION
-    // Everything is okay
-    #else
-    #  error Boost version is too old
-    #endif
-    ]])],[
+        AC_COMPILE_IFELSE([_AX_BOOST_BASE_PROGRAM($WANT_BOOST_VERSION)],[
         AC_MSG_RESULT(yes)
     succeeded=yes
     found_system=yes
@@ -255,15 +256,7 @@ AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
         export LDFLAGS
 
         AC_LANG_PUSH(C++)
-            AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
-        @%:@include <boost/version.hpp>
-        ]], [[
-        #if BOOST_VERSION >= $WANT_BOOST_VERSION
-        // Everything is okay
-        #else
-        #  error Boost version is too old
-        #endif
-        ]])],[
+            AC_COMPILE_IFELSE([_AX_BOOST_BASE_PROGRAM($WANT_BOOST_VERSION)],[
             AC_MSG_RESULT(yes)
         succeeded=yes
         found_system=yes
