@@ -81,17 +81,28 @@ AC_ARG_WITH([boost-libdir],
   AC_SUBST(BOOST_LDFLAGS)
 ])
 
+
+# convert a version string in $2 to numeric and affect to polymorphic var $1
+AC_DEFUN([_AX_BOOST_BASE_TONUMERICVERSION],[
+  AS_IF([test "x$2" = "x"],[_AX_BOOST_BASE_TONUMERICVERSION_req="1.20.0"],[_AX_BOOST_BASE_TONUMERICVERSION_req="$2"])
+  _AX_BOOST_BASE_TONUMERICVERSION_req_shorten=`expr $_AX_BOOST_BASE_TONUMERICVERSION_req : '\([[0-9]]*\.[[0-9]]*\)'`
+  _AX_BOOST_BASE_TONUMERICVERSION_req_major=`expr $_AX_BOOST_BASE_TONUMERICVERSION_req : '\([[0-9]]*\)'`
+  AS_IF([test "x$_AX_BOOST_BASE_TONUMERICVERSION_req_major" = "x"],
+        [AC_MSG_ERROR([You should at least specify libboost major version])])
+  _AX_BOOST_BASE_TONUMERICVERSION_req_minor=`expr $_AX_BOOST_BASE_TONUMERICVERSION_req : '[[0-9]]*\.\([[0-9]]*\)'`
+  AS_IF([test "x$_AX_BOOST_BASE_TONUMERICVERSION_req_minor" = "x"],
+        [_AX_BOOST_BASE_TONUMERICVERSION_req_minor="0"])
+  _AX_BOOST_BASE_TONUMERICVERSION_req_sub_minor=`expr $_AX_BOOST_BASE_TONUMERICVERSION_req : '[[0-9]]*\.[[0-9]]*\.\([[0-9]]*\)'`
+  AS_IF([test "X$_AX_BOOST_BASE_TONUMERICVERSION_req_sub_minor" = "X"],
+        [_AX_BOOST_BASE_TONUMERICVERSION_req_sub_minor="0"])
+  _AX_BOOST_BASE_TONUMERICVERSION_RET=`expr $_AX_BOOST_BASE_TONUMERICVERSION_req_major \* 100000 \+  $_AX_BOOST_BASE_TONUMERICVERSION_req_minor \* 100 \+ $_AX_BOOST_BASE_TONUMERICVERSION_req_sub_minor`
+  AS_VAR_SET($1,$_AX_BOOST_BASE_TONUMERICVERSION_RET)
+])
+
 dnl Run the detection of boost should be run only if $want_boost
 AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
-    AS_IF([test "x$1" = "x"],[boost_lib_version_req="1.20.0"],[boost_lib_version_req="$1"])
-    boost_lib_version_req_shorten=`expr $boost_lib_version_req : '\([[0-9]]*\.[[0-9]]*\)'`
-    boost_lib_version_req_major=`expr $boost_lib_version_req : '\([[0-9]]*\)'`
-    boost_lib_version_req_minor=`expr $boost_lib_version_req : '[[0-9]]*\.\([[0-9]]*\)'`
-    boost_lib_version_req_sub_minor=`expr $boost_lib_version_req : '[[0-9]]*\.[[0-9]]*\.\([[0-9]]*\)'`
-    AS_IF([test "X$boost_lib_version_req_sub_minor" = "X"],
-          [boost_lib_version_req_sub_minor="0"])
-    WANT_BOOST_VERSION=`expr $boost_lib_version_req_major \* 100000 \+  $boost_lib_version_req_minor \* 100 \+ $boost_lib_version_req_sub_minor`
-    AC_MSG_CHECKING([for boostlib >= $boost_lib_version_req ($WANT_BOOST_VERSION)])
+    _AX_BOOST_BASE_TONUMERICVERSION(WANT_BOOST_VERSION,[$1])
+    AC_MSG_CHECKING([for boostlib >= $1 ($WANT_BOOST_VERSION)])
     succeeded=no
 
 
@@ -158,7 +169,6 @@ AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
     LDFLAGS="$LDFLAGS $BOOST_LDFLAGS"
     export LDFLAGS
 
-    echo $WANT_BOOST_VERSION;
     AC_REQUIRE([AC_PROG_CXX])
     AC_LANG_PUSH(C++)
         AC_COMPILE_IFELSE([_AX_BOOST_BASE_PROGRAM($WANT_BOOST_VERSION)],[
@@ -267,7 +277,7 @@ AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
 
     if test "x$succeeded" != "xyes" ; then
         if test "x$_version" = "x0" ; then
-            AC_MSG_NOTICE([[We could not detect the boost libraries (version $boost_lib_version_req_shorten or higher). If you have a staged boost library (still not installed) please specify \$BOOST_ROOT in your environment and do not give a PATH to --with-boost option.  If you are sure you have boost installed, then check your version number looking in <boost/version.hpp>. See http://randspringer.de/boost for more documentation.]])
+            AC_MSG_NOTICE([[We could not detect the boost libraries (version $1 or higher). If you have a staged boost library (still not installed) please specify \$BOOST_ROOT in your environment and do not give a PATH to --with-boost option.  If you are sure you have boost installed, then check your version number looking in <boost/version.hpp>. See http://randspringer.de/boost for more documentation.]])
         else
             AC_MSG_NOTICE([Your boost libraries seems to old (version $_version).])
         fi
