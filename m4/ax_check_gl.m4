@@ -85,7 +85,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 20
+#serial 22
 
 # example gl program
 m4_define([_AX_CHECK_GL_PROGRAM],
