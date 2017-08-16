@@ -33,7 +33,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 34
+#serial 42
 
 # example boost program (need to pass version)
 m4_define([_AX_BOOST_BASE_PROGRAM],
