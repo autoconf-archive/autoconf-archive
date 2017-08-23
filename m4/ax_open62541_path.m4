@@ -16,6 +16,7 @@
 #   default. In that case, the location of several directories need to be
 #   added to the pre-processor and linker search paths:
 #
+#     * -I<src>/deps
 #     * -I<src>/include
 #     * -I<src>/plugins
 #     * -I<build>/src_generated
@@ -51,14 +52,14 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2016 Olaf Mandel <olaf@mandel.name>
+#   Copyright (c) 2016,2017 Olaf Mandel <olaf@mandel.name>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 # AX_OPEN62541_PATH()
 # -------------------
@@ -87,9 +88,9 @@ AS_IF([test x${with_open62541_build:+set} != xset],
 dnl
 AS_IF([test x${with_open62541:+set} == xset -a "x$with_open62541" != xno]dnl
 [ -a "x$with_open62541" != xyes],
-      [CPPFLAGS="$CPPFLAGS${CPPFLAGS:+ }-I$with_open62541/include]dnl
-[ -I$with_open62541/plugins -I$with_open62541_build/src_generated]dnl
-[ -I$with_open62541_build"
+      [CPPFLAGS="$CPPFLAGS${CPPFLAGS:+ }-I$with_open62541/deps]dnl
+[ -I$with_open62541/include -I$with_open62541/plugins]dnl
+[ -I$with_open62541_build/src_generated -I$with_open62541_build"
 LDFLAGS="$LDFLAGS${LDFLAGS:+ }-L$with_open62541_build"
 with_open62541_abs=`(
     cd "$with_open62541"
