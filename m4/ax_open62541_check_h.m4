@@ -30,10 +30,9 @@
 #   The individual headers to check for if no amalgamation is found can be
 #   provided as a space-separated list in the first argument. If that is
 #   empty, it defaults to all files known to be contained in the
-#   amalgamation:
+#   amalgamation as of v0.2.0 of the library:
 #
-#     * logger_stdout.h
-#     * networklayer_tcp.h
+#     * ms_stdint.h
 #     * ua_client.h
 #     * ua_client_highlevel.h
 #     * ua_config.h
@@ -42,11 +41,14 @@
 #     * ua_constants.h
 #     * ua_job.h
 #     * ua_log.h
+#     * ua_log_stdout.h
+#     * ua_network_tcp.h
 #     * ua_nodeids.h
 #     * ua_server.h
 #     * ua_server_external_ns.h
 #     * ua_types.h
 #     * ua_types_generated.h
+#     * ua_types_generated_handling.h
 #
 #   If the with_open62541 shell variable is set to "no" (e.g. from running
 #   the AX_OPEN62541_PATH macro and the user giving configure the option
@@ -57,22 +59,21 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2016 Olaf Mandel <olaf@mandel.name>
+#   Copyright (c) 2016,2017 Olaf Mandel <olaf@mandel.name>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 # AX_OPEN62541_CHECK_H([HEADERS], [ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
 # -------------------------------------------------------------------------
 AC_DEFUN([AX_OPEN62541_CHECK_H],
 [m4_pushdef([headers], m4_normalize([$1]))dnl
 m4_ifblank(m4_defn([headers]), [m4_define([headers],
- [logger_stdout.h]dnl
- [networklayer_tcp.h]dnl
+ [ms_stdint.h]dnl
  [ua_client.h]dnl
  [ua_client_highlevel.h]dnl
  [ua_config.h]dnl
@@ -81,11 +82,14 @@ m4_ifblank(m4_defn([headers]), [m4_define([headers],
  [ua_constants.h]dnl
  [ua_job.h]dnl
  [ua_log.h]dnl
+ [ua_log_stdout.h]dnl
+ [ua_network_tcp.h]dnl
  [ua_nodeids.h]dnl
  [ua_server.h]dnl
  [ua_server_external_ns.h]dnl
  [ua_types.h]dnl
- [ua_types_generated.h])])dnl
+ [ua_types_generated.h]dnl
+ [ua_types_generated_handling.h])])dnl
 dnl ua_server_external_ns.h depends on ua_server.h but fails to include it:
 dnl so specify the includes:
 pushdef([includes],
