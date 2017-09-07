@@ -115,8 +115,14 @@ AC_DEFUN([AX_DOCKER_BUILD],[
 
     dk_set_user_env
     DK_WRITE_DSHELLFILE
+	dnl execute bootstrap in container
+	AS_IF([test -n "$1"],
+	 [AS_ECHO("Docker config - performing autogen: cd ${srcdir} && ./$1")]
+	 [$(cd ${srcdir} && ./$1)])
+	dnl configure in container
     DK_CONFIGURE
     dnl and exit
+	exit 0;
    ])
    ],[
    AS_VAR_SET_IF([DOCKER_CONTAINER],[
@@ -228,8 +234,7 @@ AX_DEFUN_LOCAL([m4_ax_docker_build],[DK_CONFIGURE],[
 	   docker exec -t
            --user ${USER}
            ${DOCKER_CONTAINER} bash -l
-	   -c \"cd $(pwd)\; DK_ADD_ESCAPE([ENABLE_KCONFIG=\"no\"]) ${0} DK_ADD_ESCAPE(${dk_configure_args}) DK_ADD_ESCAPE([HAVE_DOCKER=\"no\"]) \";
-	   exit 0;
+	   -c \"cd ${srcdir}\; autoreconf -f -W none\; cd $(pwd)\; DK_ADD_ESCAPE([ENABLE_KCONFIG=\"no\"]) ${0} DK_ADD_ESCAPE(${dk_configure_args}) DK_ADD_ESCAPE([HAVE_DOCKER=\"no\"]) \";
          ]))
 
          AS_ECHO(" ------------------------- ")
@@ -493,13 +498,17 @@ user_group=${user_group}
 user_groups=${user_groups}
 user_home=${user_home}
 
+export SHELL=/bin/bash
+export M_PATH=\$PATH
+M_ENV="\$(export -p | awk '{printf("%s; ",\@S|@0)}')"
+
 >&2 echo "Docker: Entering container \${DOCKER_CONTAINER} ";
 quoted_args="\$(printf " %q" "\$\@")"
 if [ -n "\${MAKESHELL}" ]; then
  \${MAKESHELL} \${quoted_args};
 else
  [ -t AS_ORIGINAL_STDIN_FD -o -t 0 ] && INT=-ti || INT=
- docker exec \${INT} --user \${USER} \${DOCKER_CONTAINER} /bin/bash -l -c "cd \$(pwd); export MAKESHELL=/bin/bash; export MAKEFLAGS=\${MAKEFLAGS}; export MFLAGS=\${MFLAGS}; /bin/bash \${quoted_args}";
+ docker exec \${INT} --user \${USER} \${DOCKER_CONTAINER} /bin/bash -l -c "\$M_ENV cd \$(pwd); export MAKESHELL=/bin/bash; /bin/bash \${quoted_args}";
 fi
 ]))
 
