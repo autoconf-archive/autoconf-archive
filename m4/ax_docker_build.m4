@@ -508,7 +508,7 @@ if [ -n "\${MAKESHELL}" ]; then
  \${MAKESHELL} \${quoted_args};
 else
  [ -t AS_ORIGINAL_STDIN_FD -o -t 0 ] && INT=-ti || INT=
- docker exec \${INT} --user \${USER} \${DOCKER_CONTAINER} /bin/bash -l -c "\$M_ENV cd \$(pwd); export MAKESHELL=/bin/bash; /bin/bash \${quoted_args}";
+ docker exec \${INT} --user \${USER} \${DOCKER_CONTAINER} /bin/bash -l -c "save_path=\\\\\$PATH; \$M_ENV export PATH=\\\\\$save_path; cd \$(pwd); export MAKESHELL=/bin/bash; /bin/bash \${quoted_args}";
 fi
 ]))
 
