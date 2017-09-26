@@ -36,21 +36,19 @@
 #     AX_VALGRIND_DFLT([sgcheck], [off])
 #     AX_VALGRIND_CHECK
 #
-#   Makefile.am:
+#   in each Makefile.am with tests:
 #
 #     @VALGRIND_CHECK_RULES@
 #     VALGRIND_SUPPRESSIONS_FILES = my-project.supp
 #     EXTRA_DIST = my-project.supp
 #
-#   This results in a "check-valgrind" rule being added to any Makefile.am
-#   which includes "@VALGRIND_CHECK_RULES@" (assuming the module has been
-#   configured with --enable-valgrind). Running `make check-valgrind` in
-#   that directory will run the module's test suite (`make check`) once for
-#   each of the available Valgrind tools (out of memcheck, helgrind and drd)
-#   while the sgcheck will be skipped unless enabled again on the
-#   commandline with --enable-valgrind-sgcheck. The results for each check
-#   will be output to test-suite-$toolname.log. The target will succeed if
-#   there are zero errors and fail otherwise.
+#   This results in a "check-valgrind" rule being added. Running `make
+#   check-valgrind` in that directory will recursively run the module's test
+#   suite (`make check`) once for each of the available Valgrind tools (out of
+#   memcheck, helgrind and drd) while the sgcheck will be skipped unless
+#   enabled again on the commandline with --enable-valgrind-sgcheck. The
+#   results for each check will be output to test-suite-$toolname.log. The
+#   target will succeed if there are zero errors and fail otherwise.
 #
 #   Alternatively, a "check-valgrind-$TOOL" rule will be added, for $TOOL in
 #   memcheck, helgrind, drd and sgcheck. These are useful because often only
@@ -67,7 +65,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 15
+#serial 17
 
 dnl Configured tools
 m4_define([valgrind_tool_list], [[memcheck], [helgrind], [drd], [sgcheck]])
@@ -78,6 +76,10 @@ m4_foreach([vgtool], [valgrind_tool_list],
 AC_DEFUN([AX_VALGRIND_DFLT],[
 	m4_define([en_dflt_valgrind_$1], [$2])
 ])dnl
+
+AM_EXTRA_RECURSIVE_TARGETS([check-valgrind])
+m4_foreach([vgtool], [valgrind_tool_list],
+	[AM_EXTRA_RECURSIVE_TARGETS([check-valgrind-]vgtool)])
 
 AC_DEFUN([AX_VALGRIND_CHECK],[
 	dnl Check for --enable-valgrind
@@ -175,7 +177,7 @@ valgrind_quiet_ = $(valgrind_quiet_$(AM_DEFAULT_VERBOSITY))
 valgrind_quiet_0 = --quiet
 valgrind_v_use   = $(valgrind_v_use_$(V))
 valgrind_v_use_  = $(valgrind_v_use_$(AM_DEFAULT_VERBOSITY))
-valgrind_v_use_0 = @echo "  USE   " $(patsubst check-valgrind-%,%,$''@):;
+valgrind_v_use_0 = @echo "  USE   " $(patsubst check-valgrind-%-am,%,$''@):;
 
 # Support running with and without libtool.
 ifneq ($(LIBTOOL),)
@@ -185,7 +187,7 @@ valgrind_lt =
 endif
 
 # Use recursive makes in order to ignore errors during check
-check-valgrind:
+check-valgrind-am:
 ifeq ($(VALGRIND_ENABLED),yes)
 	$(A''M_V_at)$(MAKE) $(AM_MAKEFLAGS) -k \
 		$(foreach tool, $(valgrind_enabled_tools), check-valgrind-$(tool))
@@ -204,14 +206,16 @@ VALGRIND_LOG_COMPILER = \
 	$(valgrind_lt) \
 	$(VALGRIND) $(VALGRIND_SUPPRESSIONS) --error-exitcode=1 $(VALGRIND_FLAGS)
 
-define valgrind_tool_rule =
-check-valgrind-$(1):
+define valgrind_tool_rule
+check-valgrind-$(1)-am:
 ifeq ($$(VALGRIND_ENABLED)-$$(ENABLE_VALGRIND_$(1)),yes-yes)
+ifneq ($$(TESTS),)
 	$$(valgrind_v_use)$$(MAKE) check-TESTS \
 		TESTS_ENVIRONMENT="$$(VALGRIND_TESTS_ENVIRONMENT)" \
 		LOG_COMPILER="$$(VALGRIND_LOG_COMPILER)" \
 		LOG_FLAGS="$$(valgrind_$(1)_flags)" \
 		TEST_SUITE_LOG=test-suite-$(1).log
+endif
 else ifeq ($$(VALGRIND_ENABLED),yes)
 	@echo "Need to reconfigure with --enable-valgrind-$(1)"
 else
