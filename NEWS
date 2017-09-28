@@ -8,6 +8,8 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
+* Noteworthy changes in release ?.? (????-??-??) [?]
+
 * Noteworthy changes in release 2017.09.28 (2017-09-28) [stable]
 
   The macros AX_PROG_HELP2MAN, AX_RECURSIVE_EVAL, AX_SUBDIRS_CONFIGURE,
