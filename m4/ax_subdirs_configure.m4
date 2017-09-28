@@ -147,7 +147,7 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_SUBDIRS_CONFIGURE],
 [
@@ -273,7 +273,7 @@ AC_DEFUN([AX_SUBDIRS_CONFIGURE],
     dnl configure script. This is mostly what happens in _AC_OUTPUT_SUBDIRS
     dnl except it does not iterate over an intermediary list.
     AC_CONFIG_COMMANDS_PRE(
-      dnl This very line can not be quoted! m4_foreach has some work here.
+      dnl This very line cannot be quoted! m4_foreach has some work here.
       ax_dir="subdir_path"
     [
       # Convert the path to the subdirectory into a shell variable name.
