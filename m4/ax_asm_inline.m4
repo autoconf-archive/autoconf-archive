@@ -16,13 +16,14 @@
 #
 #   Copyright (c) 2008 Alan Woodland <ajw05@aber.ac.uk>
 #   Copyright (c) 2009 Rhys Ulerich <rhys.ulerich@gmail.com>
+#   Copyright (c) 2017 Reini Urban <rurban@cpan.org>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_ASM_INLINE], [
   AC_LANG_PUSH([C])
@@ -33,14 +34,14 @@ AC_DEFUN([AX_ASM_INLINE], [
        case $ax_asm_inline_keyword in
           none) ac_cv_asm_inline=none ; break ;;
       *)
-             AC_TRY_COMPILE(
+             AC_COMPILE_IFELSE([AC_LANG_PROGRAM(
                 [#include <stdlib.h>
                  static void
                  foo(void) {
                  ] $ax_asm_inline_keyword [("");
                  exit(1);
                  }],
-                 [],
+                 [])],
                  [ac_cv_asm_inline=$ax_asm_inline_keyword ; break],
                  ac_cv_asm_inline=none
              )
