@@ -9,9 +9,9 @@
 # DESCRIPTION
 #
 #   Provides a test for the compiler support of thread local storage (TLS)
-#   extensions. Defines TLS if it is found. Currently knows about GCC/ICC
-#   and MSVC. I think SunPro uses the same as GCC, and Borland apparently
-#   supports either.
+#   extensions. Defines TLS if it is found. Currently knows about C++11,
+#   GCC/ICC, and MSVC. I think SunPro uses the same as GCC, and Borland
+#   apparently supports either.
 #
 # LICENSE
 #
@@ -44,12 +44,12 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 13
+#serial 14
 
 AC_DEFUN([AX_TLS], [
   AC_MSG_CHECKING([for thread local storage (TLS) class])
   AC_CACHE_VAL([ac_cv_tls],
-   [for ax_tls_keyword in _Thread_local __thread '__declspec(thread)' none; do
+   [for ax_tls_keyword in thread_local _Thread_local __thread '__declspec(thread)' none; do
        AS_CASE([$ax_tls_keyword],
           [none], [ac_cv_tls=none ; break],
           [AC_TRY_COMPILE(
