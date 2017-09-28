@@ -3,7 +3,7 @@
 # settings required by the maintainer-makefile module
 
 gnu_rel_host		:= ftp.gnu.org
-old_NEWS_hash		:= b2a06388ab7e26476d2f6aaab53cc3f3
+old_NEWS_hash		:= 1fed5f255684085545ac133338bf978a
 gpg_key_ID		:= 99089D72
 today			:= $(date "+%Y-%m-%d")
 TAR_OPTIONS		+= --mtime=$(today)
