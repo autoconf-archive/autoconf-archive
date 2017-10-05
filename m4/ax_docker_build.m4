@@ -168,8 +168,8 @@ pop_IFS
 
 AX_DEFUN_LOCAL([m4_ax_docker_build],[dk_set_user_env], [
 dnl AS_VAR_SET([user_entry], [$(awk -F: "{if (\$[]1 == \"${USER}\") {print \$[]0} }" /etc/passwd)])
-dnl AS_VAR_SET([user_id],    [$(echo ${user_entry} | awk -F: '{print $[]3}')])
-dnl AS_VAR_SET([user_group], [$(echo ${user_entry} | awk -F: '{print $[]4}')])
+   AS_VAR_SET([user_id],    [$(id -u)])
+   AS_VAR_SET([user_group], [$(id -g)])
 dnl AS_VAR_SET([user_home],  [$(echo ${user_entry} | awk -F: '{print $[]6}')])
 dnl AS_VAR_SET([group_entry],[$(awk -F: "{if (\$[]3 == \"${user_group}\") {print \$[]0} }" /etc/group)])
 dnl AS_VAR_SET([user_groups],[$(id -G ${USER} | sed 's/ /,/g')])
@@ -182,8 +182,8 @@ AS_VAR_SET([abs_srcdir],[$(cd ${srcdir}; pwd)])
 AX_DEFUN_LOCAL([m4_ax_docker_build],[DK_CMD_CNTRUN], [
   dnl set user variables
 dnl   AS_VAR_SET([user_entry], [$(awk -F: "{if (\$[]1 == \"${USER}\") {print \$[]0} }" /etc/passwd)])
-dnl   AS_VAR_SET([user_id],    [$(echo ${user_entry} | awk -F: '{print $[]3}')])
-dnl   AS_VAR_SET([user_group], [$(echo ${user_entry} | awk -F: '{print $[]4}')])
+  AS_VAR_SET([user_id],    [$(id -u)])
+  AS_VAR_SET([user_group], [$(id -g)])
 dnl   AS_VAR_SET([user_home],  [$(echo ${user_entry} | awk -F: '{print $[]6}')])
 dnl   AS_VAR_SET([group_entry],[$(awk -F: "{if (\$[]3 == \"${user_group}\") {print \$[]0} }" /etc/group)])
 dnl   AS_VAR_SET([user_groups],[$(id -G ${USER} | sed 's/ /,/g')])
@@ -213,7 +213,8 @@ dnl   AS_VAR_SET([user_groups],[$(id -G ${USER} | sed 's/ /,/g')])
                ])
   dnl set user option inside container
   m4_normalize([ docker exec --user root $2 ${SHELL} -c "
-			  useradd -d ${user_home} ${USER};
+			  groupadd -g ${user_group} ${USER};
+			  useradd -d ${user_home} -u ${user_id} -g ${user_group} ${USER};
                          ";
                ])
 ])
@@ -235,7 +236,7 @@ AX_DEFUN_LOCAL([m4_ax_docker_build],[DK_CONFIGURE],[
 	   docker exec -t
            --user ${USER}
            ${DOCKER_CONTAINER} bash -l
-	   -c \"cd ${srcdir}\; autoreconf -f -W none\; cd $(pwd)\; DK_ADD_ESCAPE([ENABLE_KCONFIG=\"no\"]) ${0} DK_ADD_ESCAPE(${dk_configure_args}) DK_ADD_ESCAPE([HAVE_DOCKER=\"no\"]) \";
+	   -c \"cd ${srcdir}\; cd $(pwd)\; DK_ADD_ESCAPE([ENABLE_KCONFIG=\"no\"]) ${0} DK_ADD_ESCAPE(${dk_configure_args}) DK_ADD_ESCAPE([HAVE_DOCKER=\"no\"]) \";
          ]))
 
          AS_ECHO(" ------------------------- ")
@@ -457,7 +458,8 @@ start:
 			     \${DOCKER_IMAGE}; )
 	m4_normalize( docker exec --user root \${DOCKER_CONTAINER}
 				  \${SHELL} -c "
-				    adduser -d \${user_home} \${USER};
+				    groupadd -g \${user_group} \${USER};
+				    useradd -d \${user_home} -u \${user_id} -g \${user_group} \${USER};
 				  ";)
 
 stop:
