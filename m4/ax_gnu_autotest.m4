@@ -249,7 +249,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 # _AX_GNU_AUTOTEST_remove_parent(filename)
 # ----------------------------------------
@@ -290,7 +290,7 @@ m4_bpatsubsts([[$1]],
 
 # _AX_GNU_AUTOTEST_check_filename(filename)
 # -----------------------------------------
-# Checks and warns if filename contains illegal characters
+# Checks and warns if filename contains invalid characters
 m4_define([_AX_GNU_AUTOTEST_check_filename],
 [m4_bmatch([$1],
            [\[\|\]], [m4_fatal([Overquoted file name '$1'])],
