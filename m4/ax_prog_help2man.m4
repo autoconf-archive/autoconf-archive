@@ -145,7 +145,7 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 1
+#serial 2
 
 AC_DEFUN_ONCE([AX_PROG_HELP2MAN],
 [
@@ -170,7 +170,7 @@ AC_DEFUN_ONCE([AX_PROG_HELP2MAN],
   dnl if no executable path was specified, default to $(PACKAGE_NAME)
   [
     ax_help2man_mans_list='$(AX_HELP2MAN_PREFIX_MANS)/$(PACKAGE_NAME).1'
-    ax_help2man_targets_text='$(AX_HELP2MAN_PREFIX_MANS)/pandohedra.1: $(AX_HELP2MAN_PREFIX_BIN)/pandohedra'
+    ax_help2man_targets_text='$(AX_HELP2MAN_PREFIX_MANS)/$(PACKAGE_NAME).1: $(AX_HELP2MAN_PREFIX_BIN)/$(PACKAGE_NAME)'
   ],
   dnl else, (if executable path(s) were specified), create rules for each target
   [
