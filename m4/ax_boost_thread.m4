@@ -141,11 +141,11 @@ AC_DEFUN([AX_BOOST_THREAD],
                         BOOST_LDFLAGS="-pthread $BOOST_LDFLAGS"
                         break;
                         ;;
-                    solaris )
+                    xsolaris )
                         BOOST_THREAD_LIB="$BOOST_THREAD_LIB -lpthread"
                         break;
                         ;;
-                    mingw32 )
+                    xmingw32 )
                         break;
                         ;;
                     * )
