@@ -10,9 +10,8 @@
 #
 #   This macro does a complete Python development environment check.
 #
-#   It recurses through several python versions (from 2.1 to 2.6 in this
-#   version), looking for an executable. When it finds an executable, it
-#   looks to find the header files and library.
+#   It checks for all known versions. When it finds an executable, it looks
+#   to find the header files and library.
 #
 #   It sets PYTHON_BIN to the name of the python executable,
 #   PYTHON_INCLUDE_DIR to the directory holding the header files, and
@@ -51,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 17
+#serial 18
 
 AC_DEFUN([AX_PYTHON],
 [AC_MSG_CHECKING(for python build information)
