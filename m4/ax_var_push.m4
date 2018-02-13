@@ -54,7 +54,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_VAR_PUSHVALUE],[
   increment([$1_counter])
@@ -93,4 +93,22 @@ m4_define([increment],[dnl
     [m4_define([$1],m4_incr($1))],dnl
     [m4_define([$1],[1])]dnl
   )dnl
+])dnl
+
+# -------------------------
+# Auxiliary macro
+# -------------------------
+# decrement(counter_name)
+#
+# Decrement the value of a named counter.
+# Throws an error if counter not defined
+# or value reaches zero.
+# -------------------------
+m4_define([decrement],[dnl
+ m4_ifdef([$1],dnl
+   [m4_if(m4_eval($1 > 0),
+     [1],m4_define([$1],m4_decr($1)),dnl
+     [m4_fatal([Missing call to AX_VAR_PUSHVALUE with var $1])]dnl
+   )],dnl
+   [m4_fatal([Missing call to AX_VAR_PUSHVALUE with var $1])])dnl
 ])dnl

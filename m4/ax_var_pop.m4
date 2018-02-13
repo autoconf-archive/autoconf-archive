@@ -53,7 +53,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 2
+#serial 3
 
 # Main macros
 AC_DEFUN([AX_VAR_PUSHVALUE],[
@@ -79,6 +79,21 @@ AC_DEFUN([AX_VAR_POPVALUE],[
   AS_VAR_POPDEF([variable]) dnl
   AS_VAR_POPDEF([backup]) dnl
 ])dnl AX_POP_VAR
+
+# -------------------------
+# Auxiliary macro
+# -------------------------
+# increment(counter_name)
+#
+# Increment the value of a named counter.
+# Initialize to 1 if not defined
+# -------------------------
+m4_define([increment],[dnl
+  m4_ifdef([$1],dnl
+    [m4_define([$1],m4_incr($1))],dnl
+    [m4_define([$1],[1])]dnl
+  )dnl
+])dnl
 
 # -------------------------
 # Auxiliary macro
