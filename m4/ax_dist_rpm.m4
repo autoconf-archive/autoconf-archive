@@ -49,8 +49,8 @@
 #
 #     %changelog
 #
-#   Make sure ax_upload.am is added to aminclude.am and you have 'include
-#   aminclude.am' in your toplevel Makefile.am
+#   Make sure ax_upload.am is added to aminclude_static.am and you have
+#   'include aminclude_static.am' in Makefile.am
 #
 # LICENSE
 #
@@ -61,7 +61,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 22
+#serial 23
 
 AC_DEFUN([AX_DIST_RPM],
 [
@@ -109,12 +109,13 @@ fi
 AM_CONDITIONAL([ax_dist_rpm_enabled], [test x"$ax_dist_rpm_enabled" = x"true"])
 
 AX_ADD_AM_MACRO_STATIC([
+ ifeq (\$(abs_builddir), \$(abs_top_builddir)) # AX_DIST_RPM rules are to be effective in the top-level makefile only
 if ax_dist_rpm_enabled
 
 AX_DIST_RPM_CLEANFILES = \$(top_builddir)/RPMChangeLog \$(AX_INSTALL_FILES_CLEANFILES)
 
 \$(top_builddir)/RPMChangeLog: \$(top_srcdir)/ChangeLog
-	\$(GAWK) '/^[^0-9]/ { \\
+	LC_ALL=C \$(GAWK) '/^[^0-9]/ { \\
                     if( \$${AX_DOLLAR}1 == \"*\" ) \$${AX_DOLLAR}1 = \"-\"; print; } \\
                 /^\$\$/ { \\
                     print; } \\
@@ -213,10 +214,10 @@ rpmmacros: ~/.rpmmacros
 dist-rpm: rpm
 dist-srpm: srpm
 
-rpm: \$(PACKAGE)-\$(VERSION)-0.i*.$PLATFORM_SUFFIX.rpm
+rpm: \$(PACKAGE)-\$(VERSION)-0.*.\$(PLATFORM_SUFFIX).rpm
 srpm: \$(PACKAGE)-\$(VERSION)-0.src.rpm
 
-\$(top_builddir)/\$(PACKAGE)-\$(VERSION)-0.i*.$PLATFORM_SUFFIX.rpm:	\$(top_builddir)/rpmmacros \$(top_builddir)/\$(PACKAGE)-\$(VERSION).tar.gz
+\$(top_builddir)/\$(PACKAGE)-\$(VERSION)-0.*.\$(PLATFORM_SUFFIX).rpm:	\$(top_builddir)/rpmmacros \$(top_builddir)/\$(PACKAGE)-\$(VERSION).tar.gz
 	@\$(RPM) -tb \$(top_builddir)/\$(PACKAGE)-\$(VERSION).tar.gz
 	@RPMDIR=\`cat \$(top_builddir)/rpmmacros | \$(GAWK) '/%%_rpmdir/ { print \$${AX_DOLLAR}2; }'\`; \\
 	echo \"\$\$RPMDIR\" | \$(EGREP) \"%%{.*}\" > /dev/null 2>&1; \\
@@ -241,7 +242,7 @@ srpm: \$(PACKAGE)-\$(VERSION)-0.src.rpm
 	    for dir in \`ls \"\$\$RPMDIR\"\`; do \\
 		ls \"\$\${RPMDIR}\$\${dir}/\$(PACKAGE)-\$(VERSION)-0.\$\${dir}.rpm\" > /dev/null 2>&1; \\
 		if test \"\$${AX_DOLLAR}?\" == \"0\"; then \\
-		    cp \"\$\${RPMDIR}\$\${dir}/\$(PACKAGE)-\$(VERSION)-0.\$\${dir}.rpm\" \"\$(top_builddir)/\$(PACKAGE)-\$(VERSION)-0.\$\${dir}.$PLATFORM_SUFFIX.rpm\"; \\
+		    cp \"\$\${RPMDIR}\$\${dir}/\$(PACKAGE)-\$(VERSION)-0.\$\${dir}.rpm\" \"\$(top_builddir)/\$(PACKAGE)-\$(VERSION)-0.\$\${dir}.\$(PLATFORM_SUFFIX).rpm\"; \\
 		    found=true; \\
 		fi; \\
 	    done; \\
@@ -309,8 +310,8 @@ AX_DIST_RPM_UPLOAD_BIN = upload-rpm
 AX_DIST_RPM_UPLOAD_SRC = upload-srpm
 
 AX_DIST_RPM_UPLOAD_TARGETS = \\
-{rpm=>$PACKAGE-$VERSION-0.i*.$PLATFORM_SUFFIX.rpm} \\
-{srpm=>$PACKAGE-$VERSION-0.src.rpm}
+{rpm=>\$(PACKAGE)-\$(VERSION)-0.*.\$(PLATFORM_SUFFIX).rpm} \\
+{srpm=>\$(PACKAGE)-\$(VERSION)-0.src.rpm}
 endif # ax_dist_rpm_enable_upload
 
 endif # ax_dist_rpm_enabled
@@ -324,6 +325,7 @@ clean-ax-dist-rpm:
 dist-hook: dist-hook-ax-dist-rpm
 dist-hook-ax-dist-rpm: \$(AX_DIST_RPM_EXTRA_DIST)
 	-test -z \"\$(AX_DIST_RPM_EXTRA_DIST)\" || cp \$(AX_DIST_RPM_EXTRA_DIST) \$(distdir)
+ endif # AX_RPM_DIST effective in top-level makefile only
 
 ])
 ])
