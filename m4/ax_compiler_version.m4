@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 # for intel
 AC_DEFUN([_AX_COMPILER_VERSION_INTEL],
@@ -460,6 +460,21 @@ AC_DEFUN([_AX_COMPILER_VERSION_PORTLAND],[
 AC_DEFUN([_AX_COMPILER_VERSION_TCC],[
   ax_cv_[]_AC_LANG_ABBREV[]_compiler_version=[`tcc -v | $SED 's/^[ ]*tcc[ ]\+version[ ]\+\([0-9.]\+\).*/\1/g'`]
   ])
+
+# for GNU
+AC_DEFUN([_AX_COMPILER_VERSION_SDCC],[
+  AC_COMPUTE_INT(_ax_[]_AC_LANG_ABBREV[]_compiler_version_major,
+    __SDCC_VERSION_MAJOR,,
+    AC_MSG_FAILURE([[[$0]] unknown sdcc major]))
+  AC_COMPUTE_INT(_ax_[]_AC_LANG_ABBREV[]_compiler_version_minor,
+    __SDCC_VERSION_MINOR,,
+    AC_MSG_FAILURE([[[$0]] unknown sdcc minor]))
+  AC_COMPUTE_INT(_ax_[]_AC_LANG_ABBREV[]_compiler_version_patch,
+    [__SDCC_VERSION_PATCH],,
+    AC_MSG_FAILURE([[[$0]] unknown sdcc patch level]))
+  ax_cv_[]_AC_LANG_ABBREV[]_compiler_version="$_ax_[]_AC_LANG_ABBREV[]_compiler_version_major.$_ax_[]_AC_LANG_ABBREV[]_compiler_version_minor.$_ax_[]_AC_LANG_ABBREV[]_compiler_version_patch"
+  ])
+
 # main entry point
 AC_DEFUN([AX_COMPILER_VERSION],[dnl
   AC_REQUIRE([AX_COMPILER_VENDOR])
@@ -487,6 +502,7 @@ AC_DEFUN([AX_COMPILER_VERSION],[dnl
 	[watcom],[_AX_COMPILER_VERSION_WATCOM],
 	[portland],[_AX_COMPILER_VERSION_PORTLAND],
 	[tcc],[_AX_COMPILER_VERSION_TCC],
+	[sdcc],[_AX_COMPILER_VERSION_SDCC],
   	[ax_cv_[]_AC_LANG_ABBREV[]_compiler_version=""])
     ])
 ])
