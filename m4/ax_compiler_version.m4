@@ -464,13 +464,34 @@ AC_DEFUN([_AX_COMPILER_VERSION_TCC],[
 # for GNU
 AC_DEFUN([_AX_COMPILER_VERSION_SDCC],[
   AC_COMPUTE_INT(_ax_[]_AC_LANG_ABBREV[]_compiler_version_major,
-    __SDCC_VERSION_MAJOR,,
+    /* avoid parse error with comments */
+    #if(defined(__SDCC_VERSION_MAJOR))
+	__SDCC_VERSION_MAJOR
+    #else
+	SDCC/100
+    #endif
+    ,,
     AC_MSG_FAILURE([[[$0]] unknown sdcc major]))
   AC_COMPUTE_INT(_ax_[]_AC_LANG_ABBREV[]_compiler_version_minor,
-    __SDCC_VERSION_MINOR,,
+    /* avoid parse error with comments */
+    #if(defined(__SDCC_VERSION_MINOR))
+	__SDCC_VERSION_MINOR
+    #else
+	(SDCC%100)/10
+    #endif
+    ,,
     AC_MSG_FAILURE([[[$0]] unknown sdcc minor]))
   AC_COMPUTE_INT(_ax_[]_AC_LANG_ABBREV[]_compiler_version_patch,
-    [__SDCC_VERSION_PATCH],,
+    [
+    /* avoid parse error with comments */
+    #if(defined(__SDCC_VERSION_PATCH))
+	__SDCC_VERSION_PATCH
+    #elsif(defined(_SDCC_VERSION_PATCHLEVEL))
+	__SDCC_VERSION_PATCHLEVEL
+    #else
+	SDCC%10
+    #endif
+    ],,
     AC_MSG_FAILURE([[[$0]] unknown sdcc patch level]))
   ax_cv_[]_AC_LANG_ABBREV[]_compiler_version="$_ax_[]_AC_LANG_ABBREV[]_compiler_version_major.$_ax_[]_AC_LANG_ABBREV[]_compiler_version_minor.$_ax_[]_AC_LANG_ABBREV[]_compiler_version_patch"
   ])
