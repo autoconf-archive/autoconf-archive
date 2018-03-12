@@ -156,12 +156,19 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
 	],
 	[want_postgresql="yes"]
     )
+
+    AC_ARG_VAR([POSTGRESQL_CPPFLAGS],[cpp flags for PostgreSQL overriding detected flags])
+    AC_ARG_VAR([POSTGRESQL_LIBFLAGS],[libs for PostgreSQL overriding detected flags])
+    AC_ARG_VAR([POSTGRESQL_LDFLAGS],[linker flags for PostgreSQL overriding detected flags])
+
+    # populate cache
+    AS_IF([test "X$POSTGRESQL_CPPFLAGS" != X],[ac_cv_POSTGRESQL_CPPFLAGS="$POSTGRESQL_CPPFLAGS"])
+    AS_IF([test "X$POSTGRESQL_LDFLAGS" != X],[ac_cv_POSTGRESQL_LDFLAGS="$POSTGRESQL_LDFLAGS"])
+    AS_IF([test "X$POSTGRESQL_LIBS" != X],[ac_cv_POSTGRESQL_LIBS="$POSTGRESQL_LIBS"])
+
     postgresql_version_req=ifelse([$1], [], [], [$1])
     found_postgresql="no"
 
-    POSTGRESQL_CPPFLAGS=""
-    POSTGRESQL_LDFLAGS=""
-    POSTGRESQL_LIBS=""
     POSTGRESQL_VERSION=""
 
     dnl
