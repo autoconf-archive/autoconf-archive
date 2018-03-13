@@ -55,6 +55,7 @@
 
 AC_DEFUN([_AX_LIB_POSTGRESQL_OLD],[
 	found_postgresql="no"
+	_AX_LIB_POSTGRESQL_OLD_fail="no"
 	while true; do
 	  AC_CACHE_CHECK([for the pg_config program], [ac_cv_path_PG_CONFIG],
 	    [AC_PATH_PROGS_FEATURE_CHECK([PG_CONFIG], [pg_config],
@@ -65,23 +66,26 @@ AC_DEFUN([_AX_LIB_POSTGRESQL_OLD],[
 	  AS_IF([test "X$PG_CONFIG" = "X"],[break])
 
 	  AC_CACHE_CHECK([for the PostgreSQL libraries CPPFLAGS],[ac_cv_POSTGRESQL_CPPFLAGS],
-		       [ac_cv_POSTGRESQL_CPPFLAGS="-I`$PG_CONFIG --includedir`"])
+		       [ac_cv_POSTGRESQL_CPPFLAGS="-I`$PG_CONFIG --includedir`" || _AX_LIB_POSTGRESQL_OLD_fail=yes])
+	  AS_IF([test "X$_AX_LIB_POSTGRESQL_OLD_fail" = "Xyes"],[break])
 	  POSTGRESQL_CPPFLAGS="$ac_cv_POSTGRESQL_CPPFLAGS"
-	  AS_IF([test "X$POSTGRESQL_CPPFLAGS" = "X-I"],[break])
 
 	  AC_CACHE_CHECK([for the PostgreSQL libraries LDFLAGS],[ac_cv_POSTGRESQL_LDFLAGS],
-		       [ac_cv_POSTGRESQL_LDFLAGS="-L`$PG_CONFIG --libdir`"])
+		       [ac_cv_POSTGRESQL_LDFLAGS="-L`$PG_CONFIG --libdir`" || _AX_LIB_POSTGRESQL_OLD_fail=yes])
+	  AS_IF([test "X$_AX_LIB_POSTGRESQL_OLD_fail" = "Xyes"],[break])
 	  POSTGRESQL_LDFLAGS="$ac_cv_POSTGRESQL_LDFLAGS"
-	  AS_IF([test "X$POSTGRESQL_LDFLAGS" = "X-L"],[break])
 
 	  AC_CACHE_CHECK([for the PostgreSQL libraries LIBS],[ac_cv_POSTGRESQL_LIBS],
 		       [ac_cv_POSTGRESQL_LIBS="-lpq"])
 	  POSTGRESQL_LIBS="$ac_cv_POSTGRESQL_LIBS"
 
 	  AC_CACHE_CHECK([for the PostgreSQL version],[ac_cv_POSTGRESQL_VERSION],
-		       [ac_cv_POSTGRESQL_VERSION=`$PG_CONFIG --version | sed "s/^PostgreSQL[[[:space:]]][[[:space:]]]*\([[0-9.]][[0-9.]]*\).*/\1/"`])
+		       [
+			ac_cv_POSTGRESQL_VERSION=`$PG_CONFIG --version | sed "s/^PostgreSQL[[[:space:]]][[[:space:]]]*\([[0-9.]][[0-9.]]*\).*/\1/"` \
+			      || _AX_LIB_POSTGRESQL_OLD_fail=yes
+		       ])
+	  AS_IF([test "X$_AX_LIB_POSTGRESQL_OLD_fail" = "Xyes"],[break])
 	  POSTGRESQL_VERSION="$ac_cv_POSTGRESQL_VERSION"
-	  AS_IF([test "X$POSTGRESQL_VERSION" = "X"],[break])
 
 
 	  dnl
@@ -103,11 +107,13 @@ AC_DEFUN([_AX_LIB_POSTGRESQL_OLD],[
 AC_DEFUN([_AX_LIB_POSTGRESQL_PKG_CONFIG],
 [
   AC_REQUIRE([PKG_PROG_PKG_CONFIG])
-
-  PKG_PROG_PKG_CONFIG
   found_postgresql=no
 
   while true; do
+    PKG_PROG_PKG_CONFIG
+    AS_IF([test X$PKG_CONFIG = X],[break])
+
+    _AX_LIB_POSTGRESQL_PKG_CONFIG_fail=no;
     AS_IF([test "X$postgresql_version_req" = "X"],
 	  [PKG_CHECK_EXISTS([libpq],[found_postgresql_pkg_config=yes],[found_postgresql=no])],
 	  [PKG_CHECK_EXISTS([libpq >= "$postgresql_version_req"],
@@ -115,20 +121,26 @@ AC_DEFUN([_AX_LIB_POSTGRESQL_PKG_CONFIG],
     AS_IF([test "X$found_postgresql" = "no"],[break])
 
     AC_CACHE_CHECK([for the PostgreSQL libraries CPPFLAGS],[ac_cv_POSTGRESQL_CPPFLAGS],
-		   [ac_cv_POSTGRESQL_CPPFLAGS="`$PKG_CONFIG libpq --cflags-only-I`"])
+		   [ac_cv_POSTGRESQL_CPPFLAGS="`$PKG_CONFIG libpq --cflags-only-I`" || _AX_LIB_POSTGRESQL_PKG_CONFIG_fail=yes])
+    AS_IF([test "X$_AX_LIB_POSTGRESQL_PKG_CONFIG_fail" = "Xyes"],[break])
     POSTGRESQL_CPPFLAGS="$ac_cv_POSTGRESQL_CPPFLAGS"
 
+
     AC_CACHE_CHECK([for the PostgreSQL libraries LDFLAGS],[ac_cv_POSTGRESQL_LDFLAGS],
-		   [ac_cv_POSTGRESQL_LDFLAGS="`$PKG_CONFIG libpq --libs-only-L --libs-only-other`"])
+		   [ac_cv_POSTGRESQL_LDFLAGS="`$PKG_CONFIG libpq --libs-only-L --libs-only-other`" || _AX_LIB_POSTGRESQL_PKG_CONFIG_fail=yes])
+    AS_IF([test "X$_AX_LIB_POSTGRESQL_PKG_CONFIG_fail" = "Xyes"],[break])
     POSTGRESQL_LDFLAGS="$ac_cv_POSTGRESQL_LDFLAGS"
 
+
     AC_CACHE_CHECK([for the PostgreSQL libraries LIBS],[ac_cv_POSTGRESQL_LIBS],
-		   [ac_cv_POSTGRESQL_LIBS="`$PKG_CONFIG libpq --libs-only-l`"])
+		   [ac_cv_POSTGRESQL_LIBS="`$PKG_CONFIG libpq --libs-only-l`" || _AX_LIB_POSTGRESQL_PKG_CONFIG_fail=ye])
+    AS_IF([test "X$_AX_LIB_POSTGRESQL_PKG_CONFIG_fail" = "Xyes"],[break])
     POSTGRESQL_LIBS="$ac_cv_POSTGRESQL_LIBS"
 
     dnl already checked by exist but need to be recovered
     AC_CACHE_CHECK([for the PostgreSQL version],[ac_cv_POSTGRESQL_VERSION],
-		   [ac_cv_POSTGRESQL_VERSION="`$PKG_CONFIG libpq --modversion`"])
+		   [ac_cv_POSTGRESQL_VERSION="`$PKG_CONFIG libpq --modversion`" || _AX_LIB_POSTGRESQL_PKG_CONFIG_fail=yes])
+    AS_IF([test "X$_AX_LIB_POSTGRESQL_PKG_CONFIG_fail" = "Xyes"],[break])
     POSTGRESQL_VERSION="$ac_cv_POSTGRESQL_VERSION"
 
     found_postgresql=yes
