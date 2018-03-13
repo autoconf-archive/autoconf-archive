@@ -13,7 +13,7 @@ else
 fi
 
 gnulib_modules="git-version-gen gitlog-to-changelog gnupload
-	        maintainer-makefile announce-gen gendocs fdl-1.3"
+                maintainer-makefile announce-gen gendocs fdl-1.3"
 
 $gnulibtool --m4-base build-aux --source-base build-aux --import $gnulib_modules
 
@@ -33,7 +33,7 @@ sed -e 's/^sc_file_system:/disabled_sc_file_system:/' \
   maint.mk > maint.mk.new
 mv maint.mk.new maint.mk
 
-echo > ChangeLog '# Copyright (c) 2017 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
+echo > ChangeLog '# Copyright (c) 2018 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
 echo >>ChangeLog '#'
 echo >>ChangeLog '# Copying and distribution of this file, with or without modification, are'
 echo >>ChangeLog '# permitted in any medium without royalty provided the copyright notice and'

@@ -1,14 +1,17 @@
 #+TITLE: GNU Autoconf Archive NEWS             -*- mode:org;fill-column:79; -*-
 #+STARTUP: showall
 #
-# Copyright (c) 2017 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
+# Copyright (c) 2018 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
 #
 # Copying and distribution of this file, with or without modification, are
 # permitted in any medium without royalty provided the copyright notice
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
-* Noteworthy changes in release ?.? (????-??-??) [?]
+* Noteworthy changes in release 2018.03.13 (2018-03-13) [stable]
+
+  The macros AX_R_PACKAGE and AX_PROG_DATE have been added. Many other macros
+  have received updates.
 
 * Noteworthy changes in release 2017.09.28 (2017-09-28) [stable]
 
