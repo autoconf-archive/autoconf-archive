@@ -36,9 +36,8 @@
 #
 #     HAVE_POSTGRESQL
 #
-#   It execute if found ACTION-IF-FOUND (empty by default)
-#   and ACTION-IF-NOT-FOUND (AC_MSG_FAILURE by default) if
-#   not found.
+#   It execute if found ACTION-IF-FOUND (empty by default) and
+#   ACTION-IF-NOT-FOUND (AC_MSG_FAILURE by default) if not found.
 #
 # LICENSE
 #
@@ -51,7 +50,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 16
+#serial 21
 
 AC_DEFUN([_AX_LIB_POSTGRESQL_OLD],[
 	found_postgresql="no"
