@@ -8,6 +8,8 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
+* Noteworthy changes in release ?.? (????-??-??) [?]
+
 * Noteworthy changes in release 2018.03.13 (2018-03-13) [stable]
 
   The macros AX_R_PACKAGE and AX_PROG_DATE have been added. Many other macros
