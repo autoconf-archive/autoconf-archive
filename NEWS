@@ -10,6 +10,9 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The macro AX_CODE_COVERAGE was modified to use AX_ADD_AM_MACRO_STATIC,
+  and thus unfortunatly usage was changed.
+
 * Noteworthy changes in release 2018.03.13 (2018-03-13) [stable]
 
   The macros AX_R_PACKAGE and AX_PROG_DATE have been added. Many other macros
