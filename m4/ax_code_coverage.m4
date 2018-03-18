@@ -49,11 +49,6 @@
 #   (`make check`) and build a code coverage report detailing the code which
 #   was touched, then print the URI for the report.
 #
-#   In earlier versions of this macro, CODE_COVERAGE_LDFLAGS was defined
-#   instead of CODE_COVERAGE_LIBS. They are both still defined, but use of
-#   CODE_COVERAGE_LIBS is preferred for clarity; CODE_COVERAGE_LDFLAGS is
-#   deprecated. They have the same value.
-#
 #   This code was derived from Makefile.decl in GLib, originally licenced
 #   under LGPLv2.1+.
 #
@@ -79,7 +74,7 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 28
+#serial 29
 
 m4_define(_AX_CODE_COVERAGE_RULES,[
 AX_ADD_AM_MACRO_STATIC([
@@ -211,6 +206,7 @@ code-coverage-capture-hook:
 ])
 
 AC_DEFUN([_AX_CODE_COVERAGE_ENABLED],[
+	AX_CHECK_GNU_MAKE([],[AC_MSG_ERROR([not using GNU make that is needed for coverage])])
 	AC_REQUIRE([AX_ADD_AM_MACRO_STATIC])
 	# check for gcov
 	AC_CHECK_TOOL([GCOV],
