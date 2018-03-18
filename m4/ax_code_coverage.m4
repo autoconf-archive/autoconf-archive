@@ -121,7 +121,9 @@ AX_ADD_AM_MACRO_STATIC([
 # \$(PACKAGE_VERSION). In order to add the current git hash to the title,
 # use the git-version-gen script, available online.
 # Optional variables
+# run only on top dir
 if CODE_COVERAGE_ENABLED
+ ifeq (\$(abs_builddir), \$(abs_top_builddir))
 CODE_COVERAGE_DIRECTORY ?= \$(top_builddir)
 CODE_COVERAGE_OUTPUT_FILE ?= \$(PACKAGE_NAME)-\$(PACKAGE_VERSION)-coverage.info
 CODE_COVERAGE_OUTPUT_DIRECTORY ?= \$(PACKAGE_NAME)-\$(PACKAGE_VERSION)-coverage
@@ -179,9 +181,15 @@ code-coverage-clean:
 code-coverage-dist-clean:
 
 A][M_DISTCHECK_CONFIGURE_FLAGS = \$(A][M_DISTCHECK_CONFIGURE_FLAGS) --disable-code-coverage
+ else # ifneq (\$(abs_builddir), \$(abs_top_builddir))
+check-code-coverage:
 
+code-coverage-capture: code-coverage-capture-hook
 
+code-coverage-clean:
 
+code-coverage-dist-clean:
+ endif # ifeq (\$(abs_builddir), \$(abs_top_builddir))
 else #! CODE_COVERAGE_ENABLED
 # Use recursive makes in order to ignore errors during check
 check-code-coverage:
@@ -195,7 +203,6 @@ code-coverage-clean:
 code-coverage-dist-clean:
 
 endif #CODE_COVERAGE_ENABLED
-
 # Hook rule executed before code-coverage-capture, overridable by the user
 code-coverage-capture-hook:
 
