@@ -25,7 +25,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AMINCLUDE_STATIC],[aminclude_static.am])
 
@@ -33,6 +33,6 @@ AC_DEFUN([AX_AM_MACROS_STATIC],
 [
 AX_AC_PRINT_TO_FILE(AMINCLUDE_STATIC,[
 # ]AMINCLUDE_STATIC[ generated automatically by Autoconf
-# from AX_AM_MACROS_STATIC on ]m4_esyscmd([date])[
+# from AX_AM_MACROS_STATIC on ]m4_esyscmd([LC_ALL=C date])[
 ])
 ])
