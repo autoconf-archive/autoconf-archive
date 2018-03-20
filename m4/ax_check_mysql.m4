@@ -63,7 +63,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 8
 
 AC_ARG_WITH(mysql,AS_HELP_STRING([--with-mysql],[root of the MySQL installation]))
 AC_ARG_WITH(mysql_plugin,AS_HELP_STRING([--with-mysql-plugin],[path to the MySQL installation plugin directory]))
@@ -118,9 +118,9 @@ AC_DEFUN([AX_CHECK_MYSQL_INSTALL],[
     ROOT_DIR="$1"
 
     # Check for include directory
-    AX_CHECK_MYSQL_INCLUDES([$ROOT_DIR/include/mysql/mysql_version.h])
+    AX_CHECK_MYSQL_INCLUDES([$ROOT_DIR/include/mysql])
     if test "$MYSQL_INCLUDES" == "no" ; then
-       AX_CHECK_MYSQL_INCLUDES([$ROOT_DIR/include/mysql_version.h])
+       AX_CHECK_MYSQL_INCLUDES([$ROOT_DIR/include])
     fi
     mysql_include_test=$MYSQL_INCLUDES
 
@@ -358,7 +358,7 @@ AC_DEFUN([AX_CHECK_MYSQL],[
             if test "$CHECKER_MAJOR" != "" && test "$CHECKER_MINOR" != "" && test "$CHECKER_REV" == ""
             then
                     AC_MSG_CHECKING([if MySQL version is equal or greater than $MINIMUM_V])
-                    if test "$MYSQL_MAJOR_V" -lt "$MINIMUM_MAJOR_V" || (test "$MYSQL_MAJOR_V" -eq "$MINIMUM_MAJOR_V" && test "$MYSQL_MINOR_V" -lt "$MINIMUM_MINOR_V") || (test "$MYSQL_MAJOR_V" -eq "$MINIMUM_MAJOR_V" && test "$MYSQL_MINOR_V" -eq "$MINIMUM_MINOR_V" && "$MYSQL_REV_V" -lt "MINIMUM_REV_V")
+                    if test "$MYSQL_MAJOR_V" -lt "$MINIMUM_MAJOR_V" || (test "$MYSQL_MAJOR_V" -eq "$MINIMUM_MAJOR_V" && test "$MYSQL_MINOR_V" -lt "$MINIMUM_MINOR_V") || (test "$MYSQL_MAJOR_V" -eq "$MINIMUM_MAJOR_V" && test "$MYSQL_MINOR_V" -eq "$MINIMUM_MINOR_V" && test "$MYSQL_REV_V" -lt "$MINIMUM_REV_V")
                     then
                         AC_SUBST(MYSQL_PLUGIN_OK,no)
                         AC_MSG_RESULT([no])
