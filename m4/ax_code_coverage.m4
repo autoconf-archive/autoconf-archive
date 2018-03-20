@@ -12,11 +12,11 @@
 #   CODE_COVERAGE_CXXFLAGS and CODE_COVERAGE_LIBS which should be included
 #   in the CPPFLAGS, CFLAGS CXXFLAGS and LIBS/LIBADD variables of every
 #   build target (program or library) which should be built with code
-#   coverage support. Also add rules using AX_ADD_AM_MACRO_STATIC;
-#   and $enable_code_coverage which can be
-#   used in subsequent configure output. CODE_COVERAGE_ENABLED is defined
-#   and substituted, and corresponds to the value of the
-#   --enable-code-coverage option, which defaults to being disabled.
+#   coverage support. Also add rules using AX_ADD_AM_MACRO_STATIC; and
+#   $enable_code_coverage which can be used in subsequent configure output.
+#   CODE_COVERAGE_ENABLED is defined and substituted, and corresponds to the
+#   value of the --enable-code-coverage option, which defaults to being
+#   disabled.
 #
 #   Test also for gcov program and create GCOV variable that could be
 #   substituted.
@@ -31,8 +31,9 @@
 #     AX_CODE_COVERAGE
 #
 #   Makefile.am:
+#
 #     include $(top_srcdir)/aminclude_static.am
-# 
+#
 #     my_program_LIBS = ... $(CODE_COVERAGE_LIBS) ...
 #     my_program_CPPFLAGS = ... $(CODE_COVERAGE_CPPFLAGS) ...
 #     my_program_CFLAGS = ... $(CODE_COVERAGE_CFLAGS) ...
@@ -43,11 +44,10 @@
 #
 #   This results in a "check-code-coverage" rule being added to any
 #   Makefile.am which do "include $(top_srcdir)/aminclude_static.am"
-#   (assuming the module
-#   has been configured with --enable-code-coverage). Running `make
-#   check-code-coverage` in that directory will run the module's test suite
-#   (`make check`) and build a code coverage report detailing the code which
-#   was touched, then print the URI for the report.
+#   (assuming the module has been configured with --enable-code-coverage).
+#   Running `make check-code-coverage` in that directory will run the
+#   module's test suite (`make check`) and build a code coverage report
+#   detailing the code which was touched, then print the URI for the report.
 #
 #   This code was derived from Makefile.decl in GLib, originally licenced
 #   under LGPLv2.1+.
@@ -74,7 +74,7 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 29
+#serial 30
 
 m4_define(_AX_CODE_COVERAGE_RULES,[
 AX_ADD_AM_MACRO_STATIC([
