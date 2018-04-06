@@ -16,7 +16,7 @@
 
 SUBDIRS                 = doc
 
-dist_pkgdata_DATA       = AUTHORS COPYING COPYING.EXCEPTION README
+dist_doc_DATA           = AUTHORS COPYING COPYING.EXCEPTION README
 aclocaldir              = $(datadir)/aclocal
 dist_aclocal_DATA       = $(M4FILES)
 EXTRA_DIST              = build-aux/git-version-gen build-aux/gitlog-to-changelog
