@@ -33,7 +33,7 @@ $(STAGEDIR)/manifest:
 
 $(STAGEDIR)/%.m4 : $(M4DIR)/%.m4 $(STAGEDIR)/manifest $(srcdir)/macro.py $(srcdir)/macro2m4.py
 	$(PYTHON) $(srcdir)/macro2m4.py "$<" "$@"
-	@diff -u "$<" "$@" || (touch --date="1970-01-01 01:00:00" "$@"; false)
+	@diff -u "$<" "$@" || (touch -d "1970-01-01 01:00:00" "$@"; false)
 
 $(DOCDIR)/%.texi : $(STAGEDIR)/%.m4 $(srcdir)/macro2texi.py $(srcdir)/macro.py
 	$(PYTHON) $(srcdir)/macro2texi.py "$<" "$@"
