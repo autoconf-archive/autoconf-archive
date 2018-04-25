@@ -50,7 +50,7 @@ the
 tracker} and attach a (preferably
 @code{git-format-patch(1)}-formatted) patch file. Users of
 @code{github.com} may prefer to create a pull request for the
-@uref{https://github.com/peti/autoconf-archive,Autoconf Archive
+@uref{https://github.com/autoconf-archive/autoconf-archive,Autoconf Archive
 Mirror at Github}. Please make sure your submission contains the
 following items:
 

@@ -10,6 +10,10 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  The Autoconf Archive now has its own organization on Github. Therefore, the
+  mirror has moved to https://github.com/autoconf-archive/autoconf-archive. The
+  old location, https://github.com/peti/autoconf-archive redirects there.
+
   The macro AX_CODE_COVERAGE was modified to use AX_ADD_AM_MACRO_STATIC,
   and thus unfortunatly usage was changed.
 

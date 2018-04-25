@@ -21,7 +21,7 @@ The best place to start exploring the Archive is the [on-line
 documentation](https://www.gnu.org/software/autoconf-archive/). There is
 also the [Autoconf Archive home
 page](http://savannah.gnu.org/projects/autoconf-archive/) at Savannah and
-a [Github mirror](https://github.com/peti/autoconf-archive).
+a [Github mirror](https://github.com/autoconf-archive/autoconf-archive).
 
 Downloads
 ---------
