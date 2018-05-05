@@ -3,7 +3,7 @@
 set -eu
 
 if [ ! -d "gnulib" ] && [ $# -gt 0 ] && [ "$1" = "--copy" ]; then
-  git clone git://git.savannah.gnu.org/gnulib.git gnulib
+  git clone --depth 1 git://git.savannah.gnu.org/gnulib.git gnulib
 fi
 
 if [ -x "gnulib/gnulib-tool" ]; then
