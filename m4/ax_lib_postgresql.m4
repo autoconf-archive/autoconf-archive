@@ -211,11 +211,11 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
 		  [
 		   #include <libpq-fe.h>
 		  ],
-		  [
+		  [[
 		    char conninfo[]="dbname = postgres";
 		    PGconn     *conn;
 		    conn = PQconnectdb(conninfo);
-		  ]
+		  ]]
 		 )
 		],[ac_cv_postgresql_found=yes],
 		  [ac_cv_postgresql_found=no])
