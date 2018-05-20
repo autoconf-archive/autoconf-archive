@@ -50,7 +50,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 21
+#serial 22
 
 AC_DEFUN([_AX_LIB_POSTGRESQL_OLD],[
 	found_postgresql="no"
@@ -211,11 +211,11 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
 		  [
 		   #include <libpq-fe.h>
 		  ],
-		  [
+		  [[
 		    char conninfo[]="dbname = postgres";
 		    PGconn     *conn;
 		    conn = PQconnectdb(conninfo);
-		  ]
+		  ]]
 		 )
 		],[ac_cv_postgresql_found=yes],
 		  [ac_cv_postgresql_found=no])
