@@ -285,7 +285,7 @@ AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
         if test "x$_version" = "x0" ; then
             AC_MSG_NOTICE([[We could not detect the boost libraries (version $1 or higher). If you have a staged boost library (still not installed) please specify \$BOOST_ROOT in your environment and do not give a PATH to --with-boost option.  If you are sure you have boost installed, then check your version number looking in <boost/version.hpp>. See http://randspringer.de/boost for more documentation.]])
         else
-            AC_MSG_NOTICE([Your boost libraries seems to old (version $_version).])
+            AC_MSG_NOTICE([Your boost libraries are too old (version $_version).])
         fi
         # execute ACTION-IF-NOT-FOUND (if present):
         ifelse([$3], , :, [$3])
