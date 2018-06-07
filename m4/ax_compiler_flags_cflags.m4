@@ -26,7 +26,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 16
+#serial 17
 
 AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
     AC_REQUIRE([AC_PROG_SED])
@@ -72,6 +72,19 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
     ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
 
     AS_IF([test "$ax_enable_compile_warnings" != "no"],[
+        if test "$ax_compiler_cxx" = "no" ; then
+            # C-only flags. Warn in C++
+            AX_APPEND_COMPILE_FLAGS([ dnl
+                -Wnested-externs dnl
+                -Wmissing-prototypes dnl
+                -Wstrict-prototypes dnl
+                -Wdeclaration-after-statement dnl
+                -Wimplicit-function-declaration dnl
+                -Wold-style-definition dnl
+                -Wjump-misses-init dnl
+            ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
+        fi
+
         # "yes" flags
         AX_APPEND_COMPILE_FLAGS([ dnl
             -Wall dnl
@@ -113,18 +126,6 @@ AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
             $6 dnl
             $7 dnl
         ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
-        if test "$ax_compiler_cxx" = "no" ; then
-            # C-only flags. Warn in C++
-            AX_APPEND_COMPILE_FLAGS([ dnl
-            -Wnested-externs dnl
-            -Wmissing-prototypes dnl
-            -Wstrict-prototypes dnl
-            -Wdeclaration-after-statement dnl
-            -Wimplicit-function-declaration dnl
-            -Wold-style-definition dnl
-            -Wjump-misses-init dnl
-            ],ax_warn_cflags_variable,[$ax_compiler_flags_test])
-        fi
     ])
     AS_IF([test "$ax_enable_compile_warnings" = "error"],[
         # "error" flags; -Werror has to be appended unconditionally because
