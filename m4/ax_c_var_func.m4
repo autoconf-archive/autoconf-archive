@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   This macro tests if the C complier supports the C9X standard __func__
+#   This macro tests if the C compiler supports the C9X standard __func__
 #   identifier.
 #
 #   The new C9X standard for the C language stipulates that the identifier
@@ -62,6 +62,6 @@ char *s = __func__;
 }], ac_cv_c_var_func=yes,
 ac_cv_c_var_func=no) )
 if test "x$ac_cv_c_var_func" = xyes; then
-   AC_DEFINE(HAVE_FUNC,,[Define if the C complier supports __func__])
+   AC_DEFINE(HAVE_FUNC,,[Define if the C compiler supports __func__])
 fi
 ])dnl

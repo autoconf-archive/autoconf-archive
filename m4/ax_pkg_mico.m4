@@ -118,7 +118,7 @@ if test x$MICO_URGENCY = xrequired -o  x$MICO_URGENCY = xoptional; then
     else
         # source mico-setup.sh
         # Collect mico version number.
-        # But be carefull - mico-setup.sh
+        # But be careful - mico-setup.sh
         # unsets prefix and exec_prefix so save them first
         sh -c ". $MICOSETUP; echo MICOVERSION=\${MICOVERSION}; echo MICOSHAREDDIR=\${MICOSHAREDDIR}; echo MICODIR=\${MICODIR}" > conftest.mico-setup
 

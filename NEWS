@@ -15,7 +15,7 @@
   old location, https://github.com/peti/autoconf-archive redirects there.
 
   The macro AX_CODE_COVERAGE was modified to use AX_ADD_AM_MACRO_STATIC,
-  and thus unfortunatly usage was changed.
+  and thus unfortunately usage was changed.
 
 * Noteworthy changes in release 2018.03.13 (2018-03-13) [stable]
 
