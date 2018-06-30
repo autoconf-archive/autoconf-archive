@@ -104,7 +104,7 @@ else
     plus)                                       $1="1" ;;
     no)                                         $1="0" ;;
     yes) $1="ifelse([$4],,2,[$4])" ;;
-    *)   $1="ifelse([$3],,1,[$3])" ;; # for other unkown stuff.
+    *)   $1="ifelse([$3],,1,[$3])" ;; # for other unknown stuff.
   esac
 fi
 ])

@@ -37,10 +37,10 @@
 #
 #   Oh yes, there are some usages of "*" to match shell-wise at the output
 #   file of some tool, so that might have triggered the choice to not use
-#   "?" in the first place - but in real life it never occured that a _cmds
+#   "?" in the first place - but in real life it never occurred that a _cmds
 #   script was created that has gone to use "?". And so, this ac-macro
 #   exchanges the s/~/?/g in configured _cmds variables and replaces all
-#   occurences of s/IFS="~"/IFS="?"/ - and it all works smooth now.
+#   occurrences of s/IFS="~"/IFS="?"/ - and it all works smooth now.
 #
 # LICENSE
 #

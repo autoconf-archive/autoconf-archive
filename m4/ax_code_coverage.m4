@@ -49,7 +49,7 @@
 #   module's test suite (`make check`) and build a code coverage report
 #   detailing the code which was touched, then print the URI for the report.
 #
-#   This code was derived from Makefile.decl in GLib, originally licenced
+#   This code was derived from Makefile.decl in GLib, originally licensed
 #   under LGPLv2.1+.
 #
 # LICENSE

@@ -148,7 +148,7 @@ AC_DEFUN([AX_PROTOTYPE_REVERSE],[ifelse($#,0,,$#,1,[[$1]],[AX_PROTOTYPE_REVERSE(
 dnl
 dnl AX_PROTOTYPE_SUBST(string, tag)
 dnl
-dnl Substitute all occurence of <tag> in <string> with <tag>_VAL.
+dnl Substitute all occurrence of <tag> in <string> with <tag>_VAL.
 dnl Assumes that tag_VAL is a macro containing the value associated to tag.
 dnl
 AC_DEFUN([AX_PROTOTYPE_SUBST],[ifelse($2,,[$1],[AX_PROTOTYPE_SUBST(patsubst([$1],[$2],[$2[]_VAL]),builtin([shift],builtin([shift],$@)))])])
