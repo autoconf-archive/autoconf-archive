@@ -37,10 +37,10 @@
 #
 #   Oh yes, there are some usages of "*" to match shell-wise at the output
 #   file of some tool, so that might have triggered the choice to not use
-#   "?" in the first place - but in real life it never occured that a _cmds
+#   "?" in the first place - but in real life it never occurred that a _cmds
 #   script was created that has gone to use "?". And so, this ac-macro
 #   exchanges the s/~/?/g in configured _cmds variables and replaces all
-#   occurences of s/IFS="~"/IFS="?"/ - and it all works smooth now.
+#   occurrences of s/IFS="~"/IFS="?"/ - and it all works smooth now.
 #
 # LICENSE
 #
@@ -72,7 +72,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([PATCH_LIBTOOL_CHANGING_CMDS_IFS], [AX_PATCH_LIBTOOL_CHANGING_CMDS_IFS])
 AC_DEFUN([AX_PATCH_LIBTOOL_CHANGING_CMDS_IFS],

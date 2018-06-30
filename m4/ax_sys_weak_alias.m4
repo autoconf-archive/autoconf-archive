@@ -22,8 +22,8 @@
 #   another object file.
 #
 #   There are four known schemes of declaring weak symbols; each scheme is
-#   checked in turn, and the first one found is prefered. Note that only one
-#   of the mentioned preprocessor macros will be defined!
+#   checked in turn, and the first one found is preferred. Note that only
+#   one of the mentioned preprocessor macros will be defined!
 #
 #   1. Function attributes
 #
@@ -110,7 +110,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([KLM_SYS_WEAK_ALIAS], [AX_SYS_WEAK_ALIAS])
 AC_DEFUN([AX_SYS_WEAK_ALIAS], [

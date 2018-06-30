@@ -49,7 +49,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([AC_PKG_MICO], [AX_PKG_MICO])
 AC_DEFUN([AX_PKG_MICO],
@@ -118,7 +118,7 @@ if test x$MICO_URGENCY = xrequired -o  x$MICO_URGENCY = xoptional; then
     else
         # source mico-setup.sh
         # Collect mico version number.
-        # But be carefull - mico-setup.sh
+        # But be careful - mico-setup.sh
         # unsets prefix and exec_prefix so save them first
         sh -c ". $MICOSETUP; echo MICOVERSION=\${MICOVERSION}; echo MICOSHAREDDIR=\${MICOSHAREDDIR}; echo MICODIR=\${MICODIR}" > conftest.mico-setup
 

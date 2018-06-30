@@ -59,7 +59,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([AC_CREATE_GENERIC_CONFIG], [AX_CREATE_GENERIC_CONFIG])
 AC_DEFUN([AX_CREATE_GENERIC_CONFIG],[# create a generic PACKAGE-config file
@@ -78,7 +78,7 @@ echo 'package="'$P'"' >>$F
 echo 'version="'$V'"' >>$F
 echo 'libs="'$L'"' >>$F
 echo ' ' >>$F
-# in the order of occurence a standard automake Makefile
+# in the order of occurrence a standard automake Makefile
 echo 'prefix="'$prefix'"' >>$F
 echo 'exec_prefix="'$exec_prefix'"' >>$F
 echo 'bindir="'$bindir'"' >>$F

@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   This macro tests if the C complier supports the C9X standard __func__
+#   This macro tests if the C compiler supports the C9X standard __func__
 #   identifier.
 #
 #   The new C9X standard for the C language stipulates that the identifier
@@ -50,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 11
 
 AU_ALIAS([AC_C_VAR_FUNC], [AX_C_VAR_FUNC])
 AC_DEFUN([AX_C_VAR_FUNC],
@@ -62,6 +62,6 @@ char *s = __func__;
 }], ac_cv_c_var_func=yes,
 ac_cv_c_var_func=no) )
 if test "x$ac_cv_c_var_func" = xyes; then
-   AC_DEFINE(HAVE_FUNC,,[Define if the C complier supports __func__])
+   AC_DEFINE(HAVE_FUNC,,[Define if the C compiler supports __func__])
 fi
 ])dnl

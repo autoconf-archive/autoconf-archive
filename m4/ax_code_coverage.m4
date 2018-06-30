@@ -49,7 +49,7 @@
 #   module's test suite (`make check`) and build a code coverage report
 #   detailing the code which was touched, then print the URI for the report.
 #
-#   This code was derived from Makefile.decl in GLib, originally licenced
+#   This code was derived from Makefile.decl in GLib, originally licensed
 #   under LGPLv2.1+.
 #
 # LICENSE
@@ -74,7 +74,7 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 30
+#serial 31
 
 m4_define(_AX_CODE_COVERAGE_RULES,[
 AX_ADD_AM_MACRO_STATIC([

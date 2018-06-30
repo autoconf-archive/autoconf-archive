@@ -77,7 +77,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 11
 
 AU_ALIAS([AC_NUMERIC_NAMEDLEVEL], [AX_NUMERIC_NAMEDLEVEL])
 AC_DEFUN([AX_NUMERIC_NAMEDLEVEL],
@@ -104,7 +104,7 @@ else
     plus)                                       $1="1" ;;
     no)                                         $1="0" ;;
     yes) $1="ifelse([$4],,2,[$4])" ;;
-    *)   $1="ifelse([$3],,1,[$3])" ;; # for other unkown stuff.
+    *)   $1="ifelse([$3],,1,[$3])" ;; # for other unknown stuff.
   esac
 fi
 ])
