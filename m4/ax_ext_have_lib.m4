@@ -38,7 +38,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 AC_DEFUN([AX_EXT_HAVE_LIB],
 [
@@ -55,7 +55,7 @@ AC_CACHE_CHECK([for $2 library with -L$dir], [ext_cv${ext_haslib_cvdir}_haslib_$
 ext_func_save_ldflags=${LDFLAGS}
 LIBS="-l$2 $4 ${ext_func_search_save_LIBS}"
 LDFLAGS="-L$dir ${ext_func_save_ldflags}"
-AC_TRY_LINK_FUNC([$3], [eval "ext_cv${ext_haslib_cvdir}_haslib_$2"="yes"],
+AC_LINK_IFELSE([AC_LANG_CALL([], [$3])], [eval "ext_cv${ext_haslib_cvdir}_haslib_$2"="yes"],
 [eval "ext_cv${ext_haslib_cvdir}_haslib_$2"="no"])
 LIBS=$ext_func_search_save_LIBS
 LDFLAGS=$ext_func_save_ldflags
