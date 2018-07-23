@@ -41,7 +41,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([RLC_XERCESC], [AX_XERCESC])
 AC_DEFUN([AX_XERCESC],
@@ -59,12 +59,12 @@ AC_DEFUN([AX_XERCESC],
   AC_CACHE_CHECK([for libxerces-c], [ac_cv_libxerces_c], [
     ac_save_LIBS="$LIBS"
     LIBS="$LIBS $LIBXERCES_C $LIBICONV"
-    AC_TRY_LINK([
+    AC_LINK_IFELSE([AC_LANG_PROGRAM([[
 #include <xercesc/util/PlatformUtils.hpp>
 #ifdef XERCES_CPP_NAMESPACE_USE
 XERCES_CPP_NAMESPACE_USE
 #endif
-         ], [
+         ]], [[
 try
 {
    XMLPlatformUtils::Initialize();
@@ -74,7 +74,7 @@ catch (...)
    // ...
 }
 XMLPlatformUtils::Terminate();
-         ], [ac_cv_libxerces_c=yes], [ac_cv_libxerces_c=no])
+         ]])],[ac_cv_libxerces_c=yes],[ac_cv_libxerces_c=no])
     LIBS="$ac_save_LIBS"
   ])
   if test "$ac_cv_libxerces_c" = yes; then
