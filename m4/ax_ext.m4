@@ -44,7 +44,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 17
+#serial 18
 
 AC_DEFUN([AX_EXT],
 [
@@ -160,7 +160,7 @@ AC_DEFUN([AX_EXT],
         ax_cv_have_sse_os_support_ext=no,
         if test "$((0x$edx_cpuid1>>25&0x01))" = 1; then
           AC_LANG_PUSH([C])
-          AC_TRY_RUN([
+          AC_RUN_IFELSE([AC_LANG_SOURCE([[
 #include <signal.h>
 #include <stdlib.h>
             /* No way at ring1 to ring3 in protected mode to check the CR0 and CR4
@@ -172,10 +172,10 @@ AC_DEFUN([AX_EXT],
               /* SSE instruction xorps  %xmm0,%xmm0 */
               __asm__ __volatile__ (".byte 0x0f, 0x57, 0xc0");
               return 0;
-            }],
-            ax_cv_have_sse_os_support_ext=yes,
-            ax_cv_have_sse_os_support_ext=no,
-            ax_cv_have_sse_os_support_ext=no)
+            }]])],
+            [ax_cv_have_sse_os_support_ext=yes],
+            [ax_cv_have_sse_os_support_ext=no],
+            [ax_cv_have_sse_os_support_ext=no])
           AC_LANG_POP([C])
         fi
       ])

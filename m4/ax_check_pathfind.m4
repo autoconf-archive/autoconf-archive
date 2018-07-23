@@ -21,18 +21,18 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AG_CHECK_PATHFIND], [AX_CHECK_PATHFIND])
 AC_DEFUN([AX_CHECK_PATHFIND],[
   AC_MSG_CHECKING([whether pathfind(3) works])
   AC_CACHE_VAL([ax_cv_pathfind],[
-  AC_TRY_RUN([#include <string.h>
+  AC_RUN_IFELSE([AC_LANG_SOURCE([[#include <string.h>
 #include <stdlib.h>
 int main (int argc, char** argv) {
    char* pz = pathfind( getenv( "PATH" ), "sh", "x" );
    return (pz == 0) ? 1 : 0;
-}],[ax_cv_pathfind=yes],[ax_cv_pathfind=no],[ax_cv_pathfind=no]
+}]])],[ax_cv_pathfind=yes],[ax_cv_pathfind=no],[ax_cv_pathfind=no]
   ) # end of TRY_RUN]) # end of CACHE_VAL
 
   AC_MSG_RESULT([$ax_cv_pathfind])

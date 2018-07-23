@@ -19,15 +19,15 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AG_CHECK_UNAME_SYSCALL], [AX_CHECK_UNAME_SYSCALL])
 AC_DEFUN([AX_CHECK_UNAME_SYSCALL],[
   AC_MSG_CHECKING([whether uname(2) is POSIX])
   AC_CACHE_VAL([ax_cv_uname_syscall],[
-  AC_TRY_RUN([#include <sys/utsname.h>
+  AC_RUN_IFELSE([AC_LANG_SOURCE([[#include <sys/utsname.h>
 int main() { struct utsname unm;
-return uname( &unm ); }],[ax_cv_uname_syscall=yes],[ax_cv_uname_syscall=no],[ax_cv_uname_syscall=no]
+return uname( &unm ); }]])],[ax_cv_uname_syscall=yes],[ax_cv_uname_syscall=no],[ax_cv_uname_syscall=no]
   ) # end of TRY_RUN]) # end of CACHE_VAL
 
   AC_MSG_RESULT([$ax_cv_uname_syscall])
