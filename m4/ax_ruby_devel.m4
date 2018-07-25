@@ -52,7 +52,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 14
+#serial 15
 
 AC_DEFUN([AX_RUBY_DEVEL],[
     AX_WITH_PROG(RUBY,ruby)
@@ -147,11 +147,11 @@ $ac_rbconfig_result])
     LIBS="$ac_save_LIBS $RUBY_LDFLAGS"
     ac_save_CPPFLAGS="$CPPFLAGS"
     CPPFLAGS="$ac_save_CPPFLAGS $RUBY_CPPFLAGS"
-    AC_TRY_LINK([
+    AC_LINK_IFELSE([AC_LANG_PROGRAM([[
         #include <ruby.h>
-    ],[
+    ]], [[
         ruby_init();
-    ],[rubyexists=yes],[rubyexists=no])
+    ]])],[rubyexists=yes],[rubyexists=no])
 
     AC_MSG_RESULT([$rubyexists])
 

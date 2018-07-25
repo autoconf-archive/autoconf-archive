@@ -23,21 +23,19 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([ETR_SHORT_SLEEP], [AX_SHORT_SLEEP])
 AC_DEFUN([AX_SHORT_SLEEP],
 [
         AC_MSG_CHECKING([for nap() in libc])
-        AC_TRY_LINK([ extern "C" long nap(long ms); ], [ nap(42); ],
-                [
+        AC_LINK_IFELSE([AC_LANG_PROGRAM([[extern "C" long nap(long ms);]], [[nap(42);]])], [
                         ax_ss_found=yes
                         ax_ss_factor=1
                         AC_DEFINE(HAVE_NAP,1,
                                 [Define to use the nap() system call for short sleeps])
                         AC_MSG_RESULT(yes)
-                ],
-                [
+                ],[
                         AC_MSG_RESULT(no)
                         ax_ss_found=no
                 ])
@@ -45,15 +43,13 @@ AC_DEFUN([AX_SHORT_SLEEP],
         if test x"$ax_ss_found" = "xno"
         then
                 AC_MSG_CHECKING([for usleep()])
-                AC_TRY_LINK([ #include <unistd.h> ], [ usleep(42); ],
-                        [
+                AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <unistd.h>]], [[usleep(42);]])],[
                                 ax_ss_found=yes
                                 ax_ss_factor=1000
                                 AC_DEFINE(HAVE_USLEEP,1,
                                         [Define to use the usleep() system call for short sleeps])
                                 AC_MSG_RESULT(yes)
-                        ],
-                        [
+                        ],[
                                 AC_MSG_RESULT(no)
                                 ax_ss_found=no
                         ])
@@ -64,15 +60,13 @@ AC_DEFUN([AX_SHORT_SLEEP],
                 save_LIBS=$LIBS
                 LIBS="$LIBS -lx"
                 AC_MSG_CHECKING([for nap() in libx])
-                AC_TRY_LINK([ extern "C" long nap(long ms); ], [ nap(42); ],
-                        [
+                AC_LINK_IFELSE([AC_LANG_PROGRAM([[extern "C" long nap(long ms);]], [[nap(42);]])],[
                                 ax_ss_found=yes
                                 ax_ss_factor=1
                                 AC_DEFINE(HAVE_NAP,1,
                                         [Define to use the nap() system call for short sleeps])
                                 AC_MSG_RESULT(yes)
-                        ],
-                        [
+                        ],[
                                 AC_MSG_RESULT(no)
                                 ax_ss_found=no
                         ])

@@ -28,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AM_WITH_MPATROL], [AX_WITH_MPATROL])
 AC_DEFUN([AX_WITH_MPATROL], [
@@ -157,13 +157,13 @@ AC_DEFUN([AX_WITH_MPATROL], [
    # link a simple program with it.
 
    AC_CACHE_CHECK(for working mpatrol, am_cv_with_mpatrol, [
-     AC_TRY_LINK([#include <mpatrol.h>], [
+     AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <mpatrol.h>]], [[
 int main(void)
 {
     malloc(4);
     return EXIT_SUCCESS;
 }
-],
+]])],
       [am_cv_with_mpatrol=yes],
       [am_cv_with_mpatrol=no]
      )

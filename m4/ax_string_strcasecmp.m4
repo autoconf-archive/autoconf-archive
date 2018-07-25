@@ -31,17 +31,17 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([ETR_STRING_STRCASECMP], [AX_STRING_STRCASECMP])
 AC_DEFUN([AX_STRING_STRCASECMP],
 [
 AC_CACHE_CHECK([for strcasecmp() in string.h], ac_cv_string_strcasecmp, [
-        AC_TRY_LINK(
-                [ #include <string.h> ],
-                [ strcasecmp("foo", "bar"); ],
-                ac_cv_string_strcasecmp=yes,
-                ac_cv_string_strcasecmp=no)
+        AC_LINK_IFELSE([AC_LANG_PROGRAM(
+                [[#include <string.h>]],
+                [[strcasecmp("foo", "bar");]])],
+                [ac_cv_string_strcasecmp=yes],
+                [ac_cv_string_strcasecmp=no])
 ])
 
         if test x"$ac_cv_string_strcasecmp" = "xyes"
