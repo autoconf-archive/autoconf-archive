@@ -31,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_CZMQ], [
     AC_ARG_WITH([czmq], [AS_HELP_STRING([--with-czmq=<prefix>],[CZMQ prefix directory])], [
@@ -45,10 +45,9 @@ AC_DEFUN([AX_CZMQ], [
         LD_FLAGS="$LDFLAGS $CZMQ_LDFLAGS"
         CPPFLAGS="$CPPFLAGS $CZMQ_CPPFLAGS"
 
-        AC_LANG_SAVE
-        AC_LANG_C
+        AC_LANG_PUSH([C])
         AC_CHECK_HEADER(czmq.h, [czmq_h=yes], [czmq_h=no])
-        AC_LANG_RESTORE
+        AC_LANG_POP([C])
 
         if test "$czmq_h" = "yes"; then
             version=ifelse([$1], ,3.0.0,$1)

@@ -60,7 +60,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_CXX_HAVE_LONG_LONG_FOR_IOSTREAM], [AX_CXX_HAVE_LONG_LONG_FOR_IOSTREAM])
 AC_DEFUN([AX_CXX_HAVE_LONG_LONG_FOR_IOSTREAM],
@@ -68,9 +68,8 @@ AC_DEFUN([AX_CXX_HAVE_LONG_LONG_FOR_IOSTREAM],
 ax_cv_cxx_have_ll_for_iostream,
 [AC_REQUIRE([AX_CXX_NAMESPACES])
   AC_REQUIRE([AX_CXX_HAVE_SSTREAM])
-  AC_LANG_SAVE
-  AC_LANG_CPLUSPLUS
-  AC_TRY_COMPILE([#include <iostream>
+  AC_LANG_PUSH([C++])
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <iostream>
 #ifdef HAVE_SSTREAM
 #include <strstream>
 #else
@@ -78,9 +77,9 @@ ax_cv_cxx_have_ll_for_iostream,
 #endif
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif],[ ostream str((streambuf *)0); long long l=1; str << l; return 0;],
-  ax_cv_cxx_have_ll_for_iostream=yes, ax_cv_cxx_have_ll_for_iostream=no)
-  AC_LANG_RESTORE
+#endif]], [[ostream str((streambuf *)0); long long l=1; str << l; return 0;]])],
+  [ax_cv_cxx_have_ll_for_iostream=yes], [ax_cv_cxx_have_ll_for_iostream=no])
+  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_ll_for_iostream" = yes; then
    AC_DEFINE(HAVE_LONG_LONG_FOR_IOSTREAM,,[define if the compiler allow long long for [i|o]stream])

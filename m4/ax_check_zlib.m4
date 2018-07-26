@@ -62,7 +62,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 15
+#serial 16
 
 AU_ALIAS([CHECK_ZLIB], [AX_CHECK_ZLIB])
 AC_DEFUN([AX_CHECK_ZLIB],
@@ -108,11 +108,10 @@ then
         LDFLAGS="$LDFLAGS -L${ZLIB_HOME}/lib"
         CPPFLAGS="$CPPFLAGS -I${ZLIB_HOME}/include"
   fi
-  AC_LANG_SAVE
-  AC_LANG_C
+  AC_LANG_PUSH([C])
   AC_CHECK_LIB([z], [inflateEnd], [zlib_cv_libz=yes], [zlib_cv_libz=no])
   AC_CHECK_HEADER([zlib.h], [zlib_cv_zlib_h=yes], [zlib_cv_zlib_h=no])
-  AC_LANG_RESTORE
+  AC_LANG_POP([C])
   if test "$zlib_cv_libz" = "yes" && test "$zlib_cv_zlib_h" = "yes"
   then
     #

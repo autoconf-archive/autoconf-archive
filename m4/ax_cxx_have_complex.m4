@@ -20,21 +20,20 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_CXX_HAVE_COMPLEX], [AX_CXX_HAVE_COMPLEX])
 AC_DEFUN([AX_CXX_HAVE_COMPLEX],
 [AC_CACHE_CHECK(whether the compiler has complex<T>,
 ax_cv_cxx_have_complex,
 [AC_REQUIRE([AX_CXX_NAMESPACES])
- AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([#include <complex>
+ AC_LANG_PUSH([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <complex>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif],[complex<float> a; complex<double> b; return 0;],
- ax_cv_cxx_have_complex=yes, ax_cv_cxx_have_complex=no)
- AC_LANG_RESTORE
+#endif]], [[complex<float> a; complex<double> b; return 0;]])],
+ [ax_cv_cxx_have_complex=yes], [ax_cv_cxx_have_complex=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_complex" = yes; then
   AC_DEFINE(HAVE_COMPLEX,,[define if the compiler has complex<T>])

@@ -50,21 +50,20 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_CXX_HAVE_EXT_HASH_SET], [AX_CXX_HAVE_EXT_HASH_SET])
 AC_DEFUN([AX_CXX_HAVE_EXT_HASH_SET],
 [AC_CACHE_CHECK(whether the compiler has ext/hash_set,
 ax_cv_cxx_have_ext_hash_set,
 [AC_REQUIRE([AX_CXX_NAMESPACES])
-  AC_LANG_SAVE
-  AC_LANG_CPLUSPLUS
-  AC_TRY_COMPILE([#include <ext/hash_set>
+  AC_LANG_PUSH([C++])
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <ext/hash_set>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif],[hash_set<int> t; return 0;],
-  ax_cv_cxx_have_ext_hash_set=yes, ax_cv_cxx_have_ext_hash_set=no)
-  AC_LANG_RESTORE
+#endif]], [[hash_set<int> t; return 0;]])],
+  [ax_cv_cxx_have_ext_hash_set=yes], [ax_cv_cxx_have_ext_hash_set=no])
+  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_ext_hash_set" = yes; then
    AC_DEFINE(HAVE_EXT_HASH_SET,,[define if the compiler has ext/hash_set])

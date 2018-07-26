@@ -20,18 +20,17 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_CXX_TYPENAME], [AX_CXX_TYPENAME])
 AC_DEFUN([AX_CXX_TYPENAME],
 [AC_CACHE_CHECK(whether the compiler recognizes typename,
 ax_cv_cxx_typename,
-[AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([template<typename T>class X {public:X(){}};],
-[X<float> z; return 0;],
- ax_cv_cxx_typename=yes, ax_cv_cxx_typename=no)
- AC_LANG_RESTORE
+[AC_LANG_PUSH([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[template<typename T>class X {public:X(){}};]],
+ [[X<float> z; return 0;]])],
+ [ax_cv_cxx_typename=yes], [ax_cv_cxx_typename=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_typename" = yes; then
   AC_DEFINE(HAVE_TYPENAME,,[define if the compiler recognizes typename])
