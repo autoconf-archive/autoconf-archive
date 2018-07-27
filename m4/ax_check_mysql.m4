@@ -24,7 +24,7 @@
 #
 #   If a MySQL installation is found, AX_CHECK_MYSQL sets variables
 #   regarding the version of MySQL, its architecture (32 or 64 bit), and
-#   wether the version supports Plugins.
+#   whether the version supports Plugins.
 #
 #   AX_CHECK_MYSQL_INSTALL will check a designated root directory for a
 #   command, plugin, and include directory. If a mysql binary is not found
@@ -63,7 +63,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_ARG_WITH(mysql,AS_HELP_STRING([--with-mysql],[root of the MySQL installation]))
 AC_ARG_WITH(mysql_plugin,AS_HELP_STRING([--with-mysql-plugin],[path to the MySQL installation plugin directory]))
@@ -309,7 +309,7 @@ AC_DEFUN([AX_CHECK_MYSQL],[
 
     if test "$MYSQL" == "yes"
     then
-        # Check MySQL version, wether it's 32 or 64 bit, and modifies the architecture variable accordingly
+        # Check MySQL version, whether it's 32 or 64 bit, and modifies the architecture variable accordingly
         AC_MSG_CHECKING([MySQL Architecture])
         MYSQL_ARCHITECTURE='file '$MYSQL_COMMANDS'/mysql'
         MYSQL_ARCHITECTURE=`$MYSQL_ARCHITECTURE | grep -o ".*bit" | sed s/-bit//g | grep -o "[[0-9]][[0-9]]$"`
@@ -346,7 +346,7 @@ AC_DEFUN([AX_CHECK_MYSQL],[
             fi
         fi
 
-        # Checks wether MINIMUM-VERSION was passed, does error checking for the value, and checks for version
+        # Checks whether MINIMUM-VERSION was passed, does error checking for the value, and checks for version
         if test "$MINIMUM_V" != ""
         then
             MINIMUM_MAJOR_V=`echo $MINIMUM_V | cut -c 1`

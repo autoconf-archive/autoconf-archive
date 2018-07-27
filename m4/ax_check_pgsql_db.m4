@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   This macro checks wether we can connect to a PostgreSQL server with the
+#   This macro checks whether we can connect to a PostgreSQL server with the
 #   given data. The macro AX_PROG_PGCLIENT is required by this one. The
 #   variable $pgclient_call is set for later use in Makefiles, if you'd like
 #   to make use of this, you must do
@@ -73,7 +73,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([MS_CHECK_PGSQL_DB], [AX_CHECK_PGSQL_DB])
 AC_DEFUN([AX_CHECK_PGSQL_DB], [
