@@ -35,7 +35,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 15
+#serial 16
 
 AC_DEFUN([AX_FLAGS_NO_WRITABLE_STRINGS],[dnl
 AS_VAR_PUSHDEF([FLAGS],[_AC_LANG_PREFIX[]FLAGS])dnl
@@ -58,18 +58,17 @@ in "-pedantic -Werror % -fno-writable-strings -Wwrite-strings" dnl   GCC
    "-fullwarn -use_readonly_const %% ok, its the default" dnl IRIX C
    #
 do FLAGS="$ac_save_[]FLAGS "`echo $ac_arg | sed -e 's,%%.*,,' -e 's,%,,'`
-   AC_TRY_COMPILE([],[return 0;],
-   [VAR=`echo $ac_arg | sed -e 's,.*% *,,'` ; break])
+   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([], [[return 0;]])],
+   [VAR=`echo $ac_arg | sed -e 's,.*% *,,'` ; break],[])
 done
 case ".$VAR" in
    .|.no|.no,*) ;;
    *) # sanity check - testing strcpy() from string.h
       cp config.log config.tmp
-      AC_TRY_COMPILE([#include <string.h>],[
+      AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <string.h>]], [[
       char test[16];
-      if (strcpy (test, "test")) return 1;],
-      dnl the original did use test -n `$CC testprogram.c`
-      [if test `diff config.log config.tmp | grep -i warning | wc -l` != 0
+      if (strcpy (test, "test")) return 1;]])],[dnl the original did use test -n `$CC testprogram.c`
+      if test `diff config.log config.tmp | grep -i warning | wc -l` != 0
   then VAR="no, suppressed, string.h," ; fi],
       [VAR="no, suppressed, string.h"])
       rm config.tmp

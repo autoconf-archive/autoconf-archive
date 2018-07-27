@@ -21,20 +21,19 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([ETR_SYSV_IPC], [AX_SYSV_IPC])
 AC_DEFUN([AX_SYSV_IPC],
 [
 AC_CACHE_CHECK([for System V IPC headers], ac_cv_sysv_ipc, [
-        AC_TRY_COMPILE(
-                [
+        AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
                         #include <sys/types.h>
                         #include <sys/ipc.h>
                         #include <sys/msg.h>
                         #include <sys/sem.h>
                         #include <sys/shm.h>
-                ],, ac_cv_sysv_ipc=yes, ac_cv_sysv_ipc=no)
+                ]], [])], [ac_cv_sysv_ipc=yes], [ac_cv_sysv_ipc=no])
 ])
 
         if test x"$ac_cv_sysv_ipc" = "xyes"

@@ -22,16 +22,16 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([VL_DECL_WCHAR_MAX], [AX_DECL_WCHAR_MAX])
 AC_DEFUN([AX_DECL_WCHAR_MAX], [
   AC_CACHE_CHECK([whether WCHAR_MAX is defined], ax_cv_decl_wchar_max, [
-    AC_TRY_COMPILE([
+    AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 #ifdef HAVE_WCHAR_H
 #include <wchar.h>
 #endif
-],[WCHAR_MAX],[ax_cv_decl_wchar_max="yes"],[ax_cv_decl_wchar_max="no"])])
+]], [[WCHAR_MAX]])], [ax_cv_decl_wchar_max="yes"], [ax_cv_decl_wchar_max="no"])])
   if test $ax_cv_decl_wchar_max = "no"; then
     AX_CHECK_SIGN([wchar_t],
       [ wc_signed="yes"
