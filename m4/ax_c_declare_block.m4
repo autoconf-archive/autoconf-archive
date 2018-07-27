@@ -61,13 +61,13 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_C_DECLARE_BLOCK],[dnl
 AC_CACHE_CHECK(
  [if C variables must be declared at the beginning of a block],
  ax_cv_c_declare_block,[
- AC_TRY_COMPILE([#include <stdio.h>
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <stdio.h>
  int f() {
    char buffer[1024];
    fgets(buffer, 1024, stdin);
@@ -75,9 +75,9 @@ AC_CACHE_CHECK(
    for (i=0; i < ii; i++) {
      fputc(buffer[i], stdout);
    }
- }],
- [],
- ax_cv_c_declare_block=no, ax_cv_c_declare_block=yes)])
+ }]],
+ [])],
+ [ax_cv_c_declare_block=no], [ax_cv_c_declare_block=yes])])
  if test "$ax_cv_c_declare_block" = yes; then
    AC_DEFINE([DECLARE_BLOCK_NEEDED],[1],
     [if C variables must be declared at the beginning of a block])
