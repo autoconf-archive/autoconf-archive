@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AU_ALIAS([IMMDX_LIB_METIS], [AX_LIB_METIS])
 AC_DEFUN([AX_LIB_METIS], [
@@ -84,15 +84,14 @@ AC_DEFUN([AX_LIB_METIS], [
 			CFLAGS="-I$with_metis/include"
 			LDFLAGS="-L$with_metis/lib"
 
-			AC_LANG_SAVE
-			AC_LANG_C
+			AC_LANG_PUSH([C])
 
 			AC_CHECK_LIB(metis, METIS_PartMeshDual,
 				[metis_lib=yes], [metis_lib=yes], [-lm])
 			AC_CHECK_HEADER(metis.h, [metis_h=yes],
 				[metis_h=no], [/* check */])
 
-			AC_LANG_RESTORE
+			AC_LANG_POP([C])
 
 			CFLAGS=$old_CFLAGS
 			LDFLAGS=$old_LDFLAGS

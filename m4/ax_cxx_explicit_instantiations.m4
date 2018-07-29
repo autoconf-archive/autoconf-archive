@@ -21,17 +21,17 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([AC_CXX_EXPLICIT_INSTANTIATIONS], [AX_CXX_EXPLICIT_INSTANTIATIONS])
 AC_DEFUN([AX_CXX_EXPLICIT_INSTANTIATIONS],
 [AC_CACHE_CHECK(whether the compiler supports explicit instantiations,
 ax_cv_cxx_explinst,
-[AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([template <class T> class A { T t; }; template class A<int>;],
- [], ax_cv_cxx_explinst=yes, ax_cv_cxx_explinst=no)
- AC_LANG_RESTORE
+[AC_LANG_PUSH([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[template <class T> class A { T t; }; template class A<int>;]],
+ [])],
+ [ax_cv_cxx_explinst=yes],[ax_cv_cxx_explinst=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_explinst" = yes; then
   AC_DEFINE(HAVE_INSTANTIATIONS,,

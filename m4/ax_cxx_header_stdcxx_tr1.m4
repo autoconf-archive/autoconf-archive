@@ -19,15 +19,14 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_CXX_HEADER_STDCXX_TR1], [AX_CXX_HEADER_STDCXX_TR1])
 AC_DEFUN([AX_CXX_HEADER_STDCXX_TR1], [
   AC_CACHE_CHECK(for ISO C++ TR1 include files,
   ax_cv_cxx_stdcxx_tr1,
-  [AC_LANG_SAVE
-  AC_LANG_CPLUSPLUS
-  AC_TRY_COMPILE([
+  [AC_LANG_PUSH([C++])
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
   #include <tr1/array>
   #include <tr1/ccomplex>
   #include <tr1/cctype>
@@ -55,9 +54,9 @@ AC_DEFUN([AX_CXX_HEADER_STDCXX_TR1], [
   #include <tr1/unordered_set>
   #include <tr1/unordered_map>
   #include <tr1/utility>
-  ],,
-  ax_cv_cxx_stdcxx_tr1=yes, ax_cv_cxx_stdcxx_tr1=no)
-  AC_LANG_RESTORE
+  ]], [])],
+  [ax_cv_cxx_stdcxx_tr1=yes], [ax_cv_cxx_stdcxx_tr1=no])
+  AC_LANG_POP([C++])
   ])
   if test "$ax_cv_cxx_stdcxx_tr1" = yes; then
     AC_DEFINE(STDCXX_TR1_HEADERS,,[Define if ISO C++ TR1 header files are present. ])

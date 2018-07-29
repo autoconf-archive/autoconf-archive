@@ -21,24 +21,22 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_CXX_HAVE_STD], [AX_CXX_HAVE_STD])
 AC_DEFUN([AX_CXX_HAVE_STD],
 [AC_CACHE_CHECK(whether the compiler supports ISO C++ standard library,
 ax_cv_cxx_have_std,
 [AC_REQUIRE([AX_CXX_NAMESPACES])
- AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([#include <iostream>
+ AC_LANG_PUSH([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <iostream>
 #include <map>
 #include <iomanip>
 #include <cmath>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif],[return 0;],
- ax_cv_cxx_have_std=yes, ax_cv_cxx_have_std=no)
- AC_LANG_RESTORE
+#endif]], [[return 0;]])],[ax_cv_cxx_have_std=yes],[ax_cv_cxx_have_std=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_std" = yes; then
   AC_DEFINE(HAVE_STD,,[define if the compiler supports ISO C++ standard library])

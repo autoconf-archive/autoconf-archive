@@ -34,15 +34,14 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_CFLAGS_FORCE_C89],[dnl
 AS_VAR_PUSHDEF([FLAGS],[CFLAGS])dnl
 AS_VAR_PUSHDEF([VAR],[ac_cv_cflags_force_c89])dnl
 AC_CACHE_CHECK([m4_ifval($1,$1,FLAGS) for C89 mode],
 VAR,[VAR="no, unknown"
- AC_LANG_SAVE
- AC_LANG_C
+ AC_LANG_PUSH([C])
  ac_save_[]FLAGS="$[]FLAGS"
 for ac_arg dnl
 in "-pedantic  % -ansi -pedantic"             dnl GCC
@@ -55,11 +54,12 @@ in "-pedantic  % -ansi -pedantic"             dnl GCC
    "-h conform % -h conform"                  dnl Cray C (Unicos)
    #
 do FLAGS="$ac_save_[]FLAGS "`echo $ac_arg | sed -e 's,%%.*,,' -e 's,%,,'`
-   AC_TRY_COMPILE([],[return 0;],
-   [VAR=`echo $ac_arg | sed -e 's,.*% *,,'` ; break])
+   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([],
+   [[return 0;]])],
+   [VAR=`echo $ac_arg | sed -e 's,.*% *,,'` ; break],[])
 done
  FLAGS="$ac_save_[]FLAGS"
- AC_LANG_RESTORE
+ AC_LANG_POP([C])
 ])
 AS_VAR_POPDEF([FLAGS])dnl
 AX_REQUIRE_DEFINED([AX_APPEND_FLAG])

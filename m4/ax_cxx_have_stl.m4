@@ -20,23 +20,22 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_CXX_HAVE_STL], [AX_CXX_HAVE_STL])
 AC_DEFUN([AX_CXX_HAVE_STL],
 [AC_CACHE_CHECK(whether the compiler supports Standard Template Library,
 ax_cv_cxx_have_stl,
 [AC_REQUIRE([AX_CXX_NAMESPACES])
- AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE([#include <list>
+ AC_LANG_PUSH([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <list>
 #include <deque>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif],[list<int> x; x.push_back(5);
-list<int>::iterator iter = x.begin(); if (iter != x.end()) ++iter; return 0;],
- ax_cv_cxx_have_stl=yes, ax_cv_cxx_have_stl=no)
- AC_LANG_RESTORE
+#endif]], [[list<int> x; x.push_back(5);
+list<int>::iterator iter = x.begin(); if (iter != x.end()) ++iter; return 0;]])],
+ [ax_cv_cxx_have_stl=yes], [ax_cv_cxx_have_stl=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_stl" = yes; then
   AC_DEFINE(HAVE_STL,,[define if the compiler supports Standard Template Library])

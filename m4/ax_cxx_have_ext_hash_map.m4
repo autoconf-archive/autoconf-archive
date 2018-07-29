@@ -53,21 +53,20 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_CXX_HAVE_EXT_HASH_MAP], [AX_CXX_HAVE_EXT_HASH_MAP])
 AC_DEFUN([AX_CXX_HAVE_EXT_HASH_MAP],
 [AC_CACHE_CHECK(whether the compiler has ext/hash_map,
 ax_cv_cxx_have_ext_hash_map,
 [AC_REQUIRE([AX_CXX_NAMESPACES])
-  AC_LANG_SAVE
-  AC_LANG_CPLUSPLUS
-  AC_TRY_COMPILE([#include <ext/hash_map>
+  AC_LANG_PUSH([C++])
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <ext/hash_map>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif],[hash_map<int, int> t; return 0;],
-  ax_cv_cxx_have_ext_hash_map=yes, ax_cv_cxx_have_ext_hash_map=no)
-  AC_LANG_RESTORE
+#endif]], [[hash_map<int, int> t; return 0;]])],
+  [ax_cv_cxx_have_ext_hash_map=yes], [ax_cv_cxx_have_ext_hash_map=no])
+  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_ext_hash_map" = yes; then
    AC_DEFINE(HAVE_EXT_HASH_MAP,,[define if the compiler has ext/hash_map])

@@ -21,17 +21,17 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_CXX_EXCEPTIONS], [AX_CXX_EXCEPTIONS])
 AC_DEFUN([AX_CXX_EXCEPTIONS],
 [AC_CACHE_CHECK(whether the compiler supports exceptions,
 ax_cv_cxx_exceptions,
-[AC_LANG_SAVE
- AC_LANG_CPLUSPLUS
- AC_TRY_COMPILE(,[try { throw  1; } catch (int i) { return i; }],
- ax_cv_cxx_exceptions=yes, ax_cv_cxx_exceptions=no)
- AC_LANG_RESTORE
+[AC_LANG_PUSH([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([],
+ [[try { throw 1; } catch (int i) { return i; }]])],
+ [ax_cv_cxx_exceptions=yes], [ax_cv_cxx_exceptions=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_exceptions" = yes; then
   AC_DEFINE(HAVE_EXCEPTIONS,,[define if the compiler supports exceptions])
