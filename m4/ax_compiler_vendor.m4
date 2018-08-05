@@ -57,6 +57,7 @@ AC_DEFUN([AX_COMPILER_VENDOR],
            cray:      _CRAYC
            fujitsu:   __FUJITSU
            sdcc:      SDCC,__SDCC
+           portland:  __PGI
            gnu:       __GNUC__
            sun:       __SUNPRO_C,__SUNPRO_CC
            hp:        __HP_cc,__HP_aCC
@@ -69,7 +70,6 @@ AC_DEFUN([AX_COMPILER_VENDOR],
            microsoft: _MSC_VER
            metrowerks: __MWERKS__
            watcom:    __WATCOMC__
-           portland:  __PGI
 	   tcc:       __TINYC__
            unknown:   UNKNOWN"
   for ventest in $vendors; do
