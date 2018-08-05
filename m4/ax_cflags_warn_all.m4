@@ -31,6 +31,7 @@
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
 #   Copyright (c) 2010 Rhys Ulerich <rhys.ulerich@gmail.com>
+#   Copyright (c) 2018 John Zaitseff <J.Zaitseff@zap.org.au>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -58,7 +59,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 16
+#serial 17
 
 AC_DEFUN([AX_FLAGS_WARN_ALL],[dnl
 AS_VAR_PUSHDEF([FLAGS],[_AC_LANG_PREFIX[]FLAGS])dnl
