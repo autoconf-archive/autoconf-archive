@@ -59,7 +59,7 @@ AC_DEFUN([AX_COMPILER_VENDOR],
            sdcc:      SDCC,__SDCC
            portland:  __PGI
            gnu:       __GNUC__
-           sun:       __SUNPRO_C,__SUNPRO_CC
+           sun:       __SUNPRO_C,__SUNPRO_CC,__SUNPRO_F90,__SUNPRO_F95
            hp:        __HP_cc,__HP_aCC
            dec:       __DECC,__DECCXX,__DECC_VER,__DECCXX_VER
            borland:   __BORLANDC__,__CODEGEARC__,__TURBOC__
