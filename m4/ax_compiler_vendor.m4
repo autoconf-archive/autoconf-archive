@@ -56,7 +56,7 @@ AC_DEFUN([AX_COMPILER_VENDOR],
            clang:     __clang__
            cray:      _CRAYC
            fujitsu:   __FUJITSU
-           sdcc:      SDCC, __SDCC
+           sdcc:      SDCC,__SDCC
            gnu:       __GNUC__
            sun:       __SUNPRO_C,__SUNPRO_CC
            hp:        __HP_cc,__HP_aCC
