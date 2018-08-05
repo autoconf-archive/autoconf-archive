@@ -78,9 +78,9 @@ AC_DEFUN([AX_COMPILER_VENDOR],
       *)  vencpp="defined("`echo $ventest | sed 's/,/) || defined(/g'`")" ;;
     esac
     AC_COMPILE_IFELSE([AC_LANG_PROGRAM(,[
-      #if !($vencpp)
-        thisisanerror;
-      #endif
+#if !($vencpp)
+      thisisanerror;
+#endif
     ])], [break])
   done
   ax_cv_[]_AC_LANG_ABBREV[]_compiler_vendor=`echo $vendor | cut -d: -f1`
