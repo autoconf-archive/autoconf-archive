@@ -60,13 +60,14 @@
 
 #serial 19
 
-AC_DEFUN([AX_COMPILER_VENDOR], [
-    AC_CACHE_CHECK([for _AC_LANG compiler vendor], ax_cv_[]_AC_LANG_ABBREV[]_compiler_vendor, [
-	# If you modify this list of vendors, please add similar support
-	# to ax_compiler_version.m4 if at all possible.
-
-	# Note: Do NOT check for GCC first since some other compilers
-	# define __GNUC__ to remain compatible with it.
+AC_DEFUN([AX_COMPILER_VENDOR], [dnl
+    AC_CACHE_CHECK([for _AC_LANG compiler vendor], ax_cv_[]_AC_LANG_ABBREV[]_compiler_vendor, [dnl
+	dnl  If you modify this list of vendors, please add similar support
+	dnl  to ax_compiler_version.m4 if at all possible.
+	dnl
+	dnl  Note: Do NOT check for GCC first since some other compilers
+	dnl  define __GNUC__ to remain compatible with it.  Compilers that
+	dnl  are very slow to start (such as Intel) are listed first.
 
 	vendors="
 		intel:		__ICC,__ECC,__INTEL_COMPILER
@@ -93,7 +94,6 @@ AC_DEFUN([AX_COMPILER_VENDOR], [
 		tcc:		__TINYC__
 		unknown:	UNKNOWN
 	"
-
 	for ventest in $vendors; do
 	    case $ventest in
 		*:)
