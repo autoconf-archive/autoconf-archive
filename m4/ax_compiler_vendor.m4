@@ -8,10 +8,23 @@
 #
 # DESCRIPTION
 #
-#   Determine the vendor of the C/C++ compiler, e.g., gnu, intel, ibm, sun,
-#   hp, borland, comeau, dec, cray, kai, lcc, metrowerks, sgi, microsoft,
-#   watcom, etc. The vendor is returned in the cache variable
-#   $ax_cv_c_compiler_vendor for C and $ax_cv_cxx_compiler_vendor for C++.
+#   Determine the vendor of the C, C++ or Fortran compiler.  The vendor is
+#   returned in the cache variable $ax_cv_c_compiler_vendor for C,
+#   $ax_cv_cxx_compiler_vendor for C++ or $ax_cv_fc_compiler_vendor for
+#   (modern) Fortran.  The value is one of "intel", "ibm", "pathscale",
+#   "clang" (LLVM), "cray", "fujitsu", "sdcc", "portland" (PGI), "gnu"
+#   (GCC), "sun" (Oracle Developer Studio), "hp", "dec", "borland",
+#   "comeau", "kai", "lcc", "sgi", "microsoft", "metrowerks", "watcom",
+#   "tcc" (Tiny CC) or "unknown" (if the compiler cannot be determined).
+#
+#   To check for a Fortran compiler, you must first call AC_FC_PP_SRCEXT
+#   with an appropriate preprocessor-enabled extension.  For example:
+#
+#       AC_LANG_PUSH([Fortran])
+#       AC_PROG_FC
+#       AC_FC_PP_SRCEXT([F])
+#       AX_COMPILER_VENDOR
+#       AC_LANG_POP([Fortran])
 #
 # LICENSE
 #
