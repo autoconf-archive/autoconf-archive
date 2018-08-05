@@ -15,8 +15,9 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2008 Steven G. Johnson <stevenj@alum.mit.edu>
-#   Copyright (c) 2008 Matteo Frigo
+#   Copyright (C) 2008 Steven G. Johnson <stevenj@alum.mit.edu>
+#   Copyright (C) 2008 Matteo Frigo
+#   Copyright (C) 2018 John Zaitseff <J.Zaitseff@zap.org.au>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -46,43 +47,57 @@
 
 #serial 18
 
-AC_DEFUN([AX_COMPILER_VENDOR],
-[AC_CACHE_CHECK([for _AC_LANG compiler vendor], ax_cv_[]_AC_LANG_ABBREV[]_compiler_vendor,
-  dnl Please add if possible support to ax_compiler_version.m4
-  [# note: don't check for gcc first since some other compilers define __GNUC__
-  vendors="intel:     __ICC,__ECC,__INTEL_COMPILER
-           ibm:       __xlc__,__xlC__,__IBMC__,__IBMCPP__,__ibmxl__
-           pathscale: __PATHCC__,__PATHSCALE__
-           clang:     __clang__
-           cray:      _CRAYC
-           fujitsu:   __FUJITSU
-           sdcc:      SDCC,__SDCC
-           portland:  __PGI
-           gnu:       __GNUC__
-           sun:       __SUNPRO_C,__SUNPRO_CC,__SUNPRO_F90,__SUNPRO_F95
-           hp:        __HP_cc,__HP_aCC
-           dec:       __DECC,__DECCXX,__DECC_VER,__DECCXX_VER
-           borland:   __BORLANDC__,__CODEGEARC__,__TURBOC__
-           comeau:    __COMO__
-           kai:       __KCC
-           lcc:       __LCC__
-           sgi:       __sgi,sgi
-           microsoft: _MSC_VER
-           metrowerks: __MWERKS__
-           watcom:    __WATCOMC__
-	   tcc:       __TINYC__
-           unknown:   UNKNOWN"
-  for ventest in $vendors; do
-    case $ventest in
-      *:) vendor=$ventest; continue ;;
-      *)  vencpp="defined("`echo $ventest | sed 's/,/) || defined(/g'`")" ;;
-    esac
-    AC_COMPILE_IFELSE([AC_LANG_PROGRAM(,[
+AC_DEFUN([AX_COMPILER_VENDOR], [
+    AC_CACHE_CHECK([for _AC_LANG compiler vendor], ax_cv_[]_AC_LANG_ABBREV[]_compiler_vendor, [
+	# If you modify this list of vendors, please add similar support
+	# to ax_compiler_version.m4 if at all possible.
+
+	# Note: Do NOT check for GCC first since some other compilers
+	# define __GNUC__ to remain compatible with it.
+
+	vendors="
+		intel:		__ICC,__ECC,__INTEL_COMPILER
+		ibm:		__xlc__,__xlC__,__IBMC__,__IBMCPP__,__ibm_xl__
+		pathscale:	__PATHCC__,__PATHSCALE__
+		clang:		__clang__
+		cray:		_CRAYC
+		fujitsu:	__FUJITSU
+		sdcc:		SDCC,__SDCC
+		portland:	__PGI
+		gnu:		__GNUC__
+		sun:		__SUNPRO_C,__SUNPRO_CC,__SUNPRO_F90,__SUNPRO_F95
+		hp:		__HP_cc,__HP_aCC
+		dec:		__DECC,__DECCXX,__DECC_VER,__DECCXX_VER
+		borland:	__BORLANDC__,__CODEGEARC__,__TURBOC__
+		comeau:		__COMO__
+		kai:		__KCC
+		lcc:		__LCC__
+		sgi:		__sgi,sgi
+		microsoft:	_MSC_VER
+		metrowerks:	__MWERKS__
+		watcom:		__WATCOMC__
+		tcc:		__TINYC__
+		unknown:	UNKNOWN
+	"
+
+	for ventest in $vendors; do
+	    case $ventest in
+		*:)
+		    vendor=$ventest
+		    continue
+		    ;;
+		*)
+		    vencpp="defined("`echo $ventest | sed 's/,/) || defined(/g'`")"
+		    ;;
+	    esac
+
+	    AC_COMPILE_IFELSE([AC_LANG_PROGRAM([], [[
 #if !($vencpp)
       thisisanerror;
 #endif
-    ])], [break])
-  done
-  ax_cv_[]_AC_LANG_ABBREV[]_compiler_vendor=`echo $vendor | cut -d: -f1`
- ])
-])
+	    ]])], [break])
+	done
+
+	ax_cv_[]_AC_LANG_ABBREV[]_compiler_vendor=`echo $vendor | cut -d: -f1`
+    ])
+])dnl
