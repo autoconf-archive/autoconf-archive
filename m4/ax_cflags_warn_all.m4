@@ -93,7 +93,7 @@ AC_DEFUN([AX_FLAGS_WARN_ALL], [
 	FOUND="yes"
 	dnl  Cases are listed in the order found in ax_compiler_vendor.m4
 	AS_CASE("$ax_cv_[]_AC_LANG_ABBREV[]_compiler_vendor",
-	    [intel],		[VAR="-warn all"],
+	    [intel],		[VAR="-w2"],
 	    [ibm],		[VAR="-qsrcmsg -qinfo=all:noppt:noppc:noobs:nocnd"],
 	    [pathscale],	[VAR=""],
 	    [clang],		[VAR="-Wall"],
