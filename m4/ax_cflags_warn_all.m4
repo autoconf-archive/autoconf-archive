@@ -118,20 +118,20 @@ AC_DEFUN([AX_FLAGS_WARN_ALL], [
     AS_VAR_POPDEF([FLAGS])dnl
 ])dnl AX_FLAGS_WARN_ALL
 
-AC_DEFUN([AX_CFLAGS_WARN_ALL],[dnl
-AC_LANG_PUSH([C])
-AX_FLAGS_WARN_ALL([$1], [$2], [$3], [$4])
-AC_LANG_POP([C])
-])
+AC_DEFUN([AX_CFLAGS_WARN_ALL], [dnl
+    AC_LANG_PUSH([C])
+    AX_FLAGS_WARN_ALL([$1], [$2], [$3], [$4])
+    AC_LANG_POP([C])
+])dnl
 
-AC_DEFUN([AX_CXXFLAGS_WARN_ALL],[dnl
-AC_LANG_PUSH([C++])
-AX_FLAGS_WARN_ALL([$1], [$2], [$3], [$4])
-AC_LANG_POP([C++])
-])
+AC_DEFUN([AX_CXXFLAGS_WARN_ALL], [dnl
+    AC_LANG_PUSH([C++])
+    AX_FLAGS_WARN_ALL([$1], [$2], [$3], [$4])
+    AC_LANG_POP([C++])
+])dnl
 
-AC_DEFUN([AX_FCFLAGS_WARN_ALL],[dnl
-AC_LANG_PUSH([Fortran])
-AX_FLAGS_WARN_ALL([$1], [$2], [$3], [$4])
-AC_LANG_POP([Fortran])
-])
+AC_DEFUN([AX_FCFLAGS_WARN_ALL], [dnl
+    AC_LANG_PUSH([Fortran])
+    AX_FLAGS_WARN_ALL([$1], [$2], [$3], [$4])
+    AC_LANG_POP([Fortran])
+])dnl
