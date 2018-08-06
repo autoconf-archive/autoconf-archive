@@ -61,48 +61,62 @@
 
 #serial 17
 
-AC_DEFUN([AX_FLAGS_WARN_ALL],[dnl
-AS_VAR_PUSHDEF([FLAGS],[_AC_LANG_PREFIX[]FLAGS])dnl
-AS_VAR_PUSHDEF([VAR],[ac_cv_[]_AC_LANG_ABBREV[]flags_warn_all])dnl
-AC_CACHE_CHECK([m4_ifval($1,$1,FLAGS) for maximum warnings],
-VAR,[VAR="no, unknown"
-ac_save_[]FLAGS="$[]FLAGS"
-for ac_arg dnl
-in "-warn all  % -warn all"   dnl Intel
-   "-pedantic  % -Wall"       dnl GCC
-   "-xstrconst % -v"          dnl Solaris C
-   "-std1      % -verbose -w0 -warnprotos" dnl Digital Unix
-   "-qlanglvl=ansi % -qsrcmsg -qinfo=all:noppt:noppc:noobs:nocnd" dnl AIX
-   "-ansi -ansiE % -fullwarn" dnl IRIX
-   "+ESlit     % +w1"         dnl HP-UX C
-   "-Xc        % -pvctl[,]fullmsg" dnl NEC SX-5 (Super-UX 10)
-   "-h conform % -h msglevel 2" dnl Cray C (Unicos)
-   #
-do FLAGS="$ac_save_[]FLAGS "`echo $ac_arg | sed -e 's,%%.*,,' -e 's,%,,'`
-   AC_COMPILE_IFELSE([AC_LANG_PROGRAM],
-                     [VAR=`echo $ac_arg | sed -e 's,.*% *,,'` ; break])
-done
-FLAGS="$ac_save_[]FLAGS"
-])
-AS_VAR_POPDEF([FLAGS])dnl
-AX_REQUIRE_DEFINED([AX_APPEND_FLAG])
-case ".$VAR" in
-     .ok|.ok,*) m4_ifvaln($3,$3) ;;
-   .|.no|.no,*) m4_default($4,[m4_ifval($2,[AX_APPEND_FLAG([$2], [$1])])]) ;;
-   *) m4_default($3,[AX_APPEND_FLAG([$VAR], [$1])]) ;;
-esac
-AS_VAR_POPDEF([VAR])dnl
+AC_DEFUN([AX_FLAGS_WARN_ALL], [
+    AX_REQUIRE_DEFINED([AX_APPEND_FLAG])dnl
+    AC_REQUIRE([AX_COMPILER_VENDOR])dnl
+
+    AS_VAR_PUSHDEF([FLAGS], [m4_default($1,_AC_LANG_PREFIX[]FLAGS)])dnl
+    AS_VAR_PUSHDEF([VAR],   [ac_cv_[]_AC_LANG_ABBREV[]flags_warn_all])dnl
+    AS_VAR_PUSHDEF([FOUND], [ac_save_[]_AC_LANG_ABBREV[]flags_warn_all_found])dnl
+
+    AC_CACHE_CHECK([FLAGS for most reasonable warnings], VAR, [
+	FOUND="yes"
+	dnl  Cases are listed in the order found in ax_compiler_vendor.m4
+	AS_CASE("$ax_cv_[]_AC_LANG_ABBREV[]_compiler_vendor",
+	    [intel],		[VAR="-warn all"],
+	    [ibm],		[VAR="-qsrcmsg -qinfo=all:noppt:noppc:noobs:nocnd"],
+	    [pathscale],	[VAR=""],
+	    [clang],		[VAR="-Wall"],
+	    [cray],		[VAR="-h msglevel 2"],
+	    [fujitsu],		[VAR=""],
+	    [sdcc],		[VAR=""],
+	    [sx],		[VAR="-pvctl[,]fullmsg"],
+	    [portland],		[VAR="-Wall"],
+	    [gnu],		[VAR="-Wall"],
+	    [sun],		[VAR="-v"],
+	    [hp],		[VAR="+w1"],
+	    [dec],		[VAR="-verbose -w0 -warnprotos"],
+	    [borland],		[VAR=""],
+	    [comeau],		[VAR=""],
+	    [kai],		[VAR=""],
+	    [lcc],		[VAR=""],
+	    [sgi],		[VAR="-fullwarn"],
+	    [microsoft],	[VAR=""],
+	    [metrowerks],	[VAR=""],
+	    [watcom],		[VAR=""],
+	    [tcc],		[VAR=""],
+	    [unknown],		[
+				    VAR="$2"
+				    FOUND="no"
+				],
+				[
+				    AC_MSG_WARN([Unknown compiler vendor returned by [AX_COMPILER_VENDOR]])
+				    VAR="$2"
+				    FOUND="no"
+				]
+	)
+
+	AS_IF([test "x$FOUND" = "xyes"], [dnl
+	    m4_default($3, [AX_APPEND_FLAG([$VAR], [FLAGS])])
+	], [dnl
+	    m4_default($4, [m4_ifval($2, [AX_APPEND_FLAG([$VAR], [FLAGS])], [true])])
+	])dnl
+    ])dnl
+
+    AS_VAR_POPDEF([FOUND])dnl
+    AS_VAR_POPDEF([VAR])dnl
+    AS_VAR_POPDEF([FLAGS])dnl
 ])dnl AX_FLAGS_WARN_ALL
-dnl  implementation tactics:
-dnl   the for-argument contains a list of options. The first part of
-dnl   these does only exist to detect the compiler - usually it is
-dnl   a global option to enable -ansi or -extrawarnings. All other
-dnl   compilers will fail about it. That was needed since a lot of
-dnl   compilers will give false positives for some option-syntax
-dnl   like -Woption or -Xoption as they think of it is a pass-through
-dnl   to later compile stages or something. The "%" is used as a
-dnl   delimiter. A non-option comment can be given after "%%" marks
-dnl   which will be shown but not added to the respective C/CXXFLAGS.
 
 AC_DEFUN([AX_CFLAGS_WARN_ALL],[dnl
 AC_LANG_PUSH([C])
