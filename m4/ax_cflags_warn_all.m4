@@ -101,7 +101,7 @@ AC_DEFUN([AX_FLAGS_WARN_ALL], [
 	    [fujitsu],		[VAR=""],
 	    [sdcc],		[VAR=""],
 	    [sx],		[VAR="-pvctl[,]fullmsg"],
-	    [portland],		[VAR="-Wall"],
+	    [portland],		[VAR=""],
 	    [gnu],		[VAR="-Wall"],
 	    [sun],		[VAR="-v"],
 	    [hp],		[VAR="+w1"],
