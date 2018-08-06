@@ -4,28 +4,48 @@
 #
 # SYNOPSIS
 #
-#   AX_CFLAGS_WARN_ALL   [(shellvar [,default, [A/NA]])]
-#   AX_CXXFLAGS_WARN_ALL [(shellvar [,default, [A/NA]])]
-#   AX_FCFLAGS_WARN_ALL  [(shellvar [,default, [A/NA]])]
+#   AX_CFLAGS_WARN_ALL   [(shellvar[, default[, action-if-found[, action-if-not-found]]])]
+#   AX_CXXFLAGS_WARN_ALL [(shellvar[, default[, action-if-found[, action-if-not-found]]])]
+#   AX_FCFLAGS_WARN_ALL  [(shellvar[, default[, action-if-found[, action-if-not-found]]])]
 #
 # DESCRIPTION
 #
-#   Try to find a compiler option that enables most reasonable warnings.
+#   Specify compiler options that enable most reasonable warnings.  For the
+#   GNU Compiler Collection (GCC), for example, it will be "-Wall".  The
+#   result is added to shellvar, one of CFLAGS, CXXFLAGS or FCFLAGS if the
+#   first parameter is not specified.
 #
-#   For the GNU compiler it will be -Wall (and -ansi -pedantic) The result
-#   is added to the shellvar being CFLAGS, CXXFLAGS, or FCFLAGS by default.
+#   Each of these macros accepts the following optional arguments:
 #
-#   Currently this macro knows about the GCC, Solaris, Digital Unix, AIX,
-#   HP-UX, IRIX, NEC SX-5 (Super-UX 10), Cray J90 (Unicos 10.0.0.8), and
-#   Intel compilers.  For a given compiler, the Fortran flags are much more
-#   experimental than their C equivalents.
+#     - $1 - shellvar
+#         shell variable to use (CFLAGS, CXXFLAGS or FCFLAGS if not
+#         specified, depending on macro)
 #
-#    - $1 shell-variable-to-add-to : CFLAGS, CXXFLAGS, or FCFLAGS
-#    - $2 add-value-if-not-found : nothing
-#    - $3 action-if-found : add value to shellvariable
-#    - $4 action-if-not-found : nothing
+#     - $2 - default
+#         value to use for flags if compiler vendor cannot be determined (by
+#         default, "")
 #
-#   NOTE: These macros depend on AX_APPEND_FLAG.
+#     - $3 - action-if-found
+#         action to take if the compiler vendor has been successfully
+#         determined (by default, add the appropriate compiler flags to
+#         shellvar)
+#
+#     - $4 - action-if-not-found
+#         action to take if the compiler vendor has not been determined or
+#         is unknown (by default, add the default flags, or "" if not
+#         specified, to shellvar)
+#
+#   These macros use AX_COMPILER_VENDOR to determine which flags should be
+#   returned for a given compiler.  Not all compilers currently have flags
+#   defined for them; patches are welcome.  If need be, compiler flags may
+#   be made language-dependent: use a construct like the following:
+#
+#     [vendor_name], [m4_if(_AC_LANG_PREFIX,[C],   VAR="--relevant-c-flags",dnl
+#                     m4_if(_AC_LANG_PREFIX,[CXX], VAR="--relevant-c++-flags",dnl
+#                     m4_if(_AC_LANG_PREFIX,[FC],  VAR="--relevant-fortran-flags",dnl
+#                     VAR="$2"; FOUND="no")))],
+#
+#   Note: These macros also depend on AX_APPEND_FLAG.
 #
 # LICENSE
 #
