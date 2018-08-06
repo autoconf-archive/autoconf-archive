@@ -79,7 +79,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 17
+#serial 18
 
 AC_DEFUN([AX_FLAGS_WARN_ALL], [
     AX_REQUIRE_DEFINED([AX_PREPEND_FLAG])dnl
@@ -90,31 +90,32 @@ AC_DEFUN([AX_FLAGS_WARN_ALL], [
     AS_VAR_PUSHDEF([FOUND], [ac_save_[]_AC_LANG_ABBREV[]flags_warn_all_found])dnl
 
     AC_CACHE_CHECK([FLAGS for most reasonable warnings], VAR, [
+	VAR=""
 	FOUND="yes"
 	dnl  Cases are listed in the order found in ax_compiler_vendor.m4
 	AS_CASE("$ax_cv_[]_AC_LANG_ABBREV[]_compiler_vendor",
 	    [intel],		[VAR="-w2"],
 	    [ibm],		[VAR="-qsrcmsg -qinfo=all:noppt:noppc:noobs:nocnd"],
-	    [pathscale],	[VAR=""],
+	    [pathscale],	[],
 	    [clang],		[VAR="-Wall"],
 	    [cray],		[VAR="-h msglevel 2"],
-	    [fujitsu],		[VAR=""],
-	    [sdcc],		[VAR=""],
+	    [fujitsu],		[],
+	    [sdcc],		[],
 	    [sx],		[VAR="-pvctl[,]fullmsg"],
-	    [portland],		[VAR=""],
+	    [portland],		[],
 	    [gnu],		[VAR="-Wall"],
 	    [sun],		[VAR="-v"],
 	    [hp],		[VAR="+w1"],
 	    [dec],		[VAR="-verbose -w0 -warnprotos"],
-	    [borland],		[VAR=""],
-	    [comeau],		[VAR=""],
-	    [kai],		[VAR=""],
-	    [lcc],		[VAR=""],
+	    [borland],		[],
+	    [comeau],		[],
+	    [kai],		[],
+	    [lcc],		[],
 	    [sgi],		[VAR="-fullwarn"],
-	    [microsoft],	[VAR=""],
-	    [metrowerks],	[VAR=""],
-	    [watcom],		[VAR=""],
-	    [tcc],		[VAR=""],
+	    [microsoft],	[],
+	    [metrowerks],	[],
+	    [watcom],		[],
+	    [tcc],		[],
 	    [unknown],		[
 				    VAR="$2"
 				    FOUND="no"
@@ -127,7 +128,7 @@ AC_DEFUN([AX_FLAGS_WARN_ALL], [
 	)
 
 	AS_IF([test "x$FOUND" = "xyes"], [dnl
-	    m4_default($3, [AX_PREPEND_FLAG([$VAR], [FLAGS])])
+	    m4_default($3, [AS_IF([test "x$VAR" != "x"], [AX_PREPEND_FLAG([$VAR], [FLAGS])])])
 	], [dnl
 	    m4_default($4, [m4_ifval($2, [AX_PREPEND_FLAG([$VAR], [FLAGS])], [true])])
 	])dnl
