@@ -45,7 +45,7 @@
 #                     m4_if(_AC_LANG_PREFIX,[FC],  VAR="--relevant-fortran-flags",dnl
 #                     VAR="$2"; FOUND="no")))],
 #
-#   Note: These macros also depend on AX_APPEND_FLAG.
+#   Note: These macros also depend on AX_PREPEND_FLAG.
 #
 # LICENSE
 #
@@ -82,7 +82,7 @@
 #serial 17
 
 AC_DEFUN([AX_FLAGS_WARN_ALL], [
-    AX_REQUIRE_DEFINED([AX_APPEND_FLAG])dnl
+    AX_REQUIRE_DEFINED([AX_PREPEND_FLAG])dnl
     AC_REQUIRE([AX_COMPILER_VENDOR])dnl
 
     AS_VAR_PUSHDEF([FLAGS], [m4_default($1,_AC_LANG_PREFIX[]FLAGS)])dnl
@@ -127,9 +127,9 @@ AC_DEFUN([AX_FLAGS_WARN_ALL], [
 	)
 
 	AS_IF([test "x$FOUND" = "xyes"], [dnl
-	    m4_default($3, [AX_APPEND_FLAG([$VAR], [FLAGS])])
+	    m4_default($3, [AX_PREPEND_FLAG([$VAR], [FLAGS])])
 	], [dnl
-	    m4_default($4, [m4_ifval($2, [AX_APPEND_FLAG([$VAR], [FLAGS])], [true])])
+	    m4_default($4, [m4_ifval($2, [AX_PREPEND_FLAG([$VAR], [FLAGS])], [true])])
 	])dnl
     ])dnl
 
