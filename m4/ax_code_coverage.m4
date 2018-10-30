@@ -40,7 +40,7 @@
 #     my_program_CXXFLAGS = ... $(CODE_COVERAGE_CXXFLAGS) ...
 #
 #     clean-local: code-coverage-clean
-#     dist-clean-local: code-coverage-dist-clean
+#     distclean-local: code-coverage-dist-clean
 #
 #   This results in a "check-code-coverage" rule being added to any
 #   Makefile.am which do "include $(top_srcdir)/aminclude_static.am"
@@ -74,7 +74,7 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 31
+#serial 32
 
 m4_define(_AX_CODE_COVERAGE_RULES,[
 AX_ADD_AM_MACRO_STATIC([
