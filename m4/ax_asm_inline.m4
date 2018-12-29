@@ -23,13 +23,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_ASM_INLINE], [
   AC_LANG_PUSH([C])
   AC_MSG_CHECKING(for inline assembly style)
   AC_CACHE_VAL(ac_cv_asm_inline, [
-    ax_asm_inline_keywords="__asm__ __asm none"
+    ax_asm_inline_keywords="__asm__ __asm asm none"
     for ax_asm_inline_keyword in $ax_asm_inline_keywords; do
        case $ax_asm_inline_keyword in
           none) ac_cv_asm_inline=none ; break ;;
