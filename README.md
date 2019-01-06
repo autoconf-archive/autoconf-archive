@@ -51,7 +51,7 @@ and rerun the `gpg --verify` command.
 License
 -------
 
-Copyright (c) 2018 Autoconf Archive Maintainers \<<autoconf-archive-maintainers@gnu.org>\>
+Copyright (c) 2019 Autoconf Archive Maintainers \<<autoconf-archive-maintainers@gnu.org>\>
 
 The GNU Autoconf Archive is free software: you can redistribute it and/or
 modify it under the terms of the GNU General Public License as published

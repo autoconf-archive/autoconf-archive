@@ -1,6 +1,6 @@
 #+TITLE: Autoconf Archive TODO                 -*- mode:org;fill-column:79; -*-
 #
-# Copyright (c) 2018 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
+# Copyright (c) 2019 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
 #
 # Copying and distribution of this file, with or without modification, are
 # permitted in any medium without royalty provided the copyright notice
@@ -90,7 +90,7 @@
 
   We have a bunch of administrative files, such as configure.ac or Makefile.am,
   and those files need some sort of copyright statement. The usual approach is
-  to use "Copyright (c) 2011 Free Software Foundation, Inc.", like this file
+  to use "Copyright (c) 2019 Free Software Foundation, Inc.", like this file
   currently does, but that statement is not accurate, because the rights
   haven't been actually signed over to the FSF. Instead, it would be nice to
   generate proper copyright lines from the Git repository, using the authors
