@@ -1,29 +1,22 @@
 # .travis.yml
 
 language: c
-
-sudo: false
-
 git:
   depth: 50000
 
 addons:
   apt:
     packages:
-      # - gnulib
+      - gnulib
       - python3
       - texlive
       - texinfo
       - tidy
-
-before_install:
-  - git clone --depth=1 git://git.savannah.gnu.org/gnulib.git
 
 script:
   - ./bootstrap.sh
   - ./configure
   - make PYTHON=python3 -j$(nproc) maintainer-all all
   - make distcheck
-  # makeinfo is too old for those steps. :-(
-  # - make web-manual
-  # - ./fix-website.sh
+  - make web-manual
+  - ./fix-website.sh
