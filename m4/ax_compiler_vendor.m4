@@ -44,14 +44,14 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 17
+#serial 18
 
 AC_DEFUN([AX_COMPILER_VENDOR],
 [AC_CACHE_CHECK([for _AC_LANG compiler vendor], ax_cv_[]_AC_LANG_ABBREV[]_compiler_vendor,
   dnl Please add if possible support to ax_compiler_version.m4
   [# note: don't check for gcc first since some other compilers define __GNUC__
   vendors="intel:     __ICC,__ECC,__INTEL_COMPILER
-           ibm:       __xlc__,__xlC__,__IBMC__,__IBMCPP__
+           ibm:       __xlc__,__xlC__,__IBMC__,__IBMCPP__,__ibmxl__
            pathscale: __PATHCC__,__PATHSCALE__
            clang:     __clang__
            cray:      _CRAYC
