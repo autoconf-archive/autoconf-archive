@@ -51,7 +51,7 @@ AC_DEFUN([AX_COMPILER_VENDOR],
   dnl Please add if possible support to ax_compiler_version.m4
   [# note: don't check for gcc first since some other compilers define __GNUC__
   vendors="intel:     __ICC,__ECC,__INTEL_COMPILER
-           ibm:       __xlc__,__xlC__,__IBMC__,__IBMCPP__
+           ibm:       __xlc__,__xlC__,__IBMC__,__IBMCPP__,__ibmxl__
            pathscale: __PATHCC__,__PATHSCALE__
            clang:     __clang__
            cray:      _CRAYC
