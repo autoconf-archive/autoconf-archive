@@ -74,7 +74,7 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 32
+#serial 33
 
 m4_define(_AX_CODE_COVERAGE_RULES,[
 AX_ADD_AM_MACRO_STATIC([
@@ -175,7 +175,7 @@ code-coverage-clean:
 
 code-coverage-dist-clean:
 
-A][M_DISTCHECK_CONFIGURE_FLAGS = \$(A][M_DISTCHECK_CONFIGURE_FLAGS) --disable-code-coverage
+A][M_DISTCHECK_CONFIGURE_FLAGS := \$(A][M_DISTCHECK_CONFIGURE_FLAGS) --disable-code-coverage
  else # ifneq (\$(abs_builddir), \$(abs_top_builddir))
 check-code-coverage:
 
