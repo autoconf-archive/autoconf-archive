@@ -20,11 +20,11 @@
 #   To check for a Fortran compiler, you must first call AC_FC_PP_SRCEXT
 #   with an appropriate preprocessor-enabled extension.  For example:
 #
-#       AC_LANG_PUSH([Fortran])
-#       AC_PROG_FC
-#       AC_FC_PP_SRCEXT([F])
-#       AX_COMPILER_VENDOR
-#       AC_LANG_POP([Fortran])
+#     AC_LANG_PUSH([Fortran])
+#     AC_PROG_FC
+#     AC_FC_PP_SRCEXT([F])
+#     AX_COMPILER_VENDOR
+#     AC_LANG_POP([Fortran])
 #
 # LICENSE
 #
@@ -58,7 +58,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 21
+#serial 30
 
 AC_DEFUN([AX_COMPILER_VENDOR], [dnl
     AC_CACHE_CHECK([for _AC_LANG compiler vendor], ax_cv_[]_AC_LANG_ABBREV[]_compiler_vendor, [dnl
