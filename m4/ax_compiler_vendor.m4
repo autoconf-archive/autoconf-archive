@@ -30,7 +30,7 @@
 #
 #   Copyright (c) 2008 Steven G. Johnson <stevenj@alum.mit.edu>
 #   Copyright (c) 2008 Matteo Frigo
-#   Copyright (c) 2018 John Zaitseff <J.Zaitseff@zap.org.au>
+#   Copyright (c) 2018-19 John Zaitseff <J.Zaitseff@zap.org.au>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -58,7 +58,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 19
+#serial 20
 
 AC_DEFUN([AX_COMPILER_VENDOR], [dnl
     AC_CACHE_CHECK([for _AC_LANG compiler vendor], ax_cv_[]_AC_LANG_ABBREV[]_compiler_vendor, [dnl
