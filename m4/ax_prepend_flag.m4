@@ -1,5 +1,5 @@
 # ===========================================================================
-#      https://www.gnu.org/software/autoconf-archive/ax_prepend_flag.html
+#     https://www.gnu.org/software/autoconf-archive/ax_prepend_flag.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -29,7 +29,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_PREPEND_FLAG],
 [dnl

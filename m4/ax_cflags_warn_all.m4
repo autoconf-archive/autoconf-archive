@@ -79,7 +79,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 18
+#serial 25
 
 AC_DEFUN([AX_FLAGS_WARN_ALL], [
     AX_REQUIRE_DEFINED([AX_PREPEND_FLAG])dnl
