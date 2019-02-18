@@ -21,12 +21,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_C_ARITHMETIC_RSHIFT], [
   AC_CACHE_CHECK([whether right shift operation is arithmetic],
                  [ax_cv_c_arithmetic_rshift],
-                 [AC_COMPILE_IFELSE([[int dummy[((-1 >> 1) < 0) ? 1 : -1];]],
+                 [AC_COMPILE_IFELSE([AC_LANG_SOURCE([[int dummy[((-1 >> 1) < 0) ? 1 : -1];]])],
                                     [ax_cv_c_arithmetic_rshift=yes],
                                     [ax_cv_c_arithmetic_rshift=no])])
   if test "x$ax_cv_c_arithmetic_rshift" = xyes; then
