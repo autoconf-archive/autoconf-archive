@@ -1,6 +1,6 @@
-# =============================================================
-#  https://www.gnu.org/software/autoconf-archive/ax_int128.html
-# =============================================================
+# ===========================================================================
+#        https://www.gnu.org/software/autoconf-archive/ax_int128.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -12,8 +12,7 @@
 #
 #   Works with GCC >= 4.6.
 #
-#   TODO: Provide int128[u]_t.
-#   TODO: Work with other compilers.
+#   TODO: Provide int128[u]_t & work with other compilers.
 #
 # LICENSE
 #
@@ -24,7 +23,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_HAVE_INT128],
 [
