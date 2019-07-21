@@ -36,6 +36,7 @@
 # LICENSE
 #
 #   Copyright (c) 2008 Steven G. Johnson <stevenj@alum.mit.edu>
+#   Copyright (c) 2019 Geoffrey M. Oxberry <goxberry@gmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -63,7 +64,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 16
+#serial 17
 
 AU_ALIAS([ACX_BLAS], [AX_BLAS])
 AC_DEFUN([AX_BLAS], [
@@ -77,7 +78,9 @@ AC_ARG_WITH(blas,
 case $with_blas in
 	yes | "") ;;
 	no) ax_blas_ok=disable ;;
-	-* | */* | *.a | *.so | *.so.* | *.o) BLAS_LIBS="$with_blas" ;;
+	-* | */* | *.a | *.so | *.so.* | *.dylib | *.dylib.* | *.o)
+		BLAS_LIBS="$with_blas"
+	;;
 	*) BLAS_LIBS="-l$with_blas" ;;
 esac
 
