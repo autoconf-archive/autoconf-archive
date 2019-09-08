@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_R_PACKAGE], [
     pushdef([PKG],$1)
@@ -40,7 +40,7 @@ AC_DEFUN([AX_R_PACKAGE], [
 
     AC_MSG_CHECKING([R package PKG VERSION])
 
-    TEST=$( $R --silent --vanilla -e 'if(is.na(packageDescription("PKG"))) stop("not found")' 2>/dev/null )
+    TEST=$( $R --silent --vanilla -e 'if(system.file(package="PKG") == "") stop("not found")' 2>/dev/null )
     AS_IF([test $? -eq 0], [], [
       AC_MSG_RESULT([no])
       AC_MSG_ERROR([R package PKG not found.])
