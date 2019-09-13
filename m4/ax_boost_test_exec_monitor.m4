@@ -30,7 +30,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 21
+#serial 22
 
 AC_DEFUN([AX_BOOST_TEST_EXEC_MONITOR],
 [
@@ -126,7 +126,7 @@ AC_DEFUN([AX_BOOST_TEST_EXEC_MONITOR],
                done
             fi
             if test "x$ax_lib" = "x"; then
-                AC_MSG_ERROR(Could not find a version of the library!)
+                AC_MSG_ERROR(Could not find a version of the Boost::Test_Exec_Monitor library!)
             fi
 			if test "x$link_test_exec_monitor" != "xyes"; then
 				AC_MSG_ERROR(Could not link against $ax_lib !)
