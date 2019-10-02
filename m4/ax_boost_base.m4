@@ -33,7 +33,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 48
+#serial 49
 
 # example boost program (need to pass version)
 m4_define([_AX_BOOST_BASE_PROGRAM],
@@ -133,7 +133,7 @@ AC_DEFUN([_AX_BOOST_BASE_RUNDETECT],[
     libsubdirs="lib/`$CXX -dumpmachine 2>/dev/null` $libsubdirs"
 
     dnl first we check the system location for boost libraries
-    dnl this location ist chosen if boost libraries are installed with the --layout=system option
+    dnl this location is chosen if boost libraries are installed with the --layout=system option
     dnl or if you install boost with RPM
     AS_IF([test "x$_AX_BOOST_BASE_boost_path" != "x"],[
         AC_MSG_CHECKING([for boostlib >= $1 ($WANT_BOOST_VERSION) includes in "$_AX_BOOST_BASE_boost_path/include"])
