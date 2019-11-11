@@ -31,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_BOOST_PROCESS],
 [
@@ -41,19 +41,19 @@ AC_DEFUN([AX_BOOST_PROCESS],
                         e.g. --with-boost-process=boost_process-gcc-mt ]),
         [
         if test "$withval" = "no"; then
-			want_boost="no"
+			want_boost_process="no"
         elif test "$withval" = "yes"; then
-            want_boost="yes"
+            want_boost_process="yes"
             ax_boost_user_process_lib=""
         else
-		    want_boost="yes"
+		    want_boost_process="yes"
 		ax_boost_user_process_lib="$withval"
 		fi
         ],
-        [want_boost="yes"]
+        [want_boost_process="yes"]
 	)
 
-	if test "x$want_boost" = "xyes"; then
+	if test "x$want_boost_process" = "xyes"; then
         AC_REQUIRE([AC_PROG_CC])
         AC_REQUIRE([AC_CANONICAL_BUILD])
 		CPPFLAGS_SAVED="$CPPFLAGS"
