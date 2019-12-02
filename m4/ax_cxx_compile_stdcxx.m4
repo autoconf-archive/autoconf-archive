@@ -165,7 +165,8 @@ m4_define([_AX_CXX_COMPILE_STDCXX_testbody_new_in_11], [[
 
 #error "This is not a C++ compiler"
 
-#elif __cplusplus < 201103L
+// xlC always defines __cplusplus as 199711L, even when using a later version.
+#elif __cplusplus < 201103L && !defined(__xlC__)
 
 #error "This is not a C++11 compiler"
 
@@ -456,7 +457,8 @@ m4_define([_AX_CXX_COMPILE_STDCXX_testbody_new_in_14], [[
 
 #error "This is not a C++ compiler"
 
-#elif __cplusplus < 201402L
+// xlC always defines __cplusplus as 199711L, even when using a later version.
+#elif __cplusplus < 201402L && !defined(__xlC__)
 
 #error "This is not a C++14 compiler"
 
@@ -580,7 +582,8 @@ m4_define([_AX_CXX_COMPILE_STDCXX_testbody_new_in_17], [[
 
 #error "This is not a C++ compiler"
 
-#elif __cplusplus < 201703L
+// xlC always defines __cplusplus as 199711L, even when using a later version.
+#elif __cplusplus < 201703L && !defined(__xlC__)
 
 #error "This is not a C++17 compiler"
 
