@@ -53,6 +53,7 @@ pushdef([ac_exeext], ac_build_exeext)dnl
 pushdef([ac_objext], ac_build_objext)dnl
 pushdef([CC], CC_FOR_BUILD)dnl
 pushdef([CPP], CPP_FOR_BUILD)dnl
+pushdef([GCC], GCC_FOR_BUILD)dnl
 pushdef([CFLAGS], CFLAGS_FOR_BUILD)dnl
 pushdef([CPPFLAGS], CPPFLAGS_FOR_BUILD)dnl
 pushdef([LDFLAGS], LDFLAGS_FOR_BUILD)dnl
@@ -99,6 +100,7 @@ popdef([host])dnl
 popdef([LDFLAGS])dnl
 popdef([CPPFLAGS])dnl
 popdef([CFLAGS])dnl
+popdef([GCC])dnl
 popdef([CPP])dnl
 popdef([CC])dnl
 popdef([ac_objext])dnl
