@@ -38,7 +38,6 @@ AU_ALIAS([AC_PROG_CC_FOR_BUILD], [AX_PROG_CC_FOR_BUILD])
 AC_DEFUN([AX_PROG_CC_FOR_BUILD], [dnl
 AC_REQUIRE([AC_PROG_CC])dnl
 AC_REQUIRE([AC_PROG_CPP])dnl
-AC_REQUIRE([AC_EXEEXT])dnl
 AC_REQUIRE([AC_CANONICAL_HOST])dnl
 
 dnl Use the standard macros, but make them use other variable names
@@ -78,7 +77,6 @@ ac_tool_prefix=
 
 AC_PROG_CC
 AC_PROG_CPP
-AC_EXEEXT
 
 ac_tool_prefix=$save_ac_tool_prefix
 cross_compiling=$save_cross_compiling
