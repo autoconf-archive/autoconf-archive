@@ -67,19 +67,21 @@ pushdef([ac_cv_host_alias], ac_cv_build_alias)dnl
 pushdef([ac_cv_host_cpu], ac_cv_build_cpu)dnl
 pushdef([ac_cv_host_vendor], ac_cv_build_vendor)dnl
 pushdef([ac_cv_host_os], ac_cv_build_os)dnl
+pushdef([ac_tool_prefix], ac_build_tool_prefix)dnl
 pushdef([ac_cpp], ac_build_cpp)dnl
 pushdef([ac_compile], ac_build_compile)dnl
 pushdef([ac_link], ac_build_link)dnl
 
 save_cross_compiling=$cross_compiling
-save_ac_tool_prefix=$ac_tool_prefix
 cross_compiling=no
-ac_tool_prefix=
+
+ac_build_tool_prefix=
+AS_IF([test -n "$build"],      [ac_build_tool_prefix="$build-"],
+      [test -n "$build_alias"],[ac_build_tool_prefix="$build_alias-"])
 
 AC_PROG_CC
 AC_PROG_CPP
 
-ac_tool_prefix=$save_ac_tool_prefix
 cross_compiling=$save_cross_compiling
 
 dnl Restore the old definitions
@@ -87,6 +89,7 @@ dnl
 popdef([ac_link])dnl
 popdef([ac_compile])dnl
 popdef([ac_cpp])dnl
+popdef([ac_tool_prefix])dnl
 popdef([ac_cv_host_os])dnl
 popdef([ac_cv_host_vendor])dnl
 popdef([ac_cv_host_cpu])dnl
