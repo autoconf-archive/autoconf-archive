@@ -42,6 +42,7 @@ AC_REQUIRE([AC_PROG_CPP])dnl
 dnl Use the standard macros, but make them use other variable names
 dnl
 pushdef([ac_cv_prog_CPP], ac_cv_build_prog_CPP)dnl
+pushdef([ac_cv_prog_cc_c89], ac_cv_build_prog_cc_c89)dnl
 pushdef([ac_cv_prog_gcc], ac_cv_build_prog_gcc)dnl
 pushdef([ac_cv_prog_cc_works], ac_cv_build_prog_cc_works)dnl
 pushdef([ac_cv_prog_cc_cross], ac_cv_build_prog_cc_cross)dnl
@@ -68,6 +69,8 @@ pushdef([ac_cv_host_cpu], ac_cv_build_cpu)dnl
 pushdef([ac_cv_host_vendor], ac_cv_build_vendor)dnl
 pushdef([ac_cv_host_os], ac_cv_build_os)dnl
 pushdef([ac_tool_prefix], ac_build_tool_prefix)dnl
+pushdef([am_cv_CC_dependencies_compiler_type], am_cv_build_CC_dependencies_compiler_type)dnl
+pushdef([am_cv_prog_cc_c_o], am_cv_build_prog_cc_c_o)dnl
 pushdef([cross_compiling], cross_compiling_build)dnl
 
 dnl auto(re)conf 2.69:
@@ -104,6 +107,8 @@ _save_ax_prog_cc_for_build__ac_compile=""
 _save_ax_prog_cc_for_build__ac_link=""
 
 popdef([cross_compiling])dnl
+popdef([am_cv_prog_cc_c_o])dnl
+popdef([am_cv_CC_dependencies_compiler_type])dnl
 popdef([ac_tool_prefix])dnl
 popdef([ac_cv_host_os])dnl
 popdef([ac_cv_host_vendor])dnl
@@ -129,6 +134,7 @@ popdef([ac_cv_c_compiler_gnu])dnl
 popdef([ac_cv_prog_cc_g])dnl
 popdef([ac_cv_prog_cc_cross])dnl
 popdef([ac_cv_prog_cc_works])dnl
+popdef([ac_cv_prog_cc_c89])dnl
 popdef([ac_cv_prog_gcc])dnl
 popdef([ac_cv_prog_CPP])dnl
 
