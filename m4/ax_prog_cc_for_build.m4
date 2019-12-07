@@ -57,7 +57,9 @@ pushdef([CPP], CPP_FOR_BUILD)dnl
 pushdef([GCC], GCC_FOR_BUILD)dnl
 pushdef([CFLAGS], CFLAGS_FOR_BUILD)dnl
 pushdef([CPPFLAGS], CPPFLAGS_FOR_BUILD)dnl
+pushdef([EXEEXT], BUILD_EXEEXT)dnl
 pushdef([LDFLAGS], LDFLAGS_FOR_BUILD)dnl
+pushdef([OBJEXT], BUILD_OBJEXT)dnl
 pushdef([host], build)dnl
 pushdef([host_alias], build_alias)dnl
 pushdef([host_cpu], build_cpu)dnl
@@ -92,6 +94,8 @@ AS_IF([test -n "$build"],      [ac_build_tool_prefix="$build-"],
       [test -n "$build_alias"],[ac_build_tool_prefix="$build_alias-"])
 
 AC_PROG_CC
+_AC_COMPILER_EXEEXT
+_AC_COMPILER_OBJEXT
 AC_PROG_CPP
 
 dnl Restore the old definitions
@@ -120,7 +124,9 @@ popdef([host_vendor])dnl
 popdef([host_cpu])dnl
 popdef([host_alias])dnl
 popdef([host])dnl
+popdef([OBJEXT])dnl
 popdef([LDFLAGS])dnl
+popdef([EXEEXT])dnl
 popdef([CPPFLAGS])dnl
 popdef([CFLAGS])dnl
 popdef([GCC])dnl
@@ -140,8 +146,6 @@ popdef([ac_cv_prog_CPP])dnl
 
 dnl Finally, set Makefile variables
 dnl
-BUILD_EXEEXT=$ac_build_exeext
-BUILD_OBJEXT=$ac_build_objext
 AC_SUBST(BUILD_EXEEXT)dnl
 AC_SUBST(BUILD_OBJEXT)dnl
 AC_SUBST([CFLAGS_FOR_BUILD])dnl
