@@ -38,7 +38,6 @@ AU_ALIAS([AC_PROG_CC_FOR_BUILD], [AX_PROG_CC_FOR_BUILD])
 AC_DEFUN([AX_PROG_CC_FOR_BUILD], [dnl
 AC_REQUIRE([AC_PROG_CC])dnl
 AC_REQUIRE([AC_PROG_CPP])dnl
-AC_REQUIRE([AC_CANONICAL_HOST])dnl
 
 dnl Use the standard macros, but make them use other variable names
 dnl
@@ -47,6 +46,7 @@ pushdef([ac_cv_prog_gcc], ac_cv_build_prog_gcc)dnl
 pushdef([ac_cv_prog_cc_works], ac_cv_build_prog_cc_works)dnl
 pushdef([ac_cv_prog_cc_cross], ac_cv_build_prog_cc_cross)dnl
 pushdef([ac_cv_prog_cc_g], ac_cv_build_prog_cc_g)dnl
+pushdef([ac_cv_c_compiler_gnu], ac_cv_build_c_compiler_gnu)dnl
 pushdef([ac_cv_exeext], ac_cv_build_exeext)dnl
 pushdef([ac_cv_objext], ac_cv_build_objext)dnl
 pushdef([ac_exeext], ac_build_exeext)dnl
@@ -68,12 +68,21 @@ pushdef([ac_cv_host_cpu], ac_cv_build_cpu)dnl
 pushdef([ac_cv_host_vendor], ac_cv_build_vendor)dnl
 pushdef([ac_cv_host_os], ac_cv_build_os)dnl
 pushdef([ac_tool_prefix], ac_build_tool_prefix)dnl
-pushdef([ac_cpp], ac_build_cpp)dnl
-pushdef([ac_compile], ac_build_compile)dnl
-pushdef([ac_link], ac_build_link)dnl
+pushdef([cross_compiling], cross_compiling_build)dnl
 
-save_cross_compiling=$cross_compiling
-cross_compiling=no
+dnl auto(re)conf 2.69:
+dnl The following variables are used as global variables by, e.g.,
+dnl the functions `ac_fn_c_try_compile' and `ac_fn_c_try_cpp', and
+dnl are created by configure when needed.  Thus, pushing them will
+dnl not work.  Thus we store them in `save' variables and restore
+dnl them at the end.
+dnl
+_save_ax_prog_cc_for_build__ac_ext="$ac_ext"
+_save_ax_prog_cc_for_build__ac_cpp="$ac_cpp"
+_save_ax_prog_cc_for_build__ac_compile="$ac_compile"
+_save_ax_prog_cc_for_build__ac_link="$ac_link"
+
+cross_compiling_build=no
 
 ac_build_tool_prefix=
 AS_IF([test -n "$build"],      [ac_build_tool_prefix="$build-"],
@@ -82,13 +91,19 @@ AS_IF([test -n "$build"],      [ac_build_tool_prefix="$build-"],
 AC_PROG_CC
 AC_PROG_CPP
 
-cross_compiling=$save_cross_compiling
-
 dnl Restore the old definitions
 dnl
-popdef([ac_link])dnl
-popdef([ac_compile])dnl
-popdef([ac_cpp])dnl
+ac_ext="$_save_ax_prog_cc_for_build__ac_ext"
+ac_cpp="$_save_ax_prog_cc_for_build__ac_cpp"
+ac_compile="$_save_ax_prog_cc_for_build__ac_compile"
+ac_link="$_save_ax_prog_cc_for_build__ac_link"
+ac_compiler_gnu=$ac_cv_c_compiler_gnu
+_save_ax_prog_cc_for_build__ac_ext=""
+_save_ax_prog_cc_for_build__ac_cpp=""
+_save_ax_prog_cc_for_build__ac_compile=""
+_save_ax_prog_cc_for_build__ac_link=""
+
+popdef([cross_compiling])dnl
 popdef([ac_tool_prefix])dnl
 popdef([ac_cv_host_os])dnl
 popdef([ac_cv_host_vendor])dnl
@@ -110,6 +125,7 @@ popdef([ac_objext])dnl
 popdef([ac_exeext])dnl
 popdef([ac_cv_objext])dnl
 popdef([ac_cv_exeext])dnl
+popdef([ac_cv_c_compiler_gnu])dnl
 popdef([ac_cv_prog_cc_g])dnl
 popdef([ac_cv_prog_cc_cross])dnl
 popdef([ac_cv_prog_cc_works])dnl
