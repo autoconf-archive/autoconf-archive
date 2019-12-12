@@ -75,24 +75,13 @@ pushdef([am_cv_CC_dependencies_compiler_type], am_cv_build_CC_dependencies_compi
 pushdef([am_cv_prog_cc_c_o], am_cv_build_prog_cc_c_o)dnl
 pushdef([cross_compiling], cross_compiling_build)dnl
 
-dnl auto(re)conf 2.69:
-dnl The following variables are used as global variables by, e.g.,
-dnl the functions `ac_fn_c_try_compile' and `ac_fn_c_try_cpp', and
-dnl are created by configure when needed.  Thus, pushing them will
-dnl not work.  Thus we store them in `save' variables and restore
-dnl them at the end.
-dnl
-_save_ax_prog_cc_for_build__ac_ext="$ac_ext"
-_save_ax_prog_cc_for_build__ac_cpp="$ac_cpp"
-_save_ax_prog_cc_for_build__ac_compile="$ac_compile"
-_save_ax_prog_cc_for_build__ac_link="$ac_link"
-
 cross_compiling_build=no
 
 ac_build_tool_prefix=
 AS_IF([test -n "$build"],      [ac_build_tool_prefix="$build-"],
       [test -n "$build_alias"],[ac_build_tool_prefix="$build_alias-"])
 
+AC_LANG_PUSH([C])
 AC_PROG_CC
 _AC_COMPILER_EXEEXT
 _AC_COMPILER_OBJEXT
@@ -100,16 +89,6 @@ AC_PROG_CPP
 
 dnl Restore the old definitions
 dnl
-ac_ext="$_save_ax_prog_cc_for_build__ac_ext"
-ac_cpp="$_save_ax_prog_cc_for_build__ac_cpp"
-ac_compile="$_save_ax_prog_cc_for_build__ac_compile"
-ac_link="$_save_ax_prog_cc_for_build__ac_link"
-ac_compiler_gnu=$ac_cv_c_compiler_gnu
-_save_ax_prog_cc_for_build__ac_ext=""
-_save_ax_prog_cc_for_build__ac_cpp=""
-_save_ax_prog_cc_for_build__ac_compile=""
-_save_ax_prog_cc_for_build__ac_link=""
-
 popdef([cross_compiling])dnl
 popdef([am_cv_prog_cc_c_o])dnl
 popdef([am_cv_CC_dependencies_compiler_type])dnl
@@ -143,6 +122,11 @@ popdef([ac_cv_prog_cc_works])dnl
 popdef([ac_cv_prog_cc_c89])dnl
 popdef([ac_cv_prog_gcc])dnl
 popdef([ac_cv_prog_CPP])dnl
+
+dnl restore global variables ac_ext, ac_cpp, ac_compile,
+dnl ac_link, ac_compiler_gnu (dependant on the current
+dnl language after popping):
+AC_LANG_POP([C])
 
 dnl Finally, set Makefile variables
 dnl
