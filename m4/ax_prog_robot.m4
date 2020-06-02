@@ -19,7 +19,7 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2020, Adam Chyła <adam@chyla.org>.
+#   Copyright (c) 2020, Adam Chyla <adam@chyla.org>.
 #   All rights reserved.
 #
 #   Distributed under the terms of the BSD 3-Clause License.
