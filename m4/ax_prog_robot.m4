@@ -1,5 +1,5 @@
 # ===========================================================================
-#     https://www.gnu.org/software/autoconf-archive/ax_prog_robot.html
+#      https://www.gnu.org/software/autoconf-archive/ax_prog_robot.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -8,10 +8,10 @@
 #
 # DESCRIPTION
 #
-#   This macro searches for the "robot" command from the Robot Framework
-#   and sets the variable "ROBOT" to the name of the application
-#   and the "ROBOT_VERSION" variable to the version of the Robot Framework.
-#   When robot is found sets the "HAS_ROBOT" to "yes", otherwise to "no".
+#   This macro searches for the "robot" command from the Robot Framework and
+#   sets the variable "ROBOT" to the name of the application and the
+#   "ROBOT_VERSION" variable to the version of the Robot Framework. When
+#   robot is found sets the "HAS_ROBOT" to "yes", otherwise to "no".
 #
 #   Example:
 #
@@ -19,12 +19,11 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2020, Adam Chyla <adam@chyla.org>.
+#   Copyright (c) 2020, Adam Chyla <adam@chyla.org>
 #
 #   Distributed under the terms of the BSD 3-Clause License.
-#
 
-#serial 1
+#serial 4
 
 AC_DEFUN([AX_PROG_ROBOT],
 [
