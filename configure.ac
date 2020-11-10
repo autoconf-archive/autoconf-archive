@@ -19,10 +19,10 @@ AC_MSG_NOTICE([$PACKAGE_STRING])
 
 AC_PROG_SED
 
-M4FILES="m4_esyscmd([echo -n m4/*.m4])"
+M4FILES="m4_esyscmd_s([echo m4/*.m4])"
 AC_SUBST([M4FILES])
 
-TEXIFILES="m4_esyscmd([cd m4 && echo -n *.m4 | sed -e 's/\.m4/.texi/g'])"
+TEXIFILES="m4_esyscmd_s([cd m4 && echo *.m4 | sed -e 's/\.m4/.texi/g'])"
 AC_SUBST([TEXIFILES])
 
 AC_CONFIG_FILES([Makefile doc/Makefile])
