@@ -15,7 +15,7 @@ fi
 gnulib_modules="git-version-gen gitlog-to-changelog gnupload
                 maintainer-makefile announce-gen gendocs fdl-1.3"
 
-$gnulibtool --m4-base build-aux --source-base build-aux --import $gnulib_modules
+$gnulibtool --m4-base build-aux --source-base build-aux --import --no-vc-files $gnulib_modules
 
 sed -e 's/^sc_file_system:/disabled_sc_file_system:/' \
     -e 's/^sc_GPL_version:/disabled_sc_GPL_version:/' \
