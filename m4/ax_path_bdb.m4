@@ -73,7 +73,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 16
+#serial 17
 
 dnl #########################################################################
 AC_DEFUN([AX_PATH_BDB], [
@@ -499,28 +499,27 @@ AC_DEFUN([AX_PATH_BDB_ENV_GET_VERSION], [
   )
 
   if test "x$ax_path_bdb_env_header_db_h" = xyes; then
-    AC_MSG_CHECKING([for db.h])
+    AC_MSG_CHECKING([for db.h major version])
+    AC_COMPUTE_INT(ax_path_bdb_env_get_version_MAJOR,DB_VERSION_MAJOR,[[#include <db.h>]],ax_path_bdb_env_get_version_MAJOR=none)
+    AC_MSG_RESULT($ax_path_bdb_env_get_version_MAJOR)
 
-    # Compile and run a program that determines the Berkeley DB version
-    # in the header file db.h.
-    HEADER_VERSION=''
-    AC_RUN_IFELSE([
-      AC_LANG_SOURCE([[
-#include <stdio.h>
-#include <db.h>
-int main(int argc,char **argv)
-{
-  (void) argv;
-  if (argc > 1)
-    printf("%d.%d.%d\n",DB_VERSION_MAJOR,DB_VERSION_MINOR,DB_VERSION_PATCH);
-  return 0;
-}
-      ]])
-    ],[
-      # Program compiled and ran, so get version by adding an argument.
-      HEADER_VERSION=`./conftest$ac_exeext x`
-      AC_MSG_RESULT([$HEADER_VERSION])
-    ],[AC_MSG_RESULT([no])],[AC_MSG_RESULT([no])])
+    AC_MSG_CHECKING([for db.h minor version])
+    AC_COMPUTE_INT(ax_path_bdb_env_get_version_MINOR,DB_VERSION_MINOR,[[#include <db.h>]],ax_path_bdb_env_get_version_MINOR=none)
+    AC_MSG_RESULT($ax_path_bdb_env_get_version_MINOR)
+
+    AC_MSG_CHECKING([for db.h patch level])
+    AC_COMPUTE_INT(ax_path_bdb_env_get_version_PATCH,DB_VERSION_PATCH,[[#include <db.h>]],ax_path_bdb_env_get_version_PATCH=none)
+    AC_MSG_RESULT($ax_path_bdb_env_get_version_PATCH)
+
+    AC_MSG_CHECKING([for db.h version])
+    AS_IF([test "x$ax_path_bdb_env_get_version_MAJOR" = "x"],[HEADER_VERSION=""],
+          [test "x$ax_path_bdb_env_get_version_MAJOR" = "none"],[HEADER_VERSION=""],
+          [test "x$ax_path_bdb_env_get_version_MINOR" = "x"],[HEADER_VERSION=""],
+          [test "x$ax_path_bdb_env_get_version_MINOR" = "none"],[HEADER_VERSION=""],
+          [test "x$ax_path_bdb_env_get_version_PATCH" = "x"],[HEADER_VERSION=""],
+          [test "x$ax_path_bdb_env_get_version_PATCH" = "none"],[HEADER_VERSION=""],
+          [HEADER_VERSION="$ax_path_bdb_env_get_version_MAJOR.$ax_path_bdb_env_get_version_MINOR.$ax_path_bdb_env_get_version_PATCH"])
+    AS_IF([test "x$HEADER_VERSION" = x],AC_MSG_RESULT([none]),AC_MSG_RESULT([$HEADER_VERSION]))
 
     # Have header version, so try to find corresponding library.
     # Looks for library names in the order:
@@ -532,10 +531,6 @@ int main(int argc,char **argv)
 
       AS_VAR_PUSHDEF([MAJOR],[ax_path_bdb_env_get_version_MAJOR])dnl
       AS_VAR_PUSHDEF([MINOR],[ax_path_bdb_env_get_version_MINOR])dnl
-
-      # get major and minor version numbers
-      MAJOR=`echo $HEADER_VERSION | sed 's,\..*,,'`
-      MINOR=`echo $HEADER_VERSION | sed 's,^[[0-9]]*\.,,;s,\.[[0-9]]*$,,'`
 
       # see if it is already specified in LIBS
       TEST_LIBNAME=''
