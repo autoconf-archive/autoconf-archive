@@ -73,7 +73,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 15
+#serial 16
 
 dnl #########################################################################
 AC_DEFUN([AX_PATH_BDB], [
@@ -346,7 +346,7 @@ AC_DEFUN([AX_PATH_BDB_PATH_GET_VERSION], [
   AC_MSG_RESULT([$ax_path_bdb_path_get_version_got_header])
 
   # Indicate status of checking for Berkeley DB library.
-  AC_MSG_CHECKING([in $1/lib for library -ldb])
+
 
   ax_path_bdb_path_get_version_VERSION=''
 
@@ -482,12 +482,30 @@ AC_DEFUN([AX_PATH_BDB_ENV_GET_VERSION], [
 
   # Indicate status of checking for Berkeley DB library.
   AC_MSG_CHECKING([for db.h])
-
-  # Compile and run a program that determines the Berkeley DB version
-  # in the header file db.h.
-  HEADER_VERSION=''
-  AC_RUN_IFELSE([
+  # could not cache compile manualy
+  AC_COMPILE_IFELSE([
     AC_LANG_SOURCE([[
+#include <db.h>
+    ]])
+    ],
+    [
+      ax_path_bdb_env_header_db_h=yes
+      AC_MSG_RESULT([yes])
+    ],
+    [
+      ax_path_bdb_env_header_db_h=no
+      AC_MSG_RESULT([no])
+    ]
+  )
+
+  if test "x$ax_path_bdb_env_header_db_h" = xyes; then
+    AC_MSG_CHECKING([for db.h])
+
+    # Compile and run a program that determines the Berkeley DB version
+    # in the header file db.h.
+    HEADER_VERSION=''
+    AC_RUN_IFELSE([
+      AC_LANG_SOURCE([[
 #include <stdio.h>
 #include <db.h>
 int main(int argc,char **argv)
@@ -497,84 +515,85 @@ int main(int argc,char **argv)
     printf("%d.%d.%d\n",DB_VERSION_MAJOR,DB_VERSION_MINOR,DB_VERSION_PATCH);
   return 0;
 }
-    ]])
-  ],[
-    # Program compiled and ran, so get version by adding an argument.
-    HEADER_VERSION=`./conftest$ac_exeext x`
-    AC_MSG_RESULT([$HEADER_VERSION])
-  ],[AC_MSG_RESULT([no])],[AC_MSG_RESULT([no])])
+      ]])
+    ],[
+      # Program compiled and ran, so get version by adding an argument.
+      HEADER_VERSION=`./conftest$ac_exeext x`
+      AC_MSG_RESULT([$HEADER_VERSION])
+    ],[AC_MSG_RESULT([no])],[AC_MSG_RESULT([no])])
 
-  # Have header version, so try to find corresponding library.
-  # Looks for library names in the order:
-  #   nothing, db, db-X.Y, dbX.Y, dbXY, db-X, dbX
-  # and stops when it finds the first one that matches the version
-  # of the header file.
-  if test "x$HEADER_VERSION" != "x" ; then
-    AC_MSG_CHECKING([for library containing Berkeley DB $HEADER_VERSION])
+    # Have header version, so try to find corresponding library.
+    # Looks for library names in the order:
+    #   nothing, db, db-X.Y, dbX.Y, dbXY, db-X, dbX
+    # and stops when it finds the first one that matches the version
+    # of the header file.
+    if test "x$HEADER_VERSION" != "x" ; then
+      AC_MSG_CHECKING([for library containing Berkeley DB $HEADER_VERSION])
 
-    AS_VAR_PUSHDEF([MAJOR],[ax_path_bdb_env_get_version_MAJOR])dnl
-    AS_VAR_PUSHDEF([MINOR],[ax_path_bdb_env_get_version_MINOR])dnl
+      AS_VAR_PUSHDEF([MAJOR],[ax_path_bdb_env_get_version_MAJOR])dnl
+      AS_VAR_PUSHDEF([MINOR],[ax_path_bdb_env_get_version_MINOR])dnl
 
-    # get major and minor version numbers
-    MAJOR=`echo $HEADER_VERSION | sed 's,\..*,,'`
-    MINOR=`echo $HEADER_VERSION | sed 's,^[[0-9]]*\.,,;s,\.[[0-9]]*$,,'`
+      # get major and minor version numbers
+      MAJOR=`echo $HEADER_VERSION | sed 's,\..*,,'`
+      MINOR=`echo $HEADER_VERSION | sed 's,^[[0-9]]*\.,,;s,\.[[0-9]]*$,,'`
 
-    # see if it is already specified in LIBS
-    TEST_LIBNAME=''
-    AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
-
-    if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
-      # try format "db"
-      TEST_LIBNAME='-ldb'
+      # see if it is already specified in LIBS
+      TEST_LIBNAME=''
       AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
-    fi
 
-    if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
-      # try format "db-X.Y"
-      TEST_LIBNAME="-ldb-${MAJOR}.$MINOR"
-      AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
-    fi
-
-    if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
-      # try format "dbX.Y"
-      TEST_LIBNAME="-ldb${MAJOR}.$MINOR"
-      AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
-    fi
-
-    if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
-      # try format "dbXY"
-      TEST_LIBNAME="-ldb$MAJOR$MINOR"
-      AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
-    fi
-
-    if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
-      # try format "db-X"
-      TEST_LIBNAME="-ldb-$MAJOR"
-      AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
-    fi
-
-    if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
-      # try format "dbX"
-      TEST_LIBNAME="-ldb$MAJOR"
-      AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
-    fi
-
-    dnl # Found a valid library.
-    if test "$ax_path_bdb_env_confirm_lib_ok" = "yes" ; then
-      if test "x$TEST_LIBNAME" = "x" ; then
-        AC_MSG_RESULT([none required])
-      else
-        AC_MSG_RESULT([$TEST_LIBNAME])
+      if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
+        # try format "db"
+        TEST_LIBNAME='-ldb'
+        AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
       fi
-      ax_path_bdb_env_get_version_VERSION="$HEADER_VERSION"
-      ax_path_bdb_env_get_version_LIBS="$TEST_LIBNAME"
-      ax_path_bdb_env_get_version_ok=yes
-    else
-      AC_MSG_RESULT([no])
-    fi
 
-    AS_VAR_POPDEF([MAJOR])dnl
-    AS_VAR_POPDEF([MINOR])dnl
+      if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
+        # try format "db-X.Y"
+        TEST_LIBNAME="-ldb-${MAJOR}.$MINOR"
+        AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
+      fi
+
+      if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
+        # try format "dbX.Y"
+        TEST_LIBNAME="-ldb${MAJOR}.$MINOR"
+        AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
+      fi
+
+      if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
+        # try format "dbXY"
+        TEST_LIBNAME="-ldb$MAJOR$MINOR"
+        AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
+      fi
+
+      if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
+        # try format "db-X"
+        TEST_LIBNAME="-ldb-$MAJOR"
+        AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
+      fi
+
+      if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
+        # try format "dbX"
+        TEST_LIBNAME="-ldb$MAJOR"
+        AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
+      fi
+
+      dnl # Found a valid library.
+      if test "$ax_path_bdb_env_confirm_lib_ok" = "yes" ; then
+        if test "x$TEST_LIBNAME" = "x" ; then
+          AC_MSG_RESULT([none required])
+        else
+          AC_MSG_RESULT([$TEST_LIBNAME])
+        fi
+        ax_path_bdb_env_get_version_VERSION="$HEADER_VERSION"
+        ax_path_bdb_env_get_version_LIBS="$TEST_LIBNAME"
+        ax_path_bdb_env_get_version_ok=yes
+      else
+        AC_MSG_RESULT([no])
+      fi
+
+      AS_VAR_POPDEF([MAJOR])dnl
+      AS_VAR_POPDEF([MINOR])dnl
+    fi
   fi
 
   AS_VAR_POPDEF([HEADER_VERSION])dnl
