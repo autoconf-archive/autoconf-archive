@@ -73,7 +73,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 18
+#serial 19
 
 dnl #########################################################################
 AC_DEFUN([AX_PATH_BDB], [
@@ -146,7 +146,7 @@ dnl              directories for Berkeley DB which is /usr/local/BerkeleyDB*
 dnl   ENVONLY -  Check the current environment only.
 dnl
 dnl Requires AX_PATH_BDB_PATH_GET_VERSION, AX_PATH_BDB_PATH_FIND_HIGHEST,
-dnl          AX_PATH_BDB_ENV_CONFIRM_LIB, AX_PATH_BDB_ENV_GET_VERSION, and
+dnl          _AX_PATH_BDB_ENV_CONFIRM_LIB, AX_PATH_BDB_ENV_GET_VERSION, and
 dnl          AX_COMPARE_VERSION macros.
 dnl
 dnl Result: sets ax_path_bdb_no_options_ok to yes or no
@@ -409,54 +409,73 @@ int main(int argc,char **argv)
 dnl Checks if version of library and header match specified version.
 dnl Only meant to be used by AX_PATH_BDB_ENV_GET_VERSION macro.
 dnl
-dnl Requires AX_COMPARE_VERSION macro.
 dnl
-dnl Result: sets ax_path_bdb_env_confirm_lib_ok to yes or no.
+dnl Result: sets _AX_PATH_BDB_ENV_CONFIRM_LIB_ok to yes or no.
 dnl
-dnl AX_PATH_BDB_ENV_CONFIRM_LIB(VERSION, [LIBNAME])
+dnl _AX_PATH_BDB_ENV_CONFIRM_LIB(VERSION, [LIBNAME])
 AC_DEFUN([AX_PATH_BDB_ENV_CONFIRM_LIB], [
   dnl # Used to indicate success or failure of this function.
   ax_path_bdb_env_confirm_lib_ok=no
 
   dnl # save and modify environment to link with library LIBNAME
   ax_path_bdb_env_confirm_lib_save_LIBS="$LIBS"
-  LIBS="$LIBS $2"
+  LIBS="$2 $LIBS"
 
-  # Compile and run a program that compares the version defined in
-  # the header file with a version defined in the library function
-  # db_version.
-  AC_RUN_IFELSE([
+  # compile and link a simple program
+  AC_MSG_CHECKING([for compiling simple Berkeley database program using LIBS="$2"])
+  AC_LINK_IFELSE([
     AC_LANG_SOURCE([[
-#include <stdio.h>
 #include <db.h>
 int main(int argc,char **argv)
 {
   int major,minor,patch;
   (void) argv;
   db_version(&major,&minor,&patch);
-  if (argc > 1)
-    printf("%d.%d.%d\n",DB_VERSION_MAJOR,DB_VERSION_MINOR,DB_VERSION_PATCH);
+  (void) major; (void) minor; (void) patch;
+  return 0;
+}
+    ]])
+  ],[_AX_PATH_BDB_ENV_CONFIRM_LIB_ok=yes],[_AX_PATH_BDB_ENV_CONFIRM_LIB_ok=no])
+  AC_MSG_RESULT($_AX_PATH_BDB_ENV_CONFIRM_LIB_ok)
+
+  if test "x$_AX_PATH_BDB_ENV_CONFIRM_LIB_ok" = xyes; then
+    # Compile and run a program that compares the version defined in
+    # the header file with a version defined in the library function
+    # db_version.
+    # in case of crosscompile ignore
+    AC_MSG_CHECKING([for runtime Berkeley database library version])
+    AC_RUN_IFELSE([
+      AC_LANG_SOURCE([[
+#include <db.h>
+int main(int argc,char **argv)
+{
+  int major,minor,patch;
+  (void) argv;
+  db_version(&major,&minor,&patch);
   if (DB_VERSION_MAJOR == major && DB_VERSION_MINOR == minor &&
       DB_VERSION_PATCH == patch)
     return 0;
   else
     return 1;
 }
-    ]])
-  ],[
-    # Program compiled and ran, so get version by giving an argument,
-    # which will tell the program to print the output.
-    ax_path_bdb_env_confirm_lib_VERSION=`./conftest$ac_exeext x`
-
-    # If the versions all match up, indicate success.
-    AX_COMPARE_VERSION([$ax_path_bdb_env_confirm_lib_VERSION],[eq],[$1],[
-      ax_path_bdb_env_confirm_lib_ok=yes
-    ])
-  ],[],[])
-
+      ]])
+    ],
+    [
+      AC_MSG_RESULT([yes])
+      _AX_PATH_BDB_ENV_CONFIRM_LIB_ok=yes
+    ],
+    [
+      AC_MSG_RESULT([no])
+      _AX_PATH_BDB_ENV_CONFIRM_LIB_ok=no
+    ],
+    [
+      AC_MSG_RESULT([guessing yes])
+      _AX_PATH_BDB_ENV_CONFIRM_LIB_ok=yes]
+    )
+  fi
+  ax_path_bdb_env_confirm_lib_ok=$_AX_PATH_BDB_ENV_CONFIRM_LIB_ok
   dnl # restore environment
   LIBS="$ax_path_bdb_env_confirm_lib_save_LIBS"
-
 ]) dnl AX_PATH_BDB_ENV_CONFIRM_LIB
 
 
@@ -543,8 +562,6 @@ AC_DEFUN([AX_PATH_BDB_ENV_GET_VERSION], [
   # and stops when it finds the first one that matches the version
   # of the header file.
   if test "x$HEADER_VERSION" != 'x' ; then
-    AC_MSG_CHECKING([for library containing Berkeley DB $HEADER_VERSION])
-
     AS_VAR_PUSHDEF([MAJOR],[_AX_PATH_BDB_ENV_GET_VERSION_MAJOR])dnl
     AS_VAR_PUSHDEF([MINOR],[_AX_PATH_BDB_ENV_GET_VERSION_MINOR])dnl
 
@@ -587,7 +604,7 @@ AC_DEFUN([AX_PATH_BDB_ENV_GET_VERSION], [
       TEST_LIBNAME="-ldb$MAJOR"
       AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
     fi
-
+    AC_MSG_CHECKING([for library containing Berkeley DB $HEADER_VERSION])
     dnl # Found a valid library.
     if test "$ax_path_bdb_env_confirm_lib_ok" = "yes" ; then
       if test "x$TEST_LIBNAME" = "x" ; then
