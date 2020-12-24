@@ -73,7 +73,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 17
+#serial 18
 
 dnl #########################################################################
 AC_DEFUN([AX_PATH_BDB], [
@@ -461,12 +461,17 @@ int main(int argc,char **argv)
 
 
 dnl Find the header using env result
-dnl   ax_path_bdb_env_header_db_h
-dnl   ax_path_bdb_env_get_version_MAJOR
-dnl   ax_path_bdb_env_get_version_MINOR
-dnl   ax_path_bdb_env_get_version_PATCH
-dnl   ax_path_bdb_env_get_version_HEADER_VERSION
+dnl   _AX_PATH_BDB_ENV_GET_VERSION_HEADER_header_db_h=(yes|no)
+dnl   _AX_PATH_BDB_ENV_GET_VERSION_HEADER_MAJOR
+dnl   _AX_PATH_BDB_ENV_GET_VERSION_HEADER_MINOR
+dnl   _AX_PATH_BDB_ENV_GET_VERSION_HEADER_PATCH
+dnl   _AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION
 AC_DEFUN([_AX_PATH_BDB_ENV_GET_VERSION_HEADER],[
+  # default value
+  _AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR=''
+  _AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR=''
+  _AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH=''
+  _AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_HEADER_VERSION=''
   # Indicate status of checking for Berkeley DB library.
   AC_MSG_CHECKING([for db.h])
   # could not cache compile manualy
@@ -476,39 +481,37 @@ AC_DEFUN([_AX_PATH_BDB_ENV_GET_VERSION_HEADER],[
     ]])
     ],
     [
-      ax_path_bdb_env_header_db_h=yes
+      _AX_PATH_BDB_ENV_GET_VERSION_HEADER_header_db_h=yes
       AC_MSG_RESULT([yes])
     ],
     [
-      ax_path_bdb_env_header_db_h=no
+      _AX_PATH_BDB_ENV_GET_VERSION_HEADER_header_db_h=no
       AC_MSG_RESULT([no])
     ]
   )
 
-  if test "x$ax_path_bdb_env_header_db_h" = xyes; then
+  if test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_header_db_h" = xyes; then
     AC_MSG_CHECKING([for db.h major version])
-    AC_COMPUTE_INT(ax_path_bdb_env_get_version_MAJOR,DB_VERSION_MAJOR,[[#include <db.h>]],ax_path_bdb_env_get_version_MAJOR=none)
-    AC_MSG_RESULT($ax_path_bdb_env_get_version_MAJOR)
+    AC_COMPUTE_INT(_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR,DB_VERSION_MAJOR,[[#include <db.h>]],_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR=none)
+    AC_MSG_RESULT($_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR)
 
     AC_MSG_CHECKING([for db.h minor version])
-    AC_COMPUTE_INT(ax_path_bdb_env_get_version_MINOR,DB_VERSION_MINOR,[[#include <db.h>]],ax_path_bdb_env_get_version_MINOR=none)
-    AC_MSG_RESULT($ax_path_bdb_env_get_version_MINOR)
+    AC_COMPUTE_INT(_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR,DB_VERSION_MINOR,[[#include <db.h>]],_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR=none)
+    AC_MSG_RESULT($_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR)
 
-    AC_MSG_CHECKING([for db.h patch level])
-    AC_COMPUTE_INT(ax_path_bdb_env_get_version_PATCH,DB_VERSION_PATCH,[[#include <db.h>]],ax_path_bdb_env_get_version_PATCH=none)
-    AC_MSG_RESULT($ax_path_bdb_env_get_version_PATCH)
-
+    AC_MSG_CHECKING([for db.h patch level version])
+    AC_COMPUTE_INT(_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH,DB_VERSION_PATCH,[[#include <db.h>]],_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH=none)
+    AC_MSG_RESULT($_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH)
+   
     AC_MSG_CHECKING([for db.h version])
-    AS_IF([test "x$ax_path_bdb_env_get_version_MAJOR" = 'x'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
-          [test "x$ax_path_bdb_env_get_version_MAJOR" = 'none'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
-          [test "x$ax_path_bdb_env_get_version_MINOR" = 'x'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
-          [test "x$ax_path_bdb_env_get_version_MINOR" = 'none'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
-          [test "x$ax_path_bdb_env_get_version_PATCH" = 'x'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
-          [test "x$ax_path_bdb_env_get_version_PATCH" = 'none'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
-          [ax_path_bdb_env_get_version_HEADER_VERSION="$ax_path_bdb_env_get_version_MAJOR.$ax_path_bdb_env_get_version_MINOR.$ax_path_bdb_env_get_version_PATCH"])
-    AS_IF([test "x$ax_path_bdb_env_get_version_HEADER_VERSION" = 'x'],AC_MSG_RESULT([none]),AC_MSG_RESULT([$ax_path_bdb_env_get_version_HEADER_VERSION]))
-  else
-    ax_path_bdb_env_get_version_HEADER_VERSION=''
+    AS_IF([test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR" = 'x'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
+          [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR" = 'none'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
+          [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR" = 'x'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
+          [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR" = 'none'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
+	  [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH" = 'x'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
+          [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH" = 'none'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
+          [_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION="$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR"."$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR"."$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH"])
+    AS_IF([test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION" = 'x'],AC_MSG_RESULT([none]),AC_MSG_RESULT([$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION]))
   fi
 ])
 
@@ -531,7 +534,7 @@ AC_DEFUN([AX_PATH_BDB_ENV_GET_VERSION], [
   ax_path_bdb_env_get_version_LIBS=''
 
   _AX_PATH_BDB_ENV_GET_VERSION_HEADER
-  AS_VAR_PUSHDEF([HEADER_VERSION],[ax_path_bdb_env_get_version_HEADER_VERSION])dnl
+  AS_VAR_PUSHDEF([HEADER_VERSION],[_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION])dnl
   AS_VAR_PUSHDEF([TEST_LIBNAME],[ax_path_bdb_env_get_version_TEST_LIBNAME])dnl
 
   # Have header version, so try to find corresponding library.
@@ -542,8 +545,8 @@ AC_DEFUN([AX_PATH_BDB_ENV_GET_VERSION], [
   if test "x$HEADER_VERSION" != 'x' ; then
     AC_MSG_CHECKING([for library containing Berkeley DB $HEADER_VERSION])
 
-    AS_VAR_PUSHDEF([MAJOR],[ax_path_bdb_env_get_version_MAJOR])dnl
-    AS_VAR_PUSHDEF([MINOR],[ax_path_bdb_env_get_version_MINOR])dnl
+    AS_VAR_PUSHDEF([MAJOR],[_AX_PATH_BDB_ENV_GET_VERSION_MAJOR])dnl
+    AS_VAR_PUSHDEF([MINOR],[_AX_PATH_BDB_ENV_GET_VERSION_MINOR])dnl
 
     # see if it is already specified in LIBS
     TEST_LIBNAME=''
