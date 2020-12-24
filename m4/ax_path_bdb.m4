@@ -73,7 +73,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 19
+#serial 20
 
 dnl #########################################################################
 AC_DEFUN([AX_PATH_BDB], [
@@ -415,7 +415,7 @@ dnl
 dnl _AX_PATH_BDB_ENV_CONFIRM_LIB(VERSION, [LIBNAME])
 AC_DEFUN([AX_PATH_BDB_ENV_CONFIRM_LIB], [
   dnl # Used to indicate success or failure of this function.
-  ax_path_bdb_env_confirm_lib_ok=no
+  _AX_PATH_BDB_ENV_CONFIRM_LIB_ok=no
 
   dnl # save and modify environment to link with library LIBNAME
   ax_path_bdb_env_confirm_lib_save_LIBS="$LIBS"
@@ -473,7 +473,6 @@ int main(int argc,char **argv)
       _AX_PATH_BDB_ENV_CONFIRM_LIB_ok=yes]
     )
   fi
-  ax_path_bdb_env_confirm_lib_ok=$_AX_PATH_BDB_ENV_CONFIRM_LIB_ok
   dnl # restore environment
   LIBS="$ax_path_bdb_env_confirm_lib_save_LIBS"
 ]) dnl AX_PATH_BDB_ENV_CONFIRM_LIB
@@ -554,7 +553,7 @@ AC_DEFUN([AX_PATH_BDB_ENV_GET_VERSION], [
 
   _AX_PATH_BDB_ENV_GET_VERSION_HEADER
   AS_VAR_PUSHDEF([HEADER_VERSION],[_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION])dnl
-  AS_VAR_PUSHDEF([TEST_LIBNAME],[ax_path_bdb_env_get_version_TEST_LIBNAME])dnl
+  AS_VAR_PUSHDEF([TEST_LIBNAME],[_AX_PATH_BDB_ENV_GET_VERSION_TEST_LIBNAME])dnl
 
   # Have header version, so try to find corresponding library.
   # Looks for library names in the order:
@@ -562,51 +561,17 @@ AC_DEFUN([AX_PATH_BDB_ENV_GET_VERSION], [
   # and stops when it finds the first one that matches the version
   # of the header file.
   if test "x$HEADER_VERSION" != 'x' ; then
-    AS_VAR_PUSHDEF([MAJOR],[_AX_PATH_BDB_ENV_GET_VERSION_MAJOR])dnl
-    AS_VAR_PUSHDEF([MINOR],[_AX_PATH_BDB_ENV_GET_VERSION_MINOR])dnl
+    AS_VAR_PUSHDEF([MAJOR],[_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR])dnl
+    AS_VAR_PUSHDEF([MINOR],[_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR])dnl
 
-    # see if it is already specified in LIBS
-    TEST_LIBNAME=''
-    AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
+    for TEST_LIBNAME in '' '-ldb' "-ldb-${MAJOR}.${MINOR}" "-ldb${MAJOR}.${MINOR}" "-ldb-${MAJOR}" "-ldb${MAJOR}${MINOR}"; do
+       AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
+       if test "x$_AX_PATH_BDB_ENV_CONFIRM_LIB_ok" = "xyes"; then break; fi
+    done
 
-    if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
-    # try format "db"
-      TEST_LIBNAME='-ldb'
-      AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
-    fi
-
-    if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
-      # try format "db-X.Y"
-      TEST_LIBNAME="-ldb-${MAJOR}.$MINOR"
-      AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
-    fi
-
-    if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
-      # try format "dbX.Y"
-      TEST_LIBNAME="-ldb${MAJOR}.$MINOR"
-      AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
-    fi
-
-    if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
-      # try format "dbXY"
-      TEST_LIBNAME="-ldb$MAJOR$MINOR"
-      AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
-    fi
-
-    if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
-      # try format "db-X"
-      TEST_LIBNAME="-ldb-$MAJOR"
-      AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
-    fi
-
-    if test "$ax_path_bdb_env_confirm_lib_ok" = "no" ; then
-      # try format "dbX"
-      TEST_LIBNAME="-ldb$MAJOR"
-      AX_PATH_BDB_ENV_CONFIRM_LIB([$HEADER_VERSION], [$TEST_LIBNAME])
-    fi
     AC_MSG_CHECKING([for library containing Berkeley DB $HEADER_VERSION])
     dnl # Found a valid library.
-    if test "$ax_path_bdb_env_confirm_lib_ok" = "yes" ; then
+    if test "$_AX_PATH_BDB_ENV_CONFIRM_LIB_ok" = "yes" ; then
       if test "x$TEST_LIBNAME" = "x" ; then
         AC_MSG_RESULT([none required])
       else
@@ -627,7 +592,7 @@ AC_DEFUN([AX_PATH_BDB_ENV_GET_VERSION], [
   AS_VAR_POPDEF([TEST_LIBNAME])dnl
 
   dnl # Execute ACTION-IF-FOUND / ACTION-IF-NOT-FOUND.
-  if test "$ax_path_bdb_env_confirm_lib_ok" = "yes" ; then
+  if test "x$ax_path_bdb_env_get_version_ok" = "xyes" ; then
     m4_ifvaln([$1],[$1],[:])dnl
     m4_ifvaln([$2],[else $2])dnl
   fi
