@@ -73,7 +73,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 21
+#serial 22
 
 dnl #########################################################################
 AC_DEFUN([AX_PATH_BDB], [
@@ -476,7 +476,15 @@ AC_DEFUN([_AX_PATH_BDB_ENV_GET_VERSION_HEADER],[
 	  [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH" = 'x'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
           [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH" = 'none'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
           [_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION="$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR"."$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR"."$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH"])
-    AS_IF([test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION" = 'x'],AC_MSG_RESULT([none]),AC_MSG_RESULT([$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION]))
+    AS_IF([test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION" = 'x'],
+       [
+        AC_MSG_RESULT([none])
+	_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR=''
+	_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR=''
+        _AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH=''
+       ],
+       AC_MSG_RESULT([$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION])
+    )
   fi
 ])
 
