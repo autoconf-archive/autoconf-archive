@@ -73,7 +73,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 22
+#serial 23
 
 dnl #########################################################################
 AC_DEFUN([AX_PATH_BDB], [
@@ -187,7 +187,7 @@ AC_DEFUN([AX_PATH_BDB_NO_OPTIONS], [
 	    [_AX_PATH_BDB_NO_OPTIONS_DONE=no])
     AS_IF([test "x$_AX_PATH_BDB_NO_OPTIONS_DONE" = "xyes"],AC_MSG_RESULT([no]),AC_MSG_RESULT([yes]))
 
-    if test "x$_AX_PATH_BDB_NO_OPTIONS_DONE" = "xno" ; then
+    if test "x$_AX_PATH_BDB_NO_OPTIONS_DONE" = 'xno' ; then
       # Check for highest in /usr/local/BerkeleyDB*
       AX_PATH_BDB_PATH_FIND_HIGHEST([
         if test "x$_AX_PATH_BDB_NO_OPTIONS_ok" = "xyes" ; then
@@ -250,7 +250,7 @@ AC_DEFUN([AX_PATH_BDB_PATH_FIND_HIGHEST], [
 
   for CURDIR in `ls -d /usr/local/BerkeleyDB* 2> /dev/null`
   do
-    AX_PATH_BDB_PATH_GET_VERSION([$CURDIR],[
+    _AX_PATH_BDB_PATH_GET_VERSION([$CURDIR],[
       AX_COMPARE_VERSION([$CUR_VERSION],[gt],[$VERSION],[
         ax_path_bdb_path_find_highest_ok=yes
         ax_path_bdb_path_find_highest_DIR="$CURDIR"
@@ -279,75 +279,42 @@ dnl Result: sets ax_path_bdb_path_get_version_ok to yes or no,
 dnl         sets ax_path_bdb_path_get_version_VERSION to version.
 dnl
 dnl AX_PATH_BDB_PATH_GET_VERSION(BDB-DIR, [ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
-AC_DEFUN([AX_PATH_BDB_PATH_GET_VERSION], [
+AC_DEFUN([_AX_PATH_BDB_PATH_GET_VERSION], [
   dnl # Used to indicate success or failure of this function.
-  ax_path_bdb_path_get_version_ok=no
-
-  # Indicate status of checking for Berkeley DB header.
-  AC_MSG_CHECKING([in $1/include for db.h])
-  ax_path_bdb_path_get_version_got_header=no
-  test -f "$1/include/db.h" && ax_path_bdb_path_get_version_got_header=yes
-  AC_MSG_RESULT([$ax_path_bdb_path_get_version_got_header])
-
+  _AX_PATH_BDB_PATH_GET_VERSION_ok=no
   # Indicate status of checking for Berkeley DB library.
-
-
   ax_path_bdb_path_get_version_VERSION=''
 
-  if test -d "$1/include" && test -d "$1/lib" &&
-     test "$ax_path_bdb_path_get_version_got_header" = "yes" ; then
-    dnl # save and modify environment
-    ax_path_bdb_path_get_version_save_CPPFLAGS="$CPPFLAGS"
+  # Indicate status of checking for Berkeley DB header.
+  AC_MSG_CHECKING([in $1 for Berkeley DB dir and files])
+  AS_IF([test -d "$1/include" && test -f "$1/include/db.h" && test -d "$1/lib"],
+        [_AX_PATH_BDB_PATH_GET_VERSION_got_files=yes],
+ 	[_AX_PATH_BDB_PATH_GET_VERSION_got_files=no])
+  AC_MSG_RESULT([$_AX_PATH_BDB_PATH_GET_VERSION_got_files])
+
+  if test "x$_AX_PATH_BDB_PATH_GET_VERSION_got_files" = 'xyes'; then
+    AX_SAVE_FLAGS([_AX_PATH_BDB_PATH_GET_VERSION])
     CPPFLAGS="-I$1/include $CPPFLAGS"
-
-    ax_path_bdb_path_get_version_save_LIBS="$LIBS"
-    LIBS="$LIBS -ldb"
-
-    ax_path_bdb_path_get_version_save_LDFLAGS="$LDFLAGS"
+    LIBS="-ldb $LIBS"
     LDFLAGS="-L$1/lib $LDFLAGS"
 
-    # Compile and run a program that compares the version defined in
-    # the header file with a version defined in the library function
-    # db_version.
-    AC_RUN_IFELSE([
-      AC_LANG_SOURCE([[
-#include <stdio.h>
-#include <db.h>
-int main(int argc,char **argv)
-{
-  int major,minor,patch;
-  (void) argv;
-  db_version(&major,&minor,&patch);
-  if (argc > 1)
-    printf("%d.%d.%d\n",DB_VERSION_MAJOR,DB_VERSION_MINOR,DB_VERSION_PATCH);
-  if (DB_VERSION_MAJOR == major && DB_VERSION_MINOR == minor &&
-      DB_VERSION_PATCH == patch)
-    return 0;
-  else
-    return 1;
-}
-      ]])
-    ],[
-      # Program compiled and ran, so get version by adding argument.
-      ax_path_bdb_path_get_version_VERSION=`./conftest$ac_exeext x`
-      ax_path_bdb_path_get_version_ok=yes
-    ],[],[])
-
-    dnl # restore environment
-    CPPFLAGS="$ax_path_bdb_path_get_version_save_CPPFLAGS"
-    LIBS="$ax_path_bdb_path_get_version_save_LIBS"
-    LDFLAGS="$ax_path_bdb_path_get_version_save_LDFLAGS"
+    _AX_PATH_BDB_ENV_GET_VERSION([
+      _AX_PATH_BDB_PATH_GET_VERSION_ok=yes
+      ax_path_bdb_path_get_version_VERSION="$_AX_PATH_BDB_ENV_GET_VERSION_VERSION"
+    ])
+    AX_RESTORE_FLAGS([_AX_PATH_BDB_PATH_GET_VERSION])
   fi
 
   dnl # Finally, execute ACTION-IF-FOUND / ACTION-IF-NOT-FOUND.
-  if test "$ax_path_bdb_path_get_version_ok" = "yes" ; then
-    AC_MSG_RESULT([$ax_path_bdb_path_get_version_VERSION])
-    m4_ifvaln([$2],[$2])dnl
+  AC_MSG_CHECKING([in $1 for Berkeley database])
+  if test "_AX_PATH_BDB_PATH_GET_VERSION_ok" = "yes" ; then
+     AC_MSG_RESULT([$ax_path_bdb_path_get_version_VERSION])
+     m4_ifvaln([$2],[$2])dnl
   else
-    AC_MSG_RESULT([no])
-    m4_ifvaln([$3],[$3])dnl
+     AC_MSG_RESULT([no])
+     m4_ifvaln([$3],[$3])dnl
   fi
-]) dnl AX_PATH_BDB_PATH_GET_VERSION
+]) dnl _AX_PATH_BDB_PATH_GET_VERSION
 
 #############################################################################
 dnl Checks if version of library and header match specified version.
