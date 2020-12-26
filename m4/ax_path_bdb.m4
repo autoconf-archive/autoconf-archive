@@ -79,6 +79,7 @@ dnl #########################################################################
 AC_DEFUN([AX_PATH_BDB], [
   dnl # Used to indicate success or failure of this function.
   ax_path_bdb_ok=no
+  _AX_PATH_BDB_MIN_VERSION='m4_default_quoted($1,0)'
 
   # Add --with-bdb-dir option to configure.
   AC_ARG_WITH([bdb-dir],
@@ -88,7 +89,7 @@ AC_DEFUN([AX_PATH_BDB], [
   # Check if --with-bdb-dir was specified.
   if test "x$with_bdb_dir" = "x" ; then
     # No option specified, so just search the system.
-    AX_PATH_BDB_NO_OPTIONS([$1], [HIGHEST], [
+    AX_PATH_BDB_NO_OPTIONS([${_AX_PATH_BDB_MIN_VERSION}], [HIGHEST], [
       ax_path_bdb_ok=yes
     ])
    else
@@ -108,7 +109,7 @@ AC_DEFUN([AX_PATH_BDB], [
      if test -f "$ax_path_bdb_INC/db.h" ; then
        AC_MSG_RESULT([yes])
        # Check for library
-       AX_PATH_BDB_NO_OPTIONS([$1], [ENVONLY], [
+       AX_PATH_BDB_NO_OPTIONS([${_AX_PATH_BDB_MIN_VERSION}], [ENVONLY], [
          ax_path_bdb_ok=yes
          BDB_CPPFLAGS="-I$ax_path_bdb_INC"
          BDB_LDFLAGS="-L$ax_path_bdb_LIB"
@@ -155,7 +156,7 @@ dnl
 dnl AX_PATH_BDB_NO_OPTIONS([MINIMUM-VERSION], [OPTION], [ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
 AC_DEFUN([AX_PATH_BDB_NO_OPTIONS], [
   dnl # Used to indicate success or failure of this function.
-  ax_path_bdb_no_options_ok=no
+  _AX_PATH_BDB_NO_OPTIONS_ok=no
 
   # Values to add to environment to use Berkeley DB.
   BDB_VERSION=''
@@ -165,35 +166,31 @@ AC_DEFUN([AX_PATH_BDB_NO_OPTIONS], [
 
   # Check version of Berkeley DB in the current environment.
   _AX_PATH_BDB_ENV_GET_VERSION([
-    AX_COMPARE_VERSION([$ax_path_bdb_env_get_version_VERSION],[ge],[$1],[
+    AX_COMPARE_VERSION([$_AX_PATH_BDB_ENV_GET_VERSION_VERSION],[ge],[$1],[
       # Found acceptable version in current environment.
-      ax_path_bdb_no_options_ok=yes
+      _AX_PATH_BDB_NO_OPTIONS_ok=yes
       BDB_VERSION="$_AX_PATH_BDB_ENV_GET_VERSION_VERSION"
       BDB_LIBS="$_AX_PATH_BDB_ENV_GET_VERSION_LIBS"
     ])
   ])
+  AC_MSG_CHECKING([for version >= $1 of Berkeley DB in current environment])
+  AS_IF([test "x$BDB_VERSION" = "x"],AC_MSG_RESULT([no]),AC_MSG_RESULT([$BDB_VERSION]))
 
   # Check cross compilation here.
   if test "x$cross_compiling" = "xno" ; then
     # Not cross compiling.
     AC_MSG_CHECKING([for local installation of Berkeley DB])
     # Determine if we need to search /usr/local/BerkeleyDB*
-    ax_path_bdb_no_options_DONE=no
-    if test "x$2" = "xENVONLY" ; then
-      ax_path_bdb_no_options_DONE=yes
-    elif test "x$2" = "xENVFIRST" ; then
-      ax_path_bdb_no_options_DONE=$ax_path_bdb_no_options_ok
-    fi
-    if test "x$ax_path_bdb_no_options_DONE" = "xyes"; then
-        AC_MSG_RESULT([no])
-    else
-        AC_MSG_RESULT([yes])
-    fi
+    AS_CASE(["x$2"],
+            [xENVONLY],[_AX_PATH_BDB_NO_OPTIONS_DONE=yes],
+	    [xENVFIRST],[_AX_PATH_BDB_NO_OPTIONS_DONE="${_AX_PATH_BDB_NO_OPTIONS_ok}"],
+	    [_AX_PATH_BDB_NO_OPTIONS_DONE=no])
+    AS_IF([test "x$_AX_PATH_BDB_NO_OPTIONS_DONE" = "xyes"],AC_MSG_RESULT([no]),AC_MSG_RESULT([yes]))
 
-    if test "$ax_path_bdb_no_options_DONE" = "no" ; then
+    if test "x$_AX_PATH_BDB_NO_OPTIONS_DONE" = "xno" ; then
       # Check for highest in /usr/local/BerkeleyDB*
       AX_PATH_BDB_PATH_FIND_HIGHEST([
-        if test "$ax_path_bdb_no_options_ok" = "yes" ; then
+        if test "x$_AX_PATH_BDB_NO_OPTIONS_ok" = "xyes" ; then
         # If we already have an acceptable version use this if higher.
           AX_COMPARE_VERSION(
              [$ax_path_bdb_path_find_highest_VERSION],[gt],[$BDB_VERSION])
@@ -206,7 +203,7 @@ AC_DEFUN([AX_PATH_BDB_NO_OPTIONS], [
 
       dnl # If result from _AX_COMPARE_VERSION is true we want this version.
       if test "$ax_compare_version" = "true" ; then
-        ax_path_bdb_no_options_ok=yes
+        _AX_PATH_BDB_NO_OPTIONS_ok=yes
         BDB_LIBS="-ldb"
 	if test "x$ax_path_bdb_path_find_highest_DIR" != x ; then
 	  BDB_CPPFLAGS="-I$ax_path_bdb_path_find_highest_DIR/include"
@@ -218,7 +215,7 @@ AC_DEFUN([AX_PATH_BDB_NO_OPTIONS], [
   fi
 
   dnl # Execute ACTION-IF-FOUND / ACTION-IF-NOT-FOUND.
-  if test "$ax_path_bdb_no_options_ok" = "yes" ; then
+  if test "x$_AX_PATH_BDB_NO_OPTIONS_ok" = "xyes" ; then
     AC_MSG_NOTICE([using Berkeley DB version $BDB_VERSION])
     AC_DEFINE([HAVE_DB_H],[1],
               [Define to 1 if you have the <db.h> header file.])
