@@ -292,7 +292,7 @@ AC_DEFUN([_AX_PATH_BDB_PATH_GET_VERSION], [
       LDFLAGS="-L$1/lib $LDFLAGS"
 
       _AX_PATH_BDB_ENV_GET_VERSION([
-        _AX_PATH_BDB_PATH_GET_VERSION_ok=yes
+	_AX_PATH_BDB_PATH_GET_VERSION_ok=yes
       ])
       AX_RESTORE_FLAGS([_AX_PATH_BDB_PATH_GET_VERSION])
     ])
@@ -413,27 +413,31 @@ AC_DEFUN([_AX_PATH_BDB_ENV_GET_VERSION_HEADER],[
     ]
   )
 
-  if test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_header_db_h" = xyes; then
-    AC_MSG_CHECKING([for db.h major version])
-    AC_COMPUTE_INT(_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR,DB_VERSION_MAJOR,[[#include <db.h>]],_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR='none')
-    AC_MSG_RESULT($_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR)
-
-    AC_MSG_CHECKING([for db.h minor version])
-    AC_COMPUTE_INT(_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR,DB_VERSION_MINOR,[[#include <db.h>]],_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR='none')
-    AC_MSG_RESULT($_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR)
-
-    AC_MSG_CHECKING([for db.h patch level version])
-    AC_COMPUTE_INT(_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH,DB_VERSION_PATCH,[[#include <db.h>]],_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH='none')
-    AC_MSG_RESULT($_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH)
-
-    AC_MSG_CHECKING([for db.h version])
-    AS_IF([test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR" = 'x'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
-	  [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR" = 'none'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
-	  [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR" = 'x'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
-	  [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR" = 'none'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
-	  [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH" = 'x'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
-	  [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH" = 'none'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
-	  [_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION="$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR"."$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR"."$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH"])
+  AS_IF([test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_header_db_h" = 'xyes'],
+    [
+      AC_MSG_CHECKING([for db.h major version])
+      AC_COMPUTE_INT([_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR],[DB_VERSION_MAJOR],[[
+	  #include <db.h>
+	]],[_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR='unknown'])
+      AC_MSG_RESULT($_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR)
+      AC_MSG_CHECKING([for db.h minor version])
+      AC_COMPUTE_INT([_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR],[DB_VERSION_MINOR],[[
+	  #include <db.h>
+	]],[_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR='unknown'])
+      AC_MSG_RESULT($_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR)
+      AC_MSG_CHECKING([for db.h patch level version])
+      AC_COMPUTE_INT([_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH],[DB_VERSION_PATCH],[[
+	   #include <db.h>
+	]],[_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH='unknown'])
+      AC_MSG_RESULT($_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH)
+      AC_MSG_CHECKING([for db.h version])
+      AS_IF([test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR" = 'x'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
+	    [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR" = 'xunknown'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
+	    [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR" = 'x'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
+	    [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR" = 'xunknown'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
+	    [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH" = 'x'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
+	    [test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH" = 'xunknown'],[ax_path_bdb_env_get_version_HEADER_VERSION=''],
+	    [_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION="$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR"."$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR"."$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH"])
     AS_IF([test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION" = 'x'],
        [
 	AC_MSG_RESULT([none])
@@ -441,9 +445,9 @@ AC_DEFUN([_AX_PATH_BDB_ENV_GET_VERSION_HEADER],[
 	_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR=''
 	_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH=''
        ],
-       AC_MSG_RESULT([$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION])
+       [AC_MSG_RESULT([$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION])]
     )
-  fi
+  ])
 ])
 
 #############################################################################
@@ -470,40 +474,37 @@ AC_DEFUN([_AX_PATH_BDB_ENV_GET_VERSION], [
   #   nothing, db, db-X.Y, dbX.Y, dbXY, db-X, dbX
   # and stops when it finds the first one that matches the version
   # of the header file.
-  if test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION" != 'x' ; then
-    AS_VAR_PUSHDEF([MAJOR],[_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR])dnl
-    AS_VAR_PUSHDEF([MINOR],[_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR])dnl
+  AS_IF([test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION" != 'x'],
+    [
+      AS_VAR_PUSHDEF([MAJOR],[_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR])dnl
+      AS_VAR_PUSHDEF([MINOR],[_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR])dnl
+      for _AX_PATH_BDB_ENV_GET_VERSION_TEST_LIBNAME in '' '-ldb' "-ldb-${MAJOR}.${MINOR}" "-ldb${MAJOR}.${MINOR}" "-ldb-${MAJOR}" "-ldb${MAJOR}${MINOR}"; do
+	 _AX_PATH_BDB_ENV_CONFIRM_LIB([$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION], [$_AX_PATH_BDB_ENV_GET_VERSION_TEST_LIBNAME])
+	 if test "x$_AX_PATH_BDB_ENV_CONFIRM_LIB_ok" = "xyes"; then break; fi
+      done
+      AS_VAR_POPDEF([MAJOR])dnl
+      AS_VAR_POPDEF([MINOR])dnl
 
-    for _AX_PATH_BDB_ENV_GET_VERSION_TEST_LIBNAME in '' '-ldb' "-ldb-${MAJOR}.${MINOR}" "-ldb${MAJOR}.${MINOR}" "-ldb-${MAJOR}" "-ldb${MAJOR}${MINOR}"; do
-       _AX_PATH_BDB_ENV_CONFIRM_LIB([$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION], [$_AX_PATH_BDB_ENV_GET_VERSION_TEST_LIBNAME])
-       if test "x$_AX_PATH_BDB_ENV_CONFIRM_LIB_ok" = "xyes"; then break; fi
-    done
-
-    AC_MSG_CHECKING([for library containing Berkeley DB version $_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION])
-    dnl # Found a valid library.
-    if test "$_AX_PATH_BDB_ENV_CONFIRM_LIB_ok" = "yes" ; then
-      if test "x$_AX_PATH_BDB_ENV_GET_VERSION_TEST_LIBNAME" = "x" ; then
-	AC_MSG_RESULT([none required])
-      else
-	AC_MSG_RESULT([$_AX_PATH_BDB_ENV_GET_VERSION_TEST_LIBNAME])
-      fi
-      _AX_PATH_BDB_ENV_GET_VERSION_VERSION="$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION"
-      _AX_PATH_BDB_ENV_GET_VERSION_LIBS="$_AX_PATH_BDB_ENV_GET_VERSION_TEST_LIBNAME"
-      _AX_PATH_BDB_ENV_GET_VERSION_ok=yes
-    else
-      AC_MSG_RESULT([no])
-    fi
-
-    AS_VAR_POPDEF([MAJOR])dnl
-    AS_VAR_POPDEF([MINOR])dnl
-  fi
+      AC_MSG_CHECKING([for library containing Berkeley DB version $_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION])
+      dnl # Found a valid library.
+      AS_IF([test "x$_AX_PATH_BDB_ENV_CONFIRM_LIB_ok" = 'xyes'],
+	[
+	  AS_IF([test "x$_AX_PATH_BDB_ENV_GET_VERSION_TEST_LIBNAME" = 'x'],
+	    [AC_MSG_RESULT([none required])],
+	    [AC_MSG_RESULT([$_AX_PATH_BDB_ENV_GET_VERSION_TEST_LIBNAME])])
+	  _AX_PATH_BDB_ENV_GET_VERSION_VERSION="$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION"
+	  _AX_PATH_BDB_ENV_GET_VERSION_LIBS="$_AX_PATH_BDB_ENV_GET_VERSION_TEST_LIBNAME"
+	  _AX_PATH_BDB_ENV_GET_VERSION_ok=yes
+	],[
+	  AC_MSG_RESULT([no])
+	])
+    ])
 
   dnl # Execute ACTION-IF-FOUND / ACTION-IF-NOT-FOUND.
-  if test "x$_AX_PATH_BDB_ENV_GET_VERSION_ok" = "xyes" ; then
-    m4_ifvaln([$1],[$1],[:])dnl
-    m4_ifvaln([$2],[else $2])dnl
-  fi
-
-]) dnl BDB_ENV_GET_VERSION
+  AS_IF([test "x$_AX_PATH_BDB_ENV_GET_VERSION_ok" = 'xyes'],
+    [m4_ifvaln([$1],[$1],[:])],
+    [m4_ifvaln([$2],[$2],[:])]
+  )
+]) dnl _AX_PATH_BDB_ENV_GET_VERSION
 
 #############################################################################
