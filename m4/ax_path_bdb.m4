@@ -18,7 +18,7 @@
 #   the default Berkeley DB install location. When found, it sets BDB_LIBS,
 #   BDB_CPPFLAGS, and BDB_LDFLAGS to the necessary values to add to LIBS,
 #   CPPFLAGS, and LDFLAGS, as well as setting BDB_VERSION to the version
-#   found. HAVE_DB_H is defined also.
+#   found (these variables are AC_SUBST). HAVE_DB_H is defined also.
 #
 #   The option --with-bdb-dir=DIR can be used to specify a specific Berkeley
 #   DB installation to use.
@@ -69,7 +69,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 24
+#serial 25
 
 dnl #########################################################################
 AC_DEFUN([AX_PATH_BDB], [
@@ -83,50 +83,61 @@ AC_DEFUN([AX_PATH_BDB], [
 		    [Berkeley DB installation directory])])
 
   # Check if --with-bdb-dir was specified.
-  if test "x$with_bdb_dir" = "x" ; then
-    # No option specified, so just search the system.
-    AX_PATH_BDB_NO_OPTIONS([${_AX_PATH_BDB_MIN_VERSION}], [HIGHEST], [
-      ax_path_bdb_ok=yes
-    ])
-   else
-     # Set --with-bdb-dir option.
-     ax_path_bdb_INC="$with_bdb_dir/include"
-     ax_path_bdb_LIB="$with_bdb_dir/lib"
+  AS_IF([test "x$with_bdb_dir" = "x"],
+    [
+      # No option specified, so just search the system.
+      AX_PATH_BDB_NO_OPTIONS([${_AX_PATH_BDB_MIN_VERSION}], [HIGHEST], [ax_path_bdb_ok=yes])
+    ],[
+      # Set --with-bdb-dir option.
+      ax_path_bdb_INC="$with_bdb_dir/include"
+      ax_path_bdb_LIB="$with_bdb_dir/lib"
+      AX_SAVE_FLAGS([AX_PATH_BDB])
+      dnl # Save previous environment, and modify with new stuff.
+      ax_path_bdb_save_CPPFLAGS="$CPPFLAGS"
+      CPPFLAGS="-I$ax_path_bdb_INC $CPPFLAGS"
+      ax_path_bdb_save_LDFLAGS=$LDFLAGS
+      LDFLAGS="-L$ax_path_bdb_LIB $LDFLAGS"
 
-     dnl # Save previous environment, and modify with new stuff.
-     ax_path_bdb_save_CPPFLAGS="$CPPFLAGS"
-     CPPFLAGS="-I$ax_path_bdb_INC $CPPFLAGS"
-
-     ax_path_bdb_save_LDFLAGS=$LDFLAGS
-     LDFLAGS="-L$ax_path_bdb_LIB $LDFLAGS"
-
-     # Check for specific header file db.h
-     AC_MSG_CHECKING([db.h presence in $ax_path_bdb_INC])
-     if test -f "$ax_path_bdb_INC/db.h" ; then
-       AC_MSG_RESULT([yes])
-       # Check for library
-       AX_PATH_BDB_NO_OPTIONS([${_AX_PATH_BDB_MIN_VERSION}], [ENVONLY], [
-	 ax_path_bdb_ok=yes
-	 BDB_CPPFLAGS="-I$ax_path_bdb_INC"
-	 BDB_LDFLAGS="-L$ax_path_bdb_LIB"
+      # Check for specific header file db.h
+      AC_MSG_CHECKING([db.h presence in $ax_path_bdb_INC])
+      AC_CHECK_FILE([$ax_path_bdb_INC/db.h],
+        [
+          AC_MSG_RESULT([yes])
+          # Check for library
+          AX_PATH_BDB_NO_OPTIONS([${_AX_PATH_BDB_MIN_VERSION}], [ENVONLY],
+	    [
+	      ax_path_bdb_ok=yes
+	      BDB_CPPFLAGS="-I$ax_path_bdb_INC"
+	      BDB_LDFLAGS="-L$ax_path_bdb_LIB"
+            ])
+        ],[
+          AC_MSG_RESULT([no])
        ])
-     else
-       AC_MSG_RESULT([no])
-       AC_MSG_NOTICE([no usable Berkeley DB not found])
-     fi
-
-     dnl # Restore the environment.
-     CPPFLAGS="$ax_path_bdb_save_CPPFLAGS"
-     LDFLAGS="$ax_path_bdb_save_LDFLAGS"
-
-  fi
-
+       AX_RESTORE_FLAGS([AX_PATH_BDB])
+    ])
   dnl # Execute ACTION-IF-FOUND / ACTION-IF-NOT-FOUND.
-  if test "$ax_path_bdb_ok" = "yes" ; then
-    m4_ifvaln([$2],[$2],[:])dnl
-    m4_ifvaln([$3],[else $3])dnl
-  fi
-
+  AC_MSG_CHECKING([for usable Berkeley DB version])
+  AC_SUBST(BDB_VERSION)
+  AC_SUBST(BDB_CPPFLAGS)
+  AC_SUBST(BDB_LIBS)
+  AC_SUBST(BDB_LDFLAGS)
+  AS_IF([test "x$ax_path_bdb_ok" = "xyes"],
+    [
+      AC_MSG_RESULT([$BDB_VERSION])
+      AC_MSG_CHECKING([for usable Berkeley DB '\$CPPFLAGS'])
+      AC_MSG_RESULT(['$BDB_CPPFLAGS'])
+      AC_MSG_CHECKING([for usable Berkeley DB '\$LDFLAGS'])
+      AC_MSG_RESULT(['$BDB_LDFLAGS'])
+      AC_MSG_CHECKING([for usable Berkeley DB '\$LIBS'])
+      AC_MSG_RESULT(['$BDB_LIBS'])
+      AC_DEFINE([HAVE_DB_H],[1],
+		[Define to 1 if you have the <db.h> header file.])
+      m4_ifvaln([$2],[$2])
+    ],
+    [
+      AC_MSG_RESULT([none found])
+      m4_ifvaln([$3],[$3])
+    ])
 ]) dnl AX_PATH_BDB
 
 dnl #########################################################################
@@ -203,15 +214,13 @@ AC_DEFUN([AX_PATH_BDB_NO_OPTIONS], [
 	])
 
   dnl # Execute ACTION-IF-FOUND / ACTION-IF-NOT-FOUND.
-  AC_MSG_CHECKING([for highest Berkeley DB version])
+  AC_MSG_CHECKING([for highest Berkeley DB version >= $1])
   AS_IF([test "x$_AX_PATH_BDB_NO_OPTIONS_ok" = 'xyes'],
     [
       AC_MSG_RESULT([$BDB_VERSION])
-      AC_DEFINE([HAVE_DB_H],[1],
-		[Define to 1 if you have the <db.h> header file.])
       m4_ifvaln([$3],[$3])dnl
     ],[
-      AC_MSG_RESULT([no Berkeley DB version $1 or higher found])
+      AC_MSG_RESULT([none found])
       m4_ifvaln([$4],[$4])dnl
     ])
 ]) dnl AX_PATH_BDB_NO_OPTIONS
@@ -253,15 +262,15 @@ AC_DEFUN([_AX_PATH_BDB_PATH_FIND_HIGHEST], [
 
   dnl # Execute ACTION-IF-FOUND / ACTION-IF-NOT-FOUND.
   AC_MSG_CHECKING([for highest version Berkeley database local install dir])
-  if test "x$_AX_PATH_BDB_PATH_FIND_HIGHEST_ok" = 'xyes' ; then
-    AC_MSG_RESULT([$_AX_PATH_BDB_PATH_FIND_HIGHEST_DIR])
-    m4_ifvaln([$1],[$1],[:])dnl
-  else
-    AC_MSG_RESULT([none found])
-    m4_ifvaln([$2],[else $2])dnl
-  fi
-
-]) dnl AX_PATH_BDB_PATH_FIND_HIGHEST
+  AS_IF([test "x$_AX_PATH_BDB_PATH_FIND_HIGHEST_ok" = 'xyes'],
+   [
+     AC_MSG_RESULT([$_AX_PATH_BDB_PATH_FIND_HIGHEST_DIR])
+     m4_ifvaln([$1],[$1])dnl
+   ],[
+     AC_MSG_RESULT([none found])
+     m4_ifvaln([$2],[$2])dnl
+   ])
+]) dnl _AX_PATH_BDB_PATH_FIND_HIGHEST
 
 dnl #########################################################################
 dnl Checks for Berkeley DB in specified directory's lib and include
@@ -322,7 +331,7 @@ AC_DEFUN([_AX_PATH_BDB_ENV_CONFIRM_LIB], [
   _AX_PATH_BDB_ENV_CONFIRM_LIB_ok=no
 
   dnl # save and modify environment to link with library LIBNAME
-  ax_path_bdb_env_confirm_lib_save_LIBS="$LIBS"
+  AX_SAVE_FLAGS([_AX_PATH_BDB_ENV_CONFIRM_LIB])
   LIBS="$2 $LIBS"
 
   # compile and link a simple program
@@ -378,9 +387,8 @@ int main(int argc,char **argv)
       _AX_PATH_BDB_ENV_CONFIRM_LIB_ok=yes
     ])
   ])
-  dnl # restore environment
-  LIBS="$ax_path_bdb_env_confirm_lib_save_LIBS"
-]) dnl AX_PATH_BDB_ENV_CONFIRM_LIB
+  AX_RESTORE_FLAGS([_AX_PATH_BDB_ENV_CONFIRM_LIB])
+]) dnl _AX_PATH_BDB_ENV_CONFIRM_LIB
 
 
 dnl Find the header using env result
@@ -389,6 +397,7 @@ dnl   _AX_PATH_BDB_ENV_GET_VERSION_HEADER_MAJOR
 dnl   _AX_PATH_BDB_ENV_GET_VERSION_HEADER_MINOR
 dnl   _AX_PATH_BDB_ENV_GET_VERSION_HEADER_PATCH
 dnl   _AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION
+dnl run $1 if found $2 is not found
 AC_DEFUN([_AX_PATH_BDB_ENV_GET_VERSION_HEADER],[
   # default value
   _AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR=''
@@ -448,6 +457,12 @@ AC_DEFUN([_AX_PATH_BDB_ENV_GET_VERSION_HEADER],[
        [AC_MSG_RESULT([$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION])]
     )
   ])
+
+  dnl # Execute ACTION-IF-FOUND / ACTION-IF-NOT-FOUND.
+  AS_IF([test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION" = 'x'],
+    [m4_ifvaln([$2],[$2],[:])],
+    [m4_ifvaln([$1],[$1],[:])]
+  )
 ])
 
 #############################################################################
@@ -467,15 +482,7 @@ AC_DEFUN([_AX_PATH_BDB_ENV_GET_VERSION], [
   _AX_PATH_BDB_ENV_GET_VERSION_VERSION=''
   _AX_PATH_BDB_ENV_GET_VERSION_LIBS=''
 
-  _AX_PATH_BDB_ENV_GET_VERSION_HEADER
-
-  # Have header version, so try to find corresponding library.
-  # Looks for library names in the order:
-  #   nothing, db, db-X.Y, dbX.Y, dbXY, db-X, dbX
-  # and stops when it finds the first one that matches the version
-  # of the header file.
-  AS_IF([test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION" != 'x'],
-    [
+  _AX_PATH_BDB_ENV_GET_VERSION_HEADER([
       AS_VAR_PUSHDEF([MAJOR],[_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR])dnl
       AS_VAR_PUSHDEF([MINOR],[_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR])dnl
       for _AX_PATH_BDB_ENV_GET_VERSION_TEST_LIBNAME in '' '-ldb' "-ldb-${MAJOR}.${MINOR}" "-ldb${MAJOR}.${MINOR}" "-ldb-${MAJOR}" "-ldb${MAJOR}${MINOR}"; do
