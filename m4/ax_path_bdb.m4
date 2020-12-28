@@ -189,15 +189,15 @@ AC_DEFUN([AX_PATH_BDB_NO_OPTIONS], [
 
     if test "x$_AX_PATH_BDB_NO_OPTIONS_DONE" = 'xno' ; then
       # Check for highest in /usr/local/BerkeleyDB*
-      AX_PATH_BDB_PATH_FIND_HIGHEST([
+      _AX_PATH_BDB_PATH_FIND_HIGHEST([
         if test "x$_AX_PATH_BDB_NO_OPTIONS_ok" = "xyes" ; then
         # If we already have an acceptable version use this if higher.
           AX_COMPARE_VERSION(
-             [$ax_path_bdb_path_find_highest_VERSION],[gt],[$BDB_VERSION])
+             [$_AX_PATH_BDB_PATH_FIND_HIGHEST_VERSION],[gt],[$BDB_VERSION])
         else
           # Since we didn't have an acceptable version check if this one is.
           AX_COMPARE_VERSION(
-             [$ax_path_bdb_path_find_highest_VERSION],[ge],[$1])
+             [$_AX_PATH_BDB_PATH_FIND_HIGHEST_VERSION],[ge],[$1])
         fi
       ])
 
@@ -206,10 +206,10 @@ AC_DEFUN([AX_PATH_BDB_NO_OPTIONS], [
         _AX_PATH_BDB_NO_OPTIONS_ok=yes
         BDB_LIBS="-ldb"
 	if test "x$ax_path_bdb_path_find_highest_DIR" != x ; then
-	  BDB_CPPFLAGS="-I$ax_path_bdb_path_find_highest_DIR/include"
-	  BDB_LDFLAGS="-L$ax_path_bdb_path_find_highest_DIR/lib"
+	  BDB_CPPFLAGS="-I$_AX_PATH_BDB_PATH_FIND_HIGHEST_DIR/include"
+	  BDB_LDFLAGS="-L$_AX_PATH_BDB_PATH_FIND_HIGHEST_DIR/lib"
 	fi
-        BDB_VERSION="$ax_path_bdb_path_find_highest_VERSION"
+        BDB_VERSION="$_AX_PATH_BDB_PATH_FIND_HIGHEST_VERSION"
       fi
     fi
   fi
@@ -230,42 +230,44 @@ dnl #########################################################################
 dnl Check the default installation directory for Berkeley DB which is
 dnl of the form /usr/local/BerkeleyDB* for the highest version.
 dnl
-dnl Result: sets ax_path_bdb_path_find_highest_ok to yes or no,
-dnl         sets ax_path_bdb_path_find_highest_VERSION to version,
-dnl         sets ax_path_bdb_path_find_highest_DIR to directory.
+dnl Result: sets _AX_PATH_BDB_PATH_FIND_HIGHEST_ok to yes or no,
+dnl         sets _AX_PATH_BDB_PATH_FIND_HIGHEST_VERSION to version,
+dnl         sets _AX_PATH_BDB_PATH_FIND_HIGHEST_DIR to directory.
 dnl
 dnl AX_PATH_BDB_PATH_FIND_HIGHEST([ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
-AC_DEFUN([AX_PATH_BDB_PATH_FIND_HIGHEST], [
+AC_DEFUN([_AX_PATH_BDB_PATH_FIND_HIGHEST], [
   dnl # Used to indicate success or failure of this function.
-  ax_path_bdb_path_find_highest_ok=no
-
-  AS_VAR_PUSHDEF([VERSION],[ax_path_bdb_path_find_highest_VERSION])dnl
-  VERSION=''
-
-  ax_path_bdb_path_find_highest_DIR=''
+  _AX_PATH_BDB_PATH_FIND_HIGHEST_ok=no
+  _AX_PATH_BDB_PATH_FIND_HIGHEST_VERSION=''
+  _AX_PATH_BDB_PATH_FIND_HIGHEST_DIR=''
 
   # find highest version in default install directory for Berkeley DB
-  AS_VAR_PUSHDEF([CURDIR],[ax_path_bdb_path_find_highest_CURDIR])dnl
-  AS_VAR_PUSHDEF([CUR_VERSION],[ax_path_bdb_path_get_version_VERSION])dnl
-
-  for CURDIR in `ls -d /usr/local/BerkeleyDB* 2> /dev/null`
+  for _AX_PATH_BDB_PATH_FIND_HIGHEST_CURDIR in `ls -d /usr/local/BerkeleyDB* 2> /dev/null`
   do
-    _AX_PATH_BDB_PATH_GET_VERSION([$CURDIR],[
-      AX_COMPARE_VERSION([$CUR_VERSION],[gt],[$VERSION],[
-        ax_path_bdb_path_find_highest_ok=yes
-        ax_path_bdb_path_find_highest_DIR="$CURDIR"
-        VERSION="$CUR_VERSION"
+    _AX_PATH_BDB_PATH_GET_VERSION([$_AX_PATH_BDB_PATH_FIND_HIGHEST_CURDIR],[
+      AS_IF([test "x_AX_PATH_BDB_PATH_FIND_HIGHEST_VERSION" = "x"],
+            [
+	      _AX_PATH_BDB_PATH_FIND_HIGHEST_ok=yes
+	      _AX_PATH_BDB_PATH_FIND_HIGHEST_DIR="$_AX_PATH_BDB_PATH_FIND_HIGHEST_CURDIR"
+	      _AX_PATH_BDB_PATH_FIND_HIGHEST_VERSION="$_AX_PATH_BDB_PATH_GET_VERSION_VERSION"
+	    ],
+	    [
+	      AX_COMPARE_VERSION([$_AX_PATH_BDB_PATH_GET_VERSION_VERSION],[gt],[$_AX_PATH_BDB_PATH_FIND_HIGHEST_VERSION],[
+                _AX_PATH_BDB_PATH_FIND_HIGHEST_ok=yes
+                _AX_PATH_BDB_PATH_FIND_HIGHEST_DIR="$_AX_PATH_BDB_PATH_FIND_HIGHEST_CURDIR"
+                _AX_PATH_BDB_PATH_FIND_HIGHEST_VERSION="$_AX_PATH_BDB_PATH_GET_VERSION_VERSION"
+                ])
       ])
     ])
   done
 
-  AS_VAR_POPDEF([VERSION])dnl
-  AS_VAR_POPDEF([CUR_VERSION])dnl
-  AS_VAR_POPDEF([CURDIR])dnl
-
   dnl # Execute ACTION-IF-FOUND / ACTION-IF-NOT-FOUND.
-  if test "$ax_path_bdb_path_find_highest_ok" = "yes" ; then
+  AC_MSG_CHECKING([for highest version Berkeley database local install dir])
+  if test "x$_AX_PATH_BDB_PATH_FIND_HIGHEST_ok" = 'xyes' ; then
+    AC_MSG_RESULT([$_AX_PATH_BDB_PATH_FIND_HIGHEST_DIR])
     m4_ifvaln([$1],[$1],[:])dnl
+  else
+    AC_MSG_RESULT([none found])
     m4_ifvaln([$2],[else $2])dnl
   fi
 
@@ -276,14 +278,14 @@ dnl Checks for Berkeley DB in specified directory's lib and include
 dnl subdirectories.
 dnl
 dnl Result: sets ax_path_bdb_path_get_version_ok to yes or no,
-dnl         sets ax_path_bdb_path_get_version_VERSION to version.
+dnl         _AX_PATH_BDB_PATH_GET_VERSION_VERSION to version.
 dnl
-dnl AX_PATH_BDB_PATH_GET_VERSION(BDB-DIR, [ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
+dnl __AX_PATH_BDB_PATH_GET_VERSION(BDB-DIR, [ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
 AC_DEFUN([_AX_PATH_BDB_PATH_GET_VERSION], [
   dnl # Used to indicate success or failure of this function.
   _AX_PATH_BDB_PATH_GET_VERSION_ok=no
   # Indicate status of checking for Berkeley DB library.
-  ax_path_bdb_path_get_version_VERSION=''
+  _AX_PATH_BDB_PATH_GET_VERSION_VERSION=''
 
   # Indicate status of checking for Berkeley DB header.
   AC_MSG_CHECKING([in $1 for Berkeley DB dir and files])
@@ -300,7 +302,6 @@ AC_DEFUN([_AX_PATH_BDB_PATH_GET_VERSION], [
 
     _AX_PATH_BDB_ENV_GET_VERSION([
       _AX_PATH_BDB_PATH_GET_VERSION_ok=yes
-      ax_path_bdb_path_get_version_VERSION="$_AX_PATH_BDB_ENV_GET_VERSION_VERSION"
     ])
     AX_RESTORE_FLAGS([_AX_PATH_BDB_PATH_GET_VERSION])
   fi
@@ -308,7 +309,7 @@ AC_DEFUN([_AX_PATH_BDB_PATH_GET_VERSION], [
   dnl # Finally, execute ACTION-IF-FOUND / ACTION-IF-NOT-FOUND.
   AC_MSG_CHECKING([in $1 for Berkeley database])
   if test "_AX_PATH_BDB_PATH_GET_VERSION_ok" = "yes" ; then
-     AC_MSG_RESULT([$ax_path_bdb_path_get_version_VERSION])
+     AC_MSG_RESULT([$_AX_PATH_BDB_PATH_GET_VERSION_VERSION])
      m4_ifvaln([$2],[$2])dnl
   else
      AC_MSG_RESULT([no])
@@ -421,15 +422,15 @@ AC_DEFUN([_AX_PATH_BDB_ENV_GET_VERSION_HEADER],[
 
   if test "x$_AX_PATH_BDB_ENV_GET_VERSION_HEADER_header_db_h" = xyes; then
     AC_MSG_CHECKING([for db.h major version])
-    AC_COMPUTE_INT(_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR,DB_VERSION_MAJOR,[[#include <db.h>]],_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR=none)
+    AC_COMPUTE_INT(_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR,DB_VERSION_MAJOR,[[#include <db.h>]],_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR='none')
     AC_MSG_RESULT($_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MAJOR)
 
     AC_MSG_CHECKING([for db.h minor version])
-    AC_COMPUTE_INT(_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR,DB_VERSION_MINOR,[[#include <db.h>]],_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR=none)
+    AC_COMPUTE_INT(_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR,DB_VERSION_MINOR,[[#include <db.h>]],_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR='none')
     AC_MSG_RESULT($_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_MINOR)
 
     AC_MSG_CHECKING([for db.h patch level version])
-    AC_COMPUTE_INT(_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH,DB_VERSION_PATCH,[[#include <db.h>]],_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH=none)
+    AC_COMPUTE_INT(_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH,DB_VERSION_PATCH,[[#include <db.h>]],_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH='none')
     AC_MSG_RESULT($_AX_PATH_BDB_ENV_GET_VERSION_HEADER_VERSION_PATCH)
    
     AC_MSG_CHECKING([for db.h version])
