@@ -8,10 +8,10 @@
 #
 # DESCRIPTION
 #
-#   This macro searches for an installed libpcre2-8 library. If nothing was
-#   specified when calling configure, it searches first in /usr/local and
-#   then in /usr, /opt/local and /sw. If the --with-pcre2=DIR is specified,
-#   it will try to find it in DIR/include/pcre2.h and DIR/lib/libpcre2-8. If
+#   Search for an installed libpcre2-8 library. If nothing was specified
+#   when calling configure, it searches first in /usr/local and then in
+#   /usr, /opt/local and /sw. If the --with-pcre2=DIR is specified, it will
+#   try to find it in DIR/include/pcre2.h and DIR/lib/libpcre2-8. If
 #   --without-pcre2 is specified, the library is not searched at all.
 #
 #   If 'bits' is empty or '8', PCRE2 8-bit character support is checked
