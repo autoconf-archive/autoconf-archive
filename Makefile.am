@@ -30,6 +30,7 @@ maintainer-clean-local:
 	@rm -f configure Makefile.in aclocal.m4 AUTHORS ChangeLog
 	@rm -f INSTALL config.log config.status configure maint.mk
 	@rm -f autoconf-archive-*.*.*.tar.* GNUmakefile README
+	@rm -f *~
 
 dist-hook:
 	echo $(VERSION) > $(distdir)/.tarball-version
