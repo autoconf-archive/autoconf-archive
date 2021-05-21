@@ -8,11 +8,11 @@
 #
 # DESCRIPTION
 #
-#   Test for the Random library from the Boost C++ libraries. The macro 
-#   requires a preceding call to AX_BOOST_BASE. Further documentation is 
+#   Test for the Random library from the Boost C++ libraries. The macro
+#   requires a preceding call to AX_BOOST_BASE. Further documentation is
 #   available at <http://randspringer.de/boost/index.html>.
 #
-#   This macro is strongly based upon the AX_BOOST_<X> macros written by 
+#   This macro is strongly based upon the AX_BOOST_<X> macros written by
 #   Xiyue Deng, and contributes to the collection of BOOST libraries that
 #   are supported by the Autoconf Archive.
 #
@@ -24,20 +24,17 @@
 #
 #     HAVE_BOOST_RANDOM
 #
-# AUTHORS
-#   Xiyue Deng <manphiz@gmail.com>
-#   Richard Winters <kirvedx@gmail.com>
-#
 # LICENSE
 #
 #   Copyright (c) 2012 Xiyue Deng <manphiz@gmail.com>
+#   Copyright (c) 2021 Richard Winters <kirvedx@gmail.com>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 1
 
 AC_DEFUN([AX_BOOST_RANDOM],
 [
