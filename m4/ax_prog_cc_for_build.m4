@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 18
+#serial 19
 
 AU_ALIAS([AC_PROG_CC_FOR_BUILD], [AX_PROG_CC_FOR_BUILD])
 AC_DEFUN([AX_PROG_CC_FOR_BUILD], [dnl
@@ -44,6 +44,8 @@ dnl Use the standard macros, but make them use other variable names
 dnl
 pushdef([ac_cv_prog_CPP], ac_cv_build_prog_CPP)dnl
 pushdef([ac_cv_prog_cc_c89], ac_cv_build_prog_cc_c89)dnl
+pushdef([ac_cv_prog_cc_c99], ac_cv_build_prog_cc_c99)dnl
+pushdef([ac_cv_prog_cc_c11], ac_cv_build_prog_cc_c11)dnl
 pushdef([ac_cv_prog_gcc], ac_cv_build_prog_gcc)dnl
 pushdef([ac_cv_prog_cc_works], ac_cv_build_prog_cc_works)dnl
 pushdef([ac_cv_prog_cc_cross], ac_cv_build_prog_cc_cross)dnl
