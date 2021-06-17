@@ -41,8 +41,20 @@ AC_DEFUN([AX_HAVE_POLL], [dnl
   AC_CACHE_VAL([ax_cv_have_poll], [dnl
     AC_LINK_IFELSE([dnl
       AC_LANG_PROGRAM(
-        [#include <poll.h>],
-        [int rc; rc = poll((struct pollfd *)(0), 0, 0);])],
+        [dnl
+#include <poll.h>
+#if defined(__cplusplus)
+#include <stddef.h>
+#endif],
+        [dnl
+#if defined(__cplusplus)
+pollfd *pfd = NULL;
+#else
+struct pollfd *pfd = 0;
+#endif
+int rc = poll(pfd, 0, 0);
+/* Suppress warning for unused rc. */
+return rc - rc;])],
       [ax_cv_have_poll=yes],
       [ax_cv_have_poll=no])])
   AS_IF([test "${ax_cv_have_poll}" = "yes"],
@@ -58,11 +70,24 @@ AC_DEFUN([AX_HAVE_PPOLL], [dnl
       AC_LANG_PROGRAM(
         [dnl
 #include <poll.h>
-#include <signal.h>],
+#include <signal.h>
+#if defined(__cplusplus)
+#include <stddef.h>
+#endif],
         [dnl
-int rc;
-rc = poll((struct pollfd *)(0), 0, 0);
-rc = ppoll((struct pollfd *)(0), 0, (struct timespec const *)(0), (sigset_t const *)(0));])],
+#if defined(__cplusplus)
+pollfd *pfd = NULL;
+timespec const *ts = NULL;
+sigset_t const *sst = NULL;
+#else
+struct pollfd *pfd = 0;
+struct timespec const *ts = 0;
+sigset_t const *sst = 0;
+#endif
+int rc = poll(pfd, 0, 0);
+rc += ppoll(pfd, 0, ts, sst);
+/* Suppress warning for unused rc. */
+return rc - rc;])],
       [ax_cv_have_ppoll=yes],
       [ax_cv_have_ppoll=no])])
   AS_IF([test "${ax_cv_have_ppoll}" = "yes"],
