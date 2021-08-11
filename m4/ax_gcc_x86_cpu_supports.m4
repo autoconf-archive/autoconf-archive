@@ -57,7 +57,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 3
+#serial 4
 
 AC_DEFUN_ONCE([_AX_GCC_X86_CPU_INIT],
  [AC_LANG_PUSH([C])
@@ -69,6 +69,7 @@ AC_DEFUN_ONCE([_AX_GCC_X86_CPU_INIT],
       ],
       [ax_cv_gcc_check_x86_cpu_init=yes],
       [ax_cv_gcc_check_x86_cpu_init=no])])
+  AC_LANG_POP([C])
   AS_IF([test "X$ax_cv_gcc_check_x86_cpu_init" = "Xno"],
     [AC_MSG_ERROR([Need GCC to support X86 CPU features tests])])
 ])
