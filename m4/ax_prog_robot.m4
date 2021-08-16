@@ -23,7 +23,7 @@
 #
 #   Distributed under the terms of the BSD 3-Clause License.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_PROG_ROBOT],
 [
@@ -41,7 +41,7 @@ AC_DEFUN([AX_PROG_ROBOT],
         [
             AC_MSG_CHECKING([for robot version])
             changequote(<<,>>)
-            robot_version=`$ROBOT --version | $SED -e 's/^[^0-9]* \([0-9]*\.[0-9]*\.[0-9]*\) .*/\1/'`
+            robot_version=`$ROBOT --version | $SED -e 's/^[^0-9]* \([0-9.]*\) .*/\1/'`
             changequote([,])
             AC_MSG_RESULT($robot_version)
 
