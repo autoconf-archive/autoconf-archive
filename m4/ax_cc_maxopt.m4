@@ -143,6 +143,10 @@ if test "$ac_test_CFLAGS" != "set"; then
         fi
 	;;
 
+    nvhpc)
+     # default optimization flags for nvhpc
+     CFLAGS="$CFLAGS -O3"
+
     gnu)
      # default optimization flags for gcc on all systems
      CFLAGS="$CFLAGS -O3 -fomit-frame-pointer"
