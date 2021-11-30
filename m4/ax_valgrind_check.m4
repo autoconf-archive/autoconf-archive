@@ -77,11 +77,11 @@ AC_DEFUN([AX_VALGRIND_DFLT],[
 	m4_define([en_dflt_valgrind_$1], [$2])
 ])dnl
 
-AM_EXTRA_RECURSIVE_TARGETS([check-valgrind])
-m4_foreach([vgtool], [valgrind_tool_list],
-	[AM_EXTRA_RECURSIVE_TARGETS([check-valgrind-]vgtool)])
-
 AC_DEFUN([AX_VALGRIND_CHECK],[
+	AM_EXTRA_RECURSIVE_TARGETS([check-valgrind])
+	m4_foreach([vgtool], [valgrind_tool_list],
+		[AM_EXTRA_RECURSIVE_TARGETS([check-valgrind-]vgtool)])
+
 	dnl Check for --enable-valgrind
 	AC_ARG_ENABLE([valgrind],
 	              [AS_HELP_STRING([--enable-valgrind], [Whether to enable Valgrind on the unit tests])],
