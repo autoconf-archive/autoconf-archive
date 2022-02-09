@@ -67,7 +67,7 @@ AC_ARG_ENABLE(portable-binary, [AS_HELP_STRING([--enable-portable-binary], [disa
 	acx_maxopt_portable=$enableval, acx_maxopt_portable=no)
 
 # Try to determine "good" native compiler flags if none specified via CFLAGS
-if test "$ac_test_CFLAGS" != "set"; then
+if test "x$ac_test_CFLAGS" != "xset" -a "x$ac_test_CFLAGS" != "xy"; then
   case $ax_cv_c_compiler_vendor in
     dec) CFLAGS="$CFLAGS -newc -w0 -O5 -ansi_alias -ansi_args -fp_reorder -tune host"
 	 if test "x$acx_maxopt_portable" = xno; then
