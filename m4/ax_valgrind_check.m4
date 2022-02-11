@@ -231,7 +231,7 @@ A''M_DISTCHECK_CONFIGURE_FLAGS += --disable-valgrind
 MOSTLYCLEANFILES ?=
 MOSTLYCLEANFILES += $(valgrind_log_files)
 
-.PHONY: check-valgrind $(add-prefix check-valgrind-,$(valgrind_tools))
+.PHONY: check-valgrind $(addprefix check-valgrind-,$(valgrind_tools))
 ']
 
 	AC_SUBST([VALGRIND_CHECK_RULES])
