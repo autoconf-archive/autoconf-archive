@@ -10,6 +10,8 @@
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+  AX_CC_FOR_BUILD was deprecated in favor of AX_PROG_CC_FOR_BUILD.
+
 * Noteworthy changes in release 2021.02.19 (2021-02-19) [stable]
 
   The macros AX_CHECK_PCRE2 and AX_PROG_ROBOT have been added. Many other
