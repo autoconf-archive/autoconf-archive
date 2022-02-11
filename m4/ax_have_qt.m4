@@ -64,8 +64,15 @@ AC_DEFUN([AX_HAVE_QT],
   AC_REQUIRE([AC_PATH_XTRA])
 
   AC_MSG_CHECKING(for Qt)
+
+  # openSUSE leap 15.3 installs qmake-qt5, not qmake, for example.
+  # Store the full name (like qmake-qt5) into am_have_qt_qmexe
+  # and the specifier (like -qt5 or empty) into am_have_qt_qmexe_suff.
+  AC_CHECK_PROGS(am_have_qt_qmexe,qmake qmake-qt6 qmake-qt5,[])
+  am_have_qt_qmexe_suff=`echo $am_have_qt_qmexe | cut -b 6-`
   # If we have Qt5 or later in the path, we're golden
-  ver=`qmake --version | grep -o "Qt version ."`
+  ver=`$am_have_qt_qmexe --version | grep -o "Qt version ."`
+
   if test "$ver" ">" "Qt version 4"; then
     have_qt=yes
     # This pro file dumps qmake's variables, but it only works on Qt 5 or later
@@ -111,21 +118,21 @@ percent.target = %
 percent.commands = @echo -n "\$(\$(@))\ "
 QMAKE_EXTRA_TARGETS += percent
 EOF
-    qmake $am_have_qt_pro -o $am_have_qt_makefile
+    $am_have_qt_qmexe $am_have_qt_pro -o $am_have_qt_makefile
     QT_CXXFLAGS=`cd $am_have_qt_dir; make -s -f $am_have_qt_makefile CXXFLAGS INCPATH`
     QT_LIBS=`cd $am_have_qt_dir; make -s -f $am_have_qt_makefile LIBS`
     rm $am_have_qt_pro $am_have_qt_makefile
     rmdir $am_have_qt_dir
 
     # Look for specific tools in $PATH
-    QT_MOC=`which moc`
-    QT_UIC=`which uic`
-    QT_RCC=`which rcc`
-    QT_LRELEASE=`which lrelease`
-    QT_LUPDATE=`which lupdate`
+    QT_MOC=`which moc$am_have_qt_qmexe_suff`
+    QT_UIC=`which uic$am_have_qt_qmexe_suff`
+    QT_RCC=`which rcc$am_have_qt_qmexe_suff`
+    QT_LRELEASE=`which lrelease$am_have_qt_qmexe_suff`
+    QT_LUPDATE=`which lupdate$am_have_qt_qmexe_suff`
 
     # Get Qt version from qmake
-    QT_DIR=`qmake --version | grep -o -E /.+`
+    QT_DIR=`$am_have_qt_qmexe --version | grep -o -E /.+`
 
     # All variables are defined, report the result
     AC_MSG_RESULT([$have_qt:
