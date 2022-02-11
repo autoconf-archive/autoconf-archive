@@ -69,7 +69,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 25
+#serial 30
 
 dnl #########################################################################
 AC_DEFUN([AX_PATH_BDB], [

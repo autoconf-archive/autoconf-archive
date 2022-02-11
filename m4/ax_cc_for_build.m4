@@ -10,8 +10,8 @@
 #
 #   Find a build-time compiler. Sets CC_FOR_BUILD and EXEEXT_FOR_BUILD.
 #
-#   AX_CC_FOR_BUILD is deprecated; it expands into AX_PROG_CC_FOR_BUILD which
-#   renames EXEEXT_FOR_BUILD to BUILD_EXEEXT.
+#   AX_CC_FOR_BUILD is deprecated; it expands into AX_PROG_CC_FOR_BUILD
+#   which renames EXEEXT_FOR_BUILD to BUILD_EXEEXT.
 #
 # LICENSE
 #
@@ -44,7 +44,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_CC_FOR_BUILD],
 [dnl
