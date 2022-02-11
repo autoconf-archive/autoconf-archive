@@ -1,6 +1,6 @@
 # Build and install the GNU Autoconf Archive documentation.
 #
-# Copyright (c) 2021 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
+# Copyright (c) 2022 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software

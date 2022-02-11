@@ -28,18 +28,18 @@ Downloads
 
 Here are the compressed sources:
 
--   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2021.02.19.tar.xz>
+-   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2022.02.11.tar.xz>
 
 Here are the GPG detached signatures:
 
--   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2021.02.19.tar.xz.sig>
+-   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2022.02.11.tar.xz.sig>
 
 You can use either of the above signature files to verify that the
 corresponding file (without the .sig suffix) is intact. First, be sure
 to download both the .sig file and the corresponding tarball. Then, run
 a command like this:
 
-    gpg --verify autoconf-archive-2021.02.19.tar.xz.sig
+    gpg --verify autoconf-archive-2022.02.11.tar.xz.sig
 
 If that command fails because you don't have the required public key,
 then run this command to import it:
@@ -51,7 +51,7 @@ and rerun the `gpg --verify` command.
 License
 -------
 
-Copyright (c) 2021 Autoconf Archive Maintainers \<<autoconf-archive-maintainers@gnu.org>\>
+Copyright (c) 2022 Autoconf Archive Maintainers \<<autoconf-archive-maintainers@gnu.org>\>
 
 The GNU Autoconf Archive is free software: you can redistribute it and/or
 modify it under the terms of the GNU General Public License as published
