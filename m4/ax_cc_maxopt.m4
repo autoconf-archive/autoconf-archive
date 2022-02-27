@@ -146,6 +146,7 @@ if test "x$ac_test_CFLAGS" = "x"; then
     nvhpc)
      # default optimization flags for nvhpc
      CFLAGS="$CFLAGS -O3"
+     ;;
 
     gnu)
      # default optimization flags for gcc on all systems
