@@ -112,15 +112,39 @@ to something else than an empty string.
 	fi
 
 	#
-	# if the macro parameter ``version'' is set, honour it
+	# If the macro parameter ``version'' is set, honour it.
+	# A Python shim class, VPy, is used to implement correct version comparisons via
+	# string expressions, since e.g. a naive textual ">= 2.7.3" won't work for
+	# Python 2.7.10 (the ".1" being evaluated as less than ".3").
 	#
 	if test -n "$1"; then
 		AC_MSG_CHECKING([for a version of Python $1])
-		ac_supports_python_ver=`$PYTHON -c "import sys; \
-			ver = sys.version.split ()[[0]]; \
+                cat << EOF > ax_python_devel_vpy.py
+class VPy:
+    def vtup(self, s):
+        return tuple(map(int, s.strip().replace("rc", ".").split(".")))
+    def __init__(self):
+        import sys
+        self.vpy = tuple(sys.version_info)
+    def __eq__(self, s):
+        return self.vpy == self.vtup(s)
+    def __ne__(self, s):
+        return self.vpy != self.vtup(s)
+    def __lt__(self, s):
+        return self.vpy < self.vtup(s)
+    def __gt__(self, s):
+        return self.vpy > self.vtup(s)
+    def __le__(self, s):
+        return self.vpy <= self.vtup(s)
+    def __ge__(self, s):
+        return self.vpy >= self.vtup(s)
+EOF
+		ac_supports_python_ver=`$PYTHON -c "import ax_python_devel_vpy; \
+                        ver = ax_python_devel_vpy.VPy(); \
 			print (ver $1)"`
+                rm -rf ax_python_devel_vpy*.py* __pycache__/ax_python_devel_vpy*.py*
 		if test "$ac_supports_python_ver" = "True"; then
-		   AC_MSG_RESULT([yes])
+			AC_MSG_RESULT([yes])
 		else
 			AC_MSG_RESULT([no])
 			AC_MSG_ERROR([this package requires Python $1.
