@@ -55,7 +55,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 22
+#serial 23
 
 AC_DEFUN([AX_CC_MAXOPT],
 [
@@ -146,6 +146,7 @@ if test "x$ac_test_CFLAGS" = "x"; then
     nvhpc)
      # default optimization flags for nvhpc
      CFLAGS="$CFLAGS -O3"
+     ;;
 
     gnu)
      # default optimization flags for gcc on all systems
