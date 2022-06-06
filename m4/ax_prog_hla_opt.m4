@@ -18,7 +18,7 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2007,2009 Bogdan Drozdowski <bogdandr@op.pl>
+#   Copyright (c) 2007,2009,2022 Bogdan Drozdowski <bogdro /AT/ users . sourceforge . net>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU Lesser General Public License as published by
@@ -46,16 +46,23 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_PROG_HLA_OPT],[
-AC_REQUIRE([AX_PROG_HLA])dnl
-AC_MSG_CHECKING([if $hla accepts $1])
-echo '' > conftest.hla
-if $hla $$2 $1 conftest.hla > conftest.err; then
-	$2="$$2 $1"
-	AC_MSG_RESULT([yes])
-else
-	AC_MSG_RESULT([no])
-fi
+	AC_REQUIRE([AX_PROG_HLA])dnl
+	AC_MSG_CHECKING([if HLA '$hla' accepts $1])
+	AS_IF([test "x$hla" = "xno"],
+		[
+			AC_MSG_RESULT([no])
+			AC_MSG_WARN([HLA assembler not found])
+		],
+		[
+			AS_ECHO '' > conftest.hla
+			AS_IF([$hla $$2 $1 conftest.hla > conftest.err],
+				[$2="$$2 $1"
+				AC_MSG_RESULT([yes])],
+				[AC_MSG_RESULT([no])]
+			)
+		]
+	)
 ])
