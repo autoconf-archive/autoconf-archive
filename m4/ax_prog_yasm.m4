@@ -20,7 +20,7 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2007,2009 Bogdan Drozdowski <bogdandr@op.pl>
+#   Copyright (c) 2007,2009,2022 Bogdan Drozdowski <bogdro /AT/ users . sourceforge . net>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU Lesser General Public License as published by
@@ -48,13 +48,12 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_PROG_YASM],[
-AC_CHECK_PROGS(yasm,[yasm],no)
-if test "x$yasm" = "xno" ;
-then
-	ifelse($#,0,[AC_MSG_ERROR([YASM assembler not found])],
-        $1)
-fi
+	AC_CHECK_PROGS(yasm,[yasm],no)
+	AS_IF([test "x$yasm" = "xno"],
+		ifelse($#,0,[AC_MSG_ERROR([YASM assembler not found])],
+		$1)
+	)
 ])
