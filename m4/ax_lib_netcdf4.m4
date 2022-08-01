@@ -89,7 +89,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_LIB_NETCDF4], [
 
@@ -231,8 +231,11 @@ parallel NetCDF4 is not supported (while it was requested)
         LDFLAGS=$ax_lib_hdf5_save_LDFLAGS
 
 
+        AC_PATH_PROGS([NF_CONFIG], [nf-config], [])
         AC_MSG_CHECKING([for matching NetCDF4 Fortran libraries])
-        NF_CONFIG="${NETCDF4_PREFIX}/bin/nf-config"
+        if test -z "$NF_CONFIG"; then
+           NF_CONFIG="${NETCDF4_PREFIX}/bin/nf-config"
+        fi
         if test ! -f "$NF_CONFIG" || test ! -x "$NF_CONFIG"; then
             AC_MSG_RESULT([no])
             with_netcdf4_fortran="no"
