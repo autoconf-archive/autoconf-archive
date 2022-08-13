@@ -25,6 +25,7 @@
 #     QT_LRELEASE
 #     QT_LUPDATE
 #     QT_DIR
+#     QMAKE
 #
 #   which respectively contain an "-I" flag pointing to the Qt include
 #   directory, link flags necessary to link with Qt and X, the full path to
@@ -54,7 +55,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 19
+#serial 20
 
 AU_ALIAS([BNV_HAVE_QT], [AX_HAVE_QT])
 AC_DEFUN([AX_HAVE_QT],
@@ -62,16 +63,16 @@ AC_DEFUN([AX_HAVE_QT],
   AC_REQUIRE([AC_PROG_CXX])
   AC_REQUIRE([AC_PATH_X])
   AC_REQUIRE([AC_PATH_XTRA])
-
-  AC_MSG_CHECKING(for Qt)
-
   # openSUSE leap 15.3 installs qmake-qt5, not qmake, for example.
   # Store the full name (like qmake-qt5) into am_have_qt_qmexe
   # and the specifier (like -qt5 or empty) into am_have_qt_qmexe_suff.
-  AC_CHECK_PROGS(am_have_qt_qmexe,qmake qmake-qt6 qmake-qt5,[])
-  am_have_qt_qmexe_suff=`echo $am_have_qt_qmexe | cut -b 6-`
+  AC_ARG_VAR([QMAKE],"Qt make tool")
+  AC_CHECK_TOOLS([QMAKE],[qmake qmake-qt6 qmake-qt5],[false])
+
+  AC_MSG_CHECKING(for Qt)
+  am_have_qt_qmexe_suff=`echo $am_have_qt_qmexe | sed 's,^.*qmake,,'`
   # If we have Qt5 or later in the path, we're golden
-  ver=`$am_have_qt_qmexe --version | grep -o "Qt version ."`
+  ver=`$QMAKE --version | grep -o "Qt version ."`
 
   if test "$ver" ">" "Qt version 4"; then
     have_qt=yes
@@ -132,7 +133,7 @@ EOF
     QT_LUPDATE=`which lupdate$am_have_qt_qmexe_suff`
 
     # Get Qt version from qmake
-    QT_DIR=`$am_have_qt_qmexe --version | grep -o -E /.+`
+    QT_DIR=`$QMAKE --version | grep -o -E /.+`
 
     # All variables are defined, report the result
     AC_MSG_RESULT([$have_qt:
@@ -165,6 +166,7 @@ EOF
   AC_SUBST(QT_RCC)
   AC_SUBST(QT_LRELEASE)
   AC_SUBST(QT_LUPDATE)
+  AC_SUBST(QMAKE)
 
   #### Being paranoid:
   if test x"$have_qt" = xyes; then
