@@ -18,7 +18,7 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2007,2009,2022 Bogdan Drozdowski <bogdro /AT/ users . sourceforge . net>
+#   Copyright (c) 2007,2009,2022 Bogdan Drozdowski <bogdro@users.sourceforge.net>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU Lesser General Public License as published by
@@ -46,7 +46,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_PROG_MASM_OPT],[
 	AC_REQUIRE([AX_PROG_MASM])dnl
