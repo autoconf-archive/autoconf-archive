@@ -1,5 +1,5 @@
 # ===========================================================================
-#     https://www.gnu.org/software/autoconf-archive/ax_boost_json.html
+#      https://www.gnu.org/software/autoconf-archive/ax_boost_json.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -33,7 +33,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_BOOST_JSON], [
 	AC_ARG_WITH([boost-json],
