@@ -12,7 +12,7 @@ news-check-lines-spec	:= 11
 
 # maintainer targets
 
-PYTHON		:= python
+PYTHON		:= python3
 
 M4DIR		:= $(srcdir)/m4
 STAGEDIR	:= $(srcdir)/stage
