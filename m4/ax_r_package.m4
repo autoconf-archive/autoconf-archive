@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 5
 
 AC_DEFUN([AX_R_PACKAGE], [
     pushdef([PKG],$1)
