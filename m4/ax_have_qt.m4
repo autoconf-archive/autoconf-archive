@@ -64,13 +64,13 @@ AC_DEFUN([AX_HAVE_QT],
   AC_REQUIRE([AC_PATH_X])
   AC_REQUIRE([AC_PATH_XTRA])
   # openSUSE leap 15.3 installs qmake-qt5, not qmake, for example.
-  # Store the full name (like qmake-qt5) into am_have_qt_qmexe
+  # Store the full name (like qmake-qt5) into QMAKE
   # and the specifier (like -qt5 or empty) into am_have_qt_qmexe_suff.
   AC_ARG_VAR([QMAKE],"Qt make tool")
   AC_CHECK_TOOLS([QMAKE],[qmake qmake-qt6 qmake-qt5],[false])
 
   AC_MSG_CHECKING(for Qt)
-  am_have_qt_qmexe_suff=`echo $am_have_qt_qmexe | sed 's,^.*qmake,,'`
+  am_have_qt_qmexe_suff=`echo $QMAKE | sed 's,^.*qmake,,'`
   # If we have Qt5 or later in the path, we're golden
   ver=`$QMAKE --version | grep -o "Qt version ."`
 
@@ -119,7 +119,7 @@ percent.target = %
 percent.commands = @echo -n "\$(\$(@))\ "
 QMAKE_EXTRA_TARGETS += percent
 EOF
-    $am_have_qt_qmexe $am_have_qt_pro -o $am_have_qt_makefile
+    $QMAKE $am_have_qt_pro -o $am_have_qt_makefile
     QT_CXXFLAGS=`cd $am_have_qt_dir; make -s -f $am_have_qt_makefile CXXFLAGS INCPATH`
     QT_LIBS=`cd $am_have_qt_dir; make -s -f $am_have_qt_makefile LIBS`
     rm $am_have_qt_pro $am_have_qt_makefile
