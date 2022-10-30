@@ -19,16 +19,18 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_CPU_FREQ],
 [AC_REQUIRE([AC_PROG_CC])
  AC_LANG_PUSH([C++])
  AC_CACHE_CHECK(your cpu frequency, ax_cpu_freq,
  [AC_RUN_IFELSE([AC_LANG_PROGRAM([
+#include <cstring>
 #include <iostream>
-#include <sys/time.h>
 #include <fstream>
+#include <unistd.h>
+#include <sys/time.h>
 using namespace std;
 
 static __inline__ unsigned long long int rdtsc()
