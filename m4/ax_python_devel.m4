@@ -160,7 +160,7 @@ variable to configure. See ``configure --help'' for reference.
 	# Check if you have distutils, else fail
 	#
 	AC_MSG_CHECKING([for the sysconfig Python package])
-	ac_sysconfig_result=`$PYTHON -c "import sysconfig" 2>&1`
+	$PYTHON -c 'import sysconfig' 2>&1
 	if test $? -eq 0; then
 		AC_MSG_RESULT([yes])
 		IMPORT_SYSCONFIG="import sysconfig"
@@ -168,7 +168,7 @@ variable to configure. See ``configure --help'' for reference.
 		AC_MSG_RESULT([no])
 
 		AC_MSG_CHECKING([for the distutils Python package])
-		ac_sysconfig_result=`$PYTHON -c "from distutils import sysconfig" 2>&1`
+		$PYTHON -c 'from distutils import sysconfig' 2>&1
 		if test $? -eq 0; then
 			AC_MSG_RESULT([yes])
 			IMPORT_SYSCONFIG="from distutils import sysconfig"

@@ -16,15 +16,15 @@
 #
 #   This file provides autoconf support for those applications that want to
 #   embed python. It supports all pythons >= 2.2 which is the first official
-#   release containing distutils. Version 2.2 of python was released
-#   December 21, 2001. Since it actually executes the python, cross platform
-#   configuration will probably not work. Also, most of the platforms
-#   supported are consistent until you look into Mac OS X. The python
-#   included with it is installed as a framework which is a very different
-#   environment to set up the normal tools such as gcc and libtool to deal
-#   with. Therefore, once we establish which python that we are going to
-#   use, we use its distutils to actually compile and link our modules or
-#   applications.
+#   release containing distutils. If the Version is >= 3.10 use setuptools
+#   instead PEP 632). Version 2.2 of python was released December 21, 2001.
+#   Since it actually executes the python, cross platform configuration will
+#   probably not work. Also, most of the platforms supported are consistent
+#   until you look into Mac OS X. The python included with it is installed as a
+#   framework which is a very different environment to set up the normal tools
+#   such as gcc and libtool to deal with. Therefore, once we establish which
+#   python that we are going to use, we use its distutils or setuptools (for
+#   python > 3.10) to actually compile and link our modules or applications.
 #
 #   At this time, it does NOT support linking with Python statically. It
 #   does support dynamic linking.
@@ -120,7 +120,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 15
+#serial 16
 
 # AX_PYTHON_DEFAULT( )
 # -----------------
@@ -223,19 +223,24 @@ AC_DEFUN([AX_PYTHON_CSPEC],
     AC_ARG_VAR( [PYTHON], [Python Executable Path] )
     if test -n "$PYTHON"
     then
-        ax_python_prefix=`${PYTHON} -c "import sys; print(sys.prefix)"`
+        ax_python_prefix=$(${PYTHON} -c "import sys; print(sys.prefix)")
         if test -z "$ax_python_prefix"
         then
             AC_MSG_ERROR([Python Prefix is not known])
         fi
-        ax_python_execprefix=`${PYTHON} -c "import sys; print(sys.exec_prefix)"`
-        ax_python_version=`$PYTHON -c "import sys; print(sys.version[[:3]])"`
+        ax_python_execprefix=$(${PYTHON} -c "import sys; print(sys.exec_prefix)")
+        ax_python_version=$($PYTHON -c 'import sys; version = sys.version.split(".", maxsplit=2)[0:2]; sep = "."; print(sep.join(version))')
         ax_python_includespec="-I${ax_python_prefix}/include/python${ax_python_version}"
         if test x"$python_prefix" != x"$python_execprefix"; then
             ax_python_execspec="-I${ax_python_execprefix}/include/python${ax_python_version}"
             ax_python_includespec="${ax_python_includespec} $ax_python_execspec"
         fi
-        ax_python_ccshared=`${PYTHON} -c "import distutils.sysconfig; print(distutils.sysconfig.get_config_var('CFLAGSFORSHARED'))"`
+        $PYTHON -c 'import sysconfig' 2>&1
+        if test $? -eq 0; then
+          ax_python_ccshared=$(${PYTHON} -c "from sysconfig import get_config_var; print(get_config_var('CFLAGSFORSHARED'))")
+        else
+          ax_python_ccshared=$(${PYTHON} -c "from distutils.sysconfig get_config_var; print(get_config_var('CFLAGSFORSHARED'))")
+        fi
         ax_python_cspec="${ax_python_ccshared} ${ax_python_includespec}"
         AC_SUBST([PYTHON_CSPEC], [${ax_python_cspec}])
         AC_MSG_NOTICE([PYTHON_CSPEC=${ax_python_cspec}])
@@ -273,12 +278,16 @@ AC_DEFUN([AX_PYTHON_LSPEC],
     then
         AX_PYTHON_RUN([
 import sys
-import distutils.sysconfig
+
+try:
+    from sysconfig import get_config_vars
+except:
+    from distutils.sysconfig import get_config_vars
+dictConfig = get_config_vars()
 strUseFrameWork = "--enable-framework"
-dictConfig = distutils.sysconfig.get_config_vars( )
 strConfigArgs = dictConfig.get("CONFIG_ARGS")
-strLinkSpec =  dictConfig.get('LDFLAGS')
-if -1 ==  strConfigArgs.find(strUseFrameWork):
+strLinkSpec = dictConfig.get("LDFLAGS")
+if -1 == strConfigArgs.find(strUseFrameWork):
     strLibPL = dictConfig.get("LIBPL")
     if strLibPL and (strLibPL != ""):
         strLinkSpec += " -L%s" % (strLibPL)
@@ -292,8 +301,7 @@ if -1 ==  strConfigArgs.find(strUseFrameWork):
     strTmplte = " -lpython%d.%d"
     if (sys.platform == "win32") or (sys.platform == "os2emx"):
         strTmplte = " -lpython%d%d"
-    strWrk = strTmplte % ( (sys.hexversion >> 24),
-                            ((sys.hexversion >> 16) & 0xff))
+    strWrk = strTmplte % ((sys.hexversion >> 24), ((sys.hexversion >> 16) & 0xFF))
     strLinkSpec += strWrk
 else:
     # This is not ideal since it changes the search path
@@ -304,7 +312,7 @@ else:
     strLibFW = dictConfig.get("PYTHONFRAMEWORKPREFIX")
     if strLibFW and (strLibFW != ""):
         strLinkSpec += " -F%s" % (strLibFW)
-strLinkSpec += " %s" % (dictConfig.get('LINKFORSHARED'))
+strLinkSpec += " %s" % (dictConfig.get("LINKFORSHARED"))
 print(strLinkSpec)
         ])
         AC_SUBST([PYTHON_LSPEC], [${ax_python_output}])
@@ -345,8 +353,8 @@ AC_DEFUN([AX_PYTHON_PREFIX],
     then
         AC_MSG_ERROR([Python Executable Path is not known])
     fi
-    ax_python_prefix=`${PYTHON} -c "import sys; print(sys.prefix)"`
-    ax_python_execprefix=`${PYTHON} -c "import sys; print(sys.exec_prefix)"`
+    ax_python_prefix=$(${PYTHON} -c "import sys; print(sys.prefix)")
+    ax_python_execprefix=$(${PYTHON} -c "import sys; print(sys.exec_prefix)")
     AC_SUBST([PYTHON_PREFIX], ["${ax_python_prefix}"])
     AC_SUBST([PYTHON_EXECPREFIX], ["${ax_python_execprefix}"])
 ])
@@ -369,7 +377,7 @@ AC_DEFUN([AX_PYTHON_RUN],
         cat >conftest.py <<_ACEOF
 $1
 _ACEOF
-        ax_python_output=`$PYTHON conftest.py`
+        ax_python_output=$($PYTHON conftest.py)
         ax_python_cc=$?
         rm conftest.py
         if test -f "conftest.pyc"

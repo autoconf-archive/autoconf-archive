@@ -12,9 +12,9 @@
 #
 #   AX_PYTHON_CONFIG_VAR:
 #
-#   Using the Python module distutils.sysconfig[1], return a Python
-#   configuration variable. PYTHON_VARIABLE is the name of the variable to
-#   request from Python, and SHELL_VARIABLE is the name of the shell
+#   Using the Python module sysconfig[1] or distutils.sysconfig[2], return a
+#   Python configuration variable. PYTHON_VARIABLE is the name of the variable
+#   to request from Python, and SHELL_VARIABLE is the name of the shell
 #   variable into which the results should be deposited. If SHELL_VARIABLE
 #   is not specified, the macro wil prefix PY_ to the PYTHON_VARIABLE, e.g.,
 #   LIBS -> PY_LIBS.
@@ -29,20 +29,22 @@
 #
 #   AX_PYTHON_CONFIG_H:
 #
-#   Using the Python module distutils.sysconfig[1], put the full pathname of
-#   the config.h file used to compile Python into the shell variable
+#   Using the Python module sysconfig[1] or distutils.sysconfig[2], put the full
+#   pathname of the config.h file used to compile Python into the shell variable
 #   PY_CONFIG_H. PY_CONFIG_H is AC_SUBST'd. Note if $PYTHON is not set,
 #   AC_CHECK_PROG(PYTHON, python, python) will be run.
 #
 #   AX_PYTHON_MAKEFILE:
 #
-#   Using the Python module distutils.sysconfig[1], put the full pathname of
-#   the Makefile file used to compile Python into the shell variable
+#   Using the Python module sysconfig[1] or distutils.sysconfig[2], put the full
+#   pathname of the Makefile file used to compile Python into the shell variable
 #   PY_MAKEFILE. PY_MAKEFILE is AC_SUBST'd. Note if $PYTHON is not set,
 #   AC_CHECK_PROG(PYTHON, python, python) will be run.
 #
 #   [1]
-#   http://www.python.org/doc/current/dist/module-distutils.sysconfig.html
+#   https://docs.python.org/3/library/sysconfig.html
+#   [2]
+#   https://docs.python.org/2/distutils/apiref.html#module-distutils.sysconfig
 #
 # LICENSE
 #
@@ -53,7 +55,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_PYTHON_CONFIG_VAR],
 [
@@ -63,8 +65,12 @@ AC_DEFUN([AX_PYTHON_CONFIG_VAR],
    AC_CHECK_PROG(PYTHON,python,python)
  fi
  py_error="no"
- pyval=`$PYTHON -c "from distutils import sysconfig;dnl
-print sysconfig.get_config_var('$1')"` || py_error="yes"
+ $PYTHON -c 'import sysconfig' 2>&1
+ if test $? -eq 0; then
+   pyval=$($PYTHON -c "from sysconfig import get_config_var; print(get_config_var('$1')")) || py_error="yes"
+ else
+   pyval=$($PYTHON -c "from distutils.sysconfig import get_config_var; print(get_config_var('$1')")) || py_error="yes"
+ fi
  if test "$py_error" = "yes"
  then
    AC_MSG_RESULT(no - an error occurred)
@@ -83,8 +89,11 @@ AC_DEFUN([AX_PYTHON_CONFIG_H],
    AC_CHECK_PROG(PYTHON,python,python)
  fi
  py_error="no"
- PY_CONFIG_H=`$PYTHON -c "from distutils import sysconfig;dnl
-print sysconfig.get_config_h_filename()"` || py_error = "yes"
+ $PYTHON -c 'import sysconfig' 2>&1
+ if test $? -eq 0; then
+   PY_CONFIG_H=$($PYTHON -c "from sysconfig import get_config_h_filename; print get_config_h_filename()") || py_error="yes"
+ else
+   PY_CONFIG_H=$($PYTHON -c "from distutils.sysconfig import get_config_h_filename; print get_config_h_filename()") || py_error="yes"
  if test "$py_error" = "yes"
  then
    AC_MSG_RESULT(no - an error occurred)
@@ -102,8 +111,11 @@ AC_DEFUN([AX_PYTHON_MAKEFILE],
    AC_CHECK_PROG(PYTHON,python,python)
  fi
  py_error="no"
- PY_MAKEFILE=`$PYTHON -c "from distutils import sysconfig;dnl
-print sysconfig.get_makefile_filename()"` || py_error = "yes"
+ $PYTHON -c 'import sysconfig' 2>&1
+ if test $? -eq 0; then
+   PY_MAKEFILE=$($PYTHON -c "from sysconfig import get_makefile_filename; print get_makefile_filename()") || py_error="yes"
+ else
+   PY_MAKEFILE=$($PYTHON -c "from distutils.sysconfig import get_makefile_filename; print get_makefile_filename()") || py_error="yes"
  if test "$py_error" = "yes"
  then
    AC_MSG_RESULT(no - an error occurred)
