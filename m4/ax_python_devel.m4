@@ -125,7 +125,7 @@ class VPy:
         return tuple(map(int, s.strip().replace("rc", ".").split(".")))
     def __init__(self):
         import sys
-        self.vpy = tuple(sys.version_info)
+        self.vpy = tuple(sys.version_info)[[:3]]
     def __eq__(self, s):
         return self.vpy == self.vtup(s)
     def __ne__(self, s):
