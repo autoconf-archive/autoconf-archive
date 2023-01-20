@@ -106,8 +106,16 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX], [dnl
     dnl Cray's crayCC needs "-h std=c++11"
     dnl MSVC needs -std:c++NN for C++17 and later (default is C++14)
     for alternative in ${ax_cxx_compile_alternatives}; do
-      for switch in -std=c++${alternative} +std=c++${alternative} "-h std=c++${alternative}" -std:c++${alternative}; do
-        cachevar=AS_TR_SH([ax_cv_cxx_compile_cxx$1_$switch])
+      for switch in -std=c++${alternative} +std=c++${alternative} "-h std=c++${alternative}" MSVC; do
+        if test x"$switch" = xMSVC; then
+          dnl AS_TR_SH maps both `:` and `=` to `_` so -std:c++17 would collide
+          dnl with -std=c++17.  We suffix the cache variable name with _MSVC to
+          dnl avoid this.
+          switch=-std:c++${alternative}
+          cachevar=AS_TR_SH([ax_cv_cxx_compile_cxx$1_${switch}_MSVC])
+        else
+          cachevar=AS_TR_SH([ax_cv_cxx_compile_cxx$1_$switch])
+        fi
         AC_CACHE_CHECK(whether $CXX supports C++$1 features with $switch,
                        $cachevar,
           [ac_save_CXX="$CXX"
