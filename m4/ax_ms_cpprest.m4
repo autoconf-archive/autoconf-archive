@@ -35,7 +35,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 dnl This supporting method tests for the correct Microsoft C++ Rest SDK
 dnl version by comparing the converted version string value as received
@@ -141,7 +141,7 @@ AC_DEFUN([_AX_MS_CPPREST_RUNDETECT], [
 	AS_CASE([${host_cpu}],
 		[x86_64],[libsubdirs="lib64 libx32 lib lib64"],
 		[mips*64*],[libsubdirs="lib64 lib32 lib lib64"],
-		[ppc64|powerpc64|s390x|sparc64|aarch64|ppc64le|powerpc64le|riscv64|e2k],[libsubdirs="lib64 lib lib64"],
+		[ppc64|powerpc64|s390x|sparc64|aarch64|ppc64le|powerpc64le|riscv64|e2k|loongarch64],[libsubdirs="lib64 lib lib64"],
 		[libsubdirs="lib"]
 	)
 
