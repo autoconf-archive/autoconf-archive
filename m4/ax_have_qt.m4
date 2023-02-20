@@ -79,6 +79,7 @@ AC_DEFUN([AX_HAVE_QT],
     # This pro file dumps qmake's variables, but it only works on Qt 5 or later
     am_have_qt_dir=`mktemp -d`
     am_have_qt_pro="$am_have_qt_dir/test.pro"
+    am_have_qt_stash="$am_have_qt_dir/.qmake.stash"
     am_have_qt_makefile="$am_have_qt_dir/Makefile"
     # http://qt-project.org/doc/qt-5/qmake-variable-reference.html#qt
     cat > $am_have_qt_pro << EOF
@@ -122,7 +123,7 @@ EOF
     $am_have_qt_qmexe $am_have_qt_pro -o $am_have_qt_makefile
     QT_CXXFLAGS=`cd $am_have_qt_dir; make -s -f $am_have_qt_makefile CXXFLAGS INCPATH`
     QT_LIBS=`cd $am_have_qt_dir; make -s -f $am_have_qt_makefile LIBS`
-    rm $am_have_qt_pro $am_have_qt_makefile
+    rm $am_have_qt_pro $am_have_qt_stash $am_have_qt_makefile
     rmdir $am_have_qt_dir
 
     # Look for specific tools in $PATH
