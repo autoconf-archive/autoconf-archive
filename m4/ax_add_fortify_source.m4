@@ -36,7 +36,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_ADD_FORTIFY_SOURCE],[
     ac_save_cflags=$CFLAGS
@@ -57,7 +57,7 @@ AC_DEFUN([AX_ADD_FORTIFY_SOURCE],[
             AC_LANG_SOURCE([[
                 #define _FORTIFY_SOURCE 2
                 #include <string.h>
-                int main() {
+                int main(void) {
                     char *s = " ";
                     strcpy(s, "x");
                     return strlen(s)-1;

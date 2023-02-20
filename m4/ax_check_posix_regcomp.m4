@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AG_CHECK_POSIX_REGCOMP], [AX_CHECK_POSIX_REGCOMP])
 AC_DEFUN([AX_CHECK_POSIX_REGCOMP],[
@@ -29,7 +29,7 @@ AC_DEFUN([AX_CHECK_POSIX_REGCOMP],[
   AC_CACHE_VAL([ax_cv_posix_regcomp],[
   AC_RUN_IFELSE([AC_LANG_SOURCE([[#include <sys/types.h>
 #include <regex.h>
-int main() {
+int main(void) {
   int flags = REG_EXTENDED|REG_ICASE|REG_NEWLINE;
   regex_t  re;
   if (regcomp( &re, "^.*$", flags ) != 0)
