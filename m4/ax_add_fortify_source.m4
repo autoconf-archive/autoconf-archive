@@ -10,8 +10,8 @@
 #
 #   Check whether -D_FORTIFY_SOURCE=2 can be added to CPPFLAGS without macro
 #   redefinition warnings, other cpp warnings or linker. Some distributions
-#   (such as Ubuntu or Gentoo Linux) enable _FORTIFY_SOURCE globally in their
-#   compilers, leading to unnecessary warnings in the form of
+#   (such as Ubuntu or Gentoo Linux) enable _FORTIFY_SOURCE globally in
+#   their compilers, leading to unnecessary warnings in the form of
 #
 #     <command-line>:0:0: error: "_FORTIFY_SOURCE" redefined [-Werror]
 #     <built-in>: note: this is the location of the previous definition
@@ -36,7 +36,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 8
 
 AC_DEFUN([AX_ADD_FORTIFY_SOURCE],[
     ac_save_cflags=$CFLAGS
