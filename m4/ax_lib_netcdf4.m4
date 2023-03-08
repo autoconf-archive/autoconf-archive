@@ -89,7 +89,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_LIB_NETCDF4], [
 
@@ -247,10 +247,10 @@ parallel NetCDF4 is not supported (while it was requested)
                 NETCDF4_FC=$(eval $NF_CONFIG --fc | $AWK '{print $[]2}')
             fi
             dnl Look for the FFLAGS
-            NETCDF4_FFLAGS=$(eval $NC_CONFIG --fflags)
+            NETCDF4_FFLAGS=$(eval $NF_CONFIG --fflags)
 
             dnl Look for the FLIBS and LDFLAGS
-            NETCDF4_tmp_flibs=$(eval $NC_CONFIG --flibs)
+            NETCDF4_tmp_flibs=$(eval $NF_CONFIG --flibs)
 
             dnl Sort out the tmp libs based on their prefixes
             for arg in $NETCDF4_tmp_flibs ; do
