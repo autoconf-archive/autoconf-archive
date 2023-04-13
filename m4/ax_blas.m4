@@ -175,9 +175,9 @@ fi
 
 # BLAS in Apple vecLib library?
 if test $ax_blas_ok = no; then
-	save_LIBS="$LIBS"; LIBS="-framework vecLib $LIBS"
-	AC_MSG_CHECKING([for $sgemm in -framework vecLib])
-	AC_LINK_IFELSE([AC_LANG_CALL([], [$sgemm])], [ax_blas_ok=yes;BLAS_LIBS="-framework vecLib"])
+	save_LIBS="$LIBS"; LIBS="-framework Accelerate $LIBS"
+	AC_MSG_CHECKING([for $sgemm in -framework Accelerate])
+	AC_LINK_IFELSE([AC_LANG_CALL([], [$sgemm])], [ax_blas_ok=yes;BLAS_LIBS="-framework Accelerate"])
 	AC_MSG_RESULT($ax_blas_ok)
 	LIBS="$save_LIBS"
 fi
