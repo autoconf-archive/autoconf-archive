@@ -1,5 +1,5 @@
 # ===========================================================================
-#       https://www.gnu.org/software/autoconf-archive
+#     https://www.gnu.org/software/autoconf-archive/ax_cc_attrcommon.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -8,16 +8,15 @@
 #
 # DESCRIPTION
 #
-#   Determine whether the C compiler supports C tentative defintions
-#   with __attribute((__common__))
-#   See K&R book Appendix A10.2 on 'extern' and tentative definitions.
-#   Some compilers use a 'strict definition-reference model'
-#   Traditionally most UNIX C compilers support C tentative definitions.
-#   GCC 10 switched from default fcommon to fnocommon
-#   and will need __attribute__ ((__common__)) for tentative definitions.
+#   Determine whether the C compiler supports C tentative defintions with
+#   __attribute((__common__)) See K&R book Appendix A10.2 on 'extern' and
+#   tentative definitions. Some compilers use a 'strict definition-reference
+#   model' Traditionally most UNIX C compilers support C tentative
+#   definitions. GCC 10 switched from default fcommon to fnocommon and will
+#   need __attribute__ ((__common__)) for tentative definitions.
 #
-#   The $ac_cv_attrcommon variable will be either yes or no,
-#   and can be overridden on the command line with using --with-attrcommon
+#   The $ac_cv_attrcommon variable will be either yes or no, and can be
+#   overridden on the command line with using --with-attrcommon
 #
 #   See also:  ax_cc_tentdef.m4 for a test on C tentative definitions
 #
@@ -38,7 +37,7 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 1
+#serial 2
 
 AC_ARG_WITH(attrcommon,
   [  --with-attrcommon       use __attribute__ for C tentative definitions],
@@ -72,5 +71,3 @@ rm -rf $ac_clean_files
 ],ac_cv_attrcommon=yes,ac_cv_attrcommon=no)
 AC_MSG_RESULT($ac_cv_attrcommon)
 ])
-
-

@@ -1,5 +1,5 @@
 # ===========================================================================
-#       https://www.gnu.org/software/autoconf-archive/
+#      https://www.gnu.org/software/autoconf-archive/ax_cc_tentdef.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -8,14 +8,14 @@
 #
 # DESCRIPTION
 #
-#   Determine whether the C compiler supports C tentative defintions.
-#   See K&R book Appendix A10.2 on 'extern' and tentative definitions.
-#   Some compilers use a 'strict definition-reference model'
-#   Traditionally most UNIX C compilers support tentative definitions,
-#   whereas some compiler such as Metrowerks or WATCOM C do not.
+#   Determine whether the C compiler supports C tentative defintions. See
+#   K&R book Appendix A10.2 on 'extern' and tentative definitions. Some
+#   compilers use a 'strict definition-reference model' Traditionally most
+#   UNIX C compilers support tentative definitions, whereas some compiler
+#   such as Metrowerks or WATCOM C do not.
 #
-#   The $ac_cv_tentdef variable will be either no or yes,
-#   and can be overridden on the command line using --with-tentdef
+#   The $ac_cv_tentdef variable will be either no or yes, and can be
+#   overridden on the command line using --with-tentdef
 #
 #   See also:  ax_cc_attrcommon.m4 for a __attribute__(( __common__)) test
 #
@@ -36,7 +36,7 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 1
+#serial 2
 
 AC_ARG_WITH(tentdef,
   [  --with-tentdef          use C tentative definitions],
@@ -98,4 +98,3 @@ rm -rf $ac_clean_files
 ],ac_cv_tentdef=no,ac_cv_tentdef=yes)
 AC_MSG_RESULT($ac_cv_tentdef)
 ])
-
