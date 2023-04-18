@@ -11,7 +11,7 @@
 #   Test for the Microsoft C++ Rest SDK library of a particular version (or
 #   newer)
 #
-#   If no path to the installed cpprest library is given the macro searchs
+#   If no path to the installed cpprest library is given the macro searches
 #   under /usr, /usr/local, /opt and /opt/local and evaluates the
 #   $CPPREST_ROOT environment variable.
 #
