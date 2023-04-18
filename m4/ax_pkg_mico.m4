@@ -32,7 +32,7 @@
 #
 #   It defines the symbol MICOSETUP, MICOVERSION, MICOSHAREDDIR
 #   MICO_INCLUDE, MICO_LIB and MICO_CXX if mico is found. In addition, the
-#   mico script mico-c++ (set in (MICO_CXX) is scaned for a string match
+#   mico script mico-c++ (set in (MICO_CXX) is scanned for a string match
 #   "-I.*ministl" and if foundMICO_USE_MINISTL is set to 1, otherwise to 0.
 #
 #   Example of use of these variables in your Makefile.in:
