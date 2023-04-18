@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   Determine whether the C compiler supports C tentative defintions with
+#   Determine whether the C compiler supports C tentative definitions with
 #   __attribute((__common__)) See K&R book Appendix A10.2 on 'extern' and
 #   tentative definitions. Some compilers use a 'strict definition-reference
 #   model' Traditionally most UNIX C compilers support C tentative
