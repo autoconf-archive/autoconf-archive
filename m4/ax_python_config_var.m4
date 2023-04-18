@@ -16,7 +16,7 @@
 #   configuration variable. PYTHON_VARIABLE is the name of the variable to
 #   request from Python, and SHELL_VARIABLE is the name of the shell
 #   variable into which the results should be deposited. If SHELL_VARIABLE
-#   is not specified, the macro wil prefix PY_ to the PYTHON_VARIABLE, e.g.,
+#   is not specified, the macro will prefix PY_ to the PYTHON_VARIABLE, e.g.,
 #   LIBS -> PY_LIBS.
 #
 #   SHELL_VARIABLE is AC_SUBST'd. No action is taken if an error occurs.
