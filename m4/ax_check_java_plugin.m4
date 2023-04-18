@@ -66,7 +66,7 @@ case "x$ZIPINFO" in
 [*/pkzipc)]
 	ziping="unzipc -view";;
 [x*)]
-	AC_MSG_RESULT([skiped, none of zipinfo, unzip and pkzipc found])
+	AC_MSG_RESULT([skipped, none of zipinfo, unzip and pkzipc found])
 	AC_SUBST($1,[])
 	zipinf="";;
 esac
