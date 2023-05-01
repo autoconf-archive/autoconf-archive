@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   Determine whether the C compiler supports C tentative defintions. See
+#   Determine whether the C compiler supports C tentative definitions. See
 #   K&R book Appendix A10.2 on 'extern' and tentative definitions. Some
 #   compilers use a 'strict definition-reference model' Traditionally most
 #   UNIX C compilers support tentative definitions, whereas some compiler

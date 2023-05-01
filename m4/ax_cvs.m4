@@ -359,7 +359,7 @@ cvs-add:
 branch-major:
 	@tag=\"\$(PACKAGE)-${AX_MAJOR_VERSION}\"; \\
 	echo \"\"; \\
-	echo \"Creating major brach: ${AX_DOLLAR}${AX_DOLLAR}tag\"; \\
+	echo \"Creating major branch: ${AX_DOLLAR}${AX_DOLLAR}tag\"; \\
 	(cd \"${AX_DOLLAR}(top_srcdir)\"; \$(CVS) tag -b \"${AX_DOLLAR}${AX_DOLLAR}tag\"; ); \\
 	\$(GAWK) -f ax_cvs_rel.awk -v change=1 \"${AX_DOLLAR}(top_srcdir)/configure.ac\" > configure.tmp; \\
 	touch ${AX_DOLLAR}(top_builddir)/commitlog; \\
@@ -389,7 +389,7 @@ branch-major:
 branch-minor:
 	@tag=\"\$(PACKAGE)-${AX_MAJOR_VERSION}_${AX_MINOR_VERSION}\"; \\
 	echo \"\"; \\
-	echo \"Creating minor brach: ${AX_DOLLAR}${AX_DOLLAR}tag\"; \\
+	echo \"Creating minor branch: ${AX_DOLLAR}${AX_DOLLAR}tag\"; \\
 	(cd \"${AX_DOLLAR}(top_srcdir)\"; \$(CVS) tag -b \"${AX_DOLLAR}${AX_DOLLAR}tag\"; ); \\
 	\$(GAWK) -f ax_cvs_rel.awk -v change=1 \"${AX_DOLLAR}(top_srcdir)/configure.ac\" > configure.tmp; \\
 	touch ${AX_DOLLAR}(top_builddir)/commitlog; \\
