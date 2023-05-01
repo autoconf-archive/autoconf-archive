@@ -35,7 +35,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 4
 
 dnl This supporting method tests for the correct Microsoft C++ Rest SDK
 dnl version by comparing the converted version string value as received
