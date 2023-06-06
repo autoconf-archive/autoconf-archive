@@ -30,12 +30,12 @@
 #   Early versions of this macro (i.e., before serial 12) would not work
 #   when interprocedural optimization (via link-time optimization) was
 #   enabled. This would happen when, say, the GCC/clang "-flto" flag, or the
-#   ICC "-ipo" flag was used, for example. The problem was that under
-#   these conditions, the compiler did not allocate for and write the special
+#   ICC "-ipo" flag was used, for example. The problem was that under these
+#   conditions, the compiler did not allocate for and write the special
 #   float value in the data segment of the object file, since doing so might
-#   not prove optimal once more context was available. Thus, the special value
-#   (in platform-dependent binary form) could not be found in the object file,
-#   and the macro would fail.
+#   not prove optimal once more context was available. Thus, the special
+#   value (in platform-dependent binary form) could not be found in the
+#   object file, and the macro would fail.
 #
 #   The solution to the above problem was to:
 #
@@ -54,19 +54,19 @@
 #        program binary that contains the value, which the macro can then find.
 #
 #   How does the exit code depend on the special value residing in memory?
-#   Memory, unlike variables and registers, can be addressed indirectly at run
-#   time. The exit code of this test program is a result of indirectly reading
-#   and writing to the memory region where the special value is supposed to
-#   reside. The actual memory addresses used and the values to be written are
-#   derived from the the program input ("argv") and are therefore not known at
-#   compile or link time. The compiler has no choice but to defer the
-#   computation to run time, and to prepare by allocating and populating the
-#   data segment with the special value. For further details, refer to the
-#   source code of the test program.
+#   Memory, unlike variables and registers, can be addressed indirectly at
+#   run time. The exit code of this test program is a result of indirectly
+#   reading and writing to the memory region where the special value is
+#   supposed to reside. The actual memory addresses used and the values to
+#   be written are derived from the the program input ("argv") and are
+#   therefore not known at compile or link time. The compiler has no choice
+#   but to defer the computation to run time, and to prepare by allocating
+#   and populating the data segment with the special value. For further
+#   details, refer to the source code of the test program.
 #
-#   Note that the test program is never meant to be run. It only exists to host
-#   a double float value in a given platform's binary format. Thus, error
-#   handling is not included.
+#   Note that the test program is never meant to be run. It only exists to
+#   host a double float value in a given platform's binary format. Thus,
+#   error handling is not included.
 #
 # LICENSE
 #
@@ -77,7 +77,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 AC_DEFUN([AX_C_FLOAT_WORDS_BIGENDIAN],
   [AC_CACHE_CHECK(whether float word ordering is bigendian,
