@@ -111,6 +111,13 @@ if test $ax_blas_ok = no; then
 	LIBS="$save_LIBS"
 fi
 
+# BLAS linked to by flexiblas? (Default on FC33+ and RHEL9+)
+
+if test $ax_blas_ok = no; then
+	AC_CHECK_LIB(flexiblas, $sgemm, [ax_blas_ok=yes
+			                BLAS_LIBS="-lflexiblas"])
+fi
+
 # BLAS in OpenBLAS library? (http://xianyi.github.com/OpenBLAS/)
 if test $ax_blas_ok = no; then
 	AC_CHECK_LIB(openblas, $sgemm, [ax_blas_ok=yes
