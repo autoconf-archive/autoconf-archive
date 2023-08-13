@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_CPU_FREQ],
 [AC_REQUIRE([AC_PROG_CC])
@@ -33,7 +33,7 @@ AC_DEFUN([AX_CPU_FREQ],
 #include <sys/time.h>
 using namespace std;
 
-static __inline__ unsigned long long int rdtsc()
+static __inline__ unsigned long long int rdtsc(void)
 {
   unsigned long long int x;
   __asm__ volatile (".byte 0x0f, 0x31":"=A" (x));

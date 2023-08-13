@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_FUNC_POSIX_MEMALIGN],
 [AC_CACHE_CHECK([for working posix_memalign],
@@ -31,7 +31,7 @@ AC_DEFUN([AX_FUNC_POSIX_MEMALIGN],
 #include <stdlib.h>
 
 int
-main ()
+main (void)
 {
   void *buffer;
 

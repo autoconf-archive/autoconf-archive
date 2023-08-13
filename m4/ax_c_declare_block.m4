@@ -22,7 +22,7 @@
 #    #define ___ DECLARE_BLOCK
 #    #define ____ DECLARE_END
 #
-#    int f() {
+#    int f(void) {
 #     char buffer[1024];
 #     fgets(buffer, 1024, stdin);
 #     ___ int i; int ii = strlen(buffer);
@@ -61,14 +61,16 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_C_DECLARE_BLOCK],[dnl
 AC_CACHE_CHECK(
  [if C variables must be declared at the beginning of a block],
  ax_cv_c_declare_block,[
- AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <stdio.h>
- int f() {
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[dnl
+ #include <stdio.h>
+ #include <string.h>
+ int f(void) {
    char buffer[1024];
    fgets(buffer, 1024, stdin);
    int i; int ii = strlen(buffer);

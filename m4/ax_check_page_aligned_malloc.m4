@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_CHECK_PAGE_ALIGNED_MALLOC],
 [AC_CACHE_CHECK([if large mallocs guarantee page-alignment],
@@ -48,7 +48,7 @@ AC_DEFUN([AX_CHECK_PAGE_ALIGNED_MALLOC],
 # include <unistd.h>
 #endif
 
-int main()
+int main(void)
 {
   int pagesize = getpagesize();
   int i;

@@ -110,7 +110,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([KLM_SYS_WEAK_ALIAS], [AX_SYS_WEAK_ALIAS])
 AC_DEFUN([AX_SYS_WEAK_ALIAS], [
@@ -294,7 +294,7 @@ _ACEOF
 
 extern void weakf(int c);
 int
-main ()
+main (void)
 {
   weakf(0);
   return 0;

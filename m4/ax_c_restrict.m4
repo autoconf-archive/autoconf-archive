@@ -24,7 +24,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_C_RESTRICT],
 [AC_CACHE_CHECK([for restrict usability],
@@ -39,7 +39,7 @@ AC_DEFUN([AX_C_RESTRICT],
     	    copy (&b[i & 1], &a[i & 1]);
     	}
     }
-    int main () {
+    int main (void) {
     	int ary[] = {0, 1, 2};
     	test (&ary[1], &ary[0]);
     	/* printf("%d %d %d\n", ary[0], ary[1], ary[2]);

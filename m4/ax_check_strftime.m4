@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AG_CHECK_STRFTIME], [AX_CHECK_STRFTIME])
 AC_DEFUN([AX_CHECK_STRFTIME],[
@@ -28,7 +28,7 @@ AC_DEFUN([AX_CHECK_STRFTIME],[
   AC_RUN_IFELSE([AC_LANG_SOURCE([[#include <time.h>
 #include <string.h>
 char t_buf[ 64 ];
-int main() {
+int main(void) {
   static const char z[] = "Thursday Aug 28 240";
   struct tm tm;
   tm.tm_sec   = 36;  /* seconds after the minute [0, 61]  */
