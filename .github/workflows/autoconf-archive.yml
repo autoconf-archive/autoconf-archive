@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v3.5.0
       with:
         fetch-depth: 50000
-    - run: apt-get -y install gnulib python3 texlive texinfo tidy
+    - run: sudo apt-get -y install gnulib python3 texlive texinfo tidy
     - run: "./bootstrap.sh"
     - run: "./configure"
     - run: make PYTHON=python3 -j$(nproc) maintainer-all all
