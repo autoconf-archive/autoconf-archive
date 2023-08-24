@@ -114,7 +114,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 11
 
 AU_ALIAS([AC_PROTOTYPE], [AX_PROTOTYPE])
 AC_DEFUN([AX_PROTOTYPE],[
@@ -219,8 +219,13 @@ dnl
      ac_save_CPPFLAGS="$CPPFLAGS"
 dnl     ifelse(AC_LANG,CPLUSPLUS,if test "$GXX" = "yes" ; then CPPFLAGS="$CPPFLAGS -Werror" ; fi)
 dnl     ifelse(AC_LANG,C,if test "$GCC" = "yes" ; then CPPFLAGS="$CPPFLAGS -Werror" ; fi)
-dnl     TODO: consider the compiler check from ax_cflags_warn_all.m4
-        if (test "x$GCC" = "xyes" || test "x$GXX" = "xyes" ); then CPPFLAGS="$CPPFLAGS -Werror" ; fi
+dnl
+dnl Disable the 'unused-variable' warning in case e.g. -Wall was enabled,
+dnl otherwise the test may always fail.
+dnl
+        if (test "x$GCC" = "xyes" || test "x$GXX" = "xyes" ); then
+          CPPFLAGS="$CPPFLAGS -Werror -Wno-unused-variable" ;
+        fi
 
      AC_COMPILE_IFELSE([AC_LANG_PROGRAM([$2], [$1])],
      [
