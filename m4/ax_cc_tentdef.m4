@@ -36,7 +36,7 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 4
+#serial 5
 
 AC_ARG_WITH(tentdef,
   [  --with-tentdef          use C tentative definitions],
@@ -64,7 +64,7 @@ EOF
 cat >$t2 <<EOF
 #include <stdio.h>
 int a;
-int main() { exit(a);return a; }
+int main(void) { exit(a);return a; }
 EOF
 
 echo "$CC $t1 $t2 -o $e1" >&5
