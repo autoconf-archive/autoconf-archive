@@ -22,10 +22,9 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2023 Bogdan Drozdowski <bogdro /at/ users.sourceforge.net>
-#   Based on AX_FUNC_WHICH_GETHOSTBYNAME_R:
-#    Copyright (c) 2008 Caolan McNamara <caolan@skynet.ie>
-#    Copyright (c) 2008 Daniel Richard G. <skunk@iskunk.org>
+#   Copyright (c) 2023 Bogdan Drozdowski <bogdro@users.sourceforge.net>
+#   Copyright (c) 2008 Caolan McNamara <caolan@skynet.ie>
+#   Copyright (c) 2008 Daniel Richard G. <skunk@iskunk.org>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -53,7 +52,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_FUNC_WHICH_GETHOSTBYADDR_R], [
 
