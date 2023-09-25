@@ -181,7 +181,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 42
+#serial 43
 
 dnl =========================================================================
 dnl AX_PROG_LUA([MINIMUM-VERSION], [TOO-BIG-VERSION],
@@ -268,7 +268,7 @@ AC_DEFUN([AX_PROG_LUA],
         ax_cv_lua_version=[`$LUA -e '
           -- return a version number in X.Y format
           local _, _, ver = string.find(_VERSION, "^Lua (%d+%.%d+)")
-          print(ver)'`]
+          print(ver or "")'`]
       ])
     AS_IF([test "x$ax_cv_lua_version" = 'x'],
       [AC_MSG_ERROR([invalid Lua version number])])
