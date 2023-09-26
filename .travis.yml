@@ -1,4 +1,6 @@
 language: c
+os: linux
+dist: xenial
 git:
   depth: 50000
 install: sudo apt-get install --allow-unauthenticated -qq gnulib lzip texlive tidy autoconf automake remake

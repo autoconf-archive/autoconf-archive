@@ -31,7 +31,7 @@ ${gnulibtool} --m4-base build-aux --source-base build-aux --no-vc-files \
 echo ""
 echo "Updating maint.mk..."
 
-sed -i -e 's/^sc_file_system:/disabled_sc_file_system:/' \
+${SED-sed} -i -e 's/^sc_file_system:/disabled_sc_file_system:/' \
        -e 's/^sc_GPL_version:/disabled_sc_GPL_version:/' \
        -e 's/^sc_m4_quote_check:/disabled_sc_m4_quote_check:/' \
        -e 's/^sc_prohibit_strcmp:/disabled_sc_prohibit_strcmp:/' \

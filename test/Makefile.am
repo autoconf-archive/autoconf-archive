@@ -28,6 +28,6 @@ maintainer-clean-local:
 configure: acinclude.m4 configure.ac @MAINT@ Makefile
 	$(AUTOCONF) -f -Wall -Werror
 configure.ac: configure.ac.in @MAINT@ $(top_srcdir)/configure
-acinclude.m4: @MAINT@ $(top_srcdir)/config.status $(top_srcdir)/aclocal.m4
+acinclude.m4: @MAINT@ $(top_builddir)/config.status $(top_srcdir)/aclocal.m4
 
 ##FIXME: really everything in ../m4 should be dependencies...
