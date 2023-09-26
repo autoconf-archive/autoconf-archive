@@ -27,6 +27,7 @@ AC_PROG_CC dnl# autoscan says "wanted by: build-aux/dummy.c"
 gl_EARLY dnl# gnulib-tool says to put this right after the previous one.
 AC_PROG_LN_S dnl# autoscan says "wanted by: build-aux/gendocs.sh:341"
 AC_PROG_SED
+AC_PATH_PROG([CONFIGURED_TEXI2DVI],[texi2dvi],[texi2dvi])dnl
 
 gl_INIT dnl# gnulib-tool says not to forget to invoke this.
 
