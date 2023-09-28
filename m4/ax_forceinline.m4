@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_FORCEINLINE], [
   AC_LANG_PUSH([C])
@@ -34,7 +34,7 @@ AC_DEFUN([AX_FORCEINLINE], [
           none) ac_cv_forceinline=none ; break ;;
       *)
              AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <stdlib.h>
-                  $ax_forceinline_keyword 
+                 ] $ax_forceinline_keyword [
                  static void
                  foo(void) {
                  exit(1);

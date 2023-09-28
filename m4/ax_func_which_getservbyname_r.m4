@@ -50,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 10
 
 AN_FUNCTION([getservbyname_r],[AX_FUNC_WHICH_GETSERVBYNAME_R])
 AU_ALIAS([AC_RAF_FUNC_WHICH_GETSERVBYNAME_R], [AX_FUNC_WHICH_GETSERVBYNAME_R])

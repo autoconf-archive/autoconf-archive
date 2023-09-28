@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AN_FUNCTION([memmove],[AX_FUNC_MEMMOVE])
 AU_ALIAS([AC_FUNC_MEMMOVE], [AX_FUNC_MEMMOVE])

@@ -25,7 +25,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 7
 
 AC_DEFUN([AX_INCLUDE_STRCASECMP],
 [

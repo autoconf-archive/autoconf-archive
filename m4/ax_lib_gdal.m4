@@ -39,7 +39,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 9
 
 AC_DEFUN([AX_LIB_GDAL],
 [

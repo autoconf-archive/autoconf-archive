@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 14
 
 AN_FUNCTION([posix_memalign],[AX_FUNC_POSIX_MEMALIGN])
 AC_DEFUN([AX_FUNC_POSIX_MEMALIGN],

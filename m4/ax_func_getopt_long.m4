@@ -46,7 +46,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 11
 
 AN_FUNCTION([getopt_long],[AX_FUNC_GETOPT_LONG])
 AU_ALIAS([ADL_FUNC_GETOPT_LONG], [AX_FUNC_GETOPT_LONG])

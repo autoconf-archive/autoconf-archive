@@ -20,7 +20,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 14
 
 AC_DEFUN([AX_GCC_WARN_UNUSED_RESULT],[dnl
 AC_CACHE_CHECK(

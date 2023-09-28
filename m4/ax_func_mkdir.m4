@@ -58,7 +58,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 10
 
 AN_FUNCTION([mkdir],[AX_FUNC_MKDIR])
 AN_FUNCTION([_mkdir],[AX_FUNC_MKDIR])

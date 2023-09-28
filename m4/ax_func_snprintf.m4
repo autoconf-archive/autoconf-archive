@@ -24,7 +24,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AN_FUNCTION([snprintf],[AX_FUNC_SNPRINTF])
 AN_FUNCTION([vsnprintf],[AX_FUNC_SNPRINTF])
