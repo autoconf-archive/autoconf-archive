@@ -81,7 +81,7 @@ AC_CONFIG_COMMANDS([test/acinclude.m4],[[
   for m4file in ${M4FILES}; do
     ## still need to use quadrigraphs though, because aclocal is stupid and
     ## ignores the m4-quotation:
-    echo "m4@&t@_@&t@in@&t@clude@{:@@<:@${ac_abs_top_builddir}/${m4file}@:>@@:}@d@&t@n@&t@l" >> ${ac_abs_top_builddir}/test/acinclude.m4
+    echo "m4@&t@_@&t@in@&t@clude@{:@@<:@${ac_abs_top_srcdir}/${m4file}@:>@@:}@d@&t@n@&t@l" >> ${ac_abs_top_builddir}/test/acinclude.m4
   done
 ]])dnl
 
