@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 13
 
 AU_ALIAS([AC_CXX_HAVE_COMPLEX], [AX_CXX_HAVE_COMPLEX])
 AC_DEFUN([AX_CXX_HAVE_COMPLEX],

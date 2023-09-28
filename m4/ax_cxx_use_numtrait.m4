@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_USE_NUMTRAIT], [AX_CXX_USE_NUMTRAIT])
 AC_DEFUN([AX_CXX_USE_NUMTRAIT],

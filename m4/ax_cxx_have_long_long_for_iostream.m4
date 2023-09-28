@@ -60,7 +60,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 11
 
 AU_ALIAS([AC_CXX_HAVE_LONG_LONG_FOR_IOSTREAM], [AX_CXX_HAVE_LONG_LONG_FOR_IOSTREAM])
 AC_DEFUN([AX_CXX_HAVE_LONG_LONG_FOR_IOSTREAM],

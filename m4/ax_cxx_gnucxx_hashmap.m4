@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_GNUCXX_HASHMAP], [AX_CXX_GNUCXX_HASHMAP])
 AC_DEFUN([AX_CXX_GNUCXX_HASHMAP],[

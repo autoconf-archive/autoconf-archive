@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_NEW_FOR_SCOPING], [AX_CXX_NEW_FOR_SCOPING])
 AC_DEFUN([AX_CXX_NEW_FOR_SCOPING],

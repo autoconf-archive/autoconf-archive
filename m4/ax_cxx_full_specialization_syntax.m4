@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_FULL_SPECIALIZATION_SYNTAX], [AX_CXX_FULL_SPECIALIZATION_SYNTAX])
 AC_DEFUN([AX_CXX_FULL_SPECIALIZATION_SYNTAX],

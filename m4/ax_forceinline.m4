@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 7
 
 AC_DEFUN([AX_FORCEINLINE], [
   AC_LANG_PUSH([C])

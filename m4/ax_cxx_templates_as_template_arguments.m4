@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_TEMPLATES_AS_TEMPLATE_ARGUMENTS], [AX_CXX_TEMPLATES_AS_TEMPLATE_ARGUMENTS])
 AC_DEFUN([AX_CXX_TEMPLATES_AS_TEMPLATE_ARGUMENTS],

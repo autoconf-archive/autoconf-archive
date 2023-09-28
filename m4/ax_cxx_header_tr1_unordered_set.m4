@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_HEADER_TR1_UNORDERED_SET], [AX_CXX_HEADER_TR1_UNORDERED_SET])
 AC_DEFUN([AX_CXX_HEADER_TR1_UNORDERED_SET], [
