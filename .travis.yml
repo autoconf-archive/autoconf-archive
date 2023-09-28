@@ -2,7 +2,7 @@
 
 language: c
 os: linux
-dist: xenial
+dist: jammy
 git:
   depth: 50000
 

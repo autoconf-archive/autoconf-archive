@@ -4,7 +4,7 @@ EXTRA_DIST = atlocal.in
 
 check-local: atconfig atlocal configure
 	if test -x ./configure; then \
-	  if test "x$${GITHUB_ACTIONS}" = "xtrue"; then \
+	  if test "x$${GITHUB_ACTIONS}" = "xtrue" || test "x$${TRAVIS}" = "xtrue"; then \
 	    cat ./configure; \
 	  else \
 	    ./configure 2>&1; \

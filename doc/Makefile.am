@@ -31,6 +31,16 @@ all-macros.texi: @MAINT@ $(top_srcdir)/cfg.mk
 	fi; \
 	$(am__cd) .. && make maintainer-all
 
+dvi-local:
+	if test -n "$(top_srcdir)" && test -d $(top_srcdir)/doc; then \
+	  test -z "$${AM_MAKEINFOFLAGS}" && export AM_MAKEINFOFLAGS="-I$(top_srcdir)/doc"; \
+	elif test -n "$(top_builddir)" && test -d $(top_builddir)/doc; then \
+	  test -z "$${AM_MAKEINFOFLAGS}" && export AM_MAKEINFOFLAGS="-I$(top_builddir)/doc"; \
+	elif test -d ../doc; then \
+	  test -z "$${AM_MAKEINFOFLAGS}" && export AM_MAKEINFOFLAGS="-I../doc"; \
+	fi; \
+	ls *.texi
+
 MAINTAINERCLEANFILES = *~ ./.*~
 
 maintainer-clean-local:
