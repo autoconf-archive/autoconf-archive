@@ -4,7 +4,11 @@ EXTRA_DIST = atlocal.in
 
 check-local: atconfig atlocal configure
 	if test -x ./configure; then \
-	  ./configure 2>&1; \
+	  if test "x$${GITHUB_ACTIONS}" = "xtrue"; then \
+	    cat ./configure; \
+	  else \
+	    ./configure 2>&1; \
+	  fi; \
 	else \
 	  echo "No usable configure script found; one should exist!" >&2; \
 	  exit 1; \
@@ -31,9 +35,9 @@ maintainer-clean-local:
 	@rm -f config.log config.status
 
 configure: acinclude.m4 configure.ac @MAINT@ Makefile
-	if test -n "$(top_srcdir)" && test -d $(top_srcdir); then \
+	if test -n "$(top_srcdir)" && test -d $(top_srcdir)/m4; then \
 	  $(ACLOCAL) -I $(top_srcdir)/m4; \
-	elif test -n "$(top_builddir)" && test -d $(top_builddir); then \
+	elif test -n "$(top_builddir)" && test -d $(top_builddir)/m4; then \
 	  $(ACLOCAL) -I $(top_builddir)/m4; \
 	else \
 	  $(ACLOCAL); \

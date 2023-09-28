@@ -17,14 +17,13 @@ addons:
       - tidy
       - autoconf
       - automake
-      - remake
       - sed
 
 script:
   - ./bootstrap.sh
   - ./configure --enable-maintainer-mode
-  - remake PYTHON=python3 -j$(nproc) maintainer-all all
-  - remake check
+  - make PYTHON=python3 -j$(nproc) maintainer-all all
+  - make check
   - make distcheck AM_DISTCHECK_DVI_TARGET=""
-  - if test -e doc/all-macros.texi; then remake web-manual; else echo "missing doc/all-macros.texi!" >&2 && exit 1; fi
+  - if test -e doc/all-macros.texi; then make web-manual; else echo "missing doc/all-macros.texi!" >&2 && exit 1; fi
   - ./fix-website.sh
