@@ -18,6 +18,7 @@ addons:
       - autoconf
       - automake
       - remake
+      - sed
 
 script:
   - ./bootstrap.sh
@@ -25,5 +26,5 @@ script:
   - remake PYTHON=python3 -j$(nproc) maintainer-all all
   - remake check
   - remake distcheck
-  - remake web-manual
+  - if test -e all-macros.texi; then remake web-manual; else echo "missing all-macros.texi!" >&2 && exit 1; fi
   - ./fix-website.sh
