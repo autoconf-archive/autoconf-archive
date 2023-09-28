@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 7
 
 AC_DEFUN([AX_SWITCH_FLAGS],[
   AC_REQUIRE([AX_SAVE_FLAGS])

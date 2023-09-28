@@ -25,7 +25,8 @@
 #
 #   The following example demonstrates usage of the macro:
 #
-#     # If --with-mpi=auto is used, try to find MPI, but use standard FC compiler if it is not found.
+#     # If --with-mpi=auto is used, try to find MPI, but use standard FC
+#     # compiler if it is not found.
 #     # If --with-mpi=yes is used, try to find MPI and fail if it isn't found.
 #     # If --with-mpi=no is used, use a standard FC compiler instead.
 #     AC_ARG_WITH(mpi, [AS_HELP_STRING([--with-mpi],
@@ -72,7 +73,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 8
 
 AC_DEFUN([AX_PROG_FC_MPI], [
 AC_PREREQ([2.50])

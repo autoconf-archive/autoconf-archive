@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 19
+#serial 22
 
 AC_DEFUN([AX_WITH_PROG],[
     AC_PREREQ([2.61])

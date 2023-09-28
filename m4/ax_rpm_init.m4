@@ -175,7 +175,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 10
 
 dnl AX_RPM_INIT
 dnl Figure out how to create rpms for this system and setup for an

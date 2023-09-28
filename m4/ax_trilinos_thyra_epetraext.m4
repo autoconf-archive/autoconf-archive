@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 12
 
 AC_DEFUN([AX_TRILINOS_THYRA_EPETRAEXT],[
     AC_REQUIRE([AX_TRILINOS_BASE])

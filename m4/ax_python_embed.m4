@@ -120,7 +120,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 15
+#serial 19
 
 # AX_PYTHON_DEFAULT()
 # -----------------

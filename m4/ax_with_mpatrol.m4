@@ -28,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 11
 
 AU_ALIAS([AM_WITH_MPATROL], [AX_WITH_MPATROL])
 AC_DEFUN([AX_WITH_MPATROL], [

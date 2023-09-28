@@ -31,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 14
 
 AU_ALIAS([ETR_STRING_STRCASECMP], [AX_STRING_STRCASECMP])
 AC_DEFUN([AX_STRING_STRCASECMP],

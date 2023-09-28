@@ -25,7 +25,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 10
 
 AU_ALIAS([AC_SYS_DEV_POLL], [AX_SYS_DEV_POLL])
 AC_DEFUN([AX_SYS_DEV_POLL], [AC_CACHE_CHECK([for /dev/poll support], [ac_cv_dev_poll],[

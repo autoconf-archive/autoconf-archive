@@ -19,7 +19,7 @@ ACLOCAL_AMFLAGS   = -I build-aux
  
 SUBDIRS           = doc build-aux test
 
-dist_doc_DATA           = AUTHORS COPYING COPYING.EXCEPTION README
+dist_doc_DATA           = AUTHORS COPYING COPYING.EXCEPTION README.md
 aclocaldir              = $(datadir)/aclocal
 dist_aclocal_DATA       = $(M4FILES)
 EXTRA_DIST              = build-aux/git-version-gen build-aux/gitlog-to-changelog
