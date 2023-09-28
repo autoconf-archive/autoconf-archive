@@ -1,6 +1,6 @@
 # Build and install the GNU Autoconf Archive.
 #
-# Copyright (c) 2014 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
+# Copyright (c) 2022 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -12,20 +12,20 @@
 # FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License along with
-# this program. If not, see <http://www.gnu.org/licenses/>.
+# this program. If not, see <https://www.gnu.org/licenses/>.
 
 ## gnulib-tool says to mention this:
 ACLOCAL_AMFLAGS   = -I build-aux
  
 SUBDIRS           = doc build-aux test
 
-dist_pkgdata_DATA = AUTHORS COPYING COPYING.EXCEPTION README
-aclocaldir        = $(datadir)/aclocal
-dist_aclocal_DATA = $(M4FILES)
-EXTRA_DIST        = build-aux/git-version-gen build-aux/gitlog-to-changelog
+dist_doc_DATA           = AUTHORS COPYING COPYING.EXCEPTION README
+aclocaldir              = $(datadir)/aclocal
+dist_aclocal_DATA       = $(M4FILES)
+EXTRA_DIST              = build-aux/git-version-gen build-aux/gitlog-to-changelog
 
 clean-local:
-	@rm -rf $(srcdir)/stage $(srcdir)/macro.pyc
+	@rm -rf $(srcdir)/stage $(srcdir)/macro.pyc __pycache__
 	@rm -f $(DIST_ARCHIVES)
 
 MAINTAINERCLEANFILES = *~ ./.*~ doc/*~ m4/*~
@@ -34,13 +34,14 @@ MAINTAINERCLEANFILES = *~ ./.*~ doc/*~ m4/*~
 maintainer-clean-local:
 	@rm -rf $(srcdir)/build-aux || rmdir build-aux
 	@rm -f configure Makefile.in aclocal.m4 AUTHORS ChangeLog
-	@rm -f INSTALL config.log config.status maint.mk
-	@rm -f autoconf-archive-*.*.*.tar.* GNUmakefile
+	@rm -f INSTALL config.log config.status configure maint.mk
+	@rm -f autoconf-archive-*.*.*.tar.* GNUmakefile README
+	@rm -f *~
 
 dist-hook:
 	echo $(VERSION) > $(distdir)/.tarball-version
 	if test -d .git; then												\
-	  echo > $(distdir)/cl-t '# Copyright (c) 2014 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'; \
+	  echo > $(distdir)/cl-t '# Copyright (c) 2022 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'; \
 	  echo >>$(distdir)/cl-t '#';											\
 	  echo >>$(distdir)/cl-t '# Copying and distribution of this file, with or without modification, are';		\
 	  echo >>$(distdir)/cl-t '# permitted in any medium without royalty provided the copyright notice and';		\

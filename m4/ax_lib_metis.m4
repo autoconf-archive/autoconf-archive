@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_lib_metis.html
+#       https://www.gnu.org/software/autoconf-archive/ax_lib_metis.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -14,7 +14,7 @@
 #   configure. If the environment variable is defined it has precedent over
 #   everything else. If no location was specified then it searches in
 #   /usr/lib and /usr/local/lib for the library and in /usr/include and
-#   /usr/local/include for the header files. Upon sucessful completion the
+#   /usr/local/include for the header files. Upon successful completion the
 #   variables METIS_LIB and METIS_INCLUDE are set.
 #
 #   ACTION-IF-FOUND is a list of shell commands to run if a METIS library is
@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 11
 
 AU_ALIAS([IMMDX_LIB_METIS], [AX_LIB_METIS])
 AC_DEFUN([AX_LIB_METIS], [
@@ -90,7 +90,7 @@ AC_DEFUN([AX_LIB_METIS], [
 			AC_CHECK_HEADER(metis.h, [metis_h=yes],
 				[metis_h=no], [/* check */])
 
-			AC_LANG_POP([])
+			AC_LANG_POP([C])
 
 			CFLAGS=$old_CFLAGS
 			LDFLAGS=$old_LDFLAGS

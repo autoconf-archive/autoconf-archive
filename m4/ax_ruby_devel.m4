@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_ruby_devel.html
+#      https://www.gnu.org/software/autoconf-archive/ax_ruby_devel.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -14,7 +14,7 @@
 #   code.
 #
 #   You can search for some particular version of Ruby by passing a
-#   parameter to this macro, for example "1.8.6".
+#   parameter to this macro, for example "2.2.1".
 #
 # LICENSE
 #
@@ -37,7 +37,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -52,24 +52,28 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 13
+#serial 15
 
 AC_DEFUN([AX_RUBY_DEVEL],[
-    AC_REQUIRE([AX_WITH_RUBY])
-    AS_IF([test -n "$1"], [AX_PROG_RUBY_VERSION([$1])])
+    AX_WITH_PROG(RUBY,ruby)
+    AS_IF([test -n "$1"], [
+      AX_PROG_RUBY_VERSION([$1],[],[
+        AC_MSG_ERROR([this package requires Ruby $1])
+      ])
+    ])
 
     #
-    # Check if you have mkmf, else fail
+    # Check if you have rbconfig, else fail
     #
-    AC_MSG_CHECKING([for the mkmf Ruby package])
-    ac_mkmf_result=`$RUBY -rmkmf -e ";" 2>&1`
-    if test -z "$ac_mkmf_result"; then
+    AC_MSG_CHECKING([for the rbconfig Ruby package])
+    ac_rbconfig_result=`$RUBY -rrbconfig -e ";" 2>&1`
+    if test -z "$ac_rbconfig_result"; then
         AC_MSG_RESULT([yes])
     else
         AC_MSG_RESULT([no])
-        AC_MSG_ERROR([cannot import Ruby module "mkmf".
+        AC_MSG_ERROR([cannot import Ruby module "rbconfig".
 Please check your Ruby installation. The error was:
-$ac_mkmf_result])
+$ac_rbconfig_result])
     fi
 
     #
@@ -77,11 +81,15 @@ $ac_mkmf_result])
     #
     AC_MSG_CHECKING([for Ruby include path])
     if test -z "$RUBY_CPPFLAGS"; then
-        ruby_path=`$RUBY -rmkmf -e 'print Config::CONFIG[["archdir"]]'`
+        ruby_path=`$RUBY -rrbconfig -e 'print RbConfig::CONFIG[["rubyhdrdir"]]'`
+        ruby_arch_path=`$RUBY -rrbconfig -e 'print RbConfig::CONFIG[["rubyarchhdrdir"]]'`
         if test -n "${ruby_path}"; then
                 ruby_path="-I$ruby_path"
         fi
-        RUBY_CPPFLAGS=$ruby_path
+        if test -n "${ruby_arch_path}"; then
+                ruby_arch_path="-I$ruby_arch_path"
+        fi
+        RUBY_CPPFLAGS="$ruby_path $ruby_arch_path"
     fi
     AC_MSG_RESULT([$RUBY_CPPFLAGS])
     AC_SUBST([RUBY_CPPFLAGS])
@@ -91,7 +99,7 @@ $ac_mkmf_result])
     #
     AC_MSG_CHECKING([for Ruby library path])
     if test -z "$RUBY_LDFLAGS"; then
-        RUBY_LDFLAGS=`$RUBY -rmkmf -e 'print Config::CONFIG[["LIBRUBYARG_SHARED"]]'`
+        RUBY_LDFLAGS=`$RUBY -rrbconfig -e 'print RbConfig::CONFIG[["LIBRUBYARG_SHARED"]]'`
     fi
     AC_MSG_RESULT([$RUBY_LDFLAGS])
     AC_SUBST([RUBY_LDFLAGS])
@@ -101,7 +109,7 @@ $ac_mkmf_result])
     #
     AC_MSG_CHECKING([for Ruby site-packages path])
     if test -z "$RUBY_SITE_PKG"; then
-        RUBY_SITE_PKG=`$RUBY -rmkmf -e 'print Config::CONFIG[["sitearchdir"]]'`
+        RUBY_SITE_PKG=`$RUBY -rrbconfig -e 'print RbConfig::CONFIG[["sitearchdir"]]'`
     fi
     AC_MSG_RESULT([$RUBY_SITE_PKG])
     AC_SUBST([RUBY_SITE_PKG])
@@ -111,7 +119,7 @@ $ac_mkmf_result])
     #
     AC_MSG_CHECKING(ruby extra libraries)
     if test -z "$RUBY_EXTRA_LIBS"; then
-       RUBY_EXTRA_LIBS=`$RUBY -rmkmf -e 'print Config::CONFIG[["SOLIBS"]]'`
+       RUBY_EXTRA_LIBS=`$RUBY -rrbconfig -e 'print RbConfig::CONFIG[["SOLIBS"]]'`
     fi
     AC_MSG_RESULT([$RUBY_EXTRA_LIBS])
     AC_SUBST(RUBY_EXTRA_LIBS)
@@ -122,7 +130,7 @@ $ac_mkmf_result])
     #
     # AC_MSG_CHECKING(ruby extra linking flags)
     # if test -z "$RUBY_EXTRA_LDFLAGS"; then
-    # RUBY_EXTRA_LDFLAGS=`$RUBY -rmkmf -e 'print Config::CONFIG[["LINKFORSHARED"]]'`
+    # RUBY_EXTRA_LDFLAGS=`$RUBY -rrbconfig -e 'print RbConfig::CONFIG[["LINKFORSHARED"]]'`
     # fi
     # AC_MSG_RESULT([$RUBY_EXTRA_LDFLAGS])
     # AC_SUBST(RUBY_EXTRA_LDFLAGS)

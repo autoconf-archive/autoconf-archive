@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_lib_crypto.html
+#      https://www.gnu.org/software/autoconf-archive/ax_lib_crypto.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -30,7 +30,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 10
 
 # AX_CHECK_CRYPTO_LIB([algo-name],[function])
 AC_DEFUN([AX_CHECK_CRYPTO_LIB],[
@@ -77,7 +77,7 @@ AC_DEFUN([AX_LIB_CRYPTO],[
 	AX_CHECK_CRYPTO_LIB([DH],[DH_set_method])
       ])
     ])
-    # complain only if crypto as *explicitely* required
+    # complain only if crypto as *explicitly* required
     if test "$ac_with_crypto" = "yes" -a "x$HAVE_CRYPTO" = "x" ; then
       AC_MSG_ERROR([cannot configure required openssl crypto library])
     fi

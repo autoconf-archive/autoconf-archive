@@ -1,6 +1,6 @@
-# ===============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_header_unordered_set.html
-# ===============================================================================
+# ================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_header_unordered_set.html
+# ================================================================================
 #
 # SYNOPSIS
 #
@@ -30,9 +30,11 @@ AC_DEFUN([AX_CXX_HEADER_UNORDERED_SET], [
   AC_LANG_PUSH([C++])
   ac_save_CXXFLAGS="$CXXFLAGS"
   CXXFLAGS="$CXXFLAGS -std=gnu++0x"
-  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <unordered_set>]], [[using std::unordered_set;]])],[ax_cv_cxx_unordered_set=yes],[ax_cv_cxx_unordered_set=no])
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <unordered_set>]],
+  [[using std::unordered_set;]])],
+  [ax_cv_cxx_unordered_set=yes], [ax_cv_cxx_unordered_set=no])
   CXXFLAGS="$ac_save_CXXFLAGS"
-  AC_LANG_POP([])
+  AC_LANG_POP([C++])
   ])
   if test "$ax_cv_cxx_unordered_set" = yes; then
     AC_DEFINE([HAVE_UNORDERED_SET],[1],

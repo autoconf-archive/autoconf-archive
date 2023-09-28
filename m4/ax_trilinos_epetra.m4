@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_trilinos_epetra.html
+#    https://www.gnu.org/software/autoconf-archive/ax_trilinos_epetra.html
 # ===========================================================================
 #
 # SYNOPSIS

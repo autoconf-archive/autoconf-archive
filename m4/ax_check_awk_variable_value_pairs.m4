@@ -1,6 +1,6 @@
-# =====================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_check_awk_variable_value_pairs.html
-# =====================================================================================
+# ======================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_check_awk_variable_value_pairs.html
+# ======================================================================================
 #
 # SYNOPSIS
 #
@@ -26,7 +26,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_CHECK_AWK_VARIABLE_VALUE_PAIRS],[
   AC_REQUIRE([AX_NEED_AWK])

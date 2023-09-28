@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_lib_orbit2.html
+#      https://www.gnu.org/software/autoconf-archive/ax_lib_orbit2.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   Checks for minimum Orbit2 library version VERSION. If successfull
+#   Checks for minimum Orbit2 library version VERSION. If successful
 #   executes ACTION-IF-SUCCESS otherwise ACTION-IF-FAILURE.
 #
 #   Defines ORBIT2_LIBS and ORBIT2_CFLAGS.
@@ -28,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 8
 
 AC_DEFUN([AX_LIB_ORBIT2], [
   AX_PATH_GENERIC([orbit2],[$1],'s/^ORBit2\ \+//',[$2],[$3])

@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_lib_oracle_oci.html
+#    https://www.gnu.org/software/autoconf-archive/ax_lib_oracle_oci.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -26,7 +26,7 @@
 #   NOTE: These options described above do not take yes|no values. If 'yes'
 #   value is passed, then WARNING message will be displayed, 'no' value, as
 #   well as the --without-oci-* variations will cause the macro to not check
-#   enything.
+#   anything.
 #
 #   This macro calls:
 #
@@ -41,13 +41,14 @@
 # LICENSE
 #
 #   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
+#   Copyright (c) 2015 Joost van Baal-Ilic <joostvb+autoconf@uvt.nl>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 16
 
 AC_DEFUN([AX_LIB_ORACLE_OCI],
 [
@@ -155,25 +156,28 @@ Please, locate Oracle directories using --with-oci or \
         dnl Depending on later Oracle version detection,
         dnl -lnnz10 flag might be removed for older Oracle < 10.x
         saved_LDFLAGS="$LDFLAGS"
-        oci_ldflags="-L$oracle_lib_dir -lclntsh"
+        saved_LIBS="$LIBS"
+        oci_ldflags="-L$oracle_lib_dir"
+        oci_libs="-lclntsh"
         LDFLAGS="$LDFLAGS $oci_ldflags"
+        LIBS="$LIBS $oci_libs"
 
         dnl
         dnl Check OCI headers
         dnl
         AC_MSG_CHECKING([for Oracle OCI headers in $oracle_include_dir])
 
-        AC_LANG_PUSH(C++)
+        AC_LANG_PUSH(C)
         AC_COMPILE_IFELSE([
             AC_LANG_PROGRAM([[@%:@include <oci.h>]],
                 [[
 #if defined(OCI_MAJOR_VERSION)
 #if OCI_MAJOR_VERSION == 10 && OCI_MINOR_VERSION == 2
-// Oracle 10.2 detected
+/* Oracle 10.2 detected */
 #endif
 #elif defined(OCI_V7_SYNTAX)
-// OK, older Oracle detected
-// TODO - mloskot: find better macro to check for older versions;
+/* OK, older Oracle detected */
+/* TODO - mloskot: find better macro to check for older versions; */
 #else
 #  error Oracle oci.h header not found
 #endif
@@ -194,7 +198,7 @@ Please, locate Oracle directories using --with-oci or \
             AC_MSG_RESULT([not found])
             ]
         )
-        AC_LANG_POP([C++])
+        AC_LANG_POP([C])
 
         dnl
         dnl Check OCI libraries
@@ -203,7 +207,7 @@ Please, locate Oracle directories using --with-oci or \
 
             AC_MSG_CHECKING([for Oracle OCI libraries in $oracle_lib_dir])
 
-            AC_LANG_PUSH(C++)
+            AC_LANG_PUSH(C)
             AC_LINK_IFELSE([
                 AC_LANG_PROGRAM([[@%:@include <oci.h>]],
                     [[
@@ -213,7 +217,7 @@ if (envh) OCIHandleFree(envh, OCI_HTYPE_ENV);
                     ]]
                 )],
                 [
-                ORACLE_OCI_LDFLAGS="$oci_ldflags"
+                ORACLE_OCI_LDFLAGS="$oci_ldflags $oci_libs"
                 oci_lib_found="yes"
                 AC_MSG_RESULT([yes])
                 ],
@@ -222,11 +226,12 @@ if (envh) OCIHandleFree(envh, OCI_HTYPE_ENV);
                 AC_MSG_RESULT([not found])
                 ]
             )
-            AC_LANG_POP([C++])
+            AC_LANG_POP([C])
         fi
 
         CPPFLAGS="$saved_CPPFLAGS"
         LDFLAGS="$saved_LDFLAGS"
+        LIBS="$saved_LIBS"
     fi
 
     dnl
@@ -271,11 +276,21 @@ if (envh) OCIHandleFree(envh, OCI_HTYPE_ENV);
                 oracle_version_checked="yes"
                 AC_MSG_RESULT([yes])
 
-                dnl Add -lnnz10 flag to Oracle >= 10.x
-                AC_MSG_CHECKING([for Oracle version >= 10.x to use -lnnz10 flag])
-                oracle_nnz10_check=`expr $oracle_version_number \>\= 10 \* 1000000`
-                if test "$oracle_nnz10_check" = "1"; then
+                dnl Add -lnnz10 flag to Oracle = 10.x
+                AC_MSG_CHECKING([for Oracle version = 10.x to use -lnnz10 flag])
+                oracle_nnz_check=`expr $oracle_version_major \= 10`
+                if test "$oracle_nnz_check" = "1"; then
                     ORACLE_OCI_LDFLAGS="$ORACLE_OCI_LDFLAGS -lnnz10"
+                    AC_MSG_RESULT([yes])
+                else
+                    AC_MSG_RESULT([no])
+                fi
+
+                dnl Add -lnnz12 flag to Oracle = 12.x
+                AC_MSG_CHECKING([for Oracle version = 12.x to use -lnnz12 flag])
+                oracle_nnz_check=`expr $oracle_version_major \= 12`
+                if test "$oracle_nnz_check" = "1"; then
+                    ORACLE_OCI_LDFLAGS="$ORACLE_OCI_LDFLAGS -lnnz12"
                     AC_MSG_RESULT([yes])
                 else
                     AC_MSG_RESULT([no])

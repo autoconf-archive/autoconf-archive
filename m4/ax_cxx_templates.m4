@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_cxx_templates.html
+#     https://www.gnu.org/software/autoconf-archive/ax_cxx_templates.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -24,16 +24,21 @@
 
 AU_ALIAS([AC_CXX_TEMPLATES], [AX_CXX_TEMPLATES])
 AC_DEFUN([AX_CXX_TEMPLATES],
-[AC_CACHE_CHECK([whether the compiler supports basic templates],
-[ax_cv_cxx_templates],
-[AC_LANG_PUSH([C++])
- AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[template<class T> class A {public:A(){}};
-template<class T> void f(const A<T>& ){}]], [[
-A<double> d; A<int> i; f(d); f(i); return 0;]])],[ax_cv_cxx_templates=yes],[ax_cv_cxx_templates=no])
- AC_LANG_POP([])
-])
-if test "$ax_cv_cxx_templates" = yes; then
-  AC_DEFINE([HAVE_TEMPLATES],[1],
-            [Define to 1 if the compiler supports basic templates])
-fi
+[dnl
+  AC_CACHE_CHECK([whether the compiler supports basic templates],
+    [ax_cv_cxx_templates],
+    [AC_LANG_PUSH([C++])
+     AC_COMPILE_IFELSE([dnl
+       AC_LANG_PROGRAM([
+           template<class T> class A {public:A(){};};
+           template<class T> void f(const A<T>& ){};
+         ],
+         [A<double> d; A<int> i; f(d); f(i); return 0;])],
+       [ax_cv_cxx_templates=yes],
+       [ax_cv_cxx_templates=no])
+     AC_LANG_POP([C++])
+  ])
+  AS_IF([test "X$ax_cv_cxx_templates" = "Xyes"],
+        [AC_DEFINE([HAVE_TEMPLATES],[1],
+                   [Define to 1 if the compiler supports basic templates])])
 ])dnl

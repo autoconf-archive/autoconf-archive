@@ -1,6 +1,6 @@
-# ===================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_header_tr1_unordered_set.html
-# ===================================================================================
+# ====================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_header_tr1_unordered_set.html
+# ====================================================================================
 #
 # SYNOPSIS
 #
@@ -27,8 +27,10 @@ AC_DEFUN([AX_CXX_HEADER_TR1_UNORDERED_SET], [
   AC_CACHE_CHECK([for tr1/unordered_set],
   [ax_cv_cxx_tr1_unordered_set],
   [AC_LANG_PUSH([C++])
-  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <tr1/unordered_set>]], [[using std::tr1::unordered_set;]])],[ax_cv_cxx_tr1_unordered_set=yes],[ax_cv_cxx_tr1_unordered_set=no])
-  AC_LANG_POP([])
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <tr1/unordered_set>]],
+  [[using std::tr1::unordered_set;]])],
+  [ax_cv_cxx_tr1_unordered_set=yes], [ax_cv_cxx_tr1_unordered_set=no])
+  AC_LANG_POP([C++])
   ])
   if test "$ax_cv_cxx_tr1_unordered_set" = yes; then
     AC_DEFINE([HAVE_TR1_UNORDERED_SET],[1],

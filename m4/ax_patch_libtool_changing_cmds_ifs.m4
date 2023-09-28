@@ -1,6 +1,6 @@
-# ======================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_patch_libtool_changing_cmds_ifs.html
-# ======================================================================================
+# =======================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_patch_libtool_changing_cmds_ifs.html
+# =======================================================================================
 #
 # SYNOPSIS
 #
@@ -37,42 +37,21 @@
 #
 #   Oh yes, there are some usages of "*" to match shell-wise at the output
 #   file of some tool, so that might have triggered the choice to not use
-#   "?" in the first place - but in real life it never occured that a _cmds
+#   "?" in the first place - but in real life it never occurred that a _cmds
 #   script was created that has gone to use "?". And so, this ac-macro
 #   exchanges the s/~/?/g in configured _cmds variables and replaces all
-#   occurences of s/IFS="~"/IFS="?"/ - and it all works smooth now.
+#   occurrences of s/IFS="~"/IFS="?"/ - and it all works smooth now.
 #
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
 #
-#   This program is free software; you can redistribute it and/or modify it
-#   under the terms of the GNU General Public License as published by the
-#   Free Software Foundation; either version 3 of the License, or (at your
-#   option) any later version.
-#
-#   This program is distributed in the hope that it will be useful, but
-#   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
-#   Public License for more details.
-#
-#   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
-#
-#   As a special exception, the respective Autoconf Macro's copyright owner
-#   gives unlimited permission to copy, distribute and modify the configure
-#   scripts that are the output of Autoconf when processing the Macro. You
-#   need not follow the terms of the GNU General Public License when using
-#   or distributing such scripts, even though portions of the text of the
-#   Macro appear in them. The GNU General Public License (GPL) does govern
-#   all other use of the material that constitutes the Autoconf Macro.
-#
-#   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Archive. When you make and distribute a
-#   modified version of the Autoconf Macro, you may extend this special
-#   exception to the GPL to apply to your modified version as well.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.  This file is offered as-is, without any
+#   warranty.
 
-#serial 6
+#serial 9
 
 AU_ALIAS([PATCH_LIBTOOL_CHANGING_CMDS_IFS], [AX_PATCH_LIBTOOL_CHANGING_CMDS_IFS])
 AC_DEFUN([AX_PATCH_LIBTOOL_CHANGING_CMDS_IFS],

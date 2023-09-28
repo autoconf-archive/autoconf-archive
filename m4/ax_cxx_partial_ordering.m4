@@ -1,6 +1,6 @@
-# ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_partial_ordering.html
-# ===========================================================================
+# ============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_partial_ordering.html
+# ============================================================================
 #
 # SYNOPSIS
 #
@@ -33,8 +33,9 @@ template<class T> struct A
 {  int r;
    template<class T1, class T2> int operator() (T1, T2)       { r = 0; return r; }
    template<int N1, int N2>     int operator() (I<N1>, I<N2>) { r = 1; return r; }
-};]], [[A<float> x, y; I<0> a; I<1> b; return x (a,b) + y (float(), double());]])],[ax_cv_cxx_partial_ordering=yes],[ax_cv_cxx_partial_ordering=no])
- AC_LANG_POP([])
+};]], [[A<float> x, y; I<0> a; I<1> b; return x (a,b) + y (float(), double());]])],
+ [ax_cv_cxx_partial_ordering=yes], [ax_cv_cxx_partial_ordering=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_partial_ordering" = yes; then
   AC_DEFINE([HAVE_PARTIAL_ORDERING],[1],

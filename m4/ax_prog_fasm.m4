@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_prog_fasm.html
+#       https://www.gnu.org/software/autoconf-archive/ax_prog_fasm.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -20,7 +20,7 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2007,2009 Bogdan Drozdowski <bogdandr@op.pl>
+#   Copyright (c) 2007,2009,2022 Bogdan Drozdowski <bogdro@users.sourceforge.net>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU Lesser General Public License as published by
@@ -33,7 +33,7 @@
 #   General Public License for more details.
 #
 #   You should have received a copy of the GNU Lesser General Public License
-#   along with this program. If not, see <http://www.gnu.org/licenses/>.
+#   along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -48,13 +48,12 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 12
 
 AC_DEFUN([AX_PROG_FASM],[
-AC_CHECK_PROGS(fasm,[fasm],no)
-if test "x$fasm" = "xno" ;
-then
-	ifelse($#,0,[AC_MSG_ERROR([FASM assembler not found])],
-        $1)
-fi
+	AC_CHECK_PROGS(fasm,[fasm],no)
+	AS_IF([test "x$fasm" = "xno"],
+		ifelse($#,0,[AC_MSG_ERROR([FASM assembler not found])],
+		$1)
+	)
 ])

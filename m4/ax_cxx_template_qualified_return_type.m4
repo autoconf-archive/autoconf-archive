@@ -1,6 +1,6 @@
-# =========================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_template_qualified_return_type.html
-# =========================================================================================
+# ==========================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_template_qualified_return_type.html
+# ==========================================================================================
 #
 # SYNOPSIS
 #
@@ -39,8 +39,9 @@ template<class T> class A { public : A () {} };
 template<class X, class Y>
 A<typename promote_trait<X,Y>::T> operator+ (const A<X>&, const A<Y>&)
 { return A<typename promote_trait<X,Y>::T>(); }
-]], [[A<int> x; A<float> y; A<float> z = x + y; return 0;]])],[ax_cv_cxx_template_qualified_return_type=yes],[ax_cv_cxx_template_qualified_return_type=no])
- AC_LANG_POP([])
+]], [[A<int> x; A<float> y; A<float> z = x + y; return 0;]])],
+ [ax_cv_cxx_template_qualified_return_type=yes], [ax_cv_cxx_template_qualified_return_type=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_template_qualified_return_type" = yes; then
   AC_DEFINE([HAVE_TEMPLATE_QUALIFIED_RETURN_TYPE],[1],

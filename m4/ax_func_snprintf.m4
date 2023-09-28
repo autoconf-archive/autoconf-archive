@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_func_snprintf.html
+#     https://www.gnu.org/software/autoconf-archive/ax_func_snprintf.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -24,7 +24,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AN_FUNCTION([snprintf],[AX_FUNC_SNPRINTF])
 AN_FUNCTION([vsnprintf],[AX_FUNC_SNPRINTF])
@@ -34,7 +34,8 @@ AC_DEFUN([AX_FUNC_SNPRINTF],
 AC_MSG_CHECKING([for working snprintf])
 AC_CACHE_VAL([ac_cv_have_working_snprintf],
 [AC_RUN_IFELSE([AC_LANG_SOURCE([[#include <stdio.h>
-
+#include <stdlib.h>
+#include <string.h>
 int main(void)
 {
     char bufs[5] = { 'x', 'x', 'x', '\0', '\0' };
@@ -53,6 +54,8 @@ AC_MSG_CHECKING([for working vsnprintf])
 AC_CACHE_VAL([ac_cv_have_working_vsnprintf],
 [AC_RUN_IFELSE([AC_LANG_SOURCE([[#include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
+#include <string.h>
 
 int my_vsnprintf (char *buf, const char *tmpl, ...)
 {

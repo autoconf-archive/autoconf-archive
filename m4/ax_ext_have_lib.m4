@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_ext_have_lib.html
+#     https://www.gnu.org/software/autoconf-archive/ax_ext_have_lib.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -13,7 +13,7 @@
 #   each directory.
 #
 #   Any required -L<directory> flags are added to LDFLAGS and located
-#   libraies are added to LIBS
+#   libraries are added to LIBS
 #
 #   Some libraries are unlinkable without other extra libraries, which can
 #   be specified in the 4th argument. The mysql client library needs -lz,
@@ -23,7 +23,7 @@
 #
 #    AX_EXT_HAVE_LIB(/lib /usr/lib /usr/local/lib /usr/lib/mysql /usr/local/mysql/lib, mysqlclient, mysql_init, [-lz])
 #
-#   which finds the mysql client library if succeds system when it tries
+#   which finds the mysql client library if succeeds system when it tries
 #   with -L/usr/lib/mysql then it adds -lmysqlclient to LIBS and
 #   -L/usr/lib/mysql to LDFLAGS.
 #
@@ -38,7 +38,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 15
 
 AC_DEFUN([AX_EXT_HAVE_LIB],
 [
@@ -55,7 +55,7 @@ AC_CACHE_CHECK([for $2 library with -L$dir], [ext_cv${ext_haslib_cvdir}_haslib_$
 ext_func_save_ldflags=${LDFLAGS}
 LIBS="-l$2 $4 ${ext_func_search_save_LIBS}"
 LDFLAGS="-L$dir ${ext_func_save_ldflags}"
-AC_TRY_LINK_FUNC([$3], [eval "ext_cv${ext_haslib_cvdir}_haslib_$2"="yes"],
+AC_LINK_IFELSE([AC_LANG_CALL([], [$3])], [eval "ext_cv${ext_haslib_cvdir}_haslib_$2"="yes"],
 [eval "ext_cv${ext_haslib_cvdir}_haslib_$2"="no"])
 LIBS=$ext_func_search_save_LIBS
 LDFLAGS=$ext_func_save_ldflags

@@ -1,6 +1,6 @@
-# ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_header_stdcxx_0x.html
-# ===========================================================================
+# ============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_header_stdcxx_0x.html
+# ============================================================================
 #
 # SYNOPSIS
 #
@@ -108,8 +108,9 @@ AC_DEFUN([AX_CXX_HEADER_STDCXX_0X], [
     #include <utility>
     #include <valarray>
     #include <vector>
-  ]], [[]])],[ax_cv_cxx_stdcxx_0x=yes],[ax_cv_cxx_stdcxx_0x=no])
-  AC_LANG_POP([])
+  ]], [])],
+  [ax_cv_cxx_stdcxx_0x=yes], [ax_cv_cxx_stdcxx_0x=no])
+  AC_LANG_POP([C++])
   CXXFLAGS="$ac_save_CXXFLAGS"
   ])
   if test "$ax_cv_cxx_stdcxx_0x" = yes; then

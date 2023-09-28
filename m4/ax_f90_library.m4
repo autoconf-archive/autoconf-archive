@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_f90_library.html
+#      https://www.gnu.org/software/autoconf-archive/ax_f90_library.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -16,7 +16,7 @@
 #   name, like compiler used, debugging status ...). FUNCTION-BODY is the
 #   body of a function (including the 'use' statements and the call to a
 #   function defined by the library) SEARCH-PATH is a colon-separated list
-#   of directories that will be used as the base directoris for 'find' to
+#   of directories that will be used as the base directories for 'find' to
 #   look for the library file. If empty, the search path will be composed of
 #   $prefix/lib, $ac_default_prefix/lib, and $LD_LIBRARY_PATH. Two output
 #   variables named F90_LDFLAGS_xxx and F90_LIBS_xxx will be set up with the
@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 13
 
 AC_DEFUN([AX_F90_LIBRARY],[
 AS_VAR_PUSHDEF([ax_ldflags],[ax_cv_f90_ldflags_$1])

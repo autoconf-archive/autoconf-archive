@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_pgsql_priv_root.html
+#    https://www.gnu.org/software/autoconf-archive/ax_pgsql_priv_root.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   This macro checks wether the given PostgreSQL user has root privileges
+#   This macro checks whether the given PostgreSQL user has root privileges
 #   (can create and drop databases) It is recommended to first call
 #   AX_CHECK_PGSQL_DB, this makes it easier to locate the cause of error.
 #   The macro AX_PROG_PGCLIENT is required by this one.
@@ -61,7 +61,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -76,7 +76,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 6
 
 AC_DEFUN([AX_CHECK_PGSQL_PRIV_ROOT], [
 AC_REQUIRE([AX_PROG_PGCLIENT])dnl

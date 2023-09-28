@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_cxx_const_cast.html
+#    https://www.gnu.org/software/autoconf-archive/ax_cxx_const_cast.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -24,14 +24,22 @@
 
 AU_ALIAS([AC_CXX_CONST_CAST], [AX_CXX_CONST_CAST])
 AC_DEFUN([AX_CXX_CONST_CAST],
-[AC_CACHE_CHECK([whether the compiler supports const_cast<>],
-[ax_cv_cxx_const_cast],
-[AC_LANG_PUSH([C++])
- AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]], [[int x = 0;const int& y = x;int& z = const_cast<int&>(y);return z;]])],[ax_cv_cxx_const_cast=yes],[ax_cv_cxx_const_cast=no])
- AC_LANG_POP([])
-])
-if test "$ax_cv_cxx_const_cast" = yes; then
-  AC_DEFINE([HAVE_CONST_CAST],[1],
-            [Define to 1 if the compiler supports const_cast<>])
-fi
+[dnl
+  AC_CACHE_CHECK([whether the compiler supports const_cast<>],
+                 [ax_cv_cxx_const_cast],
+  [dnl
+    AC_LANG_PUSH([C++])
+    AC_COMPILE_IFELSE([dnl
+      AC_LANG_PROGRAM([[]],
+       [[int x = 0;
+         const int& y = x;
+         int& z = const_cast<int&>(y);
+         return z;]])],
+      [ax_cv_cxx_const_cast=yes],
+      [ax_cv_cxx_const_cast=no])
+    AC_LANG_POP([C++])
+  ])
+  AS_IF([test "X$ax_cv_cxx_const_cast" = Xyes],
+    [AC_DEFINE([HAVE_CONST_CAST],[1],
+               [Define to 1 if the compiler supports const_cast<>])])
 ])dnl

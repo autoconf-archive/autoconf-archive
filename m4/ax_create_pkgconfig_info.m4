@@ -1,6 +1,6 @@
-# ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_create_pkgconfig_info.html
-# ============================================================================
+# =============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_create_pkgconfig_info.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -24,7 +24,7 @@
 #
 #   You will find this macro most useful in conjunction with
 #   ax_spec_defaults that can read good initializers from the .spec file. In
-#   consequencd, most of the generatable installable stuff can be made from
+#   consequence, most of the generatable installable stuff can be made from
 #   information being updated in a single place for the whole project.
 #
 # LICENSE
@@ -43,7 +43,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -58,7 +58,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 13
+#serial 16
 
 AC_DEFUN([AX_CREATE_PKGCONFIG_INFO],[dnl
 AS_VAR_PUSHDEF([PKGCONFIG_suffix],[ax_create_pkgconfig_suffix])dnl

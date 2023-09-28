@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_prototype.html
+#       https://www.gnu.org/software/autoconf-archive/ax_prototype.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -17,7 +17,7 @@
 #   is successful for a given substitution, the macro stops and defines the
 #   following macros: FUNCTION_TAG1, FUNCTION_TAG2, ... using AC_DEFINE()
 #   with values set to the current values of <TAG1>, <TAG2>, ... If no
-#   combination is successfull the configure script is aborted with a
+#   combination is successful the configure script is aborted with a
 #   message.
 #
 #   Intended purpose is to find which combination of argument types is
@@ -33,7 +33,7 @@
 #
 #   2) call autoheader to see which symbols are not covered
 #
-#   3) add the lines in acconfig.h (warning: acconfig.h is deprecated)
+#   3) add the lines in config.h
 #
 #    /* Type of Nth argument of function */
 #    #undef FUNCTION_ARGN
@@ -59,10 +59,10 @@
 #
 #   2) call autoheader
 #
-#    autoheader: Symbol `GETPEERNAME_ARG2' is not covered by ./acconfig.h
-#    autoheader: Symbol `GETPEERNAME_ARG3' is not covered by ./acconfig.h
+#    autoheader: Symbol `GETPEERNAME_ARG2' is not covered by ./config.h
+#    autoheader: Symbol `GETPEERNAME_ARG3' is not covered by ./config.h
 #
-#   3) acconfig.h
+#   3) config.h
 #
 #    /* Type of second argument of getpeername */
 #    #undef GETPEERNAME_ARG2
@@ -99,7 +99,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -114,7 +114,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 11
 
 AU_ALIAS([AC_PROTOTYPE], [AX_PROTOTYPE])
 AC_DEFUN([AX_PROTOTYPE],[
@@ -148,7 +148,7 @@ AC_DEFUN([AX_PROTOTYPE_REVERSE],[ifelse($#,0,,$#,1,[[$1]],[AX_PROTOTYPE_REVERSE(
 dnl
 dnl AX_PROTOTYPE_SUBST(string, tag)
 dnl
-dnl Substitute all occurence of <tag> in <string> with <tag>_VAL.
+dnl Substitute all occurrence of <tag> in <string> with <tag>_VAL.
 dnl Assumes that tag_VAL is a macro containing the value associated to tag.
 dnl
 AC_DEFUN([AX_PROTOTYPE_SUBST],[ifelse($2,,[$1],[AX_PROTOTYPE_SUBST(patsubst([$1],[$2],[$2[]_VAL]),builtin([shift],builtin([shift],$@)))])])
@@ -217,9 +217,18 @@ dnl
 dnl Activate fatal warnings if possible, gives better guess
 dnl
      ac_save_CPPFLAGS="$CPPFLAGS"
-     ifelse(AC_LANG,CPLUSPLUS,if test "$GXX" = "yes" ; then CPPFLAGS="$CPPFLAGS -Werror" ; fi)
-     ifelse(AC_LANG,C,if test "$GCC" = "yes" ; then CPPFLAGS="$CPPFLAGS -Werror" ; fi)
-     AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[$2]], [[$1]])],[
+dnl     ifelse(AC_LANG,CPLUSPLUS,if test "$GXX" = "yes" ; then CPPFLAGS="$CPPFLAGS -Werror" ; fi)
+dnl     ifelse(AC_LANG,C,if test "$GCC" = "yes" ; then CPPFLAGS="$CPPFLAGS -Werror" ; fi)
+dnl
+dnl Disable the 'unused-variable' warning in case e.g. -Wall was enabled,
+dnl otherwise the test may always fail.
+dnl
+        if (test "x$GCC" = "xyes" || test "x$GXX" = "xyes" ); then
+          CPPFLAGS="$CPPFLAGS -Werror -Wno-unused-variable" ;
+        fi
+
+     AC_COMPILE_IFELSE([AC_LANG_PROGRAM([$2], [$1])],
+     [
       CPPFLAGS="$ac_save_CPPFLAGS"
       AC_MSG_RESULT(ok)
       AX_PROTOTYPE_DEFINES(tags)

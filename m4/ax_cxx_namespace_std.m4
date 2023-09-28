@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_cxx_namespace_std.html
+#   https://www.gnu.org/software/autoconf-archive/ax_cxx_namespace_std.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -28,8 +28,9 @@ AC_DEFUN([AX_CXX_NAMESPACE_STD], [
   [ax_cv_cxx_have_std_namespace],
   [AC_LANG_PUSH([C++])
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <iostream>
-                  std::istream& is = std::cin;]], [[]])],[ax_cv_cxx_have_std_namespace=yes],[ax_cv_cxx_have_std_namespace=no])
-  AC_LANG_POP([])
+                  std::istream& is = std::cin;]], [])],
+  [ax_cv_cxx_have_std_namespace=yes], [ax_cv_cxx_have_std_namespace=no])
+  AC_LANG_POP([C++])
   ])
   if test "$ax_cv_cxx_have_std_namespace" = yes; then
     AC_DEFINE([HAVE_NAMESPACE_STD],[1],

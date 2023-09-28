@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_cxx_exceptions.html
+#    https://www.gnu.org/software/autoconf-archive/ax_cxx_exceptions.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -28,8 +28,10 @@ AC_DEFUN([AX_CXX_EXCEPTIONS],
 [AC_CACHE_CHECK([whether the compiler supports exceptions],
 [ax_cv_cxx_exceptions],
 [AC_LANG_PUSH([C++])
- AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]], [[try { throw  1; } catch (int i) { return i; }]])],[ax_cv_cxx_exceptions=yes],[ax_cv_cxx_exceptions=no])
- AC_LANG_POP([])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]],
+ [[try { throw 1; } catch (int i) { return i; }]])],
+ [ax_cv_cxx_exceptions=yes], [ax_cv_cxx_exceptions=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_exceptions" = yes; then
   AC_DEFINE([HAVE_EXCEPTIONS],[1],

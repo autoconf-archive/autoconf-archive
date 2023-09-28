@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_c_var_func.html
+#      https://www.gnu.org/software/autoconf-archive/ax_c_var_func.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -8,11 +8,11 @@
 #
 # DESCRIPTION
 #
-#   This macro tests if the C complier supports the C9X standard __func__
-#   indentifier.
+#   This macro tests if the C compiler supports the C9X standard __func__
+#   identifier.
 #
 #   The new C9X standard for the C language stipulates that the identifier
-#   __func__ shall be implictly declared by the compiler as if, immediately
+#   __func__ shall be implicitly declared by the compiler as if, immediately
 #   following the opening brace of each function definition, the declaration
 #
 #     static const char __func__[] = "function-name";
@@ -35,7 +35,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -50,16 +50,19 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 14
 
 AU_ALIAS([AC_C_VAR_FUNC], [AX_C_VAR_FUNC])
 AC_DEFUN([AX_C_VAR_FUNC],
 [AC_REQUIRE([AC_PROG_CC])
 AC_CACHE_CHECK(whether $CC recognizes __func__, ac_cv_c_var_func,
-AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]], [[int main() {
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([],
+[[int main(void) {
 char *s = __func__;
-}]])],[ac_cv_c_var_func=yes],[ac_cv_c_var_func=no]) )
+}]])],
+[ac_cv_c_var_func=yes],
+[ac_cv_c_var_func=no]))
 if test "x$ac_cv_c_var_func" = xyes; then
-   AC_DEFINE(HAVE_FUNC,,[Define if the C complier supports __func__])
+   AC_DEFINE(HAVE_FUNC,,[Define if the C compiler supports __func__])
 fi
 ])dnl

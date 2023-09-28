@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_cxx_have_sstream.html
+#   https://www.gnu.org/software/autoconf-archive/ax_cxx_have_sstream.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -30,8 +30,9 @@ AC_DEFUN([AX_CXX_HAVE_SSTREAM],
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <sstream>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif]], [[stringstream message; message << "Hello"; return 0;]])],[ax_cv_cxx_have_sstream=yes],[ax_cv_cxx_have_sstream=no])
- AC_LANG_POP([])
+#endif]], [[stringstream message; message << "Hello"; return 0;]])],
+ [ax_cv_cxx_have_sstream=yes], [ax_cv_cxx_have_sstream=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_sstream" = yes; then
   AC_DEFINE([HAVE_SSTREAM],[1],

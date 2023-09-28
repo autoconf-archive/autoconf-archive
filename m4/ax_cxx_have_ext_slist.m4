@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_cxx_have_ext_slist.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_have_ext_slist.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -35,7 +35,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -61,8 +61,9 @@ AC_DEFUN([AX_CXX_HAVE_EXT_SLIST],
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <ext/slist>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif]], [[slist<int> s; return 0;]])],[ax_cv_cxx_have_ext_slist=yes],[ax_cv_cxx_have_ext_slist=no])
-  AC_LANG_POP([])
+#endif]], [[slist<int> s; return 0;]])],
+  [ax_cv_cxx_have_ext_slist=yes], [ax_cv_cxx_have_ext_slist=no])
+  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_ext_slist" = yes; then
    AC_DEFINE([HAVE_EXT_SLIST],[1],

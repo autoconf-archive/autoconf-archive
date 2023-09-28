@@ -1,6 +1,6 @@
-# ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_enum_computations.html
-# ============================================================================
+# =============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_enum_computations.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -39,8 +39,9 @@ template<class T1, class T2> struct Z
 };]], [[
 return (((int)Z<A,B>::a == 5)
      && ((int)Z<A,B>::b == 13)
-     && ((int)Z<A,B>::c == 24)) ? 0 : 1;]])],[ax_cv_cxx_enum_computations=yes],[ax_cv_cxx_enum_computations=no])
- AC_LANG_POP([])
+     && ((int)Z<A,B>::c == 24)) ? 0 : 1;]])],
+ [ax_cv_cxx_enum_computations=yes], [ax_cv_cxx_enum_computations=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_enum_computations" = yes; then
   AC_DEFINE([HAVE_ENUM_COMPUTATIONS],[1],

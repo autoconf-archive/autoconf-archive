@@ -1,6 +1,6 @@
-# ======================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_default_template_parameters.html
-# ======================================================================================
+# =======================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_default_template_parameters.html
+# =======================================================================================
 #
 # SYNOPSIS
 #
@@ -25,16 +25,28 @@
 
 AU_ALIAS([AC_CXX_DEFAULT_TEMPLATE_PARAMETERS], [AX_CXX_DEFAULT_TEMPLATE_PARAMETERS])
 AC_DEFUN([AX_CXX_DEFAULT_TEMPLATE_PARAMETERS],
-[AC_CACHE_CHECK(whether the compiler supports default template parameters,
-[ax_cv_cxx_default_template_parameters],
-[AC_LANG_PUSH([C++])
- AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
-template<class T = double, int N = 10> class A {public: int f() {return 0;}};
-]], [[A<float> a; return a.f();]])],[ax_cv_cxx_default_template_parameters=yes],[ax_cv_cxx_default_template_parameters=no])
- AC_LANG_POP([])
-])
-if test "$ax_cv_cxx_default_template_parameters" = yes; then
-  AC_DEFINE([HAVE_DEFAULT_TEMPLATE_PARAMETERS],[1],
-            [Define to 1 if compiler supports default template parameters])
-fi
+[dnl
+  AC_REQUIRE([AX_CXX_TEMPLATES])
+  AC_CACHE_CHECK([whether the compiler supports default template parameters],
+  [ax_cv_cxx_default_template_parameters],
+  [dnl
+   AS_IF([test "X$ax_cv_cxx_templates" = "Xyes"],
+     [dnl
+      AC_LANG_PUSH([C++])
+      AC_COMPILE_IFELSE([dnl
+        AC_LANG_PROGRAM([[
+	  template<class T = double, int N = 10> class A {
+	    public: int f() {return 0;}
+	  };
+	  ]],
+	  [[A<float> a; return a.f();]])],
+	[ax_cv_cxx_default_template_parameters=yes],
+	[ax_cv_cxx_default_template_parameters=no])
+	AC_LANG_POP([C++])
+      ],
+      [ax_cv_cxx_default_template_parameters=no])
+   ])
+   AS_IF([test "X$ax_cv_cxx_default_template_parameters" = "Xyes"],
+         [AC_DEFINE([HAVE_DEFAULT_TEMPLATE_PARAMETERS],[1],
+	   [Define to 1 if the compiler supports default template parameters])])
 ])dnl

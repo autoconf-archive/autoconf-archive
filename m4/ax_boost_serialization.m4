@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_boost_serialization.html
+#  https://www.gnu.org/software/autoconf-archive/ax_boost_serialization.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -29,7 +29,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 21
+#serial 24
 
 AC_DEFUN([AX_BOOST_SERIALIZATION],
 [
@@ -79,6 +79,7 @@ AC_DEFUN([AX_BOOST_SERIALIZATION],
 		if test "x$ax_cv_boost_serialization" = "xyes"; then
 			AC_DEFINE(HAVE_BOOST_SERIALIZATION,,[define if the Boost::Serialization library is available])
             BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
+            ax_lib=
             if test "x$ax_boost_user_serialization_lib" = "x"; then
                 for libextension in `ls $BOOSTLIBDIR/libboost_serialization*.so* $BOOSTLIBDIR/libboost_serialization*.dylib* $BOOSTLIBDIR/libboost_serialization*.a* 2>/dev/null | sed 's,.*/,,' | sed -e 's;^lib\(boost_serialization.*\)\.so.*$;\1;' -e 's;^lib\(boost_serialization.*\)\.dylib.*$;\1;' -e 's;^lib\(boost_serialization.*\)\.a*$;\1;'` ; do
                      ax_lib=${libextension}
@@ -104,7 +105,7 @@ AC_DEFUN([AX_BOOST_SERIALIZATION],
 
             fi
             if test "x$ax_lib" = "x"; then
-                AC_MSG_ERROR(Could not find a version of the library!)
+                AC_MSG_ERROR(Could not find a version of the Boost::Serialization library!)
             fi
 			if test "x$link_serialization" != "xyes"; then
 				AC_MSG_ERROR(Could not link against $ax_lib !)

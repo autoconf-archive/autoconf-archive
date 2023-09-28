@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_have_qt.html
+#        https://www.gnu.org/software/autoconf-archive/ax_have_qt.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -21,9 +21,11 @@
 #     QT_LIBS
 #     QT_MOC
 #     QT_UIC
+#     QT_RCC
 #     QT_LRELEASE
 #     QT_LUPDATE
 #     QT_DIR
+#     QMAKE
 #
 #   which respectively contain an "-I" flag pointing to the Qt include
 #   directory, link flags necessary to link with Qt and X, the full path to
@@ -53,7 +55,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 25
 
 AU_ALIAS([BNV_HAVE_QT], [AX_HAVE_QT])
 AC_DEFUN([AX_HAVE_QT],
@@ -61,17 +63,30 @@ AC_DEFUN([AX_HAVE_QT],
   AC_REQUIRE([AC_PROG_CXX])
   AC_REQUIRE([AC_PATH_X])
   AC_REQUIRE([AC_PATH_XTRA])
+  # openSUSE leap 15.3 installs qmake-qt5, not qmake, for example.
+  # Store the full name (like qmake-qt5) into QMAKE
+  # and the specifier (like -qt5 or empty) into am_have_qt_qmexe_suff.
+  AC_ARG_VAR([QMAKE],"Qt make tool")
+  AC_CHECK_TOOLS([QMAKE],[qmake qmake-qt6 qmake-qt5],[false])
 
   AC_MSG_CHECKING(for Qt)
+  am_have_qt_qmexe_suff=`echo $QMAKE | sed 's,^.*qmake,,'`
   # If we have Qt5 or later in the path, we're golden
-  ver=`qmake --version | grep -o "Qt version ."`
+  ver=`$QMAKE --version | grep -o "Qt version ."`
+
   if test "$ver" ">" "Qt version 4"; then
     have_qt=yes
     # This pro file dumps qmake's variables, but it only works on Qt 5 or later
-    am_have_qt_pro=`mktemp`
-    am_have_qt_makefile=`mktemp`
+    am_have_qt_dir=`mktemp -d`
+    am_have_qt_pro="$am_have_qt_dir/test.pro"
+    am_have_qt_stash="$am_have_qt_dir/.qmake.stash"
+    am_have_qt_makefile="$am_have_qt_dir/Makefile"
     # http://qt-project.org/doc/qt-5/qmake-variable-reference.html#qt
     cat > $am_have_qt_pro << EOF
+win32 {
+    CONFIG -= debug_and_release
+    CONFIG += release
+}
 qtHaveModule(axcontainer):       QT += axcontainer
 qtHaveModule(axserver):          QT += axserver
 qtHaveModule(concurrent):        QT += concurrent
@@ -105,19 +120,21 @@ percent.target = %
 percent.commands = @echo -n "\$(\$(@))\ "
 QMAKE_EXTRA_TARGETS += percent
 EOF
-    qmake $am_have_qt_pro -o $am_have_qt_makefile
-    QT_CXXFLAGS=`make -f $am_have_qt_makefile CXXFLAGS INCPATH`
-    QT_LIBS=`make -f $am_have_qt_makefile LIBS`
-    rm $am_have_qt_pro $am_have_qt_makefile
+    $QMAKE $am_have_qt_pro -o $am_have_qt_makefile
+    QT_CXXFLAGS=`cd $am_have_qt_dir; make -s -f $am_have_qt_makefile CXXFLAGS INCPATH`
+    QT_LIBS=`cd $am_have_qt_dir; make -s -f $am_have_qt_makefile LIBS`
+    rm $am_have_qt_pro $am_have_qt_stash $am_have_qt_makefile
+    rmdir $am_have_qt_dir
 
     # Look for specific tools in $PATH
-    QT_MOC=`which moc`
-    QT_UIC=`which uic`
-    QT_LRELEASE=`which lrelease`
-    QT_LUPDATE=`which lupdate`
+    QT_MOC=`which moc$am_have_qt_qmexe_suff`
+    QT_UIC=`which uic$am_have_qt_qmexe_suff`
+    QT_RCC=`which rcc$am_have_qt_qmexe_suff`
+    QT_LRELEASE=`which lrelease$am_have_qt_qmexe_suff`
+    QT_LUPDATE=`which lupdate$am_have_qt_qmexe_suff`
 
     # Get Qt version from qmake
-    QT_DIR=`qmake --version | grep -o -E /.+`
+    QT_DIR=`$QMAKE --version | grep -o -E /.+`
 
     # All variables are defined, report the result
     AC_MSG_RESULT([$have_qt:
@@ -126,6 +143,7 @@ EOF
     QT_LIBS=$QT_LIBS
     QT_UIC=$QT_UIC
     QT_MOC=$QT_MOC
+    QT_RCC=$QT_RCC
     QT_LRELEASE=$QT_LRELEASE
     QT_LUPDATE=$QT_LUPDATE])
   else
@@ -136,6 +154,7 @@ EOF
     QT_LIBS=
     QT_UIC=
     QT_MOC=
+    QT_RCC=
     QT_LRELEASE=
     QT_LUPDATE=
     AC_MSG_RESULT($have_qt)
@@ -145,8 +164,10 @@ EOF
   AC_SUBST(QT_LIBS)
   AC_SUBST(QT_UIC)
   AC_SUBST(QT_MOC)
+  AC_SUBST(QT_RCC)
   AC_SUBST(QT_LRELEASE)
   AC_SUBST(QT_LUPDATE)
+  AC_SUBST(QMAKE)
 
   #### Being paranoid:
   if test x"$have_qt" = xyes; then

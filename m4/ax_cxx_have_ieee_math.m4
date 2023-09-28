@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_cxx_have_ieee_math.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_have_ieee_math.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -54,9 +54,10 @@ gamma(x);
 lgamma(x);
 #endif
 hypot(x,y); nextafter(x,y); remainder(x,y); scalb(x,y);
-return 0;]])],[ax_cv_cxx_have_ieee_math=yes],[ax_cv_cxx_have_ieee_math=no])
+return 0;]])],
+ [ax_cv_cxx_have_ieee_math=yes], [ax_cv_cxx_have_ieee_math=no])
  LIBS="$ac_save_LIBS"
- AC_LANG_POP([])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_ieee_math" = yes; then
   AC_DEFINE([HAVE_IEEE_MATH],[1],

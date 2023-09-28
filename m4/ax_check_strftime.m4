@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_check_strftime.html
+#    https://www.gnu.org/software/autoconf-archive/ax_check_strftime.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 9
 
 AN_FUNCTION([strftime],[AX_CHECK_STRFTIME])
 AU_ALIAS([AG_CHECK_STRFTIME], [AX_CHECK_STRFTIME])
@@ -27,6 +27,7 @@ AC_DEFUN([AX_CHECK_STRFTIME],[
   AC_MSG_CHECKING([whether strftime() works])
   AC_CACHE_VAL([ax_cv_strftime],[
   AC_RUN_IFELSE([AC_LANG_SOURCE([[#include <time.h>
+#include <string.h>
 char t_buf[64];
 int main(void) {
   static const char z[] = "Thursday Aug 28 240";

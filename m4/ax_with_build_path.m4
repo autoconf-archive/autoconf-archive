@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_with_build_path.html
+#    https://www.gnu.org/software/autoconf-archive/ax_with_build_path.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -28,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([SMR_WITH_BUILD_PATH], [AX_WITH_BUILD_PATH])
 AC_DEFUN([AX_WITH_BUILD_PATH],

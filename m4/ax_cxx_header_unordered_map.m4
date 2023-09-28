@@ -1,6 +1,6 @@
-# ===============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_header_unordered_map.html
-# ===============================================================================
+# ================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_header_unordered_map.html
+# ================================================================================
 #
 # SYNOPSIS
 #
@@ -30,9 +30,11 @@ AC_DEFUN([AX_CXX_HEADER_UNORDERED_MAP], [
   AC_LANG_PUSH([C++])
   ac_save_CXXFLAGS="$CXXFLAGS"
   CXXFLAGS="$CXXFLAGS -std=gnu++0x"
-  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <unordered_map>]], [[using std::unordered_map;]])],[ax_cv_cxx_unordered_map=yes],[ax_cv_cxx_unordered_map=no])
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <unordered_map>]],
+  [[using std::unordered_map;]])],
+  [ax_cv_cxx_unordered_map=yes], [ax_cv_cxx_unordered_map=no])
   CXXFLAGS="$ac_save_CXXFLAGS"
-  AC_LANG_POP([])
+  AC_LANG_POP([C++])
   ])
   if test "$ax_cv_cxx_unordered_map" = yes; then
     AC_DEFINE([HAVE_UNORDERED_MAP],[1],

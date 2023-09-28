@@ -1,6 +1,6 @@
-# ================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_have_string_push_back.html
-# ================================================================================
+# =================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_have_string_push_back.html
+# =================================================================================
 #
 # SYNOPSIS
 #
@@ -31,8 +31,9 @@ AC_DEFUN([AX_CXX_HAVE_STRING_PUSH_BACK],
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <string>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif]], [[string message; message.push_back ('a'); return 0;]])],[ax_cv_cxx_have_string_push_back=yes],[ax_cv_cxx_have_string_push_back=no])
- AC_LANG_POP([])
+#endif]], [[string message; message.push_back ('a'); return 0;]])],
+ [ax_cv_cxx_have_string_push_back=yes], [ax_cv_cxx_have_string_push_back=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_string_push_back" = yes; then
  AC_DEFINE([HAVE_STRING_PUSH_BACK],[1],

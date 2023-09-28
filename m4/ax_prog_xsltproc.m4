@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_prog_xsltproc.html
+#     https://www.gnu.org/software/autoconf-archive/ax_prog_xsltproc.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -37,7 +37,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -52,7 +52,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 9
 
 AU_ALIAS([AC_PROG_XSLTPROC], [AX_PROG_XSLTPROC])
 AC_DEFUN([AX_PROG_XSLTPROC],
@@ -71,14 +71,14 @@ AS_HELP_STRING([--with-xsltproc[[[[[=PATH]]]]]],
 AC_ARG_WITH(xsltproc-flags,
 AS_HELP_STRING([  --with-xsltproc-flags=FLAGS],
                [Flags to pass to xsltproc (default $1)]),
-    [ if test "x$withval" == "xno"; then
-	XSLTPROC_FLAGS=''
+    [ if test "x$withval" = "xno"; then
+        XSLTPROC_FLAGS=''
     else
-	if test "x$withval" != "xyes"; then
-	    XSLTPROC_FLAGS="$withval"
-	fi
+        if test "x$withval" != "xyes"; then
+            XSLTPROC_FLAGS="$withval"
+        fi
     fi
-	])
+        ])
 
 # search for xsltproc if it wasn't specified
 if test "$ac_with_xsltproc" = "yes" -o "$ac_with_xsltproc" = "maybe"; then

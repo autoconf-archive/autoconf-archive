@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_try_compile_java.html
+#   https://www.gnu.org/software/autoconf-archive/ax_try_compile_java.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -48,7 +48,7 @@ dnl Do NOT remove the temporary files here, so they can be examined.
 else
   echo "configure: failed program was:" >&AS_MESSAGE_LOG_FD
   cat Test.java >&AS_MESSAGE_LOG_FD
-ifelse([$4], , , [  rm -fr Test.java Test.class
+ifelse([$4], , , [  rm -f Test.java Test.class
   $4
 ])dnl
 fi

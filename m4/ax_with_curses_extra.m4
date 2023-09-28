@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_with_curses_extra.html
+#   https://www.gnu.org/software/autoconf-archive/ax_with_curses_extra.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -41,18 +41,22 @@
 #   The following output variables may be defined by these macros; these are
 #   precious and may be overridden on the ./configure command line:
 #
-#     PANEL_LIB   - library to add to xxx_LDADD before CURSES_LIB
-#     MENU_LIB    - library to add to xxx_LDADD before CURSES_LIB
-#     FORM_LIB    - library to add to xxx_LDADD before CURSES_LIB
+#     PANEL_LIBS   - library to add to xxx_LDADD before CURSES_LIBS
+#     MENU_LIBS    - library to add to xxx_LDADD before CURSES_LIBS
+#     FORM_LIBS    - library to add to xxx_LDADD before CURSES_LIBS
 #
-#   These libraries are NOT added to LIBS by default.  You need to add them
-#   to the appropriate xxx_LDADD line in your Makefile.am in front of the
-#   equivalent CURSES_LIB incantation.  For example:
+#   In previous versions of this macro, the flags PANEL_LIB, MENU_LIB and
+#   FORM_LIB were defined. These have been renamed, in keeping with the
+#   variable scheme of PKG_CHECK_MODULES, which should eventually supersede
+#   the use of AX_WITH_CURSES and AX_WITH_CURSES_* macros. These libraries
+#   are NOT added to LIBS by default.  You need to add them to the
+#   appropriate xxx_LDADD line in your Makefile.am in front of the
+#   equivalent CURSES_LIBS incantation.  For example:
 #
-#     prog_LDADD = @PANEL_LIB@ @CURSES_LIB@
+#     prog_LDADD = @PANEL_LIBS@ @CURSES_LIBS@
 #
-#   If one of the xxx_LIB variables is set on the configure command line
-#   (such as by running "./configure PANEL_LIB=-lmypanel"), then the header
+#   If one of the xxx_LIBS variables is set on the configure command line
+#   (such as by running "./configure PANEL_LIBS=-lmypanel"), then the header
 #   file searched must NOT contain a subpath.  In this case, in other words,
 #   only <panel.h> would be searched for.  The user may use the CPPFLAGS
 #   precious variable to override the standard #include search path.
@@ -129,7 +133,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -144,7 +148,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 2
+#serial 5
 
 AC_DEFUN([_AX_WITH_CURSES_CHECKEXTRA], [
     dnl Parameter 1 is the variable name component, using uppercase letters only
@@ -159,8 +163,11 @@ AC_DEFUN([_AX_WITH_CURSES_CHECKEXTRA], [
     AS_VAR_PUSHDEF([_AX_WITH_CURSES_CHECKEXTRA_have_header_var], [HAVE_[]m4_toupper($4)])dnl
 
     ax_saved_LIBS=$LIBS
+    ax_saved_CPPFLAGS=$CPPFLAGS
+
     AC_CACHE_CHECK([for Curses $2 library with $4], [_AX_WITH_CURSES_CHECKEXTRA_header_var], [
-        LIBS="$ax_saved_LIBS $5 $CURSES_LIB"
+        LIBS="$ax_saved_LIBS $5 $CURSES_LIBS"
+        CPPFLAGS="$ax_saved_CPPFLAGS $CURSES_CFLAGS"
         AC_LINK_IFELSE([AC_LANG_PROGRAM([[
                 @%:@include <$4>
             ]], [$3])],
@@ -169,13 +176,18 @@ AC_DEFUN([_AX_WITH_CURSES_CHECKEXTRA], [
     ])
     AS_IF([test "x$[]_AX_WITH_CURSES_CHECKEXTRA_header_var" = xyes], [
         _AX_WITH_CURSES_CHECKEXTRA_cv_var=yes
-        AS_LITERAL_IF([$5], [$1_LIB="$5"])
+        AS_LITERAL_IF([$5], [$1_LIBS="$5"])
         AC_DEFINE([_AX_WITH_CURSES_CHECKEXTRA_have_var],        [1], [Define to 1 if the Curses $2 library is present])
         AC_DEFINE([_AX_WITH_CURSES_CHECKEXTRA_have_header_var], [1], [Define to 1 if <$4> is present])
     ], [
-        _AX_WITH_CURSES_CHECKEXTRA_cv_var=no
+        AS_IF([test "x$[]_AX_WITH_CURSES_CHECKEXTRA_cv_var" = xyes], [],
+            [_AX_WITH_CURSES_CHECKEXTRA_cv_var=no])
     ])
+
     LIBS=$ax_saved_LIBS
+    CPPFLAGS=$ax_saved_CPPFLAGS
+    unset ax_saved_LIBS
+    unset ax_saved_CPPFLAGS
 
     AS_VAR_POPDEF([_AX_WITH_CURSES_CHECKEXTRA_have_header_var])dnl
     AS_VAR_POPDEF([_AX_WITH_CURSES_CHECKEXTRA_header_var])dnl
@@ -193,16 +205,18 @@ AC_DEFUN([_AX_WITH_CURSES_EXTRA], [
     dnl Parameter 7 is the plain Curses library command line
 
     AC_REQUIRE([AX_WITH_CURSES])
-    AC_ARG_VAR([$1_LIB], [linker library for Curses $2, e.g. $7])
+    AC_ARG_VAR([$1_LIBS], [linker library for Curses $2, e.g. $7])
 
-    AS_IF([test "x$[]$1_LIB" != x], [
-        _AX_WITH_CURSES_CHECKEXTRA([$1], [$2], [$3], [$4], [$[]$1_LIB])
+    AS_IF([test "x$[]$1_LIBS" != x], [
+        _AX_WITH_CURSES_CHECKEXTRA([$1], [$2], [$3], [$4], [$[]$1_LIBS])
     ], [
         AS_IF([test "x$ax_cv_curses_which" = xncursesw], [
             _AX_WITH_CURSES_CHECKEXTRA([$1], [$2], [$3], [ncursesw/$4], [$5])
         ], [test "x$ax_cv_curses_which" = xncurses], [
-            _AX_WITH_CURSES_CHECKEXTRA([$1], [$2], [$3], [ncurses/$4], [$6])
             _AX_WITH_CURSES_CHECKEXTRA([$1], [$2], [$3], [$4], [$6])
+            AS_IF([test x$[]ax_cv_[]m4_tolower($1) != "xyes"], [
+                _AX_WITH_CURSES_CHECKEXTRA([$1], [$2], [$3], [ncurses/$4], [$6])
+            ])
         ], [test "x$ax_cv_curses_which" = xplaincurses], [
             _AX_WITH_CURSES_CHECKEXTRA([$1], [$2], [$3], [$4], [$7])
         ])

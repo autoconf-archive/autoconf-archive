@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_berkeley_db_cxx.html
+#    https://www.gnu.org/software/autoconf-archive/ax_berkeley_db_cxx.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -37,7 +37,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 6
 
 AC_DEFUN([AX_BERKELEY_DB_CXX],
 [
@@ -75,12 +75,12 @@ AC_DEFUN([AX_BERKELEY_DB_CXX],
       AC_MSG_CHECKING([for Berkeley DB (C++)])
   else
       minvermajor=`echo $minversion | cut -d. -f1`
-      minverminor=`echo $minversion | cut -d. -f2`
-      minverpatch=`echo $minversion | cut -d. -f3`
-      minvermajor=${minvermajor:-0}
-      minverminor=${minverminor:-0}
-      minverpatch=${minverpatch:-0}
-      AC_MSG_CHECKING([for Berkeley DB (C++) >= $minversion])
+      minverminor=`echo $minversion | cut -d. -f2 -s`
+      minverpatch=`echo $minversion | cut -d. -f3 -s`
+      if test -z "$minvermajor"; then minvermajor=0; fi
+      if test -z "$minverminor"; then minverminor=0; fi
+      if test -z "$minverpatch"; then minverpatch=0; fi
+      AC_MSG_CHECKING([for Berkeley DB (C++) >= $minvermajor.$minverminor.$minverpatch])
   fi
 
   if test x$libdbdir != x""; then
@@ -90,46 +90,47 @@ AC_DEFUN([AX_BERKELEY_DB_CXX],
     CPPFLAGS="$DB_CXX_CPPFLAGS $old_CPPFLAGS"
   fi
 
-  for version in "" 5.0 4.9 4.8 4.7 4.6 4.5 4.4 4.3 4.2 4.1 4.0 3.6 3.5 3.4 3.3 3.2 3.1 ; do
+  for major in 4; do
+      for minor in 0 1 2 3 4 5 6 7 8 9; do
+          for version in "${major}.${minor}" "${major}${minor}"; do
 
-    if test -z $version ; then
-        db_cxx_lib="-ldb_cxx -ldb"
-        try_headers="db_cxx.h"
-    else
-        db_cxx_lib="$libdbdir -ldb_cxx-$version -ldb-$version"
-        try_headers="db$version/db_cxx.h db`echo $version | sed -e 's,\..*,,g'`/db_cxx.h"
-    fi
+              try_libs="-ldb_cxx-${version}%-ldb-${version} -ldb${version}_cxx%-ldb${version}"
+              try_headers="db${major}.${minor}/db_cxx.h db${major}${minor}/db_cxx.h db${major}/db_cxx.h"
+              for db_cxx_hdr in $try_headers ; do
+                  for db_cxx_lib in $try_libs; do
+                    db_cxx_lib="$libdbdir `echo "$db_cxx_lib" | sed 's/%/ /g'`"
+                    LIBS="$old_LIBS $db_cxx_lib"
+                    #echo "Trying <$db_cxx_lib> <$db_cxx_hdr>"
+                    if test -z $DB_CXX_HEADER ; then
+                      AC_LINK_IFELSE(
+                          [AC_LANG_PROGRAM(
+                                  [
+                                    #include <${db_cxx_hdr}>
+                                  ],
+                                  [
+                                    #if !((DB_VERSION_MAJOR > (${minvermajor}) || \
+                                      (DB_VERSION_MAJOR == (${minvermajor}) && \
+                                          DB_VERSION_MINOR > (${minverminor})) || \
+                                          (DB_VERSION_MAJOR == (${minvermajor}) && \
+                                          DB_VERSION_MINOR == (${minverminor}) && \
+                                          DB_VERSION_PATCH >= (${minverpatch}))))
+                                      #error "too old version"
+                                    #endif
 
-    LIBS="$old_LIBS $db_cxx_lib"
-
-    for db_cxx_hdr in $try_headers ; do
-        if test -z $DB_CXX_HEADER ; then
-            AC_LINK_IFELSE(
-                [AC_LANG_PROGRAM(
-                    [
-                        #include <${db_cxx_hdr}>
-                    ],
-                    [
-                        #if !((DB_VERSION_MAJOR > (${minvermajor}) || \
-                              (DB_VERSION_MAJOR == (${minvermajor}) && \
-                                    DB_VERSION_MINOR > (${minverminor})) || \
-                              (DB_VERSION_MAJOR == (${minvermajor}) && \
-                                    DB_VERSION_MINOR == (${minverminor}) && \
-                                    DB_VERSION_PATCH >= (${minverpatch}))))
-                            #error "too old version"
-                        #endif
-
-                        DB *db;
-                        db_create(&db, NULL, 0);
-                    ])],
-                [
-                    AC_MSG_RESULT([header $db_cxx_hdr, library $db_cxx_lib])
-
-                    DB_CXX_HEADER="$db_cxx_hdr"
-                    DB_CXX_LIBS="$db_cxx_lib"
-                ])
-        fi
-    done
+                              DB *db;
+                              db_create(&db, NULL, 0);
+                              ])],
+                              [
+                                  AC_MSG_RESULT([header $db_cxx_hdr, library $db_cxx_lib])
+                                  DB_CXX_HEADER="$db_cxx_hdr"
+                                  DB_CXX_LIBS="$db_cxx_lib"
+                                  ],
+                           )
+                  fi
+               done
+            done
+        done
+     done
   done
 
   LIBS="$old_LIBS"

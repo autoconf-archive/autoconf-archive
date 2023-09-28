@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_cxx_have_complex.html
+#   https://www.gnu.org/software/autoconf-archive/ax_cxx_have_complex.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -31,8 +31,9 @@ AC_DEFUN([AX_CXX_HAVE_COMPLEX],
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <complex>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif]], [[complex<float> a; complex<double> b; return 0;]])],[ax_cv_cxx_have_complex=yes],[ax_cv_cxx_have_complex=no])
- AC_LANG_POP([])
+#endif]], [[complex<float> a; complex<double> b; return 0;]])],
+ [ax_cv_cxx_have_complex=yes], [ax_cv_cxx_have_complex=no])
+ AC_LANG_POP([C++])
 ])
 if test "x${ax_cv_cxx_have_complex}" = "xyes"; then
   AC_DEFINE([HAVE_COMPLEX],[1],

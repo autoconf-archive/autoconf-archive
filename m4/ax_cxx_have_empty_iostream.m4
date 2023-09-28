@@ -1,6 +1,6 @@
-# ==============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_have_empty_iostream.html
-# ==============================================================================
+# ===============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_have_empty_iostream.html
+# ===============================================================================
 #
 # SYNOPSIS
 #
@@ -26,7 +26,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -52,8 +52,9 @@ AC_DEFUN([AX_CXX_HAVE_EMPTY_IOSTREAM],
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <iostream>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif]], [[iostream iostr; return 0;]])],[ax_cv_cxx_have_empty_iostream=yes],[ax_cv_cxx_have_empty_iostream=no])
-  AC_LANG_POP([])
+#endif]], [[iostream iostr; return 0;]])],
+  [ax_cv_cxx_have_empty_iostream=yes], [ax_cv_cxx_have_empty_iostream=no])
+  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_empty_iostream" = yes; then
    AC_DEFINE([HAVE_EMPTY_IOSTREAM],[1],

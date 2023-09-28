@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_pkg_mico.html
+#       https://www.gnu.org/software/autoconf-archive/ax_pkg_mico.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -24,7 +24,7 @@
 #   not enforce using mico, if it is not found on the system. If MICO
 #   existence is critical for the building of your package, then you
 #   probably want to specify something like "AX_PKG_MICO(2.2.6 required)".
-#   Then, even if the --with-mico was not spcefied on the command line of
+#   Then, even if the --with-mico was not specified on the command line of
 #   the configure script, an error will be raised if mico was not found.
 #
 #   If the mico package is not found, abort configuration with error
@@ -32,7 +32,7 @@
 #
 #   It defines the symbol MICOSETUP, MICOVERSION, MICOSHAREDDIR
 #   MICO_INCLUDE, MICO_LIB and MICO_CXX if mico is found. In addition, the
-#   mico script mico-c++ (set in (MICO_CXX) is scaned for a string match
+#   mico script mico-c++ (set in (MICO_CXX) is scanned for a string match
 #   "-I.*ministl" and if foundMICO_USE_MINISTL is set to 1, otherwise to 0.
 #
 #   Example of use of these variables in your Makefile.in:
@@ -49,7 +49,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_PKG_MICO], [AX_PKG_MICO])
 AC_DEFUN([AX_PKG_MICO],
@@ -118,7 +118,7 @@ if test x$MICO_URGENCY = xrequired -o  x$MICO_URGENCY = xoptional; then
     else
         # source mico-setup.sh
         # Collect mico version number.
-        # But be carefull - mico-setup.sh
+        # But be careful - mico-setup.sh
         # unsets prefix and exec_prefix so save them first
         sh -c ". $MICOSETUP; echo MICOVERSION=\${MICOVERSION}; echo MICOSHAREDDIR=\${MICOSHAREDDIR}; echo MICODIR=\${MICODIR}" > conftest.mico-setup
 

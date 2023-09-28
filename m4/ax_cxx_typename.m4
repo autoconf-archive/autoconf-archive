@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_cxx_typename.html
+#     https://www.gnu.org/software/autoconf-archive/ax_cxx_typename.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -27,8 +27,10 @@ AC_DEFUN([AX_CXX_TYPENAME],
 [AC_CACHE_CHECK([whether the compiler recognizes typename],
 [ax_cv_cxx_typename],
 [AC_LANG_PUSH([C++])
- AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[template<typename T>class X {public:X(){}};]], [[X<float> z; return 0;]])],[ax_cv_cxx_typename=yes],[ax_cv_cxx_typename=no])
- AC_LANG_POP([])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[template<typename T>class X {public:X(){}};]],
+ [[X<float> z; return 0;]])],
+ [ax_cv_cxx_typename=yes], [ax_cv_cxx_typename=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_typename" = yes; then
   AC_DEFINE([HAVE_TYPENAME],[1],

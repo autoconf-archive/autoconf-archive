@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_lib_gdal.html
+#       https://www.gnu.org/software/autoconf-archive/ax_lib_gdal.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -39,14 +39,15 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 5
 
 AC_DEFUN([AX_LIB_GDAL],
 [
     dnl If gdal-config path is not given in ---with-gdal option,
     dnl check if it is present in the system anyway
     AC_ARG_WITH([gdal],
-        AS_HELP_STRING([--with-gdal=@<:@ARG@:>@],[Specify full path to gdal-config script]),
+        [AS_HELP_STRING([--with-gdal=@<:@ARG@:>@],
+            [Specify full path to gdal-config script])],
         [ac_gdal_config_path=$withval],
         [gdal_config_system=check])
 
@@ -57,7 +58,7 @@ AC_DEFUN([AX_LIB_GDAL],
               [no],[`dirname $ac_gdal_config_path 2> /dev/null`])])
 
     if test ! -x "$GDAL_CONFIG"; then
-        AC_MSG_ERROR([gdal-config does not exist or it is not an exectuable file])
+        AC_MSG_ERROR([gdal-config does not exist or it is not an executable file])
             GDAL_CONFIG="no"
             found_gdal="no"
     fi
@@ -139,7 +140,7 @@ AC_DEFUN([AX_LIB_GDAL],
             AC_MSG_RESULT([yes])
         else
             AC_MSG_RESULT([no])
-	    AC_MSG_ERROR([GDAL $GDAL_VERSION found, but required version is $gdal_version_req])
+            AC_MSG_ERROR([GDAL $GDAL_VERSION found, but required version is $gdal_version_req])
         fi
     fi
 

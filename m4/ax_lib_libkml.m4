@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_lib_libkml.html
+#      https://www.gnu.org/software/autoconf-archive/ax_lib_libkml.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -47,7 +47,8 @@
 AC_DEFUN([AX_LIB_LIBKML],
 [
     AC_ARG_WITH([libkml],
-        AS_HELP_STRING([--with-libkml=@<:@ARG@:>@],[use Google libkml from given prefix (ARG=path); check standard prefixes (ARG=yes); disable (ARG=no)
+        AS_HELP_STRING([--with-libkml=@<:@ARG@:>@],
+            [use Google libkml from given prefix (ARG=path); check standard prefixes (ARG=yes); disable (ARG=no)
         ]),
         [
         if test "$withval" = "yes"; then

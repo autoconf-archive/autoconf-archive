@@ -1,6 +1,6 @@
-# =============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_have_system_v_math.html
-# =============================================================================
+# ==============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_have_system_v_math.html
+# ==============================================================================
 #
 # SYNOPSIS
 #
@@ -44,9 +44,10 @@ AC_DEFUN([AX_CXX_HAVE_SYSTEM_V_MATH],
 #include <math.h>]], [[double x = 1.0; double y = 1.0;
 _class(x); trunc(x); finite(x); itrunc(x); nearest(x); rsqrt(x); uitrunc(x);
 copysign(x,y); drem(x,y); unordered(x,y);
-return 0;]])],[ax_cv_cxx_have_system_v_math=yes],[ax_cv_cxx_have_system_v_math=no])
+return 0;]])],
+ [ax_cv_cxx_have_system_v_math=yes], [ax_cv_cxx_have_system_v_math=no])
  LIBS="$ac_save_LIBS"
- AC_LANG_POP([])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_system_v_math" = yes; then
   AC_DEFINE([HAVE_SYSTEM_V_MATH],[1],

@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://www.gnu.org/software/autoconf-archive/ax_cvs.html
+#          https://www.gnu.org/software/autoconf-archive/ax_cvs.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -24,10 +24,10 @@
 #
 #   make commitlog
 #
-#     Generates a ChangeLog template with the modifed, added
+#     Generates a ChangeLog template with the modified, added
 #     and removed files and opens it up for editing. This is
-#     not normally used directly, but is instad called by
-#     commit. It is usefull however if you want to document
+#     not normally used directly, but is instead called by
+#     commit. It is useful however if you want to document
 #     the work you have done, but don't want to commit just
 #     yet.
 #
@@ -65,9 +65,9 @@
 #   make release
 #
 #     performs a cvs update, followed by a distcheck, then
-#     creates a release for the current version, increaments
+#     creates a release for the current version, increments
 #     the point release number and checks out the release
-#     into a new direcory
+#     into a new directory
 #
 #   make quick-release
 #
@@ -82,7 +82,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 23
 
 AC_DEFUN([AX_CVS],
 [
@@ -181,7 +181,7 @@ if test "x$AX_USING_CVS" != "xno"; then
         if test "x$AX_USING_CVS" = "x"; then
 	    AX_USING_CVS=no
 	else
-            AC_MSG_ERROR([CVS support cannot be enabled: USERNAME enviorment variable not set])
+            AC_MSG_ERROR([CVS support cannot be enabled: USERNAME environment variable not set])
 	fi
     fi
     AC_SUBST([USERNAME])
@@ -196,7 +196,7 @@ if test "x$AX_USING_CVS" != "xno"; then
         if test "x$AX_USING_CVS" = "x"; then
 	    AX_USING_CVS=no
 	else
-            AC_MSG_ERROR([CVS support cannot be enabled: USEREMAIL enviorment variable not set])
+            AC_MSG_ERROR([CVS support cannot be enabled: USEREMAIL environment variable not set])
 	fi
     fi
     AC_SUBST([USEREMAIL])
@@ -359,7 +359,7 @@ cvs-add:
 branch-major:
 	@tag=\"\$(PACKAGE)-${AX_MAJOR_VERSION}\"; \\
 	echo \"\"; \\
-	echo \"Creating major brach: ${AX_DOLLAR}${AX_DOLLAR}tag\"; \\
+	echo \"Creating major branch: ${AX_DOLLAR}${AX_DOLLAR}tag\"; \\
 	(cd \"${AX_DOLLAR}(top_srcdir)\"; \$(CVS) tag -b \"${AX_DOLLAR}${AX_DOLLAR}tag\"; ); \\
 	\$(GAWK) -f ax_cvs_rel.awk -v change=1 \"${AX_DOLLAR}(top_srcdir)/configure.ac\" > configure.tmp; \\
 	touch ${AX_DOLLAR}(top_builddir)/commitlog; \\
@@ -389,7 +389,7 @@ branch-major:
 branch-minor:
 	@tag=\"\$(PACKAGE)-${AX_MAJOR_VERSION}_${AX_MINOR_VERSION}\"; \\
 	echo \"\"; \\
-	echo \"Creating minor brach: ${AX_DOLLAR}${AX_DOLLAR}tag\"; \\
+	echo \"Creating minor branch: ${AX_DOLLAR}${AX_DOLLAR}tag\"; \\
 	(cd \"${AX_DOLLAR}(top_srcdir)\"; \$(CVS) tag -b \"${AX_DOLLAR}${AX_DOLLAR}tag\"; ); \\
 	\$(GAWK) -f ax_cvs_rel.awk -v change=1 \"${AX_DOLLAR}(top_srcdir)/configure.ac\" > configure.tmp; \\
 	touch ${AX_DOLLAR}(top_builddir)/commitlog; \\
@@ -464,8 +464,8 @@ inc_rel:
 
 tag: do_tag inc_rel
 
-# creates a release for the current version, increaments the point
-# release number and checkout the release into a new direcory
+# creates a release for the current version, increments the point
+# release number and checkout the release into a new directory
 release: update distcheck add_rel tag
 
 # same as release, but distcheck is not performed before releasing

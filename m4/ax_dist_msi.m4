@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_dist_msi.html
+#       https://www.gnu.org/software/autoconf-archive/ax_dist_msi.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -24,7 +24,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 15
 
 AC_DEFUN([AX_DIST_MSI],
 [
@@ -83,7 +83,7 @@ else
 
 msi_up_to_date_notice:
 	@if test -f \"\$(top_builddir)/\$(MSI_SETUP_FILE)\"; then \\
-	    echo \"Warning: Depedancy tracking cannot be enabled\"; \\
+	    echo \"Warning: Dependency tracking cannot be enabled\"; \\
 	    echo \"Warning: the msi file (\$(MSI_SETUP_FILE))\"; \\
 	    echo \"Warning: Please make sure it is up to date.\"; \\
 	    exit -1; \\

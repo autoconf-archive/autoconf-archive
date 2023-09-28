@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_string_strcasecmp.html
+#   https://www.gnu.org/software/autoconf-archive/ax_string_strcasecmp.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -36,8 +36,12 @@
 AU_ALIAS([ETR_STRING_STRCASECMP], [AX_STRING_STRCASECMP])
 AC_DEFUN([AX_STRING_STRCASECMP],
 [
-AC_CACHE_CHECK([for strcasecmp() in string.h],[ac_cv_string_strcasecmp],[
-        AC_LINK_IFELSE([AC_LANG_PROGRAM([[ #include <string.h> ]], [[ strcasecmp("foo", "bar"); ]])],[ac_cv_string_strcasecmp=yes],[ac_cv_string_strcasecmp=no])
+AC_CACHE_CHECK([for strcasecmp() in string.h], ac_cv_string_strcasecmp, [
+        AC_LINK_IFELSE([AC_LANG_PROGRAM(
+                [[#include <string.h>]],
+                [[strcasecmp("foo", "bar");]])],
+                [ac_cv_string_strcasecmp=yes],
+                [ac_cv_string_strcasecmp=no])
 ])
 
         if test x"$ac_cv_string_strcasecmp" = "xyes"

@@ -1,5 +1,5 @@
 # ===========================================================================
-#         http://www.gnu.org/software/autoconf-archive/ax_upload.html
+#        https://www.gnu.org/software/autoconf-archive/ax_upload.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -25,7 +25,7 @@
 #
 #     make upload-src
 #
-#   all the binaru distribution files by running:
+#   all the binary distribution files by running:
 #
 #     make upload-bin
 #
@@ -42,7 +42,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 13
 
 AC_DEFUN([AX_UPLOAD],
 [

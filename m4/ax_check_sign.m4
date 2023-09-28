@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_check_sign.html
+#      https://www.gnu.org/software/autoconf-archive/ax_check_sign.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -35,13 +35,18 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 10
 
 AU_ALIAS([VL_CHECK_SIGN], [AX_CHECK_SIGN])
 AC_DEFUN([AX_CHECK_SIGN], [
  typename=`echo $1 | sed "s/@<:@^a-zA-Z0-9_@:>@/_/g"`
  AC_CACHE_CHECK([whether $1 is signed], ax_cv_decl_${typename}_signed, [
-   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[$4]], [[ int foo @<:@ 1 - 2 * !((($1) -1) < 0) @:>@ ]])],[ eval "ax_cv_decl_${typename}_signed=\"yes\"" ],[ eval "ax_cv_decl_${typename}_signed=\"no\"" ])])
+   AC_COMPILE_IFELSE(
+     [AC_LANG_PROGRAM([[$4]],
+       [[ int foo @<:@ 1 - 2 * !((($1) -1) < 0) @:>@ ; (void)foo[0] ]])],
+     [ eval "ax_cv_decl_${typename}_signed=\"yes\"" ],
+     [ eval "ax_cv_decl_${typename}_signed=\"no\"" ])
+ ])
  symbolname=`echo $1 | sed "s/@<:@^a-zA-Z0-9_@:>@/_/g" | tr "a-z" "A-Z"`
  if eval "test \"\${ax_cv_decl_${typename}_signed}\" = \"yes\""; then
    $2

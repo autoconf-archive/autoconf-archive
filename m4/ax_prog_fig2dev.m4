@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_prog_fig2dev.html
+#     https://www.gnu.org/software/autoconf-archive/ax_prog_fig2dev.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -23,7 +23,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([VL_PROG_FIG2DEV], [AX_PROG_FIG2DEV])
 AC_DEFUN([AX_PROG_FIG2DEV], [

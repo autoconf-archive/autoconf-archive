@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_have_adns.html
+#       https://www.gnu.org/software/autoconf-archive/ax_have_adns.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_HAVE_ADNS], [dnl
   AC_CHECK_HEADER([adns.h], [dnl

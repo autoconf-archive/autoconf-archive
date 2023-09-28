@@ -1,6 +1,6 @@
-# =====================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_template_keyword_qualifier.html
-# =====================================================================================
+# ======================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_template_keyword_qualifier.html
+# ======================================================================================
 #
 # SYNOPSIS
 #
@@ -41,8 +41,9 @@ AC_DEFUN([AX_CXX_TEMPLATE_KEYWORD_QUALIFIER],
     p->template member<200>(); // OK: < starts template argument
     T::template static_member<100>(); // OK: < starts explicit qualification
   }
-]], [[X x; f(&x); return 0;]])],[ax_cv_cxx_template_keyword_qualifier=yes],[ax_cv_cxx_template_keyword_qualifier=no])
- AC_LANG_POP([])
+]], [[X x; f(&x); return 0;]])],
+ [ax_cv_cxx_template_keyword_qualifier=yes], [ax_cv_cxx_template_keyword_qualifier=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_template_keyword_qualifier" = yes; then
   AC_DEFINE([HAVE_TEMPLATE_KEYWORD_QUALIFIER],[1],

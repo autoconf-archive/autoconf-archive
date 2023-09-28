@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_lib_firebird.html
+#     https://www.gnu.org/software/autoconf-archive/ax_lib_firebird.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -11,12 +11,12 @@
 #   Test for the Firebird client library of a particular version (or newer).
 #   This macro takes only one optional argument, the required version of
 #   Firebird library. If required version is not passed, then 1.5.0 is used
-#   in test of existance of Firebird client library.
+#   in test of existence of Firebird client library.
 #
 #   For more information about Firebird API versioning check: API Identifies
 #   Client Version http://www.firebirdsql.org/rlsnotes20/rnfbtwo-apiods.html
 #
-#   If no intallation prefix to the installed Firebird library is given the
+#   If no installation prefix to the installed Firebird library is given the
 #   macro searches under /usr, /usr/local, and /opt.
 #
 #   This macro calls:
@@ -38,7 +38,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 13
 
 AC_DEFUN([AX_LIB_FIREBIRD],
 [
@@ -133,7 +133,7 @@ AC_DEFUN([AX_LIB_FIREBIRD],
                 ],
                 [
                 AC_MSG_RESULT([not found])
-                succees="no"
+                success="no"
                 ]
             )
             AC_LANG_POP([C++])

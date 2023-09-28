@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_cxx_mutable.html
+#      https://www.gnu.org/software/autoconf-archive/ax_cxx_mutable.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -35,7 +35,7 @@ class A { mutable int i;
           int f (int n) const { i = n; return i; }
         };
 ]], [[A a; return a.f (1);]])],[ax_cv_cxx_mutable=yes],[ax_cv_cxx_mutable=no])
- AC_LANG_POP([])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_mutable" = yes; then
   AC_DEFINE([HAVE_MUTABLE],[1],

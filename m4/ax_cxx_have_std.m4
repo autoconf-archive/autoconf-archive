@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_cxx_have_std.html
+#     https://www.gnu.org/software/autoconf-archive/ax_cxx_have_std.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -36,7 +36,7 @@ AC_DEFUN([AX_CXX_HAVE_STD],
 #ifdef HAVE_NAMESPACES
 using namespace std;
 #endif]], [[return 0;]])],[ax_cv_cxx_have_std=yes],[ax_cv_cxx_have_std=no])
- AC_LANG_POP([])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_std" = yes; then
   AC_DEFINE([HAVE_STD],[1],

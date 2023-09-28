@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_expand_prefix.html
+#     https://www.gnu.org/software/autoconf-archive/ax_expand_prefix.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -17,7 +17,7 @@
 #   remember - setting exec_prefix='${prefix}' needs you interpolate
 #   directories multiple times, it is not sufficient to just say
 #   MYVAR="${datadir}/putter" but you do have to run `eval` a few times,
-#   sth. like MYVAR=`eval "echo \"$MYVAR\""` done atleast two times.
+#   sth. like MYVAR=`eval "echo \"$MYVAR\""` done at least two times.
 #
 #   The implementation of this macro simply picks up the lines that would be
 #   run at the start of AC_OUTPUT anyway to set the prefix/exec_prefix
@@ -30,33 +30,12 @@
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
 #
-#   This program is free software; you can redistribute it and/or modify it
-#   under the terms of the GNU General Public License as published by the
-#   Free Software Foundation; either version 3 of the License, or (at your
-#   option) any later version.
-#
-#   This program is distributed in the hope that it will be useful, but
-#   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
-#   Public License for more details.
-#
-#   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
-#
-#   As a special exception, the respective Autoconf Macro's copyright owner
-#   gives unlimited permission to copy, distribute and modify the configure
-#   scripts that are the output of Autoconf when processing the Macro. You
-#   need not follow the terms of the GNU General Public License when using
-#   or distributing such scripts, even though portions of the text of the
-#   Macro appear in them. The GNU General Public License (GPL) does govern
-#   all other use of the material that constitutes the Autoconf Macro.
-#
-#   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Archive. When you make and distribute a
-#   modified version of the Autoconf Macro, you may extend this special
-#   exception to the GPL to apply to your modified version as well.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.  This file is offered as-is, without any
+#   warranty.
 
-#serial 7
+#serial 11
 
 AC_DEFUN([AX_EXPAND_PREFIX],[dnl
   # The prefix default can be set in configure.ac (otherwise it is /usr/local)

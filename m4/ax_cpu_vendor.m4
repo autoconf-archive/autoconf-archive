@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_cpu_vendor.html
+#      https://www.gnu.org/software/autoconf-archive/ax_cpu_vendor.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   Find your CPU's vendor by requesting cpuid and define "ax_cpu_vendor"
+#   Find your CPU's vendor by requesting cpuid and define "ax_cv_cpu_vendor"
 #   accordingly. This macro depends on AX_GCC_X86_CPUID.
 #
 # LICENSE
@@ -20,44 +20,44 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 9
 
 AC_DEFUN([AX_CPU_VENDOR],
 [
  AC_REQUIRE([AX_GCC_X86_CPUID])
  AX_GCC_X86_CPUID(0x0)
 
- AC_CACHE_CHECK(for the processor vendor, ax_cpu_vendor,
+ AC_CACHE_CHECK(for the processor vendor, ax_cv_cpu_vendor,
  [
    vendor=`echo $ax_cv_gcc_x86_cpuid_0x0 | cut -d ":" -f 2`
 
    case $vendor in
      756e6547*)
-       ax_cpu_vendor="Intel"
+       ax_cv_cpu_vendor="Intel"
        ;;
      68747541*)
-       ax_cpu_vendor="AMD"
+       ax_cv_cpu_vendor="AMD"
        ;;
      69727943*)
-       ax_cpu_vendor="Cyrix"
+       ax_cv_cpu_vendor="Cyrix"
        ;;
      746e6543*)
-       ax_cpu_vendor="IDT"
+       ax_cv_cpu_vendor="IDT"
        ;;
      646f6547*)
-       ax_cpu_vendor="Natsemi Geode"
+       ax_cv_cpu_vendor="Natsemi Geode"
        ;;
      52697365*)
-       ax_cpu_vendor="Rise"
+       ax_cv_cpu_vendor="Rise"
        ;;
      65736952*)
-       ax_cpu_vendor="Rise"
+       ax_cv_cpu_vendor="Rise"
        ;;
      20536953*)
-       ax_cpu_vendor="SiS"
+       ax_cv_cpu_vendor="SiS"
        ;;
      *)
-       ax_cpu_vendor="Unknown"
+       ax_cv_cpu_vendor="Unknown"
        ;;
    esac
  ])

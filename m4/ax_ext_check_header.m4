@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_ext_check_header.html
+#   https://www.gnu.org/software/autoconf-archive/ax_ext_check_header.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -29,7 +29,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_EXT_HAVE_HEADER],
 [AC_LANG_PUSH(C)

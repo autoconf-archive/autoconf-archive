@@ -1,7 +1,29 @@
+# .travis.yml
+
 language: c
 os: linux
 dist: xenial
 git:
   depth: 50000
-install: sudo apt-get install --allow-unauthenticated -qq gnulib lzip texlive tidy autoconf automake remake
-script: ./bootstrap.sh && ./configure --enable-maintainer-mode && remake -j4 maintainer-all all && remake check && remake distcheck && remake web-manual && ./fix-website.sh
+
+addons:
+  apt:
+    packages:
+      - gnulib
+      - lzip
+      - python3
+      - texlive
+      - texinfo
+      - tidy
+      - autoconf
+      - automake
+      - remake
+
+script:
+  - ./bootstrap.sh
+  - ./configure --enable-maintainer-mode
+  - remake PYTHON=python3 -j$(nproc) maintainer-all all
+  - remake check
+  - remake distcheck
+  - remake web-manual
+  - ./fix-website.sh

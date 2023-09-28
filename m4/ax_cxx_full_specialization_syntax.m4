@@ -1,6 +1,6 @@
-# =====================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_full_specialization_syntax.html
-# =====================================================================================
+# ======================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_full_specialization_syntax.html
+# ======================================================================================
 #
 # SYNOPSIS
 #
@@ -31,8 +31,9 @@ AC_DEFUN([AX_CXX_FULL_SPECIALIZATION_SYNTAX],
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 template<class T> class A        { public : int f () const { return 1; } };
 template<>        class A<float> { public:  int f () const { return 0; } };]], [[
-A<float> a; return a.f();]])],[ax_cv_cxx_full_specialization_syntax=yes],[ax_cv_cxx_full_specialization_syntax=no])
- AC_LANG_POP([])
+A<float> a; return a.f();]])],
+ [ax_cv_cxx_full_specialization_syntax=yes], [ax_cv_cxx_full_specialization_syntax=no])
+ AC_LANG_POP([C++])
 ])
 if test "x${ax_cv_cxx_full_specialization_syntax}" = "xyes"; then
   AC_DEFINE([HAVE_FULL_SPECIALIZATION_SYNTAX],[1],

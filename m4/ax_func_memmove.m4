@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_func_memmove.html
+#     https://www.gnu.org/software/autoconf-archive/ax_func_memmove.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AN_FUNCTION([memmove],[AX_FUNC_MEMMOVE])
 AU_ALIAS([AC_FUNC_MEMMOVE], [AX_FUNC_MEMMOVE])
@@ -29,6 +29,8 @@ AC_DEFUN([AX_FUNC_MEMMOVE],
 AC_MSG_CHECKING([for working memmove])
 AC_CACHE_VAL([ac_cv_have_working_memmove],
 [AC_RUN_IFELSE([AC_LANG_SOURCE([[#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int main(void)
 {

@@ -3,6 +3,9 @@
 Each macro in the Archive has an all-upper-case name with the prefix
 @code{AX_}.  The macro is stored in a file with the same name, in lower case,
 and with the suffix @code{.m4}.
+Unless absolutely necessary, the file contents should be in ASCII.
+For example, use apostrophe (U+27) for quoting identifiers
+instead of Unicode quotation mark characters U+2018, U+2019.
 
 The file should begin with a header comment containing three named sections:
 synopsis, description, and license.
@@ -47,7 +50,7 @@ the
 tracker} and attach a (preferably
 @code{git-format-patch(1)}-formatted) patch file. Users of
 @code{github.com} may prefer to create a pull request for the
-@uref{https://github.com/peti/autoconf-archive,Autoconf Archive
+@uref{https://github.com/autoconf-archive/autoconf-archive,Autoconf Archive
 Mirror at Github}. Please make sure your submission contains the
 following items:
 
@@ -71,10 +74,10 @@ the m4 source code.
 @end itemize
 
 Macros can be submitted under any
-@uref{http://www.gnu.org/licenses/license-list.html#GPLCompatibleLicenses,GPL-compatible
+@uref{https://www.gnu.org/licenses/license-list.html#GPLCompatibleLicenses,GPL-compatible
 free software license}. The Free Software Foundation, however, recommends use
 of the
-@uref{http://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html,all-permissive
+@uref{https://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html,all-permissive
 license} for Autoconf macros.
 
 @section Writing Highly Usable Macros

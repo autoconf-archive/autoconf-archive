@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_zoneinfo.html
+#       https://www.gnu.org/software/autoconf-archive/ax_zoneinfo.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -38,7 +38,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_ZONEINFO_TZFILE_H], [dnl
 	dnl not totally necessary (yet), as we can simply inspect the tzfiles

@@ -1,6 +1,6 @@
-# ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_caolan_search_package.html
-# ============================================================================
+# =============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_caolan_search_package.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -12,7 +12,7 @@
 #   --with-PACKAGE-libdir options to configure. Supports the now standard
 #   --with-PACKAGE=DIR approach where the package's include dir and lib dir
 #   are underneath DIR, but also allows the include and lib directories to
-#   be specified seperately
+#   be specified separately
 #
 #   adds the extra -Ipath to CFLAGS if needed adds extra -Lpath to LD_FLAGS
 #   if needed searches for the FUNCTION in each of the LIBRARY LIST with
@@ -34,7 +34,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 8
 
 AC_DEFUN([AX_caolan_SEARCH_PACKAGE],
 [

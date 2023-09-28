@@ -1,6 +1,6 @@
-# ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_header_stdcxx_tr1.html
-# ============================================================================
+# =============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_header_stdcxx_tr1.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -54,8 +54,9 @@ AC_DEFUN([AX_CXX_HEADER_STDCXX_TR1], [
   #include <tr1/unordered_set>
   #include <tr1/unordered_map>
   #include <tr1/utility>
-  ]], [[]])],[ax_cv_cxx_stdcxx_tr1=yes],[ax_cv_cxx_stdcxx_tr1=no])
-  AC_LANG_POP([])
+  ]], [])],
+  [ax_cv_cxx_stdcxx_tr1=yes], [ax_cv_cxx_stdcxx_tr1=no])
+  AC_LANG_POP([C++])
   ])
   if test "$ax_cv_cxx_stdcxx_tr1" = yes; then
     AC_DEFINE([STDCXX_TR1_HEADERS],[1],

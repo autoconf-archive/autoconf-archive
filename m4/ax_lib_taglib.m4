@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_lib_taglib.html
+#      https://www.gnu.org/software/autoconf-archive/ax_lib_taglib.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -8,7 +8,7 @@
 #
 # DESCRIPTION
 #
-#   Checks for minimum taglib library version VERSION. If successfull
+#   Checks for minimum taglib library version VERSION. If successful
 #   executes ACTION-IF-SUCCESS otherwise ACTION-IF-FAILURE.
 #
 #   Defines TAGLIB_LIBS and TAGLIB_CFLAGS.
@@ -30,7 +30,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 10
 
 AU_ALIAS([AC_CHECK_TAGLIB], [AX_LIB_TAGLIB])
 AC_DEFUN([AX_LIB_TAGLIB], [

@@ -2,7 +2,7 @@ Autoconf Archive
 ================
 
 The GNU Autoconf Archive is a collection of more than 500 macros for [GNU
-Autoconf](http://www.gnu.org/software/autoconf) that have been contributed
+Autoconf](https://www.gnu.org/software/autoconf) that have been contributed
 as free software by friendly supporters of the cause from all over the
 Internet. Every single one of those macros can be re-used without imposing
 any restrictions whatsoever on the licensing of the generated configure
@@ -18,30 +18,28 @@ possible outweigh the disadvantage that some authors may choose to use it,
 too, for proprietary software.
 
 The best place to start exploring the Archive is the [on-line
-documentation](http://www.gnu.org/software/autoconf-archive/). There is
+documentation](https://www.gnu.org/software/autoconf-archive/). There is
 also the [Autoconf Archive home
 page](http://savannah.gnu.org/projects/autoconf-archive/) at Savannah and
-a [Github mirror](https://github.com/peti/autoconf-archive).
+a [Github mirror](https://github.com/autoconf-archive/autoconf-archive).
 
 Downloads
 ---------
 
 Here are the compressed sources:
 
--   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2014.10.15.tar.xz>
--   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2014.10.15.tar.lz>
+-   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2023.02.20.tar.xz>
 
 Here are the GPG detached signatures:
 
--   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2014.10.15.tar.xz.sig>
--   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2014.10.15.tar.lz.sig>
+-   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2023.02.20.tar.xz.sig>
 
 You can use either of the above signature files to verify that the
 corresponding file (without the .sig suffix) is intact. First, be sure
 to download both the .sig file and the corresponding tarball. Then, run
 a command like this:
 
-    gpg --verify autoconf-archive-2014.10.15.tar.xz.sig
+    gpg --verify autoconf-archive-2023.02.20.tar.xz.sig
 
 If that command fails because you don't have the required public key,
 then run this command to import it:
@@ -53,7 +51,7 @@ and rerun the `gpg --verify` command.
 License
 -------
 
-Copyright (c) 2014 Autoconf Archive Maintainers \<<autoconf-archive-maintainers@gnu.org>\>
+Copyright (c) 2022 Autoconf Archive Maintainers \<<autoconf-archive-maintainers@gnu.org>\>
 
 The GNU Autoconf Archive is free software: you can redistribute it and/or
 modify it under the terms of the GNU General Public License as published
@@ -66,4 +64,4 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
 Public License for more details.
 
 You should have received a copy of the GNU General Public License along
-with the GNU Autoconf Archive. If not, see <http://www.gnu.org/licenses/>.
+with the GNU Autoconf Archive. If not, see <https://www.gnu.org/licenses/>.

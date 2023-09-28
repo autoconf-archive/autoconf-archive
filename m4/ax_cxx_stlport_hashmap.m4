@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_stlport_hashmap.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_stlport_hashmap.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -27,8 +27,10 @@ AC_CACHE_CHECK([whether the compiler supports std::hash_map],
 [ax_cv_cxx_stlport_hashmap],
 [AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <hash_map>
-using std::hash_map;]], [[]])],[ax_cv_cxx_stlport_hashmap=yes],[ax_cv_cxx_stlport_hashmap=no])
- AC_LANG_POP([])
+using std::hash_map;]],
+ [[]])],
+ [ax_cv_cxx_stlport_hashmap=yes], [ax_cv_cxx_stlport_hashmap=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_stlport_hashmap" = yes; then
   AC_DEFINE([HAVE_STLPORT_HASHMAP],[1],

@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_c99_inline.html
+#      https://www.gnu.org/software/autoconf-archive/ax_c99_inline.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_C99_INLINE], [
 	AC_MSG_CHECKING([whether the compiler supports C99 inline functions])
@@ -36,8 +36,8 @@ AC_DEFUN([AX_C99_INLINE], [
 	dnl	translation units that could require the definition.
 	AC_LINK_IFELSE(
 		AC_LANG_SOURCE([
-			inline void* foo() { foo(); return &foo; }
-			int main() { return foo() != 0;}
+			inline void* foo(void) { foo(); return &foo; }
+			int main(void) { return foo() != 0;}
 			]),
 
 		dnl the invalid source compiled, so the inline keyword does not work
@@ -47,8 +47,8 @@ AC_DEFUN([AX_C99_INLINE], [
 		dnl Secondary test of valid source.
 		AC_LINK_IFELSE(
 			AC_LANG_SOURCE([
-				extern inline void* foo() { foo(); return &foo; }
-				int main() { return foo() != 0;}
+				extern inline void* foo(void) { foo(); return &foo; }
+				int main(void) { return foo() != 0;}
 				]),
 
 			AC_MSG_RESULT([yes])

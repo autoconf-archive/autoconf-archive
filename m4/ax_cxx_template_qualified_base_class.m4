@@ -1,6 +1,6 @@
-# ========================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_template_qualified_base_class.html
-# ========================================================================================
+# =========================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_template_qualified_base_class.html
+# =========================================================================================
 #
 # SYNOPSIS
 #
@@ -46,8 +46,9 @@ template<class T> class Weird : public base_trait<T>::base
 { public :
   typedef typename base_trait<T>::base base;
   int g () const { return base::f (); }
-};]], [[ Weird<float> z; return z.g ();]])],[ax_cv_cxx_template_qualified_base_class=yes],[ax_cv_cxx_template_qualified_base_class=no])
- AC_LANG_POP([])
+};]], [[ Weird<float> z; return z.g ();]])],
+ [ax_cv_cxx_template_qualified_base_class=yes], [ax_cv_cxx_template_qualified_base_class=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_template_qualified_base_class" = yes; then
   AC_DEFINE([HAVE_TEMPLATE_QUALIFIED_BASE_CLASS],[1],

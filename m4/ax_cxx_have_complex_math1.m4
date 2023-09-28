@@ -1,6 +1,6 @@
-# =============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_have_complex_math1.html
-# =============================================================================
+# ==============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_have_complex_math1.html
+# ==============================================================================
 #
 # SYNOPSIS
 #
@@ -37,9 +37,10 @@ using namespace std;
 #endif]], [[complex<double> x(1.0, 1.0), y(1.0, 1.0);
 cos(x); cosh(x); exp(x); log(x); pow(x,1); pow(x,double(2.0));
 pow(x, y); pow(double(2.0), x); sin(x); sinh(x); sqrt(x); tan(x); tanh(x);
-return 0;]])],[ax_cv_cxx_have_complex_math1=yes],[ax_cv_cxx_have_complex_math1=no])
+return 0;]])],
+ [ax_cv_cxx_have_complex_math1=yes], [ax_cv_cxx_have_complex_math1=no])
  LIBS="$ac_save_LIBS"
- AC_LANG_POP([])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_complex_math1" = yes; then
   AC_DEFINE([HAVE_COMPLEX_MATH1],[1],

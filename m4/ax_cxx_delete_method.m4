@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_cxx_delete_method.html
+#   https://www.gnu.org/software/autoconf-archive/ax_cxx_delete_method.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -34,7 +34,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 2
 
 AC_DEFUN([AX_CXX_DELETE_METHOD], [dnl
   AC_LANG_ASSERT([C++])

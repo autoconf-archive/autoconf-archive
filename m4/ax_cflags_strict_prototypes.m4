@@ -1,6 +1,6 @@
-# ===============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cflags_strict_prototypes.html
-# ===============================================================================
+# ================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cflags_strict_prototypes.html
+# ================================================================================
 #
 # SYNOPSIS
 #
@@ -32,33 +32,12 @@
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
 #
-#   This program is free software; you can redistribute it and/or modify it
-#   under the terms of the GNU General Public License as published by the
-#   Free Software Foundation; either version 3 of the License, or (at your
-#   option) any later version.
-#
-#   This program is distributed in the hope that it will be useful, but
-#   WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
-#   Public License for more details.
-#
-#   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
-#
-#   As a special exception, the respective Autoconf Macro's copyright owner
-#   gives unlimited permission to copy, distribute and modify the configure
-#   scripts that are the output of Autoconf when processing the Macro. You
-#   need not follow the terms of the GNU General Public License when using
-#   or distributing such scripts, even though portions of the text of the
-#   Macro appear in them. The GNU General Public License (GPL) does govern
-#   all other use of the material that constitutes the Autoconf Macro.
-#
-#   This special exception to the GPL applies to versions of the Autoconf
-#   Macro released by the Autoconf Archive. When you make and distribute a
-#   modified version of the Autoconf Macro, you may extend this special
-#   exception to the GPL to apply to your modified version as well.
+#   Copying and distribution of this file, with or without modification, are
+#   permitted in any medium without royalty provided the copyright notice
+#   and this notice are preserved.  This file is offered as-is, without any
+#   warranty.
 
-#serial 15
+#serial 18
 
 AC_DEFUN([AX_FLAGS_STRICT_PROTOTYPES],[dnl
 AS_VAR_PUSHDEF([FLAGS],[_AC_LANG_PREFIX[]FLAGS])dnl
@@ -68,14 +47,15 @@ VAR,[VAR="no, unknown"
 ac_save_[]FLAGS="$[]FLAGS"
 for ac_arg dnl
 in "-pedantic -Werror % -fstrict-prototypes -Wstrict-prototypes" dnl   GCC
-   "-pedantic -Werror % -Wstrict-prototypes" dnl try to warn atleast
-   "-pedantic -Werror % -Wmissing-prototypes" dnl try to warn atleast
+   "-pedantic -Werror % -Wstrict-prototypes" dnl try to warn at least
+   "-pedantic -Werror % -Wmissing-prototypes" dnl try to warn at least
    "-pedantic -Werror % -Werror-implicit-function-declaration" dnl
    "-pedantic -Werror % -Wimplicit-function-declaration" dnl
    "-pedantic % -Wstrict-prototypes %% no, unsupported" dnl oops
    #
 do FLAGS="$ac_save_[]FLAGS "`echo $ac_arg | sed -e 's,%%.*,,' -e 's,%,,'`
-   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]], [[return 0;]])],[VAR=`echo $ac_arg | sed -e 's,.*% *,,'` ; break],[])
+   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([], [[return 0;]])],
+   [VAR=`echo $ac_arg | sed -e 's,.*% *,,'` ; break], [])
 done
 case ".$VAR" in
    .|.no|.no,*) ;;
@@ -83,7 +63,8 @@ case ".$VAR" in
     cp config.log config.tmp
     AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <signal.h>]], [[
     if (signal (SIGINT, SIG_IGN) == SIG_DFL) return 1;
-    if (signal (SIGINT, SIG_IGN) != SIG_DFL) return 2;]])],[dnl the original did use test -n `$CC testprogram.c`
+    if (signal (SIGINT, SIG_IGN) != SIG_DFL) return 2;]])],
+    [dnl the original did use test -n `$CC testprogram.c`
     if test `diff config.log config.tmp | grep -i warning | wc -l` != 0
 then if test `diff config.log config.tmp | grep -i warning | wc -l` != 1
 then VAR="no, suppressed, signal.h," ; fi ; fi],[VAR="no, suppressed, signal.h"])

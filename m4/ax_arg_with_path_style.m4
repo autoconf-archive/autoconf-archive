@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_arg_with_path_style.html
+#  https://www.gnu.org/software/autoconf-archive/ax_arg_with_path_style.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -26,7 +26,7 @@
 #   for this macro.
 #
 #   the mnemonic "strict" or "also" is used to instruct the code that
-#   additional seperators shall be accepted but converted to the seperator
+#   additional separators shall be accepted but converted to the separator
 #   of the underlying pathstyle system. (or-512)
 #
 #    example: --with-path-style=win,slash
@@ -48,7 +48,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -63,7 +63,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 10
 
 AU_ALIAS([AC_ARG_WITH_PATH_STYLE],[AX_ARG_WITH_PATH_STYLE])
 AC_DEFUN([AX_ARG_WITH_PATH_STYLE],

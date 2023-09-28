@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_check_mysql.html
+#      https://www.gnu.org/software/autoconf-archive/ax_check_mysql.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -24,7 +24,7 @@
 #
 #   If a MySQL installation is found, AX_CHECK_MYSQL sets variables
 #   regarding the version of MySQL, its architecture (32 or 64 bit), and
-#   wether the version supports Plugins.
+#   whether the version supports Plugins.
 #
 #   AX_CHECK_MYSQL_INSTALL will check a designated root directory for a
 #   command, plugin, and include directory. If a mysql binary is not found
@@ -63,7 +63,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 9
 
 AC_ARG_WITH(mysql,AS_HELP_STRING([--with-mysql],[root of the MySQL installation]))
 AC_ARG_WITH(mysql_plugin,AS_HELP_STRING([--with-mysql-plugin],[path to the MySQL installation plugin directory]))
@@ -118,9 +118,9 @@ AC_DEFUN([AX_CHECK_MYSQL_INSTALL],[
     ROOT_DIR="$1"
 
     # Check for include directory
-    AX_CHECK_MYSQL_INCLUDES([$ROOT_DIR/include/mysql/mysql_version.h])
+    AX_CHECK_MYSQL_INCLUDES([$ROOT_DIR/include/mysql])
     if test "$MYSQL_INCLUDES" == "no" ; then
-       AX_CHECK_MYSQL_INCLUDES([$ROOT_DIR/include/mysql_version.h])
+       AX_CHECK_MYSQL_INCLUDES([$ROOT_DIR/include])
     fi
     mysql_include_test=$MYSQL_INCLUDES
 
@@ -309,7 +309,7 @@ AC_DEFUN([AX_CHECK_MYSQL],[
 
     if test "$MYSQL" == "yes"
     then
-        # Check MySQL version, wether it's 32 or 64 bit, and modifies the architecture variable accordingly
+        # Check MySQL version, whether it's 32 or 64 bit, and modifies the architecture variable accordingly
         AC_MSG_CHECKING([MySQL Architecture])
         MYSQL_ARCHITECTURE='file '$MYSQL_COMMANDS'/mysql'
         MYSQL_ARCHITECTURE=`$MYSQL_ARCHITECTURE | grep -o ".*bit" | sed s/-bit//g | grep -o "[[0-9]][[0-9]]$"`
@@ -346,7 +346,7 @@ AC_DEFUN([AX_CHECK_MYSQL],[
             fi
         fi
 
-        # Checks wether MINIMUM-VERSION was passed, does error checking for the value, and checks for version
+        # Checks whether MINIMUM-VERSION was passed, does error checking for the value, and checks for version
         if test "$MINIMUM_V" != ""
         then
             MINIMUM_MAJOR_V=`echo $MINIMUM_V | cut -c 1`
@@ -358,7 +358,7 @@ AC_DEFUN([AX_CHECK_MYSQL],[
             if test "$CHECKER_MAJOR" != "" && test "$CHECKER_MINOR" != "" && test "$CHECKER_REV" == ""
             then
                     AC_MSG_CHECKING([if MySQL version is equal or greater than $MINIMUM_V])
-                    if test "$MYSQL_MAJOR_V" -lt "$MINIMUM_MAJOR_V" || (test "$MYSQL_MAJOR_V" -eq "$MINIMUM_MAJOR_V" && test "$MYSQL_MINOR_V" -lt "$MINIMUM_MINOR_V") || (test "$MYSQL_MAJOR_V" -eq "$MINIMUM_MAJOR_V" && test "$MYSQL_MINOR_V" -eq "$MINIMUM_MINOR_V" && "$MYSQL_REV_V" -lt "MINIMUM_REV_V")
+                    if test "$MYSQL_MAJOR_V" -lt "$MINIMUM_MAJOR_V" || (test "$MYSQL_MAJOR_V" -eq "$MINIMUM_MAJOR_V" && test "$MYSQL_MINOR_V" -lt "$MINIMUM_MINOR_V") || (test "$MYSQL_MAJOR_V" -eq "$MINIMUM_MAJOR_V" && test "$MYSQL_MINOR_V" -eq "$MINIMUM_MINOR_V" && test "$MYSQL_REV_V" -lt "$MINIMUM_REV_V")
                     then
                         AC_SUBST(MYSQL_PLUGIN_OK,no)
                         AC_MSG_RESULT([no])
@@ -368,7 +368,7 @@ AC_DEFUN([AX_CHECK_MYSQL],[
                         AC_MSG_RESULT([yes])
                     fi
             else
-                    AC_MSG_ERROR([MINIMUM-VERSION varable in AX_CHEC_MYSQL is not formatted properly. Please use X.X or X.X.XX])
+                    AC_MSG_ERROR([MINIMUM-VERSION variable in AX_CHEC_MYSQL is not formatted properly. Please use X.X or X.X.XX])
             fi
         fi
 

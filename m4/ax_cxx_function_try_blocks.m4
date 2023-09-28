@@ -1,6 +1,6 @@
-# ==============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_function_try_blocks.html
-# ==============================================================================
+# ===============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_function_try_blocks.html
+# ===============================================================================
 #
 # SYNOPSIS
 #
@@ -26,7 +26,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -49,8 +49,11 @@ AC_DEFUN([AX_CXX_FUNCTION_TRY_BLOCKS],
 AC_MSG_CHECKING([whether ${CXX} supports function try blocks])
 AC_CACHE_VAL([ax_cv_have_function_try_blocks],
 [AC_LANG_PUSH([C++])
-AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[void foo() try{} catch( ... ){}]], [[foo();]])],[ax_cv_have_function_try_blocks=yes],[ax_cv_have_function_try_blocks=no])
-AC_LANG_POP([])
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[void foo() try{} catch( ... ){}]],
+[[foo();]])],
+[ax_cv_have_function_try_blocks=yes],
+[ax_cv_have_function_try_blocks=no])
+AC_LANG_POP([C++])
 ])
 AC_MSG_RESULT([$ax_cv_have_function_try_blocks])
 if test "$ax_cv_have_function_try_blocks" = yes; then

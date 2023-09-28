@@ -1,6 +1,6 @@
-# ================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_check_page_aligned_malloc.html
-# ================================================================================
+# =================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_check_page_aligned_malloc.html
+# =================================================================================
 #
 # SYNOPSIS
 #
@@ -21,7 +21,7 @@
 #   It's best to avoid using valloc in favor of posix_memalign, memalign, or
 #   an aligned malloc as detected by AX_CHECK_PAGE_ALIGNED_MALLOC.
 #
-#   Caveat: AX_CHECK_PAGE_ALIGNED_MALLOC takes a probabalistic approach. If
+#   Caveat: AX_CHECK_PAGE_ALIGNED_MALLOC takes a probabilistic approach. If
 #   100 calls to malloc all return page-aligned addresses, it assumes that
 #   all calls will behave likewise. It is therefore possible -- albeit
 #   extremely unlikely -- that AX_CHECK_PAGE_ALIGNED_MALLOC can return a
@@ -36,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 12
 
 AC_DEFUN([AX_CHECK_PAGE_ALIGNED_MALLOC],
 [AC_CACHE_CHECK([if large mallocs guarantee page-alignment],
@@ -58,7 +58,10 @@ int main(void)
       exit (1);
   exit (0);
 }
-              ]])],[ax_cv_func_malloc_aligned=yes],[ax_cv_func_malloc_aligned=no],[ax_cv_func_malloc_aligned=no])
+  ]])],
+     [ax_cv_func_malloc_aligned=yes],
+     [ax_cv_func_malloc_aligned=no],
+     [ax_cv_func_malloc_aligned=no])
   ])
 if test "$ax_cv_func_malloc_aligned" = yes ; then
   AC_DEFINE([HAVE_PAGE_ALIGNED_MALLOC],[1],

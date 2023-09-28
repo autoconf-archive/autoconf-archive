@@ -1,6 +1,6 @@
-# ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_header_stdcxx_98.html
-# ===========================================================================
+# ============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_header_stdcxx_98.html
+# ============================================================================
 #
 # SYNOPSIS
 #
@@ -77,7 +77,7 @@ AC_DEFUN([AX_CXX_HEADER_STDCXX_98], [
     #include <valarray>
     #include <vector>
   ]], [[]])],[ax_cv_cxx_stdcxx_98=yes],[ax_cv_cxx_stdcxx_98=no])
-  AC_LANG_POP([])
+  AC_LANG_POP([C++])
   ])
   if test "$ax_cv_cxx_stdcxx_98" = yes; then
     AC_DEFINE([STDCXX_98_HEADERS],[1],

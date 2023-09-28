@@ -1,6 +1,6 @@
-# ===================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_header_tr1_unordered_map.html
-# ===================================================================================
+# ====================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_header_tr1_unordered_map.html
+# ====================================================================================
 #
 # SYNOPSIS
 #
@@ -27,8 +27,10 @@ AC_DEFUN([AX_CXX_HEADER_TR1_UNORDERED_MAP], [
   AC_CACHE_CHECK([for tr1/unordered_map],
   [ax_cv_cxx_tr1_unordered_map],
   [AC_LANG_PUSH([C++])
-  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <tr1/unordered_map>]], [[using std::tr1::unordered_map;]])],[ax_cv_cxx_tr1_unordered_map=yes],[ax_cv_cxx_tr1_unordered_map=no])
-  AC_LANG_POP([])
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <tr1/unordered_map>]],
+  [[using std::tr1::unordered_map;]])],
+  [ax_cv_cxx_tr1_unordered_map=yes], [ax_cv_cxx_tr1_unordered_map=no])
+  AC_LANG_POP([C++])
   ])
   if test "$ax_cv_cxx_tr1_unordered_map" = yes; then
     AC_DEFINE([HAVE_TR1_UNORDERED_MAP],[1],

@@ -1,6 +1,6 @@
-# ======================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_enum_computations_with_cast.html
-# ======================================================================================
+# =======================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_enum_computations_with_cast.html
+# =======================================================================================
 #
 # SYNOPSIS
 #
@@ -25,7 +25,7 @@
 
 AU_ALIAS([AC_CXX_ENUM_COMPUTATIONS_WITH_CAST], [AX_CXX_ENUM_COMPUTATIONS_WITH_CAST])
 AC_DEFUN([AX_CXX_ENUM_COMPUTATIONS_WITH_CAST],
-[AC_CACHE_CHECK(whether the compiler handles (int) casts in enum computations,
+[AC_CACHE_CHECK([whether the compiler handles (int) casts in enum computations],
 [ax_cv_cxx_enum_computations_with_cast],
 [AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
@@ -39,8 +39,9 @@ template<class T1, class T2> struct Z
 };]], [[
 return (((int)Z<A,B>::a == 5)
      && ((int)Z<A,B>::b == 13)
-     && ((int)Z<A,B>::c == 24)) ? 0 : 1;]])],[ax_cv_cxx_enum_computations_with_cast=yes],[ax_cv_cxx_enum_computations_with_cast=no])
- AC_LANG_POP([])
+     && ((int)Z<A,B>::c == 24)) ? 0 : 1;]])],
+ [ax_cv_cxx_enum_computations_with_cast=yes], [ax_cv_cxx_enum_computations_with_cast=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_enum_computations_with_cast" = yes; then
   AC_DEFINE([HAVE_ENUM_COMPUTATIONS_WITH_CAST],[1],

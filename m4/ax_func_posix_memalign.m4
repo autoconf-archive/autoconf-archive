@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_func_posix_memalign.html
+#  https://www.gnu.org/software/autoconf-archive/ax_func_posix_memalign.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AN_FUNCTION([posix_memalign],[AX_FUNC_POSIX_MEMALIGN])
 AC_DEFUN([AX_FUNC_POSIX_MEMALIGN],
@@ -39,7 +39,10 @@ int main(void)
    * the size word. */
   exit (posix_memalign (&buffer, sizeof(void *), 123) != 0);
 }
-    ]])],[ax_cv_func_posix_memalign_works=yes],[ax_cv_func_posix_memalign_works=no],[ax_cv_func_posix_memalign_works=no])])
+    ]])],
+    [ax_cv_func_posix_memalign_works=yes],
+    [ax_cv_func_posix_memalign_works=no],
+    [ax_cv_func_posix_memalign_works=no])])
 if test "x${ax_cv_func_posix_memalign_works}" = "xyes"; then
   AC_DEFINE([HAVE_POSIX_MEMALIGN],[1],
     [Define to 1 if `posix_memalign' works.])

@@ -1,27 +1,35 @@
-# ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_gcc_libraries_dir.html
-# ===========================================================================
-#
-# OBSOLETE MACRO
-#
-#   This macro is obsolete because it depends on the obsolete macro
-#   AX_GCC_OPTION.
+# =================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_restore_flags_with_prefix.html
+# =================================================================================
 #
 # SYNOPSIS
 #
-#   AX_GCC_LIBRARIES_DIR(VARIABLE)
+#   AX_RESTORE_FLAGS_WITH_PREFIX(PREFIX, LIST-OF-FLAGS)
 #
 # DESCRIPTION
 #
-#   AX_GCC_LIBRARIES_DIR(VARIABLE) defines VARIABLE as the gcc libraries
-#   directory. The libraries directory will be obtained using the gcc
-#   -print-search-dirs option. This macro requires AX_GCC_OPTION macro.
+#   Restore the flags saved by AX_SAVE_FLAGS_WITH_PREFIX.
 #
-#   Thanks to Alessandro Massignan for his helpful hints.
+#   Expansion example: AX_RESTORE_FLAGS_WITH_PREFIX([GL], [[CFLAGS],[LIBS]])
+#   expands to
+#
+#     CFLAGS="$gl_saved_flag_cflags"
+#     LIBS="$gl_saved_flag_libs"
+#
+#   One common use case is to define a package specific wrapper macro around
+#   this one, and also restore other variables if needed. For example:
+#
+#     AC_DEFUN([_AX_CHECK_GL_RESTORE_FLAGS], [
+#       AX_RESTORE_FLAGS_WITH_PREFIX([GL],[$1])
+#       AC_LANG_POP([C])
+#     ])
+#
+#     # Restores CFLAGS, LIBS and language state
+#     _AX_CHECK_GL_RESTORE_FLAGS([[CFLAGS],[LIBS]])
 #
 # LICENSE
 #
-#   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>
+#   Copyright (c) 2016 Felix Chern <idryman@gmail.com>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -34,7 +42,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -49,23 +57,10 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 3
 
-AC_DEFUN([AX_GCC_LIBRARIES_DIR], [
-    AC_REQUIRE([AC_PROG_CC])
-    AC_REQUIRE([AC_PROG_SED])
-
-    AS_IF([test "x$GCC" = "xyes"],[
-        AX_GCC_OPTION([-print-search-dirs],[],[],[
-            AC_MSG_CHECKING([gcc libraries directory])
-            ax_gcc_libraries_dir="`$CC -print-search-dirs | $SED -n -e 's,^libraries:[ \t]*=,,p'`"
-            AC_MSG_RESULT([$ax_gcc_libraries_dir])
-            $1="$ax_gcc_libraries_dir"
-        ],[
-            unset $1
-        ])
-    ],[
-        AC_MSG_WARN([sorry, no gcc available])
-        unset $1
-    ])
+AC_DEFUN([AX_RESTORE_FLAGS_WITH_PREFIX],[
+m4_ifval([$2], [
+m4_car($2)="$_ax_[]m4_tolower($1)_saved_flag_[]m4_tolower(m4_car($2))"
+$0($1, m4_cdr($2))])
 ])

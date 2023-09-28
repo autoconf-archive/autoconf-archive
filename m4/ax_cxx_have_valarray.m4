@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_cxx_have_valarray.html
+#   https://www.gnu.org/software/autoconf-archive/ax_cxx_have_valarray.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -31,8 +31,9 @@ AC_DEFUN([AX_CXX_HAVE_VALARRAY],
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <valarray>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif]], [[valarray<float> x(100); return 0;]])],[ax_cv_cxx_have_valarray=yes],[ax_cv_cxx_have_valarray=no])
- AC_LANG_POP([])
+#endif]], [[valarray<float> x(100); return 0;]])],
+ [ax_cv_cxx_have_valarray=yes], [ax_cv_cxx_have_valarray=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_valarray" = yes; then
   AC_DEFINE([HAVE_VALARRAY],[1],

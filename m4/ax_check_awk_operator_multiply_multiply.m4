@@ -1,6 +1,6 @@
-# ===========================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_check_awk_operator_multiply_multiply.html
-# ===========================================================================================
+# ============================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_check_awk_operator_multiply_multiply.html
+# ============================================================================================
 #
 # SYNOPSIS
 #
@@ -26,7 +26,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_CHECK_AWK_OPERATOR_MULTIPLY_MULTIPLY], [
   AX_TRY_AWK_EXPOUT([operator **],

@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_check_gd.html
+#       https://www.gnu.org/software/autoconf-archive/ax_check_gd.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -13,7 +13,7 @@
 #   contain the compiler flags, linker flags and libraries necessary to use
 #   gd; otherwise, those variables will be empty. In addition, the symbol
 #   HAVE_GD is defined if the library is found, and the symbols HAVE_GD_GIF,
-#   HAVE_GD_JPEG and HAVE_GD_PNG are defined if the lirbary supports
+#   HAVE_GD_JPEG and HAVE_GD_PNG are defined if the library supports
 #   creating images in gif, jpeg and png formats, respectively.
 #
 #   The user may use --with-gd=no or --without-gd to skip checking for the
@@ -33,7 +33,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 11
 
 AC_DEFUN([AX_CHECK_GD], [
 	AC_ARG_WITH(gd,

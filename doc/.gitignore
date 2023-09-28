@@ -17,6 +17,7 @@
 /ax_*.texi
 /fdl-1.3.texi
 /gendocs_template
+/gendocs_template_min
 /manual/*
 /stamp-vti
 /version.texi

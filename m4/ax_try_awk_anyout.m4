@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_try_awk_anyout.html
+#    https://www.gnu.org/software/autoconf-archive/ax_try_awk_anyout.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -27,7 +27,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_TRY_AWK_ANYOUT], [
   AC_REQUIRE([AX_NEED_AWK])

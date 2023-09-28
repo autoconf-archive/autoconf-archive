@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_check_struct_for.html
+#   https://www.gnu.org/software/autoconf-archive/ax_check_struct_for.html
 # ===========================================================================
 #
 # SYNOPSIS

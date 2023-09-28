@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_cxx_bool.html
+#       https://www.gnu.org/software/autoconf-archive/ax_cxx_bool.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -35,7 +35,7 @@ int f(int  x){return 1;}
 int f(char x){return 1;}
 int f(bool x){return 1;}
 ]], [[bool b = true; return f(b);]])],[ax_cv_cxx_bool=yes],[ax_cv_cxx_bool=no])
- AC_LANG_POP([])
+ AC_LANG_POP([C++])
 ])
 if test "x${ax_cv_cxx_bool}" = "xyes"; then
   AC_DEFINE([HAVE_BOOL],[1],[Define to 1 if bool is a built-in type])

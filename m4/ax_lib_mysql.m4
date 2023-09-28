@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_lib_mysql.html
+#       https://www.gnu.org/software/autoconf-archive/ax_lib_mysql.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -43,7 +43,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 14
 
 AC_DEFUN([AX_LIB_MYSQL],
 [
@@ -73,23 +73,28 @@ AC_DEFUN([AX_LIB_MYSQL],
     dnl Check MySQL libraries
     dnl
 
-    if test "$want_mysql" = "yes"; then
+    AS_IF([test "$want_mysql" = "yes"],[
 
-        if test -z "$MYSQL_CONFIG" ; then
-            AC_PATH_PROGS([MYSQL_CONFIG], [mysql_config mysql_config5], [no])
-        fi
+        found_mysql=no
+        AS_IF([test -z "$MYSQL_CONFIG"],[
+            PKG_CHECK_MODULES([MYSQL],[mysqlclient],[
+                MYSQL_LDFLAGS=$MYSQL_LIBS
+                MYSQL_VERSION=`$PKG_CONFIG --modversion mysqlclient`
+                found_mysql=yes
+            ],[
+                AC_PATH_PROGS([MYSQL_CONFIG], [mysql_config mysql_config5], [no])
+            ])
+        ])
 
-        if test "$MYSQL_CONFIG" != "no"; then
+        if test "$found_mysql" = no && test "$MYSQL_CONFIG" != "no"; then
             MYSQL_CFLAGS="`$MYSQL_CONFIG --cflags`"
             MYSQL_LDFLAGS="`$MYSQL_CONFIG --libs`"
 
             MYSQL_VERSION=`$MYSQL_CONFIG --version`
 
             found_mysql="yes"
-        else
-            found_mysql="no"
         fi
-    fi
+    ])
 
     dnl
     dnl Check if required version of MySQL is available

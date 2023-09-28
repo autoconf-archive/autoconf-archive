@@ -10,13 +10,15 @@ dnl This program is distributed in the hope that it will be useful, but
 dnl WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 dnl implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-AC_INIT([GNU Autoconf Archive],[m4_esyscmd(build-aux/git-version-gen .tarball-version)],[autoconf-archive-maintainers@gnu.org],[autoconf-archive],[http://www.gnu.org/software/autoconf-archive/])
+AC_INIT([GNU Autoconf Archive],[m4_esyscmd([build-aux/git-version-gen .tarball-version])],
+	[autoconf-archive-maintainers@gnu.org], [autoconf-archive],
+	[https://www.gnu.org/software/autoconf-archive/])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_TESTDIR([test])
 AM_INIT_AUTOMAKE([1.11 -Wall gnu no-dist-gzip dist-xz dist-lzip])
 AC_REQUIRE_AUX_FILE([mdate-sh])
 AM_MAINTAINER_MODE([enable])
-AC_PREREQ([2.68])
+AC_PREREQ([2.65])
 AC_CONFIG_SRCDIR([doc/autoconf-archive.texi])
 AC_MSG_NOTICE([$PACKAGE_STRING])
 
@@ -60,6 +62,12 @@ m4_if(m4_version_compare([2.61a.100],
       [AC_CONFIG_LINKS([${cfg_mk}:${cfg_mk}],[],
         [cfg_mk=${cfg_mk}])])dnl
 AC_SUBST([cfg_mk])dnl
+
+M4FILES="m4_esyscmd_s([echo m4/*.m4])"
+AC_SUBST([M4FILES])dnl
+
+TEXIFILES="m4_esyscmd_s([cd m4 && echo *.m4 | ${SED} -e 's/\.m4/.texi/g'])"
+AC_SUBST([TEXIFILES])dnl
 
 dnl# double-m4-quote this, to allow echo-ing stuff that would normally also
 dnl# be interpreted as m4:

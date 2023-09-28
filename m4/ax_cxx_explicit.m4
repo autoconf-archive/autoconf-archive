@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_cxx_explicit.html
+#     https://www.gnu.org/software/autoconf-archive/ax_cxx_explicit.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -29,8 +29,10 @@ AC_DEFUN([AX_CXX_EXPLICIT],
 [AC_CACHE_CHECK(whether the compiler supports the explicit keyword,
 ax_cv_cxx_explicit,
 [AC_LANG_PUSH([C++])
- AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[class A{public:explicit A(double){}};]], [[double c = 5.0;A x(c);return 0;]])],[ax_cv_cxx_explicit=yes],[ax_cv_cxx_explicit=no])
- AC_LANG_POP([])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[class A{public:explicit A(double){}};]],
+ [[double c = 5.0;A x(c);return 0;]])],
+ [ax_cv_cxx_explicit=yes], [ax_cv_cxx_explicit=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_explicit" = yes; then
   AC_DEFINE([HAVE_EXPLICIT],[1],

@@ -1,6 +1,6 @@
-# ===================================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_explicit_template_function_qualification.html
-# ===================================================================================================
+# ====================================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_explicit_template_function_qualification.html
+# ====================================================================================================
 #
 # SYNOPSIS
 #
@@ -25,14 +25,15 @@
 
 AU_ALIAS([AC_CXX_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION], [AX_CXX_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION])
 AC_DEFUN([AX_CXX_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION],
-[AC_CACHE_CHECK(whether the compiler supports explicit template function qualification,
+[AC_CACHE_CHECK([whether the compiler supports explicit template function qualification],
 [ax_cv_cxx_explicit_template_function_qualification],
 [AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 template<class Z> class A { public : A() {} };
 template<class X, class Y> A<X> to (const A<Y>&) { return A<X>(); }
-]], [[A<float> x; A<double> y = to<double>(x); return 0;]])],[ax_cv_cxx_explicit_template_function_qualification=yes],[ax_cv_cxx_explicit_template_function_qualification=no])
- AC_LANG_POP([])
+]], [[A<float> x; A<double> y = to<double>(x); return 0;]])],
+ [ax_cv_cxx_explicit_template_function_qualification=yes], [ax_cv_cxx_explicit_template_function_qualification=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_explicit_template_function_qualification" = yes; then
   AC_DEFINE([HAVE_EXPLICIT_TEMPLATE_FUNCTION_QUALIFICATION],[1],

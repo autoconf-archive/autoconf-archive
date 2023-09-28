@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_include_strcasecmp.html
+#  https://www.gnu.org/software/autoconf-archive/ax_include_strcasecmp.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -31,11 +31,17 @@ AC_DEFUN([AX_INCLUDE_STRCASECMP],
 [
 AC_CACHE_CHECK([for strcasecmp header file], [ax_cv_include_strcasecmp_found], [
         ax_cv_include_strcasecmp_found=no
-        AC_LINK_IFELSE([AC_LANG_PROGRAM([[ #include <strings.h> ]], [[ strcasecmp("foo", "bar"); ]])],[ax_cv_include_strcasecmp_found='<strings.h>'],[ax_cv_include_strcasecmp_found=no])
+        AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <strings.h>]],
+                [[strcasecmp("foo", "bar");]])],
+                [ax_cv_include_strcasecmp_found='<strings.h>'],
+                [ax_cv_include_strcasecmp_found=no])
 
         if test x"$ax_cv_include_strcasecmp_found" = "xno"
         then
-        AC_LINK_IFELSE([AC_LANG_PROGRAM([[ #include <string.h> ]], [[ strcasecmp("foo", "bar"); ]])],[ax_cv_include_strcasecmp_found='<string.h>'],[ax_cv_include_strcasecmp_found=no])
+        AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <string.h>]],
+                [[strcasecmp("foo", "bar");]])],
+                [ax_cv_include_strcasecmp_found='<string.h>'],
+                [ax_cv_include_strcasecmp_found=no])
         fi
 ])
         if test x"$ax_cv_include_strcasecmp_found" != "xno"

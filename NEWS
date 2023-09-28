@@ -1,7 +1,7 @@
 #+TITLE: GNU Autoconf Archive NEWS             -*- mode:org;fill-column:79; -*-
 #+STARTUP: showall
 #
-# Copyright (c) 2014 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
+# Copyright (c) 2022 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
 #
 # Copying and distribution of this file, with or without modification, are
 # permitted in any medium without royalty provided the copyright notice
@@ -9,6 +9,245 @@
 # warranty.
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
+
+* Noteworthy changes in release 2023.02.20 (2023-02-20) [stable]
+
+  Please refer to the ChangeLog file for a list of changes.
+
+* Noteworthy changes in release 2022.09.03 (2022-09-03) [stable]
+
+  Please refer to the ChangeLog file for a list of changes.
+
+* Noteworthy changes in release 2022.02.11 (2022-02-11) [stable]
+
+  AX_CC_FOR_BUILD was deprecated in favor of AX_PROG_CC_FOR_BUILD.
+
+* Noteworthy changes in release 2021.02.19 (2021-02-19) [stable]
+
+  The macros AX_CHECK_PCRE2 and AX_PROG_ROBOT have been added. Many other
+  macros have received updates.
+
+* Noteworthy changes in release 2019.01.06 (2019-01-06) [stable]
+
+  The Autoconf Archive now has its own organization on Github. Therefore, the
+  mirror has moved to https://github.com/autoconf-archive/autoconf-archive. The
+  old location, https://github.com/peti/autoconf-archive redirects there.
+
+  The macro AX_CODE_COVERAGE was modified to use AX_ADD_AM_MACRO_STATIC,
+  and thus unfortunately usage was changed.
+
+* Noteworthy changes in release 2018.03.13 (2018-03-13) [stable]
+
+  The macros AX_R_PACKAGE and AX_PROG_DATE have been added. Many other macros
+  have received updates.
+
+* Noteworthy changes in release 2017.09.28 (2017-09-28) [stable]
+
+  The macros AX_PROG_HELP2MAN, AX_RECURSIVE_EVAL, AX_SUBDIRS_CONFIGURE,
+  AX_ELISP, and AX_PROG_EMACS have been added.
+
+  Various macros have received updates. Please check the ChangeLog file or the
+  history of the git repository for further details.
+
+* Noteworthy changes in release 2017.03.21 (2017-03-21) [stable]
+
+  Obsolete macros AX_CXX_COMPILER_VENDOR, AX_GCC_LIBRARIES_DIR, AX_GCC_VERSION,
+  and AX_HAVE_OPENGL have been removed from the archive.
+
+  AX_DEFINE_SUB_PATH has been marked obsolete as suggested in
+  https://github.com/peti/autoconf-archive/pull/97.
+
+* Noteworthy changes in release 2016.09.16 (2016-09-16) [stable]
+
+  The following macros were added: AX_BUILD_DATE_EPOCH, AX_CHECK_X86_FEATURES,
+  AX_GCC_X86_CPU_SUPPORTS, AX_OPEN62541_CHECK_H, AX_OPEN62541_CHECK_LIB, and
+  AX_LUAROCKS_ROCK.
+
+  While updating AX_CODE_COVERAGE, the variable CODE_COVERAGE_LDFLAGS was
+  renamed to CODE_COVERAGE_LIBS.
+
+  AX_VALGRIND_CHECK has been extended considerably. In this process. the
+  undocumented internal rule check-valgrind-tool was removed.
+
+  It checks if the host cpu supports various instruction set: mmx, sse, popcnt,
+  avx, avx2, etc. If the instruction were supported, it would export
+  HAVE_XXX_INSTRUCTIONS C preprocessor macros and add the instruction set flag to
+  X86_FEATURES_CFLAGS variable. By default it would also set CFLAGS, but this can
+  be disabled by the ACTION-IF-FOUND hook.
+
+  AX_WITH_CURSES and AX_WITH_CURSES_* macros have been modernized, in line
+  with PKG_CHECK_MODULES's style. This change breaks the interface, but
+  makes AX_WITH_CURSES compatible and even completely replaceable with the
+  interface of PKG_CHECK_MODULES. Ultimately, these macros should be
+  replaced in the future by calls to PKG_CHECK_MODULES. Variables in
+  AX_WITH_CURSES have been renamed
+
+    CURSES_LIB -> CURSES_LIBS
+    CURSES_CPPFLAGS -> CURSES_CFLAGS
+
+  and for the AX_WITH_CURSES_* macros
+
+    PANEL_LIB -> PANEL_LIBS
+    MENU_LIB -> MENU_LIBS
+    FORM_LIB -> FORM_LIBS
+
+  such that once the variables have been renamed in configure.ac and Makefile.am,
+  the calls AX_WITH_CURSES and PKG_CHECK_MODULES([CURSES], [ncurses]) are
+  completely interchangeable.
+
+* Noteworthy changes in release 2016.03.20 (2016-03-20) [stable]
+
+  The following new macros have been added: AX_CHECK_GIRS_GJS,
+  AX_CHECK_GIR_SYMBOLS_GJS, AX_CXX_COMPILE_STDCXX, AX_CXX_COMPILE_STDCXX_14,
+  AX_CZMQ, AX_FC_CHECK_DEFINE, AX_LIB_NETCDF4, AX_PROG_GJS,
+  AX_RESTORE_FLAGS_WITH_PREFIX, AX_SAVE_FLAGS_WITH_PREFIX, AX_VAR_POP,
+  AX_VAR_PUSH, and AX_ZMQ.
+
+  Various improvements to the opengl macros. Main features added:
+    - Support action-if-found and not-found hook
+    - Export HAVE_GL, HAVE_GLU, and HAVE_GLUT preprocessor symbol
+    - Add necessary flags to CFLAGS/LIBS by default, but can be disabled by
+      overwriting action-if-found hook.
+    - Fail the configure script if lib not found. This feature can be disabled
+      by overwriting action-if-not-found hook
+    - Fix problems on Mac OSX. Been tested on Linux (Ubuntu) and OSX
+    - Use --with-xquartz-gl instead of --with-gl=x for using X11 on OSX
+
+  Many new features were added to AX_CODE_COVERAGE and AX_PROG_DOXYGEN.
+
+  AX_CXX_COMPILE_STDCXX now modifies $(CXX) rather than $(CXXFLAGS).
+
+  AX_PTHREAD has been updated significantly. See
+  https://savannah.gnu.org/patch/?8186 for further details.
+
+  AX_PYTHON_DEVEL now provides PYTHON_LIBS instead of PYTHON_FLAGS.
+
+  The macros related to C++11 and C++14 were extensively re-factored.
+
+* Noteworthy changes in release 2015.09.25 (2015-09-25) [stable]
+
+  The Archive no longer releases an "lzip"-compressed tarball. The only
+  supported format now is "xz". The rationale is that xz so widely supported
+  that it seems pointless to archive two release archives on our servers for no
+  apparent reason.
+
+  AX_PYTHON_DEVEL changed to provide PYTHON_LIBS, not PYTHON_LDFLAGS. This
+  change breaks scripts written with previous versions in mind! The rationale
+  is that -L and -l are LIBS arguments, not LDFLAGS arguments. Returning output
+  in PYTHON_LDFLAGS suggested wrongly that they should be used in LDFLAGS,
+  which can cause the -L and -l arguments to be ignored when they are not in
+  the expected position in the list of command line arguments. This is a
+  problem, for instance, with the command line generated by AC_LINK_IFELSE.
+
+  AX_CXX_COMPILE_STDCXX_11 now supports Cray's crayCC compiler (CCE 8.4).
+
+  AX_PYTHON, AX_PYTHON_EMBED now support Python 3.4.
+
+  AX_LIB_ORACLE_OCI now supports Oracle 12.
+
+  AX_EXT now supports AVX2/AVX512 and other CPU extensions.
+
+  The new macro AX_GNU_AUTOTEST was added. The macro supports multiple
+  test-suites, Makefiles in different locations and many more features.
+
+  AX_CXX_COMPILE_STDCXX_11 now checks for attribute support with C++11 macro.
+  Some compilers pass the other tests while not implementing this part of the
+  C++11 specification. The test used also does not cause warnings with GCC or
+  Clang, and can be used with -Werror.
+
+  The new macro AX_PROG_BISON_VERSION can be used to check for specific
+  versions of bison.
+
+  The new macro AX_PROG_FLEX_VERSION can be used to check for specific
+  versions of flex.
+
+  AX_APPEND_FLAG no longer fails if the given flag contains a ','.
+
+  AX_LUA now supports Lua 5.3.
+
+  AX_BERKELEY_DB_CXX now supports FreeBSD.
+
+  AX_CXX_COMPILE_STDCXX_11 now support HP aCC.
+
+  AX_PYTHON_MODULE and AX_PYTHON_MODULE_VERSION now support Python 3.
+
+  The new macro AX_PYTHON_MODULE_VERSION has been added.
+
+  AX_LIB_POSTGRESQL provides a new output variable POSTGRESQL_LIBS.
+
+  AX_PATH_GENERIC now supports flags that contain spaces.
+
+  AX_BOOST_BASE now supports native Windows header only libraries.
+
+* Noteworthy changes in release 2015.02.24 (2015-02-24) [stable]
+
+  AX_CHECK_ENABLE_DEBUG now uses $ax_is_release as default for IS-RELEASE.
+
+  AX_IS_RELEASE now supports micro-version policies.
+
+  Portability of AX_CXX_COMPILE_STDCXX_0X has been improved.
+
+  AX_PROG_HAXE_VERSION is a new macro to detect the presence of Haxe
+  <http://haxe.org>.
+
+  AX_COMPILER_FLAGS has undergone extensive re-factoring.
+
+  AX_COMPILER_FLAGS_CXXFLAGS is a new macro that tests available C++ compiler
+  warnings.
+
+  AX_CXX_COMPILE_STDCXX_11 can now test for SFINAE with template aliases.
+
+  AX_APPEND_FLAG: Fix a regression introduced in the previous release.
+
+* Noteworthy changes in release 2015.02.04 (2015-02-04) [stable]
+
+  AX_OPENMP: Test that we can actually #include <omp.h> successfully.
+
+  AX_COMPILER_FLAGS was re-factored into AX_COMPILER_FLAGS_CFLAGS and
+  AX_COMPILER_FLAGS_LDFLAGS.
+
+  AX_CODE_COVERAGE detects gcov program.
+
+  AX_VALGRIND_CHECK now supports running without libtool.
+
+  AX_GCC_VERSION was improved.
+
+  Re-factored and modernized the macros AX_CXX_TEMPLATES, AX_CXX_CONST_CAST,
+  AX_CXX_COMPLEX_MATH_IN_NAMESPACE_STD, AX_CXX_BOOL, AX_APPEND_FLAG,
+  AX_CHECK_*_FLAG, AX_CHECK_ENABLE_DEBUG, and
+  AX_CXX_DEFAULT_TEMPLATE_PARAMETERS.
+
+  AX_CXX_COMPILER_VENDOR was deprecated in favor of AX_COMPILER_VENDOR.
+
+  AX_HAVE_OPENGL was deprecated in favor of AX_CHECK_GL, AX_CHECK_GLU,
+  AX_CHECK_GLUT, and AX_CHECK_GLX.
+
+  AX_CHECK_GL has a new parameter --with-mesa that allows choosing the order of
+  opengl lib detection.
+
+  Portability of AX_LUA was improved. Support for LUA 5.0 was added.
+
+  New macros AX_IS_RELEASE, AX_COMPILER_FLAGS_GIR, AX_CXX_ERASE_ITERATOR_TYPE,
+  AX_COMPILER_VERSION, AX_CHECK_GLX, AX_CHECK_VSCRIPT, AX_VALGRIND_CHECK,
+  AX_PKG_CHECK_MODULES, and AX_COMPILER_FLAGS were added.
+
+  AX_PROG_FLEX: Also accept gflex.
+
+  AX_LIB_HDF5: remove extra leading space from include path flag. That space
+  creeps into HDF5_CPPFLAGS and breaks the include path flag into two tokens,
+  e.g., "-I" and "/usr/include". While this may be legal and doesn't affect the
+  compilation, it does break some library tools (e.g., when the macro is used
+  in building a dynamic library that uses pkg-config).
+
+  AX_PERL_MODULE_VERSION: use more portable syntax for shell arithmetic.
+
+  AX_JNI_INCLUDE_DIR: support standard Oracle JDK installation layout on Mac OS
+  X.
+
+  AX_PROG_JAVAH_BIN_DIR: fix misspelled variable name and follow javah symlink
+  to find jni.h.
+
+  AX_BOOST_PYTHON: use unique names for local variables
 
 * Noteworthy changes in release 2014.10.15 (2014-10-15) [stable]
 
@@ -30,7 +269,7 @@
   AX_PERL_MODULE_VERSION: fix a misspelled variable name. Other unfixed issues
   remain. See <https://savannah.gnu.org/patch/index.php?8507>.
 
-  AX_BOOST_PYTHON: several issue have beeen fixed. Further details can be found
+  AX_BOOST_PYTHON: several issue have been fixed. Further details can be found
   at <https://savannah.gnu.org/patch/index.php?8540>.
 
   AX_HAVE_QT: Only check $PATH and qmake for Qt variables. The old logic for
@@ -193,7 +432,7 @@
   The new macro AX_PROG_SCALAC provides support for finding a Scala compiler.
   See <http://savannah.gnu.org/patch/index.php?8195> for further details.
 
-  The new macres AX_FIND_HAMCREST and AX_FIND_JUNIT have been added, which
+  The new macros AX_FIND_HAMCREST and AX_FIND_JUNIT have been added, which
   provide support for finding the jars of JUnit and Hamcrest. Please refer to
   <http://savannah.gnu.org/patch/index.php?8196> for further details.
 
@@ -318,7 +557,7 @@
   systems. See <http://savannah.gnu.org/patch/?7921> for further details.
 
   The new macro AX_LIB_EV has been added, which checks for libev in a
-  pkg-config-like manner. The purpose of the macro is to unifty behaviour
+  pkg-config-like manner. The purpose of the macro is to unify behaviour
   between distros that come with libev.pc and systems (e.g. upstream) that
   don't. Further details are at <http://savannah.gnu.org/patch/?7938>.
 
@@ -517,7 +756,7 @@
 
 * Noteworthy changes in release 2011.07.17 (2011-07-17) [stable]
 
-  A cut-and-paste error in AX_BOOST_FILESSYTEM has been fixed. See
+  A cut-and-paste error in AX_BOOST_FILESYSTEM has been fixed. See
   <http://savannah.gnu.org/patch/?7576> for further details.
 
   The macros AX_CHECK_SUNPRO_C and AX_LANG_COMPILER_MS are deprecated in favor
@@ -748,7 +987,7 @@
 
   The Autoconf Archive has been declared an official GNU project. Consequently,
   the web site has moved from <http://www.nongnu.org/autoconf-archive/> to
-  <http://www.gnu.org/software/autoconf-archive/>. Old addresses remain valid
+  <https://www.gnu.org/software/autoconf-archive/>. Old addresses remain valid
   for the foreseeable future, though.
 
   AX_BOOST_DATE_TIME and AX_BOOST_FILESYSTEM have been patched to function
@@ -782,11 +1021,11 @@
 
   All macros have been assigned a unique serial number that corresponds to the
   number of commits that have modified the macro in the Archive's Git
-  repository. Refer to the [[http://www.gnu.org/software/libtool//manual/automake/Serials.html][Automake documentation on serial numbers]] for further
+  repository. Refer to the [[https://www.gnu.org/software/libtool//manual/automake/Serials.html][Automake documentation on serial numbers]] for further
   details about why these numbers are useful.
 
   The text of the all-permissive license has been augmented by an express
-  warranty disclaimer as [[http://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html][suggested by the Free Software Foundation]].
+  warranty disclaimer as [[https://www.gnu.org/prep/maintain/html_node/License-Notices-for-Other-Files.html][suggested by the Free Software Foundation]].
 
   AX_CXX_VERBOSE_TERMINATE_HANDLER has been generalized to support
   architectures other than GNU libstdc++.

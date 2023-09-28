@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_have_select.html
+#      https://www.gnu.org/software/autoconf-archive/ax_have_select.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -33,15 +33,19 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 10
 
 AC_DEFUN([AX_HAVE_SELECT], [dnl
   AC_MSG_CHECKING([for select(2)])
   AC_CACHE_VAL([ax_cv_have_select], [dnl
     AC_LINK_IFELSE([dnl
       AC_LANG_PROGRAM(
-        [#include <sys/select.h>],
-        [int rc; rc = select(0, (fd_set *)(0), (fd_set *)(0), (fd_set *)(0), (struct timeval *)(0));])],
+        [[dnl
+#include <sys/select.h>
+#include <sys/time.h>]],
+        [[dnl
+int rc;
+rc = select(0, (fd_set *)(0), (fd_set *)(0), (fd_set *)(0), (struct timeval *)(0));]])],
       [ax_cv_have_select=yes],
       [ax_cv_have_select=no])])
   AS_IF([test "${ax_cv_have_select}" = "yes"],
@@ -55,13 +59,15 @@ AC_DEFUN([AX_HAVE_PSELECT], [dnl
   AC_CACHE_VAL([ax_cv_have_pselect], [dnl
     AC_LINK_IFELSE([dnl
       AC_LANG_PROGRAM(
-        [dnl
+        [[dnl
 #include <sys/select.h>
-#include <signal.h>],
-        [dnl
+#include <sys/time.h>
+#include <signal.h>
+#include <time.h>]],
+        [[dnl
 int rc;
 rc = select(0, (fd_set *)(0), (fd_set *)(0), (fd_set *)(0), (struct timeval *)(0));
-rc = pselect(0, (fd_set *)(0), (fd_set *)(0), (fd_set *)(0), (struct timespec const *)(0), (sigset_t const *)(0));])],
+rc = pselect(0, (fd_set *)(0), (fd_set *)(0), (fd_set *)(0), (struct timespec const *)(0), (sigset_t const *)(0));]])],
       [ax_cv_have_pselect=yes],
       [ax_cv_have_pselect=no])])
   AS_IF([test "${ax_cv_have_pselect}" = "yes"],

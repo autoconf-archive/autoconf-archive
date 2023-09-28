@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_extern_template.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_extern_template.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -26,8 +26,10 @@ AC_DEFUN([AX_CXX_EXTERN_TEMPLATE],[
 AC_CACHE_CHECK([whether the compiler supports extern template],
 [ax_cv_cxx_extern_template],
 [AC_LANG_PUSH([C++])
- AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[template <typename T> void foo(T); extern template void foo<int>(int);]], [[]])],[ax_cv_cxx_extern_template=yes],[ax_cv_cxx_extern_template=no])
- AC_LANG_POP([])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[template <typename T> void foo(T); extern template void foo<int>(int);]],
+ [])],
+ [ax_cv_cxx_extern_template=yes], [ax_cv_cxx_extern_template=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_extern_template" = yes; then
   AC_DEFINE([HAVE_EXTERN_TEMPLATE],[1],

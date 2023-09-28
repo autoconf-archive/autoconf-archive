@@ -1,6 +1,6 @@
-# ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_check_allocated_ctime.html
-# ============================================================================
+# =============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_check_allocated_ctime.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -27,12 +27,12 @@ AC_DEFUN([AX_CHECK_ALLOCATED_CTIME],[
   AC_MSG_CHECKING([whether ctime() allocates memory for its result])
   AC_CACHE_VAL([ax_cv_allocated_ctime],[
   AC_RUN_IFELSE([AC_LANG_SOURCE([[#include <time.h>
-int main(int argc, char** argv) {
-   time_t  timeVal = time((time_t*)NULL);
-   char*   pzTime  = ctime(&timeVal);
-   free(pzTime);
-   return 0; }]])],[ax_cv_allocated_ctime=yes],[ax_cv_allocated_ctime=no],[ax_cv_allocated_ctime=no
-  ]) # end of RUN_IFELSE]) # end of CACHE_VAL
+int main (int argc, char** argv) {
+   time_t  timeVal = time( (time_t*)NULL );
+   char*   pzTime  = ctime( &timeVal );
+   free( pzTime );
+   return 0; }]])],[ax_cv_allocated_ctime=yes],[ax_cv_allocated_ctime=no],[ax_cv_allocated_ctime=no]
+  ) # end of TRY_RUN]) # end of CACHE_VAL
 
   AC_MSG_RESULT([$ax_cv_allocated_ctime])
   if test x$ax_cv_allocated_ctime = xyes

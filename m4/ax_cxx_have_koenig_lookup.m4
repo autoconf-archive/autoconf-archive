@@ -1,6 +1,6 @@
-# =============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_have_koenig_lookup.html
-# =============================================================================
+# ==============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_have_koenig_lookup.html
+# ==============================================================================
 #
 # SYNOPSIS
 #
@@ -40,7 +40,9 @@ AC_DEFUN([AX_CXX_HAVE_KOENIG_LOOKUP],
                        // otherwise this will fail to compile.
         }
     }
-    ]], [[]])],[ax_cv_cxx_have_koenig_lookup=yes],[ax_cv_cxx_have_koenig_lookup=no])
+    ]], [])],
+                    [ax_cv_cxx_have_koenig_lookup=yes],
+                    [ax_cv_cxx_have_koenig_lookup=no])
                      AC_LANG_POP])
     if test "$ax_cv_cxx_have_koenig_lookup" = yes; then
         AC_DEFINE([CXX_HAVE_KOENIG_LOOKUP],[1],

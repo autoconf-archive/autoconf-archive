@@ -1,6 +1,6 @@
-# ==============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_have_numeric_limits.html
-# ==============================================================================
+# ===============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_have_numeric_limits.html
+# ===============================================================================
 #
 # SYNOPSIS
 #
@@ -31,8 +31,9 @@ AC_DEFUN([AX_CXX_HAVE_NUMERIC_LIMITS],
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <limits>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif]], [[double e = numeric_limits<double>::epsilon(); return 0;]])],[ax_cv_cxx_have_numeric_limits=yes],[ax_cv_cxx_have_numeric_limits=no])
- AC_LANG_POP([])
+#endif]], [[double e = numeric_limits<double>::epsilon(); return 0;]])],
+ [ax_cv_cxx_have_numeric_limits=yes], [ax_cv_cxx_have_numeric_limits=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_numeric_limits" = yes; then
   AC_DEFINE([HAVE_NUMERIC_LIMITS],[1],

@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_decl_wchar_max.html
+#    https://www.gnu.org/software/autoconf-archive/ax_decl_wchar_max.html
 # ===========================================================================
 #
 # SYNOPSIS

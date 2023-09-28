@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_f90_module_flag.html
+#    https://www.gnu.org/software/autoconf-archive/ax_f90_module_flag.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -24,7 +24,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AC_DEFUN([AX_F90_MODULE_FLAG],[
 AC_CACHE_CHECK([fortran 90 modules inclusion flag],

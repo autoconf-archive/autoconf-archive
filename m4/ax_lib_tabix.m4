@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_lib_tabix.html
+#       https://www.gnu.org/software/autoconf-archive/ax_lib_tabix.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -57,7 +57,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -125,7 +125,7 @@ if test -n "${TABIX_HOME}" ; then
         AC_LANG_PUSH([C])
         AC_CHECK_HEADER([tabix.h], [ac_cv_tabix_h=yes], [ac_cv_tabix_h=no])
         AC_CHECK_LIB([tabix],[ti_open],[ac_cv_libtabix=yes],[ac_cv_libtabix=no])
-        AC_LANG_POP([])
+        AC_LANG_POP([C])
         if test "$ac_cv_libtabix" = "yes" && \
            test "$ac_cv_tabix_h"  = "yes" ; then
                 #

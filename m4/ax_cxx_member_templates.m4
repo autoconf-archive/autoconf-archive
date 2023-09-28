@@ -1,6 +1,6 @@
-# ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_member_templates.html
-# ===========================================================================
+# ============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_member_templates.html
+# ============================================================================
 #
 # SYNOPSIS
 #
@@ -31,8 +31,9 @@ AC_DEFUN([AX_CXX_MEMBER_TEMPLATES],
 template<class T, int N> class A
 { public:
   template<int N2> A<T,N> operator=(const A<T,N2>& z) { return A<T,N>(); }
-};]], [[A<double,4> x; A<double,7> y; x = y; return 0;]])],[ax_cv_cxx_member_templates=yes],[ax_cv_cxx_member_templates=no])
- AC_LANG_POP([])
+};]], [[A<double,4> x; A<double,7> y; x = y; return 0;]])],
+ [ax_cv_cxx_member_templates=yes], [ax_cv_cxx_member_templates=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_member_templates" = yes; then
   AC_DEFINE([HAVE_MEMBER_TEMPLATES],[1],

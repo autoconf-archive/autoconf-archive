@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_path_milter.html
+#      https://www.gnu.org/software/autoconf-archive/ax_path_milter.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -80,7 +80,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 12
 
 ###############################################################################
 AC_DEFUN([AX_PATH_MILTER], [
@@ -166,7 +166,7 @@ if test "$ax_path_milter_ok" = "no" ; then
     ac_milter_found_version=`echo "$ac_milter_tmp" | sed 's,.*/sendmail-,,;s,\([[0-9]]*\),x\1x,g;s,x\([[0-9]]\)x,x0\1x,g;s,x\([[0-9]][[0-9]]\)x,x0\1x,g;s,x,,g'`
 
     # If ac_milter_minimum_version is equal to ac_milter_lower_version, then
-    # the found version is greater than or equal to the minumum version.
+    # the found version is greater than or equal to the minimum version.
     # Pick the version string that is the lesser of the two.
     # An empty string would be less than anything.
     # In short, ac_milter_version_ok will equal yes if the version is ok,

@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_libgcj_jar.html
+#      https://www.gnu.org/software/autoconf-archive/ax_libgcj_jar.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -26,7 +26,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -41,7 +41,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 12
 
 AU_ALIAS([DPS_LIBGCJ_JAR], [AX_LIBGCJ_JAR])
 AC_DEFUN([AX_LIBGCJ_JAR],
@@ -51,7 +51,7 @@ AC_REQUIRE([AX_PROG_JAVAC])
 AC_REQUIRE([AC_PROG_FGREP])
 AC_PROG_SED
 if test "x$SED" = "x"; then
-AC_MSG_WARN([sed not avaiable, so libgcj.jar test skipped])
+AC_MSG_WARN([sed not available, so libgcj.jar test skipped])
 else
 AC_MSG_CHECKING([if $JAVAC is gcj]);
 jc=`eval "[echo x$JAVAC | $SED 's/^x.*\\/\\([^/]*\\)\$/x\\1/;s/^ *\\([^ ]*\\) .*$/\\1/;s/"$EXEEXT"$//']"`

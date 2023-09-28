@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_cxx_use_numtrait.html
+#   https://www.gnu.org/software/autoconf-archive/ax_cxx_use_numtrait.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -38,8 +38,9 @@ template<>                class SumType<char> { public : typedef int T_sumtype; 
 template<class T> class A {};
 template<class T> A<typename SumType<T>::T_sumtype> sum(A<T>)
 { return A<typename SumType<T>::T_sumtype>(); }
-]], [[A<float> x; sum(x); return 0;]])],[ax_cv_cxx_use_numtrait=yes],[ax_cv_cxx_use_numtrait=no])
- AC_LANG_POP([])
+]], [[A<float> x; sum(x); return 0;]])],
+ [ax_cv_cxx_use_numtrait=yes], [ax_cv_cxx_use_numtrait=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_use_numtrait" = yes; then
   AC_DEFINE([HAVE_USE_NUMTRAIT],[1],

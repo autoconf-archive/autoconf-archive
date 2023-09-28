@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_cxx_gnucxx_hashmap.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_gnucxx_hashmap.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -27,8 +27,10 @@ AC_CACHE_CHECK([whether the compiler supports __gnu_cxx::hash_map],
 [ax_cv_cxx_gnucxx_hashmap],
 [AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <ext/hash_map>
-using __gnu_cxx::hash_map;]], [[]])],[ax_cv_cxx_gnucxx_hashmap=yes],[ax_cv_cxx_gnucxx_hashmap=no])
- AC_LANG_POP([])
+using __gnu_cxx::hash_map;]],
+ [[]])],
+ [ax_cv_cxx_gnucxx_hashmap=yes], [ax_cv_cxx_gnucxx_hashmap=no])
+ AC_LANG_POP([C++])
 ])
 if test "x${ax_cv_cxx_gnucxx_hashmap}" = "xyes"; then
   AC_DEFINE([HAVE_GNUCXX_HASHMAP],[1],

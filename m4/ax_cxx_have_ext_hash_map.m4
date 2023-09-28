@@ -1,6 +1,6 @@
-# ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_have_ext_hash_map.html
-# ============================================================================
+# =============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_have_ext_hash_map.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -38,7 +38,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -64,8 +64,9 @@ AC_DEFUN([AX_CXX_HAVE_EXT_HASH_MAP],
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <ext/hash_map>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif]], [[hash_map<int, int> t; return 0;]])],[ax_cv_cxx_have_ext_hash_map=yes],[ax_cv_cxx_have_ext_hash_map=no])
-  AC_LANG_POP([])
+#endif]], [[hash_map<int, int> t; return 0;]])],
+  [ax_cv_cxx_have_ext_hash_map=yes], [ax_cv_cxx_have_ext_hash_map=no])
+  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_ext_hash_map" = yes; then
    AC_DEFINE([HAVE_EXT_HASH_MAP],[1],

@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_struct_semun.html
+#     https://www.gnu.org/software/autoconf-archive/ax_struct_semun.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -36,7 +36,10 @@ AC_CACHE_CHECK([for struct semun], ac_cv_struct_semun, [
                         #include <sys/types.h>
                         #include <sys/ipc.h>
                         #include <sys/sem.h>
-                ]], [[ struct semun s; ]])],[ac_cv_struct_semun=yes],[ac_cv_struct_semun=no])
+                ]],
+                [[struct semun s;]])],
+                [ac_cv_struct_semun=yes],
+                [ac_cv_struct_semun=no])
 ])
 
         if test x"$ac_cv_struct_semun" = "xyes"

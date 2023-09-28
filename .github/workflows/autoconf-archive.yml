@@ -1,0 +1,22 @@
+name: cooljeanius/autoconf-archive
+on:
+  push:
+    branches:
+    - "**/*"
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3.5.0
+      with:
+        fetch-depth: 50000
+    - run: sudo apt-get update        
+    - run: sudo apt-get -y install gnulib python3 texlive texinfo tidy
+    - run: "./bootstrap.sh"
+    - run: "./configure"
+    - run: make PYTHON=python3 -j$(nproc) maintainer-all all
+    - run: make distcheck
+    - run: make web-manual
+    - run: "./fix-website.sh"

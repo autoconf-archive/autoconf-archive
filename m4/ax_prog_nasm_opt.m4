@@ -1,5 +1,5 @@
 # ===========================================================================
-#     http://www.gnu.org/software/autoconf-archive/ax_prog_nasm_opt.html
+#     https://www.gnu.org/software/autoconf-archive/ax_prog_nasm_opt.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -18,7 +18,7 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2007,2009 Bogdan Drozdowski <bogdandr@op.pl>
+#   Copyright (c) 2007,2009,2022 Bogdan Drozdowski <bogdro@users.sourceforge.net>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU Lesser General Public License as published by
@@ -31,7 +31,7 @@
 #   General Public License for more details.
 #
 #   You should have received a copy of the GNU Lesser General Public License
-#   along with this program. If not, see <http://www.gnu.org/licenses/>.
+#   along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -46,16 +46,23 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 11
 
 AC_DEFUN([AX_PROG_NASM_OPT],[
-AC_REQUIRE([AX_PROG_NASM])dnl
-AC_MSG_CHECKING([if $nasm accepts $1])
-echo '' > conftest.asm
-if $nasm $$2 $1 conftest.asm > conftest.err; then
-	$2="$$2 $1"
-	AC_MSG_RESULT([yes])
-else
-	AC_MSG_RESULT([no])
-fi
+	AC_REQUIRE([AX_PROG_NASM])dnl
+	AC_MSG_CHECKING([if NASM '$nasm' accepts $1])
+	AS_IF([test "x$nasm" = "xno"],
+		[
+			AC_MSG_RESULT([no])
+			AC_MSG_WARN([NASM assembler not found])
+		],
+		[
+			AS_ECHO '' > conftest.asm
+			AS_IF([$nasm $$2 $1 conftest.asm > conftest.err],
+				[$2="$$2 $1"
+				AC_MSG_RESULT([yes])],
+				[AC_MSG_RESULT([no])]
+			)
+		]
+	)
 ])

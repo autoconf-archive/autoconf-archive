@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_lib_nettle.html
+#      https://www.gnu.org/software/autoconf-archive/ax_lib_nettle.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -30,7 +30,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 10
 
 # AX_CHECK_NETTLE_ALGO([name],[function])
 AC_DEFUN([AX_CHECK_NETTLE_ALGO],[
@@ -72,7 +72,7 @@ AC_DEFUN([AX_LIB_NETTLE],[
         AX_CHECK_NETTLE_ALGO([SHA256],[sha256_digest])
       ])
     ])
-    # complain only if explicitely required
+    # complain only if explicitly required
     if test "$ax_with_nettle" = "yes" -a "x$HAVE_NETTLE" = "x" ; then
         AC_MSG_ERROR([cannot configure required nettle library])
     fi

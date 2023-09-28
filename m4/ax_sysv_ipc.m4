@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_sysv_ipc.html
+#       https://www.gnu.org/software/autoconf-archive/ax_sysv_ipc.html
 # ===========================================================================
 #
 # SYNOPSIS

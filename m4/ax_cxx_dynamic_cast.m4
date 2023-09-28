@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_cxx_dynamic_cast.html
+#   https://www.gnu.org/software/autoconf-archive/ax_cxx_dynamic_cast.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -30,8 +30,9 @@ AC_DEFUN([AX_CXX_DYNAMIC_CAST],
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <typeinfo>
 class Base { public : Base () {} virtual void f () = 0;};
 class Derived : public Base { public : Derived () {} virtual void f () {} };]], [[
-Derived d; Base& b=d; return dynamic_cast<Derived*>(&b) ? 0 : 1;]])],[ax_cv_cxx_dynamic_cast=yes],[ax_cv_cxx_dynamic_cast=no])
- AC_LANG_POP([])
+Derived d; Base& b=d; return dynamic_cast<Derived*>(&b) ? 0 : 1;]])],
+ [ax_cv_cxx_dynamic_cast=yes], [ax_cv_cxx_dynamic_cast=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_dynamic_cast" = yes; then
   AC_DEFINE([HAVE_DYNAMIC_CAST],[1],

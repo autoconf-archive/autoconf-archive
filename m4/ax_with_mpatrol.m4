@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_with_mpatrol.html
+#     https://www.gnu.org/software/autoconf-archive/ax_with_mpatrol.html
 # ===========================================================================
 #
 # SYNOPSIS

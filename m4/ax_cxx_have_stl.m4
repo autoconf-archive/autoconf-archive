@@ -1,5 +1,5 @@
 # ===========================================================================
-#      http://www.gnu.org/software/autoconf-archive/ax_cxx_have_stl.html
+#     https://www.gnu.org/software/autoconf-archive/ax_cxx_have_stl.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -33,8 +33,9 @@ AC_DEFUN([AX_CXX_HAVE_STL],
 #ifdef HAVE_NAMESPACES
 using namespace std;
 #endif]], [[list<int> x; x.push_back(5);
-list<int>::iterator iter = x.begin(); if (iter != x.end()) ++iter; return 0;]])],[ax_cv_cxx_have_stl=yes],[ax_cv_cxx_have_stl=no])
- AC_LANG_POP([])
+list<int>::iterator iter = x.begin(); if (iter != x.end()) ++iter; return 0;]])],
+ [ax_cv_cxx_have_stl=yes], [ax_cv_cxx_have_stl=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_stl" = yes; then
   AC_DEFINE([HAVE_STL],[1],

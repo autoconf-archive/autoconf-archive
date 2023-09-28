@@ -1,6 +1,6 @@
-# ======================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_compute_standard_relative_paths.html
-# ======================================================================================
+# =======================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_compute_standard_relative_paths.html
+# =======================================================================================
 #
 # SYNOPSIS
 #
@@ -17,15 +17,28 @@
 #           libdir
 #           libexecdir
 #           sbindir
-#        datadir
+#        datarootdir
+#           docdir
+#           infodir
+#           htmldir
+#           dvidir
+#           psdir
+#           pdfdir
+#           localedir
+#           datadir (only for autoconf >= 2.59c)
+#           infodir (only for autoconf >= 2.59c)
+#           mandir (only for autoconf >= 2.59c)
+#           lispdir (only for autoconf >= 2.59c)
+#        datadir (only for autoconf < 2.59c)
+#        infodir (only for autoconf < 2.59c)
+#        mandir (only for autoconf < 2.59c)
+#        lispdir (only for autoconf < 2.59c)
 #        sysconfdir
-#        sharestatedir
+#        sharedstatedir
 #        localstatedir
-#        infodir
-#        lispdir
+#           runstatedir (only for autoconf >= 2.70)
 #        includedir
 #        oldincludedir
-#        mandir
 #
 #   This macro will setup a set of variables of the form
 #   'xxx_forward_relative_path' and 'xxx_backward_relative_path' where xxx
@@ -44,6 +57,7 @@
 # LICENSE
 #
 #   Copyright (c) 2008 Alexandre Duret-Lutz <adl@gnu.org>
+#   Copyright (c) 2015 Bastien Roucaries <roucaries.bastien+autoconf@gmail.com>
 #
 #   This program is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License as published by the
@@ -56,7 +70,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -71,7 +85,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 12
 
 AU_ALIAS([ADL_COMPUTE_STANDARD_RELATIVE_PATHS], [AX_COMPUTE_STANDARD_RELATIVE_PATHS])
 AC_DEFUN([AX_COMPUTE_STANDARD_RELATIVE_PATHS],
@@ -83,21 +97,33 @@ dnl AX_STANDARD_RELATIVE_PATH_LIST
 dnl ===============================
 dnl A list of standard paths, ready to supply to AX_COMPUTE_RELATIVE_PATHS.
 AC_DEFUN([AX_STANDARD_RELATIVE_PATH_LIST],
-[pushdef([TRIPLET],
+[dnl
+pushdef([TRIPLET],dnl
 [$][1:$][2:$][2_forward_relative_path $]dnl
 [2:$][1:$][2_backward_relative_path])dnl
+dnl
 TRIPLET(prefix, exec_prefix) dnl
-TRIPLET(exec_prefix, bindir) dnl
-TRIPLET(exec_prefix, libdir) dnl
-TRIPLET(exec_prefix, libexecdir) dnl
-TRIPLET(exec_prefix, sbindir) dnl
-TRIPLET(prefix, datadir) dnl
+  TRIPLET(exec_prefix, bindir) dnl
+  TRIPLET(exec_prefix, libdir) dnl
+  TRIPLET(exec_prefix, libexecdir) dnl
+  TRIPLET(exec_prefix, sbindir) dnl
+TRIPLET(prefix, datarootdir) dnl
+  TRIPLET(datarootdir, docdir) dnl
+  TRIPLET(datarootdir, infodir) dnl
+  TRIPLET(datarootdir, htmldir) dnl
+  TRIPLET(datarootdir, dvidir) dnl
+  TRIPLET(datarootdir, psdir) dnl
+  TRIPLET(datarootdir, pdfdir) dnl
+  TRIPLET(datarootdir, localedir) dnl
+m4_version_prereq([2.59c],[TRIPLET(datarootdir,datadir)],[TRIPLET(prefix,datadir)]) dnl
+m4_version_prereq([2.59c],[TRIPLET(datarootdir,infodir)],[TRIPLET(prefix,infodir)]) dnl
+m4_version_prereq([2.59c],[TRIPLET(datarootdir,mandir)],[TRIPLET(prefix,mandir)]) dnl
+m4_version_prereq([2.59c],[TRIPLET(datarootdir,lispdir)],[TRIPLET(prefix,lispdir)]) dnl
 TRIPLET(prefix, sysconfdir) dnl
-TRIPLET(prefix, sharestatedir) dnl
+TRIPLET(prefix, sharedstatedir) dnl
 TRIPLET(prefix, localstatedir) dnl
-TRIPLET(prefix, infodir) dnl
-TRIPLET(prefix, lispdir) dnl
+  dnl only available for >=2.70
+  m4_version_prereq([2.70],[TRIPLET(localstatedir,runstatedir)],[[]]) dnl
 TRIPLET(prefix, includedir) dnl
 TRIPLET(prefix, oldincludedir) dnl
-TRIPLET(prefix, mandir) dnl
 popdef([TRIPLET])])

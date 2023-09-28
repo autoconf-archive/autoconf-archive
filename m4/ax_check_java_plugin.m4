@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_check_java_plugin.html
+#   https://www.gnu.org/software/autoconf-archive/ax_check_java_plugin.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -16,9 +16,9 @@
 #
 #   This macro assumes that unzip, zipinfo or pkzipc is available (and can
 #   list the contents of the jar archive). The first two are assumed to work
-#   similarly enough to the infozip versisonms. The pkzipc version is
-#   assumed to work if I undertstand the documentation on pkware's site but
-#   YMMV. I do not have access to pwkware's version to test it.
+#   similarly enough to the infozip versions. The pkzipc version is assumed
+#   to work if I understand the documentation on pkware's site but YMMV. I
+#   do not have access to pwkware's version to test it.
 #
 # LICENSE
 #
@@ -35,7 +35,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -50,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 13
 
 AU_ALIAS([DPS_CHECK_PLUGIN], [AX_CHECK_JAVA_PLUGIN])
 AC_DEFUN([AX_CHECK_JAVA_PLUGIN],
@@ -66,7 +66,7 @@ case "x$ZIPINFO" in
 [*/pkzipc)]
 	ziping="unzipc -view";;
 [x*)]
-	AC_MSG_RESULT([skiped, none of zipinfo, unzip and pkzipc found])
+	AC_MSG_RESULT([skipped, none of zipinfo, unzip and pkzipc found])
 	AC_SUBST($1,[])
 	zipinf="";;
 esac

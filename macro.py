@@ -117,7 +117,7 @@ class Macro:
       self.serial = int(self.body[0].split()[1])
     # drop the original serial number from the body
     self.body = [ l for l in self.body if not l.startswith("#serial") ]
-    # drop whitespace from begining and end of body
+    # drop whitespace from beginning and end of body
     while self.body[0] == "":
       self.body.pop(0)
     while self.body[-1] == "":

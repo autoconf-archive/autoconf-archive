@@ -1,5 +1,5 @@
 # ===========================================================================
-#          http://www.gnu.org/software/autoconf-archive/ax_llvm.html
+#         https://www.gnu.org/software/autoconf-archive/ax_llvm.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -8,12 +8,12 @@
 #
 # DESCRIPTION
 #
-#   Test for the existance of llvm, and make sure that it can be linked with
+#   Test for the existence of llvm, and make sure that it can be linked with
 #   the llvm-libs argument that is passed on to llvm-config i.e.:
 #
 #     llvm --libs <llvm-libs>
 #
-#   llvm-config will also include any libraries that are depended apon.
+#   llvm-config will also include any libraries that are depended upon.
 #
 # LICENSE
 #
@@ -24,7 +24,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 16
 
 AC_DEFUN([AX_LLVM],
 [

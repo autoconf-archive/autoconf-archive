@@ -1,6 +1,6 @@
-# ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_header_pre_stdcxx.html
-# ============================================================================
+# =============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_header_pre_stdcxx.html
+# =============================================================================
 #
 # SYNOPSIS
 #
@@ -64,9 +64,10 @@ AC_DEFUN([AX_CXX_HEADER_PRE_STDCXX], [
   #include <algo.h>
   #include <queue.h>
   #include <streambuf.h>
-  ]], [[]])],[ax_cv_cxx_pre_stdcxx=yes],[ax_cv_cxx_pre_stdcxx=no])
+  ]], [])],
+  [ax_cv_cxx_pre_stdcxx=yes], [ax_cv_cxx_pre_stdcxx=no])
   CXXFLAGS="$ac_save_CXXFLAGS"
-  AC_LANG_POP([])
+  AC_LANG_POP([C++])
   ])
   if test "$ax_cv_cxx_pre_stdcxx" = yes; then
     AC_DEFINE([PRE_STDCXX_HEADERS],[1],

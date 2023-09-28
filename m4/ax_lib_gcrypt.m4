@@ -1,5 +1,5 @@
 # ===========================================================================
-#       http://www.gnu.org/software/autoconf-archive/ax_lib_gcrypt.html
+#      https://www.gnu.org/software/autoconf-archive/ax_lib_gcrypt.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -31,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 12
 
 # AX_CHECK_GCRYPT_ALGO([algo])
 # generate convenient defines for each algorithm
@@ -99,7 +99,7 @@ AC_DEFUN([AX_LIB_GCRYPT],[
       AC_SUBST(GCRYPT_CFLAGS)
       AC_SUBST(GCRYPT_LIBS)
     ],[
-      # complain only if explicitely required
+      # complain only if explicitly required
       if test "$ac_with_gcrypt" = "yes" ; then
 	AC_MSG_ERROR([cannot configure required gcrypt library])
       fi

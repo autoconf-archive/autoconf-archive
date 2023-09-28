@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_lib_mysqlcppconn.html
+#   https://www.gnu.org/software/autoconf-archive/ax_lib_mysqlcppconn.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -35,7 +35,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 3
 
 AC_DEFUN([AX_LIB_MYSQLCPPCONN],
 [
@@ -125,8 +125,12 @@ if test "x$want_libmysqlcppconn" = "xyes"; then
     fi
 
     CXXFLAGS_SAVED="$CXXFLAGS"
-    CXXFLAGS="$CXXFLAGS $LIBMYSQLCPPCONN_CFLAGS"
+    CXXFLAGS="$CXXFLAGS $LIBMYSQLCPPCONN_CXXFLAGS"
     export CXXFLAGS
+
+    CPPFLAGS_SAVED="$CPPFLAGS"
+    CPPFLAGS="$CPPFLAGS $LIBMYSQLCPPCONN_CXXFLAGS"
+    export CPPFLAGS
 
     LDFLAGS_SAVED="$LDFLAGS"
     LDFLAGS="$LDFLAGS $LIBMYSQLCPPCONN_LDFLAGS"
@@ -165,6 +169,9 @@ if test "x$want_libmysqlcppconn" = "xyes"; then
 
     CXXFLAGS="$CXXFLAGS_SAVED"
     export CXXFLAGS
+
+    CPPFLAGS="$CPPFLAGS_SAVED"
+    export CPPFLAGS
 
     LDFLAGS="$LDFLAGS_SAVED"
     export LDFLAGS

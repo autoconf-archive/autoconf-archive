@@ -1,5 +1,5 @@
 # ===========================================================================
-#        http://www.gnu.org/software/autoconf-archive/ax_cxx_rtti.html
+#       https://www.gnu.org/software/autoconf-archive/ax_cxx_rtti.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -25,7 +25,7 @@
 
 AU_ALIAS([AC_CXX_RTTI], [AX_CXX_RTTI])
 AC_DEFUN([AX_CXX_RTTI],
-[AC_CACHE_CHECK(whether the compiler supports Run-Time Type Identification,
+[AC_CACHE_CHECK([whether the compiler supports Run-Time Type Identification],
 [ax_cv_cxx_rtti],
 [AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <typeinfo>
@@ -40,8 +40,9 @@ class Derived : public Base { public :
 ]], [[Derived d;
 Base *ptr = &d;
 return typeid (*ptr) == typeid (Derived);
-]])],[ax_cv_cxx_rtti=yes],[ax_cv_cxx_rtti=no])
- AC_LANG_POP([])
+]])],
+ [ax_cv_cxx_rtti=yes], [ax_cv_cxx_rtti=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_rtti" = yes; then
   AC_DEFINE([HAVE_RTTI],[1],

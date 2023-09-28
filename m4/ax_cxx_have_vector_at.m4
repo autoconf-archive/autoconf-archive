@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_cxx_have_vector_at.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_have_vector_at.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -31,8 +31,9 @@ AC_DEFUN([AX_CXX_HAVE_VECTOR_AT],
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <vector>
 #ifdef HAVE_NAMESPACES
 using namespace std;
-#endif]], [[vector<int> v (1); v.at (0); return 0;]])],[ax_cv_cxx_have_vector_at=yes],[ax_cv_cxx_have_vector_at=no])
- AC_LANG_POP([])
+#endif]], [[vector<int> v (1); v.at (0); return 0;]])],
+ [ax_cv_cxx_have_vector_at=yes], [ax_cv_cxx_have_vector_at=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_vector_at" = yes; then
  AC_DEFINE([HAVE_VECTOR_AT],[1],

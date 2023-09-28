@@ -1,5 +1,5 @@
 # ===========================================================================
-#    http://www.gnu.org/software/autoconf-archive/ax_c_compile_value.html
+#    https://www.gnu.org/software/autoconf-archive/ax_c_compile_value.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -36,7 +36,7 @@
 #     AX_C_COMPILE_VALUE(sizeof(int), sizeof_int)
 #     AX_C_COMPILE_VALUE([sizeof(int[[543]])], sizeof_int543)
 #
-#   As a result of runnfing the generated configure script, the following
+#   As a result of running the generated configure script, the following
 #   definition will appear in config.h:
 #
 #     #define COMPILE_VALUE_SIZEOF_INT 4
@@ -57,7 +57,7 @@
 #   Public License for more details.
 #
 #   You should have received a copy of the GNU General Public License along
-#   with this program. If not, see <http://www.gnu.org/licenses/>.
+#   with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 #   As a special exception, the respective Autoconf Macro's copyright owner
 #   gives unlimited permission to copy, distribute and modify the configure
@@ -72,7 +72,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 ## Portability defines that help interoperate with classic and modern autoconfs
 ifdef([AC_TR_SH],[

@@ -1,6 +1,6 @@
-# ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_gcc_abi_demangle.html
-# ===========================================================================
+# ============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_gcc_abi_demangle.html
+# ============================================================================
 #
 # SYNOPSIS
 #
@@ -45,8 +45,9 @@ std::string name(c_name);
 free(c_name);
 
 return name == "A<int>";
-]])],[ax_cv_cxx_gcc_abi_demangle=yes],[ax_cv_cxx_gcc_abi_demangle=no])
- AC_LANG_POP([])
+]])],
+ [ax_cv_cxx_gcc_abi_demangle=yes], [ax_cv_cxx_gcc_abi_demangle=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_gcc_abi_demangle" = yes; then
   AC_DEFINE([HAVE_GCC_ABI_DEMANGLE],[1],

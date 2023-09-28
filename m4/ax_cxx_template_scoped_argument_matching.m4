@@ -1,6 +1,6 @@
-# ============================================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_template_scoped_argument_matching.html
-# ============================================================================================
+# =============================================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_template_scoped_argument_matching.html
+# =============================================================================================
 #
 # SYNOPSIS
 #
@@ -36,8 +36,9 @@ AC_DEFUN([AX_CXX_TEMPLATE_SCOPED_ARGUMENT_MATCHING],
 template<class X> class A { public : typedef X W; };
 template<class Y> class B {};
 template<class Y> void operator+(B<Y> d1, typename Y::W d2) {}
-]], [[B<A<float> > z; z + 0.5f; return 0;]])],[ax_cv_cxx_template_scoped_argument_matching=yes],[ax_cv_cxx_template_scoped_argument_matching=no])
- AC_LANG_POP([])
+]], [[B<A<float> > z; z + 0.5f; return 0;]])],
+ [ax_cv_cxx_template_scoped_argument_matching=yes], [ax_cv_cxx_template_scoped_argument_matching=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_template_scoped_argument_matching" = yes; then
   AC_DEFINE([HAVE_TEMPLATE_SCOPED_ARGUMENT_MATCHING],[1],

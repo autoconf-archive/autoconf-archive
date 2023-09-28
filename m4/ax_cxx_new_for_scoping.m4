@@ -1,5 +1,5 @@
 # ===========================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_new_for_scoping.html
+#  https://www.gnu.org/software/autoconf-archive/ax_cxx_new_for_scoping.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -35,8 +35,9 @@ AC_DEFUN([AX_CXX_NEW_FOR_SCOPING],
     z = z + i;
   for (int i = 0; i < 10; ++i)
     z = z - i;
-  return z;]])],[ax_cv_cxx_new_for_scoping=yes],[ax_cv_cxx_new_for_scoping=no])
- AC_LANG_POP([])
+  return z;]])],
+ [ax_cv_cxx_new_for_scoping=yes], [ax_cv_cxx_new_for_scoping=no])
+ AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_new_for_scoping" = yes; then
   AC_DEFINE([HAVE_NEW_FOR_SCOPING],[1],
