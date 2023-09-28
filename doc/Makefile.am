@@ -26,6 +26,9 @@ autoconf_archive_TEXINFOS = all-macros.texi version.texi
 autoconf-archive.info: autoconf-archive.texi all-macros.texi $(TEXIFILES) $(CHAPTERS) version.texi
 ##FIXME: this rule for rebuilding all-macros.texi is kind of a hack:
 all-macros.texi: @MAINT@ $(top_srcdir)/cfg.mk
+	@if test "x$(AM_DISTCHECK_DVI_TARGET)" != "x"; then \
+	  test -n "$${AM_DISTCHECK_DVI_TARGET}" && echo "AM_DISTCHECK_DVI_TARGET is $${AM_DISTCHECK_DVI_TARGET}"; \
+	fi; \
 	$(am__cd) .. && make maintainer-all
 
 MAINTAINERCLEANFILES = *~ ./.*~
