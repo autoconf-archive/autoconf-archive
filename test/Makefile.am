@@ -3,7 +3,12 @@
 EXTRA_DIST = atlocal.in
 
 check-local: atconfig atlocal configure
-	if test -x ./configure; then ./configure; fi
+	if test -x ./configure; then \
+	  ./configure 2>&1; \
+	else \
+	  echo "No usable configure script found; one should exist!" >&2; \
+	  exit 1; \
+	fi
 installcheck-local: atconfig atlocal
 
 CLEANFILES = .DS_Store configure
