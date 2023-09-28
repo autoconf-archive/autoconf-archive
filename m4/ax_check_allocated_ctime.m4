@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AN_FUNCTION([ctime],[AX_CHECK_ALLOCATED_CTIME])
 AU_ALIAS([AG_CHECK_ALLOCATED_CTIME], [AX_CHECK_ALLOCATED_CTIME])

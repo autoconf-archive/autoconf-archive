@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 11
 
 AN_FUNCTION([pathfind],[AX_CHECK_PATHFIND])
 AU_ALIAS([AG_CHECK_PATHFIND], [AX_CHECK_PATHFIND])

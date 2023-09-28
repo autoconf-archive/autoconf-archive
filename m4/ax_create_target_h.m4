@@ -87,7 +87,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 11
 
 AU_ALIAS([AC_CREATE_TARGET_H], [AX_CREATE_TARGET_H])
 AC_DEFUN([AX_CREATE_TARGET_H],

@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AN_FUNCTION([regcomp],[AX_CHECK_POSIX_REGCOMP])
 AN_FUNCTION([regexec],[AX_CHECK_POSIX_REGCOMP])

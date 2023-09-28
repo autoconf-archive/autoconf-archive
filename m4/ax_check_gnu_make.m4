@@ -70,7 +70,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 16
 
 AC_DEFUN([AX_CHECK_GNU_MAKE],dnl
   [AC_PROG_AWK

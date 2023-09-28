@@ -1,5 +1,5 @@
 # ===========================================================================
-#   http://www.gnu.org/software/autoconf-archive/ax_c_bigendian_cross.html
+#   https://www.gnu.org/software/autoconf-archive/ax_c_bigendian_cross.html
 # ===========================================================================
 #
 # SYNOPSIS
@@ -48,11 +48,11 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_C_BIGENDIAN_CROSS], [AX_C_BIGENDIAN_CROSS])
 AC_DEFUN([AX_C_BIGENDIAN_CROSS],
-[AC_CACHE_CHECK(whether byte ordering is bigendian, ac_cv_c_bigendian,
+[AC_CACHE_CHECK([whether byte ordering is bigendian],[ac_cv_c_bigendian],
 [ac_cv_c_bigendian=unknown
 # See if sys/param.h defines the BYTE_ORDER macro.
 AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <sys/types.h>

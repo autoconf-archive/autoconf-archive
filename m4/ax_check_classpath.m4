@@ -48,7 +48,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 9
 
 AU_ALIAS([AC_CHECK_CLASSPATH], [AX_CHECK_CLASSPATH])
 AC_DEFUN([AX_CHECK_CLASSPATH],[

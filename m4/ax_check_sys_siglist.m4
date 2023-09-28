@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AN_IDENTIFIER([sys_siglist],[AX_CHECK_SYS_SIGLIST])
 AU_ALIAS([AG_CHECK_SYS_SIGLIST], [AX_CHECK_SYS_SIGLIST])

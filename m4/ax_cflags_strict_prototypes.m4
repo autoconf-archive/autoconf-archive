@@ -37,7 +37,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 18
+#serial 22
 
 AC_DEFUN([AX_FLAGS_STRICT_PROTOTYPES],[dnl
 AS_VAR_PUSHDEF([FLAGS],[_AC_LANG_PREFIX[]FLAGS])dnl

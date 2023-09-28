@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 13
 
 AN_FUNCTION([strftime],[AX_CHECK_STRFTIME])
 AU_ALIAS([AG_CHECK_STRFTIME], [AX_CHECK_STRFTIME])
