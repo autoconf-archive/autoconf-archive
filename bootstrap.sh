@@ -16,8 +16,10 @@ if [ "x${gnulibtool}" = "x" ]; then
   fi
 fi
 
-# OK, now we can do this:
-set -eu
+if [ "x${BE_ANNOYING}" = "xYES" ]; then
+  # OK, now we can do this:
+  set -eu
+fi
 
 echo "Here is some information about your gnulib-tool:"
 ${gnulibtool} --version

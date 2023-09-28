@@ -3,7 +3,7 @@
 EXTRA_DIST = atlocal.in
 
 check-local: atconfig atlocal configure
-	./configure
+	test -x ./configure
 installcheck-local: atconfig atlocal
 
 CLEANFILES = .DS_Store configure
@@ -26,7 +26,7 @@ maintainer-clean-local:
 	@rm -f config.log config.status
 
 configure: acinclude.m4 configure.ac @MAINT@ Makefile
-	$(ACLOCAL) && $(AUTOCONF) -f -Wall -Werror
+	$(ACLOCAL) -I $${top_srcdir-..} && $(AUTOCONF) -f -Wall -Werror
 configure.ac: configure.ac.in @MAINT@ $(top_srcdir)/configure
 acinclude.m4: @MAINT@ $(top_builddir)/config.status $(top_srcdir)/aclocal.m4
 
