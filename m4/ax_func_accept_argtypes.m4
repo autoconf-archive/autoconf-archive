@@ -52,7 +52,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 12
+#serial 11
 
 AU_ALIAS([AC_FUNC_ACCEPT_ARGTYPES], [AX_FUNC_ACCEPT_ARGTYPES])
 AC_DEFUN([AX_FUNC_ACCEPT_ARGTYPES],
