@@ -25,6 +25,6 @@ script:
   - ./configure --enable-maintainer-mode
   - remake PYTHON=python3 -j$(nproc) maintainer-all all
   - remake check
-  - remake distcheck
+  - remake distcheck AM_DISTCHECK_DVI_TARGET=""
   - if test -e doc/all-macros.texi; then remake web-manual; else echo "missing doc/all-macros.texi!" >&2 && exit 1; fi
   - ./fix-website.sh

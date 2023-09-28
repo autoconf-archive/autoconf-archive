@@ -26,7 +26,7 @@ maintainer-clean-local:
 	@rm -f config.log config.status
 
 configure: acinclude.m4 configure.ac @MAINT@ Makefile
-	$(AUTOCONF) -f -Wall -Werror
+	$(ACLOCAL) && $(AUTOCONF) -f -Wall -Werror
 configure.ac: configure.ac.in @MAINT@ $(top_srcdir)/configure
 acinclude.m4: @MAINT@ $(top_builddir)/config.status $(top_srcdir)/aclocal.m4
 
