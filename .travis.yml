@@ -23,7 +23,6 @@ script:
   - ./bootstrap.sh
   - ./configure --enable-maintainer-mode
   - make PYTHON=python3 -j$(nproc) maintainer-all all
-  - env | sort | uniq
   - make check
   - make distcheck AM_DISTCHECK_DVI_TARGET=""
   - if test -e doc/all-macros.texi; then make web-manual; else echo "missing doc/all-macros.texi!" >&2 && exit 1; fi
