@@ -1,0 +1,11 @@
+#
+/Makefile
+/Makefile.in
+/acinclude.m4
+/atconfig
+/atlocal
+/configure
+/configure.ac
+/config.log
+/config.status
+*.cache

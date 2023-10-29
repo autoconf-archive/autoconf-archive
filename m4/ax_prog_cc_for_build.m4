@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 21
+#serial 25
 
 AU_ALIAS([AC_PROG_CC_FOR_BUILD], [AX_PROG_CC_FOR_BUILD])
 AC_DEFUN([AX_PROG_CC_FOR_BUILD], [dnl
@@ -43,10 +43,10 @@ AC_REQUIRE([AC_CANONICAL_BUILD])dnl
 dnl Use the standard macros, but make them use other variable names
 dnl
 pushdef([ac_cv_prog_CPP], ac_cv_build_prog_CPP)dnl
+pushdef([ac_cv_c_compiler_gnu], ac_cv_build_prog_gcc)dnl
 pushdef([ac_cv_prog_cc_c89], ac_cv_build_prog_cc_c89)dnl
 pushdef([ac_cv_prog_cc_c99], ac_cv_build_prog_cc_c99)dnl
 pushdef([ac_cv_prog_cc_c11], ac_cv_build_prog_cc_c11)dnl
-pushdef([ac_cv_prog_gcc], ac_cv_build_prog_gcc)dnl
 pushdef([ac_cv_prog_cc_works], ac_cv_build_prog_cc_works)dnl
 pushdef([ac_cv_prog_cc_cross], ac_cv_build_prog_cc_cross)dnl
 pushdef([ac_cv_prog_cc_g], ac_cv_build_prog_cc_g)dnl
@@ -136,8 +136,8 @@ popdef([ac_cv_c_compiler_gnu])dnl
 popdef([ac_cv_prog_cc_g])dnl
 popdef([ac_cv_prog_cc_cross])dnl
 popdef([ac_cv_prog_cc_works])dnl
+popdef([ac_cv_c_compiler_gnu])dnl
 popdef([ac_cv_prog_cc_c89])dnl
-popdef([ac_cv_prog_gcc])dnl
 popdef([ac_cv_prog_CPP])dnl
 
 dnl restore global variables ac_ext, ac_cpp, ac_compile,
@@ -152,4 +152,4 @@ AC_SUBST(BUILD_OBJEXT)dnl
 AC_SUBST([CFLAGS_FOR_BUILD])dnl
 AC_SUBST([CPPFLAGS_FOR_BUILD])dnl
 AC_SUBST([LDFLAGS_FOR_BUILD])dnl
-])
+])dnl

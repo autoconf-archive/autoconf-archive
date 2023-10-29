@@ -20,12 +20,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_HAVE_STRING_PUSH_BACK], [AX_CXX_HAVE_STRING_PUSH_BACK])
 AC_DEFUN([AX_CXX_HAVE_STRING_PUSH_BACK],
 [AC_CACHE_CHECK([whether the compiler has std::string::push_back (char)],
-ax_cv_cxx_have_string_push_back,
+[ax_cv_cxx_have_string_push_back],
 [AC_REQUIRE([AX_CXX_NAMESPACES])
  AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <string>
@@ -36,7 +36,7 @@ using namespace std;
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_string_push_back" = yes; then
- AC_DEFINE(HAVE_STRING_PUSH_BACK,,[define if the compiler has the method
-std::string::push_back (char)])
+ AC_DEFINE([HAVE_STRING_PUSH_BACK],[1],
+           [Define to 1 if the compiler has the method std::string::push_back (char)])
 fi
 ])dnl

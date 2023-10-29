@@ -9,8 +9,8 @@
 # DESCRIPTION
 #
 #   This macro checks to see if sys/sem.h defines struct semun. Some systems
-#   do, some systems don't. Your code must be able to deal with this
-#   possibility; if HAVE_STRUCT_SEMUM isn't defined for a given system, you
+#   do, some systems do NOT. Your code must be able to deal with this
+#   possibility; if HAVE_STRUCT_SEMUM is undefined for a given system, you
 #   have to define this structure before you can call functions like
 #   semctl().
 #
@@ -26,7 +26,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 13
 
 AU_ALIAS([ETR_STRUCT_SEMUN], [AX_STRUCT_SEMUN])
 AC_DEFUN([AX_STRUCT_SEMUN],
@@ -44,7 +44,7 @@ AC_CACHE_CHECK([for struct semun], ac_cv_struct_semun, [
 
         if test x"$ac_cv_struct_semun" = "xyes"
         then
-                AC_DEFINE(HAVE_STRUCT_SEMUN, 1,
-                        [ Define if your system's sys/sem.h file defines struct semun ])
+                AC_DEFINE([HAVE_STRUCT_SEMUN],[1],
+                          [Define if your system's sys/sem.h file defines struct semun])
         fi
 ]) dnl AX_STRUCT_SEMUN

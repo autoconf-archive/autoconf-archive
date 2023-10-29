@@ -20,18 +20,18 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 14
 
 AC_DEFUN([AX_GCC_CONST_CALL],[dnl
 AC_CACHE_CHECK(
  [whether the compiler supports function __attribute__((__const__))],
- ax_cv_gcc_const_call,[
+ [ax_cv_gcc_const_call],[
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[__attribute__((__const__))
  int f(int i) { return i; }]],
- [])],
+ [[]])],
  [ax_cv_gcc_const_call=yes], [ax_cv_gcc_const_call=no])])
  if test "$ax_cv_gcc_const_call" = yes; then
    AC_DEFINE([GCC_CONST_CALL],[__attribute__((__const__))],
     [most gcc compilers know a function __attribute__((__const__))])
  fi
-])
+])dnl
