@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 # Wait until after we finish testing a possibly empty variable to do `set -u`
 # as well:
