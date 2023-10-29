@@ -8,6 +8,7 @@ if [ ! -d "gnulib" ] && [ $# -gt 0 ] && [ "$1" = "--copy" ]; then
   git clone --depth 1 git://git.savannah.gnu.org/gnulib.git gnulib
 fi
 
+# shellcheck disable=2268
 if [ "x${gnulibtool}" = "x" ]; then
   if [ -x "gnulib/gnulib-tool" ]; then
     gnulibtool=gnulib/gnulib-tool
@@ -16,6 +17,7 @@ if [ "x${gnulibtool}" = "x" ]; then
   fi
 fi
 
+# shellcheck disable=2268
 if [ "x${BE_ANNOYING}" = "xYES" ]; then
   # OK, now we can do this:
   set -eu
@@ -28,8 +30,8 @@ echo ""
 echo "Re-importing gnulib stuff with gnulib-tool..."
 # Try to keep these alphabetical:
 gnulib_modules="announce-gen fdl-1.3 gendocs git-version-gen \
-				gitlog-to-changelog gnu-make gnu-web-doc-update gnupload \
-				maintainer-makefile update-copyright"
+                gitlog-to-changelog gnu-make gnu-web-doc-update gnupload \
+                maintainer-makefile update-copyright"
 
 ${gnulibtool} --m4-base build-aux --source-base build-aux --no-vc-files \
               --import "${gnulib_modules}"
@@ -56,6 +58,7 @@ mv maint.mk.new maint.mk
 echo "Updating ChangeLog..."
 
 echo > ChangeLog '# Copyright (c) 2022 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
+# shellcheck disable=2129
 echo >>ChangeLog '#'
 echo >>ChangeLog '# Copying and distribution of this file, with or without modification, are'
 echo >>ChangeLog '# permitted in any medium without royalty provided the copyright notice and'
