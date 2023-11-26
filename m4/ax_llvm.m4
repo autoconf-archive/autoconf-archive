@@ -24,12 +24,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 16
+#serial 17
 
 AC_DEFUN([AX_LLVM],
 [
 AC_ARG_WITH([llvm],
-	AS_HELP_STRING([--with-llvm@<:@=DIR@:>@], [use llvm (default is yes) - it is possible to specify the root directory for llvm (optional)]),
+	AS_HELP_STRING([--with-llvm@<:@=ARG@:>@], [use llvm (default is yes) - it is possible to specify the root directory for llvm (optional)]),
 	[
     if test "$withval" = "no"; then
 		want_llvm="no"
