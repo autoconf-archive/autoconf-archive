@@ -55,7 +55,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 26
+#serial 27
 
 AU_ALIAS([BNV_HAVE_QT], [AX_HAVE_QT])
 AC_DEFUN([AX_HAVE_QT],
@@ -127,11 +127,16 @@ EOF
     rmdir $am_have_qt_dir
 
     # Look for specific tools in $PATH
-    QT_MOC=`which moc$am_have_qt_qmexe_suff`
-    QT_UIC=`which uic$am_have_qt_qmexe_suff`
-    QT_RCC=`which rcc$am_have_qt_qmexe_suff`
-    QT_LRELEASE=`which lrelease$am_have_qt_qmexe_suff`
-    QT_LUPDATE=`which lupdate$am_have_qt_qmexe_suff`
+    AC_ARG_VAR([QT_MOC],[Qt moc tool])
+    AC_PATH_PROG([QT_MOC],[moc$am_have_qt_qmexe_suff])
+    AC_ARG_VAR([QT_UIC],[Qt uic tool])
+    AC_PATH_PROG([QT_UIC],[uic$am_have_qt_qmexe_suff])
+    AC_ARG_VAR([QT_RCC],[Qt rcc tool])
+    AC_PATH_PROG([QT_RCC],[rcc$am_have_qt_qmexe_suff])
+    AC_ARG_VAR([QT_LRELEASE],[Qt lrelease tool])
+    AC_PATH_PROG([QT_LRELEASE],[lreleasemoc$am_have_qt_qmexe_suff])
+    AC_ARG_VAR([QT_LUPDATE],[Qt lupdate tool])
+    AC_PATH_PROG([QT_LUPDATE],[lupdate$am_have_qt_qmexe_suff])
 
     # Get Qt version from qmake
     QT_DIR=`$QMAKE --version | grep -o -E /.+`
@@ -162,12 +167,6 @@ EOF
   AC_SUBST(QT_CXXFLAGS)
   AC_SUBST(QT_DIR)
   AC_SUBST(QT_LIBS)
-  AC_SUBST(QT_UIC)
-  AC_SUBST(QT_MOC)
-  AC_SUBST(QT_RCC)
-  AC_SUBST(QT_LRELEASE)
-  AC_SUBST(QT_LUPDATE)
-  AC_SUBST(QMAKE)
 
   #### Being paranoid:
   if test x"$have_qt" = xyes; then
