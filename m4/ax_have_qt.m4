@@ -55,7 +55,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 25
+#serial 26
 
 AU_ALIAS([BNV_HAVE_QT], [AX_HAVE_QT])
 AC_DEFUN([AX_HAVE_QT],
@@ -66,7 +66,7 @@ AC_DEFUN([AX_HAVE_QT],
   # openSUSE leap 15.3 installs qmake-qt5, not qmake, for example.
   # Store the full name (like qmake-qt5) into QMAKE
   # and the specifier (like -qt5 or empty) into am_have_qt_qmexe_suff.
-  AC_ARG_VAR([QMAKE],"Qt make tool")
+  AC_ARG_VAR([QMAKE],[Qt make tool])
   AC_CHECK_TOOLS([QMAKE],[qmake qmake-qt6 qmake-qt5],[false])
 
   AC_MSG_CHECKING(for Qt)
