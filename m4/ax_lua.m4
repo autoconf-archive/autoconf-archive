@@ -82,7 +82,7 @@
 #   appropriate Automake primary, e.g. lua_SCRIPS or luaexec_LIBRARIES.
 #
 #   If an acceptable Lua interpreter is found, then ACTION-IF-FOUND is
-#   performed, otherwise ACTION-IF-NOT-FOUND is preformed. If ACTION-IF-NOT-
+#   performed, otherwise ACTION-IF-NOT-FOUND is performed. If ACTION-IF-NOT-
 #   FOUND is blank, then it will default to printing an error. To prevent
 #   the default behavior, give ':' as an action.
 #
@@ -181,7 +181,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 44
+#serial 45
 
 dnl =========================================================================
 dnl AX_PROG_LUA([MINIMUM-VERSION], [TOO-BIG-VERSION],
