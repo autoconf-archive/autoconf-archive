@@ -19,7 +19,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_CPU_FREQ],
 [AC_REQUIRE([AC_PROG_CC])
@@ -88,7 +88,7 @@ static float average_MHz(int tries = 2)
     of.close()
 ])],
      [ax_cpu_freq=`cat conftest_cpufreq`; rm -f conftest_cpufreq],
-     [ax_cpu_freq=unknow; rm -f conftest_cpufreq]
+     [ax_cpu_freq=unknown; rm -f conftest_cpufreq]
  )])
 AC_LANG_POP([C++])
 
