@@ -9,7 +9,7 @@
 # DESCRIPTION
 #
 #   Run a test using the awk program found on AWK variable. The test being
-#   run has TEST-BODY as body and is feeded with TEST-INPUT. If successful
+#   run has TEST-BODY as body and is fed with TEST-INPUT. If successful
 #   execute ACTION-IF-SUCCESS otherwise ACTION-IF-FAILURE
 #
 #   This work is heavily based upon testawk.sh script by Heiner Steven. You
