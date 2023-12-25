@@ -67,7 +67,7 @@ fi
 #-- check for wish in PATH
 AC_PATH_PROG([WISH], [wish], [no])
 
-#-- check vor tcl version
+#-- check for tcl version
 AC_MSG_CHECKING([tcl version])
 version=`echo "puts [[set tcl_version]]" | tclsh -`
 AC_MSG_RESULT([$version])

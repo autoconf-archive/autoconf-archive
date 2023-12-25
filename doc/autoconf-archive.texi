@@ -11,7 +11,7 @@
 
 @copying
 This manual is for GNU Autoconf Archive version @value{VERSION}, a collection of
-freely re-usable Autoconf macros.
+freely reusable Autoconf macros.
 
 Copyright @copyright{} 2022 Autoconf Archive Maintainers
 @email{autoconf-archive-maintainers@@gnu.org}
@@ -26,7 +26,7 @@ Documentation License''.
 
 @dircategory Software development
 @direntry
-* Autoconf Archive: (autoconf-archive). A collection of re-usable Autoconf macros.
+* Autoconf Archive: (autoconf-archive). A collection of reusable Autoconf macros.
 @end direntry
 
 @titlepage
