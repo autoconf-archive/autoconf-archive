@@ -77,7 +77,7 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX], [dnl
       ac_success=yes
     fi])
 
-  m4_if([$2], [noext], [], [dnl
+  m4_if([$2], [noext], [dnl
   if test x$ac_success = xno; then
     for alternative in ${ax_cxx_compile_alternatives}; do
       switch="-std=gnu++${alternative}"
@@ -101,7 +101,7 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX], [dnl
     done
   fi])
 
-  m4_if([$2], [ext], [], [dnl
+  m4_if([$2], [ext], [dnl
   if test x$ac_success = xno; then
     dnl HP's aCC needs +std=c++11 according to:
     dnl http://h21007.www2.hp.com/portal/download/files/unprot/aCxx/PDF_Release_Notes/769149-001.pdf
@@ -161,31 +161,31 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX], [dnl
 dnl  Test body for checking C++11 support
 
 m4_define([_AX_CXX_COMPILE_STDCXX_testbody_11],
-  _AX_CXX_COMPILE_STDCXX_testbody_new_in_11
+  [_AX_CXX_COMPILE_STDCXX_testbody_new_in_11]
 )
 
 dnl  Test body for checking C++14 support
 
 m4_define([_AX_CXX_COMPILE_STDCXX_testbody_14],
-  _AX_CXX_COMPILE_STDCXX_testbody_new_in_11
-  _AX_CXX_COMPILE_STDCXX_testbody_new_in_14
+  [_AX_CXX_COMPILE_STDCXX_testbody_new_in_11
+   _AX_CXX_COMPILE_STDCXX_testbody_new_in_14]
 )
 
 dnl  Test body for checking C++17 support
 
 m4_define([_AX_CXX_COMPILE_STDCXX_testbody_17],
-  _AX_CXX_COMPILE_STDCXX_testbody_new_in_11
-  _AX_CXX_COMPILE_STDCXX_testbody_new_in_14
-  _AX_CXX_COMPILE_STDCXX_testbody_new_in_17
+  [_AX_CXX_COMPILE_STDCXX_testbody_new_in_11
+   _AX_CXX_COMPILE_STDCXX_testbody_new_in_14
+   _AX_CXX_COMPILE_STDCXX_testbody_new_in_17]
 )
 
 dnl  Test body for checking C++20 support
 
 m4_define([_AX_CXX_COMPILE_STDCXX_testbody_20],
-  _AX_CXX_COMPILE_STDCXX_testbody_new_in_11
-  _AX_CXX_COMPILE_STDCXX_testbody_new_in_14
-  _AX_CXX_COMPILE_STDCXX_testbody_new_in_17
-  _AX_CXX_COMPILE_STDCXX_testbody_new_in_20
+  [_AX_CXX_COMPILE_STDCXX_testbody_new_in_11
+   _AX_CXX_COMPILE_STDCXX_testbody_new_in_14
+   _AX_CXX_COMPILE_STDCXX_testbody_new_in_17
+   _AX_CXX_COMPILE_STDCXX_testbody_new_in_20]
 )
 
 dnl  Test body for checking C++23 support
