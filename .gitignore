@@ -30,6 +30,7 @@
 /config.log
 /config.status
 /configure
+/conftest.*
 /gnulib
 /maint.mk
 # /GNUmakefile is already mentioned above

@@ -29,7 +29,7 @@ ${gnulibtool} --version
 echo ""
 echo "Re-importing gnulib stuff with gnulib-tool..."
 # Try to keep these alphabetical:
-gnulib_modules="announce-gen fdl-1.3 gendocs git-version-gen \
+gnulib_modules="announce-gen configmake fdl-1.3 gendocs git-version-gen \
                 gitlog-to-changelog gnu-make gnu-web-doc-update gnupload \
                 maintainer-makefile update-copyright"
 
@@ -57,7 +57,7 @@ mv maint.mk.new maint.mk
 
 echo "Updating ChangeLog..."
 
-echo > ChangeLog '# Copyright (c) 2022 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
+echo > ChangeLog '# Copyright (c) 2024 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
 # shellcheck disable=2129
 echo >>ChangeLog '#'
 echo >>ChangeLog '# Copying and distribution of this file, with or without modification, are'

@@ -35,11 +35,11 @@ gl_INIT dnl# gnulib-tool says not to forget to invoke this.
 
 dnl# `echo -n` is non-portable, but luckily autoconf gives us a way to deal
 dnl# with that. We have to get rid of the outer m4 system command wrapper
-dnl# to be able to do this though. Also have to use escaped quotation marks
-dnl# to ensure that a space follows each file name, which keeps them
+dnl# to be able to do this, though. Also, we have to use escaped quotation
+dnl# marks to ensure that a space follows each file name, which keeps them
 dnl# separated. This has to be done in a loop because otherwise the
 dnl# globbing character ('*') gets output as a literal.
-dnl# Also the variable has to be exported so that config.status can use it.
+dnl# Also, the variable has to be exported so that config.status can use it:
 export M4FILES="`for m4file in ${srcdir}/m4/*.m4; do AS_ECHO_N([\"${m4file} \"]); done`"
 AC_SUBST([M4FILES])dnl
 

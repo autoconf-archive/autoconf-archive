@@ -41,7 +41,7 @@ maintainer-clean-local:
 dist-hook:
 	echo $(VERSION) > $(distdir)/.tarball-version
 	if test -d .git; then												\
-	  echo > $(distdir)/cl-t '# Copyright (c) 2022 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'; \
+	  echo > $(distdir)/cl-t '# Copyright (c) 2024 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'; \
 	  echo >>$(distdir)/cl-t '#';											\
 	  echo >>$(distdir)/cl-t '# Copying and distribution of this file, with or without modification, are';		\
 	  echo >>$(distdir)/cl-t '# permitted in any medium without royalty provided the copyright notice and';		\

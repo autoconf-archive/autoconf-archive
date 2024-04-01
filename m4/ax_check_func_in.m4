@@ -19,7 +19,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 dnl# usage:
 dnl# AX_CHECK_FUNC_IN(HEADER, FUNCTION, [ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]])
@@ -28,11 +28,12 @@ AU_ALIAS([AC_CHECK_FUNC_IN],[AX_CHECK_FUNC_IN])
 AC_DEFUN([AX_CHECK_FUNC_IN],
 [AC_MSG_CHECKING([for $2 in $1])
 AC_CACHE_VAL([ac_cv_func_$2],
-[AC_LINK_IFELSE([AC_LANG_PROGRAM([[dnl# Do NOT include <ctype.h> because on OSF/1 3.0 it includes <sys/types.h>
+[AC_LINK_IFELSE([AC_LANG_PROGRAM([[
+dnl# Do NOT include <ctype.h> because on OSF/1 3.0 it includes <sys/types.h>
 dnl# which includes <sys/select.h> which contains a prototype for
 dnl# select.  Similarly for bzero.
 /* System header to define __stub macros and hopefully few prototypes,
-  * which can conflict with char $2(); below.  */
+ * which can conflict with char $2(); below.  */
 #include <assert.h>
 #include <$1>
 /* Override any gcc2 internal prototype to avoid an error.  */
