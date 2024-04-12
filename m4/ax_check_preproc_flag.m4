@@ -34,12 +34,12 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_CHECK_PREPROC_FLAG],
 [AC_PREREQ(2.64)dnl for _AC_LANG_PREFIX and AS_VAR_IF
 AS_VAR_PUSHDEF([CACHEVAR],[ax_cv_check_[]_AC_LANG_ABBREV[]cppflags_$4_$1])dnl
-AC_CACHE_CHECK([whether _AC_LANG preprocessor accepts $1], CACHEVAR, [
+AC_CACHE_CHECK([whether the _AC_LANG preprocessor accepts $1], CACHEVAR, [
   ax_check_save_flags=$CPPFLAGS
   CPPFLAGS="$CPPFLAGS $4 $1"
   AC_PREPROC_IFELSE([m4_default([$5],[AC_LANG_PROGRAM()])],
