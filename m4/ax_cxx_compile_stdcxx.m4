@@ -43,7 +43,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 18
+#serial 19
 
 dnl  This macro is based on the code from the AX_CXX_COMPILE_STDCXX_11 macro
 dnl  (serial version number 13).
@@ -201,7 +201,17 @@ m4_define([_AX_CXX_COMPILE_STDCXX_testbody_new_in_11], [[
 // MSVC always sets __cplusplus to 199711L in older versions; newer versions
 // only set it correctly if /Zc:__cplusplus is specified as well as a
 // /std:c++NN switch:
+//
 // https://devblogs.microsoft.com/cppblog/msvc-now-correctly-reports-__cplusplus/
+//
+// The value __cplusplus ought to have is available in _MSVC_LANG since
+// Visual Studio 2015 Update 3:
+//
+// https://learn.microsoft.com/en-us/cpp/preprocessor/predefined-macros
+//
+// This was also the first MSVC version to support C++14 so we can't use the
+// value of either __cplusplus or _MSVC_LANG to quickly rule out MSVC having
+// C++11 or C++14 support, but we can check _MSVC_LANG for C++17 and later.
 #elif __cplusplus < 201103L && !defined _MSC_VER
 
 #error "This is not a C++11 compiler"
@@ -617,7 +627,7 @@ m4_define([_AX_CXX_COMPILE_STDCXX_testbody_new_in_17], [[
 
 #error "This is not a C++ compiler"
 
-#elif __cplusplus < 201703L && !defined _MSC_VER
+#elif (defined _MSVC_LANG ? _MSVC_LANG : __cplusplus) < 201703L
 
 #error "This is not a C++17 compiler"
 
@@ -983,7 +993,7 @@ namespace cxx17
 
 }  // namespace cxx17
 
-#endif  // __cplusplus < 201703L && !defined _MSC_VER
+#endif  // (defined _MSVC_LANG ? _MSVC_LANG : __cplusplus) < 201703L
 
 ]])
 
@@ -996,7 +1006,7 @@ m4_define([_AX_CXX_COMPILE_STDCXX_testbody_new_in_20], [[
 
 #error "This is not a C++ compiler"
 
-#elif __cplusplus < 202002L && !defined _MSC_VER
+#elif (defined _MSVC_LANG ? _MSVC_LANG : __cplusplus) < 202002L
 
 #error "This is not a C++20 compiler"
 
@@ -1013,6 +1023,6 @@ namespace cxx20
 
 }  // namespace cxx20
 
-#endif  // __cplusplus < 202002L && !defined _MSC_VER
+#endif  // (defined _MSVC_LANG ? _MSVC_LANG : __cplusplus) < 202002L
 
 ]])
