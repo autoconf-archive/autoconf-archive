@@ -37,13 +37,14 @@
 #   Copyright (c) 2019 Enji Cooper <yaneurabeya@gmail.com>
 #   Copyright (c) 2020 Jason Merrill <jason@redhat.com>
 #   Copyright (c) 2021 Jörn Heusipp <osmanx@problemloesungsmaschine.de>
+#   Copyright (c) 2015, 2022, 2023, 2024 Olly Betts
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 19
+#serial 20
 
 dnl  This macro is based on the code from the AX_CXX_COMPILE_STDCXX_11 macro
 dnl  (serial version number 13).
