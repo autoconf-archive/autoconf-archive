@@ -49,7 +49,7 @@
 #   framework.
 #
 #   Some implementations (in particular, some versions of Mac OS X) are
-#   known to treat the GLU tesselator callback function type as "GLvoid
+#   known to treat the GLU tessellator callback function type as "GLvoid
 #   (*)(...)" rather than the standard "GLvoid (*)()". If the former
 #   condition is detected, this macro defines "HAVE_VARARGS_GLU_TESSCB".
 #
@@ -85,7 +85,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 23
+#serial 24
 
 # example program
 m4_define([_AX_CHECK_GLU_PROGRAM],
@@ -116,7 +116,7 @@ AC_DEFUN([_AX_CHECK_GLU_INCLUDES_DEFAULT],dnl
   ]
 ])
 
-# check tesselation callback function signature.
+# check tessellation callback function signature.
 m4_define([_AX_CHECK_GLU_VARARGS_TESSVB_PROGRAM],
 [AC_LANG_PROGRAM([[
 # if defined(HAVE_WINDOWS_H) && defined(_WIN32)
@@ -254,9 +254,9 @@ AC_DEFUN([AX_CHECK_GLU],[
 
 #
 # Some versions of Mac OS X include a broken interpretation of the GLU
-# tesselation callback function signature.
+# tessellation callback function signature.
   AS_IF([test "X$ax_cv_check_glu_link" = "Xyes"],
-        [AC_CACHE_CHECK([if GLU varargs tesselator is using non-standard form],
+        [AC_CACHE_CHECK([if GLU varargs tessellator is using non-standard form],
                         [ax_cv_varargs_glu_tesscb],
                         [_AX_CHECK_GLU_SAVE_FLAGS([CFLAGS],[C++])
                          AC_COMPILE_IFELSE([_AX_CHECK_GLU_VARARGS_TESSVB_PROGRAM],
@@ -265,7 +265,7 @@ AC_DEFUN([AX_CHECK_GLU],[
                          _AX_CHECK_GLU_RESTORE_FLAGS([CFLAGS],[C++])])
         AS_IF([test "X$ax_cv_varargs_glu_tesscb" = "yes"],
               [AC_DEFINE([HAVE_VARARGS_GLU_TESSCB], [1],
-                         [Use nonstandard varargs form for the GLU tesselator callback])])
+                         [Use nonstandard varargs form for the GLU tessellator callback])])
         ])
 
   dnl hook
