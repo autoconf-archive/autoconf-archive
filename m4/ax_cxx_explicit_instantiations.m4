@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 14
 
 AU_ALIAS([AC_CXX_EXPLICIT_INSTANTIATIONS], [AX_CXX_EXPLICIT_INSTANTIATIONS])
 AC_DEFUN([AX_CXX_EXPLICIT_INSTANTIATIONS],
@@ -34,7 +34,7 @@ ax_cv_cxx_explinst,
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_explinst" = yes; then
-  AC_DEFINE(HAVE_INSTANTIATIONS,,
-            [define if the compiler supports explicit instantiations])
+  AC_DEFINE([HAVE_INSTANTIATIONS],[1],
+            [Define to 1 if the compiler supports explicit instantiations])
 fi
-])
+])dnl

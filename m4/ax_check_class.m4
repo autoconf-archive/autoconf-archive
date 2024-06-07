@@ -18,7 +18,7 @@
 #   It is VERY IMPORTANT that you download the whole set, some macros depend
 #   on other. Unfortunately, the autoconf archive does not support the
 #   concept of set of macros, so I had to break it for submission. The
-#   general documentation, as well as the sample configure.in, is included
+#   general documentation, as well as the sample configure.ac, is included
 #   in the AX_PROG_JAVA macro.
 #
 # LICENSE
@@ -51,14 +51,14 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 12
+#serial 16
 
-AU_ALIAS([AC_CHECK_CLASS], [AX_CHECK_CLASS])
+AU_ALIAS([AC_CHECK_CLASS],[AX_CHECK_CLASS])
 AC_DEFUN([AX_CHECK_CLASS],[
 AC_REQUIRE([AX_PROG_JAVA])
 ac_var_name=`echo $1 | sed 's/\./_/g'`
-dnl Normally I'd use a AC_CACHE_CHECK here but since the variable name is
-dnl dynamic I need an extra level of extraction
+dnl# Normally I would use AC_CACHE_CHECK here, but since the variable name is
+dnl# dynamic, I need an extra level of extraction:
 AC_MSG_CHECKING([for $1 class])
 AC_CACHE_VAL(ax_cv_class_$ac_var_name, [
         AX_TRY_COMPILE_JAVA([$1], , [eval "ac_cv_class_$ac_var_name=yes"],
@@ -72,8 +72,8 @@ else
         ifelse([$3], , :, [$3])
 fi
 ])
-dnl for some reason the above statement didn't fall though here?
-dnl do scripts have variable scoping?
+dnl# For some reason the above statement failed to fall though here?
+dnl# Do scripts have variable scoping?
 eval "ac_var_val=$`eval echo ac_cv_class_$ac_var_name`"
 AC_MSG_RESULT($ac_var_val)
 ])
