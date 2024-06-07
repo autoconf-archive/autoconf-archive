@@ -34,7 +34,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 15
+#serial 16
 
 AC_DEFUN([AX_CHECK_COMPILE_FLAG],
 [AC_PREREQ([2.64])dnl for _AC_LANG_PREFIX and AS_VAR_IF
