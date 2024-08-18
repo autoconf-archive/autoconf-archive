@@ -28,7 +28,13 @@ clean-local:
 	@rm -rf $(srcdir)/stage $(srcdir)/macro.pyc __pycache__
 	@rm -f $(DIST_ARCHIVES)
 
+DISTCLEANFILES = build-aux/*~ configure~ maint.mk~
 MAINTAINERCLEANFILES = *~ ./.*~ doc/*~ m4/*~
+
+distclean-local:
+	@rm -rf autom4te.cache || rmdir autom4te.cache
+	@rm -rf $(srcdir)/build-aux/.deps || rmdir build-aux/.deps
+	@rm -f autoconf-archive-20*.*.*-dirty.tar.*z
 
 ## duplicates in here should be harmless, but weed them out anyways:
 maintainer-clean-local:

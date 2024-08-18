@@ -5,7 +5,7 @@ EXTRA_DIST = atlocal.in
 check-local: atconfig atlocal configure
 	if test -x ./configure; then \
 	  if test "x$${GITHUB_ACTIONS}" = "xtrue" || test "x$${TRAVIS}" = "xtrue"; then \
-	    cat ./configure; \
+	    stat ./configure && du ./configure && cat ./configure; \
 	  else \
 	    ./configure 2>&1; \
 	  fi; \
@@ -17,7 +17,7 @@ installcheck-local: atconfig atlocal
 
 CLEANFILES = .DS_Store configure
 
-DISTCLEANFILES = acinclude.m4 atconfig config.log config.status
+DISTCLEANFILES = acinclude.m4 atconfig config.log config.status configure~
 
 distclean-local:
 	@rm -rf autom4te.cache || rmdir autom4te.cache
