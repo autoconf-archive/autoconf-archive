@@ -24,7 +24,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 15
+#serial 17
 
 AC_DEFUN([AX_DIST_MSI],
 [
@@ -53,7 +53,7 @@ if test "x$MSI_SETUP_FILE" != "x"; then
 		  AC_MSG_NOTICE([dist-msi support enabled]))
 else
     AC_MSG_NOTICE([setting msi file... not set])
-    AC_MSG_ERROR([a file must be specified when addind msi support])
+    AC_MSG_ERROR([a file must be specified when adding msi support])
 fi
 AM_CONDITIONAL([ax_dist_msi_enabled],[test "x$USING_DIST_MSI" = "xtrue"])
 AX_ADD_AM_MACRO_STATIC([

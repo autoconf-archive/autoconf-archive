@@ -20,7 +20,7 @@
 #
 #     --with-perl-shebang='#! /my/funky/perlpath' # OR
 #     --with-perl-shebang='/my/funky/perlpath'  # we just throw away the #! anyway
-#                                               # bec it must be absent in Makefile
+#                                               # as it must not appear in Makefile
 #
 #   Rationale: The are various ways of starting an interpreter on different
 #   *nix-like systems. Many use the simple
@@ -58,7 +58,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 14
+#serial 16
 
 AC_DEFUN([AX_SYS_PERLSHARPBANG],[dnl
 

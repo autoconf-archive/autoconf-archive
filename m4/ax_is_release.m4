@@ -45,7 +45,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_IS_RELEASE],[
     AC_BEFORE([AC_INIT],[$0])
@@ -76,6 +76,6 @@ AC_DEFUN([AX_IS_RELEASE],[
       [always],[ax_is_release=yes],
       [never],[ax_is_release=no],
       [
-        AC_MSG_ERROR([Invalid policy. Valid policies: git-directory, minor-version, micro-version, dash-version, always, never.])
+        m4_if($1, [], m4_fatal([$0: invalid policy $1. Valid policies: git-directory, minor-version, micro-version, dash-version, always, never]))
       ])
 ])

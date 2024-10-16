@@ -41,7 +41,17 @@ AC_DEFUN([AX_CHECK_COMPILE_FLAG],
 AS_VAR_PUSHDEF([CACHEVAR],[ax_cv_check_[]_AC_LANG_ABBREV[]flags_$4_$1])dnl
 AC_CACHE_CHECK([whether the _AC_LANG compiler accepts $1], CACHEVAR, [
   ax_check_save_flags=$[]_AC_LANG_PREFIX[]FLAGS
-  _AC_LANG_PREFIX[]FLAGS="$[]_AC_LANG_PREFIX[]FLAGS $4 $1"
+  if test x"m4_case(_AC_LANG,
+                     [C], [$GCC],
+                     [C++], [$GXX],
+                     [Fortran], [$GFC],
+                     [Fortran 77], [$G77],
+                     [Objective C], [$GOBJC],
+                     [Objective C++], [$GOBJCXX],
+                     [no])" = xyes ; then
+    add_gnu_werror="-Werror"
+  fi
+  _AC_LANG_PREFIX[]FLAGS="$[]_AC_LANG_PREFIX[]FLAGS $4 $1 $add_gnu_werror"
   AC_COMPILE_IFELSE([m4_default([$5],[AC_LANG_PROGRAM()])],
     [AS_VAR_SET(CACHEVAR,[yes])],
     [AS_VAR_SET(CACHEVAR,[no])])

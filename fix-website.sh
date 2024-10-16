@@ -20,5 +20,6 @@ for n in *.html; do
     -e 's|<a href="../dir/index.html" accesskey="u" rel="up">(dir)</a>|<a href="http://savannah.gnu.org/projects/autoconf-archive/" accesskey="u" rel="up">Home Page at Savannah</a>|' \
     -e 's|<link href="\.\./dir/index.html" rel="up" title="(dir)">|<link href="http://savannah.gnu.org/projects/autoconf-archive/" rel="up" title="Home Page at Savannah">|' \
     -e 's|<table class="menu"|<table summary="menu" class="menu"|' \
+    -e 's|<ol class="enumerate" type="A" |<ol class="enumerate" |' \
   | tidy >"$destdir/${out}" -q --indent yes --indent-spaces 1 -wrap 80 --tidy-mark no --hide-comments yes
 done

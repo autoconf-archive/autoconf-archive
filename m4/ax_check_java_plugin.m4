@@ -50,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 13
+#serial 15
 
 AU_ALIAS([DPS_CHECK_PLUGIN], [AX_CHECK_JAVA_PLUGIN])
 AC_DEFUN([AX_CHECK_JAVA_PLUGIN],
@@ -64,7 +64,7 @@ case "x$ZIPINFO" in
 [*/unzip)]
 	zipinf="unzip -l";;
 [*/pkzipc)]
-	ziping="unzipc -view";;
+	zipinf="unzipc -view";;
 [x*)]
 	AC_MSG_RESULT([skipped, none of zipinfo, unzip and pkzipc found])
 	AC_SUBST($1,[])
