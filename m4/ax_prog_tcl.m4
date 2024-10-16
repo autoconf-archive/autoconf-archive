@@ -55,7 +55,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_PROG_TCL], [
 #-- check for tclsh in PATH
@@ -67,7 +67,7 @@ fi
 #-- check for wish in PATH
 AC_PATH_PROG([WISH], [wish], [no])
 
-#-- check vor tcl version
+#-- check for tcl version
 AC_MSG_CHECKING([tcl version])
 version=`echo "puts [[set tcl_version]]" | tclsh -`
 AC_MSG_RESULT([$version])

@@ -31,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([AC_PROG_CXX_FOR_BUILD], [AX_PROG_CXX_FOR_BUILD])
 AC_DEFUN([AX_PROG_CXX_FOR_BUILD], [dnl
@@ -103,7 +103,7 @@ popdef([ac_cv_prog_cxx_works])dnl
 popdef([ac_cv_prog_gxx])dnl
 popdef([ac_cv_prog_CXXCPP])dnl
 
-dnl restore global variables (dependant on the current
+dnl restore global variables (dependent on the current
 dnl language after popping):
 AC_LANG_POP([C++])
 
