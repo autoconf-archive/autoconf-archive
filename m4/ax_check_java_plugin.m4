@@ -64,7 +64,7 @@ case "x$ZIPINFO" in
 [*/unzip)]
 	zipinf="unzip -l";;
 [*/pkzipc)]
-	ziping="unzipc -view";;
+	zipinf="unzipc -view";;
 [x*)]
 	AC_MSG_RESULT([skipped, none of zipinfo, unzip and pkzipc found])
 	AC_SUBST($1,[])
