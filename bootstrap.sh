@@ -30,6 +30,7 @@ sed -e 's/^sc_file_system:/disabled_sc_file_system:/' \
     -e 's/^sc_prohibit_always_true_header_tests:/disabled_sc_prohibit_always_true_header_tests:/' \
     -e 's/^sc_prohibit_test_minus_ao:/disabled_sc_prohibit_test_minus_ao:/' \
     -e 's/^sc_prohibit_doubled_word:/disabled_sc_prohibit_doubled_word:/' \
+    -e 's/^sc_prohibit_atoi_atof:/disabled_sc_prohibit_atoi_atof:/' \
   maint.mk > maint.mk.new
 mv maint.mk.new maint.mk
 
