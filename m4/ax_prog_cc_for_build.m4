@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 25
+#serial 26
 
 AU_ALIAS([AC_PROG_CC_FOR_BUILD], [AX_PROG_CC_FOR_BUILD])
 AC_DEFUN([AX_PROG_CC_FOR_BUILD], [dnl
@@ -47,9 +47,12 @@ pushdef([ac_cv_prog_gcc], ac_cv_build_prog_gcc)dnl
 pushdef([ac_cv_prog_cc_c89], ac_cv_build_prog_cc_c89)dnl
 pushdef([ac_cv_prog_cc_c99], ac_cv_build_prog_cc_c99)dnl
 pushdef([ac_cv_prog_cc_c11], ac_cv_build_prog_cc_c11)dnl
+pushdef([ac_cv_prog_cc_c23], ac_cv_build_prog_cc_c23)dnl
+pushdef([ac_cv_prog_cc_stdc], ac_cv_build_prog_cc_stdc)dnl
 pushdef([ac_cv_prog_cc_works], ac_cv_build_prog_cc_works)dnl
 pushdef([ac_cv_prog_cc_cross], ac_cv_build_prog_cc_cross)dnl
 pushdef([ac_cv_prog_cc_g], ac_cv_build_prog_cc_g)dnl
+pushdef([ac_prog_cc_stdc], ac_build_prog_cc_stdc)dnl
 pushdef([ac_exeext], ac_build_exeext)dnl
 pushdef([ac_objext], ac_build_objext)dnl
 pushdef([CC], CC_FOR_BUILD)dnl
@@ -138,9 +141,12 @@ popdef([CPP])dnl
 popdef([CC])dnl
 popdef([ac_objext])dnl
 popdef([ac_exeext])dnl
+popdef([ac_prog_cc_stdc])dnl
 popdef([ac_cv_prog_cc_g])dnl
 popdef([ac_cv_prog_cc_cross])dnl
 popdef([ac_cv_prog_cc_works])dnl
+popdef([ac_cv_prog_cc_stdc])dnl
+popdef([ac_cv_prog_cc_c23])dnl
 popdef([ac_cv_prog_cc_c11])dnl
 popdef([ac_cv_prog_cc_c99])dnl
 popdef([ac_cv_prog_cc_c89])dnl
