@@ -61,7 +61,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 # example program
 m4_define([_AX_CHECK_GLX_PROGRAM],
@@ -183,8 +183,7 @@ AC_DEFUN([_AX_CHECK_GLX_HEADERS],
 AC_DEFUN([_AX_CHECK_GLX_MANUAL_LIBS_GENERIC],
 [dnl
  ax_check_glx_manual_libs_generic_extra_libs="$1"
- AS_IF([test "X$ax_check_glx_manual_libs_generic_extra_libs" = "X"],
-       [AC_MSG_ERROR([AX_CHECK_GLX_MANUAL_LIBS_GENERIC argument must no be empty])])
+ m4_if($1, [], m4_fatal([$0: argument must not be empty]))
 
  AC_LANG_PUSH([C])
  _AX_CHECK_GLX_SAVE_FLAGS()
