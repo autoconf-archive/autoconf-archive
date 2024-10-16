@@ -118,8 +118,6 @@ then
     # If both library and header were found, action-if-found
     #
     m4_ifblank([$1],[
-                CPPFLAGS="$CPPFLAGS -I${ZLIB_HOME}/include"
-                LDFLAGS="$LDFLAGS -L${ZLIB_HOME}/lib"
                 LIBS="-lz $LIBS"
                 AC_DEFINE([HAVE_LIBZ], [1],
                           [Define to 1 if you have `z' library (-lz)])
