@@ -28,7 +28,7 @@
 #   follows:
 #
 #     #ifdef HAVE_LIBZ
-#     #include <zlib.h>
+#     # include <zlib.h>
 #     #endif /* HAVE_LIBZ */
 #
 # LICENSE
@@ -62,7 +62,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 20
+#serial 24
 
 AU_ALIAS([CHECK_ZLIB], [AX_CHECK_ZLIB])
 AC_DEFUN([AX_CHECK_ZLIB],
