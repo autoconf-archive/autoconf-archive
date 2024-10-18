@@ -1,6 +1,9 @@
+---
 # .travis.yml
 
 language: c
+os: linux
+dist: jammy
 git:
   depth: 50000
 
