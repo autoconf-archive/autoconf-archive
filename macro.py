@@ -106,7 +106,7 @@ class Macro:
       self.__dict__[key] = body
     # determine the macro's serial number
     if computeSerialNumber:     # compute the number from git
-      logMessages = subprocess.check_output(["git", "log", "--oneline", "054e8ad8c766afa7059d8cd4a81bbfa99133ef5e..HEAD", "--", filePath], bufsize=1)
+      logMessages = subprocess.check_output(["git", "log", "--oneline", "054e8ad8c766afa7059d8cd4a81bbfa99133ef5e..HEAD", "--", filePath])
       logLines = logMessages.rstrip(b'\n').split(b"\n")
       self.serial = len(logLines)
       modified = subprocess.call(["git", "diff", "--quiet", "--exit-code", "HEAD", "--", filePath])
