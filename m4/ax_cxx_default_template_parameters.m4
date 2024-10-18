@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_DEFAULT_TEMPLATE_PARAMETERS], [AX_CXX_DEFAULT_TEMPLATE_PARAMETERS])
 AC_DEFUN([AX_CXX_DEFAULT_TEMPLATE_PARAMETERS],
@@ -34,19 +34,19 @@ AC_DEFUN([AX_CXX_DEFAULT_TEMPLATE_PARAMETERS],
      [dnl
       AC_LANG_PUSH([C++])
       AC_COMPILE_IFELSE([dnl
-        AC_LANG_PROGRAM([
+        AC_LANG_PROGRAM([[
 	  template<class T = double, int N = 10> class A {
 	    public: int f() {return 0;}
 	  };
-	  ],
-	  [A<float> a; return a.f();])],
-	ax_cv_cxx_default_template_parameters=yes,
-	ax_cv_cxx_default_template_parameters=no)
+	  ]],
+	  [[A<float> a; return a.f();]])],
+	[ax_cv_cxx_default_template_parameters=yes],
+	[ax_cv_cxx_default_template_parameters=no])
 	AC_LANG_POP([C++])
       ],
       [ax_cv_cxx_default_template_parameters=no])
    ])
    AS_IF([test "X$ax_cv_cxx_default_template_parameters" = "Xyes"],
-         [AC_DEFINE(HAVE_DEFAULT_TEMPLATE_PARAMETERS,,
-	   [define if the compiler supports default template parameters])])
-])
+         [AC_DEFINE([HAVE_DEFAULT_TEMPLATE_PARAMETERS],[1],
+	   [Define to 1 if the compiler supports default template parameters])])
+])dnl

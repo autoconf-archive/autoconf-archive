@@ -23,12 +23,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AC_DEFUN([AX_TRILINOS_RYTHMOS],[
     AC_REQUIRE([AX_TRILINOS_BASE])
     ax_trilinos_rythmos=yes
-    AC_HAVE_LIBRARY([rythmos],[:],[ax_trilinos_rythmos=no])
+    AC_CHECK_LIB([rythmos],[main],[:],[ax_trilinos_rythmos=no],[])ac_cv_lib_rythmos=ac_cv_lib_rythmos_main
+
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([rythmos.macros],[ax_trilinos_rythmos=no])
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([rythmos],[ax_trilinos_rythmos=no])
     if test "$ax_trilinos_rythmos" = yes; then
@@ -40,4 +41,4 @@ AC_DEFUN([AX_TRILINOS_RYTHMOS],[
 		ifelse([$2],,AC_MSG_ERROR([Trilinos Rythmos not usable.]),
             [$2])
     fi
-])
+])dnl

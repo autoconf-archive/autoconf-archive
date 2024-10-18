@@ -24,18 +24,19 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_OLD_FOR_SCOPING], [AX_CXX_OLD_FOR_SCOPING])
 AC_DEFUN([AX_CXX_OLD_FOR_SCOPING],
-[AC_CACHE_CHECK(whether the compiler accepts the old for scoping rules,
-ax_cv_cxx_old_for_scoping,
+[AC_CACHE_CHECK([whether the compiler accepts the old for scoping rules],
+[ax_cv_cxx_old_for_scoping],
 [AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([], [[int z;for (int i=0; i < 10; ++i)z=z+i;z=i;return z;]])],
  [ax_cv_cxx_old_for_scoping=yes], [ax_cv_cxx_old_for_scoping=no])
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_old_for_scoping" = yes; then
-  AC_DEFINE(HAVE_OLD_FOR_SCOPING,,[define if the compiler accepts the old for scoping rules])
+  AC_DEFINE([HAVE_OLD_FOR_SCOPING],[1],
+            [Define to 1 if compiler accepts the old for scoping rules])
 fi
-])
+])dnl

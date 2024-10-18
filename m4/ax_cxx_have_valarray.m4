@@ -20,12 +20,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_HAVE_VALARRAY], [AX_CXX_HAVE_VALARRAY])
 AC_DEFUN([AX_CXX_HAVE_VALARRAY],
-[AC_CACHE_CHECK(whether the compiler has valarray<T>,
-ax_cv_cxx_have_valarray,
+[AC_CACHE_CHECK([whether the compiler has valarray<T>],
+[ax_cv_cxx_have_valarray],
 [AC_REQUIRE([AX_CXX_NAMESPACES])
  AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <valarray>
@@ -36,6 +36,7 @@ using namespace std;
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_valarray" = yes; then
-  AC_DEFINE(HAVE_VALARRAY,,[define if the compiler has valarray<T>])
+  AC_DEFINE([HAVE_VALARRAY],[1],
+            [Define to 1 if the compiler has valarray<T>])
 fi
-])
+])dnl
