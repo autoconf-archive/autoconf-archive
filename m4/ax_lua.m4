@@ -49,13 +49,8 @@
 #   interpreter. If LUA is blank, the user's path is searched for an
 #   suitable interpreter.
 #
-#   Optionally a LUAJIT option may be set ahead of time to look for and
-#   validate a LuaJIT install instead of PUC Lua. Usage might look like:
-#
-#     AC_ARG_WITH(luajit, [AS_HELP_STRING([--with-luajit],
-#         [Prefer LuaJIT over PUC Lua, even if the latter is newer. Default: no])
-#     ])
-#     AM_CONDITIONAL([LUAJIT], [test "x$with_luajit" != 'xno'])
+#   Optionally a LUAJIT option may be set ahead of time using --with-luajit
+#   to look for and validate a LuaJIT install instead of PUC Lua.
 #
 #   If MINIMUM-VERSION is supplied, then only Lua interpreters with a
 #   version number greater or equal to MINIMUM-VERSION will be accepted. If
@@ -190,7 +185,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 47
+#serial 48
 
 dnl =========================================================================
 dnl AX_PROG_LUA([MINIMUM-VERSION], [TOO-BIG-VERSION],
@@ -205,10 +200,15 @@ AC_DEFUN([AX_PROG_LUA],
   dnl Make LUA a precious variable.
   AC_ARG_VAR([LUA], [The Lua interpreter, e.g. /usr/bin/lua5.1])
 
+  AC_ARG_WITH([luajit],
+    AS_HELP_STRING([--with-luajit],
+      [prefer LuaJIT over PUC Lua, even if the latter is newer]))
+  AM_CONDITIONAL([LUAJIT], [test "x$with_luajit" == 'xyes'])
+
   dnl Find a Lua interpreter.
   AM_COND_IF([LUAJIT],
-        [_ax_lua_interpreter_list='luajit luajit-2.1.0-beta3 luajit-2.0.5 luajit-2.0.4 luajit-2.0.3'],
-        [_ax_lua_interpreter_list='lua lua5.4 lua54 lua5.3 lua53 lua5.2 lua52 lua5.1 lua51 lua5.0 lua50'])
+    [_ax_lua_interpreter_list='luajit luajit-2.1.0-beta3 luajit-2.0.5 luajit-2.0.4 luajit-2.0.3'],
+    [_ax_lua_interpreter_list='lua lua5.4 lua54 lua5.3 lua53 lua5.2 lua52 lua5.1 lua51 lua5.0 lua50'])
 
   m4_if([$1], [],
   [ dnl No version check is needed. Find any Lua interpreter.
