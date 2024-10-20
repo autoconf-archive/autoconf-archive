@@ -1,6 +1,6 @@
-# ============================================================================
-# https://www.gnu.org/software/autoconf-archive/ax_check_awk__ooo_escapes.html
-# ============================================================================
+# ==============================================================================
+#  https://www.gnu.org/software/autoconf-archive/ax_check_awk__ooo_escapes.html
+# ==============================================================================
 #
 # SYNOPSIS
 #
@@ -8,13 +8,13 @@
 #
 # DESCRIPTION
 #
-#   Check if AWK supports \ooo escape codes - backslash and 3 octal
-#   digits, like "\101" to mean "A". If successful execute
-#   ACTION-IF-SUCCESS otherwise ACTION-IF-FAILURE.
+#   Check if AWK supports \ooo escape codes - backslash and 3 octal digits,
+#   like "\101" to mean "A". If successful execute ACTION-IF-SUCCESS
+#   otherwise ACTION-IF-FAILURE.
 #
-#   The octal escape in AWK was introduced since V7 addenda on 1980,
-#   thus the awk on the original V7, V32 and their descendants forked
-#   before V7 addenda (e.g. 2.9BSD, 3BSD) did not support it.
+#   The octal escape in AWK was introduced since V7 addenda on 1980, thus
+#   the awk on the original V7, V32 and their descendants forked before V7
+#   addenda (e.g. 2.9BSD, 3BSD) did not support it.
 #
 # LICENSE
 #
