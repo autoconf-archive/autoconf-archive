@@ -24,34 +24,29 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 16
+#serial 18
 
 AC_DEFUN([AX_LLVM],
 [
+AC_ARG_VAR([LLVM_CONFIG], [llvm-config program])
 AC_ARG_WITH([llvm],
-	AS_HELP_STRING([--with-llvm@<:@=DIR@:>@], [use llvm (default is yes) - it is possible to specify the root directory for llvm (optional)]),
-	[
-    if test "$withval" = "no"; then
-		want_llvm="no"
-    elif test "$withval" = "yes"; then
-        want_llvm="yes"
-        ac_llvm_config_path=`which llvm-config`
-    else
-	    want_llvm="yes"
-        ac_llvm_config_path="$withval"
-	fi
-    ],
-    [want_llvm="yes"])
+	AS_HELP_STRING([--with-llvm@<:@=ARG@:>@], [use llvm (default is yes) - it is possible to specify the root directory for llvm (optional)]),
+	[],
+	[want_llvm=yes])
+
+	AS_IF([test "$withval" = "no"], [want_llvm=no],
+		[test "$withval" = "yes"], [want_llvm=yes; AC_PATH_PROG([LLVM_CONFIG], [llvm-config])],
+		[want_llvm=yes; if test -n "$withval"; then LLVM_CONFIG="$withval"; fi])
 
 	succeeded=no
-	if test -z "$ac_llvm_config_path"; then
-		ac_llvm_config_path=`which llvm-config`
-	fi
 
 	if test "x$want_llvm" = "xyes"; then
-		if test -e "$ac_llvm_config_path"; then
-			LLVM_CPPFLAGS=`$ac_llvm_config_path --cxxflags`
-			LLVM_LDFLAGS="$($ac_llvm_config_path --ldflags) $($ac_llvm_config_path --libs $1)"
+		if test -z "$LLVM_CONFIG"; then
+			AC_PATH_PROG([LLVM_CONFIG], [llvm-config])
+		fi
+		if test -e "$LLVM_CONFIG"; then
+			LLVM_CPPFLAGS=`$LLVM_CONFIG --cxxflags`
+			LLVM_LDFLAGS="$($LLVM_CONFIG --ldflags) $($LLVM_CONFIG --libs $1)"
 
 			AC_REQUIRE([AC_PROG_CXX])
 			CPPFLAGS_SAVED="$CPPFLAGS"
