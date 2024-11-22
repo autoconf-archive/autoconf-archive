@@ -4,7 +4,7 @@
 #
 # SYNOPSIS
 #
-#   AX_LUAROCKS_ROCK([ROCK])
+#   AX_LUAROCKS_ROCK([ROCKNAME], [ACTION_IF_FOUND], [ACTION_IF_NOT_FOUND])
 #
 # DESCRIPTION
 #
@@ -29,7 +29,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_LUAROCKS_ROCK],[
     # Make sure we have luarocks
@@ -42,13 +42,21 @@ AC_DEFUN([AX_LUAROCKS_ROCK],[
 
     AC_PREREQ([2.61])
 
-    pushdef([ROCK],$1)
-    AC_MSG_CHECKING(whether LuaRock ROCK is installed)
-    AS_IF(["$LUAROCKS"${LUA_VERSION+ --lua-version $LUA_VERSION} show ROCK > /dev/null],[
+    pushdef([ROCKNAME],$1)
+    pushdef([ACTION_IF_FOUND],$2)
+    pushdef([ACTION_IF_NOT_FOUND],$3)
+
+    AC_MSG_CHECKING(whether LuaRock ROCKNAME is installed)
+    AS_IF(["$LUAROCKS"${LUA_VERSION+ --lua-version $LUA_VERSION} show ROCKNAME > /dev/null 2>&1],[
         AC_MSG_RESULT(yes)
+        ACTION_IF_FOUND
     ],[
-        AC_MSG_FAILURE([LuaRock ROCK not found])
+        AC_MSG_RESULT(no)
+        m4_ifset([ACTION_IF_NOT_FOUND],[ACTION_IF_NOT_FOUND],
+            [AC_MSG_FAILURE([LuaRock ROCKNAME not found])])
     ])
 
-    popdef([ROCK])
+    popdef([ROCKNAME])
+    popdef([ACTION_IF_FOUND])
+    popdef([ACTION_IF_NOT_FOUND])
 ])
