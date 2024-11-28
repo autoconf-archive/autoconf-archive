@@ -30,10 +30,13 @@ sed -e 's/^sc_file_system:/disabled_sc_file_system:/' \
     -e 's/^sc_prohibit_always_true_header_tests:/disabled_sc_prohibit_always_true_header_tests:/' \
     -e 's/^sc_prohibit_test_minus_ao:/disabled_sc_prohibit_test_minus_ao:/' \
     -e 's/^sc_prohibit_doubled_word:/disabled_sc_prohibit_doubled_word:/' \
+    -e 's/^sc_prohibit_atoi_atof:/disabled_sc_prohibit_atoi_atof:/' \
+    -e 's/^sc_unportable_grep_q:/disabled_sc_unportable_grep_q:/' \
+    -e 's/^sc_unsigned_int:/disabled_sc_unsigned_int:/' \
   maint.mk > maint.mk.new
 mv maint.mk.new maint.mk
 
-echo > ChangeLog '# Copyright (c) 2022 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
+echo > ChangeLog '# Copyright (c) 2024 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
 echo >>ChangeLog '#'
 echo >>ChangeLog '# Copying and distribution of this file, with or without modification, are'
 echo >>ChangeLog '# permitted in any medium without royalty provided the copyright notice and'

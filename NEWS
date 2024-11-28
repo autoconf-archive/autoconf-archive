@@ -1,14 +1,16 @@
 #+TITLE: GNU Autoconf Archive NEWS             -*- mode:org;fill-column:79; -*-
 #+STARTUP: showall
 #
-# Copyright (c) 2022 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
+# Copyright (c) 2024 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
 #
 # Copying and distribution of this file, with or without modification, are
 # permitted in any medium without royalty provided the copyright notice
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
-* Noteworthy changes in release ?.? (????-??-??) [?]
+* Noteworthy changes in release 2024.10.16 (2024-10-16) [stable]
+
+  Please refer to the ChangeLog file for a list of changes.
 
 * Noteworthy changes in release 2023.02.20 (2023-02-20) [stable]
 
