@@ -39,10 +39,12 @@
 #serial 7
 
 AC_DEFUN([AX_SWITCH_FLAGS],[
+  m4_if($1, [], [m4_fatal([$0: namespace is empty])])
   AC_REQUIRE([AX_SAVE_FLAGS])
   AC_REQUIRE([AX_RESTORE_FLAGS])
   AS_IF([test "X$1" = "X"],
         [AC_MSG_ERROR([newnamespace is empty])])
+
   AX_SAVE_FLAGS($1[])
   AX_RESTORE_FLAGS($2[])
 ])dnl
