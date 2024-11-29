@@ -20,12 +20,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_HEADER_UNORDERED_SET], [AX_CXX_HEADER_UNORDERED_SET])
 AC_DEFUN([AX_CXX_HEADER_UNORDERED_SET], [
-  AC_CACHE_CHECK(for unordered_set,
-  ax_cv_cxx_unordered_set,
+  AC_CACHE_CHECK([for unordered_set],
+  [ax_cv_cxx_unordered_set],
   [AC_REQUIRE([AC_COMPILE_STDCXX_0X])
   AC_LANG_PUSH([C++])
   ac_save_CXXFLAGS="$CXXFLAGS"
@@ -37,6 +37,7 @@ AC_DEFUN([AX_CXX_HEADER_UNORDERED_SET], [
   AC_LANG_POP([C++])
   ])
   if test "$ax_cv_cxx_unordered_set" = yes; then
-    AC_DEFINE(HAVE_UNORDERED_SET,,[Define if unordered_set is present. ])
+    AC_DEFINE([HAVE_UNORDERED_SET],[1],
+              [Define to 1 if unordered_set is present.])
   fi
-])
+])dnl

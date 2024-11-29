@@ -31,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 11
 
 AU_ALIAS([AC_PROG_CXX_FOR_BUILD], [AX_PROG_CXX_FOR_BUILD])
 AC_DEFUN([AX_PROG_CXX_FOR_BUILD], [dnl
@@ -43,7 +43,7 @@ AC_REQUIRE([AC_CANONICAL_HOST])dnl
 dnl Use the standard macros, but make them use other variable names
 dnl
 pushdef([ac_cv_prog_CXXCPP], ac_cv_build_prog_CXXCPP)dnl
-pushdef([ac_cv_prog_gxx], ac_cv_build_prog_gxx)dnl
+pushdef([ac_cv_cxx_compiler_gnu], ac_cv_build_prog_gxx)dnl
 pushdef([ac_cv_prog_cxx_works], ac_cv_build_prog_cxx_works)dnl
 pushdef([ac_cv_prog_cxx_cross], ac_cv_build_prog_cxx_cross)dnl
 pushdef([ac_cv_prog_cxx_g], ac_cv_build_prog_cxx_g)dnl
@@ -100,7 +100,7 @@ popdef([CXX])dnl
 popdef([ac_cv_prog_cxx_g])dnl
 popdef([ac_cv_prog_cxx_cross])dnl
 popdef([ac_cv_prog_cxx_works])dnl
-popdef([ac_cv_prog_gxx])dnl
+popdef([ac_cv_cxx_compiler_gnu])dnl
 popdef([ac_cv_prog_CXXCPP])dnl
 
 dnl restore global variables (dependent on the current
@@ -111,4 +111,4 @@ dnl Finally, set Makefile variables
 dnl
 AC_SUBST([CXXFLAGS_FOR_BUILD])dnl
 AC_SUBST([CXXCPPFLAGS_FOR_BUILD])dnl
-])
+])dnl

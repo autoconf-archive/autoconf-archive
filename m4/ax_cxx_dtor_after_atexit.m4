@@ -39,7 +39,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 13
 
 AU_ALIAS([AC_CXX_DTOR_AFTER_ATEXIT], [AX_CXX_DTOR_AFTER_ATEXIT])
 AC_DEFUN([AX_CXX_DTOR_AFTER_ATEXIT],
@@ -49,7 +49,7 @@ AC_DEFUN([AX_CXX_DTOR_AFTER_ATEXIT],
    [AC_LANG_PUSH([C++])
     AC_RUN_IFELSE([
       AC_LANG_PROGRAM(dnl
-	[
+	[[
           #include <unistd.h>
           #include <cstdlib>
 
@@ -57,17 +57,17 @@ AC_DEFUN([AX_CXX_DTOR_AFTER_ATEXIT],
           class A { public : ~A () { dtor_called = 1; } };
           static A a;
 
-          void f() { _exit(dtor_called); }],
-	[
+          void f() { _exit(dtor_called); }]],
+	[[
 	  atexit (f);
           return 0;
-	])],
-	ax_cv_cxx_dtor_after_atexit=yes,
-	ax_cv_cxx_dtor_after_atexit=no,
-	ax_cv_cxx_dtor_after_atexit=yes)
+	]])],
+	[ax_cv_cxx_dtor_after_atexit=yes],
+	[ax_cv_cxx_dtor_after_atexit=no],
+	[ax_cv_cxx_dtor_after_atexit=yes])
     AC_LANG_POP([C++])
     ])
   AS_IF([test "X$ax_cv_cxx_dtor_after_atexit" = Xyes],
-    [AC_DEFINE(HAVE_DTOR_AFTER_ATEXIT,,
-            [define if the compiler calls global destructors after functions registered through atexit])])
-])
+    [AC_DEFINE([HAVE_DTOR_AFTER_ATEXIT],[1],
+            [Define to 1 if the compiler calls global destructors after functions registered through atexit])])
+])dnl

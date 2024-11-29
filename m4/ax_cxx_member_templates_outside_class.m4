@@ -21,12 +21,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_MEMBER_TEMPLATES_OUTSIDE_CLASS], [AX_CXX_MEMBER_TEMPLATES_OUTSIDE_CLASS])
 AC_DEFUN([AX_CXX_MEMBER_TEMPLATES_OUTSIDE_CLASS],
 [AC_CACHE_CHECK(whether the compiler supports member templates outside the class declaration,
-ax_cv_cxx_member_templates_outside_class,
+[ax_cv_cxx_member_templates_outside_class],
 [AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 template<class T, int N> class A
@@ -40,7 +40,7 @@ A<double,4> x; A<double,7> y; x = y; return 0;]])],
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_member_templates_outside_class" = yes; then
-  AC_DEFINE(HAVE_MEMBER_TEMPLATES_OUTSIDE_CLASS,,
-            [define if the compiler supports member templates outside the class declaration])
+  AC_DEFINE([HAVE_MEMBER_TEMPLATES_OUTSIDE_CLASS],[1],
+            [Define to 1 if the compiler supports member templates outside the class declaration])
 fi
-])
+])dnl

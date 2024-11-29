@@ -1,7 +1,10 @@
 #! /usr/bin/env python
 
 from contextlib import closing
-import os, sys, subprocess, re, textwrap
+import os
+import subprocess
+import re
+import textwrap
 
 def loadFile(path):
   with closing( open(path) ) as fd:
@@ -62,7 +65,7 @@ class Macro:
     (header,body) = loadFile(filePath).split("\n\n", 1)
     self.body = body.split('\n')
     # headers may not contain tab characters
-    assert not ('\t' in header)
+    assert '\t' not in header
     # drop initial header (if present)
     header = re.sub(r"^\n*# =+\n#[^\n]*\n# =+\n(#\n)+", '', header, 1)
     # split buffer into lines and drop initial "# " prefix in the process

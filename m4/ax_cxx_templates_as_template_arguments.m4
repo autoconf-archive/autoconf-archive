@@ -21,12 +21,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_TEMPLATES_AS_TEMPLATE_ARGUMENTS], [AX_CXX_TEMPLATES_AS_TEMPLATE_ARGUMENTS])
 AC_DEFUN([AX_CXX_TEMPLATES_AS_TEMPLATE_ARGUMENTS],
-[AC_CACHE_CHECK(whether the compiler supports templates as template arguments,
-ax_cv_cxx_templates_as_template_arguments,
+[AC_CACHE_CHECK([whether the compiler supports templates as template arguments],
+[ax_cv_cxx_templates_as_template_arguments],
 [AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 template<class T> class allocator { public : allocator() {}; };
@@ -37,7 +37,7 @@ class A { public : A() {} private : T_alloc<X> alloc_; };
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_templates_as_template_arguments" = yes; then
-  AC_DEFINE(HAVE_TEMPLATES_AS_TEMPLATE_ARGUMENTS,,
-            [define if the compiler supports templates as template arguments])
+  AC_DEFINE([HAVE_TEMPLATES_AS_TEMPLATE_ARGUMENTS],[1],
+            [Define to 1 if the compiler supports templates as template arguments])
 fi
-])
+])dnl

@@ -19,12 +19,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 13
 
 AU_ALIAS([AC_CXX_HEADER_STDCXX_0X], [AX_CXX_HEADER_STDCXX_0X])
 AC_DEFUN([AX_CXX_HEADER_STDCXX_0X], [
-  AC_CACHE_CHECK(for ISO C++ 0x include files,
-  ax_cv_cxx_stdcxx_0x,
+  AC_CACHE_CHECK([for ISO C++ 0x include files],
+  [ax_cv_cxx_stdcxx_0x],
   [AC_REQUIRE([AC_COMPILE_STDCXX_0X])
   AC_LANG_PUSH([C++])
   ac_save_CXXFLAGS="$CXXFLAGS"
@@ -114,6 +114,7 @@ AC_DEFUN([AX_CXX_HEADER_STDCXX_0X], [
   CXXFLAGS="$ac_save_CXXFLAGS"
   ])
   if test "$ax_cv_cxx_stdcxx_0x" = yes; then
-    AC_DEFINE(STDCXX_0X_HEADERS,,[Define if ISO C++ 0x header files are present. ])
+    AC_DEFINE([STDCXX_0X_HEADERS],[1],
+              [Define if ISO C++ 0x header files are present.])
   fi
-])
+])dnl

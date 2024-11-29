@@ -20,12 +20,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_NAMESPACE_STD], [AX_CXX_NAMESPACE_STD])
 AC_DEFUN([AX_CXX_NAMESPACE_STD], [
-  AC_CACHE_CHECK(if g++ supports namespace std,
-  ax_cv_cxx_have_std_namespace,
+  AC_CACHE_CHECK([if g++ supports namespace std],
+  [ax_cv_cxx_have_std_namespace],
   [AC_LANG_PUSH([C++])
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <iostream>
                   std::istream& is = std::cin;]], [])],
@@ -33,6 +33,7 @@ AC_DEFUN([AX_CXX_NAMESPACE_STD], [
   AC_LANG_POP([C++])
   ])
   if test "$ax_cv_cxx_have_std_namespace" = yes; then
-    AC_DEFINE(HAVE_NAMESPACE_STD,,[Define if g++ supports namespace std. ])
+    AC_DEFINE([HAVE_NAMESPACE_STD],[1],
+              [Define to 1 if g++ supports namespace std.])
   fi
-])
+])dnl

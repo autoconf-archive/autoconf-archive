@@ -15,7 +15,7 @@
 #   It is VERY IMPORTANT that you download the whole set, some macros depend
 #   on other. Unfortunately, the autoconf archive does not support the
 #   concept of set of macros, so I had to break it for submission. The
-#   general documentation, as well as the sample configure.in, is included
+#   general documentation, as well as the sample configure.ac, is included
 #   in the AX_PROG_JAVA macro.
 #
 # LICENSE
@@ -27,22 +27,22 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 11
 
 AU_ALIAS([AC_JAVA_OPTIONS], [AX_JAVA_OPTIONS])
 AC_DEFUN([AX_JAVA_OPTIONS],[
-AC_ARG_WITH(java-prefix,
+AC_ARG_WITH([java-prefix],
                         [  --with-java-prefix=PFX  prefix where Java runtime is installed (optional)])
-AC_ARG_WITH(javac-flags,
+AC_ARG_WITH([javac-flags],
                         [  --with-javac-flags=FLAGS flags to pass to the Java compiler (optional)])
-AC_ARG_WITH(java-flags,
+AC_ARG_WITH([java-flags],
                         [  --with-java-flags=FLAGS flags to pass to the Java VM (optional)])
 JAVAPREFIX=$with_java_prefix
 JAVACFLAGS=$with_javac_flags
 JAVAFLAGS=$with_java_flags
-AC_SUBST(JAVAPREFIX)dnl
-AC_SUBST(JAVACFLAGS)dnl
-AC_SUBST(JAVAFLAGS)dnl
-AC_SUBST(JAVA)dnl
-AC_SUBST(JAVAC)dnl
-])
+AC_SUBST([JAVAPREFIX])dnl
+AC_SUBST([JAVACFLAGS])dnl
+AC_SUBST([JAVAFLAGS])dnl
+AC_SUBST([JAVA])dnl
+AC_SUBST([JAVAC])dnl
+])dnl

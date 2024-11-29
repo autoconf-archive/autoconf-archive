@@ -18,14 +18,14 @@
 #     #  if MKDIR_TAKES_ONE_ARG
 #          /* MinGW32 */
 #     #    define mkdir(a, b) mkdir(a)
-#     #  endif
+#     #  endif /* MKDIR_TAKES_ONE_ARG */
 #     #else
 #     #  if HAVE__MKDIR
 #          /* plain Windows 32 */
 #     #    define mkdir(a, b) _mkdir(a)
 #     #  else
-#     #    error "Don't know how to create a directory on this system."
-#     #  endif
+#     #    error "Do NOT know how to create a directory on this system."
+#     #  endif /* HAVE__MKDIR */
 #     #endif
 #
 # LICENSE
@@ -58,8 +58,10 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 10
 
+AN_FUNCTION([mkdir],[AX_FUNC_MKDIR])
+AN_FUNCTION([_mkdir],[AX_FUNC_MKDIR])
 AU_ALIAS([AC_FUNC_MKDIR], [AX_FUNC_MKDIR])
 AC_DEFUN([AX_FUNC_MKDIR],
 [AC_CHECK_FUNCS([mkdir _mkdir])
@@ -67,26 +69,26 @@ AC_CACHE_CHECK([whether mkdir takes one argument],
                [ac_cv_mkdir_takes_one_arg],
 [AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 #include <sys/stat.h>
-#if HAVE_UNISTD_H
+#if defined(HAVE_UNISTD_H) && HAVE_UNISTD_H
 #  include <unistd.h>
-#endif
+#endif /* HAVE_UNISTD_H */
 ]], [[mkdir (".");]])],
 [ac_cv_mkdir_takes_one_arg=yes], [ac_cv_mkdir_takes_one_arg=no])])
-if test x"$ac_cv_mkdir_takes_one_arg" = xyes; then
-  AC_DEFINE([MKDIR_TAKES_ONE_ARG], 1,
-            [Define if mkdir takes only one argument.])
+if test x"${ac_cv_mkdir_takes_one_arg}" = xyes; then
+  AC_DEFINE([MKDIR_TAKES_ONE_ARG],[1],
+            [Define to 1 if mkdir takes only one argument.])
 fi
-])
+])dnl
 
 dnl Note:
 dnl =====
-dnl I have not implemented the following suggestion because I don't have
-dnl access to such a broken environment to test the macro.  So I'm just
+dnl I have not implemented the following suggestion because I do NOT have
+dnl access to such a broken environment to test the macro.  So I am just
 dnl appending the comments here in case you have, and want to fix
 dnl AX_FUNC_MKDIR that way.
 dnl
 dnl |Thomas E. Dickey (dickey@herndon4.his.com) said:
-dnl |  it doesn't cover the problem areas (compilers that mistreat mkdir
+dnl |  It does NOT cover the problem areas (compilers that mistreat mkdir
 dnl |  may prototype it in dir.h and dirent.h, for instance).
 dnl |
 dnl |Alexandre:

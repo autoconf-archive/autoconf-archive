@@ -31,7 +31,7 @@
 #   produce a piece of configure script that will take the time proportional
 #   to the logarithm of the sought value.
 #
-#   Example of use in configure.in:
+#   Example of use in configure.ac:
 #
 #     AX_C_COMPILE_VALUE(sizeof(int), sizeof_int)
 #     AX_C_COMPILE_VALUE([sizeof(int[[543]])], sizeof_int543)
@@ -72,7 +72,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 11
 
 ## Portability defines that help interoperate with classic and modern autoconfs
 ifdef([AC_TR_SH],[
@@ -96,7 +96,7 @@ AC_DEFUN([AX_C_COMPILE_VALUE], [
                  ac_c_compile_value, [
     save_CFLAGS="$CFLAGS"
     CFLAGS="$CFLAGS -c -o conftest.o"
-    AC_TRY_COMPILE([$3
+    AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[$3
       #include <stddef.h>
       #include <stdint.h>
       #include <stdlib.h>
@@ -110,12 +110,9 @@ AC_DEFUN([AX_C_COMPILE_VALUE], [
         (char) HEX_DIGIT((COMPILE_VALUE / 16) % 16),
         (char) HEX_DIGIT(COMPILE_VALUE % 16),
         'Y', '3', 'p', 'M', '\n'
-      };],
-      [],
-      [ac_c_compile_value=`
+      };]], [[]])],[ac_c_compile_value=`
         typeset -i n=\`sed -ne 's/^e4VA0x\(.*\)Y3pM$/0x\1/p' < conftest.o\`;
-        echo $n`],
-      [ac_c_compile_value=0])
+        echo $n`],[ac_c_compile_value=0])
     CFLAGS="$save_CFLAGS"])
   AC_DEFINE_UNQUOTED(AC_TR_CPP_REUSE(compile_value_$2),
                      [$[]ac_c_compile_value],

@@ -39,15 +39,15 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 9
 
 AC_DEFUN([AX_LIB_GDAL],
 [
     dnl If gdal-config path is not given in ---with-gdal option,
     dnl check if it is present in the system anyway
     AC_ARG_WITH([gdal],
-        AS_HELP_STRING([--with-gdal=@<:@ARG@:>@],
-            [Specify full path to gdal-config script]),
+        [AS_HELP_STRING([--with-gdal=@<:@ARG@:>@],
+            [Specify full path to gdal-config script])],
         [ac_gdal_config_path=$withval],
         [gdal_config_system=check])
 
@@ -55,8 +55,7 @@ AC_DEFUN([AX_LIB_GDAL],
     AS_IF([test "x$gdal_config_system" = xcheck],
           [AC_PATH_PROG([GDAL_CONFIG], [gdal-config])],
           [AC_PATH_PROG([GDAL_CONFIG], [gdal-config],
-              [no], [`dirname $ac_gdal_config_path 2> /dev/null`])]
-    )
+              [no],[`dirname $ac_gdal_config_path 2> /dev/null`])])
 
     if test ! -x "$GDAL_CONFIG"; then
         AC_MSG_ERROR([gdal-config does not exist or it is not an executable file])
@@ -145,9 +144,9 @@ AC_DEFUN([AX_LIB_GDAL],
         fi
     fi
 
-    AC_SUBST(GDAL_VERSION)
-    AC_SUBST(GDAL_CFLAGS)
-    AC_SUBST(GDAL_LDFLAGS)
-    AC_SUBST(GDAL_DEP_LDFLAGS)
-    AC_SUBST(GDAL_OGR_ENABLED)
-])
+    AC_SUBST([GDAL_VERSION])dnl
+    AC_SUBST([GDAL_CFLAGS])dnl
+    AC_SUBST([GDAL_LDFLAGS])dnl
+    AC_SUBST([GDAL_DEP_LDFLAGS])dnl
+    AC_SUBST([GDAL_OGR_ENABLED])dnl
+])dnl

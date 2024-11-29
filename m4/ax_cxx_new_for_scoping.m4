@@ -22,14 +22,14 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_NEW_FOR_SCOPING], [AX_CXX_NEW_FOR_SCOPING])
 AC_DEFUN([AX_CXX_NEW_FOR_SCOPING],
-[AC_CACHE_CHECK(whether the compiler accepts the new for scoping rules,
-ax_cv_cxx_new_for_scoping,
+[AC_CACHE_CHECK([whether the compiler accepts the new for scoping rules],
+[ax_cv_cxx_new_for_scoping],
 [AC_LANG_PUSH([C++])
- AC_COMPILE_IFELSE([AC_LANG_PROGRAM([], [[
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]], [[
   int z = 0;
   for (int i = 0; i < 10; ++i)
     z = z + i;
@@ -40,6 +40,7 @@ ax_cv_cxx_new_for_scoping,
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_new_for_scoping" = yes; then
-  AC_DEFINE(HAVE_NEW_FOR_SCOPING,,[define if the compiler accepts the new for scoping rules])
+  AC_DEFINE([HAVE_NEW_FOR_SCOPING],[1],
+            [Define to 1 if compiler accepts the new for scoping rules])
 fi
-])
+])dnl
