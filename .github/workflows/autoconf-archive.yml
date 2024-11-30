@@ -1,4 +1,3 @@
----
 name: cooljeanius/autoconf-archive
 on:
   push:
