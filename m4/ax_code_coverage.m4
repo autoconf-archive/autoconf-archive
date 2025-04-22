@@ -10,7 +10,7 @@
 #
 #   Defines CODE_COVERAGE_CPPFLAGS, CODE_COVERAGE_CFLAGS,
 #   CODE_COVERAGE_CXXFLAGS and CODE_COVERAGE_LIBS which should be included
-#   in the CPPFLAGS, CFLAGS CXXFLAGS and LIBS/LIBADD variables of every
+#   in the CPPFLAGS, CFLAGS CXXFLAGS and LIBADD/LDADD variables of every
 #   build target (program or library) which should be built with code
 #   coverage support. Also add rules using AX_ADD_AM_MACRO_STATIC; and
 #   $enable_code_coverage which can be used in subsequent configure output.
@@ -34,7 +34,7 @@
 #
 #     include $(top_srcdir)/aminclude_static.am
 #
-#     my_program_LIBS = ... $(CODE_COVERAGE_LIBS) ...
+#     my_program_LDADD = ... $(CODE_COVERAGE_LIBS) ...
 #     my_program_CPPFLAGS = ... $(CODE_COVERAGE_CPPFLAGS) ...
 #     my_program_CFLAGS = ... $(CODE_COVERAGE_CFLAGS) ...
 #     my_program_CXXFLAGS = ... $(CODE_COVERAGE_CXXFLAGS) ...
@@ -59,7 +59,8 @@
 #   Copyright (c) 2012 Christian Persch
 #   Copyright (c) 2012 Paolo Borelli
 #   Copyright (c) 2012 Dan Winship
-#   Copyright (c) 2015,2018 Bastien ROUCARIES
+#   Copyright (c) 2015, 2018 Bastien ROUCARIES
+#   Copyright (c) 2025 Reuben Thomas
 #
 #   This library is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU Lesser General Public License as published by
@@ -74,7 +75,7 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 37
+#serial 38
 
 m4_define(_AX_CODE_COVERAGE_RULES,[
 AX_ADD_AM_MACRO_STATIC([
