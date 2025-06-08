@@ -1,6 +1,6 @@
-# =====================================================================
-#         http://www.gnu.org/software/autoconf-archive/ax_cfitsio.html
-# =====================================================================
+# ===========================================================================
+#        https://www.gnu.org/software/autoconf-archive/ax_cfitsio.html
+# ===========================================================================
 #
 # SYNOPSIS
 #
@@ -8,32 +8,32 @@
 #
 # DESCRIPTION
 #
-#   This macro searches for the headers and libraries
-#   of the cfitsio library of https://heasarc.gsfc.nasa.gov/fitsio/fitsio.html 
-#   that typically have been installed
-#   with package names like cfitsio-devel or libcfitsio-dev
+#   This macro searches for the headers and libraries of the cfitsio library
+#   of https://heasarc.gsfc.nasa.gov/fitsio/fitsio.html that typically have
+#   been installed with package names like cfitsio-devel or libcfitsio-dev
 #   on Linux operating systems.
 #
-#   If compilation of the test program works, the macro 
-#   AC_SUBST's the variables CFITSIO_LDFLAGS -L flags with the library
-#   directory, CFITSIO_LIBS with the -l flag of the library
-#   and CFITSIO_CFLAGS with the -I flag of the include
-#   directory.
+#   If compilation of the test program works, the macro AC_SUBST's the
+#   variables CFITSIO_LDFLAGS -L flags with the library directory,
+#   CFITSIO_LIBS with the -l flag of the library and CFITSIO_CFLAGS with the
+#   -I flag of the include directory.
 #
-#   If the m4-variable CFITSIO_HOME is set, the name of that
-#   directory is given preference in the search order to find
-#   the (binary) library and include directory.
+#   If the m4-variable CFITSIO_HOME is set, the name of that directory is
+#   given preference in the search order to find the (binary) library and
+#   include directory.
 #
-#   If configure is called with the option --with-cfitsio=<DIR>,
-#   this directory overrides the standard search directories
-#   and <DIR>/lib and <DIR>/include are the only points where
-#   cfitsio is searched after. A further fine-tuning is separately
-#   available with the configure options --with-cfitsio-include=<DIR>
-#   and/or --with-cfitsio-libdir=<DIR> which override only the
-#   default search list of directories for the header-files or libraries.
+#   If configure is called with the option --with-cfitsio=<DIR>, this
+#   directory overrides the standard search directories and <DIR>/lib and
+#   <DIR>/include are the only points where cfitsio is searched after. A
+#   further fine-tuning is separately available with the configure options
+#   --with-cfitsio-include=<DIR> and/or --with-cfitsio-libdir=<DIR> which
+#   override only the default search list of directories for the
+#   header-files or libraries.
 #
 #   For most compilations one would run separately
+#
 #     AC_CHECK_HEADERS([fitsio.h],[],AC_MSG_WARN([Warning: Could  not find cfitsio header fitsio.h ... ])])
+#
 #   to define (or not to define) HAVE_FITSIO_H; this is not included here.
 #
 # LICENSE
@@ -45,7 +45,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 1
+#serial 5
 
 AC_DEFUN([AX_CFITSIO],
 [
