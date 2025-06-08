@@ -36,7 +36,6 @@
 #     #  else /* !defined(HAVE_READLINE_H) */
 #     extern char *readline ();
 #     #  endif /* !defined(HAVE_READLINE_H) */
-#     char *cmdline = NULL;
 #     #else /* !defined(HAVE_READLINE_READLINE_H) */
 #       /* no readline */
 #     #endif /* HAVE_LIBREADLINE */
@@ -56,7 +55,7 @@
 #
 # LICENSE
 #
-#   Copyright (c) 2024 Reuben Thomas <rrt@sc3d.org>
+#   Copyright (c) 2025 Reuben Thomas <rrt@sc3d.org>
 #   Copyright (c) 2008 Ville Laurikari <vl@iki.fi>
 #
 #   Copying and distribution of this file, with or without modification, are
@@ -64,7 +63,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([VL_LIB_READLINE], [AX_LIB_READLINE])
 AC_DEFUN([AX_LIB_READLINE], [
