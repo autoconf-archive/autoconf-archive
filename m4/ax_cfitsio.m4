@@ -67,11 +67,13 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
+#serial 1
+
 AC_DEFUN([AX_CFITSIO],
 [
    ac_with_cfitsio=no
-   # ${build_cpu} is only known if LT_INIT was used...
-   # 'uname -i' returns unknown on Fedora, even if it is x86_64
+   dnl ${build_cpu} is only known if LT_INIT was used...
+   dnl 'uname -i' returns unknown on Fedora, even if it is x86_64
    AC_CANONICAL_HOST
    if test $host_cpu = "x86_64"; then
       ac_search_lib_path="$CFITSIO_HOME/lib64 $CFITSIO_HOME/lib /usr/lib64 /usr/lib/x86_64-linux-gnu /usr/local/lib64 /opt/lib64 /opt/local/lib64 /usr/lib"
@@ -130,12 +132,12 @@ AC_DEFUN([AX_CFITSIO],
 ])
 
 
-# Subfunction which intermediatly sets the LDFLAGS and CXXFLAGS
-# to the search paths found above, tries to compile-link a trivial
-# program that uses the standard fitsio.h, and results in
-# either failure or success of the entire search. The LDFLAGS
-# and CXXFLAGS are restored to the content they had before the
-# macro call.
+dnl Subfunction which intermediatly sets the LDFLAGS and CXXFLAGS
+dnl to the search paths found above, tries to compile-link a trivial
+dnl program that uses the standard fitsio.h, and results in
+dnl either failure or success of the entire search. The LDFLAGS
+dnl and CXXFLAGS are restored to the content they had before the
+dnl macro call.
 AC_DEFUN([AX_CFITSIO_LOCAL],
 [
    AC_REQUIRE([AX_SAVE_FLAGS])
