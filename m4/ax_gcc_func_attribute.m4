@@ -32,6 +32,7 @@
 #    const
 #    constructor
 #    constructor_priority for constructor attribute with priority
+#    counted_by
 #    deprecated
 #    destructor
 #    dllexport
@@ -48,6 +49,7 @@
 #    ifunc
 #    leaf
 #    malloc
+#    ms_format
 #    noclone
 #    noinline
 #    nonnull
@@ -78,10 +80,22 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AC_DEFUN([AX_GCC_FUNC_ATTRIBUTE], [
+    AX_REQUIRE_DEFINED([AX_APPEND_COMPILE_FLAGS])
+    AC_REQUIRE([AC_PROG_GREP])
     AS_VAR_PUSHDEF([ac_var], [ax_cv_have_func_attribute_$1])
+    ax_check_save_flags=$CFLAGS
+    if test -z $ax_cv_check_cflags___Werror
+    then
+        AX_APPEND_COMPILE_FLAGS(-Werror)
+    else
+        if test $ax_cv_check_cflags___Werror = yes
+        then
+            CFLAGS="$CFLAGS -Werror"
+        fi
+    fi
 
     AC_CACHE_CHECK([for __attribute__(($1))], [ac_var], [
         AC_LINK_IFELSE([AC_LANG_PROGRAM([
@@ -114,6 +128,9 @@ AC_DEFUN([AX_GCC_FUNC_ATTRIBUTE], [
                 [constructor], [
                     int foo( void ) __attribute__(($1));
                 ],
+                [counted_by], [
+                    struct { int size; int flex[[]] __attribute__((__counted_by__(size))); } x;
+                ],
                 [deprecated], [
                     int foo( void ) __attribute__(($1("")));
                 ],
@@ -143,6 +160,9 @@ AC_DEFUN([AX_GCC_FUNC_ATTRIBUTE], [
                 ],
                 [gnu_format], [
                     int foo(const char *p, ...) __attribute__((format(gnu_printf, 1, 2)));
+                ],
+                [ms_format], [
+                    int foo(const char *p, ...) __attribute__((format(ms_printf, 1, 2)));
                 ],
                 [format_arg], [
                     char *foo(const char *p) __attribute__(($1(1)));
@@ -228,12 +248,13 @@ AC_DEFUN([AX_GCC_FUNC_ATTRIBUTE], [
             dnl GCC doesn't exit with an error if an unknown attribute is
             dnl provided but only outputs a warning, so accept the attribute
             dnl only if no warning were issued.
-            [AS_IF([grep -- -Wattributes conftest.err],
+            [AS_IF([grep -E -- '(-Wattributes|-Wignored-attributes)' conftest.err],
                 [AS_VAR_SET([ac_var], [no])],
                 [AS_VAR_SET([ac_var], [yes])])],
             [AS_VAR_SET([ac_var], [no])])
     ])
 
+    CFLAGS=$ax_check_save_flags
     AS_IF([test yes = AS_VAR_GET([ac_var])],
         [AC_DEFINE_UNQUOTED(AS_TR_CPP(HAVE_FUNC_ATTRIBUTE_$1), 1,
             [Define to 1 if the system has the `$1' function attribute])], [])
