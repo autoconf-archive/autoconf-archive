@@ -24,10 +24,10 @@
 #
 #     switch (0) case 0: case 0:;
 #
-#   Thus, the AC_COMPILE_IFELSE will fail if the currently tried size does
-#   not match.
+#   Thus, the call to AC_COMPILE_IFELSE will fail if the currently tried
+#   size does not match.
 #
-#   Here is an example skeleton configure.in script, demonstrating the
+#   Here is an example skeleton configure.ac script, demonstrating the
 #   macro's usage:
 #
 #     AC_PROG_CC
@@ -85,7 +85,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_COMPILE_CHECK_SIZEOF], [AX_COMPILE_CHECK_SIZEOF])
 AC_DEFUN([AX_COMPILE_CHECK_SIZEOF],
@@ -95,13 +95,13 @@ define(<<AC_TYPE_NAME>>, translit(sizeof_$1, [a-z *], [A-Z_P]))dnl
 dnl The cache variable name.
 define(<<AC_CV_NAME>>, translit(ac_cv_sizeof_$1, [ *], [_p]))dnl
 changequote([, ])dnl
-AC_MSG_CHECKING(size of $1)
-AC_CACHE_VAL(AC_CV_NAME,
+AC_MSG_CHECKING([size of $1])
+AC_CACHE_VAL([AC_CV_NAME],
 [for ac_size in 4 8 1 2 16 $3 ; do # List sizes in rough order of prevalence.
-  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
-#include <sys/types.h>
-$2
-]], [[switch (0) case 0: case (sizeof ($1) == $ac_size):;]])], [AC_CV_NAME=$ac_size])
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include "confdefs.h"
+#include <sys/types.h>]
+$2[
+]],[[switch (0) case 0: case (sizeof(]$1[) == ]$ac_size[):;]])],[AC_CV_NAME=$ac_size],[])
   if test x$AC_CV_NAME != x ; then break; fi
 done
 ])

@@ -72,7 +72,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 8
 
 AC_DEFUN([AX_LIB_TABIX],
 #
@@ -145,4 +145,4 @@ if test -n "${TABIX_HOME}" ; then
                 AC_MSG_ERROR([either specify a valid tabix installation with --with-tabix=DIR or disable tabix usage with --without-tabix])
         fi
 fi
-])
+])dnl

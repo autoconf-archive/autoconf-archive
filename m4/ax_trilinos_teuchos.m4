@@ -24,12 +24,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 13
 
 AC_DEFUN([AX_TRILINOS_TEUCHOS],[
     AC_REQUIRE([AX_TRILINOS_BASE])
     ax_trilinos_teuchos=yes
-    AC_HAVE_LIBRARY([teuchos],[:],[ax_trilinos_teuchos=no])
+    AC_CHECK_LIB([teuchos],[main],[:],[ax_trilinos_teuchos=no],[])ac_cv_lib_teuchos=ac_cv_lib_teuchos_main
+
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([teuchos.macros],[ax_trilinos_teuchos=no])
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([teuchos],[ax_trilinos_teuchos=no])
     if test "$ax_trilinos_teuchos" = yes; then
@@ -41,4 +42,4 @@ AC_DEFUN([AX_TRILINOS_TEUCHOS],[
         ifelse([$2],,AC_MSG_ERROR([Trilinos Teuchos not usable]),
             [$2])
     fi
-])
+])dnl

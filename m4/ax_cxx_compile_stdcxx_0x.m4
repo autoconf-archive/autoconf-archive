@@ -23,13 +23,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 16
 
 AU_ALIAS([AC_CXX_COMPILE_STDCXX_0X], [AX_CXX_COMPILE_STDCXX_0X])
 AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
   AC_OBSOLETE([$0], [; use AX_CXX_COMPILE_STDCXX_11 instead])
   AC_CACHE_CHECK(if g++ supports C++0x features without additional flags,
-  ax_cv_cxx_compile_cxx0x_native,
+  [ax_cv_cxx_compile_cxx0x_native],
   [AC_LANG_PUSH([C++])
   AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
   template <typename T>
@@ -50,8 +50,8 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
   AC_LANG_POP([C++])
   ])
 
-  AC_CACHE_CHECK(if g++ supports C++0x features with -std=c++0x,
-  ax_cv_cxx_compile_cxx0x_cxx,
+  AC_CACHE_CHECK([if g++ supports C++0x features with -std=c++0x],
+  [ax_cv_cxx_compile_cxx0x_cxx],
   [AC_LANG_PUSH([C++])
   ac_save_CXX="$CXX"
   CXX="$CXX -std=c++0x"
@@ -75,8 +75,8 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
   AC_LANG_POP([C++])
   ])
 
-  AC_CACHE_CHECK(if g++ supports C++0x features with -std=gnu++0x,
-  ax_cv_cxx_compile_cxx0x_gxx,
+  AC_CACHE_CHECK([if g++ supports C++0x features with -std=gnu++0x],
+  [ax_cv_cxx_compile_cxx0x_gxx],
   [AC_LANG_PUSH([C++])
   ac_save_CXX="$CXX"
   CXX="$CXX -std=gnu++0x"
@@ -103,6 +103,7 @@ AC_DEFUN([AX_CXX_COMPILE_STDCXX_0X], [
   if test "$ax_cv_cxx_compile_cxx0x_native" = yes ||
      test "$ax_cv_cxx_compile_cxx0x_cxx" = yes ||
      test "$ax_cv_cxx_compile_cxx0x_gxx" = yes; then
-    AC_DEFINE(HAVE_STDCXX_0X,,[Define if g++ supports C++0x features. ])
+    AC_DEFINE([HAVE_STDCXX_0X],[1],
+              [Define to 1 if g++ supports C++0x features.])
   fi
-])
+])dnl

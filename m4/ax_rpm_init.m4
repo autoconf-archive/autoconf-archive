@@ -19,7 +19,7 @@
 #
 #   Required setup:
 #
-#   In configure.in:
+#   In configure.ac:
 #
 #     dnl For my rpm.m4 macros
 #     RPM_RELEASE=1
@@ -100,7 +100,7 @@
 #
 #     %build
 #     %GNUconfigure %{configure_args}
-#     # This is why we copy the CFLAGS to the CXXFLAGS in configure.in
+#     # This is why we copy the CFLAGS to the CXXFLAGS in configure.ac
 #     # CFLAGS="%{optflags}" CXXFLAGS="%{optflags}" ./configure %{_target_platform} --prefix=%{prefix}
 #     make
 #
@@ -175,7 +175,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 10
 
 dnl AX_RPM_INIT
 dnl Figure out how to create rpms for this system and setup for an
@@ -186,13 +186,13 @@ AC_DEFUN([AX_RPM_INIT],
 [dnl
 AC_REQUIRE([AC_CANONICAL_HOST])
 dnl Find the RPM program
-AC_ARG_WITH(rpm-prog,[  --with-rpm-prog=PROG   Which rpm to use (optional)],
+AC_ARG_WITH([rpm-prog],[  --with-rpm-prog=PROG   Which rpm to use (optional)],
             rpm_prog="$withval", rpm_prog="")
 
-AC_ARG_ENABLE(rpm-rules, [  --enable-rpm-rules       Try to create rpm make rules (defaults to yes for Linux)],
+AC_ARG_ENABLE([rpm-rules], [  --enable-rpm-rules       Try to create rpm make rules (defaults to yes for Linux)],
                 enable_rpm_rules="$withval",enable_rpm_rules=no)
 
-AC_ARG_WITH(rpm-extra-args, [  --with-rpm-extra-args=ARGS       Run rpm with extra arguments (defaults to none)],
+AC_ARG_WITH([rpm-extra-args], [  --with-rpm-extra-args=ARGS       Run rpm with extra arguments (defaults to none)],
                 rpm_extra_args="$withval", rpm_extra_args="")
 
 dnl AC_ARG_ENABLE(rpm-topdir, [  --enable-rpm       Try to create rpm make rules (defaults to yes for Linux)],
@@ -253,11 +253,11 @@ echo *** indicate the path to the rpm program using  --with-rpm-prog=PROG
     *) AC_MSG_WARN([bad value ${no_rpm} for no_rpm (not making rpms)])
        make_rpms=false;;
   esac
-  AC_SUBST(RPM_DIR)
-  AC_SUBST(RPM_TARGET)
-  AC_SUBST(RPM_ARGS)
-  AC_SUBST(RPM_TARBALL)
+  AC_SUBST([RPM_DIR])dnl
+  AC_SUBST([RPM_TARGET])dnl
+  AC_SUBST([RPM_ARGS])dnl
+  AC_SUBST([RPM_TARBALL])dnl
 
   RPM_CONFIGURE_ARGS=${ac_configure_args}
-  AC_SUBST(RPM_CONFIGURE_ARGS)
-])
+  AC_SUBST([RPM_CONFIGURE_ARGS])dnl
+])dnl

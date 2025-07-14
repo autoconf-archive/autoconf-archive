@@ -72,10 +72,10 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 3
+#serial 8
 
 AC_DEFUN([AX_PROG_CXX_MPI], [
-AC_PREREQ(2.50)
+AC_PREREQ([2.50])
 
 # Check for compiler
 # Needs to be split off into an extra macro to ensure right expansion

@@ -22,7 +22,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_EXPLICIT], [AX_CXX_EXPLICIT])
 AC_DEFUN([AX_CXX_EXPLICIT],
@@ -35,6 +35,7 @@ ax_cv_cxx_explicit,
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_explicit" = yes; then
-  AC_DEFINE(HAVE_EXPLICIT,,[define if the compiler supports the explicit keyword])
+  AC_DEFINE([HAVE_EXPLICIT],[1],
+            [Define to 1 if the compiler supports the explicit keyword])
 fi
-])
+])dnl

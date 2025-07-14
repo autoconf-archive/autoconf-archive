@@ -23,12 +23,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AC_DEFUN([AX_TRILINOS_RTOP],[
     AC_REQUIRE([AX_TRILINOS_BASE])
     ax_trilinos_rtop=yes
-    AC_HAVE_LIBRARY([rtop],[:],[ax_trilinos_rtop=no])
+    AC_CHECK_LIB([rtop],[main],[:],[ax_trilinos_rtop=no],[])ac_cv_lib_rtop=ac_cv_lib_rtop_main
+
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([rtop.macros],[ax_trilinos_rtop=no])
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([rtop],[ax_trilinos_rtop=no])
     if test "$ax_trilinos_rtop" = yes; then
@@ -40,4 +41,4 @@ AC_DEFUN([AX_TRILINOS_RTOP],[
 		ifelse([$2],,AC_MSG_ERROR([Trilinos RTOp not usable.]),
             [$2])
     fi
-])
+])dnl

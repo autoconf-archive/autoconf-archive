@@ -50,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 13
+#serial 17
 
 AU_ALIAS([AC_C_VAR_FUNC], [AX_C_VAR_FUNC])
 AC_DEFUN([AX_C_VAR_FUNC],

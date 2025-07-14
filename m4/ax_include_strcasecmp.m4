@@ -13,8 +13,8 @@
 #   it in your source like so:
 #
 #     #ifdef AX_STRCASECMP_HEADER
-#     #include AX_STRCASECMP_HEADER
-#     #endif
+#     # include AX_STRCASECMP_HEADER
+#     #endif /* AX_STRCASECMP_HEADER */
 #
 # LICENSE
 #
@@ -25,7 +25,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 7
 
 AC_DEFUN([AX_INCLUDE_STRCASECMP],
 [

@@ -20,12 +20,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_PARTIAL_ORDERING], [AX_CXX_PARTIAL_ORDERING])
 AC_DEFUN([AX_CXX_PARTIAL_ORDERING],
-[AC_CACHE_CHECK(whether the compiler supports partial ordering,
-ax_cv_cxx_partial_ordering,
+[AC_CACHE_CHECK([whether the compiler supports partial ordering],
+[ax_cv_cxx_partial_ordering],
 [AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 template<int N> struct I {};
@@ -38,7 +38,7 @@ template<class T> struct A
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_partial_ordering" = yes; then
-  AC_DEFINE(HAVE_PARTIAL_ORDERING,,
-            [define if the compiler supports partial ordering])
+  AC_DEFINE([HAVE_PARTIAL_ORDERING],[1],
+            [Define to 1 if the compiler supports partial ordering])
 fi
-])
+])dnl

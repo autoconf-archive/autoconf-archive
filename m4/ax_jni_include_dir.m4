@@ -27,7 +27,7 @@
 #
 #   If you want to force a specific compiler:
 #
-#   - at the configure.in level, set JAVAC=yourcompiler before calling
+#   - at the configure.ac level, set JAVAC=yourcompiler before calling
 #   AX_JNI_INCLUDE_DIR
 #
 #   - at the configure level, setenv JAVAC
@@ -48,7 +48,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 15
+#serial 19
 
 AU_ALIAS([AC_JNI_INCLUDE_DIR], [AX_JNI_INCLUDE_DIR])
 AC_DEFUN([AX_JNI_INCLUDE_DIR],[
@@ -128,7 +128,7 @@ if test "x$ac_cv_jni_header_path" != "xnone"; then
     fi
   done
 fi
-])
+])dnl
 
 # _ACJNI_FOLLOW_SYMLINKS <path>
 # Follows symbolic links on <path>,

@@ -11,7 +11,7 @@
 #   Create the header-file and let it contain '#defines' for the target
 #   platform. This macro is used for libraries that have platform-specific
 #   quirks. Instead of inventing a target-specific target.h.in files, just
-#   let it create a header file from the definitions of AC_CANONICAL_SYSTEM
+#   let it create a header file from the definitions of AC_CANONICAL_TARGET
 #   and put only ifdef's in the installed header-files.
 #
 #    if the HEADER-FILE is absent, [target.h] is used.
@@ -87,7 +87,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 11
 
 AU_ALIAS([AC_CREATE_TARGET_H], [AX_CREATE_TARGET_H])
 AC_DEFUN([AX_CREATE_TARGET_H],
@@ -471,7 +471,7 @@ dnl too specific about the cpu-type. I chose the names along the lines
 dnl of linux/arch/ which is modelled after widespread arch-naming, IMHO.
 dnl
 AC_DEFUN([AC_CANONICAL_CPU_ARCH],
-[AC_REQUIRE([AC_CANONICAL_SYSTEM])
+[AC_REQUIRE([AC_CANONICAL_TARGET])
 target_cpu_arch="unknown"
 case $target_cpu in
  i386*|i486*|i586*|i686*|i786*) target_cpu_arch=i386 ;;

@@ -21,12 +21,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_FUNCTION_NONTYPE_PARAMETERS], [AX_CXX_FUNCTION_NONTYPE_PARAMETERS])
 AC_DEFUN([AX_CXX_FUNCTION_NONTYPE_PARAMETERS],
-[AC_CACHE_CHECK(whether the compiler supports function templates with non-type parameters,
-ax_cv_cxx_function_nontype_parameters,
+[AC_CACHE_CHECK([whether the compiler supports function templates with non-type parameters],
+[ax_cv_cxx_function_nontype_parameters],
 [AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 template<class T, int N> class A {};
@@ -36,7 +36,7 @@ template<class T, int N> int f(const A<T,N>& x) { return 0; }
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_function_nontype_parameters" = yes; then
-  AC_DEFINE(HAVE_FUNCTION_NONTYPE_PARAMETERS,,
-            [define if the compiler supports function templates with non-type parameters])
+  AC_DEFINE([HAVE_FUNCTION_NONTYPE_PARAMETERS],[1],
+            [Define to 1 if the compiler supports function templates with non-type parameters])
 fi
-])
+])dnl

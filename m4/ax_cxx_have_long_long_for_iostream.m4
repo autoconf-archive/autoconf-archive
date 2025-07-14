@@ -9,7 +9,7 @@
 # DESCRIPTION
 #
 #   Check if the compiler allow long long for [i|o]stream Seems that OpenBSD
-#   / gcc-3 don't have it.
+#   / gcc-3 do NOT have it.
 #
 #   Eg:
 #
@@ -60,12 +60,12 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 11
 
 AU_ALIAS([AC_CXX_HAVE_LONG_LONG_FOR_IOSTREAM], [AX_CXX_HAVE_LONG_LONG_FOR_IOSTREAM])
 AC_DEFUN([AX_CXX_HAVE_LONG_LONG_FOR_IOSTREAM],
-[AC_CACHE_CHECK(whether the compiler allow long long for [i|o]stream,
-ax_cv_cxx_have_ll_for_iostream,
+[AC_CACHE_CHECK([whether the compiler allows long long for iostream],
+[ax_cv_cxx_have_ll_for_iostream],
 [AC_REQUIRE([AX_CXX_NAMESPACES])
   AC_REQUIRE([AX_CXX_HAVE_SSTREAM])
   AC_LANG_PUSH([C++])
@@ -82,6 +82,7 @@ using namespace std;
   AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_ll_for_iostream" = yes; then
-   AC_DEFINE(HAVE_LONG_LONG_FOR_IOSTREAM,,[define if the compiler allow long long for [i|o]stream])
+   AC_DEFINE([HAVE_LONG_LONG_FOR_IOSTREAM],[1],
+             [Define to 1 if the compiler allow long long for iostream])
 fi
-])
+])dnl

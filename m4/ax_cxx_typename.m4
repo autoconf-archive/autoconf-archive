@@ -20,12 +20,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_TYPENAME], [AX_CXX_TYPENAME])
 AC_DEFUN([AX_CXX_TYPENAME],
-[AC_CACHE_CHECK(whether the compiler recognizes typename,
-ax_cv_cxx_typename,
+[AC_CACHE_CHECK([whether the compiler recognizes typename],
+[ax_cv_cxx_typename],
 [AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[template<typename T>class X {public:X(){}};]],
  [[X<float> z; return 0;]])],
@@ -33,6 +33,7 @@ ax_cv_cxx_typename,
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_typename" = yes; then
-  AC_DEFINE(HAVE_TYPENAME,,[define if the compiler recognizes typename])
+  AC_DEFINE([HAVE_TYPENAME],[1],
+            [Define to 1 if the compiler recognizes typename])
 fi
-])
+])dnl

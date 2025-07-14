@@ -1,23 +1,45 @@
 #! /bin/sh
 
-set -eu
+# Wait until after we finish testing a possibly empty variable to do `set -u`
+# as well:
+set -e
 
 if [ ! -d "gnulib" ] && [ $# -gt 0 ] && [ "$1" = "--copy" ]; then
   git clone --depth 1 git://git.savannah.gnu.org/gnulib.git gnulib
 fi
 
-if [ -x "gnulib/gnulib-tool" ]; then
-  gnulibtool=gnulib/gnulib-tool
-else
-  gnulibtool=gnulib-tool
+# shellcheck disable=2268
+if [ "x${gnulibtool}" = "x" ]; then
+  if [ -x "gnulib/gnulib-tool" ]; then
+    gnulibtool=gnulib/gnulib-tool
+  else
+    gnulibtool=gnulib-tool
+  fi
 fi
 
-gnulib_modules="git-version-gen gitlog-to-changelog gnupload
-                maintainer-makefile announce-gen gendocs fdl-1.3"
+# shellcheck disable=2268
+if [ "x${BE_ANNOYING}" = "xYES" ]; then
+  # OK, now we can do this:
+  set -eu
+fi
 
-$gnulibtool --m4-base build-aux --source-base build-aux --import --no-vc-files $gnulib_modules
+echo "Here is some information about your gnulib-tool:"
+${gnulibtool} --version
 
-sed -e 's/^sc_file_system:/disabled_sc_file_system:/' \
+echo ""
+echo "Re-importing gnulib stuff with gnulib-tool..."
+# Try to keep these alphabetical:
+gnulib_modules="announce-gen configmake fdl-1.3 gendocs git-version-gen \
+                gitlog-to-changelog gnu-make gnu-web-doc-update gnupload \
+                maintainer-makefile update-copyright"
+
+${gnulibtool} --m4-base build-aux --source-base build-aux --no-vc-files \
+              --import "${gnulib_modules}"
+
+echo ""
+echo "Updating maint.mk..."
+
+${SED-sed} -e 's/^sc_file_system:/disabled_sc_file_system:/' \
     -e 's/^sc_GPL_version:/disabled_sc_GPL_version:/' \
     -e 's/^sc_m4_quote_check:/disabled_sc_m4_quote_check:/' \
     -e 's/^sc_prohibit_strcmp:/disabled_sc_prohibit_strcmp:/' \
@@ -36,14 +58,36 @@ sed -e 's/^sc_file_system:/disabled_sc_file_system:/' \
   maint.mk > maint.mk.new
 mv maint.mk.new maint.mk
 
+echo "Updating ChangeLog..."
+
 echo > ChangeLog '# Copyright (c) 2024 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'
+# shellcheck disable=2129
 echo >>ChangeLog '#'
 echo >>ChangeLog '# Copying and distribution of this file, with or without modification, are'
 echo >>ChangeLog '# permitted in any medium without royalty provided the copyright notice and'
 echo >>ChangeLog '# this notice are preserved. This file is offered as-is, without any warranty.'
 echo >>ChangeLog ''
 build-aux/gitlog-to-changelog >>ChangeLog -- m4/
+
+echo "Updating AUTHORS..."
 bash gen-authors.sh >AUTHORS
 install -c -m 444 README.md README
 
-autoreconf --install -Wall
+echo ""
+echo "Your autoconf version is:"
+autoconf --version
+
+echo ""
+echo "Your automake version is:"
+automake --version
+
+echo ""
+echo "autoreconf-ing..."
+autoreconf --force --verbose --install -Wall
+
+echo ""
+echo "Done bootstrapping."
+
+# Local Variables:
+# mode: shell-script
+# End:

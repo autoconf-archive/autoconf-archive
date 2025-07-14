@@ -22,7 +22,7 @@
 #   As usual, action-if-found is executed if SWIG is found, otherwise
 #   action-if-not-found is executed.
 #
-#   In configure.in, use as:
+#   In configure.ac, use as:
 #
 #     AX_PKG_SWIG(1.3.17, [], [ AC_MSG_ERROR([SWIG is required to build..]) ])
 #     AX_SWIG_ENABLE_CXX
@@ -65,7 +65,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 15
+#serial 19
 
 AC_DEFUN([AX_PKG_SWIG],[
         # Find path to the "swig" executable.
@@ -135,5 +135,5 @@ AC_DEFUN([AX_PKG_SWIG],[
                         m4_ifval([$3],[$3],[])
                 fi
         fi
-        AC_SUBST([SWIG_LIB])
-])
+        AC_SUBST([SWIG_LIB])dnl
+])dnl

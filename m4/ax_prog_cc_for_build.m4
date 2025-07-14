@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 26
+#serial 32
 
 AU_ALIAS([AC_PROG_CC_FOR_BUILD], [AX_PROG_CC_FOR_BUILD])
 AC_DEFUN([AX_PROG_CC_FOR_BUILD], [dnl
@@ -150,7 +150,6 @@ popdef([ac_cv_prog_cc_c23])dnl
 popdef([ac_cv_prog_cc_c11])dnl
 popdef([ac_cv_prog_cc_c99])dnl
 popdef([ac_cv_prog_cc_c89])dnl
-popdef([ac_cv_prog_gcc])dnl
 popdef([ac_cv_prog_CPP])dnl
 dnl
 ac_cv_exeext=$ac_cv_host_exeext
@@ -172,4 +171,4 @@ AC_SUBST([BUILD_OBJEXT])dnl
 AC_SUBST([CFLAGS_FOR_BUILD])dnl
 AC_SUBST([CPPFLAGS_FOR_BUILD])dnl
 AC_SUBST([LDFLAGS_FOR_BUILD])dnl
-])
+])dnl

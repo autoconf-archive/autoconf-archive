@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 13
 
 AU_ALIAS([ETR_STRINGS_STRCASECMP], [AX_STRINGS_STRCASECMP])
 AC_DEFUN([AX_STRINGS_STRCASECMP],
@@ -35,7 +35,7 @@ AC_DEFUN([AX_STRINGS_STRCASECMP],
 
         if test x"$ac_cv_strings_strcasecmp" = "xyes"
         then
-                AC_DEFINE(HAVE_STRINGS_STRCASECMP, 1,
-                        [ Define if your system has strcasecmp() in strings.h ])
+                AC_DEFINE([HAVE_STRINGS_STRCASECMP],[1],
+                          [Define if your system has strcasecmp() in strings.h])
         fi
 ]) dnl AX_STRINGS_STRCASECMP

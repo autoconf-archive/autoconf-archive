@@ -17,7 +17,7 @@
 #   It is VERY IMPORTANT that you download the whole set, some macros depend
 #   on other. Unfortunately, the autoconf archive does not support the
 #   concept of set of macros, so I had to break it for submission. The
-#   general documentation, as well as the sample configure.in, is included
+#   general documentation, as well as the sample configure.ac, is included
 #   in the AX_PROG_JAVA macro.
 #
 # LICENSE
@@ -29,7 +29,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 14
 
 AU_ALIAS([AC_TRY_COMPILE_JAVA], [AX_TRY_COMPILE_JAVA])
 AC_DEFUN([AX_TRY_COMPILE_JAVA],[
@@ -43,7 +43,7 @@ public class Test {
 EOF
 if AC_TRY_COMMAND($JAVAC $JAVACFLAGS Test.java) && test -s Test.class
 then
-dnl Don't remove the temporary files here, so they can be examined.
+dnl Do NOT remove the temporary files here, so they can be examined.
   ifelse([$3], , :, [$3])
 else
   echo "configure: failed program was:" >&AS_MESSAGE_LOG_FD
@@ -52,4 +52,5 @@ ifelse([$4], , , [  rm -f Test.java Test.class
   $4
 ])dnl
 fi
-rm -f Test.java Test.class])
+rm -fr Test.java Test.class
+])dnl

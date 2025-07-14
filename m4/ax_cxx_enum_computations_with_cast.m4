@@ -21,12 +21,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_ENUM_COMPUTATIONS_WITH_CAST], [AX_CXX_ENUM_COMPUTATIONS_WITH_CAST])
 AC_DEFUN([AX_CXX_ENUM_COMPUTATIONS_WITH_CAST],
 [AC_CACHE_CHECK([whether the compiler handles (int) casts in enum computations],
-ax_cv_cxx_enum_computations_with_cast,
+[ax_cv_cxx_enum_computations_with_cast],
 [AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 struct A { enum { a = 5, b = 7, c = 2 }; };
@@ -44,7 +44,7 @@ return (((int)Z<A,B>::a == 5)
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_enum_computations_with_cast" = yes; then
-  AC_DEFINE(HAVE_ENUM_COMPUTATIONS_WITH_CAST,,
-            [define if the compiler handles (int) casts in enum computations])
+  AC_DEFINE([HAVE_ENUM_COMPUTATIONS_WITH_CAST],[1],
+            [Define to 1 if the compiler handles (int) casts in enum computations])
 fi
-])
+])dnl

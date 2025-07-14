@@ -14,9 +14,12 @@
 # You should have received a copy of the GNU General Public License along with
 # this program. If not, see <https://www.gnu.org/licenses/>.
 
-SUBDIRS                 = doc
+## gnulib-tool says to mention this:
+ACLOCAL_AMFLAGS   = -I build-aux
+ 
+SUBDIRS           = doc build-aux test
 
-dist_doc_DATA           = AUTHORS COPYING COPYING.EXCEPTION README
+dist_doc_DATA           = AUTHORS COPYING COPYING.EXCEPTION README.md
 aclocaldir              = $(datadir)/aclocal
 dist_aclocal_DATA       = $(M4FILES)
 EXTRA_DIST              = build-aux/git-version-gen build-aux/gitlog-to-changelog
@@ -25,8 +28,17 @@ clean-local:
 	@rm -rf $(srcdir)/stage $(srcdir)/macro.pyc __pycache__
 	@rm -f $(DIST_ARCHIVES)
 
+DISTCLEANFILES = build-aux/*~ configure~ maint.mk~
+MAINTAINERCLEANFILES = *~ ./.*~ doc/*~ m4/*~
+
+distclean-local:
+	@rm -rf autom4te.cache || rmdir autom4te.cache
+	@rm -rf $(srcdir)/build-aux/.deps || rmdir build-aux/.deps
+	@rm -f autoconf-archive-20*.*.*-dirty.tar.*z
+
+## duplicates in here should be harmless, but weed them out anyways:
 maintainer-clean-local:
-	@rm -rf $(srcdir)/build-aux
+	@rm -rf $(srcdir)/build-aux || rmdir build-aux
 	@rm -f configure Makefile.in aclocal.m4 AUTHORS ChangeLog
 	@rm -f INSTALL config.log config.status configure maint.mk
 	@rm -f autoconf-archive-*.*.*.tar.* GNUmakefile README

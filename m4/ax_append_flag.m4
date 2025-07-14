@@ -28,11 +28,11 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 14
 
 AC_DEFUN([AX_APPEND_FLAG],
 [dnl
-AC_PREREQ(2.64)dnl for _AC_LANG_PREFIX and AS_VAR_SET_IF
+AC_PREREQ([2.64])dnl for _AC_LANG_PREFIX and AS_VAR_SET_IF
 AS_VAR_PUSHDEF([FLAGS], [m4_default($2,_AC_LANG_PREFIX[FLAGS])])
 AS_VAR_SET_IF(FLAGS,[
   AS_CASE([" AS_VAR_GET(FLAGS) "],
