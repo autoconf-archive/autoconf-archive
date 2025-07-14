@@ -9,9 +9,9 @@
 # DESCRIPTION
 #
 #   Defines CODE_COVERAGE_CPPFLAGS, CODE_COVERAGE_CFLAGS,
-#   CODE_COVERAGE_CXXFLAGS and CODE_COVERAGE_LIBS which should be included
-#   in the CPPFLAGS, CFLAGS CXXFLAGS and LIBS/LIBADD variables of every
-#   build target (program or library) which should be built with code
+#   CODE_COVERAGE_CXXFLAGS and CODE_COVERAGE_LDFLAGS which should be
+#   included in the CPPFLAGS, CFLAGS CXXFLAGS and LIBADD/LDADD variables of
+#   every build target (program or library) which should be built with code
 #   coverage support. Also add rules using AX_ADD_AM_MACRO_STATIC; and
 #   $enable_code_coverage which can be used in subsequent configure output.
 #   CODE_COVERAGE_ENABLED is defined and substituted, and corresponds to the
@@ -34,7 +34,7 @@
 #
 #     include $(top_srcdir)/aminclude_static.am
 #
-#     my_program_LIBS = ... $(CODE_COVERAGE_LIBS) ...
+#     my_program_LDADD = ... $(CODE_COVERAGE_LDFLAGS) ...
 #     my_program_CPPFLAGS = ... $(CODE_COVERAGE_CPPFLAGS) ...
 #     my_program_CFLAGS = ... $(CODE_COVERAGE_CFLAGS) ...
 #     my_program_CXXFLAGS = ... $(CODE_COVERAGE_CXXFLAGS) ...
@@ -59,7 +59,8 @@
 #   Copyright (c) 2012 Christian Persch
 #   Copyright (c) 2012 Paolo Borelli
 #   Copyright (c) 2012 Dan Winship
-#   Copyright (c) 2015,2018 Bastien ROUCARIES
+#   Copyright (c) 2015, 2018 Bastien ROUCARIES
+#   Copyright (c) 2025 Reuben Thomas
 #
 #   This library is free software; you can redistribute it and/or modify it
 #   under the terms of the GNU Lesser General Public License as published by
@@ -74,7 +75,7 @@
 #   You should have received a copy of the GNU Lesser General Public License
 #   along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 37
+#serial 39
 
 m4_define(_AX_CODE_COVERAGE_RULES,[
 AX_ADD_AM_MACRO_STATIC([
@@ -232,17 +233,19 @@ AC_DEFUN([_AX_CODE_COVERAGE_ENABLED],[
 		AC_MSG_ERROR([Could not find genhtml from the lcov package])
 	])
 
-	AC_CHECK_LIB([gcov], [_gcov_init], [CODE_COVERAGE_LIBS="-lgcov"], [CODE_COVERAGE_LIBS=""])
-
 	dnl Build the code coverage flags
-	dnl Define CODE_COVERAGE_LDFLAGS for backwards compatibility
 	CODE_COVERAGE_CPPFLAGS="-DNDEBUG"
-	CODE_COVERAGE_CFLAGS="-O0 -g -fprofile-arcs -ftest-coverage"
-	CODE_COVERAGE_CXXFLAGS="-O0 -g -fprofile-arcs -ftest-coverage"
+	CODE_COVERAGE_CFLAGS="-O0 -g --coverage"
+	CODE_COVERAGE_CXXFLAGS="-O0 -g --coverage"
+        CODE_COVERAGE_LDFLAGS="--coverage"
 
 	AC_SUBST([CODE_COVERAGE_CPPFLAGS])
 	AC_SUBST([CODE_COVERAGE_CFLAGS])
 	AC_SUBST([CODE_COVERAGE_CXXFLAGS])
+	AC_SUBST([CODE_COVERAGE_LDFLAGS])
+
+        # For backwards compatibility with earlier versions of this macro
+        CODE_COVERAGE_LIBS="$CODE_COVERAGE_LDFLAGS"
 	AC_SUBST([CODE_COVERAGE_LIBS])
 ])
 
