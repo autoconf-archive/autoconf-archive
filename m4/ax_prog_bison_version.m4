@@ -10,7 +10,6 @@
 #
 #   Makes sure that bison version is greater or equal to the version
 #   indicated. If true the shell commands in ACTION-IF-TRUE are executed. If
-#   not the shell commands in commands in ACTION-IF-TRUE are executed. If
 #   not the shell commands in ACTION-IF-FALSE are run. Note if $BISON is not
 #   set (for example by running AC_CHECK_PROG or AC_PATH_PROG) the macro
 #   will fail.
@@ -34,7 +33,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_PROG_BISON_VERSION],[
     AC_REQUIRE([AC_PROG_SED])
