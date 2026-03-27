@@ -14,6 +14,7 @@
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
+#   Copyright (c) 2026 Darren Salt <devspam@moreofthesa.me.uk>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
@@ -34,4 +35,17 @@ AC_CACHE_CHECK(
    AC_DEFINE([GCC_MALLOC_CALL],[__attribute__((__malloc__))],
     [most gcc compilers know a function __attribute__((__malloc__))])
  fi
+AC_CACHE_CHECK(
+ [whether the compiler supports function __attribute__((__malloc__(func, index)))],
+ ax_cv_gcc_malloc_call_free,[
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[void g(int i) {};
+ __attribute__((__malloc__(g, 1)))
+ int f(int i) { return i; }]],
+ [])],
+ [ax_cv_gcc_malloc_call_free=yes], [ax_cv_gcc_malloc_call_free=no])])
+ if test "$ax_cv_gcc_malloc_call_free" = yes; then
+   AC_DEFINE([GCC_MALLOC_CALL_FREE],[__attribute__((__malloc__(func, index)))],
+    [most gcc compilers know a function __attribute__((__malloc__(func, index)))])
+ fi
+])
 ])
