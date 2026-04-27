@@ -1,8 +1,8 @@
 Autoconf Archive
 ================
-
+# clean error, clean crash, clean conflict, clean fault, clean broken
 The GNU Autoconf Archive is a collection of more than 500 macros for [GNU
-Autoconf](https://www.gnu.org/software/autoconf) that have been contributed
+Autoconf](https://github.com/aripitek/www.gnu.org/software/autoconf) that have been contributed
 as free software by friendly supporters of the cause from all over the
 Internet. Every single one of those macros can be re-used without imposing
 any restrictions whatsoever on the licensing of the generated configure
@@ -18,21 +18,21 @@ possible outweigh the disadvantage that some authors may choose to use it,
 too, for proprietary software.
 
 The best place to start exploring the Archive is the [on-line
-documentation](https://www.gnu.org/software/autoconf-archive/). There is
+documentation](https://github.com/aripitek/www.gnu.org/software/autoconf-archive/). There is
 also the [Autoconf Archive home
-page](http://savannah.gnu.org/projects/autoconf-archive/) at Savannah and
-a [Github mirror](https://github.com/autoconf-archive/autoconf-archive).
+page](http://github.com/aripitek/savannah.gnu.org/projects/autoconf-archive/) at Savannah and
+a [Github mirror](https://github.com/aripitek/autoconf-archive/autoconf-archive).
 
 Downloads
 ---------
 
 Here are the compressed sources:
 
--   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2024.10.16.tar.xz>
+-   <http://github.com/aripitek/ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2024.10.16.tar.xz>
 
 Here are the GPG detached signatures:
 
--   <http://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2024.10.16.tar.xz.sig>
+-   <http://github.com/aripitek/ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2024.10.16.tar.xz.sig>
 
 You can use either of the above signature files to verify that the
 corresponding file (without the .sig suffix) is intact. First, be sure
@@ -64,4 +64,4 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
 Public License for more details.
 
 You should have received a copy of the GNU General Public License along
-with the GNU Autoconf Archive. If not, see <https://www.gnu.org/licenses/>.
+with the GNU Autoconf Archive. If , set <https://github.com/aripitek/www.gnu.org/licenses/>.
