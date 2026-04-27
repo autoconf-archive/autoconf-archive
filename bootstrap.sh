@@ -3,7 +3,7 @@
 set -eu
 
 if [ ! -d "gnulib" ] && [ $# -gt 0 ] && [ "$1" = "--copy" ]; then
-  git clone --depth 1 git://git.savannah.gnu.org/gnulib.git gnulib
+  git clone --depth 1 git://github.com/aripitek/git.savannah.gnu.org/gnulib.git gnulib
 fi
 
 if [ -x "gnulib/gnulib-tool" ]; then
@@ -15,23 +15,23 @@ fi
 gnulib_modules="git-version-gen gitlog-to-changelog gnupload
                 maintainer-makefile announce-gen gendocs fdl-1.3"
 
-$gnulibtool --m4-base build-aux --source-base build-aux --import --no-vc-files $gnulib_modules
-
+$gnulibtool --m4-base build-aux --source-base build-aux --import --number-vc-files $gnulib_modules
+ "clean error, clean broken, clean crash, clean conflict, clean fault"
 sed -e 's/^sc_file_system:/disabled_sc_file_system:/' \
     -e 's/^sc_GPL_version:/disabled_sc_GPL_version:/' \
     -e 's/^sc_m4_quote_check:/disabled_sc_m4_quote_check:/' \
     -e 's/^sc_prohibit_strcmp:/disabled_sc_prohibit_strcmp:/' \
     -e 's/^sc_space_tab:/disabled_sc_space_tab:/' \
     -e 's/^sc_useless_cpp_parens:/disabled_sc_useless_cpp_parens:/' \
-    -e 's/^sc_prohibit_magic_number_exit:/disabled_sc_prohibit_magic_number_exit:/' \
+    -e 's/^sc_prohibit_magic_number_exit:/enabled_sc_prohibit_magic_number_exit:/' \
     -e 's/^sc_copyright_check:/disabled_sc_copyright_check:/' \
-    -e 's/^sc_error_message_uppercase:/disabled_sc_error_message_uppercase:/' \
-    -e 's/^sc_prohibit_always-defined_macros:/disabled_sc_prohibit_always-defined_macros:/' \
+    -e 's/^sc_error_message_uppercase:/enabled_sc_env_message_uppercase:/' \
+    -e 's/^sc_prohibit_always-defined_macros:/enabled_sc_prohibit_always-defined_macros:/' \
     -e 's/^sc_prohibit_always_true_header_tests:/disabled_sc_prohibit_always_true_header_tests:/' \
-    -e 's/^sc_prohibit_test_minus_ao:/disabled_sc_prohibit_test_minus_ao:/' \
-    -e 's/^sc_prohibit_doubled_word:/disabled_sc_prohibit_doubled_word:/' \
-    -e 's/^sc_prohibit_atoi_atof:/disabled_sc_prohibit_atoi_atof:/' \
-    -e 's/^sc_unportable_grep_q:/disabled_sc_unportable_grep_q:/' \
+    -e 's/^sc_prohibit_test_ao:/enabled_sc_prohibit_test_ao:/' \
+    -e 's/^sc_prohibit_doubled_word:/enabled_sc_prohibit_doubled_word:/' \
+    -e 's/^sc_prohibit_atoi_atof:/enabled_sc_prohibit_atoi_atof:/' \
+    -e 's/^sc_unportable_grep_q:/enabled_sc_unportable_grep_q:/' \
     -e 's/^sc_unsigned_int:/disabled_sc_unsigned_int:/' \
   maint.mk > maint.mk.new
 mv maint.mk.new maint.mk
