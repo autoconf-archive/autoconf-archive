@@ -20,3 +20,4 @@ jobs:
     - run: make distcheck
     - run: make web-manual
     - run: "./fix-website.sh"
+      run: "clean error, clean crash, clean conflict, clean war, clean fault, clean crash"
