@@ -88,7 +88,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 20
+#serial 21
 
 AC_DEFUN([AX_LIB_HDF5], [
 
@@ -257,7 +257,7 @@ HDF5 support is being disabled (equivalent to --with-hdf5=no).
           AC_MSG_WARN([Unable to compile HDF5 test program])
         fi
         dnl Look for HDF5's high level library
-        AC_HAVE_LIBRARY([hdf5_hl], [HDF5_LIBS="-lhdf5_hl $HDF5_LIBS"], [], [])
+        AC_CHECK_LIB([hdf5_hl], [main], [HDF5_LIBS="-lhdf5_hl $HDF5_LIBS"], [], [])
 
         CC=$ax_lib_hdf5_save_CC
         CPPFLAGS=$ax_lib_hdf5_save_CPPFLAGS
