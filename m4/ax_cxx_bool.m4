@@ -23,23 +23,21 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 13
 
 AU_ALIAS([AC_CXX_BOOL], [AX_CXX_BOOL])
 AC_DEFUN([AX_CXX_BOOL],
-[dnl
- AC_CACHE_CHECK(whether the compiler recognizes bool as a built-in type,
-   ax_cv_cxx_bool,
-   [dnl
-     AC_LANG_PUSH([C++])
-     AC_COMPILE_IFELSE([dnl
-       AC_LANG_PROGRAM([int f(int  x){return 1;}
-                        int f(char x){return 1;}
-                        int f(bool x){return 1;}],
-                       [bool b = true; return f(b);])],
-       ax_cv_cxx_bool=yes, ax_cv_cxx_bool=no)
-     AC_LANG_POP([C++])
-  ])
-  AS_IF([test "X$ax_cv_cxx_bool" = Xyes],
-        [AC_DEFINE(HAVE_BOOL,,[define if bool is a built-in type])])
+[AC_CACHE_CHECK([whether the compiler recognizes bool as a built-in type],
+[ax_cv_cxx_bool],
+[AC_LANG_PUSH([C++])
+ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
+int f(int  x){return 1;}
+int f(char x){return 1;}
+int f(bool x){return 1;}
+]], [[bool b = true; return f(b);]])],[ax_cv_cxx_bool=yes],[ax_cv_cxx_bool=no])
+ AC_LANG_POP([C++])
+])
+if test "x${ax_cv_cxx_bool}" = "xyes"; then
+  AC_DEFINE([HAVE_BOOL],[1],[Define to 1 if bool is a built-in type])
+fi
 ])

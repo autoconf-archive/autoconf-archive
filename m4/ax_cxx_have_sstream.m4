@@ -19,12 +19,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_HAVE_SSTREAM], [AX_CXX_HAVE_SSTREAM])
 AC_DEFUN([AX_CXX_HAVE_SSTREAM],
-[AC_CACHE_CHECK(whether the compiler has stringstream,
-ax_cv_cxx_have_sstream,
+[AC_CACHE_CHECK([whether the compiler has stringstream],
+[ax_cv_cxx_have_sstream],
 [AC_REQUIRE([AX_CXX_NAMESPACES])
  AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <sstream>
@@ -35,6 +35,7 @@ using namespace std;
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_sstream" = yes; then
-  AC_DEFINE(HAVE_SSTREAM,,[define if the compiler has stringstream])
+  AC_DEFINE([HAVE_SSTREAM],[1],
+            [Define to 1 if the compiler has stringstream])
 fi
-])
+])dnl

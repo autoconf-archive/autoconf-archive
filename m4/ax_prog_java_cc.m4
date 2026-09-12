@@ -26,11 +26,13 @@
 #
 #    - no other compiler has applicable options yet
 #
-#   Here's an example configure.in:
+#   Here's an example configure.ac:
 #
-#     AC_INIT(Makefile.in)
+#     AC_INIT
+#     AC_CONFIG_SRCDIR([Makefile.in])
 #     AX_PROG_JAVA_CC()
-#     AC_OUTPUT(Makefile)
+#     AC_CONFIG_FILES([Makefile])
+#     AC_OUTPUT
 #     dnl End.
 #
 #   And here's the start of the Makefile.in:
@@ -71,7 +73,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 10
 
 # AX_PROG_JAVA_CC([COMPILER ...])
 # --------------------------

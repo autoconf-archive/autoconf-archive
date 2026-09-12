@@ -20,17 +20,18 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
+AN_FUNCTION([sysinfo],[AX_CHECK_POSIX_SYSINFO])
 AU_ALIAS([AG_CHECK_POSIX_SYSINFO], [AX_CHECK_POSIX_SYSINFO])
 AC_DEFUN([AX_CHECK_POSIX_SYSINFO],[
   AC_MSG_CHECKING([whether sysinfo(2) is POSIX])
   AC_CACHE_VAL([ax_cv_posix_sysinfo],[
   AC_RUN_IFELSE([AC_LANG_SOURCE([[#include <sys/systeminfo.h>
-int main(void) { char z[ 256 ];
-long sz = sysinfo( SI_SYSNAME, z, sizeof( z ));
-return (sz > 0) ? 0 : 1; }]])],[ax_cv_posix_sysinfo=yes],[ax_cv_posix_sysinfo=no],[ax_cv_posix_sysinfo=no]
-  ) # end of TRY_RUN]) # end of CACHE_VAL
+int main(void) { char z[256];
+long sz = sysinfo(SI_SYSNAME, z, sizeof(z));
+return (sz > 0) ? 0 : 1; }]])],[ax_cv_posix_sysinfo=yes],[ax_cv_posix_sysinfo=no],[ax_cv_posix_sysinfo=no
+  ]) # end of RUN_IFELSE]) # end of CACHE_VAL
 
   AC_MSG_RESULT([$ax_cv_posix_sysinfo])
   if test x$ax_cv_posix_sysinfo = xyes

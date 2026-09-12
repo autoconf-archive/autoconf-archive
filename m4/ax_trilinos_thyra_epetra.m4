@@ -21,14 +21,15 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AC_DEFUN([AX_TRILINOS_THYRA_EPETRA],[
     AC_REQUIRE([AX_TRILINOS_BASE])
     AC_REQUIRE([AX_TRILINOS_EPETRA])
     AC_REQUIRE([AX_TRILINOS_THYRA])
     ax_trilinos_thyra_epetra=yes
-    AC_HAVE_LIBRARY([thyraepetra],[:],[ax_trilinos_thyra_epetra=no])
+    AC_CHECK_LIB([thyraepetra],[main],[:],[ax_trilinos_thyra_epetra=no],[])ac_cv_lib_thyraepetra=ac_cv_lib_thyraepetra_main
+
     if test "$ax_trilinos_thyra_epetra" = yes; then
         : # NOP
 		ifelse([$1],,,
@@ -38,4 +39,4 @@ AC_DEFUN([AX_TRILINOS_THYRA_EPETRA],[
 		ifelse([$2],,AC_MSG_ERROR([Trilinos Thyra/Epetra support not usable.]),
             [$2])
     fi
-])
+])dnl

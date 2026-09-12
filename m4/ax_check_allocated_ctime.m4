@@ -19,8 +19,9 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
+AN_FUNCTION([ctime],[AX_CHECK_ALLOCATED_CTIME])
 AU_ALIAS([AG_CHECK_ALLOCATED_CTIME], [AX_CHECK_ALLOCATED_CTIME])
 AC_DEFUN([AX_CHECK_ALLOCATED_CTIME],[
   AC_MSG_CHECKING([whether ctime() allocates memory for its result])
@@ -36,7 +37,7 @@ int main (int argc, char** argv) {
   AC_MSG_RESULT([$ax_cv_allocated_ctime])
   if test x$ax_cv_allocated_ctime = xyes
   then
-    AC_DEFINE(HAVE_ALLOCATED_CTIME, 1,
+    AC_DEFINE([HAVE_ALLOCATED_CTIME],[1],
        [Define this if ctime() allocates memory for its result])
   fi
 ]) # end of AC_DEFUN of AX_CHECK_ALLOCATED_CTIME

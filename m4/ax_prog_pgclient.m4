@@ -13,9 +13,11 @@
 #   added to the configure script for setting an search path instead of
 #   $PATH ($pgclient_dir). If pgclient is necessary for installing your
 #   program, you can do something like the following to stop configure with
-#   an error if pgclient wasn't found:
+#   an error if pgclient was NOT found:
 #
-#     if test "x$pgclient" = "x0"; then AC_MSG_ERROR([We need that to setup the database!]); fi
+#     if test "x${pgclient}" = "x0"; then
+#     dnl AC_MSG_ERROR([We need that to setup the database!]);
+#     fi
 #
 #   pgclient can be found at http://pgclient.freesources.org
 #
@@ -49,7 +51,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 9
 
 AU_ALIAS([MS_PROG_PGCLIENT], [AX_PROG_PGCLIENT])
 AC_DEFUN([AX_PROG_PGCLIENT], [

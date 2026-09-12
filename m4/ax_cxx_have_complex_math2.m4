@@ -21,12 +21,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_HAVE_COMPLEX_MATH2], [AX_CXX_HAVE_COMPLEX_MATH2])
 AC_DEFUN([AX_CXX_HAVE_COMPLEX_MATH2],
-[AC_CACHE_CHECK(whether the compiler has more complex math functions,
-ax_cv_cxx_have_complex_math2,
+[AC_CACHE_CHECK([whether the compiler has more complex math functions],
+[ax_cv_cxx_have_complex_math2],
 [AC_REQUIRE([AX_CXX_NAMESPACES])
  AC_LANG_PUSH([C++])
  ac_save_LIBS="$LIBS"
@@ -42,6 +42,7 @@ atan2(double(3.0), x); log10(x); return 0;]])],
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_have_complex_math2" = yes; then
-  AC_DEFINE(HAVE_COMPLEX_MATH2,,[define if the compiler has more complex math functions])
+  AC_DEFINE([HAVE_COMPLEX_MATH2],[1],
+            [Define to 1 if the compiler has more complex math functions])
 fi
 ])

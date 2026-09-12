@@ -23,12 +23,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AC_DEFUN([AX_TRILINOS_EPETRAEXT],[
     AC_REQUIRE([AX_TRILINOS_BASE])
     ax_trilinos_epetraext=yes
-    AC_HAVE_LIBRARY([epetraext],[:],[ax_trilinos_epetraext=no])
+    AC_CHECK_LIB([epetraext],[main],[:],[ax_trilinos_epetraext=no],[])ac_cv_lib_epetraext=ac_cv_lib_epetraext_main
+
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([epetraext.macros],[ax_trilinos_epetraext=no])
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([epetraext],[ax_trilinos_epetraext=no])
     if test "$ax_trilinos_epetraext" = yes; then
@@ -40,4 +41,4 @@ AC_DEFUN([AX_TRILINOS_EPETRAEXT],[
 		ifelse([$2],,AC_MSG_ERROR([Trilinos EpetraExt not usable.]),
             [$2])
     fi
-])
+])dnl

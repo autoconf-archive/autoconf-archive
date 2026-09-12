@@ -20,7 +20,7 @@
 #   the mico package is this version number or higher.
 #
 #   The other optional argument to AX_PKG_MICO are 'optional' and
-#   'required'. by default, placing AX_PKG_MICO in your configure.in does
+#   'required'. by default, placing AX_PKG_MICO in your configure.ac does
 #   not enforce using mico, if it is not found on the system. If MICO
 #   existence is critical for the building of your package, then you
 #   probably want to specify something like "AX_PKG_MICO(2.2.6 required)".
@@ -49,13 +49,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 16
 
 AU_ALIAS([AC_PKG_MICO], [AX_PKG_MICO])
 AC_DEFUN([AX_PKG_MICO],
 [
 #
-# first parse the argument given in configure.in to AX_PKG_MICO
+# first parse the argument given in configure.ac to AX_PKG_MICO
 #
 MICO_REQUEST_VERSION=
 MICO_URGENCY="optional"
@@ -100,7 +100,7 @@ AC_MSG_RESULT($MICO_URGENCY)
 
 #
 # Now we know if we want mico or not, only go further if
-# it's wanted.
+# it is wanted.
 #
 if test x$MICO_URGENCY = xrequired -o  x$MICO_URGENCY = xoptional; then
     #
@@ -216,4 +216,4 @@ if test x$MICO_URGENCY = xrequired -o  x$MICO_URGENCY = xoptional; then
         AC_SUBST(MICO_USE_MINISTL)
     fi
 fi
-])
+])dnl

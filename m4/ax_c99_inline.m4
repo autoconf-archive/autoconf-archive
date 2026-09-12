@@ -21,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 12
 
 AC_DEFUN([AX_C99_INLINE], [
 	AC_MSG_CHECKING([whether the compiler supports C99 inline functions])
@@ -61,4 +61,4 @@ AC_DEFUN([AX_C99_INLINE], [
 		)
 
 	AC_LANG_POP([C])
-	]);
+	])dnl

@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_TEMPLATES], [AX_CXX_TEMPLATES])
 AC_DEFUN([AX_CXX_TEMPLATES],
@@ -39,5 +39,6 @@ AC_DEFUN([AX_CXX_TEMPLATES],
      AC_LANG_POP([C++])
   ])
   AS_IF([test "X$ax_cv_cxx_templates" = "Xyes"],
-        [AC_DEFINE(HAVE_TEMPLATES,,[define if the compiler supports basic templates])])
-])
+        [AC_DEFINE([HAVE_TEMPLATES],[1],
+                   [Define to 1 if the compiler supports basic templates])])
+])dnl

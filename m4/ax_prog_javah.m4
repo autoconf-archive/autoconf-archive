@@ -21,13 +21,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 15
 
 AU_ALIAS([AC_PROG_JAVAH], [AX_PROG_JAVAH])
 AC_DEFUN([AX_PROG_JAVAH],[
 AC_REQUIRE([AC_CANONICAL_BUILD])dnl
 AC_REQUIRE([AC_PROG_CPP])dnl
-AC_PATH_PROG(JAVAH,javah)
+AC_PATH_PROG([JAVAH],[javah])
 AS_IF([test -n "$ac_cv_path_JAVAH"],
       [
         AC_PREPROC_IFELSE([AC_LANG_SOURCE([[#include <jni.h>]])],[],[
@@ -44,8 +44,8 @@ AS_IF([test -n "$ac_cv_path_JAVAH"],
                           [ac_save_CPPFLAGS="$CPPFLAGS"],
                           [AC_MSG_WARN([unable to include <jni.h>])])
         CPPFLAGS="$ac_save_CPPFLAGS"])
-      ])
-])
+      ])dnl
+])dnl
 
 AC_DEFUN([_ACJAVAH_FOLLOW_SYMLINKS],[
 # find the include directory relative to the javac executable

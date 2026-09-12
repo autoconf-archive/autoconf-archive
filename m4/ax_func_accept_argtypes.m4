@@ -52,7 +52,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 15
 
 AU_ALIAS([AC_FUNC_ACCEPT_ARGTYPES], [AX_FUNC_ACCEPT_ARGTYPES])
 AC_DEFUN([AX_FUNC_ACCEPT_ARGTYPES],
@@ -63,15 +63,15 @@ AC_DEFUN([AX_FUNC_ACCEPT_ARGTYPES],
    [for ac_cv_func_accept_arg1 in 'int' 'unsigned int'; do
      for ac_cv_func_accept_arg2 in 'struct sockaddr *' 'void *'; do
       for ac_cv_func_accept_arg3 in 'socklen_t *' 'size_t *' 'unsigned int *' 'int *'; do
-       AC_TRY_COMPILE(dnl
-[#ifdef HAVE_SYS_TYPES_H
-#include <sys/types.h>
-#endif
+       AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[dnl
+#ifdef HAVE_SYS_TYPES_H
+# include <sys/types.h>
+#endif /* HAVE_SYS_TYPES_H */
 #ifdef HAVE_SYS_SOCKET_H
-#include <sys/socket.h>
-#endif
-extern accept ($ac_cv_func_accept_arg1, $ac_cv_func_accept_arg2, $ac_cv_func_accept_arg3);],,dnl
-        [ac_not_found=no ; break 3], ac_not_found=yes)
+# include <sys/socket.h>
+#endif /* HAVE_SYS_SOCKET_H */
+extern accept ($ac_cv_func_accept_arg1, $ac_cv_func_accept_arg2, $ac_cv_func_accept_arg3);]], [[]])],[dnl
+        ac_not_found=no ; break 3],[ac_not_found=yes])
       done
      done
     done
@@ -87,4 +87,4 @@ extern accept ($ac_cv_func_accept_arg1, $ac_cv_func_accept_arg2, $ac_cv_func_acc
  AC_DEFINE_UNQUOTED(ACCEPT_TYPE_ARG1,$ac_cv_func_accept_arg1)
  AC_DEFINE_UNQUOTED(ACCEPT_TYPE_ARG2,$ac_cv_func_accept_arg2)
  AC_DEFINE_UNQUOTED(ACCEPT_TYPE_ARG3,$ac_cv_func_accept_arg3)
-])
+])dnl

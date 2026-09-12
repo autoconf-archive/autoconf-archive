@@ -20,12 +20,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_MEMBER_TEMPLATES], [AX_CXX_MEMBER_TEMPLATES])
 AC_DEFUN([AX_CXX_MEMBER_TEMPLATES],
-[AC_CACHE_CHECK(whether the compiler supports member templates,
-ax_cv_cxx_member_templates,
+[AC_CACHE_CHECK([whether the compiler supports member templates],
+[ax_cv_cxx_member_templates],
 [AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 template<class T, int N> class A
@@ -36,6 +36,7 @@ template<class T, int N> class A
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_member_templates" = yes; then
-  AC_DEFINE(HAVE_MEMBER_TEMPLATES,,[define if the compiler supports member templates])
+  AC_DEFINE([HAVE_MEMBER_TEMPLATES],[1],
+            [Define to 1 if the compiler supports member templates])
 fi
-])
+])dnl

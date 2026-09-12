@@ -23,11 +23,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 14
 
 AC_DEFUN([AX_CXX_GCC_ABI_DEMANGLE],
 [AC_CACHE_CHECK(whether the compiler supports GCC C++ ABI name demangling,
-ax_cv_cxx_gcc_abi_demangle,
+[ax_cv_cxx_gcc_abi_demangle],
 [AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <typeinfo>
 #include <cxxabi.h>
@@ -50,7 +50,7 @@ return name == "A<int>";
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_gcc_abi_demangle" = yes; then
-  AC_DEFINE(HAVE_GCC_ABI_DEMANGLE,1,
-            [define if the compiler supports GCC C++ ABI name demangling])
+  AC_DEFINE([HAVE_GCC_ABI_DEMANGLE],[1],
+            [Define to 1 if compiler supports GCC C++ ABI name demangling])
 fi
-])
+])dnl

@@ -19,12 +19,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_HEADER_PRE_STDCXX], [AX_CXX_HEADER_PRE_STDCXX])
 AC_DEFUN([AX_CXX_HEADER_PRE_STDCXX], [
-  AC_CACHE_CHECK(for pre-ISO C++ include files,
-  ax_cv_cxx_pre_stdcxx,
+  AC_CACHE_CHECK([for pre-ISO C++ include files],
+  [ax_cv_cxx_pre_stdcxx],
   [AC_LANG_PUSH([C++])
   ac_save_CXXFLAGS="$CXXFLAGS"
   CXXFLAGS="$CXXFLAGS -Wno-deprecated"
@@ -70,6 +70,7 @@ AC_DEFUN([AX_CXX_HEADER_PRE_STDCXX], [
   AC_LANG_POP([C++])
   ])
   if test "$ax_cv_cxx_pre_stdcxx" = yes; then
-    AC_DEFINE(PRE_STDCXX_HEADERS,,[Define if pre-ISO C++ header files are present. ])
+    AC_DEFINE([PRE_STDCXX_HEADERS],[1],
+              [Define to 1 if pre-ISO C++ header files are present.])
   fi
-])
+])dnl

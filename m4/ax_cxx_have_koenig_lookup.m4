@@ -20,13 +20,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 13
 
 AU_ALIAS([MNI_CXX_HAVE_KOENIG_LOOKUP], [AX_CXX_HAVE_KOENIG_LOOKUP])
 AC_DEFUN([AX_CXX_HAVE_KOENIG_LOOKUP],
-    [AC_CACHE_CHECK(whether the compiler implements Koenig lookup,
-                    ax_cv_cxx_have_koenig_lookup,
-                    [AC_LANG_PUSH(C++)
+    [AC_CACHE_CHECK([whether the compiler implements Koenig lookup],
+                    [ax_cv_cxx_have_koenig_lookup],
+                    [AC_LANG_PUSH([C++])
                      AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
     namespace N1 {
         class C {};
@@ -45,7 +45,7 @@ AC_DEFUN([AX_CXX_HAVE_KOENIG_LOOKUP],
                     [ax_cv_cxx_have_koenig_lookup=no])
                      AC_LANG_POP])
     if test "$ax_cv_cxx_have_koenig_lookup" = yes; then
-        AC_DEFINE(CXX_HAVE_KOENIG_LOOKUP,1,
+        AC_DEFINE([CXX_HAVE_KOENIG_LOOKUP],[1],
                   [define to 1 if the compiler implements Koenig lookup])
     fi
 ])

@@ -88,13 +88,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 20
+#serial 24
 
-AC_DEFUN([AX_LIB_HDF5], [
-
-AC_REQUIRE([AC_PROG_SED])
-AC_REQUIRE([AC_PROG_AWK])
-AC_REQUIRE([AC_PROG_GREP])
+AC_DEFUN([AX_LIB_HDF5],[
+AC_REQUIRE([AC_PROG_SED])dnl
+AC_REQUIRE([AC_PROG_AWK])dnl
+AC_REQUIRE([AC_PROG_GREP])dnl
 
 dnl Check first argument is one of the recognized values.
 dnl Fail eagerly if is incorrect as this simplifies case statements below.
@@ -128,8 +127,7 @@ AC_ARG_WITH([hdf5],
      with_hdf5="yes"
      H5CC="$withval"
    fi],
-   [with_hdf5="yes"]
-)
+   [with_hdf5="yes"])
 
 dnl Set defaults to blank
 HDF5_CC=""
@@ -307,17 +305,17 @@ HDF5 support is being disabled (equivalent to --with-hdf5=no).
             with_hdf5_fortran="no"
         fi
 
-	AC_SUBST([HDF5_VERSION])
-	AC_SUBST([HDF5_CC])
-	AC_SUBST([HDF5_CFLAGS])
-	AC_SUBST([HDF5_CPPFLAGS])
-	AC_SUBST([HDF5_LDFLAGS])
-	AC_SUBST([HDF5_LIBS])
-	AC_SUBST([HDF5_FC])
-	AC_SUBST([HDF5_FFLAGS])
-	AC_SUBST([HDF5_FLIBS])
-	AC_SUBST([HDF5_TYPE])
+	AC_SUBST([HDF5_VERSION])dnl
+	AC_SUBST([HDF5_CC])dnl
+	AC_SUBST([HDF5_CFLAGS])dnl
+	AC_SUBST([HDF5_CPPFLAGS])dnl
+	AC_SUBST([HDF5_LDFLAGS])dnl
+	AC_SUBST([HDF5_LIBS])dnl
+	AC_SUBST([HDF5_FC])dnl
+	AC_SUBST([HDF5_FFLAGS])dnl
+	AC_SUBST([HDF5_FLIBS])dnl
+	AC_SUBST([HDF5_TYPE])dnl
 	AC_DEFINE([HAVE_HDF5], [1], [Defined if you have HDF5 support])
     fi
 fi
-])
+])dnl

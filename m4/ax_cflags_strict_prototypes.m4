@@ -37,7 +37,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 18
+#serial 22
 
 AC_DEFUN([AX_FLAGS_STRICT_PROTOTYPES],[dnl
 AS_VAR_PUSHDEF([FLAGS],[_AC_LANG_PREFIX[]FLAGS])dnl
@@ -67,8 +67,7 @@ case ".$VAR" in
     [dnl the original did use test -n `$CC testprogram.c`
     if test `diff config.log config.tmp | grep -i warning | wc -l` != 0
 then if test `diff config.log config.tmp | grep -i warning | wc -l` != 1
-then VAR="no, suppressed, signal.h," ; fi ; fi],
-    [VAR="no, suppressed, signal.h"])
+then VAR="no, suppressed, signal.h," ; fi ; fi],[VAR="no, suppressed, signal.h"])
     rm config.tmp
   ;;
 esac

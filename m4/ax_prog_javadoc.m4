@@ -14,7 +14,7 @@
 #
 #   If you want to force a specific compiler:
 #
-#   - at the configure.in level, set JAVADOC=yourgenerator before calling
+#   - at the configure.ac level, set JAVADOC=yourgenerator before calling
 #   AX_PROG_JAVADOC
 #
 #   - at the configure level, setenv JAVADOC
@@ -27,7 +27,7 @@
 #   concept of set of macros, so I had to break it for submission.
 #
 #   The general documentation of those macros, as well as the sample
-#   configure.in, is included in the AX_PROG_JAVA macro.
+#   configure.ac, is included in the AX_PROG_JAVA macro.
 #
 # LICENSE
 #
@@ -38,7 +38,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 13
 
 AU_ALIAS([AC_PROG_JAVADOC], [AX_PROG_JAVADOC])
 AC_DEFUN([AX_PROG_JAVADOC],[
@@ -47,4 +47,4 @@ AS_IF([test "x$JAVAPREFIX" = x],
       [test "x$JAVADOC" = x && AC_CHECK_PROGS([JAVADOC], [javadoc], [], [$JAVAPREFIX/bin])])
 test "x$JAVADOC" = x && AC_MSG_ERROR([no acceptable javadoc generator found in \$PATH])
 AC_PROVIDE([$0])dnl
-])
+])dnl

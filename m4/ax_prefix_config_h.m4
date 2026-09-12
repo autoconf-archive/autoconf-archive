@@ -27,14 +27,21 @@
 #
 #   Example:
 #
-#     AC_INIT(config.h.in)        # config.h.in as created by "autoheader"
-#     AM_INIT_AUTOMAKE(testpkg, 0.1.1)    # makes #undef VERSION and PACKAGE
-#     AM_CONFIG_HEADER(config.h)          # prep config.h from config.h.in
-#     AX_PREFIX_CONFIG_H(mylib/_config.h) # prep mylib/_config.h from it..
-#     AC_MEMORY_H                         # makes "#undef NEED_MEMORY_H"
+#     AC_INIT([testpkg],[0.1.1])    # makes #undef VERSION and PACKAGE
+#     AC_CONFIG_SRCDIR([config.h.in]) # config.h.in, created by autoheader
+#     AM_INIT_AUTOMAKE([foreign])
+#     AC_CONFIG_HEADERS([config.h])        # prep config.h from config.h.in
+#     AX_PREFIX_CONFIG_H([mylib/_config.h])# prep mylib/_config.h from it..
+#     dnl# this used to be an obsolete macro, but autoupdate got rid of it:
+#     AC_CHECK_HEADER([memory.h],
+#                     [AC_DEFINE([NEED_MEMORY_H],[1],
+#                        [Same as `HAVE_MEMORY_H', do NOT depend on me])
+#                     ]) # makes "#undef NEED_MEMORY_H"
+#     AC_CHECK_HEADERS([string.h memory.h])
 #     AC_C_CONST_H                        # makes "#undef const"
-#     AC_OUTPUT(Makefile)                 # creates the "config.h" now
-#                                         # and also mylib/_config.h
+#     AC_CONFIG_FILES([Makefile])
+#     AC_OUTPUT                 # creates the "config.h" now
+#                               # and also mylib/_config.h
 #
 #   If the argument to AX_PREFIX_CONFIG_H would have been omitted then the
 #   default output file would have been called simply "testpkg-config.h",
@@ -52,9 +59,9 @@
 #     #endif
 #
 #   and this "mylib/_config.h" can be installed along with other header
-#   files, which is most convenient when creating a shared library (that has
-#   some headers) whose functionality depends on features detected at
-#   compile-time. No need to invent some "mylib-confdefs.h.in" manually.
+#   files, which is convenient when creating a library (with some headers)
+#   whose functionality depends on some features detected at compile-time.
+#   No need to invent some "mylib-confdefs.h.in" manually.
 #
 #   Note that some AC_DEFINEs that end up in the config.h file are actually
 #   self-referential - e.g. AC_C_INLINE, AC_C_CONST, and the AC_TYPE_OFF_T
@@ -114,7 +121,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 16
+#serial 21
 
 AC_DEFUN([AX_PREFIX_CONFIG_H],[dnl
 AC_PREREQ([2.62])

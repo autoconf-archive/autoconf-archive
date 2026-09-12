@@ -26,7 +26,7 @@
 #
 #     AX_PERL_EXT
 #     if test x"$PERL" = x; then
-#        AC_ERROR(["cannot find Perl"])
+#        AC_MSG_ERROR("cannot find Perl")
 #     fi
 #
 # LICENSE
@@ -57,10 +57,9 @@
 #   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 #   THE POSSIBILITY OF SUCH DAMAGE.
 
-#serial 3
+#serial 7
 
 AC_DEFUN([AX_PERL_EXT],[
-
         #
         # Check if perl executable exists.
         #
@@ -142,4 +141,4 @@ AC_DEFUN([AX_PERL_EXT],[
                 AC_MSG_RESULT([$PERL_EXT_DLEXT])
                 AC_SUBST(PERL_EXT_DLEXT)
         fi
-])
+])dnl

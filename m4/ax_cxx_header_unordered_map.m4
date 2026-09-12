@@ -20,7 +20,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_HEADER_UNORDERED_MAP], [AX_CXX_HEADER_UNORDERED_MAP])
 AC_DEFUN([AX_CXX_HEADER_UNORDERED_MAP], [
@@ -37,6 +37,7 @@ AC_DEFUN([AX_CXX_HEADER_UNORDERED_MAP], [
   AC_LANG_POP([C++])
   ])
   if test "$ax_cv_cxx_unordered_map" = yes; then
-    AC_DEFINE(HAVE_UNORDERED_MAP,,[Define if unordered_map is present. ])
+    AC_DEFINE([HAVE_UNORDERED_MAP],[1],
+              [Define to 1 if unordered_map is present.])
   fi
-])
+])dnl

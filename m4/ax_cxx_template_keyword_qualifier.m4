@@ -22,12 +22,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AU_ALIAS([AC_CXX_TEMPLATE_KEYWORD_QUALIFIER], [AX_CXX_TEMPLATE_KEYWORD_QUALIFIER])
 AC_DEFUN([AX_CXX_TEMPLATE_KEYWORD_QUALIFIER],
 [AC_CACHE_CHECK(whether the compiler supports use of the template keyword as a qualifier,
-ax_cv_cxx_template_keyword_qualifier,
+[ax_cv_cxx_template_keyword_qualifier],
 [AC_LANG_PUSH([C++])
  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
   class X
@@ -46,7 +46,7 @@ ax_cv_cxx_template_keyword_qualifier,
  AC_LANG_POP([C++])
 ])
 if test "$ax_cv_cxx_template_keyword_qualifier" = yes; then
-  AC_DEFINE(HAVE_TEMPLATE_KEYWORD_QUALIFIER,,
-            [define if the compiler supports use of the template keyword as a qualifier])
+  AC_DEFINE([HAVE_TEMPLATE_KEYWORD_QUALIFIER],[1],
+            [Define to 1 if the compiler supports use of the template keyword as a qualifier])
 fi
-])
+])dnl

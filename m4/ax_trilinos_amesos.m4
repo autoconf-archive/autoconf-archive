@@ -23,12 +23,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 13
 
 AC_DEFUN([AX_TRILINOS_AMESOS],[
     AC_REQUIRE([AX_TRILINOS_BASE])
     ax_trilinos_amesos=yes
-    AC_HAVE_LIBRARY([amesos],[:],[ax_trilinos_amesos=no])
+    AC_CHECK_LIB([amesos],[main],[:],[ax_trilinos_amesos=no],[])ac_cv_lib_amesos=ac_cv_lib_amesos_main
+
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([amesos.macros],[ax_trilinos_amesos=no])
     AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT([amesos],[ax_trilinos_amesos=no])
     if test "$ax_trilinos_amesos" = yes; then
@@ -40,4 +41,4 @@ AC_DEFUN([AX_TRILINOS_AMESOS],[
 		ifelse([$2],,AC_MSG_ERROR([Trilinos Amesos not found.]),
             [$2])
     fi
-])
+])dnl

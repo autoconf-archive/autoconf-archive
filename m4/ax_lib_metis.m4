@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 15
 
 AU_ALIAS([IMMDX_LIB_METIS], [AX_LIB_METIS])
 AC_DEFUN([AX_LIB_METIS], [
@@ -55,8 +55,7 @@ AC_DEFUN([AX_LIB_METIS], [
 			else
 				AC_MSG_RESULT(no)
 			fi
-		],
-		[
+		],[
 			if test -n "$METIS" ; then
 				with_metis=$METIS
 				AC_MSG_RESULT(yes)
