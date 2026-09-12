@@ -21,6 +21,7 @@
 #
 # LICENSE
 #
+#   Copyright (c) 2024 Caleb Maclennan <caleb@alerque.com>
 #   Copyright (c) 2016 Reuben Thomas <rrt@sc3d.org>
 #
 #   Copying and distribution of this file, with or without modification, are
@@ -28,7 +29,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_LUAROCKS_ROCK],[
     # Make sure we have luarocks
@@ -43,7 +44,7 @@ AC_DEFUN([AX_LUAROCKS_ROCK],[
 
     pushdef([ROCK],$1)
     AC_MSG_CHECKING(whether LuaRock ROCK is installed)
-    AS_IF(["$LUAROCKS" show ROCK > /dev/null],[
+    AS_IF(["$LUAROCKS"${LUA_VERSION+ --lua-version $LUA_VERSION} show ROCK > /dev/null],[
         AC_MSG_RESULT(yes)
     ],[
         AC_MSG_FAILURE([LuaRock ROCK not found])
