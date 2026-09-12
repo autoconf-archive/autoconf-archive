@@ -1,5 +1,5 @@
 The macros distributed by the Archive are maintained in a public Git repository
-at @indicateurl{git://git.sv.gnu.org/autoconf-archive.git}. That repository can
+at @indicateurl{https://git.savannah.gnu.org/git/autoconf-archive.git}. That repository can
 be cloned anonymously, which is probably the most convenient way to access the
 Archive. Gitweb offers an
 @uref{http://git.savannah.gnu.org/gitweb/?p=autoconf-archive.git;a=rss,RSS
