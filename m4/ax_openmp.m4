@@ -67,7 +67,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 14
+#serial 15
 
 AC_DEFUN([AX_OPENMP], [
 AC_PREREQ([2.69]) dnl for _AC_LANG_PREFIX
@@ -119,5 +119,53 @@ else
     OPENMP_[]_AC_LANG_PREFIX[]FLAGS=$ax_cv_[]_AC_LANG_ABBREV[]_openmp
   fi
   m4_default([$1], [AC_DEFINE(HAVE_OPENMP,1,[Define if OpenMP is enabled])])
+fi
+
+AC_MSG_CHECKING([whether -fopenmp with -nostdlib links OpenMP runtime automatically])
+
+AC_LANG_PUSH([C])
+ax_save_CFLAGS="$CFLAGS"
+ax_save_LIBS="$LIBS"
+CFLAGS="$CFLAGS $OPENMP_CFLAGS"
+LIBS="-nostdlib $LIBS"
+AC_LINK_IFELSE([AC_LANG_SOURCE([[
+@%:@include <omp.h>
+
+void _start(void)
+{
+    int tid = omp_get_thread_num();
+    (void)tid;
+}
+]])],[omp_nostdlib_links_auto=yes],
+[omp_nostdlib_links_auto=no])
+LIBS="$ax_save_LIBS"
+CFLAGS="$ax_save_CFLAGS"
+AC_LANG_POP
+
+AC_MSG_RESULT([$omp_nostdlib_links_auto])
+
+AC_CACHE_CHECK([for compiler vendor], ac_cv_compiler_vendor, [
+  ac_cv_compiler_vendor=no
+  if $CC --version 2>&1 | grep -q clang; then
+    ac_cv_compiler_vendor=clang
+  elif $CC --version 2>&1 | grep -q gcc; then
+    ac_cv_compiler_vendor=gcc
+  else
+    ac_cv_compiler_vendor=neither-clang-nor-gcc
+  fi
+])
+AC_MSG_NOTICE([compiler vendor detected: $ac_cv_compiler_vendor])
+
+if test "$ac_cv_compiler_vendor" = "clang" && test "$omp_nostdlib_links_auto" = "no"; then
+  AC_MSG_NOTICE([clang requires manual -lomp linking with -nostdlib])
+  if test -z "$OPENMP_LIBS"; then
+    OPENMP_LIBS="-lomp"
+  else
+    OPENMP_LIBS="$OPENMP_LIBS -lomp"
+  fi
+else
+  if test -z "$OPENMP_LIBS"; then
+    OPENMP_LIBS=""
+  fi
 fi
 ])dnl AX_OPENMP
