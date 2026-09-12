@@ -24,7 +24,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_AM_MACROS],
 [
@@ -32,10 +32,8 @@ AC_MSG_NOTICE([adding automake macro support])
 AMINCLUDE="aminclude.am"
 AC_SUBST(AMINCLUDE)
 AC_MSG_NOTICE([creating $AMINCLUDE])
-AMINCLUDE_TIME=`LC_ALL=C date`
 AX_PRINT_TO_FILE([$AMINCLUDE],[[
 # generated automatically by configure from AX_AUTOMAKE_MACROS
-# on $AMINCLUDE_TIME
 
 ]])
 
