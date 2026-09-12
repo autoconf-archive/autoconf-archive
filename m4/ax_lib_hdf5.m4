@@ -237,7 +237,18 @@ HDF5 support is being disabled (equivalent to --with-hdf5=no).
           esac
         done
 
-        HDF5_LIBS="-lhdf5 $HDF5_LIBS"
+        # HDF5 Debian packages have HDF5_INFIX set
+        HDF5_INFIX=
+        for lib in $HDF5_LIBS; do
+          case "$lib" in
+            -lhdf5_*)
+                HDF5_INFIX="${lib#-lhdf5_}"
+                HDF5_INFIX="_${HDF5_INFIX%%_*}"
+                break
+                ;;
+          esac
+        done
+        HDF5_LIBS="-lhdf5$HDF5_INFIX $HDF5_LIBS"
         AC_MSG_RESULT([yes (version $[HDF5_VERSION])])
 
         dnl See if we can compile
@@ -251,13 +262,13 @@ HDF5 support is being disabled (equivalent to --with-hdf5=no).
         LIBS=$HDF5_LIBS
         LDFLAGS=$HDF5_LDFLAGS
         AC_CHECK_HEADER([hdf5.h], [ac_cv_hadf5_h=yes], [ac_cv_hadf5_h=no])
-        AC_CHECK_LIB([hdf5], [H5Fcreate], [ac_cv_libhdf5=yes],
+        AC_CHECK_LIB([hdf5$HDF5_INFIX], [H5Fcreate], [ac_cv_libhdf5=yes],
                      [ac_cv_libhdf5=no])
         if test "$ac_cv_hadf5_h" = "no" && test "$ac_cv_libhdf5" = "no" ; then
           AC_MSG_WARN([Unable to compile HDF5 test program])
         fi
         dnl Look for HDF5's high level library
-        AC_HAVE_LIBRARY([hdf5_hl], [HDF5_LIBS="-lhdf5_hl $HDF5_LIBS"], [], [])
+        AC_HAVE_LIBRARY([hdf5${HDF5_INFIX}_hl], [HDF5_LIBS="-lhdf5${HDF5_INFIX}_hl $HDF5_LIBS"], [], [])
 
         CC=$ax_lib_hdf5_save_CC
         CPPFLAGS=$ax_lib_hdf5_save_CPPFLAGS
@@ -294,9 +305,9 @@ HDF5 support is being disabled (equivalent to --with-hdf5=no).
             for arg in $HDF5_LIBS
             do
               case "$arg" in #(
-                -lhdf5_hl) HDF5_FLIBS="$HDF5_FLIBS -lhdf5hl_fortran $arg"
+                -lhdf5${HDF5_INFIX}_hl) HDF5_FLIBS="$HDF5_FLIBS -lhdf5${HDF5_INFIX}_hl_fortran $arg"
                   ;; #(
-                -lhdf5)    HDF5_FLIBS="$HDF5_FLIBS -lhdf5_fortran $arg"
+                -lhdf5$HDF5_INFIX)    HDF5_FLIBS="$HDF5_FLIBS -lhdf5${HDF5_INFIX}_fortran $arg"
                   ;; #(
                 *) HDF5_FLIBS="$HDF5_FLIBS $arg"
                   ;;
