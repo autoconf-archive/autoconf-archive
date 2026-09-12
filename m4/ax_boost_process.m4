@@ -31,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_BOOST_PROCESS],
 [
@@ -71,7 +71,7 @@ AC_DEFUN([AX_BOOST_PROCESS],
 			 CXXFLAGS=
 
              AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[@%:@include <boost/process.hpp>]],
-                [[boost::process::child* child = new boost::process::child; delete child;]])],
+                [[boost::asio::io_context ctx; boost::process::v2::process* proc = new boost::process::v2::process(ctx); delete proc;]])],
                 ax_cv_boost_process=yes, ax_cv_boost_process=no)
 			 CXXFLAGS=$CXXFLAGS_SAVE
              AC_LANG_POP([C++])
