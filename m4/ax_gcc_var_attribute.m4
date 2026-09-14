@@ -29,6 +29,7 @@
 #    nocommon
 #    deprecated
 #    mode
+#    nonstring
 #    packed
 #    tls_model
 #    unused
@@ -52,7 +53,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_GCC_VAR_ATTRIBUTE], [
     AS_VAR_PUSHDEF([ac_var], [ax_cv_have_var_attribute_$1])
@@ -77,6 +78,9 @@ AC_DEFUN([AX_GCC_VAR_ATTRIBUTE], [
                 ],
                 [mode], [
                     long foo __attribute__(($1(word)));
+                ],
+                [nonstring], [
+                    char foo[[8]] __attribute__(($1));
                 ],
                 [packed], [
                     struct bar {
