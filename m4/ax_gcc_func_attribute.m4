@@ -83,7 +83,14 @@
 AC_DEFUN([AX_GCC_FUNC_ATTRIBUTE], [
     AS_VAR_PUSHDEF([ac_var], [ax_cv_have_func_attribute_$1])
 
-    AC_CACHE_CHECK([for __attribute__(($1))], [ac_var], [
+    ax_gcc_func_attribute_display_name="$1"
+    case "$1" in
+    malloc_args)
+        ax_gcc_func_attribute_display_name='malloc(func,index)'
+        ;;
+    esac
+
+    AC_CACHE_CHECK([for __attribute__$ax_gcc_func_attribute_display_name], [ac_var], [
         AC_LINK_IFELSE([AC_LANG_PROGRAM([
             m4_case([$1],
                 [alias], [
@@ -163,6 +170,10 @@ AC_DEFUN([AX_GCC_FUNC_ATTRIBUTE], [
                 ],
                 [malloc], [
                     void *foo( void ) __attribute__(($1));
+                ],
+                [malloc_args], [
+                    void bar(void *p);
+                    void *foo( void ) __attribute__((malloc(bar, 1)));
                 ],
                 [noclone], [
                     int foo( void ) __attribute__(($1));
