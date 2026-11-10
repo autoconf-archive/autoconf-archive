@@ -53,7 +53,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 23
+#serial 24
 
 AC_DEFUN([AX_BOOST_PYTHON],
 [AC_REQUIRE([AX_PYTHON_DEVEL])dnl
@@ -93,7 +93,7 @@ BOOST_PYTHON_MODULE(test) { throw "Boost::Python test."; }]], [])],
 ])
 if test "$ac_cv_boost_python" = "yes"; then
   AC_DEFINE(HAVE_BOOST_PYTHON,,[define if the Boost::Python library is available])
-  ax_python_lib=boost_python
+  ax_python_lib=boost_python`echo "$PYTHON_VERSION" | tr -d .`
   AC_ARG_WITH([boost-python],AS_HELP_STRING([--with-boost-python],[specify yes/no or the boost python library or suffix to use]),
   [if test "x$with_boost_python" != "xno" -a "x$with_boost_python" != "xyes"; then
      ax_python_lib=$with_boost_python
