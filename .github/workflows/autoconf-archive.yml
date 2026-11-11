@@ -1,4 +1,4 @@
-name: cooljeanius/autoconf-archive
+name: CI
 on:
   push:
     branches:
@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3.5.0
+        uses: actions/checkout@v7
         with:
-          fetch-depth: 50000
+          fetch-depth: 0
       - run: sudo apt-get update
       - run: sudo apt-get -y install gnulib python3 texlive texinfo tidy
       - run: "./bootstrap.sh"
