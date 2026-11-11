@@ -31,15 +31,64 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
+
+AC_DEFUN([_AX_BOOST_PROCESS_CHECK_V1],
+[
+	AS_ECHO(["Checking Boost.Process API v1"]) >&AS_MESSAGE_LOG_FD
+	AC_COMPILE_IFELSE(
+		[AC_LANG_PROGRAM(
+			[[
+				@%:@include <boost/version.hpp>
+				@%:@if BOOST_VERSION < 108800
+					@%:@include <boost/process.hpp>
+					namespace bp = boost::process;
+				@%:@else
+					@%:@include <boost/process/v1.hpp>
+					namespace bp = boost::process::v1;
+				@%:@endif
+			]],
+			[[
+				bp::child* child = new bp::child;
+				delete child;
+			]]
+		)],
+		[ax_cv_boost_process=yes],
+		[ax_cv_boost_process=no]
+	)
+])
+
+AC_DEFUN([_AX_BOOST_PROCESS_CHECK_V2],
+[
+	AS_ECHO(["Checking Boost.Process API v2"]) >&AS_MESSAGE_LOG_FD
+	AC_COMPILE_IFELSE(
+		[AC_LANG_PROGRAM(
+			[[
+				@%:@include <boost/asio/io_context.hpp>
+				@%:@include <boost/process/v2/process.hpp>
+
+				namespace bp = boost::process::v2;
+			]],
+			[[
+				boost::asio::io_context ctx;
+				bp::process* proc = new bp::process(ctx);
+				delete proc;
+			]]
+		)],
+		[ax_cv_boost_process=yes],
+		[ax_cv_boost_process=no]
+	)
+])
 
 AC_DEFUN([AX_BOOST_PROCESS],
 [
-	AC_ARG_WITH([boost-process],
+	AC_ARG_WITH(
+		[boost-process],
 		AS_HELP_STRING(
 			[--with-boost-process@<:@=special-lib@:>@],
 			[use the Process library from boost - it is possible to specify a certain library for the linker
-				e.g. --with-boost-process=boost_process-gcc-mt ]),
+				e.g. --with-boost-process=boost_process-gcc-mt ]
+		),
 		[
 		if test "$withval" = "no"; then
 			want_boost_process="no"
@@ -53,6 +102,55 @@ AC_DEFUN([AX_BOOST_PROCESS],
 		],
 		[want_boost_process="yes"]
 	)
+
+	AC_ARG_WITH(
+		[boost-process-api],
+		AS_HELP_STRING(
+			[--with-boost-process-api@<:@=API@:>@],
+			[select Boost.Process API (auto, v1 or v2) @<:@default=auto@:>@]
+		),
+		[
+			case "$withval" in
+				yes|auto)
+					boost_process_api=auto
+					;;
+				v1|v2)
+					boost_process_api="$withval"
+					;;
+				*)
+					AC_MSG_ERROR([Invalid Boost.Process API: $withval])
+				;;
+			esac
+		],
+		[boost_process_api=auto]
+	)
+
+	AC_LANG_PUSH([C++])
+	AC_COMPUTE_INT(
+		[boost_version],
+		[BOOST_VERSION],
+		[[
+			@%:@include <boost/version.hpp>
+		]],
+		[AC_MSG_ERROR([Cannot determine Boost version])]
+	)
+	AC_LANG_POP([C++])
+
+	AC_MSG_CHECKING([Boost version])
+	AC_MSG_RESULT([$boost_version])
+
+	AS_IF(
+		[test "x$boost_process_api" = "xauto"],
+		[
+			AS_IF(
+				[test "$boost_version" -lt 108800],
+				[boost_process_api=v1],
+				[boost_process_api=v2]
+			)
+		]
+	)
+	AC_MSG_CHECKING([Boost.Process API])
+	AC_MSG_RESULT([$boost_process_api])
 
 	if test "x$want_boost_process" = "xyes"; then
 		AC_REQUIRE([AC_PROG_CC])
@@ -72,56 +170,24 @@ AC_DEFUN([AX_BOOST_PROCESS],
 				CXXFLAGS_SAVE=$CXXFLAGS
 				CXXFLAGS=
 
-				AC_COMPILE_IFELSE(
-					[
-						AC_LANG_PROGRAM(
-							[[
-								@%:@include <boost/version.hpp>
-								@%:@if BOOST_VERSION < 108800
-									@%:@include <boost/process.hpp>
-									namespace bp = boost::process;
-								@%:@else
-									@%:@include <boost/asio/io_context.hpp>
-									@%:@include <boost/process/v2/process.hpp>
-									namespace bp = boost::process::v2;
-								@%:@endif
-							]],
-							[[
-								@%:@if BOOST_VERSION < 108800
-									bp::child* child = new bp::child; delete child;
-								@%:@else
-									boost::asio::io_context ctx;
-									bp::process* proc = new bp::process(ctx); delete proc;
-								@%:@endif
-							]]
-						)
-					], ax_cv_boost_process=yes, ax_cv_boost_process=no
+				AS_CASE(
+					[$boost_process_api],
+					[v1], [_AX_BOOST_PROCESS_CHECK_V1],
+					[v2], [_AX_BOOST_PROCESS_CHECK_V2],
+					[*], [AC_MSG_ERROR([Unsupported Boost.Process API: $boost_process_api])]
 				)
 
-			 CXXFLAGS=$CXXFLAGS_SAVE
-             AC_LANG_POP([C++])
+				CXXFLAGS=$CXXFLAGS_SAVE
+				AC_LANG_POP([C++])
 			]
 		)
 		if test "x$ax_cv_boost_process" = "xyes"; then
 			AC_SUBST(BOOST_CPPFLAGS)
 			AC_DEFINE(HAVE_BOOST_PROCESS,,[define if the Boost::Process library is available])
 
-			AC_LANG_PUSH([C++])
-			AC_COMPUTE_INT(
-				[boost_version],
-				[BOOST_VERSION],
-				[[
-					@%:@include <boost/version.hpp>
-				]],
-				[AC_MSG_ERROR([Cannot determine Boost version])]
-			)
-			AC_LANG_POP([C++])
-
-			AC_MSG_CHECKING([Boost version])
-			AC_MSG_RESULT([$boost_version])
-
 			dnl boost::process::v2 is header-only
-			if test "$boost_version" -lt 108800; then
+			if test "x$boost_process_api" = "xv1"; then
+				AC_MSG_NOTICE([checking Boost::Process library linking])
 				BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
 
 				LDFLAGS_SAVE=$LDFLAGS
