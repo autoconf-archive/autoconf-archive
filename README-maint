@@ -29,7 +29,7 @@
   clone the "gnulib" project into the top-level directory of the autoconf-archive
   repository by running:
 
-  : git clone git://git.savannah.gnu.org/gnulib.git
+  : git clone https://git.savannah.gnu.org/git/gnulib.git
 
 * How to update the web site.
 
