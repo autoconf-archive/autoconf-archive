@@ -8,6 +8,56 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
+* Noteworthy changes in release 2026.11.11 (2026-11-11) [stable]
+
+  The LuaJIT support that release 2024.10.16 added to AX_PROG_LUA has been
+  reverted. It made the macro call AM_COND_IF([LUAJIT]), so autoreconf failed
+  for every project that did not define that Automake conditional itself, and
+  the macro could no longer be used without Automake. AX_PROG_LUA,
+  AX_LUA_HEADERS, and AX_LUA_LIBS behave as in release 2023.02.20 again.
+
+  AX_CXX_COMPILE_STDCXX: The "noext" option works again. Release 2024.10.16
+  tested -std=gnu++NN instead of -std=c++NN when "noext" was requested.
+
+  AX_CHECK_COMPILE_FLAG: With GCC, -Werror is now placed before the flag being
+  tested instead of after it. Previously, some unsupported warning flags were
+  accepted, e.g. C-only warnings such as -Wmissing-prototypes when testing the
+  C++ compiler. Such flags are now correctly rejected.
+
+  AX_CODE_COVERAGE: The macro now uses the --coverage option for compiling and
+  linking, and no longer checks for libgcov. It substitutes the new variable
+  CODE_COVERAGE_LDFLAGS, which belongs in the LDADD or LIBADD variable of every
+  target built with coverage support. CODE_COVERAGE_LIBS is still provided,
+  with the same value, for backwards compatibility.
+
+  Other updated macros:
+
+  - AX_PROG_CC_FOR_BUILD: Fixed BUILD_EXEEXT and BUILD_OBJEXT with Autoconf
+    2.70 and later, fixed the handling of the ac_cv_prog_cc_c99 and
+    ac_cv_prog_cc_c11 cache variables, and added support for
+    ac_cv_build_prog_cc_stdc, ac_build_prog_cc_stdc, and
+    ac_cv_build_prog_cc_c23.
+  - AX_PTHREAD: Fixed pthread detection on Solaris 11.4.
+  - AX_BOOST_PYTHON: Try the boost_python library that matches the Python
+    version first, e.g. boost_python313 for Python 3.13.
+  - AX_PYTHON: Recognize Python 3.13.
+  - AX_GCC_VAR_ATTRIBUTE: Added a test for the "nonstring" attribute.
+  - AX_AM_MACROS, AX_AM_MACROS_STATIC: The generated files no longer contain
+    the build date, which makes builds reproducible.
+  - AX_CPU_FREQ: The result is now cached, and CPU_FREQ is only defined if the
+    frequency could be determined.
+  - AX_C_FLOAT_WORDS_BIGENDIAN: Fixed for the Emscripten target.
+  - AX_LIB_HDF5: Replaced the obsolete AC_HAVE_LIBRARY with AC_CHECK_LIB.
+  - AX_PKG_CHECK_MODULES: Extra whitespace in the module lists no longer
+    appears in the configure output.
+  - AX_LLVM, AX_HAVE_QT: Use AC_PATH_PROG instead of "which" to find programs.
+  - AX_CHECK_GL, AX_CHECK_GLX, AX_SWITCH_FLAGS: Fixed the quoting of m4_fatal.
+  - AX_CXX_COMPILE_STDCXX: Fixed a -Wunused warning in the C++17 test.
+  - Documentation fixes in AX_CODE_COVERAGE, AX_HAVE_QT, AX_LIB_READLINE,
+    AX_LLVM, and AX_PROG_BISON_VERSION.
+
+  Please refer to the ChangeLog file for the complete list of changes.
+
 * Noteworthy changes in release 2024.10.16 (2024-10-16) [stable]
 
   Please refer to the ChangeLog file for a list of changes.
