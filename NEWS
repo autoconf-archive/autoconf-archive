@@ -8,6 +8,9 @@
 # and this notice are preserved. This file is offered as-is, without any
 # warranty.
 
+* Noteworthy changes in release ?.? (????-??-??) [?]
+
+
 * Noteworthy changes in release 2026.11.11 (2026-11-11) [stable]
 
   The LuaJIT support that release 2024.10.16 added to AX_PROG_LUA has been
