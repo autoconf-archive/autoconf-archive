@@ -31,9 +31,9 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
-AC_DEFUN([_AX_BOOST_PROCESS_CHECK_V1],
+AC_DEFUN([_AX_BOOST_PROCESS_COMPILE_CHECK_V1],
 [
 	AS_ECHO(["Checking Boost.Process API v1"]) >&AS_MESSAGE_LOG_FD
 	AC_COMPILE_IFELSE(
@@ -58,7 +58,7 @@ AC_DEFUN([_AX_BOOST_PROCESS_CHECK_V1],
 	)
 ])
 
-AC_DEFUN([_AX_BOOST_PROCESS_CHECK_V2],
+AC_DEFUN([_AX_BOOST_PROCESS_COMPILE_CHECK_V2],
 [
 	AS_ECHO(["Checking Boost.Process API v2"]) >&AS_MESSAGE_LOG_FD
 	AC_COMPILE_IFELSE(
@@ -80,14 +80,65 @@ AC_DEFUN([_AX_BOOST_PROCESS_CHECK_V2],
 	)
 ])
 
+AC_DEFUN([_AX_BOOST_PROCESS_LINK_CHECK_V1],
+[
+	AS_ECHO(["Checking Boost.Process linking v1"]) >&AS_MESSAGE_LOG_FD
+	AC_LINK_IFELSE(
+		[AC_LANG_PROGRAM(
+			[[
+				@%:@include <boost/version.hpp>
+				@%:@if BOOST_VERSION < 108800
+					@%:@include <boost/process.hpp>
+					namespace bp = boost::process;
+				@%:@else
+					@%:@include <boost/process/v1.hpp>
+					namespace bp = boost::process::v1;
+				@%:@endif
+			]],
+			[[
+				bp::child child("/bin/true");
+				child.wait();
+			]]
+		)],
+		[link_process=yes],
+		[link_process=no]
+	)
+])
+
+AC_DEFUN([_AX_BOOST_PROCESS_LINK_CHECK_V2],
+[
+	AS_ECHO(["Checking Boost.Process linking v2"]) >&AS_MESSAGE_LOG_FD
+	AC_LINK_IFELSE(
+		[AC_LANG_PROGRAM(
+			[[
+				@%:@include <string>
+				@%:@include <vector>
+				@%:@include <boost/asio/io_context.hpp>
+				@%:@include <boost/process/v2/process.hpp>
+				namespace bp = boost::process::v2;
+			]],
+			[[
+				boost::asio::io_context ctx;
+				bp::process proc(ctx, "/bin/true", std::vector<std::string>{});
+				proc.wait();
+			]]
+		)],
+		[link_process=yes],
+		[link_process=no]
+	)
+])
+
 AC_DEFUN([AX_BOOST_PROCESS],
 [
 	AC_ARG_WITH(
 		[boost-process],
 		AS_HELP_STRING(
 			[--with-boost-process@<:@=special-lib@:>@],
-			[use the Process library from boost - it is possible to specify a certain library for the linker
-				e.g. --with-boost-process=boost_process-gcc-mt ]
+			[for boost custom installations, you can specify the custom paths
+				and the library you want to link to, e.g:
+				./configure --with-boost=/opt/boost --with-boost-libdir=/opt/boost/lib
+				--with-boost-process=boost_process-custom
+			]
 		),
 		[
 		if test "$withval" = "no"; then
@@ -173,8 +224,8 @@ AC_DEFUN([AX_BOOST_PROCESS],
 
 				AS_CASE(
 					[$boost_process_api],
-					[v1], [_AX_BOOST_PROCESS_CHECK_V1],
-					[v2], [_AX_BOOST_PROCESS_CHECK_V2],
+					[v1], [_AX_BOOST_PROCESS_COMPILE_CHECK_V1],
+					[v2], [_AX_BOOST_PROCESS_COMPILE_CHECK_V2],
 					[*], [AC_MSG_ERROR([Unsupported Boost.Process API: $boost_process_api])]
 				)
 
@@ -186,46 +237,42 @@ AC_DEFUN([AX_BOOST_PROCESS],
 			AC_SUBST(BOOST_CPPFLAGS)
 			AC_DEFINE(HAVE_BOOST_PROCESS,,[define if the Boost::Process library is available])
 
-			dnl boost::process::v2 is header-only
-			if test "x$boost_process_api" = "xv1"; then
-				AC_MSG_NOTICE([checking Boost::Process library linking])
-				BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
+			AC_MSG_CHECKING([whether the Boost::Process library can be linked])
+			LDFLAGS_SAVE="$LDFLAGS"
+			LIBS_SAVE="$LIBS"
 
-				LDFLAGS_SAVE=$LDFLAGS
-				if test "x$ax_boost_user_process_lib" = "x"; then
-					for libextension in `ls -r $BOOSTLIBDIR/libboost_process* 2>/dev/null | sed 's,.*/lib,,' | sed 's,\..*,,'` ; do
-						ax_lib=${libextension}
-						AC_CHECK_LIB($ax_lib, exit,
-							[BOOST_PROCESS_LIB="-l$ax_lib"; AC_SUBST(BOOST_PROCESS_LIB) link_process="yes"; break],
-							[link_process="no"]
-						)
-					done
-					if test "x$link_process" != "xyes"; then
-						for libextension in `ls -r $BOOSTLIBDIR/boost_process* 2>/dev/null | sed 's,.*/,,' | sed -e 's,\..*,,'` ; do
-							ax_lib=${libextension}
-							AC_CHECK_LIB($ax_lib, exit,
-								[BOOST_PROCESS_LIB="-l$ax_lib"; AC_SUBST(BOOST_PROCESS_LIB) link_process="yes"; break],
-								[link_process="no"]
-							)
-						done
-					fi
+			AS_IF(
+				[test "x$ax_boost_user_process_lib" = "x"],
+				[ax_boost_process_lib=boost_process],
+				[ax_boost_process_lib="$ax_boost_user_process_lib"]
+			)
 
-				else
-					for ax_lib in $ax_boost_user_process_lib boost_process-$ax_boost_user_process_lib; do
-						AC_CHECK_LIB($ax_lib, exit,
-							[BOOST_PROCESS_LIB="-l$ax_lib"; AC_SUBST(BOOST_PROCESS_LIB) link_process="yes"; break],
-							[link_process="no"]
-						)
-					done
+			BOOST_PROCESS_LIB="-l$ax_boost_process_lib"
+			AC_SUBST([BOOST_PROCESS_LIB])
 
-				fi
-				if test "x$ax_lib" = "x"; then
-					AC_MSG_ERROR(Could not find a version of the Boost::Process library!)
-				fi
-				if test "x$link_process" = "xno"; then
-					AC_MSG_ERROR(Could not link against $ax_lib !)
-				fi
-			fi
+			link_process=no
+			LIBS="$BOOST_PROCESS_LIB $LIBS"
+
+			AC_LANG_PUSH([C++])
+
+			AS_CASE(
+				[$boost_process_api],
+				[v1], [_AX_BOOST_PROCESS_LINK_CHECK_V1],
+				[v2], [_AX_BOOST_PROCESS_LINK_CHECK_V2],
+				[*], [AC_MSG_ERROR([Unsupported Boost.Process API: $boost_process_api])]
+			)
+
+			AC_LANG_POP([C++])
+
+			AC_MSG_RESULT([$link_process])
+
+			LDFLAGS="$LDFLAGS_SAVE"
+			LIBS="$LIBS_SAVE"
+
+			AS_IF(
+				[test "x$link_process" != "xyes"],
+				[AC_MSG_ERROR([Could not find a version of the Boost::Process library!])]
+			)
 		fi
 
 		CPPFLAGS="$CPPFLAGS_SAVED"
