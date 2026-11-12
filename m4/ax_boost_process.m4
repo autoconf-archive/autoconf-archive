@@ -31,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([_AX_BOOST_PROCESS_CHECK_V1],
 [
@@ -125,33 +125,6 @@ AC_DEFUN([AX_BOOST_PROCESS],
 		[boost_process_api=auto]
 	)
 
-	AC_LANG_PUSH([C++])
-	AC_COMPUTE_INT(
-		[boost_version],
-		[BOOST_VERSION],
-		[[
-			@%:@include <boost/version.hpp>
-		]],
-		[AC_MSG_ERROR([Cannot determine Boost version])]
-	)
-	AC_LANG_POP([C++])
-
-	AC_MSG_CHECKING([Boost version])
-	AC_MSG_RESULT([$boost_version])
-
-	AS_IF(
-		[test "x$boost_process_api" = "xauto"],
-		[
-			AS_IF(
-				[test "$boost_version" -lt 108800],
-				[boost_process_api=v1],
-				[boost_process_api=v2]
-			)
-		]
-	)
-	AC_MSG_CHECKING([Boost.Process API])
-	AC_MSG_RESULT([$boost_process_api])
-
 	if test "x$want_boost_process" = "xyes"; then
 		AC_REQUIRE([AC_PROG_CC])
 		AC_REQUIRE([AC_CANONICAL_BUILD])
@@ -162,6 +135,34 @@ AC_DEFUN([AX_BOOST_PROCESS],
 		LDFLAGS_SAVED="$LDFLAGS"
 		LDFLAGS="$LDFLAGS $BOOST_LDFLAGS"
 		export LDFLAGS
+
+		AS_ECHO(["searching <boost/version.hpp> with CPPFLAGS=$CPPFLAGS"]) >&AS_MESSAGE_LOG_FD
+		AC_LANG_PUSH([C++])
+		AC_COMPUTE_INT(
+			[boost_version],
+			[BOOST_VERSION],
+			[[
+				@%:@include <boost/version.hpp>
+			]],
+			[AC_MSG_ERROR([Cannot determine Boost version])]
+		)
+		AC_LANG_POP([C++])
+
+		AC_MSG_CHECKING([Boost version])
+		AC_MSG_RESULT([$boost_version])
+
+		AS_IF(
+			[test "x$boost_process_api" = "xauto"],
+			[
+				AS_IF(
+					[test "$boost_version" -lt 108800],
+					[boost_process_api=v1],
+					[boost_process_api=v2]
+				)
+			]
+		)
+		AC_MSG_CHECKING([Boost.Process API])
+		AC_MSG_RESULT([$boost_process_api])
 
 		AC_CACHE_CHECK(whether the Boost::Process library is available,
 			ax_cv_boost_process,
