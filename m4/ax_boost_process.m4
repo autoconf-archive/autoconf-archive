@@ -25,13 +25,14 @@
 #   Copyright (c) 2008 Thomas Porschberg <thomas@randspringer.de>
 #   Copyright (c) 2008 Michael Tindal
 #   Copyright (c) 2008 Daniel Casimiro <dan.casimiro@gmail.com>
+#   Copyright (c) 2026 Fabrice Delliaux <netbox253@gmail.com>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([_AX_BOOST_PROCESS_COMPILE_CHECK_V1],
 [
@@ -53,8 +54,8 @@ AC_DEFUN([_AX_BOOST_PROCESS_COMPILE_CHECK_V1],
 				delete child;
 			]]
 		)],
-		[ax_cv_boost_process=yes],
-		[ax_cv_boost_process=no]
+		[ax_cv_boost_process_compile_v1=yes],
+		[ax_cv_boost_process_compile_v1=no]
 	)
 ])
 
@@ -75,8 +76,8 @@ AC_DEFUN([_AX_BOOST_PROCESS_COMPILE_CHECK_V2],
 				delete proc;
 			]]
 		)],
-		[ax_cv_boost_process=yes],
-		[ax_cv_boost_process=no]
+		[ax_cv_boost_process_compile_v2=yes],
+		[ax_cv_boost_process_compile_v2=no]
 	)
 ])
 
@@ -100,8 +101,8 @@ AC_DEFUN([_AX_BOOST_PROCESS_LINK_CHECK_V1],
 				child.wait();
 			]]
 		)],
-		[link_process=yes],
-		[link_process=no]
+		[ax_cv_boost_process_link_v1=yes],
+		[ax_cv_boost_process_link_v1=no]
 	)
 ])
 
@@ -123,8 +124,8 @@ AC_DEFUN([_AX_BOOST_PROCESS_LINK_CHECK_V2],
 				proc.wait();
 			]]
 		)],
-		[link_process=yes],
-		[link_process=no]
+		[ax_cv_boost_process_link_v2=yes],
+		[ax_cv_boost_process_link_v2=no]
 	)
 ])
 
@@ -215,29 +216,39 @@ AC_DEFUN([AX_BOOST_PROCESS],
 		AC_MSG_CHECKING([Boost.Process API])
 		AC_MSG_RESULT([$boost_process_api])
 
-		AC_CACHE_CHECK(whether the Boost::Process library is available,
-			ax_cv_boost_process,
+		AC_LANG_PUSH([C++])
+		CXXFLAGS_SAVE=$CXXFLAGS
+		CXXFLAGS=
+
+		AS_CASE(
+			[$boost_process_api],
+			[v1],
 			[
-				AC_LANG_PUSH([C++])
-				CXXFLAGS_SAVE=$CXXFLAGS
-				CXXFLAGS=
-
-				AS_CASE(
-					[$boost_process_api],
-					[v1], [_AX_BOOST_PROCESS_COMPILE_CHECK_V1],
-					[v2], [_AX_BOOST_PROCESS_COMPILE_CHECK_V2],
-					[*], [AC_MSG_ERROR([Unsupported Boost.Process API: $boost_process_api])]
+				AC_CACHE_CHECK(
+					[whether Boost.Process v1 is available],
+					[ax_cv_boost_process_compile_v1],
+					[_AX_BOOST_PROCESS_COMPILE_CHECK_V1]
 				)
-
-				CXXFLAGS=$CXXFLAGS_SAVE
-				AC_LANG_POP([C++])
-			]
+			],
+			[v2],
+			[
+				AC_CACHE_CHECK(
+					[whether Boost.Process v2 is available],
+					[ax_cv_boost_process_compile_v2],
+					[_AX_BOOST_PROCESS_COMPILE_CHECK_V2]
+				)
+			],
+			[*], [AC_MSG_ERROR([Unsupported Boost.Process API: $boost_process_api])]
 		)
-		if test "x$ax_cv_boost_process" = "xyes"; then
+
+		CXXFLAGS=$CXXFLAGS_SAVE
+		AC_LANG_POP([C++])
+
+		if	test "x$ax_cv_boost_process_compile_v1" = "xyes" || \
+			test "x$ax_cv_boost_process_compile_v2" = "xyes"; then
 			AC_SUBST(BOOST_CPPFLAGS)
 			AC_DEFINE(HAVE_BOOST_PROCESS,,[define if the Boost::Process library is available])
 
-			AC_MSG_CHECKING([whether the Boost::Process library can be linked])
 			LDFLAGS_SAVE="$LDFLAGS"
 			LIBS_SAVE="$LIBS"
 
@@ -250,27 +261,39 @@ AC_DEFUN([AX_BOOST_PROCESS],
 			BOOST_PROCESS_LIB="-l$ax_boost_process_lib"
 			AC_SUBST([BOOST_PROCESS_LIB])
 
-			link_process=no
 			LIBS="$BOOST_PROCESS_LIB $LIBS"
 
 			AC_LANG_PUSH([C++])
 
 			AS_CASE(
 				[$boost_process_api],
-				[v1], [_AX_BOOST_PROCESS_LINK_CHECK_V1],
-				[v2], [_AX_BOOST_PROCESS_LINK_CHECK_V2],
+				[v1],
+				[
+					AC_CACHE_CHECK(
+						[whether Boost.Process v1 can be linked],
+						[ax_cv_boost_process_link_v1],
+						[_AX_BOOST_PROCESS_LINK_CHECK_V1]
+					)
+				],
+				[v2],
+				[
+					AC_CACHE_CHECK(
+						[whether Boost.Process v2 can be linked],
+						[ax_cv_boost_process_link_v2],
+						[_AX_BOOST_PROCESS_LINK_CHECK_V2]
+					)
+				],
 				[*], [AC_MSG_ERROR([Unsupported Boost.Process API: $boost_process_api])]
 			)
 
 			AC_LANG_POP([C++])
 
-			AC_MSG_RESULT([$link_process])
-
 			LDFLAGS="$LDFLAGS_SAVE"
 			LIBS="$LIBS_SAVE"
 
 			AS_IF(
-				[test "x$link_process" != "xyes"],
+				[	test "x$ax_cv_boost_process_link_v1" != "xyes" && \
+					test "x$ax_cv_boost_process_link_v2" != "xyes"],
 				[AC_MSG_ERROR([Could not find a version of the Boost::Process library!])]
 			)
 		fi
