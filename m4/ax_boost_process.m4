@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([_AX_BOOST_PROCESS_COMPILE_CHECK_V1],
 [
@@ -134,9 +134,9 @@ AC_DEFUN([_AX_BOOST_PROCESS_LINK_TEST_V2],
 	AS_ECHO(["Testing Boost.Process linking v2 with $ax_boost_process_lib"]) >&AS_MESSAGE_LOG_FD
 	LIBS_SAVE="$LIBS"
 
-	dnl make sure the cached value is the same as the current library name
+	dnl invalidate the cached result if the library name has changed
 	AS_IF(
-	[test "x$ax_cv_boost_process_link_v2_lib_name" != "x$ax_boost_process_lib"],
+		[test "x$ax_cv_boost_process_link_v2_lib_name" != "x$ax_boost_process_lib"],
 		[
 			unset ax_cv_boost_process_link_v2_lib
 		]
@@ -153,14 +153,16 @@ AC_DEFUN([_AX_BOOST_PROCESS_LINK_TEST_V2],
 		]
 	)
 
-	dnl update cached library name if linking was successful
-		AS_IF(
-			[test "x$ax_cv_boost_process_link_v2_lib" = "xyes"],
-			[
-				ax_cv_boost_process_link_v2_lib_name="$ax_boost_process_lib"
-				BOOST_PROCESS_LIB="-l$ax_boost_process_lib"
-			]
-		)
+	dnl always update the cached library name
+	ax_cv_boost_process_link_v2_lib_name="$ax_boost_process_lib"
+
+	dnl set BOOST_PROCESS_LIB only when linking succeeds
+	AS_IF(
+		[test "x$ax_cv_boost_process_link_v2_lib" = "xyes"],
+		[
+			BOOST_PROCESS_LIB="-l$ax_boost_process_lib"
+		]
+	)
 
 	LIBS="$LIBS_SAVE"
 ])
