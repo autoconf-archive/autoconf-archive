@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([_AX_BOOST_PROCESS_COMPILE_CHECK_V1],
 [
@@ -129,6 +129,42 @@ AC_DEFUN([_AX_BOOST_PROCESS_LINK_CHECK_V2],
 	)
 ])
 
+AC_DEFUN([_AX_BOOST_PROCESS_LINK_TEST_V2],
+[
+	AS_ECHO(["Testing Boost.Process linking v2 with $ax_boost_process_lib"]) >&AS_MESSAGE_LOG_FD
+	LIBS_SAVE="$LIBS"
+
+	dnl make sure the cached value is the same as the current library name
+	AS_IF(
+	[test "x$ax_cv_boost_process_link_v2_lib_name" != "x$ax_boost_process_lib"],
+		[
+			unset ax_cv_boost_process_link_v2_lib
+		]
+	)
+
+	LIBS="-l$ax_boost_process_lib $LIBS"
+
+	AC_CACHE_CHECK(
+		[whether Boost.Process v2 can be linked with $ax_boost_process_lib],
+		[ax_cv_boost_process_link_v2_lib],
+		[
+			_AX_BOOST_PROCESS_LINK_CHECK_V2
+			ax_cv_boost_process_link_v2_lib=$ax_boost_process_link_v2_result
+		]
+	)
+
+	dnl update cached library name if linking was successful
+		AS_IF(
+			[test "x$ax_cv_boost_process_link_v2_lib" = "xyes"],
+			[
+				ax_cv_boost_process_link_v2_lib_name="$ax_boost_process_lib"
+				BOOST_PROCESS_LIB="-l$ax_boost_process_lib"
+			]
+		)
+
+	LIBS="$LIBS_SAVE"
+])
+
 AC_DEFUN([AX_BOOST_PROCESS],
 [
 	AC_ARG_WITH(
@@ -189,6 +225,7 @@ AC_DEFUN([AX_BOOST_PROCESS],
 		LDFLAGS="$LDFLAGS $BOOST_LDFLAGS"
 		export LDFLAGS
 
+		dnl getting boost version
 		AS_ECHO(["searching <boost/version.hpp> with CPPFLAGS=$CPPFLAGS"]) >&AS_MESSAGE_LOG_FD
 		AC_COMPUTE_INT(
 			[boost_version],
@@ -202,6 +239,7 @@ AC_DEFUN([AX_BOOST_PROCESS],
 		AC_MSG_CHECKING([Boost version])
 		AC_MSG_RESULT([$boost_version])
 
+		dnl in automatic mode, setting API variable depending on boost version
 		AS_IF(
 			[test "x$boost_process_api" = "xauto"],
 			[
@@ -215,6 +253,7 @@ AC_DEFUN([AX_BOOST_PROCESS],
 		AC_MSG_CHECKING([Boost.Process API])
 		AC_MSG_RESULT([$boost_process_api])
 
+		dnl testing compilation depending on API variable
 		CXXFLAGS_SAVE=$CXXFLAGS
 		CXXFLAGS=
 
@@ -260,17 +299,12 @@ AC_DEFUN([AX_BOOST_PROCESS],
 			]
 		)
 
+		dnl compile was successful
 		AC_SUBST(BOOST_CPPFLAGS)
 		AC_DEFINE(HAVE_BOOST_PROCESS,,[define if the Boost::Process library is available])
 
 		BOOST_PROCESS_LIB=""
 		AC_SUBST([BOOST_PROCESS_LIB])
-
-		AS_IF(
-			[test "x$ax_boost_user_process_lib" = "x"],
-			[ax_boost_process_lib=boost_process],
-			[ax_boost_process_lib="$ax_boost_user_process_lib"]
-		)
 
 		AS_CASE(
 			[$boost_process_api],
@@ -296,43 +330,62 @@ AC_DEFUN([AX_BOOST_PROCESS],
 				AS_IF(
 					[test "x$ax_cv_boost_process_link_v2" != "xyes"],
 					[
-						LIBS_SAVE="$LIBS"
-						BOOST_PROCESS_LIB="-l$ax_boost_process_lib"
-						LIBS="$BOOST_PROCESS_LIB $LIBS"
-
-						dnl make sure the cached value is the same as the current library name
 						AS_IF(
-							[test "x$ax_cv_boost_process_link_v2_lib_name" != "x$ax_boost_process_lib"],
+							[test "x$ax_boost_user_process_lib" = "x"],
 							[
-								unset ax_cv_boost_process_link_v2_lib
+								dnl first try the standard library name
+								ax_boost_process_lib=boost_process
+								_AX_BOOST_PROCESS_LINK_TEST_V2
+
+								dnl then fallback
+								AS_IF(
+									[test "x$ax_cv_boost_process_link_v2_lib" != "xyes"],
+									[
+										dnl search in BOOSTLIBDIR
+										BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
+										for libextension in `ls -r $BOOSTLIBDIR/libboost_process* 2>/dev/null | sed 's,.*/lib,,' | sed 's,\..*,,'` ; do
+											ax_boost_process_lib=${libextension}
+											_AX_BOOST_PROCESS_LINK_TEST_V2
+											AS_IF(
+												[test "x$ax_cv_boost_process_link_v2_lib" = "xyes"],
+												[break]
+											)
+										done
+										AS_IF(
+											[test "x$ax_cv_boost_process_link_v2_lib" != "xyes"],
+											[
+												for libextension in `ls -r $BOOSTLIBDIR/boost_process* 2>/dev/null | sed 's,.*/,,' | sed -e 's,\..*,,'` ; do
+													ax_boost_process_lib=${libextension}
+													_AX_BOOST_PROCESS_LINK_TEST_V2
+													AS_IF(
+														[test "x$ax_cv_boost_process_link_v2_lib" = "xyes"],
+													[break]
+													)
+												done
+											]
+										)
+									]
+								)
+							],
+							[
+								dnl testing name provided by --with-boost-process
+								for ax_boost_process_lib in $ax_boost_user_process_lib boost_process-$ax_boost_user_process_lib; do
+									_AX_BOOST_PROCESS_LINK_TEST_V2
+									AS_IF(
+										[test "x$ax_cv_boost_process_link_v2_lib" = "xyes"],
+										[break]
+									)
+
+								done
 							]
 						)
-
-						AC_CACHE_CHECK(
-							[whether Boost.Process v2 can be linked with $ax_boost_process_lib],
-							[ax_cv_boost_process_link_v2_lib],
-							[
-								_AX_BOOST_PROCESS_LINK_CHECK_V2
-								ax_cv_boost_process_link_v2_lib=$ax_boost_process_link_v2_result
-							]
-						)
-
-						dnl update cached library name if linking was successful
-						AS_IF(
-							[test "x$ax_cv_boost_process_link_v2_lib" = "xyes"],
-							[
-								ax_cv_boost_process_link_v2_lib_name="$ax_boost_process_lib"
-							]
-						)
-
-						LIBS="$LIBS_SAVE"
 					]
 				)
 			],
 			[*], [AC_MSG_ERROR([Unsupported Boost.Process API: $boost_process_api])]
 		)
 
-		dnl final test to know if linking was successful
+		dnl final test to see if linking was successful
 		AS_CASE(
 			[$boost_process_api],
 			[v1],
