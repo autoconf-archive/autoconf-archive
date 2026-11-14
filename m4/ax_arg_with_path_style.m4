@@ -4,8 +4,8 @@
 #
 # OBSOLETE MACRO
 #
-#   An unbalanced quote in the macro definition makes autoconf fail with
-#   "end of file in string" whenever this file is used.
+#   This macro ignores the URL style: --with-path-style=url never sets the
+#   documented URL bit in PATH_STYLE.
 #
 # SYNOPSIS
 #
@@ -50,10 +50,6 @@
 #   variables of the same name. These variables should use macro-specific
 #   ax_ names. [Rating: minor]
 #
-#   (3) An opening quote [ in the macro body is never closed, so autoconf
-#   fails with "end of file in string" whenever the macro is used. [Rating:
-#   broken]
-#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -84,14 +80,14 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 12
+#serial 13
 
 AU_ALIAS([AC_ARG_WITH_PATH_STYLE], [AX_ARG_WITH_PATH_STYLE])
 AC_DEFUN([AX_ARG_WITH_PATH_STYLE],
 [
-  m4_warn([obsolete], [$0 is obsolete: an unbalanced quote in its definition makes autoconf fail])
+  m4_warn([obsolete], [$0 is obsolete: it ignores --with-path-style=url])
  AC_ARG_WITH(path-style,
-[  --with-path-style=[dos,unix,url,also,slash,comma],
+[  --with-path-style=@<:@dos,unix,url,also,slash,comma@:>@],
 [ac_with_path_style="$withval"],
 [dnl
   case "$target_os" in

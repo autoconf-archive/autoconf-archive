@@ -4,8 +4,9 @@
 #
 # OBSOLETE MACRO
 #
-#   An unquoted $0 makes the macro expand itself recursively, so autoconf
-#   fails whenever it is used.
+#   When CASEPATTERN is given, this macro uses SUBDIRS as the pattern
+#   instead, so with a single subdirectory nothing is copied, and with
+#   several the generated configure script has a syntax error.
 #
 # SYNOPSIS
 #
@@ -22,14 +23,10 @@
 #
 # BUGS
 #
-#   (1) When CASEPATTERN is supplied, the generated case statement uses
-#   SUBDIRS (the first argument) as its pattern instead. With a single
-#   subdirectory nothing is copied, and with several the generated configure
-#   has a shell syntax error. [Rating: major]
-#
-#   (2) AC_BEFORE($0,[AX_PROG_CP_S]) does not quote $0, so the macro expands
-#   itself inside its own arguments. Every use makes autoconf fail with "m4:
-#   recursion limit of 1024 exceeded". [Rating: broken]
+#   When CASEPATTERN is supplied, the generated case statement uses SUBDIRS
+#   (the first argument) as its pattern instead. With a single subdirectory
+#   nothing is copied, and with several the generated configure has a shell
+#   syntax error. [Rating: major]
 #
 # LICENSE
 #
@@ -40,13 +37,13 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AU_ALIAS([AC_SUBDIR_FILES], [AX_SUBDIR_FILES])
 AC_DEFUN([AX_SUBDIR_FILES],
 [
-  m4_warn([obsolete], [$0 is obsolete: it makes autoconf fail with a recursion error])
-AC_BEFORE($0,[AX_PROG_CP_S])
+  m4_warn([obsolete], [$0 is obsolete: it mishandles CASEPATTERN])
+AC_BEFORE([$0],[AX_PROG_CP_S])
   for ac_subdir in ifelse([$1], , *, $1) ; do
     if test -d $ac_subdir ; then
       AC_MSG_CHECKING(subdir $ac_subdir)
