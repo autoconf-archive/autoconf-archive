@@ -38,9 +38,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AC_DEFUN([AX_PATH_MISSING], [
+  m4_warn([override],
+    [$0: The requested search path is ignored and can be returned as the
+     program name.])
     AC_PATH_PROG([$1],[$2],[$4])
     AS_IF([ test -z "${$1}" ],[
         unset $1

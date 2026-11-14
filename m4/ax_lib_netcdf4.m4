@@ -115,9 +115,18 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_LIB_NETCDF4], [
+  m4_warn([override],
+    [$0: NetCDF detection can clear or corrupt the caller's compiler and
+     linker flags.])
+  m4_warn([portability],
+    [$0: Returned NetCDF library flags reverse dependencies and can omit
+     HDF5, breaking static linking.])
+  m4_warn([syntax],
+    [$0: NetCDF can be reported as available even after header and library
+     checks fail.])
 
 AC_REQUIRE([AC_PROG_SED])
 AC_REQUIRE([AC_PROG_AWK])

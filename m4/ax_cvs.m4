@@ -97,10 +97,15 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 24
+#serial 25
 
 AC_DEFUN([AX_CVS],
 [
+  m4_warn([portability],
+    [$0: cvs-rm runs in the wrong directory with a separate build tree.])
+  m4_warn([syntax],
+    [$0: branch-minor increments the major version instead of the minor
+     version.])
 AC_REQUIRE([AX_SPLIT_VERSION])
 
 AC_SUBST([ANON_CVSROOT], [$1])

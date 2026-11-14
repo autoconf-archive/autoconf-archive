@@ -68,10 +68,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 24
+#serial 25
 
 AC_DEFUN([AX_DIST_RPM],
 [
+  m4_warn([portability],
+    [$0: RPM recipes cannot reliably resolve output directories under POSIX
+     shells such as dash.])
 AC_REQUIRE([AX_INSTALL_FILES])
 AC_MSG_NOTICE([adding rpm support])
 AM_CONDITIONAL([ax_dist_rpm_enable_upload],[test "x$USING_AX_UPLOAD" != "x"])

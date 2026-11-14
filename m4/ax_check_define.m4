@@ -30,10 +30,13 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AU_ALIAS([AC_CHECK_DEFINED], [AC_CHECK_DEFINE])
 AC_DEFUN([AC_CHECK_DEFINE],[
+  m4_warn([syntax],
+    [$0: Initialize the active language's compiler first to avoid invalid
+     configure shell code.])
 AS_VAR_PUSHDEF([ac_var],[ac_cv_defined_$1])dnl
 AC_CACHE_CHECK([for $1 defined], ac_var,
 AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]], [[
@@ -50,6 +53,9 @@ AS_VAR_POPDEF([ac_var])dnl
 
 AU_ALIAS([AX_CHECK_DEFINED], [AX_CHECK_DEFINE])
 AC_DEFUN([AX_CHECK_DEFINE],[
+  m4_warn([syntax],
+    [$0: Initialize the active language's compiler first to avoid invalid
+     configure shell code.])
 AS_VAR_PUSHDEF([ac_var],[ac_cv_defined_$2_$1])dnl
 AC_CACHE_CHECK([for $2 defined in $1], ac_var,
 AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <$1>]], [[

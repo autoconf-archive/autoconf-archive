@@ -47,9 +47,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_ZMQ], [
+  m4_warn([syntax],
+    [$0: HAVE_ZMQ is defined even when ZMQ is missing or disabled.])
     AC_ARG_WITH([zmq], [AS_HELP_STRING([--with-zmq=<prefix>],[ZMQ prefix directory])], [
         ZMQ_LDFLAGS="-L${with_zmq}/lib"
         ZMQ_CPPFLAGS="-I${with_zmq}/include"

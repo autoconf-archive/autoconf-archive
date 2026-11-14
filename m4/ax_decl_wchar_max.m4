@@ -39,10 +39,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([VL_DECL_WCHAR_MAX], [AX_DECL_WCHAR_MAX])
 AC_DEFUN([AX_DECL_WCHAR_MAX], [
+  m4_warn([portability],
+    [$0: Fallback WCHAR_MAX values are incorrect; check for wchar.h first
+     to avoid unnecessary fallback.])
   AC_CACHE_CHECK([whether WCHAR_MAX is defined], ax_cv_decl_wchar_max, [
     AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 #ifdef HAVE_WCHAR_H

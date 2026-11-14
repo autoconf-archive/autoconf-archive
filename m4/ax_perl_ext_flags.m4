@@ -73,7 +73,7 @@
 #   ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 #   POSSIBILITY OF SUCH DAMAGE.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_PERL_EXT_CFLAGS],
 [AC_CHECK_PROG(PERL,perl,perl)
@@ -86,7 +86,10 @@ AC_DEFUN([AX_PERL_EXT_CFLAGS],
 
 
 AC_DEFUN([AX_PERL_EXT_LDFLAGS],
-[AC_CHECK_PROG(PERL,perl,perl)
+[
+  m4_warn([override],
+    [$0: Extra Perl modules are not processed as requested.])
+AC_CHECK_PROG(PERL,perl,perl)
  _AX_PERL_EXT_MODULE_CHECK([ExtUtils::Embed], [have_embed=yes],
                            [have_embed=no])
  AS_IF([test $have_embed = no],
@@ -96,7 +99,10 @@ AC_DEFUN([AX_PERL_EXT_LDFLAGS],
 
 
 AC_DEFUN([AX_PERL_EXT_FLAGS],
-[AC_CHECK_PROG(PERL,perl,perl)
+[
+  m4_warn([override],
+    [$0: Extra Perl modules are not processed as requested.])
+AC_CHECK_PROG(PERL,perl,perl)
  _AX_PERL_EXT_MODULE_CHECK([ExtUtils::Embed], [have_embed=yes],
                            [have_embed=no])
  AS_IF([test $have_embed = no],

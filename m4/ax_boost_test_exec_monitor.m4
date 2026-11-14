@@ -48,10 +48,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 23
+#serial 24
 
 AC_DEFUN([AX_BOOST_TEST_EXEC_MONITOR],
 [
+  m4_warn([portability],
+    [$0: An incompatible or unusable Boost.Test library can pass detection.])
 	AC_ARG_WITH([boost-test-exec-monitor],
 	AS_HELP_STRING([--with-boost-test-exec-monitor@<:@=special-lib@:>@],
                    [use the Test_Exec_Monitor library from boost - it is possible to specify a certain library for the linker

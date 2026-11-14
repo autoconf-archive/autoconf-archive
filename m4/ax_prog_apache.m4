@@ -82,7 +82,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AC_PROG_APACHE], [AX_PROG_APACHE])
 AC_DEFUN([AX_PROG_APACHE],
@@ -90,6 +90,9 @@ AC_DEFUN([AX_PROG_APACHE],
 # Handle user hints
 #
 [
+  m4_warn([syntax],
+    [$0: The version check can reject Apache releases newer than the
+     requested minimum.])
  AC_MSG_CHECKING(if apache is wanted)
  AC_ARG_WITH(apache,
   [  --with-apache=PATH absolute path name of apache server (default is to search httpd in

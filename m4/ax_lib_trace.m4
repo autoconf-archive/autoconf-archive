@@ -44,10 +44,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_LIB_TRACE],
 [
+  m4_warn([override],
+    [$0: Missing libtrace aborts configure instead of running the failure
+     action; the minimum version is not enforced.])
 AC_ARG_WITH([libtrace],
     [AS_HELP_STRING([--with-libtrace@<:@=ARG@:>@],
         [use libtrace from a standard location (ARG=yes),

@@ -47,10 +47,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 23
+#serial 24
 
 AC_DEFUN([AX_BOOST_UNIT_TEST_FRAMEWORK],
 [
+  m4_warn([portability],
+    [$0: An incompatible or unusable Boost.Test library can pass detection.])
 	AC_ARG_WITH([boost-unit-test-framework],
 	AS_HELP_STRING([--with-boost-unit-test-framework@<:@=special-lib@:>@],
                    [use the Unit_Test_Framework library from boost - it is possible to specify a certain library for the linker

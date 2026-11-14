@@ -64,14 +64,18 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_GCC_X86_CPUID],
 [AX_GCC_X86_CPUID_COUNT($1, 0)
 ])
 
 AC_DEFUN([AX_GCC_X86_CPUID_COUNT],
-[AC_REQUIRE([AC_PROG_CC])
+[
+  m4_warn([syntax],
+    [$0: Different CPUID subleaves incorrectly reuse the first cached
+     result.])
+AC_REQUIRE([AC_PROG_CC])
 AC_LANG_PUSH([C])
 AC_CACHE_CHECK(for x86 cpuid $1 output, ax_cv_gcc_x86_cpuid_$1,
  [AC_RUN_IFELSE([AC_LANG_PROGRAM([#include <stdio.h>], [

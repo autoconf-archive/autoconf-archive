@@ -43,7 +43,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 15
+#serial 16
 
 # for intel
 AC_DEFUN([_AX_COMPILER_VERSION_INTEL],
@@ -519,6 +519,8 @@ AC_DEFUN([_AX_COMPILER_VERSION_SDCC],[
 
 # main entry point
 AC_DEFUN([AX_COMPILER_VERSION],[dnl
+  m4_warn([portability],
+    [$0: Sun compiler minor versions can be reported incorrectly.])
   AC_REQUIRE([AX_COMPILER_VENDOR])
   AC_REQUIRE([AC_PROG_SED])
   AC_CACHE_CHECK([for _AC_LANG compiler version],

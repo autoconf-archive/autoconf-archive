@@ -47,10 +47,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_LIB_MYSQLCPPCONN],
 [
+  m4_warn([override],
+    [$0: A missing MySQL Connector/C++ aborts configure instead of running
+     the failure action.])
 AC_ARG_WITH([libmysqlcppconn],
     [AS_HELP_STRING([--with-libmysqlcppconn@<:@=ARG@:>@],
         [use libmysqlcppconn from a standard location (ARG=yes),

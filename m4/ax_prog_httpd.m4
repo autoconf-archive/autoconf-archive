@@ -68,10 +68,12 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_PROG_HTTPD], [AX_PROG_HTTPD])
 AC_DEFUN([AX_PROG_HTTPD],[
+  m4_warn([override],
+    [$0: An HTTPD override is ignored when querying server configuration.])
 AC_REQUIRE([AC_EXEEXT])dnl
 AC_PATH_PROG(HTTPD, httpd$EXEEXT, nocommand)
 if test "$HTTPD" = nocommand; then

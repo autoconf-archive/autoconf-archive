@@ -189,7 +189,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 dnl AX_RPM_INIT
 dnl Figure out how to create rpms for this system and setup for an
@@ -198,6 +198,9 @@ dnl automake target
 AU_ALIAS([AM_RPM_INIT], [AX_RPM_INIT])
 AC_DEFUN([AX_RPM_INIT],
 [dnl
+  m4_warn([override],
+    [$0: The RPM-rules enable option can be ignored or affected by
+     unrelated --with options.])
 AC_REQUIRE([AC_CANONICAL_HOST])
 dnl Find the RPM program
 AC_ARG_WITH(rpm-prog,[  --with-rpm-prog=PROG   Which rpm to use (optional)],

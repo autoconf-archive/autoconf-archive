@@ -65,10 +65,17 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 22
+#serial 23
 
 AC_DEFUN([AX_PYTHON],
-[AC_MSG_CHECKING(for python build information)
+[
+  m4_warn([syntax],
+    [$0: Interpreter fallback keeps retrying the first Python when its
+     development files are missing.])
+  m4_warn([portability],
+    [$0: Python development-file detection fails when distutils is
+     unavailable.])
+AC_MSG_CHECKING(for python build information)
 AC_MSG_RESULT([])
 for python in python3.13 python3.12 python3.11 python3.10 python3.9 python3.8 python3.7 python3.6 python3.5 python3.4 python3.3 python3.2 python3.1 python3.0 python2.7 python2.6 python2.5 python2.4 python2.3 python2.2 python2.1 python; do
 AC_CHECK_PROGS(PYTHON_BIN, [$python])

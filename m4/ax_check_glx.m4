@@ -67,7 +67,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 # example program
 m4_define([_AX_CHECK_GLX_PROGRAM],
@@ -286,6 +286,9 @@ AC_DEFUN([_AX_CHECK_GLX_PKG_CONFIG],
 # entry point
 AC_DEFUN([AX_CHECK_GLX],dnl
 [
+  m4_warn([syntax],
+    [$0: Manual GLX detection leaves the language set to C and can break
+     later C++ checks.])
  AC_REQUIRE([AX_CHECK_GL])
  AC_REQUIRE([PKG_PROG_PKG_CONFIG])
 

@@ -90,7 +90,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_ARG_WITH(mysql,AS_HELP_STRING([--with-mysql],[root of the MySQL installation]))
 AC_ARG_WITH(mysql_plugin,AS_HELP_STRING([--with-mysql-plugin],[path to the MySQL installation plugin directory]))
@@ -140,6 +140,9 @@ AC_DEFUN([AX_CHECK_MYSQL_INCLUDES],[
 ])
 
 AC_DEFUN([AX_CHECK_MYSQL_INSTALL],[
+  m4_warn([portability],
+    [$0: MySQL detection and option handling are unreliable under POSIX
+     shells such as dash.])
 
     #Define variables passed
     ROOT_DIR="$1"
@@ -173,6 +176,15 @@ AC_DEFUN([AX_CHECK_MYSQL_INSTALL],[
 ])
 
 AC_DEFUN([AX_CHECK_MYSQL],[
+  m4_warn([portability],
+    [$0: MySQL detection and option handling are unreliable under POSIX
+     shells such as dash.])
+  m4_warn([syntax],
+    [$0: Missing MySQL executables or plugin directories can escape
+     validation.])
+  m4_warn([portability],
+    [$0: MySQL version checks misclassify newer releases and multi-digit
+     version components.])
     mysql_test="no"
 
     # Define variables
@@ -411,6 +423,9 @@ AC_DEFUN([AX_CHECK_MYSQL],[
 ])
 
 AC_DEFUN([AX_SOURCE_MYSQL],[
+  m4_warn([portability],
+    [$0: MySQL detection and option handling are unreliable under POSIX
+     shells such as dash.])
     if test "$with_mysql_source" == ""
     then
        AC_MSG_ERROR(["Please Designate MySQL source path, using --with-mysql-source=YOUR_PATH"])

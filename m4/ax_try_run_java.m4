@@ -36,10 +36,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AU_ALIAS([AC_TRY_RUN_JAVA], [AX_TRY_RUN_JAVA])
 AC_DEFUN([AX_TRY_RUN_JAVA],[
+  m4_warn([syntax],
+    [$0: Any nonempty import argument makes the Java test fail.])
 AC_REQUIRE([AX_PROG_JAVAC])dnl
 AC_REQUIRE([AX_PROG_JAVA])dnl
 cat << \EOF > Test.java

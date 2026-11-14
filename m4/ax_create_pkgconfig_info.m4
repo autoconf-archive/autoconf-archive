@@ -72,9 +72,12 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 17
+#serial 18
 
 AC_DEFUN([AX_CREATE_PKGCONFIG_INFO],[dnl
+  m4_warn([syntax],
+    [$0: Special characters in metadata can execute shell commands or
+     corrupt the generated .pc file.])
 AS_VAR_PUSHDEF([PKGCONFIG_suffix],[ax_create_pkgconfig_suffix])dnl
 AS_VAR_PUSHDEF([PKGCONFIG_libdir],[ax_create_pkgconfig_libdir])dnl
 AS_VAR_PUSHDEF([PKGCONFIG_libfile],[ax_create_pkgconfig_libfile])dnl

@@ -60,10 +60,13 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 11
 
 AU_ALIAS([ACX_BLAS_F77_FUNC], [AX_BLAS_F77_FUNC])
 AC_DEFUN([AX_BLAS_F77_FUNC], [
+  m4_warn([syntax],
+    [$0: Omitting both the pass and cross-compiling actions produces
+     invalid configure shell code.])
 AC_PREREQ(2.50)
 AC_REQUIRE([AX_BLAS])
 
@@ -199,6 +202,8 @@ fi
 ])dnl AX_BLAS_F77_FUNC
 
 AC_DEFUN([AX_BLAS_WITH_F77_FUNC], [
+  m4_warn([syntax],
+    [$0: Omitting the failure action produces invalid configure shell code.])
 AC_PREREQ(2.50)
 AX_BLAS([# disable special action], [])
 if test x$ax_blas_ok = xyes ; then

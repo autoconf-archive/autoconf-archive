@@ -63,11 +63,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AU_ALIAS([AC_PKG_MICO], [AX_PKG_MICO])
 AC_DEFUN([AX_PKG_MICO],
 [
+  m4_warn([override],
+    [$0: --without-mico can still enable an installed MICO.])
 #
 # first parse the argument given in configure.in to AX_PKG_MICO
 #

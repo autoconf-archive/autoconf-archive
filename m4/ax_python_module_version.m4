@@ -30,9 +30,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_PYTHON_MODULE_VERSION], [
+  m4_warn([portability],
+    [$0: Version checks can reject suitable Python modules without
+     distutils or with unsupported version formats.])
     AX_PYTHON_MODULE([$1], [required], [$3])
     AC_MSG_CHECKING([for version $2 or higher of $1])
     $PYTHON -c "import sys, $1; from distutils.version import StrictVersion; sys.exit(StrictVersion($1.__version__) < StrictVersion('$2'))" 2> /dev/null

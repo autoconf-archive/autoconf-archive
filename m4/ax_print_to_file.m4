@@ -26,9 +26,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_PRINT_TO_FILE],[
+  m4_warn([syntax],
+    [$0: Percent signs in DATA are interpreted by printf; use %% to
+     preserve a literal percent sign.])
 AC_REQUIRE([AX_FILE_ESCAPES])
 printf "$2" > "$1"
 ])

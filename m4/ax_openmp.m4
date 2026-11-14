@@ -78,9 +78,11 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 15
+#serial 16
 
 AC_DEFUN([AX_OPENMP], [
+  m4_warn([portability],
+    [$0: Fortran and Fortran 77 OpenMP support is not detected.])
 AC_PREREQ([2.69]) dnl for _AC_LANG_PREFIX
 
 AC_CACHE_CHECK([for OpenMP flag of _AC_LANG compiler], ax_cv_[]_AC_LANG_ABBREV[]_openmp, [save[]_AC_LANG_PREFIX[]FLAGS=$[]_AC_LANG_PREFIX[]FLAGS

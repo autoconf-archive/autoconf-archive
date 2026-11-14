@@ -41,10 +41,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_CACHE_SIZE],
 [
+  m4_warn([portability],
+    [$0: Without Linux sysfs cache information, detection can abort under
+     dash or report an L1 cache size of zero.])
   AC_REQUIRE([AC_PROG_SED])
   AC_REQUIRE([AX_COUNT_CPUS])
   AC_REQUIRE([AX_GCC_X86_CPUID])

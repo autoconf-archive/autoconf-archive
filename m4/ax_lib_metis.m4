@@ -43,10 +43,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 AU_ALIAS([IMMDX_LIB_METIS], [AX_LIB_METIS])
 AC_DEFUN([AX_LIB_METIS], [
+  m4_warn([syntax],
+    [$0: METIS is reported as available even when its library fails to
+     link.])
 	AC_MSG_CHECKING(for METIS library)
 	AC_REQUIRE([AC_PROG_CC])
 	#

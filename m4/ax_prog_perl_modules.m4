@@ -38,10 +38,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([AC_PROG_PERL_MODULES], [AX_PROG_PERL_MODULES])
 AC_DEFUN([AX_PROG_PERL_MODULES],[dnl
+  m4_warn([override],
+    [$0: Missing Perl does not run the failure action, so required modules
+     can go unchecked.])
 
 m4_define([ax_perl_modules])
 m4_foreach([ax_perl_module], m4_split(m4_normalize([$1])),

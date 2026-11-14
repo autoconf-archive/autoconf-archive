@@ -95,7 +95,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 12
+#serial 13
 
 AC_DEFUN([AX_CONFIG_FEATURE],[ dnl
 m4_pushdef([FEATURE], patsubst([$1], -, _))dnl
@@ -144,11 +144,15 @@ AC_DEFUN([AX_CONFIG_FEATURE_SILENT],[ dnl
 
 dnl Feature specific
 AC_DEFUN([AX_CONFIG_FEATURE_DEFAULT_ENABLED], [
+  m4_warn([override],
+    [$0: The requested feature default is ignored.])
   ax_config_feature_[]FEATURE[]_default=yes
 ])
 
 dnl Feature specific
 AC_DEFUN([AX_CONFIG_FEATURE_DEFAULT_DISABLED], [
+  m4_warn([override],
+    [$0: The requested feature default is ignored.])
   ax_config_feature_[]FEATURE[]_default=no
 ])
 

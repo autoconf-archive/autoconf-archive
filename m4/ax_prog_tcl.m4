@@ -72,9 +72,14 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_PROG_TCL], [
+  m4_warn([portability],
+    [$0: The minimum Tcl version is not reliably enforced under dash or for
+     multi-component versions.])
+  m4_warn([override],
+    [$0: Version checks use tclsh from PATH instead of the selected TCLSH.])
 #-- check for tclsh in PATH
 AC_PATH_PROG([TCLSH], [tclsh], [no])
 if [(test x"$TCLSH" == x"no") && (test x"$1" != x"0")]; then

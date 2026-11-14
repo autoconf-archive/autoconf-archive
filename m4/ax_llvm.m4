@@ -36,10 +36,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 19
+#serial 20
 
 AC_DEFUN([AX_LLVM],
 [
+  m4_warn([override],
+    [$0: --without-llvm aborts configure instead of disabling LLVM.])
 AC_ARG_VAR([LLVM_CONFIG], [llvm-config program])
 AC_ARG_WITH([llvm],
 	AS_HELP_STRING([--with-llvm@<:@=ARG@:>@], [use llvm (default is yes) - it is possible to specify the root directory for llvm (optional)]),

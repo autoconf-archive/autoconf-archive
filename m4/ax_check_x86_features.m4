@@ -67,10 +67,14 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_CHECK_X86_FEATURES],
- [m4_foreach_w(
+ [
+  m4_warn([override],
+    [$0: The failure action runs even when processor feature detection
+     succeeds.])
+m4_foreach_w(
    [ax_x86_feature],
    [mmx popcnt sse sse2 sse3 sse4.1 sse4.2 sse4a avx avx2 avx512f fma fma4 bmi bmi2],
    [AX_GCC_X86_CPU_SUPPORTS(ax_x86_feature,

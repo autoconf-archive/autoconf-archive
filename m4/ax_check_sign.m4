@@ -47,10 +47,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AU_ALIAS([VL_CHECK_SIGN], [AX_CHECK_SIGN])
 AC_DEFUN([AX_CHECK_SIGN], [
+  m4_warn([syntax],
+    [$0: Supply nonempty actions for both outcomes to avoid invalid
+     configure shell code.])
  typename=`echo $1 | sed "s/@<:@^a-zA-Z0-9_@:>@/_/g"`
  AC_CACHE_CHECK([whether $1 is signed], ax_cv_decl_${typename}_signed, [
    AC_COMPILE_IFELSE(

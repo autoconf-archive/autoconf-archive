@@ -55,10 +55,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 34
+#serial 35
 
 AC_DEFUN([AX_BOOST_THREAD],
 [
+  m4_warn([override],
+    [$0: --without-boost-thread can abort configure instead of disabling
+     Boost.Thread.])
     AC_ARG_WITH([boost-thread],
     AS_HELP_STRING([--with-boost-thread@<:@=special-lib@:>@],
                    [use the Thread library from boost -

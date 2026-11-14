@@ -77,7 +77,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 13
+#serial 14
 
 AU_ALIAS([ADL_COMPUTE_RELATIVE_PATHS], [AX_COMPUTE_RELATIVE_PATHS])
 AC_DEFUN([AX_COMPUTE_RELATIVE_PATHS],
@@ -131,7 +131,11 @@ dnl    second_path=/somewhere/on/another/disk/share
 dnl    AX_COMPUTE_COMMON_PATH(first_path, second_path, common_path)
 dnl will set $common_path to '/somewhere/on'.
 AC_DEFUN([AX_COMPUTE_COMMON_PATH],
-[$3=''
+[
+  m4_warn([syntax],
+    [$0: Paths sharing only part of a directory name can produce an
+     incorrect relative path.])
+$3=''
 _lcl_second_prefix_match=''
 while test "[$]_lcl_second_prefix_match" != 0; do
   _lcl_first_prefix=`expr "x[$]$1" : "x\([$]$3/*[[^/]]*\)"`

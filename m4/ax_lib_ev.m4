@@ -40,7 +40,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_CHECK_EV_H], [
 dnl AX_CHECK_EV_H([ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
@@ -58,6 +58,12 @@ dnl   defs: ax_cv_header_ev_h yes|no
 
 AU_ALIAS([AC_CHECK_LIBEV], [AX_LIB_EV])
 AC_DEFUN([AX_LIB_EV], [
+  m4_warn([override],
+    [$0: The requested minimum libev version is not enforced and unusable
+     installations can pass detection.])
+  m4_warn([override],
+    [$0: Cached results skip caller actions and can omit libev compiler and
+     linker flags.])
 	pushdef([VERSION], [m4_default([$1], [>= 4.0])])
 	pushdef([ACTION_IF_FOUND], [$2])
 	pushdef([ACTION_IF_NOT_FOUND], [$3])

@@ -72,7 +72,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 23
+#serial 24
 
 AC_DEFUN([_AX_LIB_POSTGRESQL_OLD],[
 	found_postgresql="no"
@@ -174,6 +174,9 @@ AC_DEFUN([_AX_LIB_POSTGRESQL_PKG_CONFIG],
 
 AC_DEFUN([AX_LIB_POSTGRESQL],
 [
+  m4_warn([override],
+    [$0: Both discovery paths can accept PostgreSQL libraries older than
+     the requested minimum.])
     AC_ARG_WITH([postgresql],
 	AS_HELP_STRING([--with-postgresql=@<:@ARG@:>@],
 	    [use PostgreSQL library @<:@default=yes@:>@, optionally specify path to pg_config]

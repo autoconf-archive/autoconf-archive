@@ -106,9 +106,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 22
+#serial 23
 
 AC_DEFUN([AX_LIB_HDF5], [
+  m4_warn([syntax],
+    [$0: HDF5 can be reported as available even after header and library
+     checks fail.])
 
 AC_REQUIRE([AC_PROG_SED])
 AC_REQUIRE([AC_PROG_AWK])

@@ -41,10 +41,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AU_ALIAS([AC_PERL_MODULE_VERSION], [AX_PERL_MODULE_VERSION])
 AC_DEFUN([AX_PERL_MODULE_VERSION],[dnl
+  m4_warn([syntax],
+    [$0: Version comparisons can reject installed Perl modules that satisfy
+     the requested version.])
 ac_perl_list_modules="$1"
 # Make sure we have perl
 if test -z "$PERL"; then

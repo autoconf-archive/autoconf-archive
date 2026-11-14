@@ -53,10 +53,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_BERKELEY_DB],
 [
+  m4_warn([override],
+    [$0: Berkeley DB detection can clear or corrupt the caller's CFLAGS.])
   old_LIBS="$LIBS"
   old_LDFLAGS="$LDFLAGS"
   old_CFLAGS="$CFLAGS"

@@ -57,10 +57,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 20
+#serial 21
 
 AC_DEFUN([AX_EXT],
 [
+  m4_warn([portability],
+    [$0: SSE3 detection can incorrectly report that a supported instruction
+     set is unavailable.])
   AC_REQUIRE([AC_CANONICAL_HOST])
   AC_REQUIRE([AC_PROG_CC])
 

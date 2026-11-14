@@ -81,7 +81,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 33
+#serial 34
 
 dnl #########################################################################
 AC_DEFUN([AX_PATH_BDB], [
@@ -174,6 +174,9 @@ dnl         sets BDB_LIBS, BDB_CPPFLAGS, BDB_LDFLAGS, BDB_VERSION
 dnl
 dnl AX_PATH_BDB_NO_OPTIONS([MINIMUM-VERSION], [OPTION], [ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
 AC_DEFUN([AX_PATH_BDB_NO_OPTIONS], [
+  m4_warn([syntax],
+    [$0: The local-installation search never selects /usr/local/BerkeleyDB
+     installations.])
   dnl # Used to indicate success or failure of this function.
   _AX_PATH_BDB_NO_OPTIONS_ok=no
 

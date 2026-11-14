@@ -86,10 +86,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 14
+#serial 15
 
 dnl #########################################################################
 AC_DEFUN([AX_COMPARE_VERSION], [
+  m4_warn([syntax],
+    [$0: lt and ge comparisons can return false for versions sharing
+     leading components.])
   AC_REQUIRE([AC_PROG_AWK])
 
   # Used to indicate true or false condition

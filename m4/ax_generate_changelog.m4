@@ -59,9 +59,11 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_GENERATE_CHANGELOG],[
+  m4_warn([syntax],
+    [$0: A failed git log can replace ChangeLog with an empty file.])
 	# Find git, defaulting to the 'missing' script so the user gets a nice
 	# message if git is missing, rather than a plain 'command not found'.
 	AC_PATH_PROG([GIT],[git],[${am_missing_run}git])

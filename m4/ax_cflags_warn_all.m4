@@ -86,9 +86,11 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 26
+#serial 27
 
 AC_DEFUN([AX_FLAGS_WARN_ALL], [
+  m4_warn([override],
+    [$0: Cached results skip warning-flag updates and caller actions.])
     AX_REQUIRE_DEFINED([AX_PREPEND_FLAG])dnl
     AC_REQUIRE([AX_COMPILER_VENDOR])dnl
 

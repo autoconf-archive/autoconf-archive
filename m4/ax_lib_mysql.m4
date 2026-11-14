@@ -55,10 +55,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 15
+#serial 16
 
 AC_DEFUN([AX_LIB_MYSQL],
 [
+  m4_warn([override],
+    [$0: MySQL client versions older than the requested minimum are still
+     accepted.])
     AC_ARG_WITH([mysql],
         AS_HELP_STRING([--with-mysql=@<:@ARG@:>@],
             [use MySQL client library @<:@default=yes@:>@, optionally specify path to mysql_config]

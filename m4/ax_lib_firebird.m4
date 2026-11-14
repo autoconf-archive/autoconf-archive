@@ -55,10 +55,15 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 14
+#serial 15
 
 AC_DEFUN([AX_LIB_FIREBIRD],
 [
+  m4_warn([override],
+    [$0: The requested minimum Firebird version is not enforced correctly.])
+  m4_warn([syntax],
+    [$0: Firebird can be reported as available without a usable client
+     library.])
     AC_ARG_WITH([firebird],
         AS_HELP_STRING(
             [--with-firebird=@<:@ARG@:>@],

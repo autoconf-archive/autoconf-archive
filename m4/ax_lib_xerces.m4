@@ -58,10 +58,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 AC_DEFUN([AX_LIB_XERCES],
 [
+  m4_warn([override],
+    [$0: Separate include and library directory options can fail to enable
+     Xerces detection.])
     AC_REQUIRE([AX_PTHREAD])
 
     AC_ARG_WITH([xerces],

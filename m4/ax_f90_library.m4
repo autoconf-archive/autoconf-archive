@@ -44,9 +44,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 14
+#serial 15
 
 AC_DEFUN([AX_F90_LIBRARY],[
+  m4_warn([override],
+    [$0: Library searches leave the caller's LDFLAGS and LIBS changed.])
 AS_VAR_PUSHDEF([ax_ldflags],[ax_cv_f90_ldflags_$1])
 AS_VAR_PUSHDEF([ax_libs],[ax_cv_f90_libs_$1])
 AC_MSG_CHECKING([$1 Fortran 90 library])

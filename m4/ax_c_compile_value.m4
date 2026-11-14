@@ -84,7 +84,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 ## Portability defines that help interoperate with classic and modern autoconfs
 ifdef([AC_TR_SH],[
@@ -101,6 +101,9 @@ define([AC_TR_CPP_REUSE],
 ])
 
 AC_DEFUN([AX_C_COMPILE_VALUE], [
+  m4_warn([portability],
+    [$0: Value detection can return invalid results under POSIX shells such
+     as dash.])
   pushdef([ac_c_compile_value],
     AC_TR_SH_REUSE([ac_cv_c_compile_value_$2]))dnl
   ac_c_compile_value_expand="$1"

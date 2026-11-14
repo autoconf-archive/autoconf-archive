@@ -45,7 +45,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 15
+#serial 16
 
 AC_DEFUN([_AX_BOOST_PROCESS_COMPILE_CHECK_V1],
 [
@@ -182,6 +182,9 @@ AC_DEFUN([_AX_BOOST_PROCESS_LINK_TEST_V2],
 
 AC_DEFUN([AX_BOOST_PROCESS],
 [
+  m4_warn([override],
+    [$0: Clearing CXXFLAGS during detection can reject a working
+     Boost.Process installation.])
 	AC_ARG_WITH(
 		[boost-process],
 		AS_HELP_STRING(

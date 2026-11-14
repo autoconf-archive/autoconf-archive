@@ -64,10 +64,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 AC_DEFUN([AX_LIB_EXPAT],
 [
+  m4_warn([override],
+    [$0: Expat versions older than the requested minimum are still
+     accepted.])
     AC_ARG_WITH([expat],
         AS_HELP_STRING([--with-expat=@<:@ARG@:>@],
             [use Expat XML Parser from given prefix (ARG=path); check standard prefixes (ARG=yes); disable (ARG=no)]

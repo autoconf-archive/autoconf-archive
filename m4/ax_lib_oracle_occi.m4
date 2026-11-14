@@ -66,10 +66,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_LIB_ORACLE_OCCI],
 [
+  m4_warn([portability],
+    [$0: The fixed NNZ library requirement can reject otherwise usable
+     Oracle versions.])
     AC_ARG_WITH([occi],
         AS_HELP_STRING([--with-occi=@<:@ARG@:>@],
             [use Oracle OCCI API from given Oracle home (ARG=path); use existing ORACLE_HOME (ARG=yes); disable Oracle OCCI support (ARG=no)]

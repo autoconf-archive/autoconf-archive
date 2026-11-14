@@ -78,9 +78,13 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 14
+#serial 15
 
-AC_DEFUN([AX_SPEC_PACKAGE_LICENSE],[AC_REQUIRE([AX_SPEC_FILE])dnl
+AC_DEFUN([AX_SPEC_PACKAGE_LICENSE],[
+  m4_warn([override],
+    [$0: The requested output variable is ignored; results go to the
+     built-in PACKAGE variables.])
+AC_REQUIRE([AX_SPEC_FILE])dnl
   AS_VAR_PUSHDEF([VAR],[PACKAGE_LICENSE])dnl
   AC_MSG_CHECKING([for spec license type])
   if test ".$VAR" = "." ; then if test ! -f $ax_spec_file
@@ -127,7 +131,11 @@ dnl  http://www.ibiblio.org/osrt/omf/omf_elements "16. Rights"
   AS_VAR_POPDEF([VAR])dnl
 ])
 
-AC_DEFUN([AX_SPEC_PACKAGE_SUMMARY],[AC_REQUIRE([AX_SPEC_FILE])dnl
+AC_DEFUN([AX_SPEC_PACKAGE_SUMMARY],[
+  m4_warn([override],
+    [$0: The requested output variable is ignored; results go to the
+     built-in PACKAGE variables.])
+AC_REQUIRE([AX_SPEC_FILE])dnl
   AS_VAR_PUSHDEF([VAR],[PACKAGE_SUMMARY])dnl
   AC_MSG_CHECKING([for spec summary])
   if test ".$VAR" = "." ; then if test ! -f $ax_spec_file
@@ -146,7 +154,11 @@ AC_DEFUN([AX_SPEC_PACKAGE_SUMMARY],[AC_REQUIRE([AX_SPEC_FILE])dnl
   AS_VAR_POPDEF([VAR])dnl
 ])
 
-AC_DEFUN([AX_SPEC_PACKAGE_ICON],[AC_REQUIRE([AX_SPEC_FILE])dnl
+AC_DEFUN([AX_SPEC_PACKAGE_ICON],[
+  m4_warn([override],
+    [$0: The requested output variable is ignored; results go to the
+     built-in PACKAGE variables.])
+AC_REQUIRE([AX_SPEC_FILE])dnl
   AS_VAR_PUSHDEF([VAR],[PACKAGE_ICON])dnl
   AC_MSG_CHECKING([for spec icon])
   if test ".$VAR" = "." ; then if test ! -f $ax_spec_file
@@ -162,7 +174,11 @@ AC_DEFUN([AX_SPEC_PACKAGE_ICON],[AC_REQUIRE([AX_SPEC_FILE])dnl
   AS_VAR_POPDEF([VAR])dnl
 ])
 
-AC_DEFUN([AX_SPEC_PACKAGE_CATEGORY],[AC_REQUIRE([AX_SPEC_FILE])dnl
+AC_DEFUN([AX_SPEC_PACKAGE_CATEGORY],[
+  m4_warn([override],
+    [$0: The requested output variable is ignored; results go to the
+     built-in PACKAGE variables.])
+AC_REQUIRE([AX_SPEC_FILE])dnl
   AS_VAR_PUSHDEF([VAR],[PACKAGE_CATEGORY])dnl
   AC_MSG_CHECKING([for spec category])
   if test ".$VAR" = "." ; then if test ! -f $ax_spec_file
@@ -182,7 +198,11 @@ AC_DEFUN([AX_SPEC_PACKAGE_CATEGORY],[AC_REQUIRE([AX_SPEC_FILE])dnl
   AS_VAR_POPDEF([VAR])dnl
 ])
 
-AC_DEFUN([AX_SPEC_PACKAGE_NAME],[AC_REQUIRE([AX_SPEC_FILE])dnl
+AC_DEFUN([AX_SPEC_PACKAGE_NAME],[
+  m4_warn([override],
+    [$0: The requested output variable is ignored; results go to the
+     built-in PACKAGE variables.])
+AC_REQUIRE([AX_SPEC_FILE])dnl
   AS_VAR_PUSHDEF([VAR],[PACKAGE_NAME])dnl
   AC_MSG_CHECKING([for spec package])
   if test ".$VAR" = "." ; then if test ! -f $ax_spec_file
@@ -202,7 +222,11 @@ AC_DEFUN([AX_SPEC_PACKAGE_NAME],[AC_REQUIRE([AX_SPEC_FILE])dnl
   AS_VAR_POPDEF([VAR])dnl
 ])
 
-AC_DEFUN([AX_SPEC_PACKAGE_VERSION_],[AC_REQUIRE([AX_SPEC_FILE])dnl
+AC_DEFUN([AX_SPEC_PACKAGE_VERSION_],[
+  m4_warn([override],
+    [$0: The requested output variable is ignored; results go to the
+     built-in PACKAGE variables.])
+AC_REQUIRE([AX_SPEC_FILE])dnl
   AS_VAR_PUSHDEF([VAR],[PACKAGE_VERSION])dnl
   AC_MSG_CHECKING([for spec version])
   if test ".$VAR" = "." ; then if test ! -f $ax_spec_file

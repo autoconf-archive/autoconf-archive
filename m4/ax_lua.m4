@@ -188,7 +188,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 49
+#serial 50
 
 dnl =========================================================================
 dnl AX_PROG_LUA([MINIMUM-VERSION], [TOO-BIG-VERSION],
@@ -656,6 +656,8 @@ dnl AX_LUA_READLINE([ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
 dnl =========================================================================
 AC_DEFUN([AX_LUA_READLINE],
 [
+  m4_warn([syntax],
+    [$0: Readline support can be enabled despite missing required headers.])
   AX_LIB_READLINE
   AS_IF([test "x$ac_cv_header_readline_readline_h" != 'x' &&
          test "x$ac_cv_header_readline_history_h" != 'x'],

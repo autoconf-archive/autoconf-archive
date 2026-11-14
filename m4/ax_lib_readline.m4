@@ -79,10 +79,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AU_ALIAS([VL_LIB_READLINE], [AX_LIB_READLINE])
 AC_DEFUN([AX_LIB_READLINE], [
+  m4_warn([override],
+    [$0: The minimum-version check can reject a matching Readline
+     installation.])
   AC_CACHE_CHECK([for a readline compatible library],
                  ax_cv_lib_readline, [
     ORIG_LIBS="$LIBS"

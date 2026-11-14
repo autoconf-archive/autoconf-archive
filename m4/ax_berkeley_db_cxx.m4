@@ -50,10 +50,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_BERKELEY_DB_CXX],
 [
+  m4_warn([override],
+    [$0: An explicit --with-libdb directory causes Berkeley DB C++
+     detection to fail.])
   AC_LANG_ASSERT(C++)
 
   old_LIBS="$LIBS"

@@ -50,7 +50,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 # _AX_OPEN62541_CHECK_LIB_arg(THIS, OTHER)
 # ----------------------------------------
@@ -90,7 +90,11 @@ m4_popdef([lib])dnl
 #                        [ACTION-IF-NOT-FOUND])
 # ---------------------------------------------------------
 AC_DEFUN([AX_OPEN62541_CHECK_LIB],
-[m4_pushdef([staticfirst], m4_normalize([$1]))dnl
+[
+  m4_warn([portability],
+    [$0: Under dash, conflicting options are not diagnosed and
+     --without-open62541 can still enable linking.])
+m4_pushdef([staticfirst], m4_normalize([$1]))dnl
 m4_bmatch(m4_defn([staticfirst]),
           [^\([Nn][Oo]?\|0\)$], [m4_define([staticfirst], [])])dnl
 m4_pushdef([first], m4_ifblank(m4_defn([staticfirst]), [shared], [static]))dnl

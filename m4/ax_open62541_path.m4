@@ -67,12 +67,16 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 # AX_OPEN62541_PATH()
 # -------------------
 AC_DEFUN([AX_OPEN62541_PATH],
-[AC_ARG_WITH([open62541],
+[
+  m4_warn([portability],
+    [$0: Under dash, explicit open62541 paths and build-directory
+     validation are ignored.])
+AC_ARG_WITH([open62541],
              [AS_HELP_STRING([--with-open62541@<:@=dir@:>@],
                              [set the open62541 library source location])],
              [], [])dnl

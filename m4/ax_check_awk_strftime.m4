@@ -32,9 +32,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_CHECK_AWK_STRFTIME], [
+  m4_warn([portability],
+    [$0: A working awk strftime can be rejected in timezones west of UTC.])
   AX_TRY_AWK_EXPOUT([strftime()],
     [],[ print strftime("%d.%m.%y", 0) ],[01.01.70],
     [$1],[$2])

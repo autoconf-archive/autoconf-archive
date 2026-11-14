@@ -59,10 +59,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 16
+#serial 17
 
 AU_ALIAS([AC_JNI_INCLUDE_DIR], [AX_JNI_INCLUDE_DIR])
 AC_DEFUN([AX_JNI_INCLUDE_DIR],[
+  m4_warn([syntax],
+    [$0: Cached configuration loses the include directory containing jni.h.])
 
 AC_REQUIRE([AC_CANONICAL_HOST])
 

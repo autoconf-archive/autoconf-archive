@@ -64,10 +64,13 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 25
+#serial 26
 
 AC_DEFUN([AX_BOOST_PYTHON],
-[AC_REQUIRE([AX_PYTHON_DEVEL])dnl
+[
+  m4_warn([override],
+    [$0: --without-boost-python does not disable Boost.Python detection.])
+AC_REQUIRE([AX_PYTHON_DEVEL])dnl
 AC_REQUIRE([AX_BOOST_BASE])dnl
 AC_LANG_PUSH([C++])
 ax_boost_python_save_CPPFLAGS="$CPPFLAGS"

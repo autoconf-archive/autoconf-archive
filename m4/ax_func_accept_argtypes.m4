@@ -63,11 +63,15 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_FUNC_ACCEPT_ARGTYPES], [AX_FUNC_ACCEPT_ARGTYPES])
 AC_DEFUN([AX_FUNC_ACCEPT_ARGTYPES],
-[AC_MSG_CHECKING([types of arguments for accept()])
+[
+  m4_warn([portability],
+    [$0: GCC 14 and later always fall back to default accept argument types
+     instead of detecting them.])
+AC_MSG_CHECKING([types of arguments for accept()])
  AC_CACHE_VAL(ac_cv_func_accept_arg1,dnl
  [AC_CACHE_VAL(ac_cv_func_accept_arg2,dnl
   [AC_CACHE_VAL(ac_cv_func_accept_arg3,dnl

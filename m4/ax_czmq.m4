@@ -48,9 +48,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_CZMQ], [
+  m4_warn([syntax],
+    [$0: HAVE_CZMQ is defined even when CZMQ is missing or disabled.])
     AC_ARG_WITH([czmq], [AS_HELP_STRING([--with-czmq=<prefix>],[CZMQ prefix directory])], [
         CZMQ_LDFLAGS="-L${with_czmq}/lib"
         CZMQ_CPPFLAGS="-I${with_czmq}/include"

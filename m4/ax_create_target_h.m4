@@ -104,7 +104,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AC_CREATE_TARGET_H], [AX_CREATE_TARGET_H])
 AC_DEFUN([AX_CREATE_TARGET_H],
@@ -127,6 +127,8 @@ AX_CREATE_TARGET_HOST_LOWER($1,$2)
 
 dnl [(OUT-FILE [, PREFIX])]  defaults: PREFIX=$PACKAGE OUTFILE=$PREFIX-target.h
 AC_DEFUN([AC_CREATE_PREFIX_TARGET_H],[dnl
+  m4_warn([override],
+    [$0: The requested output filename and header prefix are not honored.])
 ac_prefix_conf_PKG=`echo ifelse($2, , $PACKAGE, $2)`
 ac_prefix_conf_OUT=`echo ifelse($1, , $ac_prefix_conf_PKG-target.h, $1)`
 ac_prefix_conf_PRE=`echo $ac_prefix_conf_PKG-target | sed -e 'y:abcdefghijklmnopqrstuvwxyz-:ABCDEFGHIJKLMNOPQRSTUVWXYZ_:'`
@@ -137,6 +139,8 @@ AX_CREATE_TARGET_HOST_UPPER($ac_prefix_conf_PRE,$ac_perfix_conf_OUT)
 
 dnl [(OUT-FILE[, PREFIX])]  defaults: PREFIX=$PACKAGE OUTFILE=$PREFIX-target.h
 AC_DEFUN([AC_CREATE_PREFIX_TARGET_H_],[dnl
+  m4_warn([override],
+    [$0: The requested output filename and header prefix are not honored.])
 ac_prefix_conf_PKG=`echo ifelse($2, , $PACKAGE, $2)`
 ac_prefix_conf_OUT=`echo ifelse($1, , $ac_prefix_conf_PKG-target.h, $1)`
 ac_prefix_conf_PRE=`echo __$ac_prefix_conf_PKG-target | sed -e 'y:ABCDEFGHIJKLMNOPQRSTUVWXYZ-:abcdefghijklmnopqrstuvwxyz_:'`
@@ -488,7 +492,11 @@ dnl too specific about the cpu-type. I chose the names along the lines
 dnl of linux/arch/ which is modelled after widespread arch-naming, IMHO.
 dnl
 AC_DEFUN([AC_CANONICAL_CPU_ARCH],
-[AC_REQUIRE([AC_CANONICAL_SYSTEM])
+[
+  m4_warn([portability],
+    [$0: Cross builds can put the target CPU architecture in host
+     definitions.])
+AC_REQUIRE([AC_CANONICAL_SYSTEM])
 target_cpu_arch="unknown"
 case $target_cpu in
  i386*|i486*|i586*|i686*|i786*) target_cpu_arch=i386 ;;

@@ -83,13 +83,17 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_LIB_SAMTOOLS],
 #
 # Handle user hints
 #
-[AC_MSG_CHECKING([if samtools is wanted])
+[
+  m4_warn([override],
+    [$0: --without-samtools still runs dependency checks and can abort
+     configure.])
+AC_MSG_CHECKING([if samtools is wanted])
 AC_ARG_WITH([samtools],
   AS_HELP_STRING([--with-samtools],
                  [search for samtools in DIR/include and DIR/lib]),

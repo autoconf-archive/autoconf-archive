@@ -46,10 +46,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_caolan_SEARCH_PACKAGE],
 [
+  m4_warn([syntax],
+    [$0: A package can be reported as available despite missing headers or
+     libraries.])
 
 AC_ARG_WITH($1,
 [  --with-$1[=DIR]	root directory of $1 installation],

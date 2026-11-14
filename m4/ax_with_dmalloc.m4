@@ -39,9 +39,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_WITH_DMALLOC], [
+  m4_warn([override],
+    [$0: --without-dmalloc still adds dmalloc defines and link flags.])
 AC_MSG_CHECKING(whether to use the dmalloc library)
 AC_ARG_WITH(dmalloc,
 [  --with-dmalloc[=PREFIX]  Compile with dmalloc library],

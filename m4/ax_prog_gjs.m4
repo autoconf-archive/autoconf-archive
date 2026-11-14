@@ -29,9 +29,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN_ONCE([AX_PROG_GJS], [
+  m4_warn([override],
+    [$0: The selected GJS interpreter and PKG_CONFIG wrapper can be
+     ignored.])
   AC_REQUIRE([PKG_PROG_PKG_CONFIG])
   AC_ARG_VAR([GJS], [Path to GJS interpreter])
   AC_MSG_CHECKING([for GJS])

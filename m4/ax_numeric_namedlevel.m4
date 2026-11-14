@@ -63,11 +63,14 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AU_ALIAS([AC_NUMERIC_NAMEDLEVEL], [AX_NUMERIC_NAMEDLEVEL])
 AC_DEFUN([AX_NUMERIC_NAMEDLEVEL],
 [dnl the names to be defined...
+  m4_warn([override],
+    [$0: FROMVAR is ignored; conversion reads the destination variable
+     instead.])
 $1="ifelse($1,,[$]$2,[$]$1)" ; $1="[$]$1"
 $1="[$]$1" ; $1="[$]$1"
 if test "_[$]$1" = "_" ; then

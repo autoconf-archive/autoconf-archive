@@ -60,10 +60,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_LIB_XALAN],
 [
+  m4_warn([override],
+    [$0: Separate include and library directory options can fail to enable
+     Xalan detection.])
     AC_REQUIRE([AX_LIB_XERCES])
 
     AC_ARG_WITH([xalan],

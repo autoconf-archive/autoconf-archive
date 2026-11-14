@@ -57,10 +57,13 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_CXX_VAR_PRETTYFUNC],
 [
+  m4_warn([syntax],
+    [$0: Select and initialize C++ first; otherwise detection can test C or
+     generate invalid configure shell code.])
 # try to find best __FUNCTION__ variant
 
 AC_CACHE_CHECK([whether $CXX can get a pretty function name], ac_cv_cxx_var_prettyfunc,

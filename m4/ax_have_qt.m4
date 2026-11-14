@@ -66,11 +66,14 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 28
+#serial 29
 
 AU_ALIAS([BNV_HAVE_QT], [AX_HAVE_QT])
 AC_DEFUN([AX_HAVE_QT],
 [
+  m4_warn([syntax],
+    [$0: QT_LRELEASE remains empty unless explicitly set, even when
+     lrelease is installed.])
   AC_REQUIRE([AC_PROG_CXX])
   AC_REQUIRE([AC_PATH_X])
   AC_REQUIRE([AC_PATH_XTRA])

@@ -91,10 +91,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 ###############################################################################
 AC_DEFUN([AX_PATH_MILTER], [
+  m4_warn([override],
+    [$0: The source-tree probe can clear or corrupt the caller's LDFLAGS.])
 
 # Used to indicate success or failure of this function.
 ax_path_milter_ok=no

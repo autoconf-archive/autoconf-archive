@@ -87,9 +87,12 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_CHECK_PGSQL_PRIV_ROOT], [
+  m4_warn([syntax],
+    [$0: Use AX_CHECK_PGSQL_PRIV_ROOT; the advertised AX_PGSQL_PRIV_ROOT
+     name is undefined.])
 AC_REQUIRE([AX_PROG_PGCLIENT])dnl
 AC_REQUIRE([AX_CHECK_PGSQL_DB])dnl
 AC_MSG_CHECKING([if PostgreSQL user $2 has root privileges])
