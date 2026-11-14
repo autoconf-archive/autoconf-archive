@@ -9,7 +9,7 @@ tmpl = """\
 @node %(name)s
 @unnumberedsec %(name)s
 
-@majorheading Synopsis
+%(obsolete)s@majorheading Synopsis
 
 %(synopsis)s
 
@@ -59,6 +59,12 @@ if len(sys.argv) != 3:
 (m4File,outFile) = sys.argv[1:]
 assert outFile != m4File
 m = Macro(m4File)
+if m.__dict__.get("obsolete"):
+  m.obsolete = '\n\n'.join(map(formatParagraph, m.obsolete))
+  m.obsolete = m.obsolete.replace("@end smallexample\n@smallexample", "\n")
+  m.obsolete = "@majorheading Obsolete Macro\n\n" + m.obsolete + "\n\n"
+else:
+  m.obsolete = ""
 m.synopsis = "@smallexample\n%s\n@end smallexample" % "\n".join(map(quoteTexi, m.synopsis))
 m.description = '\n\n'.join(map(formatParagraph, m.description))
 m.description = m.description.replace("@end smallexample\n@smallexample", "\n")
