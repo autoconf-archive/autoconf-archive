@@ -41,21 +41,7 @@
 #
 # BUGS
 #
-#   (1) The pg_config fallback compares the literal
-#   Xfound_postgresql_req_version with Xno instead of expanding the
-#   variable. It accepts an older PostgreSQL library even after the
-#   minimum-version comparison fails. [Rating: major]
-#
-#   (2) The --libs-only-l failure path sets its failure flag to ye instead
-#   of yes. A failed pkg-config query can be ignored, leaving the library
-#   flags incomplete. [Rating: minor]
-#
-#   (3) The pkg-config failure guard compares X$found_postgresql with no
-#   instead of Xno. An unsuccessful package or minimum-version check does
-#   not stop the subsequent queries, and a discoverable older library can
-#   ultimately be accepted. [Rating: major]
-#
-#   (4) Private shell variables such as found_postgresql,
+#   Private shell variables such as found_postgresql,
 #   found_postgresql_req_version, and postgresql_version_req lack an ax_
 #   prefix. They share configure's shell namespace with callers and other
 #   macros, so they may collide with variables of the same name. These
@@ -72,7 +58,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 24
+#serial 28
 
 AC_DEFUN([_AX_LIB_POSTGRESQL_OLD],[
 	found_postgresql="no"
@@ -118,7 +104,7 @@ AC_DEFUN([_AX_LIB_POSTGRESQL_OLD],[
 				[found_postgresql_req_version=yes],[found_postgresql_req_version=no])
 	     AC_MSG_RESULT([$found_postgresql_req_version])
 	  ])
-	  AS_IF([test "Xfound_postgresql_req_version" = "Xno"],[break])
+	  AS_IF([test "X$found_postgresql_req_version" = "Xno"],[break])
 
 	  found_postgresql="yes"
 	  break
@@ -132,14 +118,14 @@ AC_DEFUN([_AX_LIB_POSTGRESQL_PKG_CONFIG],
 
   while true; do
     PKG_PROG_PKG_CONFIG
-    AS_IF([test X$PKG_CONFIG = X],[break])
+    AS_IF([test "X$PKG_CONFIG" = "X"],[break])
 
     _AX_LIB_POSTGRESQL_PKG_CONFIG_fail=no;
     AS_IF([test "X$postgresql_version_req" = "X"],
-	  [PKG_CHECK_EXISTS([libpq],[found_postgresql_pkg_config=yes],[found_postgresql=no])],
+	  [PKG_CHECK_EXISTS([libpq],[found_postgresql_pkg_config=yes],[found_postgresql_pkg_config=no])],
 	  [PKG_CHECK_EXISTS([libpq >= "$postgresql_version_req"],
-			   [found_postgresql=yes],[found_postgresql=no])])
-    AS_IF([test "X$found_postgresql" = "no"],[break])
+			   [found_postgresql_pkg_config=yes],[found_postgresql_pkg_config=no])])
+    AS_IF([test "X$found_postgresql_pkg_config" = "Xno"],[break])
 
     AC_CACHE_CHECK([for the PostgreSQL libraries CPPFLAGS],[ac_cv_POSTGRESQL_CPPFLAGS],
 		   [ac_cv_POSTGRESQL_CPPFLAGS="`$PKG_CONFIG libpq --cflags-only-I`" || _AX_LIB_POSTGRESQL_PKG_CONFIG_fail=yes])
@@ -154,7 +140,7 @@ AC_DEFUN([_AX_LIB_POSTGRESQL_PKG_CONFIG],
 
 
     AC_CACHE_CHECK([for the PostgreSQL libraries LIBS],[ac_cv_POSTGRESQL_LIBS],
-		   [ac_cv_POSTGRESQL_LIBS="`$PKG_CONFIG libpq --libs-only-l`" || _AX_LIB_POSTGRESQL_PKG_CONFIG_fail=ye])
+		   [ac_cv_POSTGRESQL_LIBS="`$PKG_CONFIG libpq --libs-only-l`" || _AX_LIB_POSTGRESQL_PKG_CONFIG_fail=yes])
     AS_IF([test "X$_AX_LIB_POSTGRESQL_PKG_CONFIG_fail" = "Xyes"],[break])
     POSTGRESQL_LIBS="$ac_cv_POSTGRESQL_LIBS"
 
@@ -174,9 +160,6 @@ AC_DEFUN([_AX_LIB_POSTGRESQL_PKG_CONFIG],
 
 AC_DEFUN([AX_LIB_POSTGRESQL],
 [
-  m4_warn([override],
-    [$0: Both discovery paths can accept PostgreSQL libraries older than
-     the requested minimum.])
     AC_ARG_WITH([postgresql],
 	AS_HELP_STRING([--with-postgresql=@<:@ARG@:>@],
 	    [use PostgreSQL library @<:@default=yes@:>@, optionally specify path to pg_config]
