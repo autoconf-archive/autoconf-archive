@@ -8,7 +8,8 @@ For example, use apostrophe (U+27) for quoting identifiers
 instead of Unicode quotation mark characters U+2018, U+2019.
 
 The file should begin with a header comment containing three named sections:
-synopsis, description, and license.
+synopsis, description, and license.  An optional bugs section may follow the
+description section.
 
 The synopsis gives a summary of the macro usage and arguments.  In this
 section, square brackets (@code{[]}) are used to indicate optional parameters, and
@@ -30,6 +31,10 @@ any substituted variables (@code{AC_SUBST})
 @item
 any defined precompiler constants (@code{AC_DEFINE})
 @end itemize
+
+The bugs section describes known bugs, limitations, and possible workarounds.
+Like the description, it may contain prose paragraphs and indented examples.
+It is rendered immediately after the description in the macro header and manual.
 
 Macros should be defined with @code{AC_DEFUN}, using correct quoting.  Comments
 should be used liberally within the macro, with @code{dnl} used for comments at

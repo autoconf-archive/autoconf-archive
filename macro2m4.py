@@ -16,7 +16,7 @@ tmpl = """\
 #
 %(description)s
 #
-# LICENSE
+%(bugs)s# LICENSE
 #
 %(authors)s
 #
@@ -54,12 +54,13 @@ if len(sys.argv) != 3:
 (m4File,outFile) = sys.argv[1:]
 assert outFile != m4File
 m = Macro(m4File, computeSerialNumber=True)
-for i in range(len(m.description)):
-  para = m.description[i]
-  if para[0][0].isspace():
-    spaces = min(list(map(countSpaces, para)))
-    if spaces > 1:
-      m.description[i] = ['  ' + l[spaces:] for l in para]
+for section in (m.description, m.bugs):
+  for i in range(len(section)):
+    para = section[i]
+    if para[0][0].isspace():
+      spaces = min(list(map(countSpaces, para)))
+      if spaces > 1:
+        section[i] = ['  ' + l[spaces:] for l in para]
 url = "https://www.gnu.org/software/autoconf-archive/%s.html" % m.name
 lineLen = max(len(url) + 2, 75)
 m.url = "# %s\n# %s\n# %s" % ('=' * lineLen, (' ' * int((lineLen - len(url)) / 2)) + url, '=' * lineLen)
@@ -69,6 +70,10 @@ else:
   m.obsolete = ""
 m.synopsis = "\n".join([ "#   %s" % l for l in m.synopsis ])
 m.description = '\n#\n'.join(map(formatParagraph, m.description))
+if m.bugs:
+  m.bugs = "# BUGS\n#\n" + '\n#\n'.join(map(formatParagraph, m.bugs)) + "\n#\n"
+else:
+  m.bugs = ""
 m.authors = "\n".join(map(formatAuthor, m.authors))
 m.license = '\n#\n'.join(map(formatParagraph, m.license))
 m.body = '\n'.join(m.body)

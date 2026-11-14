@@ -17,7 +17,7 @@ tmpl = """\
 
 %(description)s
 
-@majorheading Source Code
+%(bugs)s@majorheading Source Code
 
 Download the
 @uref{http://git.savannah.gnu.org/gitweb/?p=autoconf-archive.git;a=blob_plain;f=m4/%(name)s.m4,latest
@@ -62,6 +62,12 @@ m = Macro(m4File)
 m.synopsis = "@smallexample\n%s\n@end smallexample" % "\n".join(map(quoteTexi, m.synopsis))
 m.description = '\n\n'.join(map(formatParagraph, m.description))
 m.description = m.description.replace("@end smallexample\n@smallexample", "\n")
+if m.bugs:
+  m.bugs = '\n\n'.join(map(formatParagraph, m.bugs))
+  m.bugs = m.bugs.replace("@end smallexample\n@smallexample", "\n")
+  m.bugs = "@majorheading Bugs\n\n" + m.bugs + "\n\n"
+else:
+  m.bugs = ""
 m.authors = " @* ".join([ "@w{%s}" % formatAuthor(a) for a in m.authors ])
 m.license = "\n\n".join(map(formatParagraph, m.license))
 writeFile(outFile, tmpl % m.__dict__)

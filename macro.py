@@ -69,6 +69,7 @@ class Macro:
     header = [l[2:] for l in header.split('\n')]
     # set defaults
     self.authors = []
+    self.bugs = []
     # parse each section in the remaining list
     for (key, body) in splitSections(header):
       # drop empty lines at beginning and end of body
@@ -78,7 +79,7 @@ class Macro:
       if key == "synopsis":
         if '' in body:
           raise Exception("%s: malformed synopsis section" % filePath)
-      elif key == "description":
+      elif key in ("description", "bugs"):
         body = collapseText(body)
       elif key == "license":
         while True:
@@ -98,8 +99,6 @@ class Macro:
         body = collapseText(body)
       elif key == "obsolete macro":
         key = "obsolete"
-        body = collapseText(body)
-      elif key == "description":
         body = collapseText(body)
       else:
         raise Exception("%s: unknown section %r in macro" % (filePath, key))
