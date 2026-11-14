@@ -21,6 +21,13 @@
 #   you do not want to run AC_PATH_PROG, simply use AX_MISSING_PROG or
 #   AM_MISSING.
 #
+# BUGS
+#
+#   The PATH argument is passed as the third argument of AC_PATH_PROG, which
+#   is its not-found value, rather than its fourth search-path argument. A
+#   missing program can be assigned the path string instead of the
+#   missing-program fallback. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Noah Slater <nslater@bytesexual.org>
@@ -31,7 +38,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 AC_DEFUN([AX_PATH_MISSING], [
     AC_PATH_PROG([$1],[$2],[$4])

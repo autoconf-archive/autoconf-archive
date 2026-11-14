@@ -16,6 +16,14 @@
 #   You can search for some particular version of Ruby by passing a
 #   parameter to this macro, for example "2.2.1".
 #
+# BUGS
+#
+#   Private shell variables such as ac_save_CPPFLAGS, ac_save_LIBS, and
+#   ruby_arch_path lack an ax_ prefix. They share configure's shell
+#   namespace with callers and other macros, so they may collide with
+#   variables of the same name. These variables should use macro-specific
+#   ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Rafal Rzepecki <divided.mind@gmail.com>
@@ -52,7 +60,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 15
+#serial 16
 
 AC_DEFUN([AX_RUBY_DEVEL],[
     AX_WITH_PROG(RUBY,ruby)

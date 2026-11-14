@@ -22,6 +22,23 @@
 #
 #     HAVE_CZMQ
 #
+# BUGS
+#
+#   (1) HAVE_CZMQ is defined unconditionally, including when detection fails
+#   or --without-czmq is specified. Code using #ifdef HAVE_CZMQ can attempt
+#   to use a missing or disabled library. [Rating: major]
+#
+#   (2) No link test is performed: HAVE_CZMQ is defined and CZMQ_LIBS is set
+#   to -lczmq once czmq.h with a sufficient version is found, even if
+#   libczmq is missing. The prefix library flag is also assigned to LD_FLAGS
+#   instead of LDFLAGS, which has no effect, because nothing is linked
+#   during detection. [Rating: minor]
+#
+#   (3) Private shell variables such as version lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2016 Jeroen Meijer <jjgmeijer@gmail.com>
@@ -31,7 +48,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_CZMQ], [
     AC_ARG_WITH([czmq], [AS_HELP_STRING([--with-czmq=<prefix>],[CZMQ prefix directory])], [

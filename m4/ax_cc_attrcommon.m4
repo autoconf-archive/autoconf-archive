@@ -20,6 +20,16 @@
 #
 #   See also:  ax_cc_tentdef.m4 for a test on C tentative definitions
 #
+# BUGS
+#
+#   (1) Private shell variables such as o1 and t1 lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
+#   (2) The macro assigns its temporary files to ac_clean_files, overwriting
+#   the list of files that Autoconf itself removes on exit. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 1996-2023 David Stes
@@ -37,7 +47,7 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 4
+#serial 5
 
 AC_ARG_WITH(attrcommon,
   [  --with-attrcommon       use __attribute__ for C tentative definitions],

@@ -26,6 +26,23 @@
 #     DB_CPPFLAGS to the include directives required
 #     DB_LDFLAGS to the -L flags required
 #
+# BUGS
+#
+#   (1) The macro saves CFLAGS in old_CFLAGS but restores it from
+#   old_CPPFLAGS, which it does not initialize. It therefore clears or
+#   corrupts the caller's CFLAGS; --with-libdb also uses this wrong variable
+#   for its compile test. [Rating: major]
+#
+#   (2) A minimum version consisting of a major number alone is split with
+#   cut without -s, so missing minor and patch fields repeat the major
+#   number. For example, a requested version of 4 is tested as 4.4.4 rather
+#   than 4.0.0. [Rating: minor]
+#
+#   (3) Private shell variables such as old_LDFLAGS, old_LIBS, and version
+#   lack an ax_ prefix. They share configure's shell namespace with callers
+#   and other macros, so they may collide with variables of the same name.
+#   These variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Vaclav Slavik <vaclav.slavik@matfyz.cz>
@@ -36,7 +53,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_BERKELEY_DB],
 [

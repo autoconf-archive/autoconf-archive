@@ -21,6 +21,13 @@
 #   or the user specified --without-xsltproc. $XSLTPROC_FLAGS contains the
 #   flags to use with xsltproc.
 #
+# BUGS
+#
+#   Private shell variables such as ac_with_xsltproc lack an ax_ prefix.
+#   They share configure's shell namespace with callers and other macros, so
+#   they may collide with variables of the same name. These variables should
+#   use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008,2009 Zmanda Inc. <http://www.zmanda.com/>
@@ -52,7 +59,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([AC_PROG_XSLTPROC], [AX_PROG_XSLTPROC])
 AC_DEFUN([AX_PROG_XSLTPROC],

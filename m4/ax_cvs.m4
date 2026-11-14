@@ -73,6 +73,21 @@
 #
 #     same as release, but distcheck is not performed
 #
+# BUGS
+#
+#   (1) The USEREMAIL validation checks USERNAME instead of USEREMAIL. An
+#   unset email address is accepted when a username is present, producing
+#   incomplete commit and release log entries. [Rating: minor]
+#
+#   (2) The generated cvs-rm rule changes directory using $(srddir) instead
+#   of $(srcdir). In a separate build directory it runs cvs remove in the
+#   wrong directory. [Rating: major]
+#
+#   (3) The generated branch-minor rule invokes the version updater with
+#   change=1, just like branch-major. It increments the major version and
+#   resets lower components rather than incrementing the minor version.
+#   [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Tom Howard <tomhoward@users.sf.net>
@@ -82,7 +97,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 23
+#serial 24
 
 AC_DEFUN([AX_CVS],
 [

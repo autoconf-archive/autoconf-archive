@@ -36,6 +36,13 @@
 #
 #   Other policies may be added in future.
 #
+# BUGS
+#
+#   Private shell variables such as micro_version and minor_version lack an
+#   ax_ prefix. They share configure's shell namespace with callers and
+#   other macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2015 Philip Withnall <philip@tecnocode.co.uk>
@@ -45,7 +52,7 @@
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_IS_RELEASE],[
     AC_BEFORE([AC_INIT],[$0])

@@ -17,6 +17,12 @@
 #   Alessandro Massignan for his suggestions and extensive nawk tests on
 #   FreeBSD.
 #
+# BUGS
+#
+#   An extra empty argument is passed to AX_TRY_AWK_ANYOUT. The success
+#   action is consequently empty, the failure action is the caller's success
+#   action, and the caller's failure action is ignored. [Rating: broken]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>
@@ -26,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_CHECK_AWK_COMPL], [
   AX_TRY_AWK_ANYOUT([compl()],

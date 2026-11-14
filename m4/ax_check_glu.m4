@@ -53,6 +53,13 @@
 #   (*)(...)" rather than the standard "GLvoid (*)()". If the former
 #   condition is detected, this macro defines "HAVE_VARARGS_GLU_TESSCB".
 #
+# BUGS
+#
+#   The condition for HAVE_VARARGS_GLU_TESSCB compares
+#   X$ax_cv_varargs_glu_tesscb with yes instead of Xyes. It is always false,
+#   so the define is never emitted even when the nonstandard callback test
+#   succeeds. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Braden McDaniel <braden@endoframe.com>
@@ -85,7 +92,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 24
+#serial 25
 
 # example program
 m4_define([_AX_CHECK_GLU_PROGRAM],

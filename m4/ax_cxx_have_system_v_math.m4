@@ -12,6 +12,13 @@
 #   nearest, rsqrt, uitrunc, copysign, drem, finite, and unordered, define
 #   HAVE_SYSTEM_V_MATH.
 #
+# BUGS
+#
+#   Private shell variables such as ac_save_LIBS lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Todd Veldhuizen
@@ -22,7 +29,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AC_CXX_HAVE_SYSTEM_V_MATH], [AX_CXX_HAVE_SYSTEM_V_MATH])
 AC_DEFUN([AX_CXX_HAVE_SYSTEM_V_MATH],

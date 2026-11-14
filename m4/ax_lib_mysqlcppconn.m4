@@ -26,6 +26,18 @@
 #   external dependencies so you have to do it on your own. See also
 #   AX_LIB_MYSQL macro.
 #
+# BUGS
+#
+#   (1) Detection errors call AC_MSG_ERROR directly before the caller's
+#   ACTION-IF-NOT-FOUND can run. The advertised failure callback cannot make
+#   a missing installation optional. [Rating: major]
+#
+#   (2) Private shell variables such as CPPFLAGS_SAVED, CXXFLAGS_SAVED, and
+#   LDFLAGS_SAVED lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2011 Xiyue Deng <manphiz@gmail.com>
@@ -35,7 +47,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_LIB_MYSQLCPPCONN],
 [

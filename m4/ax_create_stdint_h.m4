@@ -44,6 +44,25 @@
 #   will not use the compiler's stdint.h - please complain to the GCC
 #   developers).
 #
+# BUGS
+#
+#   (1) In the fallback used when no system header provides the integer
+#   types, int8_t is defined as plain char. On targets where char is
+#   unsigned, the generated int8_t and derived signed 8-bit types are
+#   therefore unsigned. Systems that have stdint.h, inttypes.h, or suitable
+#   sys/types.h types do not reach this fallback. [Rating: minor]
+#
+#   (2) The initial stdint.h probe clears CFLAGS, CXXFLAGS, and CPPFLAGS. In
+#   principle it can select a system header that does not work with the
+#   caller's actual target flags, although the later probes do use those
+#   flags. [Rating: minor]
+#
+#   (3) Private shell variables such as old_CFLAGS, old_CPPFLAGS, and
+#   old_CXXFLAGS lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -53,7 +72,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 21
+#serial 22
 
 AC_DEFUN([AX_CHECK_DATA_MODEL],[
    AC_CHECK_SIZEOF(char)

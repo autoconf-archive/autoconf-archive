@@ -38,6 +38,24 @@
 #
 #     HAVE_ORACLE_OCCI
 #
+# BUGS
+#
+#   (1) The minimum-version guard tests the literal oracle_version_minor
+#   string instead of expanding $oracle_version_minor. A missing
+#   minor-version definition is not detected and reaches invalid expr
+#   arithmetic. [Rating: minor]
+#
+#   (2) The initial link test unconditionally requires -lnnz11, before
+#   checking the Oracle version. Installations using a different NNZ
+#   library, including the 10.x case handled later in the macro, can never
+#   reach that version-specific adjustment. [Rating: major]
+#
+#   (3) Private shell variables such as saved_CPPFLAGS, saved_LDFLAGS, and
+#   occi_header_found lack an ax_ prefix. They share configure's shell
+#   namespace with callers and other macros, so they may collide with
+#   variables of the same name. These variables should use macro-specific
+#   ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
@@ -48,7 +66,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_LIB_ORACLE_OCCI],
 [

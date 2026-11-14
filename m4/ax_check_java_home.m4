@@ -13,6 +13,13 @@
 #   else left JAVA_HOME untouch, which in most case means JAVA_HOME is
 #   empty.
 #
+# BUGS
+#
+#   Private shell variables such as TRY_JAVA_HOME lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Gleen Salmon <gleensalmon@yahoo.com>
@@ -43,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_CHECK_JAVA_HOME], [AX_CHECK_JAVA_HOME])
 

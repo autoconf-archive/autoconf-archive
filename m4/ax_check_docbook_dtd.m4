@@ -27,6 +27,21 @@
 #    if test "x$HAVE_DOCBOOK_DTD_4_3" = "xyes"; then
 #    ...
 #
+# BUGS
+#
+#   (1) The missing-DTD diagnostic is written to conftest.out but searched
+#   for in conftest_out. Because xsltproc always exits with status 5 for the
+#   test file, which is not a stylesheet, every DTD version is reported as
+#   present, including versions that do not exist. [Rating: broken]
+#
+#   (2) Private shell variables such as MY_XSLTPROC_FLAGS lack an ax_
+#   prefix. They share configure's shell namespace with callers and other
+#   macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
+#   (3) HAVE_DOCBOOK_DTD is set to the literal string HAVE_DOCBOOK_DTD_VERS
+#   instead of the result of the check. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Zmanda Inc. <http://www.zmanda.com/>
@@ -58,7 +73,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_CHECK_DOCBOOK_DTD], [AX_CHECK_DOCBOOK_DTD])
 AC_DEFUN([AX_CHECK_DOCBOOK_DTD],

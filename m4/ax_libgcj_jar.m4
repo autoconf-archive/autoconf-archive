@@ -11,6 +11,13 @@
 #   Locate libgcj.jar so you can place it before everything else when using
 #   gcj.
 #
+# BUGS
+#
+#   Private shell variables such as save_cp, jc, and lgcj lack an ax_
+#   prefix. They share configure's shell namespace with callers and other
+#   macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Duncan Simpson <dps@simpson.demon.co.uk>
@@ -41,7 +48,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 12
+#serial 13
 
 AU_ALIAS([DPS_LIBGCJ_JAR], [AX_LIBGCJ_JAR])
 AC_DEFUN([AX_LIBGCJ_JAR],

@@ -36,6 +36,25 @@
 #
 #     HAVE_EXPAT
 #
+# BUGS
+#
+#   (1) The version check only matches lines of the form #define
+#   XML_MAJOR_VERSION, but Expat 2.7 and later write #  define with spaces
+#   after the hash. The version components are then empty, expr reports a
+#   syntax error, and configure warns that the installed version is older
+#   than required. The check only warns, so detection itself still succeeds.
+#   [Rating: minor]
+#
+#   (2) A version below MINIMUM-VERSION only produces a warning; HAVE_EXPAT
+#   remains yes and the library flags remain enabled. The minimum version is
+#   not enforced. [Rating: major]
+#
+#   (3) Private shell variables such as saved_CPPFLAGS, saved_LDFLAGS, and
+#   saved_LIBS lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
@@ -45,7 +64,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_LIB_EXPAT],
 [

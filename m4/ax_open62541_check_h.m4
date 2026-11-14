@@ -66,7 +66,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 # AX_OPEN62541_CHECK_H([HEADERS], [ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])
 # -------------------------------------------------------------------------

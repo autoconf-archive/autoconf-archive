@@ -15,6 +15,23 @@
 #   This macro depends on AX_GCC_X86_CPUID, AC_PROG_SED, AX_COUNT_CPUS, and
 #   AX_CPU_VENDOR.
 #
+# BUGS
+#
+#   (1) The fallback CPUID decoder uses 16# hexadecimal arithmetic, which
+#   POSIX shells such as dash reject. On systems without the Linux sysfs
+#   cache files, configure can terminate with an arithmetic error. [Rating:
+#   major]
+#
+#   (2) The fallback tests ax_xpu_vendor instead of ax_cv_cpu_vendor. Since
+#   that variable is never set, the comparison always fails, the L1 cache
+#   query never runs, and CPU_L1_CACHE is defined as 0 whenever the sysfs
+#   information is unavailable. [Rating: major]
+#
+#   (3) Private shell variables such as idx, l1_hexval, and l2_hexval lack
+#   an ax_ prefix. They share configure's shell namespace with callers and
+#   other macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Christophe Tournayre <turn3r@users.sourceforge.net>
@@ -24,7 +41,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_CACHE_SIZE],
 [

@@ -25,6 +25,13 @@
 #   regardless, after defining HAVE_CXX${VERSION} if and only if a
 #   supporting mode is found.
 #
+# BUGS
+#
+#   Private shell variables such as ac_save_CXX, ac_success, and alternative
+#   lack an ax_ prefix. They share configure's shell namespace with callers
+#   and other macros, so they may collide with variables of the same name.
+#   These variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Benjamin Kosnik <bkoz@redhat.com>
@@ -44,7 +51,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 26
+#serial 27
 
 dnl  This macro is based on the code from the AX_CXX_COMPILE_STDCXX_11 macro
 dnl  (serial version number 13).

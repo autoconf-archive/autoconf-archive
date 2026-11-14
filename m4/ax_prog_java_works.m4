@@ -17,6 +17,13 @@
 #   general documentation, as well as the sample configure.in, is included
 #   in the AX_PROG_JAVA macro.
 #
+# BUGS
+#
+#   Private shell variables such as TEST, CLASS_TEST, and JAVA_TEST lack an
+#   ax_ prefix. They share configure's shell namespace with callers and
+#   other macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Stephane Bortzmeyer <bortzmeyer@pasteur.fr>
@@ -47,7 +54,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 AU_ALIAS([AC_PROG_JAVA_WORKS], [AX_PROG_JAVA_WORKS])
 AC_DEFUN([AX_PROG_JAVA_WORKS], [

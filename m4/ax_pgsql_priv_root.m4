@@ -46,6 +46,17 @@
 #
 #     AX_CHECK_PGSQL_PRIV_ROOT([$pg_db], [$pg_root_user], [$pg_host], [$pg_password], [AC_MSG_ERROR([We need root privileges on database!])])
 #
+# BUGS
+#
+#   (1) The synopsis advertises AX_PGSQL_PRIV_ROOT, but the file only
+#   defines AX_CHECK_PGSQL_PRIV_ROOT. Invoking the advertised name leaves an
+#   undefined macro in configure. [Rating: major]
+#
+#   (2) Private shell variables such as pgclient_root_call and testdb lack
+#   an ax_ prefix. They share configure's shell namespace with callers and
+#   other macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Moritz Sinn <moritz@freesources.org>
@@ -76,7 +87,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_CHECK_PGSQL_PRIV_ROOT], [
 AC_REQUIRE([AX_PROG_PGCLIENT])dnl

@@ -27,6 +27,19 @@
 #
 #     HAVE_SQLITE3
 #
+# BUGS
+#
+#   (1) Detection only compiles sqlite3.h and never links libsqlite3. If
+#   sqlite3.h is present but libsqlite3 is missing or unusable, for example
+#   in cross or multilib builds, HAVE_SQLITE3 is defined and the build fails
+#   at link time. [Rating: minor]
+#
+#   (2) Private shell variables such as saved_CPPFLAGS, success, and
+#   WANT_SQLITE3 lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
@@ -36,7 +49,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 19
+#serial 20
 
 AC_DEFUN([AX_LIB_SQLITE3],
 [

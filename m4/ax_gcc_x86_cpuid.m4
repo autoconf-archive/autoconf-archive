@@ -26,6 +26,12 @@
 #
 #   This macro mainly exists to be used in AX_GCC_ARCHFLAG.
 #
+# BUGS
+#
+#   AX_GCC_X86_CPUID_COUNT caches results by OP alone and ignores COUNT in
+#   the cache key. Requests for different subleaves of the same CPUID leaf
+#   reuse the first result. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Steven G. Johnson <stevenj@alum.mit.edu>
@@ -58,7 +64,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_GCC_X86_CPUID],
 [AX_GCC_X86_CPUID_COUNT($1, 0)

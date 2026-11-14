@@ -31,6 +31,19 @@
 #     #include <zlib.h>
 #     #endif /* HAVE_LIBZ */
 #
+# BUGS
+#
+#   (1) When detection fails and the caller supplies a nonfatal failure
+#   action, the temporary include and library search flags are not restored.
+#   Subsequent configure checks retain flags for the unsuccessful zlib
+#   installation. [Rating: minor]
+#
+#   (2) Private shell variables such as ZLIB_OLD_CPPFLAGS, ZLIB_OLD_LDFLAGS,
+#   and zlib_places lack an ax_ prefix. They share configure's shell
+#   namespace with callers and other macros, so they may collide with
+#   variables of the same name. These variables should use macro-specific
+#   ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Loic Dachary <loic@senga.org>
@@ -62,7 +75,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 18
+#serial 19
 
 AU_ALIAS([CHECK_ZLIB], [AX_CHECK_ZLIB])
 AC_DEFUN([AX_CHECK_ZLIB],

@@ -19,6 +19,27 @@
 #
 #   See also:  ax_cc_attrcommon.m4 for a __attribute__(( __common__)) test
 #
+# BUGS
+#
+#   (1) The runtime tests use commands such as ./program != 7 instead of
+#   comparing the program's exit status with 7, so any nonzero exit status
+#   would be accepted. In practice the test program exits with 7 whenever it
+#   can be built, so this does not currently change the result. [Rating:
+#   minor]
+#
+#   (2) Private shell variables such as e1, e2, and t1 lack an ax_ prefix.
+#   They share configure's shell namespace with callers and other macros, so
+#   they may collide with variables of the same name. These variables should
+#   use macro-specific ax_ names. [Rating: minor]
+#
+#   (3) The test program calls exit() without including <stdlib.h>. GCC 14
+#   and later reject the implicit declaration, so the program is never built
+#   and the macro always reports that tentative definitions are not
+#   supported, even with -fcommon. [Rating: broken]
+#
+#   (4) The macro assigns its temporary files to ac_clean_files, overwriting
+#   the list of files that Autoconf itself removes on exit. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 1996-2023 David Stes
@@ -36,7 +57,7 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 5
+#serial 6
 
 AC_ARG_WITH(tentdef,
   [  --with-tentdef          use C tentative definitions],

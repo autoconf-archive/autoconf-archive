@@ -17,6 +17,16 @@
 #   __PRETTYFUNC__ to the best possible macro.  When HAVE_PRETTYFUNC is not
 #   defined, __PRETTYFUNC__ will contain the constant string "<<unknown>>".
 #
+# BUGS
+#
+#   The compile tests are expanded inside an unquoted AC_CACHE_CHECK
+#   argument, and the macro does not switch to C++. Unless the current
+#   language's compiler is already set up, configure gets a syntax error.
+#   That includes the usual AC_PROG_CXX followed by AX_CXX_VAR_PRETTYFUNC,
+#   because the current language is still C. When AC_PROG_CC has run, the C
+#   compiler is tested instead of $CXX. Use AC_LANG([C++]) after
+#   AC_PROG_CXX. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2014 Olaf Lenz <olenz@icp.uni-stuttgart.de>
@@ -47,7 +57,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_CXX_VAR_PRETTYFUNC],
 [

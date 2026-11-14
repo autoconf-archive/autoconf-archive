@@ -23,6 +23,13 @@
 #
 #   Searches for Haxe, then checks if at least version 3.1.3 is present.
 #
+# BUGS
+#
+#   Private shell variables such as haxe_version lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2015 Jens Geyer <jensg@apache.org>
@@ -32,7 +39,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_PROG_HAXE_VERSION],[
     AC_REQUIRE([AC_PROG_SED])

@@ -11,6 +11,13 @@
 #   AX_GCC_LIBGCC_EH defines VARIABLE as the absolute path to libgcc_eh.a if
 #   it is available on the system, empty otherwise
 #
+# BUGS
+#
+#   The macro depends on AX_GCC_INSTALL_DIR, which is not supplied by
+#   Autoconf or this archive. Without an external implementation, it
+#   generates an unresolved macro call and a configure shell syntax error.
+#   [Rating: broken]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>
@@ -41,7 +48,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_GCC_LIBGCC_EH], [
 	AX_GCC_LIB([libgcc_eh.a],[

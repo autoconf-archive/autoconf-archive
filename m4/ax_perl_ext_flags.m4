@@ -26,6 +26,23 @@
 #
 #     AX_PERL_EXT_LDFLAGS([PERLXS_LDFLAGS], [-std Socket])
 #
+# BUGS
+#
+#   (1) The output-variable arguments are required, although nothing checks
+#   this. Omitting one generates a shell assignment with an empty variable
+#   name, which fails with a command-not-found message, and the
+#   corresponding flags are not returned. [Rating: minor]
+#
+#   (2) EXTRA-MODULES is passed as one quoted argument containing both --
+#   and the module list. ExtUtils::Embed expects separate option and module
+#   arguments, so extra modules are not processed as documented. [Rating:
+#   major]
+#
+#   (3) Private shell variables such as have_embed lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Mats Kindahl of Sun Microsystems <mats@sun.com>
@@ -56,7 +73,7 @@
 #   ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 #   POSSIBILITY OF SUCH DAMAGE.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_PERL_EXT_CFLAGS],
 [AC_CHECK_PROG(PERL,perl,perl)

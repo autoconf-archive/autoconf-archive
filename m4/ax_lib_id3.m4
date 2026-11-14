@@ -27,6 +27,13 @@
 #   Additionally, the C preprocessor symbol HAVE_ID3LIB will be defined with
 #   AC_DEFINE if id3lib is available.
 #
+# BUGS
+#
+#   Private shell variables such as saved_CPPFLAGS and saved_LDFLAGS lack an
+#   ax_ prefix. They share configure's shell namespace with callers and
+#   other macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Oskar Liljeblad <oskar@osk.mine.nu>
@@ -36,7 +43,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_LIB_ID3], [AX_LIB_ID3])
 AC_DEFUN([AX_LIB_ID3], [

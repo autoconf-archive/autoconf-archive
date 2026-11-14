@@ -29,6 +29,13 @@
 #   is cross-compiling, then this check cannot be performed, and thereby
 #   PRI_SIZE_T_MODIFIER will remain undefined.
 #
+# BUGS
+#
+#   Private shell variables such as save_CFLAGS, result, and mod lack an ax_
+#   prefix. They share configure's shell namespace with callers and other
+#   macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2012 Daniel Richard G. <skunk@iSKUNK.ORG>
@@ -38,7 +45,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_PRINTF_SIZE_T], [
 

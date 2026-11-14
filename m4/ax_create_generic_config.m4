@@ -29,6 +29,18 @@
 #       $(mkinstalldirs) $(DESTDIR)$(bindir)
 #       $(INSTALL_SCRIPT) @GENERIC_CONFIG@ $(DESTDIR)$(bindir)
 #
+# BUGS
+#
+#   (1) The generated --pkglibinc and --pkglibadd options use the unset
+#   variables libinc and libadd instead of libdir. They normally return
+#   paths under /PACKAGE rather than the package library directory. [Rating:
+#   minor]
+#
+#   (2) Private shell variables such as L, P, V, and F lack an ax_ prefix.
+#   They share configure's shell namespace with callers and other macros, so
+#   they may collide with variables of the same name. These variables should
+#   use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -38,7 +50,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AU_ALIAS([AC_CREATE_GENERIC_CONFIG], [AX_CREATE_GENERIC_CONFIG])
 AC_DEFUN([AX_CREATE_GENERIC_CONFIG],[# create a generic PACKAGE-config file

@@ -33,6 +33,18 @@
 #
 #     HAVE_LIBKML
 #
+# BUGS
+#
+#   (1) A version below MINIMUM-VERSION only produces a warning; HAVE_LIBKML
+#   remains yes and the library flags remain enabled. The minimum version is
+#   not enforced. [Rating: major]
+#
+#   (2) Private shell variables such as saved_CPPFLAGS, saved_LDFLAGS, and
+#   libkml_header_found lack an ax_ prefix. They share configure's shell
+#   namespace with callers and other macros, so they may collide with
+#   variables of the same name. These variables should use macro-specific
+#   ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2010 Mateusz Loskot <mateusz@loskot.net>
@@ -42,7 +54,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_LIB_LIBKML],
 [

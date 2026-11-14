@@ -42,6 +42,13 @@
 #   text above (for example).  It will be substituted by the automatically
 #   generated ChangeLog during "make dist".
 #
+# BUGS
+#
+#   The generated recipe tests the status of the git log | fmt pipeline,
+#   which is the status of fmt. A failed git log, for example because .git
+#   is unavailable, can be accepted and replace ChangeLog with an empty
+#   file. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2015 David King <amigadave@amigadave.com>
@@ -52,7 +59,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_GENERATE_CHANGELOG],[
 	# Find git, defaulting to the 'missing' script so the user gets a nice

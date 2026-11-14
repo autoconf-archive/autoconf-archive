@@ -23,6 +23,13 @@
 #     #  include <dmalloc.h>
 #     #endif
 #
+# BUGS
+#
+#   --without-dmalloc still executes the enable action and treats no as an
+#   installation prefix. It adds the dmalloc defines, -Ino/include,
+#   -Lno/lib, and -ldmalloc instead of disabling the library. [Rating:
+#   major]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Peter Simons <simons@cryp.to>
@@ -32,7 +39,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_WITH_DMALLOC], [
 AC_MSG_CHECKING(whether to use the dmalloc library)

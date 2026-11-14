@@ -19,6 +19,13 @@
 #   to know if the class could be imported. This is a recommended followup
 #   to AX_CHECK_JAVA_PLUGIN with classpath appropriately adjusted.
 #
+# BUGS
+#
+#   Private shell variables such as cache_var, xopts, and xtra lack an ax_
+#   prefix. They share configure's shell namespace with callers and other
+#   macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Duncan Simpson <dps@simpson.demon.co.uk>
@@ -49,7 +56,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 12
+#serial 13
 
 AU_ALIAS([DPS_JAVA_CHECK_CLASS], [AX_JAVA_CHECK_CLASS])
 AC_DEFUN([AX_JAVA_CHECK_CLASS],[

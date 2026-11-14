@@ -17,6 +17,12 @@
 #   Alessandro Massignan for his suggestions and extensive nawk tests on
 #   FreeBSD.
 #
+# BUGS
+#
+#   The test expects strftime at epoch zero to produce 01.01.70 in the local
+#   timezone. In timezones west of UTC it produces 31.12.69, falsely
+#   reporting that a working strftime is unavailable. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>
@@ -26,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_CHECK_AWK_STRFTIME], [
   AX_TRY_AWK_EXPOUT([strftime()],

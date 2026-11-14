@@ -16,6 +16,13 @@
 #   $datadir/man. We use an extra docprefix to express it which is either
 #   defined as being prefix or datadir. not SUBSTed here.
 #
+# BUGS
+#
+#   Private shell variables such as result lack an ax_ prefix. They share
+#   configure's shell namespace with callers and other macros, so they may
+#   collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -25,7 +32,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AU_ALIAS([AC_SET_DEFAULT_PATHS_SYSTEM], [AX_SET_DEFAULT_PATHS_SYSTEM])
 AC_DEFUN([AX_SET_DEFAULT_PATHS_SYSTEM],

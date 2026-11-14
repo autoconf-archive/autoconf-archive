@@ -29,6 +29,18 @@
 #     AC_SUBST([ZONEINFO_UTC_RIGHT])
 #     AC_DEFINE_UNQUOTED([ZONEINFO_UTC_RIGHT], [$ZONEINFO_UTC_RIGHT], [...])
 #
+# BUGS
+#
+#   (1) The TZif header test accepts only versions zero and 2. Valid version
+#   3 or 4 files would be rejected, but the macro only probes UTC files,
+#   which current tzdata still writes as version 2, so this is a risk only
+#   for future or differently built data. [Rating: minor]
+#
+#   (2) Private shell variables such as TZDIR_cand, __utc_file, and c lack
+#   an ax_ prefix. They share configure's shell namespace with callers and
+#   other macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2012 Sebastian Freundt <freundt@fresse.org>
@@ -38,7 +50,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_ZONEINFO_TZFILE_H], [dnl
 	dnl not totally necessary (yet), as we can simply inspect the tzfiles

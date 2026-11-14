@@ -23,6 +23,18 @@
 #   proper flag for substitution in Makefiles (xxx is built from the first
 #   argument, with autoconf traditional escapes).
 #
+# BUGS
+#
+#   (1) The macro saves LDFLAGS and LIBS but does not restore them after its
+#   probes. Both successful and unsuccessful searches can change the
+#   caller's global link flags before its result action runs. [Rating:
+#   major]
+#
+#   (2) Library names are derived by stripping only the final filename
+#   extension. A versioned shared library such as libfoo.so.1 becomes
+#   -lfoo.so rather than -lfoo, so that candidate cannot normally be linked.
+#   [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Luc Maisonobe <luc@spaceroots.org>
@@ -32,7 +44,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AC_DEFUN([AX_F90_LIBRARY],[
 AS_VAR_PUSHDEF([ax_ldflags],[ax_cv_f90_ldflags_$1])

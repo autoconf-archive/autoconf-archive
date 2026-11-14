@@ -29,6 +29,13 @@
 #     AX_SWIG_MULTI_MODULE_SUPPORT
 #     AX_SWIG_PYTHON
 #
+# BUGS
+#
+#   Private shell variables such as required, available, and available_major
+#   lack an ax_ prefix. They share configure's shell namespace with callers
+#   and other macros, so they may collide with variables of the same name.
+#   These variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Sebastian Huber <sebastian-huber@web.de>
@@ -65,7 +72,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 15
+#serial 16
 
 AC_DEFUN([AX_PKG_SWIG],[
         # Find path to the "swig" executable.

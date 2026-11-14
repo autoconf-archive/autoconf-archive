@@ -24,6 +24,13 @@
 #
 #   to your Makefile.am files.
 #
+# BUGS
+#
+#   The default --enable-jobserver=yes path increments the CPU count with
+#   ((enable_jobserver++)), which is not portable shell syntax. Under dash
+#   the statement fails and the count stays unchanged, so make runs with -jN
+#   instead of the intended -j(N+1). [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Michael Paul Bailey <jinxidoru@byu.net>
@@ -33,7 +40,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_AM_JOBSERVER], [
     AC_REQUIRE([AX_COUNT_CPUS])

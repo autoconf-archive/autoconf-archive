@@ -25,6 +25,19 @@
 #     HTTPD_DOC_HOME           = Document directory, taken as the first DocumentRoot path found in httpd.conf
 #     HTTPD_SCRIPT_HOME        = CGI script directory, taken as the first ScriptAlias path found in httpd.conf
 #
+# BUGS
+#
+#   (1) The macro locates HTTPD but queries the literal command httpd for
+#   version and configuration information. An explicit HTTPD override can be
+#   checked against the configuration of a different server or fail when
+#   httpd is absent from PATH. [Rating: major]
+#
+#   (2) Private shell variables such as SERVER_ROOT_PATTERN,
+#   HTTPD_USER_PATTERN, and DOCUMENT_ROOT_PATTERN lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Gleen Salmon <gleensalmon@yahoo.com>
@@ -55,7 +68,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_PROG_HTTPD], [AX_PROG_HTTPD])
 AC_DEFUN([AX_PROG_HTTPD],[

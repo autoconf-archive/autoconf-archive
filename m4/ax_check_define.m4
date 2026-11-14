@@ -14,6 +14,13 @@
 #
 #    AC_CHECK_DEFINE(__STRICT_ANSI__, CFLAGS="$CFLAGS -D_XOPEN_SOURCE=500")
 #
+# BUGS
+#
+#   The compile test is expanded inside an unquoted AC_CACHE_CHECK argument.
+#   If compiler initialization has not already run, its generated shell code
+#   is corrupted and configure has a syntax error. Initialize the active
+#   language compiler explicitly before invoking this macro. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -23,7 +30,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 AU_ALIAS([AC_CHECK_DEFINED], [AC_CHECK_DEFINE])
 AC_DEFUN([AC_CHECK_DEFINE],[

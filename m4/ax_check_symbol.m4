@@ -12,6 +12,28 @@
 #   HEADER-name that had been containing the symbol. This value is shown to
 #   the user.
 #
+# BUGS
+#
+#   (1) AX_CHECK_SYMBOLS calls P4_CHECK_SYMBOL, which is not defined by this
+#   archive, instead of AX_CHECK_SYMBOL. The plural entry point therefore
+#   leaves an undefined macro in configure and cannot be used without an
+#   external definition. [Rating: major]
+#
+#   (2) The cache check uses ac_cv_func_SYMBOL but never assigns it.
+#   Pre-existing results from AC_CHECK_FUNC can skip the symbol check and
+#   its caller actions, even though function linkage and header declarations
+#   are different properties. [Rating: major]
+#
+#   (3) Private shell variables such as symbol lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
+#   (4) AX_CHECK_SYMBOLS calls P4_CHECK_SYMBOL, which is not defined
+#   anywhere; the macro in this file is AX_CHECK_SYMBOL. Using
+#   AX_CHECK_SYMBOLS makes autoconf fail with "undefined or overquoted
+#   macro" errors. [Rating: broken]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -21,7 +43,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_CHECK_SYMBOL], [AX_CHECK_SYMBOL])
 AC_DEFUN([AX_CHECK_SYMBOL],

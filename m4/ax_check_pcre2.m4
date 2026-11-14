@@ -39,6 +39,24 @@
 #     #include <pcre2.h>
 #     #endif /* HAVE_PCRE2 */
 #
+# BUGS
+#
+#   (1) As documented, the default success action adds only -lpcre2-8 to
+#   LIBS, even when 16-bit or 32-bit support was requested and checked.
+#   Callers that use those APIs with the default action must add -lpcre2-16
+#   or -lpcre2-32 themselves. [Rating: minor]
+#
+#   (2) When detection fails and the caller supplies a nonfatal failure
+#   action, the temporary include and library search flags are not restored.
+#   Subsequent configure checks retain flags for the unsuccessful PCRE2
+#   installation. [Rating: minor]
+#
+#   (3) Private shell variables such as PCRE2_OLD_CPPFLAGS,
+#   PCRE2_OLD_LDFLAGS, and pcre2_cv_libpcre2 lack an ax_ prefix. They share
+#   configure's shell namespace with callers and other macros, so they may
+#   collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2020 Robert van Engelen <engelen@acm.org>
@@ -69,7 +87,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_CHECK_PCRE2],
 #

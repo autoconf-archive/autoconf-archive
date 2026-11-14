@@ -14,6 +14,13 @@
 #   The third parameter can either be "python" for Python 2 or "python3" for
 #   Python 3; defaults to Python 3.
 #
+# BUGS
+#
+#   The version test requires distutils.version.StrictVersion. If distutils
+#   is absent, an installed module with a sufficient version is reported as
+#   too old; version strings outside StrictVersion's narrow grammar are
+#   rejected as well. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2015 Endless Mobile, Inc.; contributed by Philip Chimento <philip@endlessm.com> and Kurt von Laven <kurt@endlessm.com>
@@ -23,7 +30,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_PYTHON_MODULE_VERSION], [
     AX_PYTHON_MODULE([$1], [required], [$3])

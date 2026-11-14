@@ -24,6 +24,13 @@
 #   Searches for .NET Core, then checks if at least version 1.0.2 is
 #   present.
 #
+# BUGS
+#
+#   Private shell variables such as dotnetcore_version lack an ax_ prefix.
+#   They share configure's shell namespace with callers and other macros, so
+#   they may collide with variables of the same name. These variables should
+#   use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2016 Jens Geyer <jensg@apache.org>
@@ -33,7 +40,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_PROG_DOTNETCORE_VERSION],[
     AC_REQUIRE([AC_PROG_SED])

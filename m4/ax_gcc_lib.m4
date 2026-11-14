@@ -13,6 +13,13 @@
 #   otherwise. The gcc install directory is retrieved using
 #   AX_GCC_INSTALL_DIR macro.
 #
+# BUGS
+#
+#   The macro depends on AX_GCC_INSTALL_DIR, which is not supplied by
+#   Autoconf or this archive. Without an external implementation, it
+#   generates an unresolved macro call and a configure shell syntax error.
+#   [Rating: broken]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>
@@ -43,7 +50,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_GCC_LIB], [
 	AX_GCC_INSTALL_DIR([GCC_INSTALL_DIR])

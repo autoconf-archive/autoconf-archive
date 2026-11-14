@@ -157,6 +157,13 @@
 #   of AX_WITH_CURSES, as well as in the additional macros
 #   AX_WITH_CURSES_PANEL, AX_WITH_CURSES_MENU and AX_WITH_CURSES_FORM.
 #
+# BUGS
+#
+#   The decision to skip plain Curses sets ax_with_plaincurses, but the
+#   later test reads with_plaincurses, so the skip flag is dead code. This
+#   is harmless in practice, because a failed forced Ncurses probe aborts
+#   configure before plain Curses is tried. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Mark Pulford <mark@kyne.com.au>
@@ -190,7 +197,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 18
+#serial 19
 
 # internal function to factorize common code that is used by both ncurses
 # and ncursesw

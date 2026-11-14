@@ -17,6 +17,16 @@
 #
 #   Use in conjunction with AX_CHECK_PATHNAME_STYLE_DOS.
 #
+# BUGS
+#
+#   (1) The test initializes ax_cv_dos_limitations to yes and never sets it
+#   to no. It defines HAVE_DOS_FILESYS_LIMITATIONS on every host, including
+#   hosts without DOS filename restrictions. [Rating: broken]
+#
+#   (2) The AU_ALIAS maps ACX_CHECK_DOS_FILESYS to AX_CHECK_DOS_FILESYS, but
+#   the macro defined in this file is AX_CHECK_DOS_FILESYS_LIMITATIONS, so
+#   autoupdate produces a call to an undefined macro. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Mark Elbrecht
@@ -47,7 +57,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AU_ALIAS([ACX_CHECK_DOS_FILESYS], [AX_CHECK_DOS_FILESYS])
 AC_DEFUN([AX_CHECK_DOS_FILESYS_LIMITATIONS],

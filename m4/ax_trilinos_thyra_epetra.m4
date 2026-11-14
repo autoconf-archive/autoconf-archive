@@ -12,6 +12,13 @@
 #   ACTION-IF-NOT-FOUND is not specified, the default behavior is for
 #   configure to fail.
 #
+# BUGS
+#
+#   This macro depends on AX_TRILINOS_BASE, whose required
+#   AX_TRILINOS_ABSOLUTE_HEADER helper is missing from the archive. Without
+#   an external definition of that helper, the dependency prevents
+#   generation of a usable configure script. [Rating: broken]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Rhys Ulerich <rhys.ulerich@gmail.com>
@@ -21,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_TRILINOS_THYRA_EPETRA],[
     AC_REQUIRE([AX_TRILINOS_BASE])

@@ -22,6 +22,17 @@
 #   NOTE: This is just a modified version of the AC_FUNC_SELECT_ARGTYPES
 #   macro. Credit for that one goes to David MacKenzie et. al.
 #
+# BUGS
+#
+#   (1) Private shell variables such as ac_not_found lack an ax_ prefix.
+#   They share configure's shell namespace with callers and other macros, so
+#   they may collide with variables of the same name. These variables should
+#   use macro-specific ax_ names. [Rating: minor]
+#
+#   (2) The probe declares accept with an implicit int return type (extern
+#   accept (...)), which GCC 14 and later reject. Every combination fails,
+#   so the macro always falls back to its default types. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Daniel Richard G. <skunk@iskunk.org>
@@ -52,7 +63,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_FUNC_ACCEPT_ARGTYPES], [AX_FUNC_ACCEPT_ARGTYPES])
 AC_DEFUN([AX_FUNC_ACCEPT_ARGTYPES],

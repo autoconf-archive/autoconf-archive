@@ -114,7 +114,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 16
+#serial 17
 
 AC_DEFUN([AX_PREFIX_CONFIG_H],[dnl
 AC_PREREQ([2.62])

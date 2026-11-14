@@ -23,6 +23,13 @@
 #
 #   Define HAVE_VERBOSE_TERMINATE_HANDLER if useful information is printed.
 #
+# BUGS
+#
+#   Private shell variables such as _output lack an ax_ prefix. They share
+#   configure's shell namespace with callers and other macros, so they may
+#   collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Kevin Locke <klocke@digitalenginesoftware.com>
@@ -33,7 +40,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.  This file is offered as-is, without any warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_CXX_VERBOSE_TERMINATE_HANDLER],
 [AC_CACHE_CHECK([whether the terminate function prints useful information],

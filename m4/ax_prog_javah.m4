@@ -12,6 +12,13 @@
 #   looks for the jni.h header file. If available, JAVAH is set to the full
 #   path of javah and CPPFLAGS is updated accordingly.
 #
+# BUGS
+#
+#   Private shell variables such as ac_save_CPPFLAGS, _cur, and _slink lack
+#   an ax_ prefix. They share configure's shell namespace with callers and
+#   other macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Luc Maisonobe <luc@spaceroots.org>
@@ -21,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AU_ALIAS([AC_PROG_JAVAH], [AX_PROG_JAVAH])
 AC_DEFUN([AX_PROG_JAVAH],[

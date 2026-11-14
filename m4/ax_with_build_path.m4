@@ -19,6 +19,13 @@
 #   Separate multiple directories using colons; e.g.
 #   "--with-build-path=DIR1:DIR2:DIR3".
 #
+# BUGS
+#
+#   Private shell variables such as d lack an ax_ prefix. They share
+#   configure's shell namespace with callers and other macros, so they may
+#   collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Steve M. Robbins <smr@debian.org>
@@ -28,7 +35,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([SMR_WITH_BUILD_PATH], [AX_WITH_BUILD_PATH])
 AC_DEFUN([AX_WITH_BUILD_PATH],

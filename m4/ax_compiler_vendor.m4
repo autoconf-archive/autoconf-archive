@@ -27,6 +27,13 @@
 #     AX_COMPILER_VENDOR
 #     AC_LANG_POP([Fortran])
 #
+# BUGS
+#
+#   Private shell variables such as vendor, vencpp, and vendors lack an ax_
+#   prefix. They share configure's shell namespace with callers and other
+#   macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Steven G. Johnson <stevenj@alum.mit.edu>
@@ -59,7 +66,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 32
+#serial 33
 
 AC_DEFUN([AX_COMPILER_VENDOR], [dnl
     AC_CACHE_CHECK([for _AC_LANG compiler vendor], ax_cv_[]_AC_LANG_ABBREV[]_compiler_vendor, [dnl

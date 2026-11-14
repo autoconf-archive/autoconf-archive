@@ -26,6 +26,13 @@
 #
 #     HAVE_CGAL
 #
+# BUGS
+#
+#   Private shell variables such as CPPFLAGS_SAVED and LDFLAGS_SAVED lack an
+#   ax_ prefix. They share configure's shell namespace with callers and
+#   other macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2010 Sebastian Hegler <sebastian.hegler@tu-dresden.de>
@@ -35,7 +42,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_LIB_CGAL_CORE],[
 

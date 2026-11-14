@@ -17,6 +17,22 @@
 #   A convenience macro AX_CHECK_TYPEDEF_ is provided that will not emit any
 #   message to the user - it just executes one of the actions.
 #
+# BUGS
+#
+#   (1) The public AX_CHECK_TYPEDEF wrapper discards ACTION-IF-FOUND and
+#   ACTION-IF-NOT-FOUND and supplies only its own result messages to the
+#   implementation. Since the macro defines nothing else, it has no usable
+#   effect. [Rating: broken]
+#
+#   (2) The cache check reads ac_cv_lib_TYPE_HEADER but the probe writes
+#   ac_cv_type_TYPE_HEADER. Its result is not cached under the variable that
+#   controls the check. [Rating: minor]
+#
+#   (3) Private shell variables such as ac_lib_var lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -26,7 +42,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AC_CHECK_TYPEDEF], [AX_CHECK_TYPEDEF])
 AC_DEFUN([AX_CHECK_TYPEDEF_],

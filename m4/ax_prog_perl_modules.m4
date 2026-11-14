@@ -23,6 +23,12 @@
 #     AX_PROG_PERL_MODULES( Text::Wrap Net::LDAP=1.0.3, ,
 #                           AC_MSG_WARN(Need some Perl modules)
 #
+# BUGS
+#
+#   When Perl itself is missing, the macro only warns and never executes
+#   ACTION-IF-FALSE. A caller relying on that action to reject missing
+#   required modules can continue without Perl. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Dean Povey <povey@wedgetail.com>
@@ -32,7 +38,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AC_PROG_PERL_MODULES], [AX_PROG_PERL_MODULES])
 AC_DEFUN([AX_PROG_PERL_MODULES],[dnl

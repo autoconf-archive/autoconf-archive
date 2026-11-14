@@ -33,6 +33,22 @@
 #             to make it accept ";" as pathsep, and
 #             both "/" and "\" as dirseps.
 #
+# BUGS
+#
+#   (1) The URL style sets ac_with_path_style__url to 64, but this variable
+#   is omitted from the PATH_STYLE sum. Consequently --with-path-style=url
+#   never sets the documented URL bit. [Rating: major]
+#
+#   (2) Private shell variables such as ac_with_path_style__use and
+#   ac_with_path_style__level lack an ax_ prefix. They share configure's
+#   shell namespace with callers and other macros, so they may collide with
+#   variables of the same name. These variables should use macro-specific
+#   ax_ names. [Rating: minor]
+#
+#   (3) An opening quote [ in the macro body is never closed, so autoconf
+#   fails with "end of file in string" whenever the macro is used. [Rating:
+#   broken]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -63,7 +79,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 11
 
 AU_ALIAS([AC_ARG_WITH_PATH_STYLE], [AX_ARG_WITH_PATH_STYLE])
 AC_DEFUN([AX_ARG_WITH_PATH_STYLE],

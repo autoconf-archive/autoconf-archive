@@ -20,6 +20,13 @@
 #   general documentation, as well as the sample configure.in, is included
 #   in the AX_PROG_JAVA macro.
 #
+# BUGS
+#
+#   The test source prefixes the requested import with include instead of
+#   the Java keyword import. Any nonempty import argument produces invalid
+#   Java source and makes a working Java environment fail the test. [Rating:
+#   major]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Devin Weaver <ktohg@tritarget.com>
@@ -29,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AU_ALIAS([AC_TRY_RUN_JAVA], [AX_TRY_RUN_JAVA])
 AC_DEFUN([AX_TRY_RUN_JAVA],[

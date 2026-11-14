@@ -10,6 +10,17 @@
 #
 #   Checking for library functions in a given header file.
 #
+# BUGS
+#
+#   (1) Private shell variables such as ac_tr_func lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
+#   (2) The result is cached in ac_cv_func_FUNCTION, the same variable that
+#   AC_CHECK_FUNC uses, so the two checks can reuse each other's results
+#   even though they test different things. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -19,7 +30,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 dnl AX_CHECK_FUNC_IN(HEADER, FUNCTION, [ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]])
 AU_ALIAS([AC_CHECK_FUNC_IN], [AX_CHECK_FUNC_IN])

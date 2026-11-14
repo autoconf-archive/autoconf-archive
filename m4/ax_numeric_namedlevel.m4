@@ -47,6 +47,13 @@
 #     AC_DEFINE(OPTLEVEL)
 #     test "$GCC" = "yes" && CFLAGS="$CFLAGS -O$OPTLEVEL)
 #
+# BUGS
+#
+#   FROMVAR is ignored: the initial ifelse tests whether VARNAME is empty
+#   rather than whether FROMVAR was supplied. With a normal nonempty
+#   VARNAME, conversion reads the destination variable instead of the
+#   requested source variable. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -56,7 +63,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 AU_ALIAS([AC_NUMERIC_NAMEDLEVEL], [AX_NUMERIC_NAMEDLEVEL])
 AC_DEFUN([AX_NUMERIC_NAMEDLEVEL],

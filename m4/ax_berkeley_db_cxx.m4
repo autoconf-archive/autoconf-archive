@@ -26,6 +26,19 @@
 #     DB_CXX_CPPFLAGS to the include directives required
 #     DB_CXX_LDFLAGS to the -L flags required
 #
+# BUGS
+#
+#   (1) When --with-libdb=DIR is supplied, the bare directory name is
+#   prepended to LIBS in addition to the -L option. The linker treats DIR as
+#   an input file and rejects it, so detection fails for the explicitly
+#   selected installation. [Rating: major]
+#
+#   (2) Private shell variables such as old_CPPFLAGS, old_LDFLAGS, and
+#   old_LIBS lack an ax_ prefix. They share configure's shell namespace with
+#   callers and other macros, so they may collide with variables of the same
+#   name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Vaclav Slavik <vaclav.slavik@matfyz.cz>
@@ -37,7 +50,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_BERKELEY_DB_CXX],
 [

@@ -24,6 +24,14 @@
 #   Requires macros: AX_CHECK_COMPILE_FLAG, AX_COMPILER_VENDOR,
 #   AX_GCC_ARCHFLAG, AX_GCC_X86_CPUID.
 #
+# BUGS
+#
+#   Private shell variables such as flag, acx_maxopt_portable, and
+#   icc_archflag lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Steven G. Johnson <stevenj@alum.mit.edu>
@@ -55,7 +63,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 23
+#serial 24
 
 AC_DEFUN([AX_CC_MAXOPT],
 [

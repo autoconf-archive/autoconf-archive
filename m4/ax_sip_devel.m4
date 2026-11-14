@@ -28,6 +28,13 @@
 #
 #   FIXME: Use AX_COMPARE_VERSION instead.
 #
+# BUGS
+#
+#   Private shell variables such as i, python_path, and sip_path1 lack an
+#   ax_ prefix. They share configure's shell namespace with callers and
+#   other macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Uwe Mayer <merkosh@hadiko.de>
@@ -37,7 +44,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AU_ALIAS([MERK_SIP_DEVEL], [AX_SIP_DEVEL])
 AC_DEFUN([AX_SIP_DEVEL],[

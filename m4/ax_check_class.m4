@@ -21,6 +21,23 @@
 #   general documentation, as well as the sample configure.in, is included
 #   in the AX_PROG_JAVA macro.
 #
+# BUGS
+#
+#   (1) The cache check names ax_cv_class_CLASS, but the test writes
+#   ac_cv_class_CLASS, so the result is never cached and the check runs
+#   again every time. Since the caller's actions run inside the cache body,
+#   fixing only the name would make cached runs skip them. [Rating: minor]
+#
+#   (2) HAVE_CLASS is assigned from ac_cv_class_yes or ac_cv_class_no
+#   instead of from the class-specific result, so it is always empty. It is
+#   not documented or used elsewhere; HAVE_LAST_CLASS is set correctly.
+#   [Rating: minor]
+#
+#   (3) Private shell variables such as ac_var_name and ac_var_val lack an
+#   ax_ prefix. They share configure's shell namespace with callers and
+#   other macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Stephane Bortzmeyer <bortzmeyer@pasteur.fr>
@@ -51,7 +68,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 12
+#serial 13
 
 AU_ALIAS([AC_CHECK_CLASS], [AX_CHECK_CLASS])
 AC_DEFUN([AX_CHECK_CLASS],[

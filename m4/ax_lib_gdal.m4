@@ -29,6 +29,19 @@
 #     HAVE_GDAL
 #     HAVE_GDAL_OGR
 #
+# BUGS
+#
+#   (1) HAVE_GDAL_OGR is defined whenever GDAL is found, regardless of the
+#   result of gdal-config --ogr-enabled. OGR has been part of every GDAL
+#   build since 2.0, so this only matters for older builds without OGR.
+#   [Rating: minor]
+#
+#   (2) Private shell variables such as found_gdal, gdal_config_system, and
+#   gdal_version_check lack an ax_ prefix. They share configure's shell
+#   namespace with callers and other macros, so they may collide with
+#   variables of the same name. These variables should use macro-specific
+#   ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2011 Mateusz Loskot <mateusz@loskot.net>
@@ -39,7 +52,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_LIB_GDAL],
 [

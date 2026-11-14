@@ -17,6 +17,13 @@
 #   the usual two ACTION-IF-FOUND / ACTION-IF-NOT-FOUND are supported and
 #   they can take advantage of the LIBS/CFLAGS additions.
 #
+# BUGS
+#
+#   Private shell variables such as OLDCPPFLAGS and OLDLDFLAGS lack an ax_
+#   prefix. They share configure's shell namespace with callers and other
+#   macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -26,7 +33,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_PATH_LIB_PCRE],[dnl
 AC_MSG_CHECKING([lib pcre])

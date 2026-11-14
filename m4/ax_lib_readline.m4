@@ -53,6 +53,22 @@
 #       /* no history */
 #     #endif /* HAVE_READLINE_HISTORY */
 #
+# BUGS
+#
+#   (1) The minimum-version test computes the minor component as min_version
+#   * 100 without subtracting the major component. For example, 8.0 becomes
+#   a threshold of 0x0b20 rather than 0x0800 and rejects a matching Readline
+#   8.0 installation. [Rating: major]
+#
+#   (2) Private shell variables such as ORIG_LIBS, TRY_LIB, and readline_lib
+#   lack an ax_ prefix. They share configure's shell namespace with callers
+#   and other macros, so they may collide with variables of the same name.
+#   These variables should use macro-specific ax_ names. [Rating: minor]
+#
+#   (3) ORIG_LIBS is only set inside the AC_CACHE_CHECK body. When the
+#   result comes from the cache and the version check fails, LIBS is reset
+#   to the unset ORIG_LIBS, i.e. emptied. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2025 Reuben Thomas <rrt@sc3d.org>
@@ -63,7 +79,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AU_ALIAS([VL_LIB_READLINE], [AX_LIB_READLINE])
 AC_DEFUN([AX_LIB_READLINE], [

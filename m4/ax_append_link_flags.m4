@@ -24,6 +24,13 @@
 #   NOTE: This macro depends on the AX_APPEND_FLAG and AX_CHECK_LINK_FLAG.
 #   Please keep this macro in sync with AX_APPEND_COMPILE_FLAGS.
 #
+# BUGS
+#
+#   Private shell variables such as flag lack an ax_ prefix. They share
+#   configure's shell namespace with callers and other macros, so they may
+#   collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2011 Maarten Bosmans <mkbosmans@gmail.com>
@@ -33,7 +40,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AC_DEFUN([AX_APPEND_LINK_FLAGS],
 [AX_REQUIRE_DEFINED([AX_CHECK_LINK_FLAG])

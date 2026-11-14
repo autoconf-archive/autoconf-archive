@@ -15,6 +15,16 @@
 #   https://github.com/rust-lang/rust/issues/54878 with the links to the gcc
 #   and clang tickets.
 #
+# BUGS
+#
+#   The test supplies complete function definitions, including main, as the
+#   body argument of AC_LANG_PROGRAM, so they are nested inside another
+#   main. Compilers without nested functions, such as Clang, and GCC with
+#   -pedantic-errors reject this, so restrict is always defined away. GNU C
+#   accepts the nested functions, but the outer main never calls them and
+#   returns 0, so the check always succeeds without testing restrict.
+#   [Rating: broken]
+#
 # LICENSE
 #
 #   Copyright (c) 2019 Reini Urban <rurban@cpan.org>
@@ -24,7 +34,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_C_RESTRICT],
 [AC_CACHE_CHECK([for restrict usability],

@@ -11,6 +11,18 @@
 #   AX_GCC_LIBSUPCXX defines VARIABLE as the absolute path to libsupc++.a if
 #   it is available on the system, empty otherwise.
 #
+# BUGS
+#
+#   (1) The macro depends on AX_GCC_LIBRARIES_DIR, which is not supplied by
+#   Autoconf or this archive. Without an external implementation, it
+#   generates an unresolved macro call and a configure shell syntax error.
+#   [Rating: broken]
+#
+#   (2) Private shell variables such as i lack an ax_ prefix. They share
+#   configure's shell namespace with callers and other macros, so they may
+#   collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Francesco Salvestrini <salvestrini@users.sourceforge.net>
@@ -42,7 +54,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_GCC_LIBSUPCXX], [
     AX_GCC_LIBRARIES_DIR([GCC_LIBRARIES_DIR])

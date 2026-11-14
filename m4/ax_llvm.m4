@@ -15,6 +15,18 @@
 #
 #   llvm-config will also include any libraries that are depended upon.
 #
+# BUGS
+#
+#   (1) --without-llvm sets want_llvm=no but then falls through to an
+#   unconditional failure check. Disabling LLVM therefore aborts configure
+#   rather than skipping the dependency. [Rating: major]
+#
+#   (2) Private shell variables such as CPPFLAGS_SAVED, LDFLAGS_SAVED, and
+#   succeeded lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Andy Kitchen <agimbleinthewabe@gmail.com>
@@ -24,7 +36,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 18
+#serial 19
 
 AC_DEFUN([AX_LLVM],
 [

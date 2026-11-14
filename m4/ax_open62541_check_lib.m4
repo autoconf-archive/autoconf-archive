@@ -32,6 +32,15 @@
 #
 #   [1]: <http://open62541.org/>
 #
+# BUGS
+#
+#   The option checks use test STRING == STRING, which is not portable shell
+#   syntax. Under dash, the default /bin/sh on Debian and Ubuntu, these
+#   tests fail: invalid or conflicting --with-open62541-shared or
+#   --with-open62541-static arguments are not diagnosed, and
+#   --without-open62541 does not skip the library checks, so an installed
+#   library may still be linked. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2016 Olaf Mandel <olaf@mandel.name>
@@ -41,7 +50,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 # _AX_OPEN62541_CHECK_LIB_arg(THIS, OTHER)
 # ----------------------------------------

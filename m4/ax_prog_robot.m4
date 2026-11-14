@@ -17,13 +17,20 @@
 #
 #     AX_PROG_ROBOT([3.1.0], [], [])
 #
+# BUGS
+#
+#   Private shell variables such as robot_version lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2020, Adam Chyla <adam@chyla.org>
 #
 #   Distributed under the terms of the BSD 3-Clause License.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_PROG_ROBOT],
 [

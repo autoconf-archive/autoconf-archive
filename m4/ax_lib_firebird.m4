@@ -29,6 +29,23 @@
 #
 #     HAVE_FIREBIRD
 #
+# BUGS
+#
+#   (1) The required API version is calculated as major + minor instead of
+#   the documented decimal encoding major * 10 + minor. A request for 3.0 is
+#   tested against FB_API_VER >= 3 and can accept substantially older
+#   clients. [Rating: major]
+#
+#   (2) Detection only compiles a header test and never links libfbclient.
+#   It can define HAVE_FIREBIRD and return library flags even when the
+#   client library is missing or unusable. [Rating: major]
+#
+#   (3) Private shell variables such as saved_CPPFLAGS, success, and
+#   WANT_FIREBIRD lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
@@ -38,7 +55,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AC_DEFUN([AX_LIB_FIREBIRD],
 [

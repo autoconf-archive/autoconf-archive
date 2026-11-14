@@ -47,6 +47,13 @@
 #
 #   Note: These macros also depend on AX_PREPEND_FLAG.
 #
+# BUGS
+#
+#   Flag updates and the caller's success/failure actions run inside
+#   AC_CACHE_CHECK. When the result is loaded from config.cache, these side
+#   effects are skipped, so warning flags and actions are not reapplied.
+#   [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -79,7 +86,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 25
+#serial 26
 
 AC_DEFUN([AX_FLAGS_WARN_ALL], [
     AX_REQUIRE_DEFINED([AX_PREPEND_FLAG])dnl

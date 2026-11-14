@@ -12,6 +12,13 @@
 #   Libtool friendly, ie. prefix each of them with `-Xcompiler' so that
 #   Libtool doesn't remove them.
 #
+# BUGS
+#
+#   Private shell variables such as i lack an ax_ prefix. They share
+#   configure's shell namespace with callers and other macros, so they may
+#   collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Ludovic Courtes <ludo@chbouib.org>
@@ -21,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_LIBTOOLIZE_CFLAGS], [AX_LIBTOOLIZE_CFLAGS])
 AC_DEFUN([AX_LIBTOOLIZE_CFLAGS],

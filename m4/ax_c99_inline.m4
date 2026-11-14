@@ -12,6 +12,13 @@
 #   and "extern inline" correctly. An application may replace "inline" with
 #   "static inline" as a workaround for older compilers.
 #
+# BUGS
+#
+#   Expansion ends with a standalone semicolon outside the macro definition.
+#   In the usual aclocal workflow it is discarded, but if the file is
+#   m4_include'd after AC_INIT, the semicolon ends up in configure and
+#   causes a shell syntax error. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Michael McMaster <email@michaelmcmaster.name>
@@ -21,7 +28,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_C99_INLINE], [
 	AC_MSG_CHECKING([whether the compiler supports C99 inline functions])

@@ -13,6 +13,13 @@
 #
 #   To override the location define JUNIT_JAR to the wanted path.
 #
+# BUGS
+#
+#   Private shell variables such as built_in_hamcrest lack an ax_ prefix.
+#   They share configure's shell namespace with callers and other macros, so
+#   they may collide with variables of the same name. These variables should
+#   use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2013 Sveinung Kvilhaugsvik <sveinung84@users.sourceforge.net>
@@ -22,7 +29,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_ARG_VAR(JUNIT_JAR, [the location of JUnit 4])
 

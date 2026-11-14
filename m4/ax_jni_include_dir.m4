@@ -39,6 +39,17 @@
 #   Note: This macro can work with the autoconf M4 macros for Java programs.
 #   This particular macro is not part of the original set of macros.
 #
+# BUGS
+#
+#   (1) The main JNI include directory is appended to JNI_INCLUDE_DIRS only
+#   inside AC_CACHE_CHECK. On a cached configure run JNI_INCLUDE_DIRS is
+#   reset and loses the directory containing jni.h. [Rating: major]
+#
+#   (2) Private shell variables such as JINCSUBDIR, _JINC, and _JTOPDIR lack
+#   an ax_ prefix. They share configure's shell namespace with callers and
+#   other macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Don Anderson <dda@sleepycat.com>
@@ -48,7 +59,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 15
+#serial 16
 
 AU_ALIAS([AC_JNI_INCLUDE_DIR], [AX_JNI_INCLUDE_DIR])
 AC_DEFUN([AX_JNI_INCLUDE_DIR],[

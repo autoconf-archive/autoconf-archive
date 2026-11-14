@@ -29,6 +29,18 @@
 #
 #   The test itself is based on the autoconf 2.53 version of AC_SEARCH_LIBS.
 #
+# BUGS
+#
+#   (1) As with AC_SEARCH_LIBS, the extra libraries argument is used only
+#   for the probes and is not added to LIBS. Callers must add those
+#   libraries themselves. [Rating: minor]
+#
+#   (2) Private shell variables such as ext_func_save_ldflags,
+#   ext_func_search_save_LIBS, and dir lack an ax_ prefix. They share
+#   configure's shell namespace with callers and other macros, so they may
+#   collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Duncan Simpson <dps@simpson.demon.co.uk>
@@ -38,7 +50,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 15
+#serial 16
 
 AC_DEFUN([AX_EXT_HAVE_LIB],
 [

@@ -30,6 +30,14 @@
 #     AX_CHECK_LIBRARY([LIBEVENT], [event.h], [event], [],
 #                      [AC_MSG_ERROR([Unable to find libevent])])
 #
+# BUGS
+#
+#   Private shell variables such as save_CPPFLAGS, save_LDFLAGS, and
+#   save_LIBS lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2010 Diego Elio Petteno` <flameeyes@gmail.com>
@@ -60,7 +68,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_CHECK_LIBRARY], [
   AC_ARG_VAR($1[_CPPFLAGS], [C preprocessor flags for ]$1[ headers])

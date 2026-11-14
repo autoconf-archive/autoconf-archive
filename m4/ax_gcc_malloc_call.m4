@@ -11,6 +11,14 @@
 #   The macro will compile a test program to see whether the compiler does
 #   understand the per-function postfix pragma.
 #
+# BUGS
+#
+#   The test applies the malloc attribute to a function returning int, for
+#   which GCC only warns, and warnings are not rejected; even an unknown
+#   attribute passes. The check therefore only verifies that the compiler
+#   accepts __attribute__ syntax. On GCC and Clang the resulting definition
+#   is still correct. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -20,7 +28,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_GCC_MALLOC_CALL],[dnl
 AC_CACHE_CHECK(

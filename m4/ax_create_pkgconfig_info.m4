@@ -27,6 +27,20 @@
 #   consequence, most of the generatable installable stuff can be made from
 #   information being updated in a single place for the whole project.
 #
+# BUGS
+#
+#   (1) Description, requires, libs, and flags values are passed through
+#   eval echo twice in configure. Shell metacharacters are therefore
+#   executed or mangled: a description such as "Foo & Bar" runs Bar as a
+#   command and leaves only Foo in the .pc file. Values that survive
+#   evaluation are also inserted into sed replacements without escaping &,
+#   \, or |. [Rating: major]
+#
+#   (2) Private shell variables such as v lack an ax_ prefix. They share
+#   configure's shell namespace with callers and other macros, so they may
+#   collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -58,7 +72,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 16
+#serial 17
 
 AC_DEFUN([AX_CREATE_PKGCONFIG_INFO],[dnl
 AS_VAR_PUSHDEF([PKGCONFIG_suffix],[ax_create_pkgconfig_suffix])dnl

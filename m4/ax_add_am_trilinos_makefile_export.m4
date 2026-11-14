@@ -14,6 +14,13 @@
 #
 #   If ACTION-IF-NOT-FOUND is not provided, configure fails.
 #
+# BUGS
+#
+#   This macro requires AX_TRILINOS_BASE, whose AX_TRILINOS_ABSOLUTE_HEADER
+#   helper is missing from the archive. Without an external definition, the
+#   dependency prevents generation of a usable configure script. [Rating:
+#   broken]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Rhys Ulerich <rhys.ulerich@gmail.com>
@@ -23,7 +30,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_ADD_AM_TRILINOS_MAKEFILE_EXPORT],[
 AC_REQUIRE([AX_TRILINOS_BASE])

@@ -35,6 +35,18 @@
 #
 #   This macro requires AX_NORMALIZE_PATH and AX_RECURSIVE_EVAL.
 #
+# BUGS
+#
+#   (1) The common-prefix test does not require a directory-component
+#   boundary. Paths such as /usr/foo and /usr/foobar are treated as sharing
+#   /usr/foo, yielding bar instead of ../foobar. [Rating: major]
+#
+#   (2) Private shell variables such as _lcl_from, _lcl_result_var, and
+#   _lcl_to lack an ax_ prefix. They share configure's shell namespace with
+#   callers and other macros, so they may collide with variables of the same
+#   name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Alexandre Duret-Lutz <adl@gnu.org>
@@ -65,7 +77,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 12
+#serial 13
 
 AU_ALIAS([ADL_COMPUTE_RELATIVE_PATHS], [AX_COMPUTE_RELATIVE_PATHS])
 AC_DEFUN([AX_COMPUTE_RELATIVE_PATHS],

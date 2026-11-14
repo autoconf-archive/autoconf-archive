@@ -20,6 +20,24 @@
 #
 #     HAVE_BOOST_TEST_EXEC_MONITOR
 #
+# BUGS
+#
+#   (1) The normal library search accepts the first readable matching file
+#   without linking it. An incompatible architecture, invalid library, or
+#   missing dependencies can therefore be reported as a usable library.
+#   [Rating: major]
+#
+#   (2) When an explicit library name is supplied, the search omits .dylib
+#   files. On macOS, an installation with only a shared .dylib can work with
+#   automatic detection but fail with an explicit library selection.
+#   [Rating: minor]
+#
+#   (3) Private shell variables such as CPPFLAGS_SAVED, LDFLAGS_SAVED, and
+#   BOOSTLIBDIR lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Dodji Seketeli <dodji@seketeli.org>
@@ -30,7 +48,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 22
+#serial 23
 
 AC_DEFUN([AX_BOOST_TEST_EXEC_MONITOR],
 [

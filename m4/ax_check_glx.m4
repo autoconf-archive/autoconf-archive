@@ -30,6 +30,12 @@
 #     #  error no glx.h
 #     # endif
 #
+# BUGS
+#
+#   The manual library-search helper ends with AC_LANG_PUSH([C]) instead of
+#   AC_LANG_POP([C]). It leaves the active language set to C and unbalances
+#   the language stack, which can break later C++ checks. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Braden McDaniel <braden@endoframe.com>
@@ -61,7 +67,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 10
+#serial 11
 
 # example program
 m4_define([_AX_CHECK_GLX_PROGRAM],

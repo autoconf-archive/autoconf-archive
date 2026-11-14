@@ -15,6 +15,17 @@
 #   The default casepattern is "*.?|*.cc|*.cpp", the default subdir-list
 #   contains all subdirs available.
 #
+# BUGS
+#
+#   (1) When CASEPATTERN is supplied, the generated case statement uses
+#   SUBDIRS (the first argument) as its pattern instead. With a single
+#   subdirectory nothing is copied, and with several the generated configure
+#   has a shell syntax error. [Rating: major]
+#
+#   (2) AC_BEFORE($0,[AX_PROG_CP_S]) does not quote $0, so the macro expands
+#   itself inside its own arguments. Every use makes autoconf fail with "m4:
+#   recursion limit of 1024 exceeded". [Rating: broken]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -24,7 +35,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AC_SUBDIR_FILES], [AX_SUBDIR_FILES])
 AC_DEFUN([AX_SUBDIR_FILES],

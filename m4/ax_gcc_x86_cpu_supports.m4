@@ -27,6 +27,13 @@
 #   See also AX_CHECK_X86_FEATURES, which checks all the possible
 #   instruction set and export the corresponding CFLAGS.
 #
+# BUGS
+#
+#   Both runtime feature probes omit the cross-compiling action of
+#   AC_RUN_IFELSE, so cross configuration aborts unless the cache results
+#   are supplied in advance. Since the probes test the build machine's CPU,
+#   their result would not describe the target anyway. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2016 Felix Chern <idryman@gmail.com>
@@ -57,7 +64,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 5
 
 AC_DEFUN_ONCE([_AX_GCC_X86_CPU_INIT],
  [AC_LANG_PUSH([C])

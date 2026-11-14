@@ -44,6 +44,22 @@
 #   [1]
 #   http://www.python.org/doc/current/dist/module-distutils.sysconfig.html
 #
+# BUGS
+#
+#   (1) All three queries use Python 2 print statements. With Python 3 they
+#   fail with SyntaxError, so the configuration values and paths cannot be
+#   retrieved. [Rating: broken]
+#
+#   (2) The error paths in AX_PYTHON_CONFIG_H and AX_PYTHON_MAKEFILE use
+#   py_error = "yes" instead of an assignment. The shell tries to execute
+#   py_error and the macro can report a failed query as success. [Rating:
+#   major]
+#
+#   (3) Private shell variables such as py_error and pyval lack an ax_
+#   prefix. They share configure's shell namespace with callers and other
+#   macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Dustin J. Mitchell <dustin@cs.uchicago.edu>
@@ -53,7 +69,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 AC_DEFUN([AX_PYTHON_CONFIG_VAR],
 [

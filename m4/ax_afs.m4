@@ -25,6 +25,18 @@
 #   Finally, it defines AFS_int32 to be the in32 type needed. In older
 #   versions of afs it was 'int32', and in newer versions it's 'afs_int32'.
 #
+# BUGS
+#
+#   (1) The macro calls AC_MAX_CHECKING, AC_MAX_RESULT, and AC_MAX_ERROR,
+#   which are not defined by Autoconf or this archive. Without external
+#   definitions, autoconf rejects the generated configure script as
+#   containing undefined macros. [Rating: broken]
+#
+#   (2) Private shell variables such as save_LIBS and wasCached lack an ax_
+#   prefix. They share configure's shell namespace with callers and other
+#   macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Scott Grosch <Scott.Grosch@intel.com>
@@ -34,7 +46,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([SG_AFS], [AX_AFS])
 AC_DEFUN([AX_AFS],

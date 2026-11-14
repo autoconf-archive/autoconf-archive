@@ -11,6 +11,13 @@
 #   Find your CPU's vendor by requesting cpuid and define "ax_cv_cpu_vendor"
 #   accordingly. This macro depends on AX_GCC_X86_CPUID.
 #
+# BUGS
+#
+#   Private shell variables such as vendor lack an ax_ prefix. They share
+#   configure's shell namespace with callers and other macros, so they may
+#   collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Christophe Tournayre <turn3r@users.sourceforge.net>
@@ -20,7 +27,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_CPU_VENDOR],
 [

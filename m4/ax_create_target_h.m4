@@ -78,6 +78,23 @@
 #   created (the prefix is a bit different, since we add an extra -target-
 #   and -host-).
 #
+# BUGS
+#
+#   (1) The host architecture fallback copies target_cpu instead of
+#   host_cpu. When cross-building a tool whose host and target CPUs differ,
+#   an unrecognized host CPU gets the target's architecture in the generated
+#   host defines. [Rating: major]
+#
+#   (2) The AC_CREATE_PREFIX_TARGET_H wrappers pass the prefix as the output
+#   filename and use the misspelled ac_perfix_conf_OUT as the prefix
+#   argument. They therefore do not create the requested header with the
+#   requested prefix. [Rating: major]
+#
+#   (3) Private shell variables such as i, host_cpu0, and host_cpu1 lack an
+#   ax_ prefix. They share configure's shell namespace with callers and
+#   other macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -87,7 +104,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_CREATE_TARGET_H], [AX_CREATE_TARGET_H])
 AC_DEFUN([AX_CREATE_TARGET_H],

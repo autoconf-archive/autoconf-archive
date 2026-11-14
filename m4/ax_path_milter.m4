@@ -71,6 +71,17 @@
 #   use the AX_PTHREAD macro by Steven G. Johnson and Alejandro Forero
 #   Cuervo which is available from the Autoconf Macro Archive.
 #
+# BUGS
+#
+#   (1) The source-tree probe saves LDFLAGS from the misspelled variable
+#   LDLFAGS. Restoring it after the probe clears or corrupts the caller's
+#   linker flags. [Rating: major]
+#
+#   (2) Private shell variables such as ac_milter_save_CPPFLAGS,
+#   ac_milter_save_LDFLAGS, and ac_milter_tmp use the ac_ prefix that
+#   Autoconf reserves for its own variables. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Tim Toolan <toolan@ele.uri.edu>
@@ -80,7 +91,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 ###############################################################################
 AC_DEFUN([AX_PATH_MILTER], [

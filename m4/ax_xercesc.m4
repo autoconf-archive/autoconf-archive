@@ -11,6 +11,13 @@
 #   Define $HAVE_LIBXERCES_C, $LIBXERCES_C, and $LTLIBXERCES_C to signify
 #   whether Xerces is available.
 #
+# BUGS
+#
+#   Private shell variables such as ac_save_CPPFLAGS, ac_save_LIBS, and
+#   acl_save_libdir use the ac_ and acl_ prefixes reserved for Autoconf and
+#   gettext. They are restored immediately, so a collision is unlikely, but
+#   they should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Ronald Landheer-Cieslak <blytkerchan@users.sourceforge.net>
@@ -41,7 +48,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([RLC_XERCESC], [AX_XERCESC])
 AC_DEFUN([AX_XERCESC],

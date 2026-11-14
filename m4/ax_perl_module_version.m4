@@ -18,6 +18,19 @@
 #     AX_PERL_MODULE_VERSION(CGI::Test 0.104 CGI::Ajax 0.694, ,
 #        AC_MSG_ERROR(Need some Perl modules))
 #
+# BUGS
+#
+#   (1) Installed and required versions are compared with Perl's string cmp
+#   instead of a version comparison. For example, an installed 10.0 is
+#   rejected against a required 9.0, and an installed 1.5 is rejected
+#   against an equal required 1.50. [Rating: major]
+#
+#   (2) Private shell variables such as version, ac_failed, and
+#   ac_perl_list_modules lack an ax_ prefix. They share configure's shell
+#   namespace with callers and other macros, so they may collide with
+#   variables of the same name. These variables should use macro-specific
+#   ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Marco Gomes <mpglesi@gmail.com>
@@ -28,7 +41,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AU_ALIAS([AC_PERL_MODULE_VERSION], [AX_PERL_MODULE_VERSION])
 AC_DEFUN([AX_PERL_MODULE_VERSION],[dnl

@@ -39,6 +39,28 @@
 #   It execute if found ACTION-IF-FOUND (empty by default) and
 #   ACTION-IF-NOT-FOUND (AC_MSG_FAILURE by default) if not found.
 #
+# BUGS
+#
+#   (1) The pg_config fallback compares the literal
+#   Xfound_postgresql_req_version with Xno instead of expanding the
+#   variable. It accepts an older PostgreSQL library even after the
+#   minimum-version comparison fails. [Rating: major]
+#
+#   (2) The --libs-only-l failure path sets its failure flag to ye instead
+#   of yes. A failed pkg-config query can be ignored, leaving the library
+#   flags incomplete. [Rating: minor]
+#
+#   (3) The pkg-config failure guard compares X$found_postgresql with no
+#   instead of Xno. An unsuccessful package or minimum-version check does
+#   not stop the subsequent queries, and a discoverable older library can
+#   ultimately be accepted. [Rating: major]
+#
+#   (4) Private shell variables such as found_postgresql,
+#   found_postgresql_req_version, and postgresql_version_req lack an ax_
+#   prefix. They share configure's shell namespace with callers and other
+#   macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
@@ -50,7 +72,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 22
+#serial 23
 
 AC_DEFUN([_AX_LIB_POSTGRESQL_OLD],[
 	found_postgresql="no"

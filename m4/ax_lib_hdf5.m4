@@ -78,6 +78,24 @@
 #   The HDF5_TYPE environment variable returns "parallel" or "serial",
 #   depending on which type of library is found.
 #
+# BUGS
+#
+#   (1) Failed header or library probes do not disable HDF5 support; even
+#   when both fail the macro merely warns and still defines HAVE_HDF5. An
+#   unusable wrapper configuration can be reported as available. [Rating:
+#   major]
+#
+#   (2) The wrapper flags are filtered down to -I, -L, and -l arguments.
+#   Other options, such as -D, -pthread, -Wl,-rpath, and absolute library
+#   paths, are dropped, so installations that need them may fail to link.
+#   [Rating: minor]
+#
+#   (3) Private shell variables such as HDF5_SHOW, HDF5_tmp_flags, and
+#   HDF5_tmp_inst lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Timothy Brown <tbrown@freeshell.org>
@@ -88,7 +106,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 21
+#serial 22
 
 AC_DEFUN([AX_LIB_HDF5], [
 

@@ -24,6 +24,13 @@
 #
 #   NOTE: This macro uses the $BISON variable to perform the check.
 #
+# BUGS
+#
+#   Private shell variables such as bison_version lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2015 Jonathan Rajotte-Julien <jonathan.rajotte-julien@efficios.com>
@@ -33,7 +40,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_PROG_BISON_VERSION],[
     AC_REQUIRE([AC_PROG_SED])

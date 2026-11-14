@@ -43,6 +43,13 @@
 #
 #     AX_CHECK_PGSQL_DB([$pg_db], [$pg_user], [$pg_host], [$pg_password], [AC_MSG_ERROR([We need a database connection!])])
 #
+# BUGS
+#
+#   Connection values are interpolated into a command string that is then
+#   expanded without quoting. A database name, username, host, or password
+#   containing whitespace is split, and wildcard characters may be expanded
+#   by the shell if matching files exist. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Moritz Sinn <moritz@freesources.org>
@@ -73,7 +80,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([MS_CHECK_PGSQL_DB], [AX_CHECK_PGSQL_DB])
 AC_DEFUN([AX_CHECK_PGSQL_DB], [

@@ -54,6 +54,13 @@
 #   will create the defines PATH_BINDIR PATH_LIBDIR PATH_PKGDATADIR - see
 #   posix' include/paths.h that creates _PATH_DEV and friends.
 #
+# BUGS
+#
+#   Private shell variables such as i, P, and V lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -63,7 +70,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 AU_ALIAS([AC_DEFINE_SUB_PATH], [AX_DEFINE_SUB_PATH])
 AC_DEFUN([AX_DEFINE_SUB_PATH],

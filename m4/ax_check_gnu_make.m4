@@ -59,6 +59,14 @@
 #   Then, if any (well almost any) other make is called, and GNU make also
 #   exists, then the other make wraps the GNU make.
 #
+# BUGS
+#
+#   Private shell variables such as AX_CHECK_GNU_MAKE_HEADLINE and the loop
+#   variable a lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 John Darrington <j.darrington@elvis.murdoch.edu.au>
@@ -69,7 +77,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 AC_DEFUN([AX_CHECK_GNU_MAKE],dnl
   [AC_PROG_AWK

@@ -16,6 +16,13 @@
 #   Specifically, it uses the value of $ax_enable_compile_warnings to decide
 #   which flags to enable.
 #
+# BUGS
+#
+#   Private shell variables such as flag lack an ax_ prefix. They share
+#   configure's shell namespace with callers and other macros, so they may
+#   collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2014, 2015 Philip Withnall <philip@tecnocode.co.uk>
@@ -26,7 +33,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 17
+#serial 18
 
 AC_DEFUN([AX_COMPILER_FLAGS_CFLAGS],[
     AC_REQUIRE([AC_PROG_SED])

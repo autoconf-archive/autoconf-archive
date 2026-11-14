@@ -33,6 +33,19 @@
 #     HAVE_AVX512_ER / HAVE_AVX512_VL / HAVE_AVX512_BW / HAVE_AVX512_DQ
 #     HAVE_AVX512_IFMA / HAVE_AVX512_VBMI / HAVE_ALTIVEC / HAVE_VSX
 #
+# BUGS
+#
+#   (1) The SSE3 feature table tests CPUID leaf 1 ECX bit 1 instead of bit
+#   0. It actually tests PCLMULQDQ support, so a processor with SSE3 but
+#   without PCLMULQDQ is incorrectly reported as lacking SSE3. [Rating:
+#   major]
+#
+#   (2) Private shell variables such as eax_cpuid0, eax_cpuid80000000, and
+#   ecx_cpuid1 lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2007 Christophe Tournayre <turn3r@users.sourceforge.net>
@@ -44,7 +57,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 19
+#serial 20
 
 AC_DEFUN([AX_EXT],
 [

@@ -84,6 +84,13 @@
 #   that is why this macro is almost 100% m4 code. It generates long but
 #   simple to read code.
 #
+# BUGS
+#
+#   Private shell variables such as ac_save_CPPFLAGS lack an ax_ prefix.
+#   They share configure's shell namespace with callers and other macros, so
+#   they may collide with variables of the same name. These variables should
+#   use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Loic Dachary <loic@senga.org>
@@ -114,7 +121,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 AU_ALIAS([AC_PROTOTYPE], [AX_PROTOTYPE])
 AC_DEFUN([AX_PROTOTYPE],[

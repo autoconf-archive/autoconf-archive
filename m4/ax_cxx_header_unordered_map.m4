@@ -11,6 +11,18 @@
 #   Check whether the C++ include <unordered_map> exists and define
 #   HAVE_UNORDERED_MAP if it does.
 #
+# BUGS
+#
+#   (1) The macro requires AC_COMPILE_STDCXX_0X, which is not defined by
+#   Autoconf or this archive. Even with the archived C++ standard-check
+#   macros loaded, standalone use fails unless the caller supplies this
+#   missing macro. [Rating: broken]
+#
+#   (2) Private shell variables such as ac_save_CXXFLAGS lack an ax_ prefix.
+#   They share configure's shell namespace with callers and other macros, so
+#   they may collide with variables of the same name. These variables should
+#   use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Benjamin Kosnik <bkoz@redhat.com>
@@ -20,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AC_CXX_HEADER_UNORDERED_MAP], [AX_CXX_HEADER_UNORDERED_MAP])
 AC_DEFUN([AX_CXX_HEADER_UNORDERED_MAP], [

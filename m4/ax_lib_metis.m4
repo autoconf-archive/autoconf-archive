@@ -23,6 +23,17 @@
 #   define HAVE_METIS. If ACTION-IF-NOT-FOUND is not specified then an error
 #   will be generated halting configure.
 #
+# BUGS
+#
+#   (1) Both success and failure actions of the METIS_PartMeshDual link test
+#   set metis_lib=yes. Finding metis.h is enough to report success even if
+#   libmetis is missing or cannot be linked. [Rating: major]
+#
+#   (2) Private shell variables such as old_CFLAGS, old_LDFLAGS, and metis_h
+#   lack an ax_ prefix. They share configure's shell namespace with callers
+#   and other macros, so they may collide with variables of the same name.
+#   These variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Ben Bergen <ben@cs.fau.de>
@@ -32,7 +43,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AU_ALIAS([IMMDX_LIB_METIS], [AX_LIB_METIS])
 AC_DEFUN([AX_LIB_METIS], [

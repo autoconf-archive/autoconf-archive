@@ -20,6 +20,21 @@
 #   This macro calls AC_SUBST on PYTHON_BIN (via AC_CHECK_PROG),
 #   PYTHON_INCLUDE_DIR and PYTHON_LIB.
 #
+# BUGS
+#
+#   (1) AC_CHECK_PROGS caches PYTHON_BIN on the first interpreter found, so
+#   later loop iterations keep retesting it rather than trying older
+#   interpreters when its development files are unavailable. [Rating: major]
+#
+#   (2) The include-path query imports distutils.sysconfig. On Python
+#   installations without distutils it fails, even though the equivalent
+#   build information is available through sysconfig. [Rating: major]
+#
+#   (3) Private shell variables such as python lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Michael Tindal
@@ -50,7 +65,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 21
+#serial 22
 
 AC_DEFUN([AX_PYTHON],
 [AC_MSG_CHECKING(for python build information)

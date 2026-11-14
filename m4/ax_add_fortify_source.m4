@@ -26,6 +26,13 @@
 #   https://github.com/msys2/MINGW-packages/issues/5803. Try to actually
 #   link it.
 #
+# BUGS
+#
+#   Private shell variables such as ac_save_cflags lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2017 David Seifert <soap@gentoo.org>
@@ -36,7 +43,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_ADD_FORTIFY_SOURCE],[
     ac_save_cflags=$CFLAGS

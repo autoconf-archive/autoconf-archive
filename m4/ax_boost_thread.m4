@@ -20,6 +20,31 @@
 #
 #     HAVE_BOOST_THREAD
 #
+# BUGS
+#
+#   (1) --with-boost-thread=no is treated as a library name, not as a
+#   request to disable Boost.Thread. If the header test succeeds, configure
+#   searches for libraries named no and boost_thread-no and normally aborts.
+#   [Rating: major]
+#
+#   (2) Several case branches issue break outside a loop. If the macro is
+#   expanded inside a caller's shell loop, these statements leave that loop
+#   before detection and flag restoration have completed. Outside a loop
+#   they have no effect. [Rating: minor]
+#
+#   (3) The library link test only checks that a library of that name links
+#   a trivial program (calling exit or main), not a symbol from the Boost
+#   component. Real Boost installations are found correctly, but an empty,
+#   wrong-architecture, or ABI-incompatible library would also be accepted,
+#   and the problem would only show up when the project is built. [Rating:
+#   minor]
+#
+#   (4) Private shell variables such as CPPFLAGS_SAVED, CXXFLAGS_SAVE, and
+#   LDFLAGS_SAVED lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Thomas Porschberg <thomas@randspringer.de>
@@ -30,7 +55,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 33
+#serial 34
 
 AC_DEFUN([AX_BOOST_THREAD],
 [

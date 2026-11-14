@@ -58,6 +58,13 @@
 #   NOTE: AX_CONFIG_FEATURE_ENABLE() must be placed first of the relative
 #   AX_CONFIG_FEATURE() macro ...
 #
+# BUGS
+#
+#   AX_CONFIG_FEATURE_DEFAULT_ENABLED and AX_CONFIG_FEATURE_DEFAULT_DISABLED
+#   write an unused _default variable and refer to FEATURE outside its
+#   definition. Calling these advertised helpers does not set the default
+#   used by AX_CONFIG_FEATURE. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Francesco Salvestrini <salvestrini@users.sourceforge.net>
@@ -88,7 +95,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_CONFIG_FEATURE],[ dnl
 m4_pushdef([FEATURE], patsubst([$1], -, _))dnl

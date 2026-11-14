@@ -40,6 +40,20 @@
 #     INCLUDES += @MICO_INCLUDE@
 #     LDFLAGS += @MICO_LIB@
 #
+# BUGS
+#
+#   (1) --without-mico leaves MICO_URGENCY set to optional, and the
+#   subsequent test still enables discovery for optional dependencies. An
+#   installed MICO can be enabled despite the disable option. [Rating:
+#   major]
+#
+#   (2) Private shell variables such as argerror, version_ok, verpair, and
+#   micodeps lack an ax_ prefix. They share configure's shell namespace with
+#   callers and other macros, so they may collide with variables of the same
+#   name. In addition, argerror is never initialised, so a value inherited
+#   from the environment aborts configure. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Tal Shalif <tal@shalif.com>
@@ -49,7 +63,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 AU_ALIAS([AC_PKG_MICO], [AX_PKG_MICO])
 AC_DEFUN([AX_PKG_MICO],

@@ -53,6 +53,12 @@
 #   configuration will check "/opt/X11", which is the default X11 install
 #   location on OSX.
 #
+# BUGS
+#
+#   The shell variable no_gl, which earlier versions documented as a result
+#   variable, is never initialised, so a value set before the macro runs is
+#   not reset. It should be initialised rather than renamed. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Braden McDaniel <braden@endoframe.com>
@@ -85,7 +91,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 24
+#serial 25
 
 # example gl program
 m4_define([_AX_CHECK_GL_PROGRAM],

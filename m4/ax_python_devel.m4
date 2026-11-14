@@ -36,6 +36,14 @@
 #   If you need to use this macro for an older Python version, please
 #   contact the authors. We're always open for feedback.
 #
+# BUGS
+#
+#   Private shell variables such as ac_save_CPPFLAGS, ac_save_LDFLAGS, and
+#   ac_save_LIBS lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Sebastian Huber <sebastian-huber@web.de>
@@ -72,7 +80,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 37
+#serial 38
 
 AU_ALIAS([AC_PYTHON_DEVEL], [AX_PYTHON_DEVEL])
 AC_DEFUN([AX_PYTHON_DEVEL],[

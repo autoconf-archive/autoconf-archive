@@ -21,6 +21,13 @@
 #
 #   See also AX_LIB_BEECRYPT and AX_LIB_GCRYPT.
 #
+# BUGS
+#
+#   Private shell variables such as ac_with_crypto lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Fabien Coelho <autoconf.archive@coelho.net>
@@ -30,7 +37,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 # AX_CHECK_CRYPTO_LIB([algo-name],[function])
 AC_DEFUN([AX_CHECK_CRYPTO_LIB],[

@@ -17,6 +17,13 @@
 #   Solaris C compiler, Digital Unix C compiler, C for AIX Compiler, HP-UX C
 #   compiler, and IRIX C compiler.
 #
+# BUGS
+#
+#   Private shell variables such as hard and msg lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -26,7 +33,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([AC_PROG_CC_CHAR_SUBSCRIPTS], [AX_PROG_CC_CHAR_SUBSCRIPTS])
 AC_DEFUN([AX_PROG_CC_CHAR_SUBSCRIPTS], [

@@ -59,6 +59,18 @@
 #    1/5/05 applied patch from Rafal Rzepecki to eliminate compiler
 #           warning about unused variable, argv
 #
+# BUGS
+#
+#   (1) The local-installation probe compares the literal
+#   _AX_PATH_BDB_PATH_GET_VERSION_ok with yes instead of expanding it and
+#   never copies the discovered version into its output variable. Local
+#   /usr/local/BerkeleyDB* installations are consequently never selected by
+#   that search. [Rating: major]
+#
+#   (2) The local-installation minimum-version comparison uses gt rather
+#   than ge. A library exactly matching MINIMUM-VERSION is rejected by that
+#   branch. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Tim Toolan <toolan@ele.uri.edu>
@@ -69,7 +81,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 32
+#serial 33
 
 dnl #########################################################################
 AC_DEFUN([AX_PATH_BDB], [

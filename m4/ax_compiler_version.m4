@@ -27,6 +27,13 @@
 #
 #   An empty string is returned otherwise.
 #
+# BUGS
+#
+#   For Sun compiler version macros of 0x1000 or greater, the minor
+#   component is computed by dividing by 0x100. For example,
+#   __SUNPRO_C=0x5100 is reported as 5.81.0 instead of 5.10.0. [Rating:
+#   major]
+#
 # LICENSE
 #
 #   Copyright (c) 2014 Bastien ROUCARIES <roucaries.bastien+autoconf@gmail.com>
@@ -36,7 +43,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 14
+#serial 15
 
 # for intel
 AC_DEFUN([_AX_COMPILER_VERSION_INTEL],

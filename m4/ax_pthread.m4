@@ -55,6 +55,12 @@
 #
 #   Updated for Autoconf 2.68 by Daniel Richard G.
 #
+# BUGS
+#
+#   When user-supplied thread flags are tested, PTHREAD_CXX is assigned to
+#   CXX without saving and restoring CXX. This can unexpectedly change the
+#   caller's C++ compiler even if the thread test fails. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Steven G. Johnson <stevenj@alum.mit.edu>
@@ -87,7 +93,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 32
+#serial 33
 
 AU_ALIAS([ACX_PTHREAD], [AX_PTHREAD])
 AC_DEFUN([AX_PTHREAD], [

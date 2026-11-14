@@ -42,6 +42,13 @@
 #       fi
 #     ])
 #
+# BUGS
+#
+#   Private shell variables such as save_LIBS and lib lack an ax_ prefix.
+#   They share configure's shell namespace with callers and other macros, so
+#   they may collide with variables of the same name. These variables should
+#   use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2010,2011 Olaf Lenz <olenz@icp.uni-stuttgart.de>
@@ -72,7 +79,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_PROG_F77_MPI], [
 AC_PREREQ(2.50)

@@ -27,6 +27,13 @@
 #   Additionally, the C preprocessor symbol HAVE_NOKALVA will be defined
 #   with AC_DEFINE if Nokalva is available.
 #
+# BUGS
+#
+#   Private shell variables such as saved_CPPFLAGS and saved_LDFLAGS lack an
+#   ax_ prefix. They share configure's shell namespace with callers and
+#   other macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Krzysztof Burghardt <krzysztof@burghardt.pl>
@@ -36,7 +43,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 AC_DEFUN([AX_LIB_NOKALVA], [
   AH_TEMPLATE([HAVE_NOKALVA], [Define if Nokalva is available])

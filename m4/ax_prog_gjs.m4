@@ -14,6 +14,12 @@
 #   found, the path of the interpreter is placed into a variable named GJS,
 #   which is declared precious.
 #
+# BUGS
+#
+#   The pkg-config branch calls literal pkg-config instead of $PKG_CONFIG
+#   and overwrites a user-supplied GJS. Cross-tool wrappers or an explicitly
+#   selected interpreter can therefore be ignored. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2013, 2016 Endless Mobile, Inc.; contributed by Philip Chimento <philip@endlessm.com>
@@ -23,7 +29,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN_ONCE([AX_PROG_GJS], [
   AC_REQUIRE([PKG_PROG_PKG_CONFIG])

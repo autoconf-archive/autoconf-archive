@@ -48,6 +48,18 @@
 #   tarball from the builddir to the sourcedir (or $(PUB)) for reason of
 #   convenience.
 #
+# BUGS
+#
+#   (1) When an alternative Makefile.mk name is supplied as the second
+#   argument, the macro tests for that file but still reads the hard-coded
+#   Makefile.mk. The requested makefile extension is not included. [Rating:
+#   minor]
+#
+#   (2) The config.status command registered by the macro uses private shell
+#   variables such as a, b, x, and xxxx without an ax_ prefix. They may
+#   collide with variables of the same name in config.status. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Guido U. Draheim <guidod@gmx.de>
@@ -79,7 +91,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 30
+#serial 31
 
 AC_DEFUN([AX_ENABLE_BUILDDIR],[
 AC_REQUIRE([AC_CANONICAL_HOST])[]dnl

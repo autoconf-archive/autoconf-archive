@@ -22,6 +22,18 @@
 #
 #     #include <openssl/hmac.h>
 #
+# BUGS
+#
+#   (1) Private shell variables such as save_CPPFLAGS, save_LDFLAGS, and
+#   save_LIBS lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
+#   (2) LIBS, LDFLAGS, and CPPFLAGS are restored after ACTION-IF-FOUND or
+#   ACTION-IF-NOT-FOUND has run, so changes that these actions make to the
+#   variables are lost. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009,2010 Zmanda Inc. <http://www.zmanda.com/>
@@ -32,7 +44,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AU_ALIAS([CHECK_SSL], [AX_CHECK_OPENSSL])
 AC_DEFUN([AX_CHECK_OPENSSL], [

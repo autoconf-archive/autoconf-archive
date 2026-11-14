@@ -23,6 +23,14 @@
 #   note that autoheader will complain of not having the HAVE_PKG_PACKAGE
 #   and you will have to add it to acconfig.h manually
 #
+# BUGS
+#
+#   Private shell variables such as OLD_CFLAGS, OLD_CPPFLAGS, and
+#   OLD_LDFLAGS lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Caolan McNamara <caolan@skynet.ie>
@@ -34,7 +42,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_caolan_CHECK_PACKAGE],
 [

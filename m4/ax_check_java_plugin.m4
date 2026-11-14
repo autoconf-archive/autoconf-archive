@@ -20,6 +20,18 @@
 #   to work if I understand the documentation on pkware's site but YMMV. I
 #   do not have access to pwkware's version to test it.
 #
+# BUGS
+#
+#   (1) Private shell variables such as jfile, jhome, and jplugin lack an
+#   ax_ prefix. They share configure's shell namespace with callers and
+#   other macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
+#   (2) AC_CHECK_PROG(ZIPINFO,[zipinfo unzip pkzipc]) searches for a single
+#   program with that literal name instead of trying each one, so the check
+#   always fails and the macro reports "skipped", even when unzip is
+#   installed. [Rating: broken]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Duncan Simpson <dps@simpson.demon.co.uk>
@@ -50,7 +62,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 15
+#serial 16
 
 AU_ALIAS([DPS_CHECK_PLUGIN], [AX_CHECK_JAVA_PLUGIN])
 AC_DEFUN([AX_CHECK_JAVA_PLUGIN],

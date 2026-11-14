@@ -110,6 +110,21 @@
 #   The above compiles the modules only if PYTHON_USE was specified as true.
 #   Also, the else portion of the if was optional.
 #
+# BUGS
+#
+#   (1) AX_PYTHON_CSPEC takes only the first three characters of
+#   sys.version. Python 3.10 and later are treated as 3.1, producing an
+#   incorrect include directory. [Rating: broken]
+#
+#   (2) AX_PYTHON_CSPEC and AX_PYTHON_LSPEC require distutils.sysconfig. On
+#   Python installations without distutils they fail to obtain build flags
+#   even though sysconfig can provide that information. [Rating: major]
+#
+#   (3) The test that adds a separate exec-prefix include directory compares
+#   the unset variables python_prefix and python_execprefix instead of
+#   ax_python_prefix and ax_python_execprefix, so the directory is never
+#   added when the two prefixes differ. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Robert White <kranki@mac.com>
@@ -120,7 +135,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 15
+#serial 16
 
 # AX_PYTHON_DEFAULT( )
 # -----------------

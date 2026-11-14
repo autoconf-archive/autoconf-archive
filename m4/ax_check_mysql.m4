@@ -51,6 +51,33 @@
 #     MYSQL_55 to whether the version of MySQL is 5.5 or greater
 #     MYSQL_SOURCE  to the source directory passed by --with-mysql-source
 #
+# BUGS
+#
+#   (1) The macro uses test STRING == STRING, which is not portable shell
+#   syntax. With POSIX shells such as dash these checks fail, so
+#   installation detection, the fallbacks, and the version checks are
+#   skipped. [Rating: major]
+#
+#   (2) The command and plugin probes set MYSQL and MYSQL_PLUGIN, but later
+#   failure checks inspect MYSQL_BIN and MYSQL_PLUGINS. Missing executables
+#   or plugin directories can therefore bypass the intended validation.
+#   [Rating: major]
+#
+#   (3) Versions are split at fixed character positions, and MYSQL_55
+#   requires both major > 4 and minor > 4. This misclassifies versions such
+#   as 8.0 and cannot correctly parse versions with multi-digit components.
+#   [Rating: major]
+#
+#   (4) Private shell variables such as CHECKER_MAJOR, CHECKER_MINOR, and
+#   CHECKER_REV lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
+#   (5) The documented output MYSQL_PLUGINS is never set:
+#   AX_CHECK_MYSQL_PLUGINS substitutes MYSQL_PLUGIN instead, while the
+#   failure check tests MYSQL_PLUGINS. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2011 University of Washington
@@ -63,7 +90,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_ARG_WITH(mysql,AS_HELP_STRING([--with-mysql],[root of the MySQL installation]))
 AC_ARG_WITH(mysql_plugin,AS_HELP_STRING([--with-mysql-plugin],[path to the MySQL installation plugin directory]))

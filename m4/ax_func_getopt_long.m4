@@ -16,6 +16,13 @@
 #   http://sources.redhat.com/ml/automake/2000-09/msg00041.html for an
 #   explanation about why using the system's getopt.h file is important.)
 #
+# BUGS
+#
+#   When getopt_long is found in libgnugetopt, the success action defines
+#   HAVE_GETOPT_LONG but does not add -lgnugetopt to LIBS. The consuming
+#   program can consequently fail to link despite successful detection.
+#   [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Alexandre Duret-Lutz <adl@gnu.org>
@@ -46,7 +53,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([ADL_FUNC_GETOPT_LONG], [AX_FUNC_GETOPT_LONG])
 AC_DEFUN([AX_FUNC_GETOPT_LONG],

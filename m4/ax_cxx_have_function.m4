@@ -14,6 +14,12 @@
 #   If it is, define the ax_cv_cxx_have_function environment variable to
 #   "yes" and define HAVE_CXX_FUNCTION.
 #
+# BUGS
+#
+#   The probe checks std::bad_function_call as a proxy for std::function.
+#   The two are introduced together in practice, but the check does not
+#   directly verify std::function. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2014 Enrico M. Crisostomo <enrico.m.crisostomo@gmail.com>
@@ -23,7 +29,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_CXX_HAVE_FUNCTION],
   [AC_CACHE_CHECK(

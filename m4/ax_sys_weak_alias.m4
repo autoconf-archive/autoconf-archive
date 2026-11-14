@@ -101,6 +101,13 @@
 #   depending on whether or not weak aliases may cross object file
 #   boundaries.
 #
+# BUGS
+#
+#   Private shell variables such as save_CFLAGS and save_aclink lack an ax_
+#   prefix. They share configure's shell namespace with callers and other
+#   macros, so they may collide with variables of the same name. These
+#   variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Kevin L. Mitchell <klmitch@mit.edu>
@@ -110,7 +117,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([KLM_SYS_WEAK_ALIAS], [AX_SYS_WEAK_ALIAS])
 AC_DEFUN([AX_SYS_WEAK_ALIAS], [

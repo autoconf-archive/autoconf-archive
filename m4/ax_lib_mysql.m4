@@ -34,6 +34,18 @@
 #
 #     HAVE_MYSQL
 #
+# BUGS
+#
+#   (1) A failed MINIMUM-VERSION comparison only prints no. It does not
+#   reset found_mysql or prevent HAVE_MYSQL from being defined, so an
+#   installed client older than requested is still accepted. [Rating: major]
+#
+#   (2) Private shell variables such as mysql_version_check and
+#   mysql_version_major lack an ax_ prefix. They share configure's shell
+#   namespace with callers and other macros, so they may collide with
+#   variables of the same name. These variables should use macro-specific
+#   ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
@@ -43,7 +55,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 14
+#serial 15
 
 AC_DEFUN([AX_LIB_MYSQL],
 [

@@ -20,6 +20,23 @@
 #
 #     HAVE_BOOST_ASIO
 #
+# BUGS
+#
+#   (1) The automatic library search sets link_thread rather than link_asio.
+#   If candidates exist but none links, the subsequent link_asio=no check
+#   does not detect the failure and configure can continue without a usable
+#   BOOST_ASIO_LIB. [Rating: minor]
+#
+#   (2) Private shell variables such as CPPFLAGS_SAVED, LDFLAGS_SAVED, and
+#   BN lack an ax_ prefix. They share configure's shell namespace with
+#   callers and other macros, so they may collide with variables of the same
+#   name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
+#   (3) The compile test uses boost::asio::io_service, which Boost 1.87
+#   removed. With Boost 1.87 and later the test fails, so Asio is reported
+#   as unavailable. [Rating: broken]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Thomas Porschberg <thomas@randspringer.de>
@@ -30,7 +47,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 18
+#serial 19
 
 AC_DEFUN([AX_BOOST_ASIO],
 [

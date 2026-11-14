@@ -16,6 +16,18 @@
 #   test for errors when you open it and then fall back to poll() if it is
 #   unavailable.
 #
+# BUGS
+#
+#   (1) The compile test is expanded inside an unquoted AC_CACHE_CHECK
+#   argument. If compiler initialization has not already run, its generated
+#   shell code is corrupted and configure has a syntax error. Initialize the
+#   active language compiler explicitly before invoking this macro. [Rating:
+#   major]
+#
+#   (2) The caller's result actions are inside the cache body. When the
+#   result is reused from config.cache, neither action runs, so callers
+#   relying on them do not receive the cached outcome. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Dave Benson <daveb@ffem.org>
@@ -25,7 +37,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([AC_SYS_DEV_POLL], [AX_SYS_DEV_POLL])
 AC_DEFUN([AX_SYS_DEV_POLL], [AC_CACHE_CHECK(for /dev/poll support, ac_cv_dev_poll,

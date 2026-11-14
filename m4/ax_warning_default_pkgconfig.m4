@@ -33,6 +33,25 @@
 #   to the primary path where `pkg-config` looks for .pc files. The user may
 #   also override the default on the command line.
 #
+# BUGS
+#
+#   (1) The pkg-config installation prefix is derived from the unset
+#   directory variable instead of PKG_CONFIG. The macro also omits
+#   pkg-config's compiled-in search path, so it can warn about valid
+#   installation directories or suggest the wrong directory. [Rating: major]
+#
+#   (2) The enable macro registers enable-default-pkgconfigdir with
+#   AC_ARG_ENABLE, generating --enable-enable-default-pkgconfigdir. The
+#   documented --enable-default-pkgconfigdir still takes effect through
+#   configure's generic option handling, but configure warns about an
+#   unrecognized option. [Rating: minor]
+#
+#   (3) AX_ENABLE_DEFAULT_PKGCONFIGDIR assigns pkgconfigdir from
+#   ax_warning_default_pkgconfig_dir, a variable that
+#   AX_WARNING_DEFAULT_PKGCONFIGDIR uses while searching, instead of the
+#   chosen directory. In tests, pkgconfigdir was / both by default and with
+#   --enable-default-pkgconfigdir=/foo/bar. [Rating: broken]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -42,7 +61,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AC_DEFUN([AX_WARNING_DEFAULT_PKGCONFIGDIR],[dnl
 AC_REQUIRE([AX_EXPAND_PREFIX])dnl

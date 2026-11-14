@@ -30,6 +30,17 @@
 #
 #   in configure.ac.
 #
+# BUGS
+#
+#   (1) Private shell variables such as oldCPPFLAGS, oldLDFLAGS, and
+#   pg_prefix lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
+#   (2) Contrary to the description, -lpq is never added to LIBS; it is only
+#   substituted as LIBPQ_LIBS. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Christian Toepp <c.toepp@gmail.com>
@@ -40,7 +51,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 AU_ALIAS([CT_CHECK_POSTGRES_DB], [AX_CHECK_POSTGRES_DB])
 AC_DEFUN([AX_CHECK_POSTGRES_DB], [

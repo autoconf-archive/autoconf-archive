@@ -35,6 +35,17 @@
 #   not found. If ACTION-IF-FOUND is not specified, the default action will
 #   define HAVE_OPENMP.
 #
+# BUGS
+#
+#   (1) The test program is always C source, even when the active language
+#   is Fortran or Fortran 77. The documented Fortran mode therefore fails to
+#   detect a working OpenMP compiler. [Rating: major]
+#
+#   (2) The no-extra-flag candidate restores flags from saveC or saveCXX
+#   instead of saveCFLAGS or saveCXXFLAGS. It discards the caller's flags
+#   while testing that candidate, so a result can be based on a different
+#   compilation environment. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Steven G. Johnson <stevenj@alum.mit.edu>
@@ -67,7 +78,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 14
+#serial 15
 
 AC_DEFUN([AX_OPENMP], [
 AC_PREREQ([2.69]) dnl for _AC_LANG_PREFIX

@@ -166,6 +166,20 @@
 #     # end of file
 #     ---------- >8 ----------
 #
+# BUGS
+#
+#   (1) The --enable-rpm-rules action assigns enable_rpm_rules from withval
+#   rather than enableval. Its behavior can depend on an unrelated --with
+#   option and can ignore an explicit --disable-rpm-rules. [Rating: major]
+#
+#   (2) Private shell variables such as no_rpm, rpm_extra_args, and rpm_prog
+#   lack an ax_ prefix. They share configure's shell namespace with callers
+#   and other macros, so they may collide with variables of the same name.
+#   These variables should use macro-specific ax_ names. [Rating: minor]
+#
+#   (3) The help text of --enable-rpm-rules says it defaults to yes on
+#   Linux, but the default is always no. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Dale K. Hawkins <dhawkins@cdrgts.com>
@@ -175,7 +189,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 dnl AX_RPM_INIT
 dnl Figure out how to create rpms for this system and setup for an

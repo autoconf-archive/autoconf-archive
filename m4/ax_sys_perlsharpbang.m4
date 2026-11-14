@@ -58,7 +58,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 16
+#serial 17
 
 AC_DEFUN([AX_SYS_PERLSHARPBANG],[dnl
 

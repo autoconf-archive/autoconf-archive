@@ -21,6 +21,20 @@
 #
 #     HAVE_LIBTRACE
 #
+# BUGS
+#
+#   (1) A missing or unusable libtrace.h, or a failed library link, calls
+#   AC_MSG_ERROR directly, so ACTION-IF-NOT-FOUND is never used. In
+#   addition, the version test is ineffective: the #if condition is split
+#   over two lines, so any header defining LIBTRACE_API_VERSION passes
+#   regardless of MINIMUM-VERSION. [Rating: major]
+#
+#   (2) Private shell variables such as CFLAGS_SAVED, LDFLAGS_SAVED, and
+#   succeeded lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2011 Xiyue Deng <manphiz@gmail.com>
@@ -30,7 +44,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_LIB_TRACE],
 [

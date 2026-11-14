@@ -80,6 +80,32 @@
 #             AC_MSG_ERROR([Unable to find NetCDF4, we need parallel NetCDF4.])
 #     fi
 #
+# BUGS
+#
+#   (1) CFLAGS is overwritten without being saved and is restored from an
+#   unset ax_lib_netcdf4_save_CFLAGS. LDFLAGS is restored from the HDF5
+#   macro's save variable rather than its own. Detection therefore clears or
+#   corrupts the caller's flags. [Rating: major]
+#
+#   (2) Library flags from nc-config and nf-config are prepended one at a
+#   time, reversing their order. Static linking can consequently place
+#   dependencies before the libraries that need them and fail with
+#   unresolved symbols. [Rating: major]
+#
+#   (3) Failed header and library tests only produce a warning and do not
+#   prevent HAVE_NETCDF4 from being defined. An unusable installation is
+#   still reported as available. [Rating: major]
+#
+#   (4) Private shell variables such as NETCDF4_tmp_clibs,
+#   NETCDF4_tmp_flibs, and arg lack an ax_ prefix. They share configure's
+#   shell namespace with callers and other macros, so they may collide with
+#   variables of the same name. These variables should use macro-specific
+#   ax_ names. [Rating: minor]
+#
+#   (5) Duplicate libraries are filtered with a substring grep, so -lhdf5 is
+#   dropped once -lhdf5_hl is present. In a test, NETCDF4_LIBS came out as
+#   "-lz -lhdf5_hl -lnetcdf", without -lhdf5. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2016 Timothy Brown <tbrown@freeshell.org>
@@ -89,7 +115,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_LIB_NETCDF4], [
 

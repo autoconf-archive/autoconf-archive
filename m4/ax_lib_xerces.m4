@@ -34,6 +34,21 @@
 #
 #     HAVE_XERCES
 #
+# BUGS
+#
+#   (1) A failed MINIMUM-VERSION comparison only warns, and HAVE_XERCES
+#   stays yes. MINIMUM-VERSION is therefore advisory only. [Rating: minor]
+#
+#   (2) The separate include/library option path tests xerces_lib_flags, but
+#   --with-xerces-lib assigns xerces_ldflags. With no detected prefix, the
+#   documented separate paths cannot enable the probe. [Rating: major]
+#
+#   (3) Private shell variables such as saved_CPPFLAGS, saved_LDFLAGS, and
+#   saved_LIBS lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
@@ -43,7 +58,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_LIB_XERCES],
 [

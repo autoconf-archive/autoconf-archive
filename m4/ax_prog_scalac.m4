@@ -14,6 +14,13 @@
 #   AX_PROG_SCALAC will search the path for a Scala compiler. To choose
 #   another compiler use the environment variable SCALAC.
 #
+# BUGS
+#
+#   Private shell variables such as TESTFILE lack an ax_ prefix. They share
+#   configure's shell namespace with callers and other macros, so they may
+#   collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2013 Sveinung Kvilhaugsvik <sveinung84@users.sourceforge.net>
@@ -23,7 +30,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_ARG_VAR(SCALAC, [scala compiler])
 

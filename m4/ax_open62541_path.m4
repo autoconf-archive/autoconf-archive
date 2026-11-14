@@ -50,6 +50,14 @@
 #
 #   [1]: <http://open62541.org/>
 #
+# BUGS
+#
+#   The option checks use test STRING == STRING, which is not portable shell
+#   syntax. Under dash, the default /bin/sh on Debian and Ubuntu, these
+#   tests fail, so --with-open62541=DIR never adds its -I and -L flags or
+#   OPEN62541_LDPATH, the default build directory is not derived, and
+#   --with-open62541-build is not validated. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2016,2017 Olaf Mandel <olaf@mandel.name>
@@ -59,7 +67,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 5
+#serial 6
 
 # AX_OPEN62541_PATH()
 # -------------------

@@ -13,6 +13,12 @@
 #
 #   To override the location define SCALA_STDLIB to the wanted path
 #
+# BUGS
+#
+#   The cache check uses ax_cv_scala_libray, but discovery writes
+#   ax_cv_scala_stdlib_cpf. The result is not cached under the variable
+#   tested by AC_CACHE_VAL. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2013 Sveinung Kvilhaugsvik <sveinung84@users.sourceforge.net>
@@ -22,7 +28,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_ARG_VAR(SCALA_STDLIB, [path to the Scala Standard Library])
 

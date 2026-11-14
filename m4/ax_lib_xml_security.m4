@@ -35,6 +35,23 @@
 #
 #     HAVE_XML_SECURITY
 #
+# BUGS
+#
+#   (1) A failed MINIMUM-VERSION comparison only warns, and
+#   HAVE_XML_SECURITY stays yes. MINIMUM-VERSION is therefore advisory only.
+#   [Rating: minor]
+#
+#   (2) When no default installation is found, the macro executes
+#   xml-security_prefix="" instead of assigning xml_security_prefix. The
+#   hyphen makes this a command name, producing a command-not-found error.
+#   [Rating: minor]
+#
+#   (3) Private shell variables such as saved_CPPFLAGS, saved_LDFLAGS, and
+#   run_xml_security_test lack an ax_ prefix. They share configure's shell
+#   namespace with callers and other macros, so they may collide with
+#   variables of the same name. These variables should use macro-specific
+#   ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Alexander Petry <petry@itwm.fhg.de>
@@ -45,7 +62,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_LIB_XML_SECURITY],
 [

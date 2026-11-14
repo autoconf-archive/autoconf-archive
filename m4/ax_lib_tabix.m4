@@ -42,6 +42,17 @@
 #     AM_LDFLAGS = $(TABIX_LDFLAGS)
 #     program_LDADD = $(TABIX_LIBS)
 #
+# BUGS
+#
+#   (1) --without-tabix only changes the displayed message; the subsequent
+#   header and library probes still run and can abort configure. The
+#   documented disable option does not disable the dependency check.
+#   [Rating: major]
+#
+#   (2) The saved CPPFLAGS value is copied from LDFLAGS instead of CPPFLAGS.
+#   It is only restored right before configure aborts with an error, so this
+#   is currently harmless. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2013 Timothy Brown <tbrown@freeshell.org>
@@ -72,7 +83,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_LIB_TABIX],
 #

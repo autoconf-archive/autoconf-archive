@@ -26,6 +26,19 @@
 #   Trilinos_version.h, and #defines HAVE_TRILINOS. When ACTION-IF-NOT-FOUND
 #   is not specified, the default behavior is for configure to fail.
 #
+# BUGS
+#
+#   (1) The macro calls AX_TRILINOS_ABSOLUTE_HEADER, which is not defined by
+#   this archive or Autoconf. The available helper is named
+#   AX_ABSOLUTE_HEADER. Without an external definition, autoconf cannot
+#   produce a usable configure script. [Rating: broken]
+#
+#   (2) Private shell variables such as OLD_CPPFLAGS, OLD_LDFLAGS, and
+#   OLD_LIBS lack an ax_ prefix. They share configure's shell namespace with
+#   callers and other macros, so they may collide with variables of the same
+#   name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Rhys Ulerich <rhys.ulerich@gmail.com>
@@ -39,7 +52,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_TRILINOS_BASE],
 [

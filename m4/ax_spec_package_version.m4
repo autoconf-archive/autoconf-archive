@@ -52,6 +52,23 @@
 #   the final AX_SPEC_INIT(specfile) will initialize all variables to its
 #   defaults according to the spec file given.
 #
+# BUGS
+#
+#   (1) The license fallback tests the nonempty filename string
+#   "$srcdir/COPYING.LIB" rather than whether that file exists. When no
+#   license was extracted from a spec file, it selects LGPL even if
+#   COPYING.LIB is absent. [Rating: minor]
+#
+#   (2) The individual package-field macros hard-code their PACKAGE_*
+#   destination variables instead of using the documented shellvar argument.
+#   A caller cannot redirect the extracted value into the requested
+#   variable. [Rating: major]
+#
+#   (3) Private shell variables such as k lack an ax_ prefix. They share
+#   configure's shell namespace with callers and other macros, so they may
+#   collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Guido U. Draheim <guidod@gmx.de>
@@ -61,7 +78,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AC_DEFUN([AX_SPEC_PACKAGE_LICENSE],[AC_REQUIRE([AX_SPEC_FILE])dnl
   AS_VAR_PUSHDEF([VAR],[PACKAGE_LICENSE])dnl

@@ -26,6 +26,18 @@
 #     #endif
 #     ])
 #
+# BUGS
+#
+#   (1) Omitting either optional result action leaves an empty then or elif
+#   branch in the generated shell code. Configure then has a syntax error;
+#   callers must supply a nonempty action such as : for both outcomes.
+#   [Rating: major]
+#
+#   (2) Private shell variables such as typename lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Ville Laurikari <vl@iki.fi>
@@ -35,7 +47,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AU_ALIAS([VL_CHECK_SIGN], [AX_CHECK_SIGN])
 AC_DEFUN([AX_CHECK_SIGN], [

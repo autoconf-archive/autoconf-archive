@@ -52,6 +52,13 @@
 #   Make sure ax_upload.am is added to aminclude_static.am and you have
 #   'include aminclude_static.am' in Makefile.am
 #
+# BUGS
+#
+#   The generated RPM recipes use test STRING == STRING in their
+#   macro-expansion loops. POSIX shells such as dash reject this operator,
+#   preventing reliable resolution of RPM output directories. [Rating:
+#   major]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Tom Howard <tomhoward@users.sf.net>
@@ -61,7 +68,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 23
+#serial 24
 
 AC_DEFUN([AX_DIST_RPM],
 [

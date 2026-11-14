@@ -150,6 +150,13 @@
 #   If a readline compatible library is found, then ACTION-IF-FOUND is
 #   performed, otherwise ACTION-IF-NOT-FOUND is performed.
 #
+# BUGS
+#
+#   AX_LUA_READLINE tests whether the header-result variables are nonempty
+#   instead of whether they equal yes. A cached no result is treated as
+#   success, enabling LUA_USE_READLINE even when the required headers are
+#   missing. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2015 Reuben Thomas <rrt@sc3d.org>
@@ -181,7 +188,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 48
+#serial 49
 
 dnl =========================================================================
 dnl AX_PROG_LUA([MINIMUM-VERSION], [TOO-BIG-VERSION],

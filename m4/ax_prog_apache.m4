@@ -39,6 +39,19 @@
 #    LoadModule config_log_module  @APACHE_MODULES@/mod_log_config.so
 #    ...
 #
+# BUGS
+#
+#   (1) The version check removes dots and splits at fixed positions, then
+#   compares the remaining parts independently. It can reject a newer
+#   major/minor release merely because its patch number is smaller than the
+#   requested patch number. [Rating: major]
+#
+#   (2) Private shell variables such as APACHE_REQUEST,
+#   APACHE_REQUEST_MAJOR, and dir lack an ax_ prefix. They share configure's
+#   shell namespace with callers and other macros, so they may collide with
+#   variables of the same name. These variables should use macro-specific
+#   ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Loic Dachary <loic@senga.org>
@@ -69,7 +82,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_PROG_APACHE], [AX_PROG_APACHE])
 AC_DEFUN([AX_PROG_APACHE],

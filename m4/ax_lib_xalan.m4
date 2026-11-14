@@ -35,6 +35,21 @@
 #
 #     HAVE_XALAN
 #
+# BUGS
+#
+#   (1) A failed MINIMUM-VERSION comparison only warns, and HAVE_XALAN stays
+#   yes. MINIMUM-VERSION is therefore advisory only. [Rating: minor]
+#
+#   (2) The separate include/library option path tests xalan_lib_flags, but
+#   --with-xalan-lib assigns xalan_ldflags. With no detected prefix, the
+#   documented separate paths cannot enable the probe. [Rating: major]
+#
+#   (3) Private shell variables such as saved_CPPFLAGS, saved_LDFLAGS, and
+#   saved_LIBS lack an ax_ prefix. They share configure's shell namespace
+#   with callers and other macros, so they may collide with variables of the
+#   same name. These variables should use macro-specific ax_ names. [Rating:
+#   minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Mateusz Loskot <mateusz@loskot.net>
@@ -45,7 +60,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_LIB_XALAN],
 [

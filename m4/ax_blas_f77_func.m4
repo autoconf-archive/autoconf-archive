@@ -22,6 +22,14 @@
 #   calls AX_BLAS_F77_FUNC after detecting a BLAS library and rejects it on
 #   failure (i.e. pretends that no library was found).
 #
+# BUGS
+#
+#   If ACTION-IF-PASS and ACTION-IF-CROSS-COMPILING are both omitted,
+#   AX_BLAS_F77_FUNC emits an empty then branch. AX_BLAS_WITH_F77_FUNC
+#   likewise emits an empty failure branch when its optional failure action
+#   is omitted. These invocations produce a configure shell syntax error.
+#   [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Jaroslav Hajek <highegg@gmail.com>
@@ -52,7 +60,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([ACX_BLAS_F77_FUNC], [AX_BLAS_F77_FUNC])
 AC_DEFUN([AX_BLAS_F77_FUNC], [

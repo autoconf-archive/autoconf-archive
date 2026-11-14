@@ -12,6 +12,13 @@
 #   jar file in $3. If the class is found do $4 and otherwise do $5. Uses
 #   AX_JAVA_CHECK_CLASS for testing whether a class is available
 #
+# BUGS
+#
+#   Private shell variables such as POTENTIAL_LOCATIONS, cpxtra, and jdir
+#   lack an ax_ prefix. They share configure's shell namespace with callers
+#   and other macros, so they may collide with variables of the same name.
+#   These variables should use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Duncan Simpson <dps@simpson.demon.co.uk>
@@ -42,7 +49,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 AU_ALIAS([DPS_XTRA_CLASSPATH], [AX_XTRA_CLASSPATH])
 AC_DEFUN([AX_XTRA_CLASSPATH],[

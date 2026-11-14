@@ -22,6 +22,17 @@
 #   specified on the include path, this macro requires AX_PYTHON_DEVEL and
 #   AX_BOOST_BASE to be called.
 #
+# BUGS
+#
+#   (1) --with-boost-python=no does not disable detection: the option only
+#   controls library-name selection, and the macro still defines
+#   HAVE_BOOST_PYTHON and searches for a library. [Rating: major]
+#
+#   (2) Private shell variables such as BOOSTLIBDIR lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Michael Tindal
@@ -53,7 +64,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 24
+#serial 25
 
 AC_DEFUN([AX_BOOST_PYTHON],
 [AC_REQUIRE([AX_PYTHON_DEVEL])dnl

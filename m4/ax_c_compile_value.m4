@@ -42,6 +42,18 @@
 #     #define COMPILE_VALUE_SIZEOF_INT 4
 #     #define COMPILE_VALUE_SIZEOF_INT543 2172
 #
+# BUGS
+#
+#   (1) The object-code decoder uses typeset -i and implicit
+#   hexadecimal-to-decimal conversion, which are not supported by POSIX
+#   shells such as dash. In such shells the detected value can be empty or
+#   invalid even when compilation succeeds. [Rating: major]
+#
+#   (2) Private shell variables such as save_CFLAGS lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Ilguiz Latypov
@@ -72,7 +84,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 ## Portability defines that help interoperate with classic and modern autoconfs
 ifdef([AC_TR_SH],[

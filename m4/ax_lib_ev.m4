@@ -15,6 +15,22 @@
 #
 #   Defines libev_LIBS and libev_CFLAGS.
 #
+# BUGS
+#
+#   (1) A failed pkg-config version requirement is ignored if ev.h is
+#   present. The fallback does not check the requested version or link libev
+#   before reporting success, so an older library or a header-only
+#   installation can be accepted. [Rating: major]
+#
+#   (2) The caller's result actions and pkg-config flag assignments occur
+#   inside the cache body. A cached run skips those actions and can leave
+#   libev_CFLAGS and libev_LIBS unset. [Rating: major]
+#
+#   (3) Private shell variables such as saved_CPPFLAGS lack an ax_ prefix.
+#   They share configure's shell namespace with callers and other macros, so
+#   they may collide with variables of the same name. These variables should
+#   use macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2012 Sebastian Freundt <freundt@fresse.org>
@@ -24,7 +40,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 3
+#serial 4
 
 AC_DEFUN([AX_CHECK_EV_H], [
 dnl AX_CHECK_EV_H([ACTION-IF-FOUND], [ACTION-IF-NOT-FOUND])

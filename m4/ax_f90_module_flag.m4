@@ -13,6 +13,13 @@
 #   the flag cannot be found. Supported are the -I GNU compilers flag, the
 #   -M SUN compilers flag, and the -p Absoft Pro Fortran compiler flag.
 #
+# BUGS
+#
+#   Private shell variables such as i lack an ax_ prefix. They share
+#   configure's shell namespace with callers and other macros, so they may
+#   collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Luc Maisonobe <luc@spaceroots.org>
@@ -24,7 +31,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 14
+#serial 15
 
 AC_DEFUN([AX_F90_MODULE_FLAG],[
 AC_CACHE_CHECK([fortran 90 modules inclusion flag],

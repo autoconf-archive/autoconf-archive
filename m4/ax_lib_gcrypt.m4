@@ -22,6 +22,13 @@
 #
 #   See also AX_LIB_BEECRYPT and AX_LIB_CRYPTO.
 #
+# BUGS
+#
+#   Private shell variables such as gcrypt_algos lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Fabien Coelho <autoconf.archive@coelho.net>
@@ -31,7 +38,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 12
+#serial 13
 
 # AX_CHECK_GCRYPT_ALGO([algo])
 # generate convenient defines for each algorithm

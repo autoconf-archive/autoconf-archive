@@ -30,6 +30,13 @@
 #   See also AX_GCC_X86_CPU_SUPPORTS, which is the actual macro that perform
 #   the checks for the instruction sets.
 #
+# BUGS
+#
+#   ACTION-IF-NOT-FOUND is executed unconditionally after ACTION-IF-FOUND
+#   (or the default CFLAGS update). A failure action that aborts configure
+#   therefore runs even when processor features were detected. [Rating:
+#   major]
+#
 # LICENSE
 #
 #   Copyright (c) 2016 Felix Chern <idryman@gmail.com>
@@ -60,7 +67,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_CHECK_X86_FEATURES],
  [m4_foreach_w(
