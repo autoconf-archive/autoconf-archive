@@ -2,7 +2,7 @@
 
 assert __name__ == "__main__"
 
-import sys
+import re, sys
 from macro import Macro, writeFile
 
 tmpl = """\
@@ -43,6 +43,17 @@ def formatAuthor(a):
   else:
     return "#   Copyright (c) %(year)s %(name)s" % a
 
+def latestCopyrightYear(a):
+  years = []
+  for value in re.findall(r"[0-9]+", a["year"]):
+    year = int(value)
+    if len(value) < 4 and years:
+      year += years[-1] // 100 * 100
+      if year < years[-1]:
+        year += 100
+    years.append(year)
+  return max(years)
+
 def countSpaces(line):
   for i in range(len(line)):
     if not line[i].isspace():
@@ -74,6 +85,7 @@ if m.bugs:
   m.bugs = "# BUGS\n#\n" + '\n#\n'.join(map(formatParagraph, m.bugs)) + "\n#\n"
 else:
   m.bugs = ""
+m.authors.sort(key=latestCopyrightYear, reverse=True)
 m.authors = "\n".join(map(formatAuthor, m.authors))
 m.license = '\n#\n'.join(map(formatParagraph, m.license))
 m.body = '\n'.join(m.body)
