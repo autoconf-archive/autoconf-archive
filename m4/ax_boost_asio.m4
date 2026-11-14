@@ -2,12 +2,6 @@
 #      https://www.gnu.org/software/autoconf-archive/ax_boost_asio.html
 # ===========================================================================
 #
-# OBSOLETE MACRO
-#
-#   The compile test uses boost::asio::io_service, which Boost 1.87 removed,
-#   so with Boost 1.87 and later this macro reports Boost.Asio as
-#   unavailable.
-#
 # SYNOPSIS
 #
 #   AX_BOOST_ASIO
@@ -39,10 +33,6 @@
 #   name. These variables should use macro-specific ax_ names. [Rating:
 #   minor]
 #
-#   (3) The compile test uses boost::asio::io_service, which Boost 1.87
-#   removed. With Boost 1.87 and later the test fails, so Asio is reported
-#   as unavailable. [Rating: broken]
-#
 # LICENSE
 #
 #   Copyright (c) 2008 Thomas Porschberg <thomas@randspringer.de>
@@ -53,11 +43,29 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 20
+#serial 21
+
+dnl The test program, used for both the compile and the link check.
+m4_define([_AX_BOOST_ASIO_PROGRAM], [AC_LANG_PROGRAM([[ @%:@include <boost/asio.hpp>
+@%:@include <boost/version.hpp>
+											]],
+                                  [[
+
+@%:@if BOOST_VERSION >= 106600
+                                    boost::asio::io_context io;
+                                    boost::asio::steady_timer t(io);
+@%:@else
+                                    boost::asio::io_service io;
+                                    boost::asio::deadline_timer t(io);
+@%:@endif
+                                    boost::system::error_code timer_result;
+                                    t.cancel();
+                                    io.run_one();
+									return 0;
+                                   ]])])
 
 AC_DEFUN([AX_BOOST_ASIO],
 [
-  m4_warn([obsolete], [$0 is obsolete: it does not detect Boost.Asio with Boost 1.87 and later])
 	AC_ARG_WITH([boost-asio],
 	AS_HELP_STRING([--with-boost-asio@<:@=special-lib@:>@],
                    [use the ASIO library from boost - it is possible to specify a certain library for the linker
@@ -89,17 +97,7 @@ AC_DEFUN([AX_BOOST_ASIO],
         AC_CACHE_CHECK(whether the Boost::ASIO library is available,
 					   ax_cv_boost_asio,
         [AC_LANG_PUSH([C++])
-		 AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[ @%:@include <boost/asio.hpp>
-											]],
-                                  [[
-
-                                    boost::asio::io_service io;
-                                    boost::system::error_code timer_result;
-                                    boost::asio::deadline_timer t(io);
-                                    t.cancel();
-                                    io.run_one();
-									return 0;
-                                   ]])],
+		 AC_COMPILE_IFELSE([_AX_BOOST_ASIO_PROGRAM],
                              ax_cv_boost_asio=yes, ax_cv_boost_asio=no)
          AC_LANG_POP([C++])
 		])
@@ -121,7 +119,14 @@ AC_DEFUN([AX_BOOST_ASIO],
 
             fi
             if test "x$ax_lib" = "x"; then
-                AC_MSG_ERROR(Could not find a version of the Boost::Asio library!)
+                dnl Boost.System is header-only since Boost 1.69 and no longer
+                dnl shipped as a library since 1.89; accept that if it links.
+                AC_LANG_PUSH([C++])
+                AC_LINK_IFELSE([_AX_BOOST_ASIO_PROGRAM],
+                               [BOOST_ASIO_LIB=""
+                                AC_SUBST(BOOST_ASIO_LIB)],
+                               [AC_MSG_ERROR(Could not find a version of the Boost::Asio library!)])
+                AC_LANG_POP([C++])
             fi
 			if test "x$link_asio" = "xno"; then
 				AC_MSG_ERROR(Could not link against $ax_lib !)
