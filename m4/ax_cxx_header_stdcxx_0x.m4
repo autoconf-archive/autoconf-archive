@@ -2,6 +2,13 @@
 #  https://www.gnu.org/software/autoconf-archive/ax_cxx_header_stdcxx_0x.html
 # ============================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro requires the undefined macro AC_COMPILE_STDCXX_0X, so
+#   autoconf fails whenever it is used. The headers it checks for are part
+#   of C++11: use AX_CXX_COMPILE_STDCXX([11]) to require C++11, or
+#   AC_CHECK_HEADERS to check for the header directly.
+#
 # SYNOPSIS
 #
 #   AX_CXX_HEADER_STDCXX_0X
@@ -31,10 +38,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AU_ALIAS([AC_CXX_HEADER_STDCXX_0X], [AX_CXX_HEADER_STDCXX_0X])
 AC_DEFUN([AX_CXX_HEADER_STDCXX_0X], [
+  m4_warn([obsolete], [$0 is obsolete: it requires the undefined macro AC_COMPILE_STDCXX_0X; use AX_CXX_COMPILE_STDCXX([11]) instead])
   AC_CACHE_CHECK(for ISO C++ 0x include files,
   ax_cv_cxx_stdcxx_0x,
   [AC_REQUIRE([AC_COMPILE_STDCXX_0X])

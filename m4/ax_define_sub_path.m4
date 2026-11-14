@@ -4,8 +4,9 @@
 #
 # OBSOLETE MACRO
 #
-#   This macro is obsolete because its been completely broken for several
-#   years without anybody noticing, so apparently it's not used very much.
+#   This macro has been broken for years without anyone noticing:
+#   AX_DEFINE_SUB_PATHS lacks a closing done, and both macros define the
+#   literal string $P instead of the computed path.
 #
 # SYNOPSIS
 #
@@ -70,11 +71,12 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AU_ALIAS([AC_DEFINE_SUB_PATH], [AX_DEFINE_SUB_PATH])
 AC_DEFUN([AX_DEFINE_SUB_PATH],
 [dnl
+  m4_warn([obsolete], [$0 is obsolete: it has been broken for years])
   test "_$prefix" = _NONE && prefix="$ac_default_prefix"
   test "_$exec_prefix" = _NONE && exec_prefix='${prefix}'
   P=`echo ifelse( $2, , [$]$1, [$]$2) | sed -e 's:^\${[a-z_]*prefix}:.:'`
@@ -85,6 +87,7 @@ AC_DEFUN([AX_DEFINE_SUB_PATH],
 
 AC_DEFUN([AX_DEFINE_SUB_PATHS],
 [dnl
+  m4_warn([obsolete], [$0 is obsolete: it has been broken for years])
   test "_$prefix" = _NONE && prefix="$ac_default_prefix"
   test "_$exec_prefix" = _NONE && exec_prefix='${prefix}'
   for i in $1 ; do

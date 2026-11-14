@@ -2,6 +2,11 @@
 #   https://www.gnu.org/software/autoconf-archive/ax_check_dos_filesys.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro defines HAVE_DOS_FILESYS_LIMITATIONS on every host, whether
+#   or not the file system has DOS filename restrictions.
+#
 # SYNOPSIS
 #
 #   AX_CHECK_DOS_FILESYS_LIMITATIONS
@@ -57,11 +62,13 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 6
+#serial 7
 
 AU_ALIAS([ACX_CHECK_DOS_FILESYS], [AX_CHECK_DOS_FILESYS])
 AC_DEFUN([AX_CHECK_DOS_FILESYS_LIMITATIONS],
-[AC_MSG_CHECKING(for potential DOS filename limitations)
+[
+  m4_warn([obsolete], [$0 is obsolete: it defines HAVE_DOS_FILESYS_LIMITATIONS on every host])
+AC_MSG_CHECKING(for potential DOS filename limitations)
 AC_CACHE_VAL(ax_cv_dos_limitations,
 [AC_REQUIRE([AC_CANONICAL_HOST])
 ax_cv_dos_limitations="yes"

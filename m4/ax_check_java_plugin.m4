@@ -2,6 +2,12 @@
 #   https://www.gnu.org/software/autoconf-archive/ax_check_java_plugin.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   The check for zipinfo or unzip never succeeds, so this macro always
+#   skips Java plugin detection. Java browser plugins are no longer
+#   supported since JDK 11 anyway.
+#
 # SYNOPSIS
 #
 #   AX_CHECK_JAVA_PLUGIN(<shell-variable>)
@@ -62,11 +68,13 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 16
+#serial 17
 
 AU_ALIAS([DPS_CHECK_PLUGIN], [AX_CHECK_JAVA_PLUGIN])
 AC_DEFUN([AX_CHECK_JAVA_PLUGIN],
-[AC_REQUIRE([AC_PROG_AWK])
+[
+  m4_warn([obsolete], [$0 is obsolete: it always skips Java plugin detection])
+AC_REQUIRE([AC_PROG_AWK])
 AC_REQUIRE([AC_PROG_FGREP])
 AC_CHECK_PROG(ZIPINFO,[zipinfo unzip pkzipc])
 AC_MSG_CHECKING([for the java plugin])

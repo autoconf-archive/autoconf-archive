@@ -2,6 +2,11 @@
 #      https://www.gnu.org/software/autoconf-archive/ax_cc_tentdef.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   The test program does not compile with GCC 14 and later, so this macro
+#   always reports tentative definitions as unsupported.
+#
 # SYNOPSIS
 #
 #   AX_CC_TENTDEF
@@ -57,7 +62,7 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program. If not, see <https://www.gnu.org/licenses/>.
 
-#serial 6
+#serial 7
 
 AC_ARG_WITH(tentdef,
   [  --with-tentdef          use C tentative definitions],
@@ -66,6 +71,7 @@ AC_ARG_WITH(tentdef,
 
 AC_DEFUN([AX_CC_TENTDEF],
 [
+  m4_warn([obsolete], [$0 is obsolete: with GCC 14 and later it always reports tentative definitions as unsupported])
 AC_MSG_CHECKING(whether compiler supports C tentative definitions)
 AC_CACHE_VAL(ac_cv_tentdef,[
 t1="x$$.c"

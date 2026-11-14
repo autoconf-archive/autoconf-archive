@@ -2,6 +2,11 @@
 #   https://www.gnu.org/software/autoconf-archive/ax_python_config_var.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro uses Python 2 syntax and the distutils module, so it does not
+#   work with Python 3. Use AX_PYTHON_DEVEL instead.
+#
 # SYNOPSIS
 #
 #   AX_PYTHON_CONFIG_VAR(PYTHON_VARIABLE, [SHELL_VARIABLE])
@@ -69,10 +74,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AC_DEFUN([AX_PYTHON_CONFIG_VAR],
 [
+  m4_warn([obsolete], [$0 is obsolete: it does not work with Python 3; use AX_PYTHON_DEVEL instead])
  AC_MSG_CHECKING(for Python config variable $1)
  if test -z "$PYTHON"
  then
@@ -93,6 +99,7 @@ print sysconfig.get_config_var('$1')"` || py_error="yes"
 
 AC_DEFUN([AX_PYTHON_CONFIG_H],
 [
+  m4_warn([obsolete], [$0 is obsolete: it does not work with Python 3; use AX_PYTHON_DEVEL instead])
  AC_MSG_CHECKING(location of Python's config.h)
  if test -z "$PYTHON"
  then
@@ -112,6 +119,7 @@ print sysconfig.get_config_h_filename()"` || py_error = "yes"
 
 AC_DEFUN([AX_PYTHON_MAKEFILE],
 [
+  m4_warn([obsolete], [$0 is obsolete: it does not work with Python 3; use AX_PYTHON_DEVEL instead])
  AC_MSG_CHECKING(location of Python's Makefile)
  if test -z "$PYTHON"
  then

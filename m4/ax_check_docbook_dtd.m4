@@ -2,6 +2,11 @@
 #   https://www.gnu.org/software/autoconf-archive/ax_check_docbook_dtd.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro reports every requested DocBook DTD version as installed,
+#   including versions that do not exist.
+#
 # SYNOPSIS
 #
 #   AX_CHECK_DOCBOOK_DTD([dtd-version])
@@ -73,11 +78,12 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 7
+#serial 8
 
 AU_ALIAS([AC_CHECK_DOCBOOK_DTD], [AX_CHECK_DOCBOOK_DTD])
 AC_DEFUN([AX_CHECK_DOCBOOK_DTD],
 [
+  m4_warn([obsolete], [$0 is obsolete: it reports every DocBook DTD version as installed])
     AC_REQUIRE([AX_PROG_XSLTPROC])
 
     dnl define a temporary variable for the version, so this macro can be

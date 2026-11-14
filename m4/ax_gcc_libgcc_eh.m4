@@ -2,6 +2,12 @@
 #     https://www.gnu.org/software/autoconf-archive/ax_gcc_libgcc_eh.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro depends on AX_GCC_INSTALL_DIR, which was removed from the
+#   archive years ago, so the generated configure script fails with a syntax
+#   error.
+#
 # SYNOPSIS
 #
 #   AX_GCC_LIBGCC_EH(VARIABLE)
@@ -48,9 +54,10 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_GCC_LIBGCC_EH], [
+  m4_warn([obsolete], [$0 is obsolete: it depends on AX_GCC_INSTALL_DIR, which no longer exists])
 	AX_GCC_LIB([libgcc_eh.a],[
 		AX_GCC_INSTALL_DIR([GCC_INSTALL_DIR])
 		$1="$GCC_INSTALL_DIR/libgcc_eh.a"

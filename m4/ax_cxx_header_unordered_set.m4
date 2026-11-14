@@ -2,6 +2,13 @@
 #  https://www.gnu.org/software/autoconf-archive/ax_cxx_header_unordered_set.html
 # ================================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro requires the undefined macro AC_COMPILE_STDCXX_0X, so
+#   autoconf fails whenever it is used. The header <unordered_set> is part
+#   of C++11: use AX_CXX_COMPILE_STDCXX([11]) to require C++11, or
+#   AC_CHECK_HEADERS to check for the header directly.
+#
 # SYNOPSIS
 #
 #   AX_CXX_HEADER_UNORDERED_SET
@@ -32,10 +39,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([AC_CXX_HEADER_UNORDERED_SET], [AX_CXX_HEADER_UNORDERED_SET])
 AC_DEFUN([AX_CXX_HEADER_UNORDERED_SET], [
+  m4_warn([obsolete], [$0 is obsolete: it requires the undefined macro AC_COMPILE_STDCXX_0X; use AX_CXX_COMPILE_STDCXX([11]) instead])
   AC_CACHE_CHECK(for unordered_set,
   ax_cv_cxx_unordered_set,
   [AC_REQUIRE([AC_COMPILE_STDCXX_0X])

@@ -2,6 +2,11 @@
 #  https://www.gnu.org/software/autoconf-archive/ax_warning_default_pkgconfig.html
 # =================================================================================
 #
+# OBSOLETE MACRO
+#
+#   AX_ENABLE_DEFAULT_PKGCONFIGDIR sets pkgconfigdir to the wrong directory,
+#   even when one is given explicitly.
+#
 # SYNOPSIS
 #
 #   AX_WARNING_DEFAULT_PKGCONFIGDIR [(dirvariable [,[defsetting][,[A][,[N/A]]]])]
@@ -61,9 +66,10 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_WARNING_DEFAULT_PKGCONFIGDIR],[dnl
+  m4_warn([obsolete], [$0 is obsolete: its companion AX_ENABLE_DEFAULT_PKGCONFIGDIR is broken])
 AC_REQUIRE([AX_EXPAND_PREFIX])dnl
 AS_VAR_PUSHDEF([DIR],[ax_warning_default_pkgconfig_dir])dnl
 AS_VAR_PUSHDEF([BIN],[ax_warning_default_pkgconfig_bin])dnl
@@ -121,6 +127,7 @@ AS_VAR_POPDEF([DIR])dnl
 ])
 
 AC_DEFUN([AX_ENABLE_DEFAULT_PKGCONFIGDIR],[dnl
+  m4_warn([obsolete], [$0 is obsolete: it sets pkgconfigdir to the wrong directory])
 AS_VAR_PUSHDEF([BIN],[ax_warning_default_pkgconfig_bin])dnl
 AS_VAR_PUSHDEF([DIR],[ax_warning_default_pkgconfig_def])dnl
 AS_VAR_PUSHDEF([DEF],[ax_warning_default_pkgconfig_def])dnl

@@ -2,6 +2,12 @@
 #     https://www.gnu.org/software/autoconf-archive/ax_check_typedef.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro ignores ACTION-IF-FOUND and ACTION-IF-NOT-FOUND and defines
+#   nothing, so it has no usable effect. Use Autoconf's AC_CHECK_TYPES
+#   instead.
+#
 # SYNOPSIS
 #
 #   AX_CHECK_TYPEDEF(TYPEDEF, HEADER [, ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND ]])
@@ -42,7 +48,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([AC_CHECK_TYPEDEF], [AX_CHECK_TYPEDEF])
 AC_DEFUN([AX_CHECK_TYPEDEF_],
@@ -66,6 +72,7 @@ dnl AX_CHECK_TYPEDEF(TYPEDEF, HEADER [, ACTION-IF-FOUND,
 dnl    [, ACTION-IF-NOT-FOUND ]])
 AC_DEFUN([AX_CHECK_TYPEDEF],
 [dnl
+  m4_warn([obsolete], [$0 is obsolete: it has no usable effect; use AC_CHECK_TYPES instead])
  AC_MSG_CHECKING([for $1 in $2])
  AX_CHECK_TYPEDEF_($1,$2,AC_MSG_RESULT(yes),AC_MSG_RESULT(no))dnl
 ])

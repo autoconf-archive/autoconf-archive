@@ -2,6 +2,11 @@
 #     https://www.gnu.org/software/autoconf-archive/ax_boost_context.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   The compile test uses an API that was removed in Boost 1.61, so with any
+#   later Boost this macro reports Boost.Context as unavailable.
+#
 # SYNOPSIS
 #
 #   AX_BOOST_CONTEXT
@@ -51,10 +56,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_BOOST_CONTEXT],
 [
+  m4_warn([obsolete], [$0 is obsolete: it does not detect Boost.Context with Boost 1.61 and later])
 	AC_ARG_WITH([boost-context],
 		AS_HELP_STRING([--with-boost-context@<:@=special-lib@:>@],
 		[use the Context library from boost - it is possible to specify a certain library for the linker

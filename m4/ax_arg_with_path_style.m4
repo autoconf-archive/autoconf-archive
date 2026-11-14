@@ -2,6 +2,11 @@
 #  https://www.gnu.org/software/autoconf-archive/ax_arg_with_path_style.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   An unbalanced quote in the macro definition makes autoconf fail with
+#   "end of file in string" whenever this file is used.
+#
 # SYNOPSIS
 #
 #   AX_ARG_WITH_PATH_STYLE
@@ -79,11 +84,12 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 11
+#serial 12
 
 AU_ALIAS([AC_ARG_WITH_PATH_STYLE], [AX_ARG_WITH_PATH_STYLE])
 AC_DEFUN([AX_ARG_WITH_PATH_STYLE],
 [
+  m4_warn([obsolete], [$0 is obsolete: an unbalanced quote in its definition makes autoconf fail])
  AC_ARG_WITH(path-style,
 [  --with-path-style=[dos,unix,url,also,slash,comma],
 [ac_with_path_style="$withval"],

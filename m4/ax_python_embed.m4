@@ -2,6 +2,13 @@
 #     https://www.gnu.org/software/autoconf-archive/ax_python_embed.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro derives the Python include directory from the first three
+#   characters of the version string, which is wrong for Python 3.10 and
+#   later, and it relies on distutils, which Python 3.12 removed. Use
+#   AX_PYTHON_DEVEL instead.
+#
 # SYNOPSIS
 #
 #   AX_PYTHON_DEFAULT
@@ -135,7 +142,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 16
+#serial 17
 
 # AX_PYTHON_DEFAULT( )
 # -----------------
@@ -143,6 +150,7 @@
 
 AC_DEFUN([AX_PYTHON_DEFAULT],
 [
+  m4_warn([obsolete], [$0 is obsolete: it does not work with current Python versions; use AX_PYTHON_DEVEL instead])
     ax_python_use=false
     AM_CONDITIONAL(PYTHON_USE, test x"$ax_python_use" = x"true")
 ])
@@ -167,6 +175,7 @@ AC_DEFUN([AX_PYTHON_DEFAULT],
 
 AC_DEFUN([AX_PYTHON_ENABLE],
 [
+  m4_warn([obsolete], [$0 is obsolete: it does not work with current Python versions; use AX_PYTHON_DEVEL instead])
     AC_ARG_VAR([PYTHON],[Python Executable Path])
 
     # unless PYTHON was supplied to us (as a precious variable),
@@ -235,6 +244,7 @@ AC_DEFUN([AX_PYTHON_ENABLE],
 
 AC_DEFUN([AX_PYTHON_CSPEC],
 [
+  m4_warn([obsolete], [$0 is obsolete: it does not work with current Python versions; use AX_PYTHON_DEVEL instead])
     AC_ARG_VAR( [PYTHON], [Python Executable Path] )
     if test -n "$PYTHON"
     then
@@ -266,6 +276,7 @@ AC_DEFUN([AX_PYTHON_CSPEC],
 
 AC_DEFUN([AX_PYTHON_INSIST],
 [
+  m4_warn([obsolete], [$0 is obsolete: it does not work with current Python versions; use AX_PYTHON_DEVEL instead])
     AC_ARG_VAR( [PYTHON], [Python Executable Path] )
     if test -z "$PYTHON"
     then
@@ -283,6 +294,7 @@ AC_DEFUN([AX_PYTHON_INSIST],
 
 AC_DEFUN([AX_PYTHON_LSPEC],
 [
+  m4_warn([obsolete], [$0 is obsolete: it does not work with current Python versions; use AX_PYTHON_DEVEL instead])
     AC_ARG_VAR( [PYTHON], [Python Executable Path] )
     if test -n "$PYTHON"
     then
@@ -336,6 +348,7 @@ print(strLinkSpec)
 
 AC_DEFUN([AX_PYTHON_PATH],
 [
+  m4_warn([obsolete], [$0 is obsolete: it does not work with current Python versions; use AX_PYTHON_DEVEL instead])
     AC_ARG_VAR( [PYTHON], [Python Executable Path] )
     AC_PATH_PROG( PYTHON, python, [], $1 )
     if test -z "$PYTHON"
@@ -356,6 +369,7 @@ AC_DEFUN([AX_PYTHON_PATH],
 
 AC_DEFUN([AX_PYTHON_PREFIX],
 [
+  m4_warn([obsolete], [$0 is obsolete: it does not work with current Python versions; use AX_PYTHON_DEVEL instead])
     if test -z "$PYTHON"
     then
         AC_MSG_ERROR([Python Executable Path is not known])
@@ -376,6 +390,7 @@ AC_DEFUN([AX_PYTHON_PREFIX],
 
 AC_DEFUN([AX_PYTHON_RUN],
 [
+  m4_warn([obsolete], [$0 is obsolete: it does not work with current Python versions; use AX_PYTHON_DEVEL instead])
     AC_ARG_VAR( [PYTHON], [Python Executable Path] )
     if test -z "$PYTHON"
     then
@@ -407,6 +422,7 @@ _ACEOF
 
 AC_DEFUN([AX_PYTHON_VERSION_CHECK],
  [
+  m4_warn([obsolete], [$0 is obsolete: it does not work with current Python versions; use AX_PYTHON_DEVEL instead])
     AC_ARG_VAR( [PYTHON], [Python Executable Path] )
     if test -n "$PYTHON"
     then
@@ -447,6 +463,7 @@ else:
 
 AC_DEFUN([AX_PYTHON_VERSION_ENSURE],
 [
+  m4_warn([obsolete], [$0 is obsolete: it does not work with current Python versions; use AX_PYTHON_DEVEL instead])
     AX_PYTHON_VERSION_CHECK(
         [$1],
         [AC_MSG_RESULT(yes)],
@@ -474,6 +491,7 @@ AC_DEFUN([AX_PYTHON_VERSION_ENSURE],
 
 AC_DEFUN([AX_PYTHON_WITH],
 [
+  m4_warn([obsolete], [$0 is obsolete: it does not work with current Python versions; use AX_PYTHON_DEVEL instead])
     AC_ARG_VAR([PYTHON],[Python Executable Path])
 
     # unless PYTHON was supplied to us (as a precious variable),

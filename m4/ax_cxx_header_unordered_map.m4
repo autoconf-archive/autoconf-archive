@@ -2,6 +2,13 @@
 #  https://www.gnu.org/software/autoconf-archive/ax_cxx_header_unordered_map.html
 # ================================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro requires the undefined macro AC_COMPILE_STDCXX_0X, so
+#   autoconf fails whenever it is used. The header <unordered_map> is part
+#   of C++11: use AX_CXX_COMPILE_STDCXX([11]) to require C++11, or
+#   AC_CHECK_HEADERS to check for the header directly.
+#
 # SYNOPSIS
 #
 #   AX_CXX_HEADER_UNORDERED_MAP
@@ -32,10 +39,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([AC_CXX_HEADER_UNORDERED_MAP], [AX_CXX_HEADER_UNORDERED_MAP])
 AC_DEFUN([AX_CXX_HEADER_UNORDERED_MAP], [
+  m4_warn([obsolete], [$0 is obsolete: it requires the undefined macro AC_COMPILE_STDCXX_0X; use AX_CXX_COMPILE_STDCXX([11]) instead])
   AC_CACHE_CHECK(for unordered_map,
   ax_cv_cxx_unordered_map,
   [AC_REQUIRE([AC_COMPILE_STDCXX_0X])

@@ -2,6 +2,12 @@
 #     https://www.gnu.org/software/autoconf-archive/ax_trilinos_base.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro calls the undefined helper macro AX_TRILINOS_ABSOLUTE_HEADER,
+#   so the generated configure script fails with a syntax error. All other
+#   AX_TRILINOS_* macros depend on it.
+#
 # SYNOPSIS
 #
 #   AX_TRILINOS_BASE([, MINIMUM-VERSION [, ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]]])
@@ -52,10 +58,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_TRILINOS_BASE],
 [
+  m4_warn([obsolete], [$0 is obsolete: it calls the undefined macro AX_TRILINOS_ABSOLUTE_HEADER and produces a broken configure script])
 AC_REQUIRE([AX_TRILINOS_ABSOLUTE_HEADER])
 AC_ARG_VAR(TRILINOS_HOME,[root directory of Trilinos installation])
 

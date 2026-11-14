@@ -2,6 +2,12 @@
 #   https://www.gnu.org/software/autoconf-archive/ax_trilinos_teuchos.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro is unusable: it depends on AX_TRILINOS_BASE, which calls the
+#   undefined helper macro AX_TRILINOS_ABSOLUTE_HEADER, so the generated
+#   configure script fails with a syntax error.
+#
 # SYNOPSIS
 #
 #   AX_TRILINOS_TEUCHOS([, ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]])
@@ -31,9 +37,10 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_TRILINOS_TEUCHOS],[
+  m4_warn([obsolete], [$0 is obsolete: it depends on AX_TRILINOS_BASE, which produces a broken configure script])
     AC_REQUIRE([AX_TRILINOS_BASE])
     ax_trilinos_teuchos=yes
     AC_HAVE_LIBRARY([teuchos],[:],[ax_trilinos_teuchos=no])

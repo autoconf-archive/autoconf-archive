@@ -2,6 +2,11 @@
 #          https://www.gnu.org/software/autoconf-archive/ax_afs.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro calls the undefined macros AC_MAX_CHECKING, AC_MAX_RESULT,
+#   and AC_MAX_ERROR, so autoconf fails whenever it is used.
+#
 # SYNOPSIS
 #
 #   AX_AFS
@@ -46,11 +51,13 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([SG_AFS], [AX_AFS])
 AC_DEFUN([AX_AFS],
-[AC_ARG_WITH(afsdir, AS_HELP_STRING([--with-afsdir=DIR],
+[
+  m4_warn([obsolete], [$0 is obsolete: it calls undefined macros such as AC_MAX_CHECKING and makes autoconf fail])
+AC_ARG_WITH(afsdir, AS_HELP_STRING([--with-afsdir=DIR],
                                       [Directory holding AFS includes/libs]),
                 ax_cv_with_afsdir=$withval)
  AC_CACHE_CHECK([for location of AFS directory],

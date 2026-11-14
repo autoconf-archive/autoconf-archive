@@ -2,6 +2,12 @@
 #    https://www.gnu.org/software/autoconf-archive/ax_check_awk_compl.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   The actions are passed to AX_TRY_AWK_ANYOUT in the wrong positions, so
+#   ACTION-IF-SUCCESS runs when awk lacks compl() and never when it has it,
+#   and ACTION-IF-FAILURE is ignored.
+#
 # SYNOPSIS
 #
 #   AX_CHECK_AWK_COMPL([ACTION-IF-SUCCESS],[ACTION-IF-FAILURE])
@@ -32,9 +38,10 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_CHECK_AWK_COMPL], [
+  m4_warn([obsolete], [$0 is obsolete: it runs ACTION-IF-SUCCESS when the test fails])
   AX_TRY_AWK_ANYOUT([compl()],
     [],[ print compl(10) ],[],
     [$1],[$2])

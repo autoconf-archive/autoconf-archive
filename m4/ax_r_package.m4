@@ -2,6 +2,11 @@
 #       https://www.gnu.org/software/autoconf-archive/ax_r_package.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   With R 4.2.0 and later, this macro reports installed R packages as
+#   missing.
+#
 # SYNOPSIS
 #
 #   AX_R_PACKAGE(pkgname[, version, R])
@@ -35,9 +40,10 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 6
+#serial 7
 
 AC_DEFUN([AX_R_PACKAGE], [
+  m4_warn([obsolete], [$0 is obsolete: it reports installed packages as missing with R 4.2.0 and later])
     pushdef([PKG],$1)
     pushdef([VERSION],$2)
 

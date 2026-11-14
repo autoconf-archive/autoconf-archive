@@ -2,6 +2,12 @@
 #     https://www.gnu.org/software/autoconf-archive/ax_check_symbol.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   AX_CHECK_SYMBOLS calls an undefined macro and makes autoconf fail, and
+#   AX_CHECK_SYMBOL does not even find declared symbols such as strlen in
+#   <string.h>. Use Autoconf's AC_CHECK_DECLS instead.
+#
 # SYNOPSIS
 #
 #   AX_CHECK_SYMBOL(SYMBOL, HEADER... [,ACTION-IF-FOUND [,ACTION-IF-NOT-FOUND]])
@@ -43,11 +49,13 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AC_CHECK_SYMBOL], [AX_CHECK_SYMBOL])
 AC_DEFUN([AX_CHECK_SYMBOL],
-[AC_MSG_CHECKING([for $1 in $2])
+[
+  m4_warn([obsolete], [$0 is obsolete: it is unreliable; use AC_CHECK_DECLS instead])
+AC_MSG_CHECKING([for $1 in $2])
 AC_CACHE_VAL(ac_cv_func_$1,
 [AC_REQUIRE_CPP()dnl
 changequote(, )dnl
@@ -74,7 +82,9 @@ fi
 
 dnl AX_CHECK_SYMBOLS( symbol..., header... [, action-if-found [, action-if-not-found]])
 AC_DEFUN([AX_CHECK_SYMBOLS],
-[for ac_func in $1
+[
+  m4_warn([obsolete], [$0 is obsolete: it is unreliable; use AC_CHECK_DECLS instead])
+for ac_func in $1
 do
 P4_CHECK_SYMBOL($ac_func, $2,
 [changequote(, )dnl

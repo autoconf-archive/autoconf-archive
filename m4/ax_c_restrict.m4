@@ -2,6 +2,12 @@
 #      https://www.gnu.org/software/autoconf-archive/ax_c_restrict.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   This macro does not actually test restrict support: depending on the
+#   compiler, it always succeeds or always fails. Use Autoconf's
+#   AC_C_RESTRICT instead.
+#
 # SYNOPSIS
 #
 #   AX_C_RESTRICT
@@ -34,10 +40,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_C_RESTRICT],
-[AC_CACHE_CHECK([for restrict usability],
+[
+  m4_warn([obsolete], [$0 is obsolete: it does not actually test restrict support; use AC_C_RESTRICT instead])
+AC_CACHE_CHECK([for restrict usability],
   [ax_cv_c_restrict_usable],
   [AC_RUN_IFELSE([AC_LANG_PROGRAM([],
   [[

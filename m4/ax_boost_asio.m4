@@ -2,6 +2,12 @@
 #      https://www.gnu.org/software/autoconf-archive/ax_boost_asio.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   The compile test uses boost::asio::io_service, which Boost 1.87 removed,
+#   so with Boost 1.87 and later this macro reports Boost.Asio as
+#   unavailable.
+#
 # SYNOPSIS
 #
 #   AX_BOOST_ASIO
@@ -47,10 +53,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 19
+#serial 20
 
 AC_DEFUN([AX_BOOST_ASIO],
 [
+  m4_warn([obsolete], [$0 is obsolete: it does not detect Boost.Asio with Boost 1.87 and later])
 	AC_ARG_WITH([boost-asio],
 	AS_HELP_STRING([--with-boost-asio@<:@=special-lib@:>@],
                    [use the ASIO library from boost - it is possible to specify a certain library for the linker

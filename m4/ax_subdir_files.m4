@@ -2,6 +2,11 @@
 #     https://www.gnu.org/software/autoconf-archive/ax_subdir_files.html
 # ===========================================================================
 #
+# OBSOLETE MACRO
+#
+#   An unquoted $0 makes the macro expand itself recursively, so autoconf
+#   fails whenever it is used.
+#
 # SYNOPSIS
 #
 #   AX_SUBDIR_FILES [(SUBDIRS [, CASEPATTERN])]
@@ -35,11 +40,13 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 9
+#serial 10
 
 AU_ALIAS([AC_SUBDIR_FILES], [AX_SUBDIR_FILES])
 AC_DEFUN([AX_SUBDIR_FILES],
-[AC_BEFORE($0,[AX_PROG_CP_S])
+[
+  m4_warn([obsolete], [$0 is obsolete: it makes autoconf fail with a recursion error])
+AC_BEFORE($0,[AX_PROG_CP_S])
   for ac_subdir in ifelse([$1], , *, $1) ; do
     if test -d $ac_subdir ; then
       AC_MSG_CHECKING(subdir $ac_subdir)
