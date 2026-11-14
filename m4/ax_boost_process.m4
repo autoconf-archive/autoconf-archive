@@ -32,7 +32,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 13
+#serial 14
 
 AC_DEFUN([_AX_BOOST_PROCESS_COMPILE_CHECK_V1],
 [
@@ -243,11 +243,11 @@ AC_DEFUN([AX_BOOST_PROCESS],
 
 		dnl in automatic mode, setting API variable depending on boost version
 		dnl in auto-mode, failure to compile will not abort configure
-		failure_non_fatal=no
+		ax_boost_process_failure_non_fatal=no
 		AS_IF(
 			[test "x$boost_process_api" = "xauto"],
 			[
-				failure_non_fatal=yes
+				ax_boost_process_failure_non_fatal=yes
 				AS_IF(
 					[test "$boost_version" -lt 108800],
 					[boost_process_api=v1],
@@ -285,9 +285,9 @@ AC_DEFUN([AX_BOOST_PROCESS],
 
 		CXXFLAGS=$CXXFLAGS_SAVE
 
-		dnl checking is compile was successful (only in non-auto mode)
+		dnl checking if compile was successful (only in non-auto mode)
 		AS_IF(
-			[test "x$failure_non_fatal" != "xyes"],
+			[test "x$ax_boost_process_failure_non_fatal" != "xyes"],
 			[
 				AS_CASE(
 					[$boost_process_api],
