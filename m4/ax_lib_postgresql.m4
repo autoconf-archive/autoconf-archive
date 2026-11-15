@@ -64,19 +64,19 @@ AC_DEFUN([_AX_LIB_POSTGRESQL_OLD],[
 	  PG_CONFIG=$ac_cv_path_PG_CONFIG
 	  AS_IF([test "X$PG_CONFIG" = "X"],[break])
 
-	  AC_CACHE_CHECK([for the PostgreSQL libraries CPPFLAGS],[ac_cv_POSTGRESQL_CPPFLAGS],
-		       [ac_cv_POSTGRESQL_CPPFLAGS="-I`$PG_CONFIG --includedir`" || _AX_LIB_POSTGRESQL_OLD_fail=yes])
+	  AC_CACHE_CHECK([for the PostgreSQL libraries CPPFLAGS],[ac_cv_POSTGRESQL_CPPFLAGS_OLD],
+		       [ac_cv_POSTGRESQL_CPPFLAGS_OLD="-I`$PG_CONFIG --includedir`" || _AX_LIB_POSTGRESQL_OLD_fail=yes])
 	  AS_IF([test "X$_AX_LIB_POSTGRESQL_OLD_fail" = "Xyes"],[break])
-	  POSTGRESQL_CPPFLAGS="$ac_cv_POSTGRESQL_CPPFLAGS"
+	  POSTGRESQL_CPPFLAGS="$ac_cv_POSTGRESQL_CPPFLAGS_OLD"
 
-	  AC_CACHE_CHECK([for the PostgreSQL libraries LDFLAGS],[ac_cv_POSTGRESQL_LDFLAGS],
-		       [ac_cv_POSTGRESQL_LDFLAGS="-L`$PG_CONFIG --libdir`" || _AX_LIB_POSTGRESQL_OLD_fail=yes])
+	  AC_CACHE_CHECK([for the PostgreSQL libraries LDFLAGS],[ac_cv_POSTGRESQL_LDFLAGS_OLD],
+		       [ac_cv_POSTGRESQL_LDFLAGS_OLD="-L`$PG_CONFIG --libdir`" || _AX_LIB_POSTGRESQL_OLD_fail=yes])
 	  AS_IF([test "X$_AX_LIB_POSTGRESQL_OLD_fail" = "Xyes"],[break])
-	  POSTGRESQL_LDFLAGS="$ac_cv_POSTGRESQL_LDFLAGS"
+	  POSTGRESQL_LDFLAGS="$ac_cv_POSTGRESQL_LDFLAGS_OLD"
 
-	  AC_CACHE_CHECK([for the PostgreSQL libraries LIBS],[ac_cv_POSTGRESQL_LIBS],
-		       [ac_cv_POSTGRESQL_LIBS="-lpq"])
-	  POSTGRESQL_LIBS="$ac_cv_POSTGRESQL_LIBS"
+	  AC_CACHE_CHECK([for the PostgreSQL libraries LIBS],[ac_cv_POSTGRESQL_LIBS_OLD],
+		       [ac_cv_POSTGRESQL_LIBS_OLD="-lpq"])
+	  POSTGRESQL_LIBS="$ac_cv_POSTGRESQL_LIBS_OLD"
 
 	  AC_CACHE_CHECK([for the PostgreSQL version],[ac_cv_POSTGRESQL_VERSION],
 		       [
