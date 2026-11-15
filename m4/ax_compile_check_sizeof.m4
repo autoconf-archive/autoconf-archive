@@ -9,7 +9,7 @@
 # DESCRIPTION
 #
 #   This macro checks for the size of TYPE using compile checks, not run
-#   checks. You can supply extra HEADERS to look into. the check will cycle
+#   checks. You can supply extra HEADERS to look into. The check will cycle
 #   through 1 2 4 8 16 and any EXTRA_SIZES the user supplies. If a match is
 #   found, it will #define SIZEOF_`TYPE' to that value. Otherwise it will
 #   emit a configure time error indicating the size of the type could not be
@@ -85,7 +85,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 8
+#serial 9
 
 AU_ALIAS([AC_COMPILE_CHECK_SIZEOF], [AX_COMPILE_CHECK_SIZEOF])
 AC_DEFUN([AX_COMPILE_CHECK_SIZEOF],
