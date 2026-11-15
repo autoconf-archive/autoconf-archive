@@ -65,7 +65,7 @@ AC_DEFUN([_AX_LIB_POSTGRESQL_PG_CONFIG],[
 	  PG_CONFIG=$ac_cv_path_PG_CONFIG
 	  AS_IF([test "X$PG_CONFIG" = "X"],[break])
 
-	_AX_LIB_POSTGRESQL_PG_CONFIG_fail="no"
+	  _AX_LIB_POSTGRESQL_PG_CONFIG_fail="no"
 	  AC_CACHE_CHECK([for the PostgreSQL libraries CPPFLAGS],[ac_cv_POSTGRESQL_CPPFLAGS_PG_CONFIG],
 		       [ac_cv_POSTGRESQL_CPPFLAGS_PG_CONFIG="-I`$PG_CONFIG --includedir`" || _AX_LIB_POSTGRESQL_PG_CONFIG_fail=yes])
 	  AS_IF([test "X$_AX_LIB_POSTGRESQL_PG_CONFIG_fail" = "Xyes"],[break])
