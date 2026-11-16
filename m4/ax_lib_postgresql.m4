@@ -39,14 +39,6 @@
 #   It execute if found ACTION-IF-FOUND (empty by default) and
 #   ACTION-IF-NOT-FOUND (AC_MSG_FAILURE by default) if not found.
 #
-# BUGS
-#
-#   Private shell variables such as found_postgresql,
-#   found_postgresql_req_version, and postgresql_version_req lack an ax_
-#   prefix. They share configure's shell namespace with callers and other
-#   macros, so they may collide with variables of the same name. These
-#   variables should use macro-specific ax_ names. [Rating: minor]
-#
 # LICENSE
 #
 #   Copyright (c) 2008 Mateusz Loskot <mateusz@loskot.net>
@@ -58,11 +50,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 28
+#serial 36
 
-AC_DEFUN([_AX_LIB_POSTGRESQL_OLD],[
-	found_postgresql="no"
-	_AX_LIB_POSTGRESQL_OLD_fail="no"
+AC_DEFUN([_AX_LIB_POSTGRESQL_PG_CONFIG],[
+	ax_found_postgresql="no"
+	ax_found_postgresql_req_version="yes"
+
 	while true; do
 	  AC_CACHE_CHECK([for the pg_config program], [ac_cv_path_PG_CONFIG],
 	    [AC_PATH_PROGS_FEATURE_CHECK([PG_CONFIG], [pg_config],
@@ -72,41 +65,42 @@ AC_DEFUN([_AX_LIB_POSTGRESQL_OLD],[
 	  PG_CONFIG=$ac_cv_path_PG_CONFIG
 	  AS_IF([test "X$PG_CONFIG" = "X"],[break])
 
-	  AC_CACHE_CHECK([for the PostgreSQL libraries CPPFLAGS],[ac_cv_POSTGRESQL_CPPFLAGS],
-		       [ac_cv_POSTGRESQL_CPPFLAGS="-I`$PG_CONFIG --includedir`" || _AX_LIB_POSTGRESQL_OLD_fail=yes])
-	  AS_IF([test "X$_AX_LIB_POSTGRESQL_OLD_fail" = "Xyes"],[break])
-	  POSTGRESQL_CPPFLAGS="$ac_cv_POSTGRESQL_CPPFLAGS"
+	  _AX_LIB_POSTGRESQL_PG_CONFIG_fail="no"
+	  AC_CACHE_CHECK([for the PostgreSQL libraries CPPFLAGS],[ac_cv_POSTGRESQL_CPPFLAGS_PG_CONFIG],
+		       [ac_cv_POSTGRESQL_CPPFLAGS_PG_CONFIG="-I`$PG_CONFIG --includedir`" || _AX_LIB_POSTGRESQL_PG_CONFIG_fail=yes])
+	  AS_IF([test "X$_AX_LIB_POSTGRESQL_PG_CONFIG_fail" = "Xyes"],[break])
+	  POSTGRESQL_CPPFLAGS="$ac_cv_POSTGRESQL_CPPFLAGS_PG_CONFIG"
 
-	  AC_CACHE_CHECK([for the PostgreSQL libraries LDFLAGS],[ac_cv_POSTGRESQL_LDFLAGS],
-		       [ac_cv_POSTGRESQL_LDFLAGS="-L`$PG_CONFIG --libdir`" || _AX_LIB_POSTGRESQL_OLD_fail=yes])
-	  AS_IF([test "X$_AX_LIB_POSTGRESQL_OLD_fail" = "Xyes"],[break])
-	  POSTGRESQL_LDFLAGS="$ac_cv_POSTGRESQL_LDFLAGS"
+	  AC_CACHE_CHECK([for the PostgreSQL libraries LDFLAGS],[ac_cv_POSTGRESQL_LDFLAGS_PG_CONFIG],
+		       [ac_cv_POSTGRESQL_LDFLAGS_PG_CONFIG="-L`$PG_CONFIG --libdir`" || _AX_LIB_POSTGRESQL_PG_CONFIG_fail=yes])
+	  AS_IF([test "X$_AX_LIB_POSTGRESQL_PG_CONFIG_fail" = "Xyes"],[break])
+	  POSTGRESQL_LDFLAGS="$ac_cv_POSTGRESQL_LDFLAGS_PG_CONFIG"
 
-	  AC_CACHE_CHECK([for the PostgreSQL libraries LIBS],[ac_cv_POSTGRESQL_LIBS],
-		       [ac_cv_POSTGRESQL_LIBS="-lpq"])
-	  POSTGRESQL_LIBS="$ac_cv_POSTGRESQL_LIBS"
+	  AC_CACHE_CHECK([for the PostgreSQL libraries LIBS],[ac_cv_POSTGRESQL_LIBS_PG_CONFIG],
+		       [ac_cv_POSTGRESQL_LIBS_PG_CONFIG="-lpq"])
+	  POSTGRESQL_LIBS="$ac_cv_POSTGRESQL_LIBS_PG_CONFIG"
 
-	  AC_CACHE_CHECK([for the PostgreSQL version],[ac_cv_POSTGRESQL_VERSION],
+	  AC_CACHE_CHECK([for the PostgreSQL version],[ac_cv_POSTGRESQL_VERSION_PG_CONFIG],
 		       [
-			ac_cv_POSTGRESQL_VERSION=`$PG_CONFIG --version | sed "s/^PostgreSQL[[[:space:]]][[[:space:]]]*\([[0-9.]][[0-9.]]*\).*/\1/"` \
-			      || _AX_LIB_POSTGRESQL_OLD_fail=yes
+			ac_cv_POSTGRESQL_VERSION_PG_CONFIG=`$PG_CONFIG --version | sed "s/^PostgreSQL[[[:space:]]][[[:space:]]]*\([[0-9.]][[0-9.]]*\).*/\1/"` \
+			      || _AX_LIB_POSTGRESQL_PG_CONFIG_fail=yes
 		       ])
-	  AS_IF([test "X$_AX_LIB_POSTGRESQL_OLD_fail" = "Xyes"],[break])
-	  POSTGRESQL_VERSION="$ac_cv_POSTGRESQL_VERSION"
+	  AS_IF([test "X$_AX_LIB_POSTGRESQL_PG_CONFIG_fail" = "Xyes"],[break])
+	  POSTGRESQL_VERSION="$ac_cv_POSTGRESQL_VERSION_PG_CONFIG"
 
 
 	  dnl
 	  dnl Check if required version of PostgreSQL is available
 	  dnl
-	  AS_IF([test X"$postgresql_version_req" != "X"],[
-	     AC_MSG_CHECKING([if PostgreSQL version $POSTGRESQL_VERSION is >= $postgresql_version_req])
-	     AX_COMPARE_VERSION([$POSTGRESQL_VERSION],[ge],[$postgresql_version_req],
-				[found_postgresql_req_version=yes],[found_postgresql_req_version=no])
-	     AC_MSG_RESULT([$found_postgresql_req_version])
+	  AS_IF([test X"$ax_postgresql_version_req" != "X"],[
+	     AC_MSG_CHECKING([if PostgreSQL version $POSTGRESQL_VERSION is >= $ax_postgresql_version_req])
+	     AX_COMPARE_VERSION([$POSTGRESQL_VERSION],[ge],[$ax_postgresql_version_req],
+				[ax_found_postgresql_req_version=yes],[ax_found_postgresql_req_version=no])
+	     AC_MSG_RESULT([$ax_found_postgresql_req_version])
 	  ])
-	  AS_IF([test "X$found_postgresql_req_version" = "Xno"],[break])
+	  AS_IF([test "X$ax_found_postgresql_req_version" = "Xno"],[break])
 
-	  found_postgresql="yes"
+	  ax_found_postgresql="yes"
 	  break
 	done
 ])
@@ -114,18 +108,19 @@ AC_DEFUN([_AX_LIB_POSTGRESQL_OLD],[
 AC_DEFUN([_AX_LIB_POSTGRESQL_PKG_CONFIG],
 [
   AC_REQUIRE([PKG_PROG_PKG_CONFIG])
-  found_postgresql=no
+  ax_found_postgresql=no
+  ax_found_postgresql_req_version=yes
 
   while true; do
     PKG_PROG_PKG_CONFIG
     AS_IF([test "X$PKG_CONFIG" = "X"],[break])
 
     _AX_LIB_POSTGRESQL_PKG_CONFIG_fail=no;
-    AS_IF([test "X$postgresql_version_req" = "X"],
-	  [PKG_CHECK_EXISTS([libpq],[found_postgresql_pkg_config=yes],[found_postgresql_pkg_config=no])],
-	  [PKG_CHECK_EXISTS([libpq >= "$postgresql_version_req"],
-			   [found_postgresql_pkg_config=yes],[found_postgresql_pkg_config=no])])
-    AS_IF([test "X$found_postgresql_pkg_config" = "Xno"],[break])
+    AS_IF([test "X$ax_postgresql_version_req" = "X"],
+	  [PKG_CHECK_EXISTS([libpq],[ax_found_postgresql_pkg_config=yes],[ax_found_postgresql_pkg_config=no])],
+	  [PKG_CHECK_EXISTS([libpq >= "$ax_postgresql_version_req"],
+			   [ax_found_postgresql_pkg_config=yes],[ax_found_postgresql_pkg_config=no])])
+    AS_IF([test "X$ax_found_postgresql_pkg_config" = "Xno"],[break])
 
     AC_CACHE_CHECK([for the PostgreSQL libraries CPPFLAGS],[ac_cv_POSTGRESQL_CPPFLAGS],
 		   [ac_cv_POSTGRESQL_CPPFLAGS="`$PKG_CONFIG libpq --cflags-only-I`" || _AX_LIB_POSTGRESQL_PKG_CONFIG_fail=yes])
@@ -150,7 +145,7 @@ AC_DEFUN([_AX_LIB_POSTGRESQL_PKG_CONFIG],
     AS_IF([test "X$_AX_LIB_POSTGRESQL_PKG_CONFIG_fail" = "Xyes"],[break])
     POSTGRESQL_VERSION="$ac_cv_POSTGRESQL_VERSION"
 
-    found_postgresql=yes
+    ax_found_postgresql=yes
     break;
   done
 
@@ -166,18 +161,18 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
 	),
 	[
 	AS_CASE([$withval],
-		[[[nN]][[oO]]],[want_postgresql="no"],
-		[[[yY]][[eE]][[sS]]],[want_postgresql="yes"],
+		[[[nN]][[oO]]],[ax_want_postgresql="no"],
+		[[[yY]][[eE]][[sS]]],[ax_want_postgresql="yes"],
 		[
-			want_postgresql="yes"
+			ax_want_postgresql="yes"
 			PG_CONFIG="$withval"
 		])
 	],
-	[want_postgresql="yes"]
+	[ax_want_postgresql="yes"]
     )
 
     AC_ARG_VAR([POSTGRESQL_CPPFLAGS],[cpp flags for PostgreSQL overriding detected flags])
-    AC_ARG_VAR([POSTGRESQL_LIBFLAGS],[libs for PostgreSQL overriding detected flags])
+    AC_ARG_VAR([POSTGRESQL_LIBS],[libs for PostgreSQL overriding detected libs])
     AC_ARG_VAR([POSTGRESQL_LDFLAGS],[linker flags for PostgreSQL overriding detected flags])
 
     # populate cache
@@ -185,22 +180,26 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
     AS_IF([test "X$POSTGRESQL_LDFLAGS" != X],[ac_cv_POSTGRESQL_LDFLAGS="$POSTGRESQL_LDFLAGS"])
     AS_IF([test "X$POSTGRESQL_LIBS" != X],[ac_cv_POSTGRESQL_LIBS="$POSTGRESQL_LIBS"])
 
-    postgresql_version_req=ifelse([$1], [], [], [$1])
-    found_postgresql="no"
+    AS_IF([test "X$POSTGRESQL_CPPFLAGS" != X],[ac_cv_POSTGRESQL_CPPFLAGS_PG_CONFIG="$POSTGRESQL_CPPFLAGS"])
+    AS_IF([test "X$POSTGRESQL_LDFLAGS" != X],[ac_cv_POSTGRESQL_LDFLAGS_PG_CONFIG="$POSTGRESQL_LDFLAGS"])
+    AS_IF([test "X$POSTGRESQL_LIBS" != X],[ac_cv_POSTGRESQL_LIBS_PG_CONFIG="$POSTGRESQL_LIBS"])
+
+    ax_postgresql_version_req=ifelse([$1], [], [], [$1])
+    ax_found_postgresql="no"
 
     POSTGRESQL_VERSION=""
 
     dnl
     dnl Check PostgreSQL libraries (libpq)
     dnl
-    AS_IF([test X"$want_postgresql" = "Xyes"],[
+    AS_IF([test X"$ax_want_postgresql" = "Xyes"],[
       _AX_LIB_POSTGRESQL_PKG_CONFIG
 
 
-      AS_IF([test X"$found_postgresql" = "Xno"],
-	    [_AX_LIB_POSTGRESQL_OLD])
+      AS_IF([test X"$ax_found_postgresql" = "Xno"],
+	    [_AX_LIB_POSTGRESQL_PG_CONFIG])
 
-      AS_IF([test X"$found_postgresql" = Xyes],[
+      AS_IF([test X"$ax_found_postgresql" = Xyes],[
 	  _AX_LIB_POSTGRESQL_OLD_CPPFLAGS="$CPPFLAGS"
 	  CPPFLAGS="$CPPFLAGS $POSTGRESQL_CPPFLAGS"
 	  _AX_LIB_POSTGRESQL_OLD_LDFLAGS="$LDFLAGS"
@@ -209,8 +208,8 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
 	  LIBS="$LIBS $POSTGRESQL_LIBS"
 	  while true; do
 	    dnl try to compile
-	    AC_CHECK_HEADER([libpq-fe.h],[],[found_postgresql=no])
-	    AS_IF([test "X$found_postgresql" = "Xno"],[break])
+	    AC_CHECK_HEADER([libpq-fe.h],[],[ax_found_postgresql=no])
+	    AS_IF([test "X$ax_found_postgresql" = "Xno"],[break])
 	    dnl try now to link
 	    AC_CACHE_CHECK([for the PostgreSQL library linking is working],[ac_cv_postgresql_found],
 	    [
@@ -228,8 +227,8 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
 		],[ac_cv_postgresql_found=yes],
 		  [ac_cv_postgresql_found=no])
 	     ])
-	    found_postgresql="$ac_cv_postgresql_found"
-	    AS_IF([test "X$found_postgresql" = "Xno"],[break])
+	    ax_found_postgresql="$ac_cv_postgresql_found"
+	    AS_IF([test "X$ax_found_postgresql" = "Xno"],[break])
 	    break
 	done
 	CPPFLAGS="$_AX_LIB_POSTGRESQL_OLD_CPPFLAGS"
@@ -238,7 +237,7 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
 	])
 
 
-      AS_IF([test "x$found_postgresql" = "xyes"],[
+      AS_IF([test "x$ax_found_postgresql" = "xyes"],[
 		AC_DEFINE([HAVE_POSTGRESQL], [1],
 			  [Define to 1 if PostgreSQL libraries are available])])
     ])
@@ -248,8 +247,8 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
     AC_SUBST([POSTGRESQL_LDFLAGS])
     AC_SUBST([POSTGRESQL_LIBS])
 
-    AS_IF([test "x$found_postgresql" = "xyes"],
+    AS_IF([test "x$ax_found_postgresql" = "xyes"],
      [ifelse([$2], , :, [$2])],
-     [ifelse([$3], , AS_IF([test X"$want_postgresql" = "Xyes"],[AC_MSG_ERROR([Library requirements (PostgreSQL) not met.])],[:]), [$3])])
+     [ifelse([$3], , AS_IF([test X"$ax_want_postgresql" = "Xyes"],[AC_MSG_ERROR([Library requirements (PostgreSQL) not met.])],[:]), [$3])])
 
 ])
