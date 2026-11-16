@@ -49,6 +49,18 @@
 #   Acknowledgement: this macro was in part inspired by Dean Povey's
 #   AC_PROG_PERL_VERSION.
 #
+# BUGS
+#
+#   (1) The macro uses the non-portable "test ... == ..." syntax in several
+#   places. POSIX shells such as dash reject this operator with a syntax
+#   error, causing configure to fail. [Rating: major]
+#
+#   (2) Private shell variables such as _somian_kspb_perl,
+#   _somian_ksbp_warn_empty, and opt_perl_shebang lack an ax_ prefix. They
+#   share configure's shell namespace with callers and other macros, so they
+#   may collide with variables of the same name. These variables should use
+#   macro-specific ax_ names. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Soren Andersen <somian@pobox.com>
@@ -58,9 +70,11 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 17
+#serial 18
 
 AC_DEFUN([AX_SYS_PERLSHARPBANG],[dnl
+  m4_warn([portability],
+    [$0: Uses non-portable 'test =='; fails under POSIX shells such as dash.])
 
    AC_PATH_PROG(PERLINTERP,perl,perl)
    ac_cv_path_perlinterp="$PERLINTERP"

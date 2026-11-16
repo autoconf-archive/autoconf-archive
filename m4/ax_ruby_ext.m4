@@ -29,6 +29,13 @@
 #        AC_ERROR(["cannot find Ruby"])
 #     fi
 #
+# BUGS
+#
+#   The macro inspects $host to configure macOS dynamic lookup linker flags,
+#   but omits AC_REQUIRE([AC_CANONICAL_HOST]). If the caller does not invoke
+#   AC_CANONICAL_HOST explicitly, $host is empty and macOS linker flag
+#   configuration is silently skipped. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2011 Stanislav Sedov <stas@FreeBSD.org>
@@ -56,9 +63,12 @@
 #   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 #   THE POSSIBILITY OF SUCH DAMAGE.
 
-#serial 4
+#serial 5
 
 AC_DEFUN([AX_RUBY_EXT],[
+  m4_warn([portability],
+    [$0: macOS linker flag configuration requires AC_CANONICAL_HOST.])
+  AC_REQUIRE([AC_CANONICAL_HOST])
 
         #
         # Check if ruby executable exists.

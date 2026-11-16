@@ -18,6 +18,13 @@
 #                        AX_APPEND_FLAG([${FC_DEFINE}__BIGGEST_ALIGNMENT__=64],
 #                                       [FCFLAGS]))
 #
+# BUGS
+#
+#   The compile test is expanded inside an unquoted AC_CACHE_CHECK argument.
+#   If Fortran compiler initialization has not already run, its generated
+#   shell code is corrupted and configure has a syntax error. Initialize the
+#   Fortran compiler explicitly before invoking this macro. [Rating: major]
+#
 # LICENSE
 #
 #   Copyright (c) 2016 Timothy Brown <tbrown@freeshell.org>
@@ -27,9 +34,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 2
+#serial 3
 
 AC_DEFUN([AX_FC_CHECK_DEFINE], [
+  m4_warn([syntax],
+    [$0: Initialize the Fortran compiler first to avoid invalid configure
+     shell code.])
 
 AS_VAR_PUSHDEF([ax_var],[ax_cv_defined_$1])dnl
 AC_LANG_PUSH([Fortran])
