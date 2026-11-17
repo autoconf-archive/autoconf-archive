@@ -109,7 +109,6 @@ AC_DEFUN([_AX_LIB_POSTGRESQL_PKG_CONFIG],
 [
   AC_REQUIRE([PKG_PROG_PKG_CONFIG])
   ax_found_postgresql=no
-  ax_found_postgresql_req_version=yes
 
   while true; do
     PKG_PROG_PKG_CONFIG
