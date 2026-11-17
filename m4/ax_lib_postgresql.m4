@@ -50,7 +50,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 39
+#serial 40
 
 AC_DEFUN([_AX_LIB_POSTGRESQL_PG_CONFIG],[
 	ax_found_postgresql="no"
@@ -167,6 +167,14 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
 		[
 			ax_want_postgresql="yes"
 			PG_CONFIG="$withval"
+
+			AS_IF([test "X$ac_cv_path_PG_CONFIG" != "X$PG_CONFIG"], [
+				  AS_UNSET([ac_cv_path_PG_CONFIG])
+				  AS_UNSET([ac_cv_POSTGRESQL_CPPFLAGS_PG_CONFIG])
+				  AS_UNSET([ac_cv_POSTGRESQL_LDFLAGS_PG_CONFIG])
+				  AS_UNSET([ac_cv_POSTGRESQL_LIBS_PG_CONFIG])
+				  AS_UNSET([ac_cv_POSTGRESQL_VERSION_PG_CONFIG])
+			])
 		])
 	],
 	[ax_want_postgresql="yes"]
