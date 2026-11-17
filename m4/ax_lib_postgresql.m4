@@ -101,6 +101,7 @@ AC_DEFUN([_AX_LIB_POSTGRESQL_PG_CONFIG],[
 	  AS_IF([test "X$ax_found_postgresql_req_version" = "Xno"],[break])
 
 	  ax_found_postgresql="yes"
+	  ax_config_method=PG_CONFIG
 	  break
 	done
 ])
@@ -145,6 +146,7 @@ AC_DEFUN([_AX_LIB_POSTGRESQL_PKG_CONFIG],
     POSTGRESQL_VERSION="$ac_cv_POSTGRESQL_VERSION"
 
     ax_found_postgresql=yes
+    ax_config_method=PKG_CONFIG
     break;
   done
 
@@ -210,6 +212,7 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
 	    AC_CHECK_HEADER([libpq-fe.h],[],[ax_found_postgresql=no])
 	    AS_IF([test "X$ax_found_postgresql" = "Xno"],[break])
 	    dnl try now to link
+	    AS_VAR_PUSHDEF([ac_cv_postgresql_found], [ac_cv_postgresql_found_$ax_config_method])
 	    AC_CACHE_CHECK([for the PostgreSQL library linking is working],[ac_cv_postgresql_found],
 	    [
 	      AC_LINK_IFELSE([
@@ -223,10 +226,11 @@ AC_DEFUN([AX_LIB_POSTGRESQL],
 		    conn = PQconnectdb(conninfo);
 		  ]]
 		 )
-		],[ac_cv_postgresql_found=yes],
-		  [ac_cv_postgresql_found=no])
+		],[AS_VAR_SET([ac_cv_postgresql_found], [yes])],
+		  [AS_VAR_SET([ac_cv_postgresql_found], [no])])
 	     ])
-	    ax_found_postgresql="$ac_cv_postgresql_found"
+	    AS_VAR_COPY([ax_found_postgresql], [ac_cv_postgresql_found])
+	    AS_VAR_POPDEF([ac_cv_postgresql_found])
 	    AS_IF([test "X$ax_found_postgresql" = "Xno"],[break])
 	    break
 	done
