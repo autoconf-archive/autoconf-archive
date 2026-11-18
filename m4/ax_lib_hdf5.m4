@@ -106,7 +106,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 23
+#serial 24
 
 AC_DEFUN([AX_LIB_HDF5], [
   m4_warn([syntax],
@@ -258,7 +258,26 @@ HDF5 support is being disabled (equivalent to --with-hdf5=no).
           esac
         done
 
-        HDF5_LIBS="-lhdf5 $HDF5_LIBS"
+        dnl HDF5 Debian packages have ax_hdf5_infix set to either 'serial',
+        dnl 'openmpi', or 'mpich'
+        ax_hdf5_infix=
+        for lib in $HDF5_LIBS; do
+          case "$lib" in
+            -lhdf5_serial*)
+                ax_hdf5_infix=_serial
+                break
+                ;;
+            -lhdf5_openmpi*)
+                ax_hdf5_infix=_openmpi
+                break
+                ;;
+            -lhdf5_mpich*)
+                ax_hdf5_infix=_mpich
+                break
+                ;;
+          esac
+        done
+        HDF5_LIBS="-lhdf5$ax_hdf5_infix $HDF5_LIBS"
         AC_MSG_RESULT([yes (version $[HDF5_VERSION])])
 
         dnl See if we can compile
@@ -272,13 +291,13 @@ HDF5 support is being disabled (equivalent to --with-hdf5=no).
         LIBS=$HDF5_LIBS
         LDFLAGS=$HDF5_LDFLAGS
         AC_CHECK_HEADER([hdf5.h], [ac_cv_hadf5_h=yes], [ac_cv_hadf5_h=no])
-        AC_CHECK_LIB([hdf5], [H5Fcreate], [ac_cv_libhdf5=yes],
+        AC_CHECK_LIB([hdf5$ax_hdf5_infix], [H5Fcreate], [ac_cv_libhdf5=yes],
                      [ac_cv_libhdf5=no])
         if test "$ac_cv_hadf5_h" = "no" && test "$ac_cv_libhdf5" = "no" ; then
           AC_MSG_WARN([Unable to compile HDF5 test program])
         fi
         dnl Look for HDF5's high level library
-        AC_CHECK_LIB([hdf5_hl], [main], [HDF5_LIBS="-lhdf5_hl $HDF5_LIBS"], [], [])
+        AC_CHECK_LIB([hdf5${ax_hdf5_infix}_hl], [main], [HDF5_LIBS="-lhdf5${ax_hdf5_infix}_hl $HDF5_LIBS"], [])
 
         CC=$ax_lib_hdf5_save_CC
         CPPFLAGS=$ax_lib_hdf5_save_CPPFLAGS
@@ -295,6 +314,7 @@ HDF5 support is being disabled (equivalent to --with-hdf5=no).
             AC_SUBST([H5FC])
 
             dnl Again, pry any remaining -Idir/-Ldir from compiler wrapper
+            ax_hdf5_lib_hl_fortran=
             for arg in `$H5FC -show`
             do
               case "$arg" in #(
@@ -308,16 +328,30 @@ HDF5 support is being disabled (equivalent to --with-hdf5=no).
                      echo $HDF5_FFLAGS | $GREP -e "-I${arg#-L}" >/dev/null \
                       || HDF5_FFLAGS="$HDF5_FFLAGS -I${arg#-L}"
                   ;;
+                -lhdf5${ax_hdf5_infix}_hl_fortran|*/libhdf5${ax_hdf5_infix}_hl_fortran.a)
+                     ax_hdf5_lib_hl_fortran=hdf5${ax_hdf5_infix}_hl_fortran
+                  ;;
               esac
             done
+            dnl The HL Fortran lib name is not the same depending on the toolchain
+            dnl HDF5 was built with (autotools vs cmake)
+            dnl The default here is the name from autotools
+            if test -z "$ax_hdf5_lib_hl_fortran"; then
+                ax_lib_hdf5_save_LDFLAGS="$LDFLAGS"
+                LDFLAGS="$HDF5_LDFLAGS $LDFLAGS"
+                AC_CHECK_LIB([hdf5${ax_hdf5_infix}_hl_fortran], [main],
+                    [ax_hdf5_lib_hl_fortran="hdf5${ax_hdf5_infix}_hl_fortran"],
+                    [ax_hdf5_lib_hl_fortran="hdf5${ax_hdf5_infix}hl_fortran"])
+                LDFLAGS="$ax_lib_hdf5_save_LDFLAGS"
+            fi
 
             dnl Make Fortran link line by inserting Fortran libraries
             for arg in $HDF5_LIBS
             do
               case "$arg" in #(
-                -lhdf5_hl) HDF5_FLIBS="$HDF5_FLIBS -lhdf5hl_fortran $arg"
+                -lhdf5${ax_hdf5_infix}_hl) HDF5_FLIBS="$HDF5_FLIBS -l$ax_hdf5_lib_hl_fortran $arg"
                   ;; #(
-                -lhdf5)    HDF5_FLIBS="$HDF5_FLIBS -lhdf5_fortran $arg"
+                -lhdf5$ax_hdf5_infix)    HDF5_FLIBS="$HDF5_FLIBS -lhdf5${ax_hdf5_infix}_fortran $arg"
                   ;; #(
                 *) HDF5_FLIBS="$HDF5_FLIBS $arg"
                   ;;
