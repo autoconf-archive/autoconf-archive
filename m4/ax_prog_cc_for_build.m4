@@ -122,10 +122,17 @@ dnl Like ac_tool_prefix, use the alias that the user gave, if any.
 ac_build_tool_prefix=
 AS_IF([test -n "$build_alias"], [ac_build_tool_prefix="$build_alias-"])
 
+dnl AC_PROG_CC calls _AC_COMPILER_EXEEXT and _AC_COMPILER_OBJEXT with
+dnl m4_expand_once. Thus, the second AC_PROG_CC call does not find the
+dnl file extensions before the other compiler tests. Remove the marks
+dnl of m4_expand_once, so that AC_PROG_CC calls these macros again.
+dnl
+m4_ifdef([m4_provide(_AC_COMPILER_EXEEXT)],
+  [m4_undefine([m4_provide(_AC_COMPILER_EXEEXT)])])dnl
+m4_ifdef([m4_provide(_AC_COMPILER_OBJEXT)],
+  [m4_undefine([m4_provide(_AC_COMPILER_OBJEXT)])])dnl
 AC_LANG_PUSH([C])
 AC_PROG_CC
-_AC_COMPILER_EXEEXT
-_AC_COMPILER_OBJEXT
 AC_PROG_CPP
 
 BUILD_EXEEXT=$ac_cv_exeext
