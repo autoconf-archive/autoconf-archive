@@ -140,6 +140,12 @@ AC_PROG_CPP
 BUILD_EXEEXT=$ac_cv_exeext
 BUILD_OBJEXT=$ac_cv_objext
 
+dnl Save the build values, so that config.cache can keep them.
+dnl
+ac_cv_build_exeext=$ac_cv_exeext
+ac_cv_build_objext=$ac_cv_objext
+ac_cv_build_c_compiler_gnu=$ac_cv_c_compiler_gnu
+
 dnl Restore the old definitions
 dnl
 popdef([cross_compiling])dnl
