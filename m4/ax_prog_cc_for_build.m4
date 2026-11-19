@@ -104,9 +104,9 @@ AS_VAR_SET_IF([ac_cv_build_c_compiler_gnu],
 
 cross_compiling_build=no
 
+dnl Like ac_tool_prefix, use the alias that the user gave, if any.
 ac_build_tool_prefix=
-AS_IF([test -n "$build"],      [ac_build_tool_prefix="$build-"],
-      [test -n "$build_alias"],[ac_build_tool_prefix="$build_alias-"])
+AS_IF([test -n "$build_alias"], [ac_build_tool_prefix="$build_alias-"])
 
 AC_LANG_PUSH([C])
 AC_PROG_CC
