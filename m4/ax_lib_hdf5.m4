@@ -106,7 +106,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 24
+#serial 25
 
 AC_DEFUN([AX_LIB_HDF5], [
   m4_warn([syntax],
@@ -333,16 +333,21 @@ HDF5 support is being disabled (equivalent to --with-hdf5=no).
                   ;;
               esac
             done
-            dnl The HL Fortran lib name is not the same depending on the toolchain
-            dnl HDF5 was built with (autotools vs cmake)
-            dnl The default here is the name from autotools
+            dnl The HL Fortran lib name depends on the toolchain HDF5 was
+            dnl built with: CMake uses hdf5_hl_fortran, autotools used
+            dnl hdf5hl_fortran. If the wrapper didn't tell us, probe for the
+            dnl CMake name and fall back to the autotools one. The probe must
+            dnl run in C: in Fortran, AC_CHECK_LIB's "call main" test program
+            dnl fails to compile.
             if test -z "$ax_hdf5_lib_hl_fortran"; then
+                AC_LANG_PUSH([C])
                 ax_lib_hdf5_save_LDFLAGS="$LDFLAGS"
                 LDFLAGS="$HDF5_LDFLAGS $LDFLAGS"
                 AC_CHECK_LIB([hdf5${ax_hdf5_infix}_hl_fortran], [main],
                     [ax_hdf5_lib_hl_fortran="hdf5${ax_hdf5_infix}_hl_fortran"],
                     [ax_hdf5_lib_hl_fortran="hdf5${ax_hdf5_infix}hl_fortran"])
                 LDFLAGS="$ax_lib_hdf5_save_LDFLAGS"
+                AC_LANG_POP([C])
             fi
 
             dnl Make Fortran link line by inserting Fortran libraries
