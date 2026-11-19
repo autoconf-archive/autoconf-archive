@@ -23,6 +23,11 @@
 #   the compiler we found is GCC. All these variables but GCC_FOR_BUILD are
 #   substituted in the Makefile.
 #
+#   The build compiler uses CFLAGS_FOR_BUILD, CPPFLAGS_FOR_BUILD,
+#   LDFLAGS_FOR_BUILD and LIBS_FOR_BUILD. It does not use CFLAGS, CPPFLAGS,
+#   LDFLAGS and LIBS, because these are for the host compiler. These
+#   variables are also substituted in the Makefile.
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Paolo Bonzini <bonzini@gnu.org>
@@ -61,6 +66,7 @@ pushdef([GCC], GCC_FOR_BUILD)dnl
 pushdef([CFLAGS], CFLAGS_FOR_BUILD)dnl
 pushdef([CPPFLAGS], CPPFLAGS_FOR_BUILD)dnl
 pushdef([LDFLAGS], LDFLAGS_FOR_BUILD)dnl
+pushdef([LIBS], LIBS_FOR_BUILD)dnl
 pushdef([host], build)dnl
 pushdef([host_alias], build_alias)dnl
 pushdef([host_cpu], build_cpu)dnl
@@ -133,6 +139,7 @@ popdef([host_vendor])dnl
 popdef([host_cpu])dnl
 popdef([host_alias])dnl
 popdef([host])dnl
+popdef([LIBS])dnl
 popdef([LDFLAGS])dnl
 popdef([CPPFLAGS])dnl
 popdef([CFLAGS])dnl
@@ -172,4 +179,5 @@ AC_SUBST([BUILD_OBJEXT])dnl
 AC_SUBST([CFLAGS_FOR_BUILD])dnl
 AC_SUBST([CPPFLAGS_FOR_BUILD])dnl
 AC_SUBST([LDFLAGS_FOR_BUILD])dnl
+AC_SUBST([LIBS_FOR_BUILD])dnl
 ])
