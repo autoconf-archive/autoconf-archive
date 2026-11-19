@@ -107,6 +107,14 @@ ac_cv_host_c_compiler_gnu=$ac_cv_c_compiler_gnu
 AS_VAR_SET_IF([ac_cv_build_c_compiler_gnu],
   [ac_cv_c_compiler_gnu=$ac_cv_build_c_compiler_gnu],
   [AS_UNSET([ac_cv_c_compiler_gnu])])
+dnl
+dnl With Automake, AC_PROG_CC also sets CCDEPMODE and the am__fastdepCC
+dnl conditional. These are for the host compiler. Save them, and restore
+dnl them later.
+dnl
+ax_save_CCDEPMODE=$CCDEPMODE
+ax_save_am__fastdepCC_TRUE=$am__fastdepCC_TRUE
+ax_save_am__fastdepCC_FALSE=$am__fastdepCC_FALSE
 
 cross_compiling_build=no
 
@@ -166,6 +174,9 @@ ac_cv_objext=$ac_cv_host_objext
 OBJEXT=$ac_cv_host_objext
 ac_cv_c_compiler_gnu=$ac_cv_host_c_compiler_gnu
 ac_compiler_gnu=$ac_cv_host_c_compiler_gnu
+CCDEPMODE=$ax_save_CCDEPMODE
+am__fastdepCC_TRUE=$ax_save_am__fastdepCC_TRUE
+am__fastdepCC_FALSE=$ax_save_am__fastdepCC_FALSE
 
 dnl restore global variables ac_ext, ac_cpp, ac_compile,
 dnl ac_link, ac_compiler_gnu (dependent on the current
