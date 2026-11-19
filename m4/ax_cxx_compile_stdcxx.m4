@@ -51,7 +51,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 27
+#serial 28
 
 dnl  This macro is based on the code from the AX_CXX_COMPILE_STDCXX_11 macro
 dnl  (serial version number 13).
@@ -663,7 +663,7 @@ namespace cxx17
   {
 
     constexpr int foo = [](){return 42;}();
-    static_assert(foo == 42);  // mutes complaint from `-Wunused`.
+    static_assert(foo == 42);  // mutes complaint from -Wunused.
   }
 
   namespace test::nested_namespace::definitions
