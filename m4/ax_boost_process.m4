@@ -45,7 +45,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 16
+#serial 17
 
 AC_DEFUN([_AX_BOOST_PROCESS_COMPILE_CHECK_V1],
 [
@@ -142,43 +142,37 @@ AC_DEFUN([_AX_BOOST_PROCESS_LINK_CHECK_V2],
 	)
 ])
 
-AC_DEFUN([_AX_BOOST_PROCESS_LINK_TEST_V2],
-[
-	AS_ECHO(["Testing Boost.Process linking v2 with $ax_boost_process_lib"]) >&AS_MESSAGE_LOG_FD
-	LIBS_SAVE="$LIBS"
+AC_DEFUN(
+	[_AX_BOOST_PROCESS_LINK_TEST_V2],
+	[
+		AS_ECHO(["Testing Boost.Process linking v2 with $ax_boost_process_lib"]) >&AS_MESSAGE_LOG_FD
 
-	dnl invalidate the cached result if the library name has changed
-	AS_IF(
-		[test "x$ax_cv_boost_process_link_v2_lib_name" != "x$ax_boost_process_lib"],
-		[
-			unset ax_cv_boost_process_link_v2_lib
-		]
-	)
+		LIBS_SAVE="$LIBS"
+		LIBS="-l$ax_boost_process_lib $LIBS"
 
-	LIBS="-l$ax_boost_process_lib $LIBS"
+		AS_VAR_PUSHDEF([ax_Lib], [ax_cv_boost_process_link_v2_lib_$ax_boost_process_lib])
+		AC_CACHE_CHECK(
+			[whether Boost.Process v2 can be linked with $ax_boost_process_lib],
+			[ax_Lib],
+			[
+				_AX_BOOST_PROCESS_LINK_CHECK_V2
+				AS_VAR_SET([ax_Lib], [$ax_boost_process_link_v2_result])
+			]
+		)
+		AS_VAR_COPY([ax_boost_process_link_v2_result], [ax_Lib])
+		AS_VAR_POPDEF([ax_Lib])
 
-	AC_CACHE_CHECK(
-		[whether Boost.Process v2 can be linked with $ax_boost_process_lib],
-		[ax_cv_boost_process_link_v2_lib],
-		[
-			_AX_BOOST_PROCESS_LINK_CHECK_V2
-			ax_cv_boost_process_link_v2_lib=$ax_boost_process_link_v2_result
-		]
-	)
+		AS_IF(
+			[test "x$ax_boost_process_link_v2_result" = "xyes"],
+			[
+				BOOST_PROCESS_LIB="-l$ax_boost_process_lib"
+				ax_boost_process_link_v2_found=yes
+			]
+		)
 
-	dnl always update the cached library name
-	ax_cv_boost_process_link_v2_lib_name="$ax_boost_process_lib"
-
-	dnl set BOOST_PROCESS_LIB only when linking succeeds
-	AS_IF(
-		[test "x$ax_cv_boost_process_link_v2_lib" = "xyes"],
-		[
-			BOOST_PROCESS_LIB="-l$ax_boost_process_lib"
-		]
-	)
-
-	LIBS="$LIBS_SAVE"
-])
+		LIBS="$LIBS_SAVE"
+	]
+)
 
 AC_DEFUN([AX_BOOST_PROCESS],
 [
@@ -350,6 +344,7 @@ AC_DEFUN([AX_BOOST_PROCESS],
 					],
 					[v2],
 					[
+						ax_boost_process_link_v2_found=no
 						AC_CACHE_CHECK(
 							[whether Boost.Process v2 can be linked without an additional library],
 							[ax_cv_boost_process_link_v2],
@@ -371,7 +366,7 @@ AC_DEFUN([AX_BOOST_PROCESS],
 
 										dnl then fallback
 										AS_IF(
-											[test "x$ax_cv_boost_process_link_v2_lib" != "xyes"],
+											[test "x$ax_boost_process_link_v2_result" != "xyes"],
 											[
 												dnl search in BOOSTLIBDIR
 												BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
@@ -379,23 +374,27 @@ AC_DEFUN([AX_BOOST_PROCESS],
 													ax_boost_process_lib=${libextension}
 													_AX_BOOST_PROCESS_LINK_TEST_V2
 													AS_IF(
-														[test "x$ax_cv_boost_process_link_v2_lib" = "xyes"],
+														[test "x$ax_boost_process_link_v2_result" = "xyes"],
 														[break]
 													)
 												done
 												AS_IF(
-													[test "x$ax_cv_boost_process_link_v2_lib" != "xyes"],
+													[test "x$ax_boost_process_link_v2_result" != "xyes"],
 													[
 														for libextension in `ls -r $BOOSTLIBDIR/boost_process* 2>/dev/null | sed 's,.*/,,' | sed -e 's,\..*,,'` ; do
 															ax_boost_process_lib=${libextension}
 															_AX_BOOST_PROCESS_LINK_TEST_V2
 															AS_IF(
-																[test "x$ax_cv_boost_process_link_v2_lib" = "xyes"],
-															[break]
+																[test "x$ax_boost_process_link_v2_result" = "xyes"],
+																[break]
 															)
 														done
 													]
 												)
+											],
+											[
+												dnl Link was successful with standard boost_process
+												ax_boost_process_link_v2_found=yes
 											]
 										)
 									],
@@ -404,12 +403,16 @@ AC_DEFUN([AX_BOOST_PROCESS],
 										for ax_boost_process_lib in $ax_boost_user_process_lib boost_process-$ax_boost_user_process_lib; do
 											_AX_BOOST_PROCESS_LINK_TEST_V2
 											AS_IF(
-												[test "x$ax_cv_boost_process_link_v2_lib" = "xyes"],
+												[test "x$ax_boost_process_link_v2_result" = "xyes"],
 												[break]
 											)
 										done
 									]
 								)
+							],
+							[
+								dnl Link was successful without an additional library
+								ax_boost_process_link_v2_found=yes
 							]
 						)
 					],
@@ -430,8 +433,7 @@ AC_DEFUN([AX_BOOST_PROCESS],
 					[
 						AS_IF(
 							[
-								test "x$ax_cv_boost_process_link_v2" != "xyes" &&
-								test "x$ax_cv_boost_process_link_v2_lib" != "xyes"
+								[test "x$ax_boost_process_link_v2_found" = "xno"]
 							],
 							[AC_MSG_ERROR([Could not find a version of the Boost::Process library!])]
 						)
