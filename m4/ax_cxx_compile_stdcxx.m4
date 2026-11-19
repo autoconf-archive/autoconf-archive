@@ -51,7 +51,7 @@
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 28
+#serial 29
 
 dnl  This macro is based on the code from the AX_CXX_COMPILE_STDCXX_11 macro
 dnl  (serial version number 13).
@@ -317,7 +317,7 @@ namespace cxx11
     }
 
     int
-    test(const int c, volatile int v)
+    test(const int c, volatile int &v)
     {
       static_assert(is_same<int, decltype(0)>::value == true, "");
       static_assert(is_same<int, decltype(c)>::value == false, "");
