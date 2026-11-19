@@ -96,6 +96,19 @@
 #   same name. These variables should use macro-specific ax_ names. [Rating:
 #   minor]
 #
+#   (4) With --with-hdf5=no, with_hdf5_fortran is never set, although the
+#   documentation says it is set to "no" when HDF5 is disabled. Callers that
+#   test it see an empty value, or whatever value it had before the macro
+#   ran. [Rating: minor]
+#
+#   (5) HDF5_CFLAGS is documented and substituted, but the macro never
+#   assigns it, so it is always empty. [Rating: minor]
+#
+#   (6) The Fortran flag handling uses the ${arg#-L} parameter expansion,
+#   which traditional Bourne shells such as Solaris 10 /bin/sh do not
+#   support. The Autoconf manual recommends avoiding it in portable shell
+#   code. [Rating: minor]
+#
 # LICENSE
 #
 #   Copyright (c) 2009 Timothy Brown <tbrown@freeshell.org>
@@ -106,7 +119,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 25
+#serial 26
 
 AC_DEFUN([AX_LIB_HDF5], [
   m4_warn([syntax],
@@ -290,6 +303,9 @@ HDF5 support is being disabled (equivalent to --with-hdf5=no).
         CPPFLAGS=$HDF5_CPPFLAGS
         LIBS=$HDF5_LIBS
         LDFLAGS=$HDF5_LDFLAGS
+        dnl ac_cv_hadf5_h and ac_cv_libhdf5 are plain result flags, not
+        dnl cache variables: they are reassigned on every run. Because
+        dnl their names contain _cv_, they still end up in config.cache.
         AC_CHECK_HEADER([hdf5.h], [ac_cv_hadf5_h=yes], [ac_cv_hadf5_h=no])
         AC_CHECK_LIB([hdf5$ax_hdf5_infix], [H5Fcreate], [ac_cv_libhdf5=yes],
                      [ac_cv_libhdf5=no])
