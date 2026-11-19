@@ -45,7 +45,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 17
+#serial 18
 
 AC_DEFUN([_AX_BOOST_PROCESS_COMPILE_CHECK_V1],
 [
@@ -142,37 +142,35 @@ AC_DEFUN([_AX_BOOST_PROCESS_LINK_CHECK_V2],
 	)
 ])
 
-AC_DEFUN(
-	[_AX_BOOST_PROCESS_LINK_TEST_V2],
-	[
-		AS_ECHO(["Testing Boost.Process linking v2 with $ax_boost_process_lib"]) >&AS_MESSAGE_LOG_FD
+AC_DEFUN([_AX_BOOST_PROCESS_LINK_TEST_V2],
+[
+	AS_ECHO(["Testing Boost.Process linking v2 with $ax_boost_process_lib"]) >&AS_MESSAGE_LOG_FD
 
-		LIBS_SAVE="$LIBS"
-		LIBS="-l$ax_boost_process_lib $LIBS"
+	LIBS_SAVE="$LIBS"
+	LIBS="-l$ax_boost_process_lib $LIBS"
 
-		AS_VAR_PUSHDEF([ax_Lib], [ax_cv_boost_process_link_v2_lib_$ax_boost_process_lib])
-		AC_CACHE_CHECK(
-			[whether Boost.Process v2 can be linked with $ax_boost_process_lib],
-			[ax_Lib],
-			[
-				_AX_BOOST_PROCESS_LINK_CHECK_V2
-				AS_VAR_SET([ax_Lib], [$ax_boost_process_link_v2_result])
-			]
-		)
-		AS_VAR_COPY([ax_boost_process_link_v2_result], [ax_Lib])
-		AS_VAR_POPDEF([ax_Lib])
+	AS_VAR_PUSHDEF([ax_Lib], [ax_cv_boost_process_link_v2_lib_$ax_boost_process_lib])
+	AC_CACHE_CHECK(
+		[whether Boost.Process v2 can be linked with $ax_boost_process_lib],
+		[ax_Lib],
+		[
+			_AX_BOOST_PROCESS_LINK_CHECK_V2
+			AS_VAR_SET([ax_Lib], [$ax_boost_process_link_v2_result])
+		]
+	)
+	AS_VAR_COPY([ax_boost_process_link_v2_result], [ax_Lib])
+	AS_VAR_POPDEF([ax_Lib])
 
-		AS_IF(
-			[test "x$ax_boost_process_link_v2_result" = "xyes"],
-			[
-				BOOST_PROCESS_LIB="-l$ax_boost_process_lib"
-				ax_boost_process_link_v2_found=yes
-			]
-		)
+	AS_IF(
+		[test "x$ax_boost_process_link_v2_result" = "xyes"],
+		[
+			BOOST_PROCESS_LIB="-l$ax_boost_process_lib"
+			ax_boost_process_link_v2_found=yes
+		]
+	)
 
-		LIBS="$LIBS_SAVE"
-	]
-)
+	LIBS="$LIBS_SAVE"
+])
 
 AC_DEFUN([AX_BOOST_PROCESS],
 [
@@ -432,9 +430,7 @@ AC_DEFUN([AX_BOOST_PROCESS],
 					[v2],
 					[
 						AS_IF(
-							[
-								[test "x$ax_boost_process_link_v2_found" = "xno"]
-							],
+							[test "x$ax_boost_process_link_v2_found" = "xno"],
 							[AC_MSG_ERROR([Could not find a version of the Boost::Process library!])]
 						)
 					]
