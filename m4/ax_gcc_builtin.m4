@@ -24,6 +24,17 @@
 #   The macro currently supports the following built-in functions:
 #
 #    __builtin_assume_aligned
+#    __builtin___bnd_set_ptr_bounds
+#    __builtin___bnd_narrow_ptr_bounds
+#    __builtin___bnd_copy_ptr_bounds
+#    __builtin___bnd_init_ptr_bounds
+#    __builtin___bnd_null_ptr_bounds
+#    __builtin___bnd_store_ptr_bounds
+#    __builtin___bnd_chk_ptr_lbounds
+#    __builtin___bnd_chk_ptr_ubounds
+#    __builtin___bnd_chk_ptr_bounds
+#    __builtin___bnd_get_ptr_lbound
+#    __builtin___bnd_get_ptr_ubound
 #    __builtin_bswap16
 #    __builtin_bswap32
 #    __builtin_bswap64
@@ -37,6 +48,16 @@
 #    __builtin_clzll
 #    __builtin_complex
 #    __builtin_constant_p
+#    __builtin_copysignf
+#    __builtin_copysignl
+#    __builtin_copysignf16
+#    __builtin_copysignf32
+#    __builtin_copysignf64
+#    __builtin_copysignf128
+#    __builtin_copysignf16x
+#    __builtin_copysignf32x
+#    __builtin_copysignf64x
+#    __builtin_copysignf128x
 #    __builtin_cpu_init
 #    __builtin_cpu_is
 #    __builtin_cpu_supports
@@ -44,6 +65,10 @@
 #    __builtin_ctzl
 #    __builtin_ctzll
 #    __builtin_expect
+#    __builtin_fabs
+#    __builtin_fabsf
+#    __builtin_fabsl
+#    __builtin_fabsf128
 #    __builtin_ffs
 #    __builtin_ffsl
 #    __builtin_ffsll
@@ -57,7 +82,13 @@
 #    __builtin_infd64
 #    __builtin_inff
 #    __builtin_infl
+#    __builtin_isinf
+#    __builtin_isinff
+#    __builtin_isinfl
 #    __builtin_isinf_sign
+#    __builtin_isnan
+#    __builtin_isnanf
+#    __builtin_isnanl
 #    __builtin_nan
 #    __builtin_nand128
 #    __builtin_nand32
@@ -88,13 +119,14 @@
 # LICENSE
 #
 #   Copyright (c) 2013 Gabriele Svelto <gabriele.svelto@gmail.com>
+#   Copyright (c) 2018,2026 Reini Urban <rurban@cpan.org>
 #
 #   Copying and distribution of this file, with or without modification, are
 #   permitted in any medium without royalty provided the copyright notice
 #   and this notice are preserved.  This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 9
 
 AC_DEFUN([AX_GCC_BUILTIN], [
     AS_VAR_PUSHDEF([ac_var], [ax_cv_have_$1])
@@ -103,6 +135,17 @@ AC_DEFUN([AX_GCC_BUILTIN], [
         AC_LINK_IFELSE([AC_LANG_PROGRAM([], [
             m4_case([$1],
                 [__builtin_assume_aligned], [$1("", 0)],
+                [__builtin___bnd_set_ptr_bounds], [$1("", 0)],
+                [__builtin___bnd_narrow_ptr_bounds], [$1("", "", 0)],
+                [__builtin___bnd_copy_ptr_bounds], [$1("", "")],
+                [__builtin___bnd_init_ptr_bounds], [$1("")],
+                [__builtin___bnd_null_ptr_bounds], [$1("")],
+                [__builtin___bnd_store_ptr_bounds], [$1("", "")],
+                [__builtin___bnd_chk_ptr_lbounds], [$1("")],
+                [__builtin___bnd_chk_ptr_ubounds], [$1("")],
+                [__builtin___bnd_chk_ptr_bounds], [$1("", 0)],
+                [__builtin___bnd_get_ptr_lbound], [$1("")],
+                [__builtin___bnd_get_ptr_ubound], [$1("")],
                 [__builtin_bswap16], [$1(0)],
                 [__builtin_bswap32], [$1(0)],
                 [__builtin_bswap64], [$1(0)],
@@ -116,6 +159,16 @@ AC_DEFUN([AX_GCC_BUILTIN], [
                 [__builtin_clzll], [$1(0)],
                 [__builtin_complex], [$1(0.0, 0.0)],
                 [__builtin_constant_p], [$1(0)],
+                [__builtin_copysignf], [$1(0.0f, 0.0f)],
+                [__builtin_copysignl], [$1(0.0l, 0.0l)],
+                [__builtin_copysignf16], [$1(0.0f16, 0.0f16)],
+                [__builtin_copysignf32], [$1(0.0f32, 0.0f32)],
+                [__builtin_copysignf64], [$1(0.0f64, 0.0f64)],
+                [__builtin_copysignf128], [$1(0.0f128, 0.0f128)],
+                [__builtin_copysignf16x], [$1(0.0f16x, 0.0f16x)],
+                [__builtin_copysignf32x], [$1(0.0f32x, 0.0f32x)],
+                [__builtin_copysignf64x], [$1(0.0f64x, 0.0f64x)],
+                [__builtin_copysignf128x], [$1(0.0f128x, 0.0f128x)],
                 [__builtin_cpu_init], [$1()],
                 [__builtin_cpu_is], [$1("intel")],
                 [__builtin_cpu_supports], [$1("sse")],
@@ -123,6 +176,10 @@ AC_DEFUN([AX_GCC_BUILTIN], [
                 [__builtin_ctzl], [$1(0)],
                 [__builtin_ctzll], [$1(0)],
                 [__builtin_expect], [$1(0, 0)],
+                [__builtin_fabs], [$1(0)],
+                [__builtin_fabsf], [$1(0.0f)],
+                [__builtin_fabsl], [$1(0.0l)],
+                [__builtin_fabsf128], [$1(0.0f128)],
                 [__builtin_ffs], [$1(0)],
                 [__builtin_ffsl], [$1(0)],
                 [__builtin_ffsll], [$1(0)],
@@ -136,7 +193,13 @@ AC_DEFUN([AX_GCC_BUILTIN], [
                 [__builtin_infd64], [$1()],
                 [__builtin_inff], [$1()],
                 [__builtin_infl], [$1()],
+                [__builtin_isinf], [$1(0.0)],
+                [__builtin_isinff], [$1(0.0f)],
+                [__builtin_isinfl], [$1(0.0l)],
                 [__builtin_isinf_sign], [$1(0.0)],
+                [__builtin_isnan], [$1(0.0)],
+                [__builtin_isnanf], [$1(0.0f)],
+                [__builtin_isnanl], [$1(0.0l)],
                 [__builtin_nan], [$1("")],
                 [__builtin_nand128], [$1("")],
                 [__builtin_nand32], [$1("")],
