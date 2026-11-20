@@ -23,6 +23,11 @@
 #   the compiler we found is GCC. All these variables but GCC_FOR_BUILD are
 #   substituted in the Makefile.
 #
+#   The build compiler uses CFLAGS_FOR_BUILD, CPPFLAGS_FOR_BUILD,
+#   LDFLAGS_FOR_BUILD and LIBS_FOR_BUILD. It does not use CFLAGS, CPPFLAGS,
+#   LDFLAGS and LIBS, because these are for the host compiler. These
+#   variables are also substituted in the Makefile.
+#
 # LICENSE
 #
 #   Copyright (c) 2008 Paolo Bonzini <bonzini@gnu.org>
@@ -32,7 +37,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 26
+#serial 34
 
 AU_ALIAS([AC_PROG_CC_FOR_BUILD], [AX_PROG_CC_FOR_BUILD])
 AC_DEFUN([AX_PROG_CC_FOR_BUILD], [dnl
@@ -53,14 +58,13 @@ pushdef([ac_cv_prog_cc_works], ac_cv_build_prog_cc_works)dnl
 pushdef([ac_cv_prog_cc_cross], ac_cv_build_prog_cc_cross)dnl
 pushdef([ac_cv_prog_cc_g], ac_cv_build_prog_cc_g)dnl
 pushdef([ac_prog_cc_stdc], ac_build_prog_cc_stdc)dnl
-pushdef([ac_exeext], ac_build_exeext)dnl
-pushdef([ac_objext], ac_build_objext)dnl
 pushdef([CC], CC_FOR_BUILD)dnl
 pushdef([CPP], CPP_FOR_BUILD)dnl
 pushdef([GCC], GCC_FOR_BUILD)dnl
 pushdef([CFLAGS], CFLAGS_FOR_BUILD)dnl
 pushdef([CPPFLAGS], CPPFLAGS_FOR_BUILD)dnl
 pushdef([LDFLAGS], LDFLAGS_FOR_BUILD)dnl
+pushdef([LIBS], LIBS_FOR_BUILD)dnl
 pushdef([host], build)dnl
 pushdef([host_alias], build_alias)dnl
 pushdef([host_cpu], build_cpu)dnl
@@ -83,7 +87,11 @@ dnl _AC_COMPILER_EXEEXT and _AC_COMPILER_OBJEXT internally call
 dnl AC_SUBST which prevents the renaming of EXEEXT and OBJEXT
 dnl variables. It's not a good idea to rename ac_cv_exeext and
 dnl ac_cv_objext either as they're related.
-dnl Renaming ac_exeext and ac_objext is safe though.
+dnl
+dnl Do not rename ac_exeext and ac_objext. Autoconf writes the shell
+dnl functions for compile and link tests (such as ac_fn_c_try_compile)
+dnl only one time, with the names that were set at that time. Thus,
+dnl these functions always use $ac_exeext and $ac_objext.
 dnl
 ac_cv_host_exeext=$ac_cv_exeext
 AS_VAR_SET_IF([ac_cv_build_exeext],
@@ -101,21 +109,42 @@ ac_cv_host_c_compiler_gnu=$ac_cv_c_compiler_gnu
 AS_VAR_SET_IF([ac_cv_build_c_compiler_gnu],
   [ac_cv_c_compiler_gnu=$ac_cv_build_c_compiler_gnu],
   [AS_UNSET([ac_cv_c_compiler_gnu])])
+dnl
+dnl With Automake, AC_PROG_CC also sets CCDEPMODE and the am__fastdepCC
+dnl conditional. These are for the host compiler. Save them, and restore
+dnl them later.
+dnl
+ax_save_CCDEPMODE=$CCDEPMODE
+ax_save_am__fastdepCC_TRUE=$am__fastdepCC_TRUE
+ax_save_am__fastdepCC_FALSE=$am__fastdepCC_FALSE
 
 cross_compiling_build=no
 
+dnl Like ac_tool_prefix, use the alias that the user gave, if any.
 ac_build_tool_prefix=
-AS_IF([test -n "$build"],      [ac_build_tool_prefix="$build-"],
-      [test -n "$build_alias"],[ac_build_tool_prefix="$build_alias-"])
+AS_IF([test -n "$build_alias"], [ac_build_tool_prefix="$build_alias-"])
 
+dnl AC_PROG_CC calls _AC_COMPILER_EXEEXT and _AC_COMPILER_OBJEXT with
+dnl m4_expand_once. Thus, the second AC_PROG_CC call does not find the
+dnl file extensions before the other compiler tests. Remove the marks
+dnl of m4_expand_once, so that AC_PROG_CC calls these macros again.
+dnl
+m4_ifdef([m4_provide(_AC_COMPILER_EXEEXT)],
+  [m4_undefine([m4_provide(_AC_COMPILER_EXEEXT)])])dnl
+m4_ifdef([m4_provide(_AC_COMPILER_OBJEXT)],
+  [m4_undefine([m4_provide(_AC_COMPILER_OBJEXT)])])dnl
 AC_LANG_PUSH([C])
 AC_PROG_CC
-_AC_COMPILER_EXEEXT
-_AC_COMPILER_OBJEXT
 AC_PROG_CPP
 
 BUILD_EXEEXT=$ac_cv_exeext
 BUILD_OBJEXT=$ac_cv_objext
+
+dnl Save the build values, so that config.cache can keep them.
+dnl
+ac_cv_build_exeext=$ac_cv_exeext
+ac_cv_build_objext=$ac_cv_objext
+ac_cv_build_c_compiler_gnu=$ac_cv_c_compiler_gnu
 
 dnl Restore the old definitions
 dnl
@@ -133,14 +162,13 @@ popdef([host_vendor])dnl
 popdef([host_cpu])dnl
 popdef([host_alias])dnl
 popdef([host])dnl
+popdef([LIBS])dnl
 popdef([LDFLAGS])dnl
 popdef([CPPFLAGS])dnl
 popdef([CFLAGS])dnl
 popdef([GCC])dnl
 popdef([CPP])dnl
 popdef([CC])dnl
-popdef([ac_objext])dnl
-popdef([ac_exeext])dnl
 popdef([ac_prog_cc_stdc])dnl
 popdef([ac_cv_prog_cc_g])dnl
 popdef([ac_cv_prog_cc_cross])dnl
@@ -155,10 +183,15 @@ popdef([ac_cv_prog_CPP])dnl
 dnl
 ac_cv_exeext=$ac_cv_host_exeext
 EXEEXT=$ac_cv_host_exeext
+ac_exeext=$ac_cv_host_exeext
 ac_cv_objext=$ac_cv_host_objext
 OBJEXT=$ac_cv_host_objext
+ac_objext=$ac_cv_host_objext
 ac_cv_c_compiler_gnu=$ac_cv_host_c_compiler_gnu
 ac_compiler_gnu=$ac_cv_host_c_compiler_gnu
+CCDEPMODE=$ax_save_CCDEPMODE
+am__fastdepCC_TRUE=$ax_save_am__fastdepCC_TRUE
+am__fastdepCC_FALSE=$ax_save_am__fastdepCC_FALSE
 
 dnl restore global variables ac_ext, ac_cpp, ac_compile,
 dnl ac_link, ac_compiler_gnu (dependent on the current
@@ -172,4 +205,5 @@ AC_SUBST([BUILD_OBJEXT])dnl
 AC_SUBST([CFLAGS_FOR_BUILD])dnl
 AC_SUBST([CPPFLAGS_FOR_BUILD])dnl
 AC_SUBST([LDFLAGS_FOR_BUILD])dnl
+AC_SUBST([LIBS_FOR_BUILD])dnl
 ])
