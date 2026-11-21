@@ -45,9 +45,11 @@ AC_DEFUN([AX_CHECK_LINK_FLAG],
 [AC_PREREQ(2.64)dnl for _AC_LANG_PREFIX and AS_VAR_IF
 dnl AS_VAR_PUSHDEF changes all special characters to "_".  Encode "/" and
 dnl ":" first, thus "-std=c11" and "/std:c11" use different cache variables.
-AS_VAR_PUSHDEF([CACHEVAR],[ax_cv_check_ldflags_[]m4_bpatsubsts([[$4_$1]],
+dnl Keep the old name for C: ax_cv_check_ldflags_*.
+AS_VAR_PUSHDEF([CACHEVAR],[ax_cv_check_[]m4_if(_AC_LANG_ABBREV, [c], [],
+  [_AC_LANG_ABBREV])[]ldflags_[]m4_bpatsubsts([[$4_$1]],
   [/], [_2f_], [:], [_3a_])])dnl
-AC_CACHE_CHECK([whether the linker accepts $1], CACHEVAR, [
+AC_CACHE_CHECK([whether the _AC_LANG linker accepts $1], CACHEVAR, [
   ax_check_save_flags=$LDFLAGS
   LDFLAGS="$LDFLAGS $4 $1"
   AC_LINK_IFELSE([m4_default([$5],[AC_LANG_PROGRAM()])],
