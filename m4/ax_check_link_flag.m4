@@ -13,7 +13,8 @@
 #   FLAG in quotes, for example "unknown warning option '-Wfoo'", or as
 #   "FLAG: ...", for example "-Wl,-z,now: 'linker' input unused".  Compilers
 #   use these forms when they do not know a flag, or when a flag is not
-#   valid for the language.  This is done only with GNU compilers.
+#   valid for the language.  Some compilers, such as MSVC and clang-cl, only
+#   give a warning for an unknown flag.
 #
 #   ACTION-SUCCESS/ACTION-FAILURE are shell commands to execute on
 #   success/failure.
@@ -51,16 +52,7 @@ AC_CACHE_CHECK([whether the linker accepts $1], CACHEVAR, [
      dnl Do not use -Werror: it also rejects a good flag when the flag
      dnl causes a warning about the test program (-Wunused-macros).
      dnl Look for the flag in quotes in the diagnostics instead.
-     AS_IF([test x"m4_case(_AC_LANG,
-                            [C], [$GCC],
-                            [C++], [$GXX],
-                            [Fortran], [$GFC],
-                            [Fortran 77], [$G77],
-                            [Objective C], [$GOBJC],
-                            [Objective C++], [$GOBJCXX],
-                            [no])" = xyes],
-       [ax_check_err=`cat conftest.err 2>/dev/null`],
-       [ax_check_err=])
+     ax_check_err=`cat conftest.err 2>/dev/null`
      for ax_check_flag in $1; do
        case $ax_check_err in
          *"'$ax_check_flag'"* | *" $ax_check_flag: "*)
