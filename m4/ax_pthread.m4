@@ -55,12 +55,6 @@
 #
 #   Updated for Autoconf 2.68 by Daniel Richard G.
 #
-# BUGS
-#
-#   When user-supplied thread flags are tested, PTHREAD_CXX is assigned to
-#   CXX without saving and restoring CXX. This can unexpectedly change the
-#   caller's C++ compiler even if the thread test fails. [Rating: minor]
-#
 # LICENSE
 #
 #   Copyright (c) 2008 Steven G. Johnson <stevenj@alum.mit.edu>
@@ -112,6 +106,7 @@ ax_pthread_ok=no
 # them:
 if test "x$PTHREAD_CFLAGS$PTHREAD_LIBS" != "x"; then
         ax_pthread_save_CC="$CC"
+        ax_pthread_save_CXX="$CXX"
         ax_pthread_save_CFLAGS="$CFLAGS"
         ax_pthread_save_LIBS="$LIBS"
         AS_IF([test "x$PTHREAD_CC" != "x"], [CC="$PTHREAD_CC"])
@@ -126,6 +121,7 @@ if test "x$PTHREAD_CFLAGS$PTHREAD_LIBS" != "x"; then
                 PTHREAD_CFLAGS=""
         fi
         CC="$ax_pthread_save_CC"
+        CXX="$ax_pthread_save_CXX"
         CFLAGS="$ax_pthread_save_CFLAGS"
         LIBS="$ax_pthread_save_LIBS"
 fi
