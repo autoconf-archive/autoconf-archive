@@ -429,9 +429,14 @@ if test "x$ax_pthread_clang" = "xyes" && test "x$ax_pthread_ok" = "xyes"; then
              ax_cv_PTHREAD_CLANG_NO_WARN_FLAG="$ax_pthread_try"
             ])
 
+        # If the macro is called again, PTHREAD_CFLAGS can already contain
+        # the flag. Do not add it again.
         case "$ax_cv_PTHREAD_CLANG_NO_WARN_FLAG" in
                 no | unknown) ;;
-                *) PTHREAD_CFLAGS="$ax_cv_PTHREAD_CLANG_NO_WARN_FLAG $PTHREAD_CFLAGS" ;;
+                *) case " $PTHREAD_CFLAGS " in
+                        *" $ax_cv_PTHREAD_CLANG_NO_WARN_FLAG "*) ;;
+                        *) PTHREAD_CFLAGS="$ax_cv_PTHREAD_CLANG_NO_WARN_FLAG $PTHREAD_CFLAGS" ;;
+                   esac ;;
         esac
 
 fi # $ax_pthread_clang = yes && $ax_pthread_ok = yes
