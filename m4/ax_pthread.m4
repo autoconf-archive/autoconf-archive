@@ -365,9 +365,10 @@ fi
 
 
 # Clang needs special handling, because older versions handle the -pthread
-# option in a rather... idiosyncratic way
+# option in a rather... idiosyncratic way. Do this only if pthreads work.
+# If they do not work, PTHREAD_CFLAGS must stay empty.
 
-if test "x$ax_pthread_clang" = "xyes"; then
+if test "x$ax_pthread_clang" = "xyes" && test "x$ax_pthread_ok" = "xyes"; then
 
         # Clang takes -pthread; it has never supported any other flag
 
@@ -433,7 +434,7 @@ if test "x$ax_pthread_clang" = "xyes"; then
                 *) PTHREAD_CFLAGS="$ax_cv_PTHREAD_CLANG_NO_WARN_FLAG $PTHREAD_CFLAGS" ;;
         esac
 
-fi # $ax_pthread_clang = yes
+fi # $ax_pthread_clang = yes && $ax_pthread_ok = yes
 
 
 
