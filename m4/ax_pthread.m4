@@ -305,6 +305,7 @@ for ax_pthread_try_flag in $ax_pthread_flags; do
                 pthread-config)
                 AC_CHECK_PROG([ax_pthread_config], [pthread-config], [yes], [no])
                 AS_IF([test "x$ax_pthread_config" = "xno"], [continue])
+                AC_MSG_CHECKING([whether pthreads work with pthread-config])
                 PTHREAD_CFLAGS="`pthread-config --cflags`"
                 PTHREAD_LIBS="`pthread-config --ldflags` `pthread-config --libs`"
                 ;;
