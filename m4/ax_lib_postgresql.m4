@@ -8,22 +8,27 @@
 #
 # DESCRIPTION
 #
-#   This macro provides tests of availability of PostgreSQL 'libpq' library
-#   of particular version or newer.
+#   This macro checks for the PostgreSQL client library libpq. If
+#   MINIMUM-VERSION is given, the macro also checks that the version found
+#   is at least MINIMUM-VERSION.
 #
-#   AX_LIB_POSTGRESQL macro takes only one argument which is optional. If
-#   there is no required version passed, then macro does not run version
-#   test.
+#   The macro first asks pkg-config for libpq. If pkg-config is not
+#   available or does not find a suitable libpq, the macro uses pg_config
+#   instead. In both cases, it then checks that libpq-fe.h can be compiled
+#   and that a program using libpq can be linked.
 #
 #   The --with-postgresql option takes one of three possible values:
 #
-#   no - do not check for PostgreSQL client library
+#     no   - do not check for the PostgreSQL client library.
+#     yes  - check in the standard locations (the default).
+#     path - complete path to the pg_config utility. pkg-config is not
+#            used in this case.
 #
-#   yes - do check for PostgreSQL library in standard locations (pg_config
-#   should be in the PATH)
+#   Instead of passing a path, you can also set the PG_CONFIG variable, but
+#   see BUGS for how this differs.
 #
-#   path - complete path to pg_config utility, use this option if pg_config
-#   can't be found in the PATH (You could set also PG_CONFIG variable)
+#   The detected flags can be overridden by setting the variables
+#   POSTGRESQL_CPPFLAGS, POSTGRESQL_LDFLAGS, and POSTGRESQL_LIBS.
 #
 #   This macro calls:
 #
@@ -32,12 +37,29 @@
 #     AC_SUBST(POSTGRESQL_LIBS)
 #     AC_SUBST(POSTGRESQL_VERSION)
 #
-#   And sets:
+#   and, if libpq is found:
 #
-#     HAVE_POSTGRESQL
+#     AC_DEFINE(HAVE_POSTGRESQL)
 #
-#   It execute if found ACTION-IF-FOUND (empty by default) and
-#   ACTION-IF-NOT-FOUND (AC_MSG_FAILURE by default) if not found.
+#   If libpq is found, ACTION-IF-FOUND is executed (nothing by default).
+#   Otherwise ACTION-IF-NOT-FOUND is executed; by default, configure stops
+#   with an error unless --without-postgresql was given.
+#
+# BUGS
+#
+#   (1) Setting PG_CONFIG does not have the same effect as passing the path
+#   with --with-postgresql=PATH: only the option skips pkg-config. If
+#   pkg-config finds a libpq, that installation is used, and the pg_config
+#   in PG_CONFIG is silently ignored. [Rating: minor]
+#
+#   (2) POSTGRESQL_CPPFLAGS, POSTGRESQL_LDFLAGS, and POSTGRESQL_LIBS only
+#   replace detected values. If neither pkg-config nor pg_config is found,
+#   PostgreSQL is reported as missing, even when these variables describe a
+#   usable installation. [Rating: minor]
+#
+#   (3) The pkg-config program is searched for even with
+#   --without-postgresql, and pkg.m4 from pkg-config must be available when
+#   configure is generated. [Rating: cosmetic]
 #
 # LICENSE
 #
@@ -50,7 +72,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 43
+#serial 44
 
 AC_DEFUN([_AX_LIB_POSTGRESQL_PG_CONFIG],[
 	ax_found_postgresql="no"
