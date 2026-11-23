@@ -78,6 +78,18 @@
 #   The HDF5_TYPE environment variable returns "parallel" or "serial",
 #   depending on which type of library is found.
 #
+#   HDF5 2.0 and later can only be built with CMake, and CMake builds
+#   install pkg-config files such as hdf5.pc, hdf5_hl.pc, and, with Fortran
+#   support, hdf5_fortran.pc and hdf5_hl_fortran.pc. When these files are
+#   available, PKG_CHECK_MODULES is the preferred way to find HDF5, for
+#   example:
+#
+#     PKG_CHECK_MODULES([HDF5], [hdf5])
+#
+#   The module names can differ between distributions. This macro remains
+#   useful for installations that provide only the h5cc or h5pcc wrapper
+#   scripts.
+#
 # BUGS
 #
 #   (1) Failed header or library probes do not disable HDF5 support; even
@@ -119,7 +131,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 26
+#serial 27
 
 AC_DEFUN([AX_LIB_HDF5], [
   m4_warn([syntax],
