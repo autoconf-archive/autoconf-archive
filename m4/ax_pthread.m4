@@ -55,12 +55,6 @@
 #
 #   Updated for Autoconf 2.68 by Daniel Richard G.
 #
-# BUGS
-#
-#   When user-supplied thread flags are tested, PTHREAD_CXX is assigned to
-#   CXX without saving and restoring CXX. This can unexpectedly change the
-#   caller's C++ compiler even if the thread test fails. [Rating: minor]
-#
 # LICENSE
 #
 #   Copyright (c) 2008 Steven G. Johnson <stevenj@alum.mit.edu>
@@ -93,7 +87,7 @@
 #   modified version of the Autoconf Macro, you may extend this special
 #   exception to the GPL to apply to your modified version as well.
 
-#serial 33
+#serial 38
 
 AU_ALIAS([ACX_PTHREAD], [AX_PTHREAD])
 AC_DEFUN([AX_PTHREAD], [
@@ -112,6 +106,7 @@ ax_pthread_ok=no
 # them:
 if test "x$PTHREAD_CFLAGS$PTHREAD_LIBS" != "x"; then
         ax_pthread_save_CC="$CC"
+        ax_pthread_save_CXX="$CXX"
         ax_pthread_save_CFLAGS="$CFLAGS"
         ax_pthread_save_LIBS="$LIBS"
         AS_IF([test "x$PTHREAD_CC" != "x"], [CC="$PTHREAD_CC"])
@@ -126,6 +121,7 @@ if test "x$PTHREAD_CFLAGS$PTHREAD_LIBS" != "x"; then
                 PTHREAD_CFLAGS=""
         fi
         CC="$ax_pthread_save_CC"
+        CXX="$ax_pthread_save_CXX"
         CFLAGS="$ax_pthread_save_CFLAGS"
         LIBS="$ax_pthread_save_LIBS"
 fi
@@ -309,6 +305,7 @@ for ax_pthread_try_flag in $ax_pthread_flags; do
                 pthread-config)
                 AC_CHECK_PROG([ax_pthread_config], [pthread-config], [yes], [no])
                 AS_IF([test "x$ax_pthread_config" = "xno"], [continue])
+                AC_MSG_CHECKING([whether pthreads work with pthread-config])
                 PTHREAD_CFLAGS="`pthread-config --cflags`"
                 PTHREAD_LIBS="`pthread-config --ldflags` `pthread-config --libs`"
                 ;;
@@ -368,9 +365,10 @@ fi
 
 
 # Clang needs special handling, because older versions handle the -pthread
-# option in a rather... idiosyncratic way
+# option in a rather... idiosyncratic way. Do this only if pthreads work.
+# If they do not work, PTHREAD_CFLAGS must stay empty.
 
-if test "x$ax_pthread_clang" = "xyes"; then
+if test "x$ax_pthread_clang" = "xyes" && test "x$ax_pthread_ok" = "xyes"; then
 
         # Clang takes -pthread; it has never supported any other flag
 
@@ -431,12 +429,17 @@ if test "x$ax_pthread_clang" = "xyes"; then
              ax_cv_PTHREAD_CLANG_NO_WARN_FLAG="$ax_pthread_try"
             ])
 
+        # If the macro is called again, PTHREAD_CFLAGS can already contain
+        # the flag. Do not add it again.
         case "$ax_cv_PTHREAD_CLANG_NO_WARN_FLAG" in
                 no | unknown) ;;
-                *) PTHREAD_CFLAGS="$ax_cv_PTHREAD_CLANG_NO_WARN_FLAG $PTHREAD_CFLAGS" ;;
+                *) case " $PTHREAD_CFLAGS " in
+                        *" $ax_cv_PTHREAD_CLANG_NO_WARN_FLAG "*) ;;
+                        *) PTHREAD_CFLAGS="$ax_cv_PTHREAD_CLANG_NO_WARN_FLAG $PTHREAD_CFLAGS" ;;
+                   esac ;;
         esac
 
-fi # $ax_pthread_clang = yes
+fi # $ax_pthread_clang = yes && $ax_pthread_ok = yes
 
 
 
