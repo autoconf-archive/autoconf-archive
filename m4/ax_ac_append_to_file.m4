@@ -8,8 +8,9 @@
 #
 # DESCRIPTION
 #
-#   Appends the specified data to the specified Autoconf is run. If you want
-#   to append to a file when configure is run use AX_APPEND_TO_FILE instead.
+#   Appends the specified data to the specified file when Autoconf is run.
+#   If you want to append to a file when configure is run, use
+#   AX_APPEND_TO_FILE instead.
 #
 # LICENSE
 #
@@ -20,7 +21,7 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 10
+#serial 11
 
 AC_DEFUN([AX_AC_APPEND_TO_FILE],[
 AC_REQUIRE([AX_FILE_ESCAPES])
