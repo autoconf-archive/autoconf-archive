@@ -21,11 +21,12 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 11
+#serial 12
 
 AC_DEFUN([AX_AC_PRINT_TO_FILE],[
-m4_esyscmd(
 AC_REQUIRE([AX_FILE_ESCAPES])
+m4_esyscmd(
+AX_FILE_ESCAPES
 [
 printf "%s" "$2" > "$1"
 ])
