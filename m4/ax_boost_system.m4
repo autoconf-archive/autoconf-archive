@@ -12,6 +12,12 @@
 #   a preceding call to AX_BOOST_BASE. Further documentation is available at
 #   <http://randspringer.de/boost/index.html>.
 #
+#   Since Boost 1.69 System is header-only. Boost 1.69 through 1.88 still
+#   ship an empty stub libboost_system, which the macro uses when present.
+#   Since Boost 1.89 no library is shipped at all. If no libboost_system is
+#   found, the macro verifies that a program using Boost.System links
+#   successfully and leaves BOOST_SYSTEM_LIB empty in that case.
+#
 #   This macro calls:
 #
 #     AC_SUBST(BOOST_SYSTEM_LIB)
@@ -46,7 +52,14 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 21
+#serial 22
+
+dnl The test program, used for both the compile and the link check. A real
+dnl Boost.System symbol is referenced so that a link check can tell whether
+dnl a library is actually needed.
+m4_define([_AX_BOOST_SYSTEM_PROGRAM], [AC_LANG_PROGRAM(
+[[@%:@include <boost/system/error_code.hpp>]],
+[[boost::system::generic_category().name();]])])
 
 AC_DEFUN([AX_BOOST_SYSTEM],
 [
@@ -85,8 +98,7 @@ AC_DEFUN([AX_BOOST_SYSTEM],
 			 CXXFLAGS_SAVE=$CXXFLAGS
 			 CXXFLAGS=
 
-			 AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[@%:@include <boost/system/error_code.hpp>]],
-				    [[boost::system::error_category *a = 0;]])],
+			 AC_COMPILE_IFELSE([_AX_BOOST_SYSTEM_PROGRAM],
                    ax_cv_boost_system=yes, ax_cv_boost_system=no)
 			 CXXFLAGS=$CXXFLAGS_SAVE
              AC_LANG_POP([C++])
@@ -98,6 +110,8 @@ AC_DEFUN([AX_BOOST_SYSTEM],
             BOOSTLIBDIR=`echo $BOOST_LDFLAGS | sed -e 's/@<:@^\/@:>@*//'`
 
 			LDFLAGS_SAVE=$LDFLAGS
+            ax_lib=""
+            link_system=""
             if test "x$ax_boost_user_system_lib" = "x"; then
                 for libextension in `ls -r $BOOSTLIBDIR/libboost_system* 2>/dev/null | sed 's,.*/lib,,' | sed 's,\..*,,'` ; do
                      ax_lib=${libextension}
@@ -123,7 +137,17 @@ AC_DEFUN([AX_BOOST_SYSTEM],
 
             fi
             if test "x$ax_lib" = "x"; then
-                AC_MSG_ERROR(Could not find a version of the Boost::System library!)
+                dnl Boost.System is header-only since Boost 1.69 and no longer
+                dnl shipped as a library since 1.89; accept that if it links.
+                AC_MSG_CHECKING([whether Boost::System is header-only])
+                AC_LANG_PUSH([C++])
+                AC_LINK_IFELSE([_AX_BOOST_SYSTEM_PROGRAM],
+                               [BOOST_SYSTEM_LIB=""
+                                AC_SUBST(BOOST_SYSTEM_LIB)
+                                AC_MSG_RESULT([yes])],
+                               [AC_MSG_RESULT([no])
+                                AC_MSG_ERROR(Could not find a version of the Boost::System library!)])
+                AC_LANG_POP([C++])
             fi
 			if test "x$link_system" = "xno"; then
 				AC_MSG_ERROR(Could not link against $ax_lib !)
